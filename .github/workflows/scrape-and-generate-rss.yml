@@ -8,17 +8,11 @@ on:
     # Allow manual triggering
   push:
     branches: [ main ]
-    paths:
-      - '_config.yml'
-      - '_layouts/**'
-      - 'index.html'
-      - 'about.md'
-      - 'Gemfile'
-      - '*.py'
 
 jobs:
   scrape-and-generate-rss:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'push' }}
     
     permissions:
       contents: write
@@ -53,11 +47,27 @@ jobs:
 
     - name: Check for RSS changes
       id: check-changes
+      shell: bash
       run: |
+        set -euo pipefail
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        # Add active RSS files
-        git add ai_rss_feed.xml rss_status.json previous_data.json
+
+        # Stage only generated artifacts (avoid accidentally committing workflow/runtime files)
+        shopt -s nullglob
+        files=(
+          *rss_feed*.xml
+          aggregated*.xml
+          aggregated*.json
+          aggregated*_report.md
+          aggregated*_health.json
+          rss_status.json
+          previous_data.json
+          skipped_sources.json
+          aggregator_cache.json
+        )
+        git add "${files[@]}"
+
         if git diff --staged --quiet; then
           echo "No changes to commit"
           echo "changes-detected=false" >> $GITHUB_OUTPUT
@@ -70,15 +80,14 @@ jobs:
           echo "changes-detected=true" >> $GITHUB_OUTPUT
           echo "## RSS Feed Status 📡" >> $GITHUB_STEP_SUMMARY
           echo "✅ RSS feeds updated successfully!" >> $GITHUB_STEP_SUMMARY
-          echo "- RSS files committed and pushed to repository" >> $GITHUB_STEP_SUMMARY
+          echo "- Generated artifacts committed and pushed to repository" >> $GITHUB_STEP_SUMMARY
           echo "- Jekyll site will be rebuilt and deployed" >> $GITHUB_STEP_SUMMARY
         fi
 
-  # Build and deploy Jekyll site
-  build-and-deploy-site:
+  # Deploy on any push to main (deploy-only, no scraping)
+  deploy-on-push:
     runs-on: ubuntu-latest
-    needs: scrape-and-generate-rss
-    if: always() # Run even if scraping fails
+    if: ${{ github.event_name == 'push' && github.actor != 'github-actions[bot]' }}
     
     permissions:
       contents: read
@@ -99,8 +108,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        # Fetch latest changes if RSS was updated
-        ref: ${{ github.ref }}
+        ref: main
         
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
@@ -110,7 +118,7 @@ jobs:
         
     - name: Setup Pages
       id: pages
-      uses: actions/configure-pages@v4
+      uses: actions/configure-pages@v5
       
     - name: Build Jekyll site
       run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -126,6 +134,63 @@ jobs:
       id: deployment
       uses: actions/deploy-pages@v4
       
+    - name: Add deployment summary
+      run: |
+        echo "## Jekyll Site Deployment 🚀" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Jekyll site successfully deployed!" >> $GITHUB_STEP_SUMMARY
+        echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+        echo "📅 Deployed at: $(date -u)" >> $GITHUB_STEP_SUMMARY
+
+  # Deploy after scheduled/manual scraping (runs even if scraping fails to keep Pages published)
+  deploy-after-scrape:
+    runs-on: ubuntu-latest
+    needs: scrape-and-generate-rss
+    if: ${{ always() && github.event_name != 'push' }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Checkout repository (latest main)
+      uses: actions/checkout@v4
+      with:
+        ref: main
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v5
+
+    - name: Build Jekyll site
+      run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      env:
+        JEKYLL_ENV: production
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./_site
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+
     - name: Add deployment summary
       run: |
         echo "## Jekyll Site Deployment 🚀" >> $GITHUB_STEP_SUMMARY
