@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2025-12-13T08:16:06.923306+00:00 UTC
+Generated: 2025-12-13T16:14:11.163957+00:00 UTC
 
 - Total sources: 7
 - Attempted: 7  Skipped: 0  Failures: 1  With Items: 3  Recovered: 0
@@ -11,9 +11,9 @@ Generated: 2025-12-13T08:16:06.923306+00:00 UTC
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
 | https://eapj.org/feed | empty | not_modified | 0 | 0 | 304 |  |
-| https://bizzdesign.com/blog/feed | failed | not_modified | 1 | 0 | 304 |  |
-| https://www.architectureandgovernance.com/elevating-ea/feed/ | empty | not_modified | 0 | 0 | 304 |  |
-| https://www.leanix.net/en/blog/rss.xml | ok | success | 0 | 8 | 200 |  |
-| https://www.forrester.com/blogs/category/enterprise-architecture/feed/ | ok | success | 0 | 10 | 200 |  |
-| https://feed.infoq.com/enterprise-architecture | ok | success | 0 | 1 | 200 |  |
 | https://blog.opengroup.org/feed | empty | not_modified | 0 | 0 | 304 |  |
+| https://www.leanix.net/en/blog/rss.xml | ok | success | 0 | 8 | 200 |  |
+| https://feed.infoq.com/enterprise-architecture | ok | success | 0 | 1 | 200 |  |
+| https://www.architectureandgovernance.com/elevating-ea/feed/ | empty | not_modified | 0 | 0 | 304 |  |
+| https://www.forrester.com/blogs/category/enterprise-architecture/feed/ | ok | success | 0 | 10 | 200 |  |
+| https://bizzdesign.com/blog/feed | failed | not_modified | 1 | 0 | 304 |  |
