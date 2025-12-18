@@ -2,11 +2,20 @@
   "total_sources": 7,
   "attempted": 7,
   "skipped": 0,
-  "with_items": 4,
+  "with_items": 3,
   "failures": 1,
   "recovered": 0,
-  "timestamp": "2025-12-17T16:17:19.756216+00:00",
+  "timestamp": "2025-12-18T00:57:07.797712+00:00",
   "details": [
+    {
+      "url": "https://www.forrester.com/blogs/category/enterprise-architecture/feed/",
+      "status": "ok",
+      "items": 10,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
     {
       "url": "https://blog.opengroup.org/feed",
       "status": "empty",
@@ -17,9 +26,18 @@
       "classification": "not_modified"
     },
     {
-      "url": "https://www.forrester.com/blogs/category/enterprise-architecture/feed/",
+      "url": "https://www.leanix.net/en/blog/rss.xml",
       "status": "ok",
-      "items": 10,
+      "items": 8,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://feed.infoq.com/enterprise-architecture",
+      "status": "ok",
+      "items": 1,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
@@ -35,40 +53,22 @@
       "classification": "not_modified"
     },
     {
-      "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
-      "status": "ok",
-      "items": 10,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
       "url": "https://bizzdesign.com/blog/feed",
       "status": "failed",
       "items": 0,
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
+      "last_error": "not well-formed (invalid token): line 3, column 42",
+      "last_status": "exception",
+      "classification": "other_failure"
+    },
+    {
+      "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
+      "status": "empty",
+      "items": 0,
+      "consecutive_failures": 0,
       "last_error": null,
       "last_status": 304,
       "classification": "not_modified"
-    },
-    {
-      "url": "https://feed.infoq.com/enterprise-architecture",
-      "status": "ok",
-      "items": 1,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://www.leanix.net/en/blog/rss.xml",
-      "status": "ok",
-      "items": 8,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
     }
   ]
 }
