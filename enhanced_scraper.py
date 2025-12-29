@@ -130,16 +130,60 @@ class GAIInsightsScraper:
 
             html = page.content()
             soup = BeautifulSoup(html, 'html.parser')
-            return self._extract_table_data(soup)
+            try:
+                return self._extract_table_data(soup)
+            except RSSScraperError as e:
+                # Save snapshot for debugging if expected table not found or parsing fails
+                try:
+                    snapshot_path = 'gaiinsights_snapshot.html'
+                    with open(snapshot_path, 'w', encoding='utf-8') as snap:
+                        snap.write(html)
+                    logger.warning(f"Saved HTML snapshot to {snapshot_path} for diagnostics")
+                except Exception as snap_err:
+                    logger.warning(f"Failed to write HTML snapshot: {snap_err}")
+                raise
         except Exception as e:
             logger.error(f"Error during GAI scraping: {e}")
             raise RSSScraperError(f"GAI scraping failed: {e}")
     
     def _extract_table_data(self, soup):
-        """Extract data from the HTML table."""
+        """Extract data from the HTML table.
+
+        Primary: find table by configured ID.
+        Fallback: heuristically choose a table with headers likely matching the GAI ratings table.
+        """
         table = soup.find('table', id=self.table_id)
         if not table:
-            raise RSSScraperError(f"Table with ID '{self.table_id}' not found")
+            logger.warning(f"Table with ID '{self.table_id}' not found; attempting heuristic fallback")
+            candidates = soup.find_all('table')
+            best = None
+            best_score = 0
+            # Keywords typical to the GAI table headers
+            keywords = {'date', 'rating', 'score', 'title', 'headline', 'news'}
+            for t in candidates:
+                try:
+                    # Prefer header row within thead, else first row
+                    headers_row = t.find('thead')
+                    if headers_row:
+                        hdrs = [th.get_text(strip=True).lower() for th in headers_row.find_all(['th','td'])]
+                    else:
+                        first_row = t.find('tr')
+                        hdrs = [th.get_text(strip=True).lower() for th in first_row.find_all(['th','td'])] if first_row else []
+                    score = sum(1 for h in hdrs for kw in keywords if kw in h)
+                    # Bonus if there are at least 3+ columns
+                    if len(hdrs) >= 3:
+                        score += 1
+                    if score > best_score:
+                        best_score = score
+                        best = t
+                except Exception:
+                    continue
+            # Require a minimal score to avoid picking arbitrary layout tables
+            if best and best_score >= 2:
+                logger.info(f"Using heuristic table match (score={best_score})")
+                table = best
+            else:
+                raise RSSScraperError(f"Table with ID '{self.table_id}' not found and no suitable fallback table detected")
         
         # Extract headers
         headers_row = table.find('thead')
@@ -846,16 +890,18 @@ def main():
         logger.info("SCRAPING GAI INSIGHTS")
         logger.info("=" * 60)
         
-        current_gai_data = gai_scraper.scrape()
-        
-        # Check for changes
-        if persistence.has_data_changed(current_gai_data, previous_data, 'gai_data'):
-            logger.info("Changes detected in GAI data")
-        else:
-            logger.info("No changes detected in GAI data")
-        
-        # Generate primary GAI feed
-        RSSGenerator.generate_gai_feed(current_gai_data)
+        try:
+            current_gai_data = gai_scraper.scrape()
+            # Check for changes
+            if persistence.has_data_changed(current_gai_data, previous_data, 'gai_data'):
+                logger.info("Changes detected in GAI data")
+            else:
+                logger.info("No changes detected in GAI data")
+            # Generate primary GAI feed
+            RSSGenerator.generate_gai_feed(current_gai_data)
+        except Exception as gai_err:
+            logger.error(f"GAI scraping failed; skipping GAI feed and continuing: {gai_err}")
+            current_gai_data = previous_data.get('gai_data', [])
 
         # Aggregated external feeds (multi-feed support)
         try:
