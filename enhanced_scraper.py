@@ -7,6 +7,7 @@ import json
 import hashlib
 import logging
 import os
+import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from bs4 import BeautifulSoup
@@ -31,6 +32,63 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def normalize_text(text):
+    """
+    Normalize text to fix encoding issues and convert special characters.
+    
+    Handles:
+    - Curly quotes → straight quotes
+    - Em/en dashes → regular dashes
+    - Other Unicode punctuation → ASCII equivalents
+    - Mojibake patterns (double-encoded UTF-8)
+    """
+    if not text:
+        return text
+    
+    # Fix common mojibake patterns (UTF-8 interpreted as Windows-1252)
+    mojibake_fixes = {
+        'â€™': "'",      # Right single quote
+        'â€˜': "'",      # Left single quote
+        'â€œ': '"',      # Left double quote
+        'â€': '"',       # Right double quote (partial)
+        'â€"': '—',      # Em dash
+        'â€"': '–',      # En dash
+        'â€¦': '...',    # Ellipsis
+        'Ã©': 'é',       # e-acute
+        'Ã¨': 'è',       # e-grave
+        'Ã¢': 'â',       # a-circumflex
+        'Ã ': 'à',       # a-grave
+        'Ã§': 'ç',       # c-cedilla
+    }
+    
+    for bad, good in mojibake_fixes.items():
+        text = text.replace(bad, good)
+    
+    # Unicode character replacements (normalize fancy punctuation to ASCII)
+    unicode_replacements = {
+        '\u2018': "'",   # Left single quote
+        '\u2019': "'",   # Right single quote  
+        '\u201c': '"',   # Left double quote
+        '\u201d': '"',   # Right double quote
+        '\u2013': '-',   # En dash
+        '\u2014': '-',   # Em dash
+        '\u2026': '...', # Ellipsis
+        '\u00a0': ' ',   # Non-breaking space
+        '\u2011': '-',   # Non-breaking hyphen
+        '\u2010': '-',   # Hyphen
+        '\u2212': '-',   # Minus sign
+    }
+    
+    for unicode_char, ascii_char in unicode_replacements.items():
+        text = text.replace(unicode_char, ascii_char)
+    
+    # Normalize Unicode to NFC form for consistency
+    text = unicodedata.normalize('NFC', text)
+    
+    return text
+
 
 class RSSScraperError(Exception):
     """Custom exception for RSS scraper errors."""
@@ -206,7 +264,7 @@ class GAIInsightsScraper:
             row_data = {}
             for i, cell in enumerate(cells):
                 header = headers[i] if i < len(headers) else f"Column_{i+1}"
-                cell_text = cell.get_text(strip=True)
+                cell_text = normalize_text(cell.get_text(strip=True))
                 links = [a.get('href') for a in cell.find_all('a', href=True)]
                 
                 row_data[header] = {
@@ -270,6 +328,9 @@ class RSSGenerator:
                 try:
                     fe = fg.add_entry()
                     date_val, rating_val, title_val, title_url, desc_val = RSSGenerator._extract_row_data(row_data)
+                    # Normalize text to fix encoding issues
+                    title_val = normalize_text(title_val)
+                    desc_val = normalize_text(desc_val)
                     rss_title = title_val or f"Entry {i+1}"
                     if rating_val and rating_val.lower() in RATING_TAGS:
                         rss_title += RATING_TAGS[rating_val.lower()]
@@ -331,8 +392,8 @@ class RSSGenerator:
                     try:
                         fe = archive_fg.add_entry()
                         fe.id(a['guid'])
-                        fe.title(a['title'])
-                        fe.description(a['description'])
+                        fe.title(normalize_text(a['title']))
+                        fe.description(normalize_text(a['description']))
                         fe.link(href=a['link'])
                         if a['pubDate']:
                             fe.pubDate(a['pubDate'])
@@ -343,6 +404,9 @@ class RSSGenerator:
                 for row_data in archive_rows:
                     try:
                         date_val, rating_val, title_val, title_url, desc_val = RSSGenerator._extract_row_data(row_data)
+                        # Normalize text to fix encoding issues
+                        title_val = normalize_text(title_val)
+                        desc_val = normalize_text(desc_val)
                         content_for_id = f"{date_val}|{rating_val}|{title_val}|{desc_val}"
                         entry_id = hashlib.md5(content_for_id.encode()).hexdigest()
                         if entry_id in existing_guids:
@@ -767,8 +831,8 @@ def aggregate_external_feeds(cfg):
     for entry in recent_sorted:
         fe = fg.add_entry()
         fe.id(entry['guid'])
-        fe.title(entry['title'])
-        fe.description(entry['description'])
+        fe.title(normalize_text(entry['title']))
+        fe.description(normalize_text(entry['description']))
         fe.link(href=entry['link'])
         fe.pubDate(entry['pubDate'])
     with open(output_file, 'wb') as f:
@@ -814,8 +878,8 @@ def aggregate_external_feeds(cfg):
                     continue
                 fe = archive_fg.add_entry()
                 fe.id(e['guid'])
-                fe.title(e['title'])
-                fe.description(e['description'])
+                fe.title(normalize_text(e['title']))
+                fe.description(normalize_text(e['description']))
                 fe.link(href=e['link'])
                 if e['pubDate']:
                     fe.pubDate(e['pubDate'])
@@ -826,8 +890,8 @@ def aggregate_external_feeds(cfg):
                     continue
                 fe = archive_fg.add_entry()
                 fe.id(entry['guid'])
-                fe.title(entry['title'])
-                fe.description(entry['description'])
+                fe.title(normalize_text(entry['title']))
+                fe.description(normalize_text(entry['description']))
                 fe.link(href=entry['link'])
                 fe.pubDate(entry['pubDate'])
                 added += 1

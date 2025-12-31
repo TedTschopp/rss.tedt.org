@@ -6,6 +6,7 @@ and generate an RSS feed.
 
 import json
 import hashlib
+import unicodedata
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
@@ -14,6 +15,62 @@ import sys
 import time
 import re
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+
+
+def normalize_text(text):
+    """
+    Normalize text to fix encoding issues and convert special characters.
+    
+    Handles:
+    - Curly quotes → straight quotes
+    - Em/en dashes → regular dashes
+    - Other Unicode punctuation → ASCII equivalents
+    - Mojibake patterns (double-encoded UTF-8)
+    """
+    if not text:
+        return text
+    
+    # Fix common mojibake patterns (UTF-8 interpreted as Windows-1252)
+    mojibake_fixes = {
+        'â€™': "'",      # Right single quote
+        'â€˜': "'",      # Left single quote
+        'â€œ': '"',      # Left double quote
+        'â€': '"',       # Right double quote (partial)
+        'â€"': '—',      # Em dash
+        'â€"': '–',      # En dash
+        'â€¦': '...',    # Ellipsis
+        'Ã©': 'é',       # e-acute
+        'Ã¨': 'è',       # e-grave
+        'Ã¢': 'â',       # a-circumflex
+        'Ã ': 'à',       # a-grave
+        'Ã§': 'ç',       # c-cedilla
+    }
+    
+    for bad, good in mojibake_fixes.items():
+        text = text.replace(bad, good)
+    
+    # Unicode character replacements (normalize fancy punctuation to ASCII)
+    unicode_replacements = {
+        '\u2018': "'",   # Left single quote
+        '\u2019': "'",   # Right single quote  
+        '\u201c': '"',   # Left double quote
+        '\u201d': '"',   # Right double quote
+        '\u2013': '-',   # En dash
+        '\u2014': '-',   # Em dash
+        '\u2026': '...', # Ellipsis
+        '\u00a0': ' ',   # Non-breaking space
+        '\u2011': '-',   # Non-breaking hyphen
+        '\u2010': '-',   # Hyphen
+        '\u2212': '-',   # Minus sign
+    }
+    
+    for unicode_char, ascii_char in unicode_replacements.items():
+        text = text.replace(unicode_char, ascii_char)
+    
+    # Normalize Unicode to NFC form for consistency
+    text = unicodedata.normalize('NFC', text)
+    
+    return text
 
 class PlaywrightBrowser:
     """Context manager encapsulating a Playwright page for scraping."""
@@ -138,8 +195,8 @@ def scrape_table_data(url, table_id):
             
             for i, cell in enumerate(cells):
                 header = headers[i] if i < len(headers) else f"Column_{i+1}"
-                # Get text content and any links
-                cell_text = cell.get_text(strip=True)
+                # Get text content and any links, normalize to fix encoding issues
+                cell_text = normalize_text(cell.get_text(strip=True))
                 links = [a.get('href') for a in cell.find_all('a', href=True)]
                 
                 row_data[header] = {
@@ -292,6 +349,10 @@ def generate_rss_feed(table_data, feed_title="AI News", feed_description="The La
                         rss_title += " [ ~ ]"
                 
                 rss_description = description_value.strip() if description_value else title_value
+                
+                # Normalize text to fix any encoding issues
+                rss_title = normalize_text(rss_title)
+                rss_description = normalize_text(rss_description)
                 
                 # Create unique ID
                 content_for_id = f"{date_value}|{rating_value}|{title_value}|{description_value}"
