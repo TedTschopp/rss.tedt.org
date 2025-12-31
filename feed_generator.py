@@ -199,32 +199,32 @@ class MultiFeedGenerator:
         
         # Register namespaces for proper serialization
         ET.register_namespace('rdf', RDF_NS)
-        ET.register_namespace('', RSS_NS)
+        ET.register_namespace('', RSS_NS)  # Default namespace for RSS 1.0 elements
         ET.register_namespace('dc', DC_NS)
         
-        # Create RDF root element - namespaces will be added by register_namespace
+        # Create RDF root element
         rdf = ET.Element(f'{{{RDF_NS}}}RDF')
         
-        # Channel
-        channel = ET.SubElement(rdf, 'channel', {f'{{{RDF_NS}}}about': self.link})
-        ET.SubElement(channel, 'title').text = self.title
-        ET.SubElement(channel, 'link').text = self.link
-        ET.SubElement(channel, 'description').text = self.description
+        # Channel - elements must be in RSS_NS namespace
+        channel = ET.SubElement(rdf, f'{{{RSS_NS}}}channel', {f'{{{RDF_NS}}}about': self.link})
+        ET.SubElement(channel, f'{{{RSS_NS}}}title').text = self.title
+        ET.SubElement(channel, f'{{{RSS_NS}}}link').text = self.link
+        ET.SubElement(channel, f'{{{RSS_NS}}}description').text = self.description
         ET.SubElement(channel, f'{{{DC_NS}}}language').text = self.language
         ET.SubElement(channel, f'{{{DC_NS}}}date').text = self._format_iso8601_date(self.last_build_date)
         
         # Items sequence
-        items_seq = ET.SubElement(ET.SubElement(channel, 'items'), f'{{{RDF_NS}}}Seq')
+        items_seq = ET.SubElement(ET.SubElement(channel, f'{{{RSS_NS}}}items'), f'{{{RDF_NS}}}Seq')
         for entry in self.entries:
             li = ET.SubElement(items_seq, f'{{{RDF_NS}}}li')
             li.set(f'{{{RDF_NS}}}resource', entry.link)
         
-        # Item elements
+        # Item elements - must be in RSS_NS namespace
         for entry in self.entries:
-            item = ET.SubElement(rdf, 'item', {f'{{{RDF_NS}}}about': entry.link})
-            ET.SubElement(item, 'title').text = entry.title
-            ET.SubElement(item, 'link').text = entry.link
-            ET.SubElement(item, 'description').text = entry.description
+            item = ET.SubElement(rdf, f'{{{RSS_NS}}}item', {f'{{{RDF_NS}}}about': entry.link})
+            ET.SubElement(item, f'{{{RSS_NS}}}title').text = entry.title
+            ET.SubElement(item, f'{{{RSS_NS}}}link').text = entry.link
+            ET.SubElement(item, f'{{{RSS_NS}}}description').text = entry.description
             ET.SubElement(item, f'{{{DC_NS}}}date').text = self._format_iso8601_date(entry.pub_date)
         
         rough_string = ET.tostring(rdf, encoding='unicode')

@@ -23,10 +23,24 @@
     
     <!-- Custom CSS -->
     <style>
+        :root {
+            --bs-primary: #00446f;
+            --bs-secondary: #e86027;
+            --bs-success: #00b339;
+            --bs-info: #00a9e0;
+            --bs-warning: #f2bc57;
+            --bs-danger: #f90041;
+            --bs-body-bg: #f8f6f0;
+            --bs-body-color: #1f2126;
+            --bs-link-color: #007bff;
+            --bs-gray: #676869;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--bs-body-color);
+            background-color: var(--bs-body-bg);
         }
         
         .navbar-brand {
@@ -42,11 +56,11 @@
             position: relative;
             display: inline-block;
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--bs-primary);
         }
         
         .section-title h2 span {
-            background: white;
+            background: var(--bs-body-bg);
             padding-right: 20px;
         }
         
@@ -57,26 +71,27 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: #e9ecef;
+            background: #c8c7c3;
             z-index: -1;
         }
         
         .box-shadow {
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            box-shadow: 0 0.125rem 0.25rem rgba(7, 9, 15, 0.075);
             transition: box-shadow 0.15s ease-in-out;
         }
         
         .box-shadow:hover {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0.5rem 1rem rgba(7, 9, 15, 0.15);
         }
         
         .card {
             border-radius: 0.5rem;
+            background: white;
         }
         
         .card-header {
             background: transparent;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #c8c7c3;
         }
         
         .rss-preview ul {
@@ -85,29 +100,70 @@
         }
         
         .rss-preview a {
-            color: #2c3e50;
+            color: var(--bs-primary);
         }
         
         .rss-preview a:hover {
-            color: #3498db;
+            color: var(--bs-info);
         }
         
         .footer {
-            background: #2c3e50;
+            background: var(--bs-primary);
             color: white;
             padding: 2rem 0;
             margin-top: 4rem;
         }
         
-        .btn-outline-success {
-            border-color: #28a745;
-            color: #28a745;
+        .btn-outline-primary {
+            border-color: var(--bs-primary);
+            color: var(--bs-primary);
         }
         
-        .btn-outline-success:hover {
-            background-color: #28a745;
-            border-color: #28a745;
+        .btn-outline-primary:hover {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
             color: white;
+        }
+        
+        .btn-outline-secondary {
+            border-color: var(--bs-secondary);
+            color: var(--bs-secondary);
+        }
+        
+        .btn-outline-secondary:hover {
+            background-color: var(--bs-secondary);
+            border-color: var(--bs-secondary);
+            color: white;
+        }
+        
+        .btn-outline-info {
+            border-color: var(--bs-info);
+            color: var(--bs-info);
+        }
+        
+        .btn-outline-info:hover {
+            background-color: var(--bs-info);
+            border-color: var(--bs-info);
+            color: white;
+        }
+        
+        .btn-outline-warning {
+            border-color: var(--bs-warning);
+            color: #614b23;
+        }
+        
+        .btn-outline-warning:hover {
+            background-color: var(--bs-warning);
+            border-color: var(--bs-warning);
+            color: var(--bs-body-color);
+        }
+        
+        a {
+            color: var(--bs-link-color);
+        }
+        
+        a:hover {
+            color: #0062cc;
         }
         
         @media (max-width: 768px) {
