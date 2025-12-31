@@ -28,6 +28,7 @@
                 
                 <style>
                     :root {
+                        /* Bootstrap theme colors (tedt.org) */
                         --bs-primary: #00446f;
                         --bs-secondary: #e86027;
                         --bs-success: #00b339;
@@ -37,6 +38,14 @@
                         --bs-body-bg: #f8f6f0;
                         --bs-body-color: #1f2126;
                         --bs-link-color: #007bff;
+                        --bs-gray: #676869;
+                        
+                        /* Feed Format Brand Colors */
+                        --rss-orange: #FF6600;        /* Official Mozilla RSS icon color */
+                        --atom-purple: #8b5cf6;       /* Common convention for Atom */
+                        --json-dark: #292929;         /* JSON Feed dark aesthetic */
+                        --json-gold: #f5a623;         /* JSON Feed accent */
+                        --rss1-orange: #F88920;       /* RSS 1.0 lighter orange */
                     }
                     
                     body {
@@ -53,6 +62,26 @@
                         margin-bottom: 2rem;
                     }
                     
+                    /* RSS 2.0 specific header */
+                    .feed-header.rss2 {
+                        background: linear-gradient(135deg, var(--rss-orange) 0%, #ff8533 100%);
+                    }
+                    
+                    /* Atom specific header */
+                    .feed-header.atom {
+                        background: linear-gradient(135deg, var(--atom-purple) 0%, #a78bfa 100%);
+                    }
+                    
+                    /* JSON Feed specific header */
+                    .feed-header.json {
+                        background: linear-gradient(135deg, var(--json-dark) 0%, #4a4a4a 100%);
+                    }
+                    
+                    /* RSS 1.0 specific header */
+                    .feed-header.rss1 {
+                        background: linear-gradient(135deg, var(--rss1-orange) 0%, #ffa64d 100%);
+                    }
+                    
                     .feed-header h1 {
                         font-weight: 700;
                         margin-bottom: 0.5rem;
@@ -61,6 +90,18 @@
                     .feed-header p {
                         opacity: 0.9;
                         margin-bottom: 0;
+                    }
+                    
+                    .feed-badge {
+                        display: inline-block;
+                        padding: 0.25rem 0.75rem;
+                        border-radius: 1rem;
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        margin-left: 0.75rem;
+                        background: rgba(255,255,255,0.2);
                     }
                     
                     .subscribe-notice {
@@ -168,12 +209,37 @@
                 </style>
             </head>
             <body>
+                <!-- Determine feed type for styling -->
+                <xsl:variable name="feedType">
+                    <xsl:choose>
+                        <xsl:when test="/atom:feed">atom</xsl:when>
+                        <xsl:when test="/rdf:RDF">rss1</xsl:when>
+                        <xsl:otherwise>rss2</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                
+                <xsl:variable name="feedFormatName">
+                    <xsl:choose>
+                        <xsl:when test="/atom:feed">Atom 1.0</xsl:when>
+                        <xsl:when test="/rdf:RDF">RSS 1.0 (RDF)</xsl:when>
+                        <xsl:otherwise>RSS 2.0</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                
                 <!-- Header -->
-                <header class="feed-header">
+                <header class="feed-header {$feedType}">
                     <div class="container">
                         <h1>
-                            <i class="fas fa-rss me-2"></i>
+                            <xsl:choose>
+                                <xsl:when test="/atom:feed">
+                                    <i class="fas fa-atom me-2"></i>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <i class="fas fa-rss me-2"></i>
+                                </xsl:otherwise>
+                            </xsl:choose>
                             <xsl:value-of select="/rss/channel/title | /atom:feed/atom:title | /rdf:RDF/rss1:channel/rss1:title | /rdf:RDF/channel/title"/>
+                            <span class="feed-badge"><xsl:value-of select="$feedFormatName"/></span>
                         </h1>
                         <p><xsl:value-of select="/rss/channel/description | /atom:feed/atom:subtitle | /rdf:RDF/rss1:channel/rss1:description | /rdf:RDF/channel/description"/></p>
                     </div>
@@ -409,7 +475,7 @@
                 <footer class="footer">
                     <div class="container text-center">
                         <p>
-                            <a href="https://rss.tedt.org/">RSS Feed Hub</a>
+                            <a href="https://rss.tedt.org/">Ted Tschopp's RSS Feeds</a>
                             <span class="mx-2">•</span>
                             Powered by Jekyll
                         </p>

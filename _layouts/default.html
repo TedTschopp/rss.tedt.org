@@ -158,6 +158,51 @@
             color: var(--bs-body-color);
         }
         
+        /* Feed Format Brand Colors */
+        /* RSS 2.0 - Official Mozilla RSS Orange */
+        .btn-outline-rss {
+            border-color: #FF6600;
+            color: #FF6600;
+        }
+        .btn-outline-rss:hover {
+            background-color: #FF6600;
+            border-color: #FF6600;
+            color: white;
+        }
+        
+        /* Atom - Purple (common convention) */
+        .btn-outline-atom {
+            border-color: #8b5cf6;
+            color: #8b5cf6;
+        }
+        .btn-outline-atom:hover {
+            background-color: #8b5cf6;
+            border-color: #8b5cf6;
+            color: white;
+        }
+        
+        /* JSON Feed - Dark with gold accent (from jsonfeed.org aesthetic) */
+        .btn-outline-json {
+            border-color: #292929;
+            color: #292929;
+        }
+        .btn-outline-json:hover {
+            background-color: #292929;
+            border-color: #292929;
+            color: #f5a623;
+        }
+        
+        /* RSS 1.0 - Lighter orange to distinguish from RSS 2.0 */
+        .btn-outline-rss1 {
+            border-color: #F88920;
+            color: #F88920;
+        }
+        .btn-outline-rss1:hover {
+            background-color: #F88920;
+            border-color: #F88920;
+            color: white;
+        }
+        
         a {
             color: var(--bs-link-color);
         }
@@ -254,7 +299,7 @@
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <small>&copy; {{ 'now' | date: "%Y" }} {{ site.name }}. All rights reserved.</small>
+                    <small>&copy; {{ 'now' | date: "%Y" }} Ted Tschopp. All rights reserved.</small>
                 </div>
                 <div class="col-md-6 text-md-end">
                     {% if site.github_url %}
