@@ -197,16 +197,13 @@ class MultiFeedGenerator:
         if include_stylesheet:
             lines.append(f'<?xml-stylesheet type="text/xsl" href="{self.stylesheet_url}"?>')
         
-        # Register namespaces
+        # Register namespaces for proper serialization
         ET.register_namespace('rdf', RDF_NS)
         ET.register_namespace('', RSS_NS)
         ET.register_namespace('dc', DC_NS)
         
-        rdf = ET.Element(f'{{{RDF_NS}}}RDF', {
-            f'xmlns': RSS_NS,
-            f'xmlns:rdf': RDF_NS,
-            f'xmlns:dc': DC_NS
-        })
+        # Create RDF root element - namespaces will be added by register_namespace
+        rdf = ET.Element(f'{{{RDF_NS}}}RDF')
         
         # Channel
         channel = ET.SubElement(rdf, 'channel', {f'{{{RDF_NS}}}about': self.link})

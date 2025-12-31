@@ -396,12 +396,17 @@ def generate_rss_feed(table_data, feed_title="AI News", feed_description="The La
         # Generate and save RSS feed (RSS 2.0 with stylesheet)
         rss_str = fg.rss_str(pretty=True)
         
-        # Add XSL stylesheet processing instruction to RSS 2.0
+        # Add XSL stylesheet processing instruction to RSS 2.0 (after XML declaration)
         rss_xml = rss_str.decode('utf-8')
         if '<?xml-stylesheet' not in rss_xml:
-            rss_xml = rss_xml.replace(
-                '<?xml version',
-                '<?xml-stylesheet type="text/xsl" href="/feed-style.xsl"?>\n<?xml version'
+            # Insert stylesheet PI after the XML declaration
+            import re
+            xml_decl_pattern = r"(<\?xml[^?]*\?>)"
+            rss_xml = re.sub(
+                xml_decl_pattern,
+                r'\1\n<?xml-stylesheet type="text/xsl" href="/feed-style.xsl"?>',
+                rss_xml,
+                count=1
             )
         
         with open('ai_rss_feed.xml', 'w', encoding='utf-8') as f:
