@@ -20,7 +20,7 @@ permalink: /feeds/
                 <div class="d-flex justify-content-between align-items-center">
                     <h3 class="card-title mb-0">{{ feed.name }}</h3>
                     <div>
-                        <a href="{{ feed.url }}" class="btn btn-primary btn-sm">
+                        <a href="{{ feed.url }}" class="btn btn-primary btn-sm" target="feed_{{ feed.name | slugify }}_rss2" rel="noopener">
                             <i class="fas fa-rss"></i> RSS
                         </a>
                         <button class="btn btn-outline-secondary btn-sm" onclick="copyFeedUrl('{{ site.url }}{{ feed.url }}')">
