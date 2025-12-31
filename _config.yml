@@ -89,11 +89,17 @@ gems:
 # - name, url, description (direct)
 # - aggregated: true (for aggregated feeds)
 # - key, output, enabled, sources, max_items, retention_days, source_attribution (aggregated only)
+# - formats: alternate feed format URLs (rss1, atom, json)
 ###############################################
 feeds:
 - name: "Ted Tschopp's AI News"
   url: "/ai_rss_feed.xml"
   description: "Latest AI News and Ratings from Ted Tschopp"
+  formats:
+    rss2: "/ai_rss_feed.xml"
+    rss1: "/ai_rss_feed_rss1.xml"
+    atom: "/ai_rss_feed.atom"
+    json: "/ai_rss_feed.json"
 
 - name: "Aggregated External Tech News"
   aggregated: true

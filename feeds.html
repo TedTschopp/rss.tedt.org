@@ -13,6 +13,7 @@ permalink: /feeds/
 
 <div class="row">
     {% for feed in site.feeds %}
+    {% if feed.enabled != false %}
     <div class="col-md-6 mb-4">
         <div class="card h-100 border-0 box-shadow">
             <div class="card-header bg-transparent">
@@ -57,6 +58,7 @@ permalink: /feeds/
             </div>
         </div>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 
@@ -121,7 +123,9 @@ function copyFeedUrl(url, feedIndex = null) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const rssFeeds = {{ site.feeds | jsonify }};
+    const allFeeds = {{ site.feeds | jsonify }};
+    // Filter to only enabled feeds
+    const rssFeeds = allFeeds.filter(f => f.enabled !== false);
 
     function jekyllSlugify(str) {
         if (!str) return '';

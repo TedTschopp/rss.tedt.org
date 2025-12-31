@@ -16,6 +16,9 @@ import time
 import re
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
+# Import multi-format feed generator
+from feed_generator import MultiFeedGenerator
+
 
 def normalize_text(text):
     """
@@ -390,10 +393,115 @@ def generate_rss_feed(table_data, feed_title="AI News", feed_description="The La
                 print(f"Error processing entry {i+1}: {e}")
                 continue
         
-        # Generate and save RSS feed
+        # Generate and save RSS feed (RSS 2.0 with stylesheet)
         rss_str = fg.rss_str(pretty=True)
-        with open('ai_rss_feed.xml', 'wb') as f:
-            f.write(rss_str)
+        
+        # Add XSL stylesheet processing instruction to RSS 2.0
+        rss_xml = rss_str.decode('utf-8')
+        if '<?xml-stylesheet' not in rss_xml:
+            rss_xml = rss_xml.replace(
+                '<?xml version',
+                '<?xml-stylesheet type="text/xsl" href="/feed-style.xsl"?>\n<?xml version'
+            )
+        
+        with open('ai_rss_feed.xml', 'w', encoding='utf-8') as f:
+            f.write(rss_xml)
+        
+        # Generate additional formats using MultiFeedGenerator
+        try:
+            multi_gen = MultiFeedGenerator(
+                title="Ted Tschopp's AI News",
+                link="https://rss.tedt.org/",
+                description="Latest AI News and Ratings from Ted Tschopp",
+                language='en',
+                author='Ted Tschopp'
+            )
+            
+            # Re-add entries to multi-format generator
+            for i, row_data in enumerate(table_data):
+                try:
+                    columns = list(row_data.items())
+                    date_value = ""
+                    rating_value = ""
+                    title_value = ""
+                    title_url = ""
+                    description_value = ""
+                    
+                    if len(columns) >= 3:
+                        for col_name, col_data in columns:
+                            col_text = col_data.get('text', '').strip()
+                            col_links = col_data.get('links', [])
+                            
+                            if not date_value and (col_name.lower() in ['date', 'published', 'time'] or 
+                                                 any(char.isdigit() for char in col_text[:10])):
+                                date_value = col_text
+                            elif not rating_value and (col_name.lower() in ['rating', 'score'] or 
+                                                      col_text.lower() in ['essential', 'important', 'optional']):
+                                rating_value = col_text
+                            elif not title_value and (col_links or (len(col_text) > 10 and 
+                                                                   col_name.lower() not in ['rating', 'score'] and
+                                                                   col_text.lower() not in ['essential', 'important', 'optional'])):
+                                title_value = col_text
+                                if col_links:
+                                    title_url = col_links[0]
+                            elif len(col_text) > len(description_value) and col_text.lower() not in ['essential', 'important', 'optional']:
+                                description_value = col_text
+                    
+                    rss_title = title_value if title_value else f"Entry {i+1}"
+                    if rating_value:
+                        rating_lower = rating_value.lower()
+                        if rating_lower == "essential":
+                            rss_title += " [ ! ]"
+                        elif rating_lower == "important":
+                            rss_title += " [ * ]"
+                        elif rating_lower == "optional":
+                            rss_title += " [ ~ ]"
+                    
+                    rss_description = description_value.strip() if description_value else title_value
+                    rss_title = normalize_text(rss_title)
+                    rss_description = normalize_text(rss_description)
+                    
+                    pub_date = datetime.now(timezone.utc)
+                    if date_value:
+                        for date_format in ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y-%m-%d %H:%M:%S']:
+                            try:
+                                pub_date = datetime.strptime(date_value, date_format).replace(tzinfo=timezone.utc)
+                                break
+                            except ValueError:
+                                continue
+                    
+                    content_for_id = f"{date_value}|{rating_value}|{title_value}|{description_value}"
+                    entry_id = hashlib.md5(content_for_id.encode()).hexdigest()
+                    
+                    multi_gen.add_item(
+                        title=rss_title,
+                        link=title_url or 'https://rss.tedt.org/',
+                        description=rss_description,
+                        pub_date=pub_date,
+                        guid=entry_id
+                    )
+                except Exception as e:
+                    print(f"Error adding entry {i+1} to multi-format generator: {e}")
+                    continue
+            
+            # Write additional formats
+            # RSS 1.0
+            with open('ai_rss_feed_rss1.xml', 'w', encoding='utf-8') as f:
+                f.write(multi_gen.generate_rss1())
+            print("RSS 1.0 feed generated: ai_rss_feed_rss1.xml")
+            
+            # Atom
+            with open('ai_rss_feed.atom', 'w', encoding='utf-8') as f:
+                f.write(multi_gen.generate_atom())
+            print("Atom feed generated: ai_rss_feed.atom")
+            
+            # JSON Feed
+            with open('ai_rss_feed.json', 'w', encoding='utf-8') as f:
+                f.write(multi_gen.generate_json_feed())
+            print("JSON Feed generated: ai_rss_feed.json")
+            
+        except Exception as e:
+            print(f"Warning: Could not generate additional formats: {e}")
         
         # Count entries by counting successful entries processed
         entry_count = len(table_data)

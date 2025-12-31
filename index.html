@@ -18,8 +18,19 @@ class: home-template
                             <h2 class="card-title mb-1"><a href="{{ feed.url }}">{{ feed.name }}</a></h2>
                             <small class="text-muted">{{ feed.description }}</small>
                         </div>
-                        <div>
-                            <a href="{{ feed.url }}" class="btn btn-sm btn-outline-success"><i class="fas fa-rss"></i> RSS</a>
+                        <div class="btn-group" role="group" aria-label="Feed formats">
+                            <a href="{{ feed.url }}" class="btn btn-sm btn-outline-success" title="RSS 2.0"><i class="fas fa-rss"></i> RSS</a>
+                            {% if feed.formats %}
+                            {% if feed.formats.atom %}
+                            <a href="{{ feed.formats.atom }}" class="btn btn-sm btn-outline-primary" title="Atom 1.0"><i class="fas fa-atom"></i> Atom</a>
+                            {% endif %}
+                            {% if feed.formats.json %}
+                            <a href="{{ feed.formats.json }}" class="btn btn-sm btn-outline-warning" title="JSON Feed"><i class="fas fa-code"></i> JSON</a>
+                            {% endif %}
+                            {% if feed.formats.rss1 %}
+                            <a href="{{ feed.formats.rss1 }}" class="btn btn-sm btn-outline-secondary" title="RSS 1.0 (RDF)">RSS 1.0</a>
+                            {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="card-body">

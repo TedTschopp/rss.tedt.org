@@ -120,7 +120,18 @@
     <!-- RSS Feeds -->
     {% feed_meta %}
     {% for feed in site.feeds %}
-    <link rel="alternate" type="application/rss+xml" title="{{ feed.name }}" href="{{ site.url }}{{ feed.url }}">
+    {% if feed.enabled != false %}
+    <link rel="alternate" type="application/rss+xml" title="{{ feed.name }} (RSS 2.0)" href="{{ site.url }}{{ feed.url }}">
+    {% if feed.formats %}
+    {% if feed.formats.atom %}
+    <link rel="alternate" type="application/atom+xml" title="{{ feed.name }} (Atom)" href="{{ site.url }}{{ feed.formats.atom }}">
+    {% endif %}
+    {% if feed.formats.json %}
+    <link rel="alternate" type="application/feed+json" title="{{ feed.name }} (JSON)" href="{{ site.url }}{{ feed.formats.json }}">
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
     {% endfor %}
 </head>
 <body>
@@ -178,7 +189,9 @@
                     <h5>RSS Feeds</h5>
                     <ul class="list-unstyled">
                         {% for feed in site.feeds %}
+                        {% if feed.enabled != false %}
                         <li><a href="{{ feed.url }}" class="text-white-50">{{ feed.name }}</a></li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
                 </div>

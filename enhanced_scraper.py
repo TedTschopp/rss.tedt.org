@@ -26,6 +26,9 @@ from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeo
 # Import configuration
 from config import *
 
+# Import multi-format feed generator
+from feed_generator import MultiFeedGenerator
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -344,9 +347,68 @@ class RSSGenerator:
                     fe.pubDate(pub_date)
                 except Exception as e:
                     logger.error(f"Error processing recent GAI entry {i+1}: {e}")
-            with open(main_filename, 'wb') as f:
-                f.write(fg.rss_str(pretty=True))
-            logger.info(f"GAI RSS feed written: {main_filename} ({len(recent_rows)} entries)")
+            
+            # Write RSS 2.0 with XSL stylesheet
+            rss_str = fg.rss_str(pretty=True).decode('utf-8')
+            if '<?xml-stylesheet' not in rss_str:
+                rss_str = rss_str.replace(
+                    '<?xml version',
+                    '<?xml-stylesheet type="text/xsl" href="/feed-style.xsl"?>\n<?xml version'
+                )
+            with open(main_filename, 'w', encoding='utf-8') as f:
+                f.write(rss_str)
+            logger.info(f"GAI RSS 2.0 feed written: {main_filename} ({len(recent_rows)} entries)")
+            
+            # Generate additional formats using MultiFeedGenerator
+            try:
+                multi_gen = MultiFeedGenerator(
+                    title=metadata["title"],
+                    link=metadata["link"],
+                    description=metadata["description"],
+                    language='en',
+                    author='Ted Tschopp'
+                )
+                
+                for row_data in recent_rows:
+                    try:
+                        date_val, rating_val, title_val, title_url, desc_val = RSSGenerator._extract_row_data(row_data)
+                        title_val = normalize_text(title_val)
+                        desc_val = normalize_text(desc_val)
+                        rss_title = title_val or "Entry"
+                        if rating_val and rating_val.lower() in RATING_TAGS:
+                            rss_title += RATING_TAGS[rating_val.lower()]
+                        content_for_id = f"{date_val}|{rating_val}|{title_val}|{desc_val}"
+                        entry_id = hashlib.md5(content_for_id.encode()).hexdigest()
+                        pub_date = RSSGenerator._parse_date(date_val) or datetime.now(timezone.utc)
+                        
+                        multi_gen.add_item(
+                            title=rss_title,
+                            link=title_url or metadata["link"],
+                            description=desc_val or title_val,
+                            pub_date=pub_date,
+                            guid=entry_id
+                        )
+                    except Exception as e:
+                        logger.error(f"Error adding entry to multi-format generator: {e}")
+                
+                # Write additional formats
+                base_name = main_filename.replace('.xml', '')
+                
+                with open(f'{base_name}_rss1.xml', 'w', encoding='utf-8') as f:
+                    f.write(multi_gen.generate_rss1())
+                logger.info(f"GAI RSS 1.0 feed written: {base_name}_rss1.xml")
+                
+                with open(f'{base_name}.atom', 'w', encoding='utf-8') as f:
+                    f.write(multi_gen.generate_atom())
+                logger.info(f"GAI Atom feed written: {base_name}.atom")
+                
+                with open(f'{base_name}.json', 'w', encoding='utf-8') as f:
+                    f.write(multi_gen.generate_json_feed())
+                logger.info(f"GAI JSON Feed written: {base_name}.json")
+                
+            except Exception as e:
+                logger.warning(f"Could not generate additional feed formats: {e}")
+                
         except Exception as e:
             logger.error(f"Error generating main GAI RSS feed: {e}")
             raise RSSScraperError(f"GAI RSS generation failed: {e}")
