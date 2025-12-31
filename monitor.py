@@ -110,11 +110,10 @@ def check_rss_health():
                     status['overall_status'] = 'error'
                     
             else:
-                # Treat missing archives as warning, primary feeds as error
+                # Treat missing archives as informational (not a warning), primary feeds as error
                 if rss_file.endswith('_archive.xml'):
-                    feed_status['errors'].append('Archive not yet created')
-                    if status['overall_status'] != 'error':
-                        status['overall_status'] = 'warning'
+                    feed_status['errors'].append('Archive not yet created (no items older than 60 days)')
+                    # Don't change overall_status - missing archives are expected until retention kicks in
                 else:
                     feed_status['errors'].append('RSS file does not exist')
                     status['overall_status'] = 'error'

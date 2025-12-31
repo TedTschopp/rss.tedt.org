@@ -351,9 +351,10 @@ class RSSGenerator:
             # Write RSS 2.0 with XSL stylesheet
             rss_str = fg.rss_str(pretty=True).decode('utf-8')
             if '<?xml-stylesheet' not in rss_str:
+                # Insert stylesheet AFTER the XML declaration (must come after <?xml version...?>)
                 rss_str = rss_str.replace(
-                    '<?xml version',
-                    '<?xml-stylesheet type="text/xsl" href="/feed-style.xsl"?>\n<?xml version'
+                    "?>\n<rss",
+                    '?>\n<?xml-stylesheet type="text/xsl" href="/feed-style.xsl"?>\n<rss'
                 )
             with open(main_filename, 'w', encoding='utf-8') as f:
                 f.write(rss_str)
