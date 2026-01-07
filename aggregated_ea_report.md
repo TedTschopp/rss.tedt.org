@@ -1,9 +1,9 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-01-06T16:17:28.932389+00:00 UTC
+Generated: 2026-01-07T01:01:55.108980+00:00 UTC
 
 - Total sources: 7
-- Attempted: 6  Skipped: 1  Failures: 0  With Items: 3  Recovered: 0
+- Attempted: 6  Skipped: 1  Failures: 0  With Items: 2  Recovered: 0
 - Prune threshold: 3 consecutive failures (permanent classes: ssl_error,dns_error)
 
 ## Source Details (first 100)
