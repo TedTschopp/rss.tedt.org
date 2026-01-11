@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-01-10T16:14:40.864055+00:00 UTC
+Generated: 2026-01-11T01:07:56.235618+00:00 UTC
 
 - Total sources: 7
 - Attempted: 6  Skipped: 1  Failures: 0  With Items: 2  Recovered: 0
@@ -10,6 +10,6 @@ Generated: 2026-01-10T16:14:40.864055+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
+| https://eapj.org/feed | empty | not_modified | 0 | 0 | 304 |  |
 | https://blog.opengroup.org/feed | empty | not_modified | 0 | 0 | 304 |  |
-| https://feed.infoq.com/enterprise-architecture | empty | success | 0 | 0 | 200 |  |
-| https://www.architectureandgovernance.com/elevating-ea/feed/ | empty | not_modified | 0 | 0 | 304 |  |
+| https://www.forrester.com/blogs/category/enterprise-architecture/feed/ | ok | success | 0 | 10 | 200 |  |
