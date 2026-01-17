@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-01-17T08:16:34.280883+00:00 UTC
+Generated: 2026-01-17T16:14:01.700350+00:00 UTC
 
 - Total sources: 7
 - Attempted: 6  Skipped: 1  Failures: 0  With Items: 3  Recovered: 0
@@ -10,3 +10,4 @@ Generated: 2026-01-17T08:16:34.280883+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
+| https://eapj.org/feed | empty | not_modified | 0 | 0 | 304 |  |
