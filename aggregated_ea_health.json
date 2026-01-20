@@ -2,19 +2,37 @@
   "total_sources": 7,
   "attempted": 6,
   "skipped": 1,
-  "with_items": 3,
-  "failures": 0,
+  "with_items": 4,
+  "failures": 1,
   "recovered": 0,
-  "timestamp": "2026-01-20T08:20:40.412473+00:00",
+  "timestamp": "2026-01-20T16:23:55.093833+00:00",
   "details": [
     {
-      "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
-      "status": "empty",
-      "items": 0,
+      "url": "https://feed.infoq.com/enterprise-architecture",
+      "status": "ok",
+      "items": 2,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://blog.opengroup.org/feed",
+      "status": "failed",
+      "items": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429",
+      "last_status": "exception",
+      "classification": "other_failure"
+    },
+    {
+      "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
+      "status": "ok",
+      "items": 10,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
     },
     {
       "url": "https://www.leanix.net/en/blog/rss.xml",
@@ -47,24 +65,6 @@
       "last_error": null,
       "last_status": 304,
       "classification": "not_modified"
-    },
-    {
-      "url": "https://blog.opengroup.org/feed",
-      "status": "empty",
-      "items": 0,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
-    },
-    {
-      "url": "https://feed.infoq.com/enterprise-architecture",
-      "status": "ok",
-      "items": 2,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
     }
   ]
 }

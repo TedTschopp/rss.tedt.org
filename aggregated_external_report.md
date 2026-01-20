@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_external.xml
 
-Generated: 2026-01-20T08:21:04.112163+00:00 UTC
+Generated: 2026-01-20T16:24:21.397946+00:00 UTC
 
 - Total sources: 2
 - Attempted: 1  Skipped: 1  Failures: 0  With Items: 1  Recovered: 0
