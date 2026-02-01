@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-02-01T08:22:00.519791+00:00 UTC
+Generated: 2026-02-01T16:19:03.639846+00:00 UTC
 
 - Total sources: 7
 - Attempted: 6  Skipped: 1  Failures: 0  With Items: 3  Recovered: 0
@@ -10,3 +10,6 @@ Generated: 2026-02-01T08:22:00.519791+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
+| https://www.leanix.net/en/blog/rss.xml | ok | success | 0 | 8 | 200 |  |
+| https://eapj.org/feed | empty | not_modified | 0 | 0 | 304 |  |
+| https://www.architectureandgovernance.com/elevating-ea/feed/ | empty | not_modified | 0 | 0 | 304 |  |
