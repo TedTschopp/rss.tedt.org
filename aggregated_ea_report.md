@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-02-14T01:12:41.652510+00:00 UTC
+Generated: 2026-02-14T08:20:52.899845+00:00 UTC
 
 - Total sources: 7
 - Attempted: 6  Skipped: 1  Failures: 0  With Items: 3  Recovered: 0
@@ -10,5 +10,4 @@ Generated: 2026-02-14T01:12:41.652510+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
-| https://feed.infoq.com/enterprise-architecture | empty | success | 0 | 0 | 200 |  |
-| https://www.forrester.com/blogs/category/enterprise-architecture/feed/ | ok | success | 0 | 10 | 200 |  |
+| https://eapj.org/feed | ok | success | 0 | 10 | 200 |  |
