@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_external.xml
 
-Generated: 2026-02-19T16:41:32.609733+00:00 UTC
+Generated: 2026-02-20T01:13:31.044131+00:00 UTC
 
 - Total sources: 2
 - Attempted: 1  Skipped: 1  Failures: 0  With Items: 1  Recovered: 0
@@ -10,4 +10,3 @@ Generated: 2026-02-19T16:41:32.609733+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
-| https://feeds.arstechnica.com/arstechnica/technology-lab | ok | success | 0 | 20 | 200 |  |
