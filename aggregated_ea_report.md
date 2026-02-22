@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-02-22T01:16:09.828798+00:00 UTC
+Generated: 2026-02-22T08:21:33.347141+00:00 UTC
 
 - Total sources: 7
 - Attempted: 6  Skipped: 1  Failures: 0  With Items: 2  Recovered: 0
@@ -10,5 +10,4 @@ Generated: 2026-02-22T01:16:09.828798+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
-| https://feed.infoq.com/enterprise-architecture | empty | success | 0 | 0 | 200 |  |
-| https://blog.opengroup.org/feed | empty | not_modified | 0 | 0 | 304 |  |
+| https://www.leanix.net/en/blog/rss.xml | ok | success | 0 | 8 | 200 |  |
