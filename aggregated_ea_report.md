@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_ea.xml
 
-Generated: 2026-02-22T08:21:33.347141+00:00 UTC
+Generated: 2026-02-22T16:19:09.521107+00:00 UTC
 
 - Total sources: 7
 - Attempted: 6  Skipped: 1  Failures: 0  With Items: 2  Recovered: 0
@@ -10,4 +10,4 @@ Generated: 2026-02-22T08:21:33.347141+00:00 UTC
 
 | URL | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|--------|-------|----|-------|-------------|---------------|
-| https://www.leanix.net/en/blog/rss.xml | ok | success | 0 | 8 | 200 |  |
+| https://www.forrester.com/blogs/category/enterprise-architecture/feed/ | ok | success | 0 | 10 | 200 |  |
