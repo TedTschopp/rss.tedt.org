@@ -958,6 +958,35 @@ def aggregate_external_feeds(cfg):
         f.write(fg.rss_str(pretty=True))
     logger.info(f"Aggregated feed written: {output_file}")
 
+    # Generate additional feed formats (RSS 1.0, Atom, JSON Feed)
+    try:
+        multi_gen = MultiFeedGenerator(
+            title=cfg.get('title'),
+            link=cfg.get('link'),
+            description=cfg.get('description'),
+            language='en',
+            author='Ted Tschopp'
+        )
+        for entry in recent_sorted:
+            multi_gen.add_item(
+                title=normalize_text(entry['title']),
+                link=entry['link'],
+                description=normalize_text(entry['description']),
+                pub_date=entry['pubDate'],
+                guid=entry['guid']
+            )
+
+        base_name = output_file[:-4] if output_file.endswith('.xml') else output_file
+        with open(f'{base_name}_rss1.xml', 'w', encoding='utf-8') as f:
+            f.write(multi_gen.generate_rss1())
+        with open(f'{base_name}.atom', 'w', encoding='utf-8') as f:
+            f.write(multi_gen.generate_atom())
+        with open(f'{base_name}.json', 'w', encoding='utf-8') as f:
+            f.write(multi_gen.generate_json_feed())
+        logger.info(f"Aggregated alternate formats written: {base_name}_rss1.xml, {base_name}.atom, {base_name}.json")
+    except Exception as e:
+        logger.warning(f"Could not generate additional formats for aggregated feed {output_file}: {e}")
+
     # Archive update
     if archive_additions:
         try:
