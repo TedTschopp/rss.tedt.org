@@ -265,6 +265,68 @@ feeds:
   - "https://dunions.blogspot.com/feeds/posts/default?alt=rss"
   - "https://migellito.blogspot.com/feeds/posts/default?alt=rss"
 
+- name: "Broad AI News"
+  aggregated: true
+  key: aggregated_broad_ai_news
+  enabled: true
+  output: "/aggregated_broad_ai_news.xml"
+  url: "/aggregated_broad_ai_news.xml"
+  title: "Broad AI News"
+  link: "https://rss.tedt.org/aggregated_broad_ai_news.xml"
+  description: "Broad AI ecosystem signals from labs, research, communities, and newsletters"
+  max_items: 200
+  retention_days: 365
+  source_attribution: title
+  sources:
+  # AI Labs
+  - url: "https://openai.com/news/rss.xml"
+    category: "AI Labs"
+  - url: "https://deepmind.com/blog/feed/basic"
+    category: "AI Labs"
+  - url: "https://news.google.com/rss/search?q=Anthropic+AI"
+    category: "AI Labs"
+  - url: "https://news.google.com/rss/search?q=xAI+AI"
+    category: "AI Labs"
+  - url: "https://news.google.com/rss/search?q=Sam+Altman+AI"
+    category: "AI Labs"
+  - url: "https://news.google.com/rss/search?q=Dario+Amodei+AI"
+    category: "AI Labs"
+  # Hacker News
+  - url: "https://hnrss.org/frontpage"
+    category: "Hacker News"
+  - url: "https://hnrss.org/newest"
+    category: "Hacker News"
+  # Reddit
+  - url: "https://www.reddit.com/r/MachineLearning/.rss"
+    category: "Reddit"
+  - url: "https://www.reddit.com/r/artificial/.rss"
+    category: "Reddit"
+  - url: "https://www.reddit.com/r/LocalLLaMA/.rss"
+    category: "Reddit"
+  - url: "https://www.reddit.com/r/singularity/.rss"
+    category: "Reddit"
+  - url: "https://www.reddit.com/r/ChatGPT/.rss"
+    category: "Reddit"
+  # arXiv AI Categories
+  - url: "https://export.arxiv.org/rss/cs.AI"
+    category: "arXiv AI Categories"
+  - url: "https://export.arxiv.org/rss/cs.CL"
+    category: "arXiv AI Categories"
+  - url: "https://export.arxiv.org/rss/cs.LG"
+    category: "arXiv AI Categories"
+  # Newsletters
+  - url: "https://magazine.sebastianraschka.com/feed"
+    category: "Newsletters"
+  - url: "https://aisnakeoil.substack.com/feed"
+    category: "Newsletters"
+  - url: "https://oneusefulthing.substack.com/feed"
+    category: "Newsletters"
+  # Extras
+  - url: "http://aiweekly.co/issues.rss"
+    category: "Extras"
+  - url: "https://www.marktechpost.com/feed"
+    category: "Extras"
+
 # Backward compatibility aliases (legacy templates/scripts)
 rss_feeds:
 - name: "Ted Tschopp's AI News"

@@ -779,8 +779,49 @@ def parse_pub_date(date_str):
     except Exception:
         return None
 
+def normalize_aggregated_sources(raw_sources):
+    """Normalize aggregated feed sources to a list of {url, category} objects.
+
+    Backward compatible with legacy list[str] source format.
+    """
+    normalized = []
+    for src in raw_sources or []:
+        if isinstance(src, str):
+            url = src.strip()
+            if not url:
+                continue
+            normalized.append({'url': url, 'category': None})
+            continue
+
+        if isinstance(src, dict):
+            url_value = src.get('url')
+            url = str(url_value).strip() if url_value is not None else ''
+            if not url:
+                logger.warning(f"Skipping malformed aggregated source object without url: {src}")
+                continue
+            category_value = src.get('category')
+            category = str(category_value).strip() if category_value is not None else None
+            if category == '':
+                category = None
+            normalized.append({'url': url, 'category': category})
+            continue
+
+        logger.warning(f"Skipping unsupported aggregated source entry: {src}")
+
+    seen_categories = {}
+    for src in normalized:
+        if src['url'] in seen_categories and seen_categories[src['url']] != src.get('category'):
+            logger.warning(
+                "Duplicate aggregated source URL with different categories: "
+                f"{src['url']} ({seen_categories[src['url']]} vs {src.get('category')})"
+            )
+        else:
+            seen_categories[src['url']] = src.get('category')
+
+    return normalized
+
 def aggregate_external_feeds(cfg):
-    sources = cfg.get('sources', [])
+    sources = normalize_aggregated_sources(cfg.get('sources', []))
     max_items = int(cfg.get('max_items', 150))
     retention_days = int(cfg.get('retention_days', 60))
     source_attr = (cfg.get('source_attribution') or 'title').lower()
@@ -818,13 +859,24 @@ def aggregate_external_feeds(cfg):
     permanent_classes = {'ssl_error','dns_error'}
     recommended_prune = []
     for src in shuffled:
-        logger.info(f"Fetching source: {src}")
-        pre_failures = cache.get('sources', {}).get(src, {}).get('consecutive_failures', 0)
-        items = fetch_rss(src, policy, cache)
-        meta = cache.get('sources', {}).get(src, {})
+        src_url = src.get('url')
+        src_category = src.get('category')
+        logger.info(f"Fetching source: {src_url}" + (f" [category: {src_category}]" if src_category else ""))
+        pre_failures = cache.get('sources', {}).get(src_url, {}).get('consecutive_failures', 0)
+        items = fetch_rss(src_url, policy, cache)
+        meta = cache.get('sources', {}).get(src_url, {})
         if meta.get('skipped'):
             health['skipped'] += 1
-            health['details'].append({'url': src, 'status': 'skipped', 'consecutive_failures': meta.get('consecutive_failures', 0)})
+            health['details'].append({
+                'url': src_url,
+                'category': src_category,
+                'status': 'skipped',
+                'items': 0,
+                'consecutive_failures': meta.get('consecutive_failures', 0),
+                'last_error': meta.get('last_error'),
+                'last_status': meta.get('last_status'),
+                'classification': meta.get('last_classification') or 'skipped'
+            })
             continue
         health['attempted'] += 1
         if items:
@@ -839,9 +891,10 @@ def aggregate_external_feeds(cfg):
         classification = meta.get('last_classification') or ('ok' if items else 'empty')
         cf = meta.get('consecutive_failures', 0)
         if (classification in permanent_classes and cf >= 1) or cf >= prune_threshold:
-            recommended_prune.append(src)
+            recommended_prune.append(src_url)
         health['details'].append({
-            'url': src,
+            'url': src_url,
+            'category': src_category,
             'status': 'ok' if items else ('failed' if meta.get('consecutive_failures', 0) > 0 else 'empty'),
             'items': len(items),
             'consecutive_failures': meta.get('consecutive_failures', 0),
@@ -849,7 +902,10 @@ def aggregate_external_feeds(cfg):
             'last_status': meta.get('last_status'),
             'classification': classification
         })
-        src_host = urlparse(src).hostname or 'source'
+        src_host = urlparse(src_url).hostname or 'source'
+        attribution = f"Source: {src_host}"
+        if src_category:
+            attribution += f" | Category: {src_category}"
         for it in items:
             dt = parse_pub_date(it.get('pubDate')) or datetime.now(timezone.utc)
             guid_basis = f"{it.get('title')}|{it.get('link')}|{dt.isoformat()}"
@@ -857,9 +913,9 @@ def aggregate_external_feeds(cfg):
             title_text = it.get('title') or 'Untitled'
             description_text = it.get('description') or ''
             if source_attr == 'title':
-                title_text += f" (Source: {src_host})"
+                title_text += f" ({attribution})"
             elif source_attr == 'description':
-                description_text = f"[Source: {src_host}]\n\n{description_text}" if description_text else f"[Source: {src_host}]"
+                description_text = f"[{attribution}]\n\n{description_text}" if description_text else f"[{attribution}]"
             collected.append({
                 'title': title_text,
                 'link': it.get('link') or cfg.get('link'),
@@ -986,11 +1042,11 @@ def aggregate_external_feeds(cfg):
                     rf.write(f"- {u} (cf={meta.get('consecutive_failures',0)}, class={meta.get('last_classification')}, last_error={ (meta.get('last_error') or '')[:100] })\n")
                 rf.write('\n')
             rf.write("## Source Details (first 100)\n\n")
-            rf.write("| URL | Status | Class | CF | Items | Last Status | Error Excerpt |\n")
-            rf.write("|-----|--------|-------|----|-------|-------------|---------------|\n")
+            rf.write("| URL | Category | Status | Class | CF | Items | Last Status | Error Excerpt |\n")
+            rf.write("|-----|----------|--------|-------|----|-------|-------------|---------------|\n")
             for d in health['details'][:100]:
                 err_excerpt = (d.get('last_error') or '')[:60].replace('\n',' ')
-                rf.write(f"| {d['url']} | {d['status']} | {d.get('classification','')} | {d['consecutive_failures']} | {d['items']} | {d.get('last_status')} | {err_excerpt} |\n")
+                rf.write(f"| {d['url']} | {d.get('category') or ''} | {d['status']} | {d.get('classification','')} | {d['consecutive_failures']} | {d['items']} | {d.get('last_status')} | {err_excerpt} |\n")
         logger.info(f"Markdown report written: {report_file}")
         # Skipped sources summary
         skipped_sources = [u for u,m in cache.get('sources',{}).items() if m.get('skipped')]
