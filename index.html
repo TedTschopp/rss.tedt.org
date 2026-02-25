@@ -9,6 +9,7 @@ class: home-template
         <h2><span>RSS Feeds</span></h2>
     </div>
         <div class="row">
+    {% assign enabled_feed_idx = 0 %}
     {% for feed in site.feeds %}
         {% if feed.enabled != false %}
             <div class="col-md-12">
@@ -34,10 +35,11 @@ class: home-template
                         </div>
                     </div>
                     <div class="card-body">
-                        <div id="feed-preview-{{ forloop.index0 }}" class="rss-preview" data-feed-index="{{ forloop.index0 }}">Loading latest entries...</div>
+                        <div id="feed-preview-{{ enabled_feed_idx }}" class="rss-preview" data-feed-index="{{ enabled_feed_idx }}">Loading latest entries...</div>
                     </div>
                 </div>
             </div>
+            {% assign enabled_feed_idx = enabled_feed_idx | plus: 1 %}
         {% endif %}
         {% endfor %}
         </div>
