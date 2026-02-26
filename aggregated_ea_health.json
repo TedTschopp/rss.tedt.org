@@ -5,27 +5,27 @@
   "with_items": 3,
   "failures": 0,
   "recovered": 0,
-  "timestamp": "2026-02-26T01:13:03.828420+00:00",
+  "timestamp": "2026-02-26T08:35:34.952629+00:00",
   "details": [
     {
-      "url": "https://www.leanix.net/en/blog/rss.xml",
+      "url": "https://blog.opengroup.org/feed",
       "category": null,
-      "status": "ok",
-      "items": 8,
+      "status": "empty",
+      "items": 0,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_status": 200,
-      "classification": "success"
+      "last_status": 304,
+      "classification": "not_modified"
     },
     {
-      "url": "https://feed.infoq.com/enterprise-architecture",
+      "url": "https://bizzdesign.com/blog/feed",
       "category": null,
-      "status": "ok",
-      "items": 1,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
+      "status": "skipped",
+      "items": 0,
+      "consecutive_failures": 5,
+      "last_error": "not well-formed (invalid token): line 3, column 42",
+      "last_status": "exception",
+      "classification": "skipped"
     },
     {
       "url": "https://www.forrester.com/blogs/category/enterprise-architecture/feed/",
@@ -48,6 +48,16 @@
       "classification": "not_modified"
     },
     {
+      "url": "https://feed.infoq.com/enterprise-architecture",
+      "category": null,
+      "status": "ok",
+      "items": 1,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
       "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
       "category": null,
       "status": "empty",
@@ -58,24 +68,14 @@
       "classification": "not_modified"
     },
     {
-      "url": "https://blog.opengroup.org/feed",
+      "url": "https://www.leanix.net/en/blog/rss.xml",
       "category": null,
-      "status": "empty",
-      "items": 0,
+      "status": "ok",
+      "items": 8,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
-    },
-    {
-      "url": "https://bizzdesign.com/blog/feed",
-      "category": null,
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "not well-formed (invalid token): line 3, column 42",
-      "last_status": "exception",
-      "classification": "skipped"
+      "last_status": 200,
+      "classification": "success"
     }
   ]
 }
