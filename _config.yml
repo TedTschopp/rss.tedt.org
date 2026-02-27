@@ -101,6 +101,15 @@ feeds:
     atom: "/ai_rss_feed.atom"
     json: "/ai_rss_feed.json"
 
+- name: "Top Stories (LLM Aggregated)"
+  url: "/feeds/top.xml"
+  description: "Cross-source ranked stories with optional GitHub Models enrichment"
+  formats:
+    rss2: "/feeds/top.xml"
+    rss1: "/feeds/top_rss1.xml"
+    atom: "/feeds/top.atom"
+    json: "/feeds/top.json"
+
 - name: "Aggregated External Tech News"
   aggregated: true
   key: aggregated_external
