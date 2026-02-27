@@ -1,9 +1,32 @@
 from datetime import datetime, timezone
+import re
+from typing import Any
 
 from feed_generator import MultiFeedGenerator
 
 from .constants import DEFAULT_PIPELINE_CONFIG
 from .io_utils import write_json
+
+
+def _is_ai_story(story: dict[str, Any], ai_keywords: list[str]) -> bool:
+    def keyword_match(text: str) -> bool:
+        lowered_text = text.lower()
+        for keyword in ai_keywords:
+            escaped = re.escape(keyword)
+            if re.search(rf"(?<![a-z0-9]){escaped}(?![a-z0-9])", lowered_text):
+                return True
+        return False
+
+    llm_topics = story.get("llm", {}).get("topics", []) if isinstance(story.get("llm"), dict) else []
+    if isinstance(llm_topics, list):
+        if any(keyword_match(str(topic)) for topic in llm_topics):
+            return True
+
+    title = str(story.get("title", "")).lower()
+    summary = str(story.get("summary", "")).lower()
+    domain = str(story.get("domain", "")).lower()
+    haystack = f"{title}\n{summary}\n{domain}"
+    return keyword_match(haystack)
 
 
 def _to_feed_entry(story: dict) -> dict:
@@ -19,7 +42,9 @@ def _to_feed_entry(story: dict) -> dict:
 def publish_outputs(ranked_stories: list[dict], api_path: str, base_feed_path: str, config: dict | None = None):
     cfg = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
     publish_top_n = int(cfg.get("publish_top_n", 200))
-    top_stories = ranked_stories[:publish_top_n]
+    ai_keywords = [str(keyword).lower() for keyword in cfg.get("ai_keywords", [])]
+    ai_only_stories = [story for story in ranked_stories if _is_ai_story(story, ai_keywords)]
+    top_stories = ai_only_stories[:publish_top_n]
 
     payload = {
         "schema_version": cfg.get("schema_version", "1.0.0"),

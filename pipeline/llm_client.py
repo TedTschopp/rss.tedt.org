@@ -1,6 +1,7 @@
 import hashlib
 import json
 import time
+from pathlib import Path
 from typing import Any, cast
 
 import requests
@@ -19,6 +20,26 @@ class GitHubModelsClient:
                 "Accept": "application/json",
             }
         )
+        self.prompts_dir = Path("prompts")
+
+    def _load_text_prompt(self, filename: str, fallback: str) -> str:
+        path = self.prompts_dir / filename
+        if not path.exists():
+            return fallback
+        content = path.read_text(encoding="utf-8").strip()
+        return content or fallback
+
+    def _load_json_prompt(self, filename: str, fallback: dict[str, Any]) -> dict[str, Any]:
+        path = self.prompts_dir / filename
+        if not path.exists():
+            return fallback
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict):
+                return payload
+            return fallback
+        except Exception:
+            return fallback
 
     @staticmethod
     def input_hash(payload: dict[str, Any]) -> str:
@@ -37,7 +58,7 @@ class GitHubModelsClient:
         return {"vectors": vectors, "usage": usage, "latency_ms": latency_ms, "model": model, "input_hash": self.input_hash(payload)}
 
     def summarize(self, title: str, summary: str, model: str = "openai/gpt-4.1-mini") -> dict[str, Any]:
-        schema: dict[str, Any] = {
+        default_schema: dict[str, Any] = {
             "type": "json_schema",
             "json_schema": {
                 "name": "story_enrichment",
@@ -53,11 +74,16 @@ class GitHubModelsClient:
                 }
             }
         }
+        schema = self._load_json_prompt("summary_schema.json", default_schema)
+        system_prompt = self._load_text_prompt("summary_system.txt", "Summarize technology news in neutral language.")
+        user_template = self._load_text_prompt("summary_user.txt", "Title: {title}\n\nContext: {summary}")
+        user_prompt = user_template.format(title=title, summary=summary)
+
         payload: dict[str, Any] = {
             "model": model,
             "messages": [
-                {"role": "system", "content": "Summarize technology news in neutral language."},
-                {"role": "user", "content": f"Title: {title}\n\nContext: {summary}"}
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
             ],
             "temperature": 0.2,
             "response_format": schema,

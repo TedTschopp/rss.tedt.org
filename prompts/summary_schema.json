@@ -1,0 +1,22 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "story_enrichment",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "topics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "entities": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["summary", "topics", "entities"],
+      "additionalProperties": false
+    }
+  }
+}
