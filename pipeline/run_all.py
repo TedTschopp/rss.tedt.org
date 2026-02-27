@@ -79,7 +79,16 @@ def main():
     write_json(f"{DATA_DIR}/stories.json", {"schema_version": SCHEMA_VERSION, "items": ranked})
     write_json(f"{DATA_DIR}/clusters.json", {"schema_version": SCHEMA_VERSION, "items": clusters})
 
-    api_payload = publish_outputs(ranked, f"{API_DIR}/feed.json", f"{FEEDS_DIR}/top", pipeline_config)
+    api_payload, llm_cache = publish_outputs(
+        ranked,
+        f"{API_DIR}/feed.json",
+        f"{FEEDS_DIR}/top",
+        llm_cache=llm_cache,
+        llm_call_log_path=LLM_CALL_LOG_FILE,
+        config=pipeline_config,
+    )
+
+    write_json(LLM_CACHE_FILE, llm_cache)
 
     report = {
         "schema_version": SCHEMA_VERSION,

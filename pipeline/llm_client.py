@@ -112,3 +112,75 @@ class GitHubModelsClient:
             "model": model,
             "input_hash": self.input_hash(payload),
         }
+
+    def grade_importance(
+        self,
+        title: str,
+        summary: str,
+        rubric_markdown: str,
+        model: str = "openai/gpt-4.1-mini",
+    ) -> dict[str, Any]:
+        default_schema: dict[str, Any] = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "importance_grading",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "business_level": {"type": "integer", "minimum": 1, "maximum": 3},
+                        "technical_level": {"type": "integer", "minimum": 1, "maximum": 3},
+                        "business_rationale": {"type": "string"},
+                        "technical_rationale": {"type": "string"},
+                    },
+                    "required": ["business_level", "technical_level", "business_rationale", "technical_rationale"],
+                    "additionalProperties": False,
+                },
+            },
+        }
+
+        schema = self._load_json_prompt("importance_schema.json", default_schema)
+        system_prompt = self._load_text_prompt(
+            "importance_system.txt",
+            "You are a precise enterprise technology analyst. Grade the story using the provided rubric.",
+        )
+        user_template = self._load_text_prompt(
+            "importance_user.txt",
+            "Rubric:\n{rubric}\n\nStory Title: {title}\n\nStory Context: {summary}",
+        )
+        user_prompt = user_template.format(title=title, summary=summary, rubric=rubric_markdown)
+
+        payload: dict[str, Any] = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.0,
+            "response_format": schema,
+        }
+
+        started = time.perf_counter()
+        response = self.session.post(f"{self.endpoint}/chat/completions", json=payload, timeout=self.timeout_sec)
+        latency_ms = int((time.perf_counter() - started) * 1000)
+        response.raise_for_status()
+        data: dict[str, Any] = response.json()
+        choices = data.get("choices")
+        first_choice: dict[str, Any] = {}
+        if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+            first_choice = cast(dict[str, Any], choices[0])
+        message = first_choice.get("message", {})
+        message_map: dict[str, Any] = cast(dict[str, Any], message) if isinstance(message, dict) else {}
+        content_raw = message_map.get("content", "{}")
+        content = str(content_raw).strip()
+        parsed: dict[str, Any] = json.loads(content)
+
+        return {
+            "business_level": parsed.get("business_level"),
+            "technical_level": parsed.get("technical_level"),
+            "business_rationale": parsed.get("business_rationale", ""),
+            "technical_rationale": parsed.get("technical_rationale", ""),
+            "usage": data.get("usage", {}),
+            "latency_ms": latency_ms,
+            "model": model,
+            "input_hash": self.input_hash(payload),
+        }

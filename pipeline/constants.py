@@ -24,6 +24,8 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "llm_retry_jitter_sec": 0.8,
     "half_life_hours": 36,
     "request_timeout_sec": 25,
+    "importance_backfill_days": 7,
+    "importance_model": "openai/gpt-4.1-mini",
     "user_agent": "rss.tedt.org-pipeline/1.0 (+https://rss.tedt.org)",
     "reddit_user_agent": "rss.tedt.org-bot/1.0 by TedTschopp",
     "etag_ttl": str(timedelta(days=3)),

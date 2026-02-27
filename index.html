@@ -75,6 +75,10 @@ class: home-template
     .pri-badge.essential { background:#dc3545; }
     .pri-badge.important { background:#ffc107; color:#222; }
     .pri-badge.optional { background:#6c757d; }
+    .tech-badge { font-size: .60rem; letter-spacing:.5px; text-transform:uppercase; margin-right:6px; padding:2px 5px; border-radius:3px; font-weight:600; color:#fff; position:relative; top:-1px; }
+    .tech-badge.informational { background: var(--bs-gray); }
+    .tech-badge.tech-important { background: var(--bs-primary); }
+    .tech-badge.transformational { background: var(--bs-info); }
     .pubdate { font-size:.65rem; color:#666; }
 </style>
 
@@ -103,13 +107,41 @@ class: home-template
                 const dt = new Date(dRaw);
                 if(!isNaN(dt)) { pubDateISO = dt.toISOString().slice(0,10); pubTime = dt.getTime(); }
             }
-            let priorityClass=''; let badge=''; let cleanedTitle=rawTitle;
-            if(/\[\s*!\s*\]$/.test(rawTitle)){ priorityClass='priority-essential'; badge='<span class="pri-badge essential">Essential</span>'; cleanedTitle=rawTitle.replace(/\s*\[\s*!\s*\]\s*$/,'').trim(); }
-            else if(/\[\s*\*\s*\]$/.test(rawTitle)){ priorityClass='priority-important'; badge='<span class="pri-badge important">Important</span>'; cleanedTitle=rawTitle.replace(/\s*\[\s*\*\s*\]\s*$/,'').trim(); }
-            else if(/\[\s*~\s*\]$/.test(rawTitle)){ priorityClass='priority-optional'; badge='<span class="pri-badge optional">Optional</span>'; cleanedTitle=rawTitle.replace(/\s*\[\s*~\s*\]\s*$/,'').trim(); }
+            let priorityClass='';
+            let businessBadge='';
+            let techBadge='';
+            let cleanedTitle=rawTitle;
+
+            // Supports: "Title [ ! ]" and "Title [ ! ] [ ⬢ ]" (business then technical)
+            const tagMatch = rawTitle.match(/\s*\[\s*([!~*])\s*\]\s*(?:\[\s*(◻|◼|⬢)\s*\])?\s*$/);
+            if(tagMatch){
+                const businessSymbol = tagMatch[1];
+                const techSymbol = tagMatch[2];
+
+                if(businessSymbol === '!'){
+                    priorityClass='priority-essential';
+                    businessBadge='<span class="pri-badge essential">Essential</span>';
+                } else if(businessSymbol === '*'){
+                    priorityClass='priority-important';
+                    businessBadge='<span class="pri-badge important">Important</span>';
+                } else if(businessSymbol === '~'){
+                    priorityClass='priority-optional';
+                    businessBadge='<span class="pri-badge optional">Optional</span>';
+                }
+
+                if(techSymbol === '⬢'){
+                    techBadge='<span class="tech-badge transformational">Tech: Transformational</span>';
+                } else if(techSymbol === '◼'){
+                    techBadge='<span class="tech-badge tech-important">Tech: Important</span>';
+                } else if(techSymbol === '◻'){
+                    techBadge='<span class="tech-badge informational">Tech: Informational</span>';
+                }
+
+                cleanedTitle = rawTitle.replace(/\s*\[\s*[!~*]\s*\]\s*(?:\[\s*(?:◻|◼|⬢)\s*\])?\s*$/,'').trim();
+            }
             const t = esc(cleanedTitle);
             const l = esc(linkVal||'#');
-            return { html: `<li class="${priorityClass}"><a href="${l}" rel="noopener noreferrer">${badge}<strong>${t}</strong></a>${pubDateISO?` <span class=\"pubdate\">(${pubDateISO})</span>`:''}</li>`, time: pubTime, idx };
+            return { html: `<li class="${priorityClass}"><a href="${l}" rel="noopener noreferrer">${businessBadge}${techBadge}<strong>${t}</strong></a>${pubDateISO?` <span class=\"pubdate\">(${pubDateISO})</span>`:''}</li>`, time: pubTime, idx };
         });
         // Sort newest first; stable by original index for identical timestamps
         items.sort((a,b)=> b.time - a.time || a.idx - b.idx);

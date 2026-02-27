@@ -191,6 +191,29 @@
                     .pri-badge.optional {
                         background: #676869;
                     }
+
+                    .tech-badge {
+                        font-size: 0.65rem;
+                        letter-spacing: 0.5px;
+                        text-transform: uppercase;
+                        padding: 2px 6px;
+                        border-radius: 3px;
+                        font-weight: 600;
+                        color: #fff;
+                        margin-right: 8px;
+                    }
+
+                    .tech-badge.informational {
+                        background: var(--bs-gray);
+                    }
+
+                    .tech-badge.tech-important {
+                        background: var(--bs-primary);
+                    }
+
+                    .tech-badge.transformational {
+                        background: var(--bs-info);
+                    }
                     
                     .footer {
                         background: var(--bs-primary);
@@ -290,6 +313,19 @@
                                         <span class="pri-badge optional">Optional</span>
                                     </xsl:when>
                                 </xsl:choose>
+
+                                <xsl:choose>
+                                    <xsl:when test="contains($title, '[ ⬢ ]')">
+                                        <span class="tech-badge transformational">Tech: Transformational</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◼ ]')">
+                                        <span class="tech-badge tech-important">Tech: Important</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◻ ]')">
+                                        <span class="tech-badge informational">Tech: Informational</span>
+                                    </xsl:when>
+                                </xsl:choose>
+
                                 <a href="{link}" target="_blank" rel="noopener">
                                     <xsl:choose>
                                         <xsl:when test="contains($title, '[ ! ]')">
@@ -300,6 +336,15 @@
                                         </xsl:when>
                                         <xsl:when test="contains($title, '[ ~ ]')">
                                             <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ⬢ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◼ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◻ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of select="$title"/>
@@ -341,6 +386,19 @@
                                         <span class="pri-badge optional">Optional</span>
                                     </xsl:when>
                                 </xsl:choose>
+
+                                <xsl:choose>
+                                    <xsl:when test="contains($title, '[ ⬢ ]')">
+                                        <span class="tech-badge transformational">Tech: Transformational</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◼ ]')">
+                                        <span class="tech-badge tech-important">Tech: Important</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◻ ]')">
+                                        <span class="tech-badge informational">Tech: Informational</span>
+                                    </xsl:when>
+                                </xsl:choose>
+
                                 <a href="{atom:link/@href}" target="_blank" rel="noopener">
                                     <xsl:choose>
                                         <xsl:when test="contains($title, '[ ! ]')">
@@ -351,6 +409,15 @@
                                         </xsl:when>
                                         <xsl:when test="contains($title, '[ ~ ]')">
                                             <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ⬢ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◼ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◻ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of select="$title"/>
@@ -392,6 +459,19 @@
                                         <span class="pri-badge optional">Optional</span>
                                     </xsl:when>
                                 </xsl:choose>
+
+                                <xsl:choose>
+                                    <xsl:when test="contains($title, '[ ⬢ ]')">
+                                        <span class="tech-badge transformational">Tech: Transformational</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◼ ]')">
+                                        <span class="tech-badge tech-important">Tech: Important</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◻ ]')">
+                                        <span class="tech-badge informational">Tech: Informational</span>
+                                    </xsl:when>
+                                </xsl:choose>
+
                                 <a href="{rss1:link}" target="_blank" rel="noopener">
                                     <xsl:choose>
                                         <xsl:when test="contains($title, '[ ! ]')">
@@ -402,6 +482,15 @@
                                         </xsl:when>
                                         <xsl:when test="contains($title, '[ ~ ]')">
                                             <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ⬢ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◼ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◻ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of select="$title"/>
@@ -443,6 +532,19 @@
                                         <span class="pri-badge optional">Optional</span>
                                     </xsl:when>
                                 </xsl:choose>
+
+                                <xsl:choose>
+                                    <xsl:when test="contains($title, '[ ⬢ ]')">
+                                        <span class="tech-badge transformational">Tech: Transformational</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◼ ]')">
+                                        <span class="tech-badge tech-important">Tech: Important</span>
+                                    </xsl:when>
+                                    <xsl:when test="contains($title, '[ ◻ ]')">
+                                        <span class="tech-badge informational">Tech: Informational</span>
+                                    </xsl:when>
+                                </xsl:choose>
+
                                 <a href="{link}" target="_blank" rel="noopener">
                                     <xsl:choose>
                                         <xsl:when test="contains($title, '[ ! ]')">
@@ -453,6 +555,15 @@
                                         </xsl:when>
                                         <xsl:when test="contains($title, '[ ~ ]')">
                                             <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ⬢ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◼ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
+                                        </xsl:when>
+                                        <xsl:when test="contains($title, '[ ◻ ]')">
+                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of select="$title"/>

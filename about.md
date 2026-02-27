@@ -45,6 +45,14 @@ title: "About RSS Feed Hub"
             <li><strong>[ * ]</strong> → <span class="badge bg-warning text-dark">Important</span> - High-priority content</li>
             <li><strong>[ ~ ]</strong> → <span class="badge bg-secondary">Optional</span> - Supplementary or nice-to-know content</li>
         </ul>
+
+        <p>Some feeds also include a separate <strong>technical impact</strong> indicator:</p>
+
+        <ul>
+            <li><strong>[ ⬢ ]</strong> → <span class="badge bg-info text-dark">Tech: Transformational</span> - Forces rethinking architecture/governance patterns</li>
+            <li><strong>[ ◼ ]</strong> → <span class="badge bg-primary">Tech: Important</span> - Likely to change how teams build/run AI systems</li>
+            <li><strong>[ ◻ ]</strong> → <span class="badge bg-secondary">Tech: Informational</span> - Awareness-level technical signal</li>
+        </ul>
         
         <p>These badges help you quickly identify the importance level of each RSS entry on the homepage.</p>
         
