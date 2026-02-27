@@ -622,6 +622,76 @@ _USER_AGENTS = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0'
 ]
 
+# Importance grading (EA aggregated feed)
+IMPORTANCE_RUBRIC_PATH = 'docs/Rules-for-Business-and-Technical-Importance.md'
+BUSINESS_TAGS = {1: '[ ~ ]', 2: '[ * ]', 3: '[ ! ]'}
+TECHNICAL_TAGS = {1: '[ ◻ ]', 2: '[ ◼ ]', 3: '[ ⬢ ]'}
+_ALL_IMPORTANCE_TAGS = set(list(BUSINESS_TAGS.values()) + list(TECHNICAL_TAGS.values()))
+
+
+def _resolve_models_token() -> str:
+    return (os.environ.get('GH_MODELS_TOKEN', '').strip() or os.environ.get('GH_Models_Token', '').strip())
+
+
+def _read_text_file(path: str) -> str:
+    try:
+        with open(path, 'r', encoding='utf-8') as handle:
+            return handle.read().strip()
+    except Exception:
+        return ''
+
+
+def _rubric_hash(markdown: str) -> str:
+    return hashlib.sha1((markdown or '').encode('utf-8')).hexdigest()
+
+
+def _strip_trailing_importance_tags(title: str) -> str:
+    if not title:
+        return ''
+    cleaned = str(title)
+    while True:
+        stripped = cleaned.rstrip()
+        removed = False
+        for tag in _ALL_IMPORTANCE_TAGS:
+            if stripped.endswith(tag):
+                cleaned = stripped[: -len(tag)].rstrip()
+                removed = True
+                break
+        if not removed:
+            return cleaned
+
+
+def _importance_cache(cache: dict) -> dict:
+    return cache.setdefault('importance', {})
+
+
+def _importance_key_for_entry(cfg: dict, entry: dict) -> str:
+    # Stable enough for aggregation: prefer link; fallback to GUID.
+    link = str(entry.get('link') or '').strip()
+    guid = str(entry.get('guid') or '').strip()
+    basis = link or guid or (entry.get('title') or '')
+    key_hash = hashlib.sha1(str(basis).encode('utf-8')).hexdigest()[:16]
+    feed_key = str(cfg.get('key') or 'aggregated').strip() or 'aggregated'
+    return f"{feed_key}_{key_hash}"
+
+
+def _call_with_retry(call, max_attempts: int = 4, base_delay_sec: float = 1.5, max_delay_sec: float = 20.0) -> tuple[dict, dict]:
+    retries = 0
+    for attempt in range(1, max_attempts + 1):
+        try:
+            result = call()
+            return result, {'attempt': attempt, 'retries': retries}
+        except Exception as exc:
+            msg = str(exc).lower()
+            retryable = '429' in msg or 'too many requests' in msg or 'timed out' in msg or 'timeout' in msg
+            if attempt >= max_attempts or not retryable:
+                raise
+            delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)))
+            time.sleep(delay)
+            retries += 1
+
+    raise RuntimeError('importance_call_failed')
+
 def _load_agg_cache():
     try:
         if Path(AGG_CACHE_FILE).exists():
@@ -939,6 +1009,87 @@ def aggregate_external_feeds(cfg):
 
     # Sort & trim recent
     recent_sorted = sorted(recent, key=lambda x: x['pubDate'], reverse=True)[:max_items]
+
+    # Optional: LLM importance grading + tags for Enterprise Architecture aggregated feed
+    if str(cfg.get('key') or '').strip().lower() == 'aggregated_ea':
+        token = _resolve_models_token()
+        rubric = _read_text_file(IMPORTANCE_RUBRIC_PATH)
+        rubric_h = _rubric_hash(rubric) if rubric else ''
+        if not token:
+            logger.warning('EA aggregated importance tagging skipped: missing GH_MODELS_TOKEN / GH_Models_Token')
+        elif not rubric_h:
+            logger.warning(f"EA aggregated importance tagging skipped: missing rubric file {IMPORTANCE_RUBRIC_PATH}")
+        else:
+            try:
+                from pipeline.llm_client import GitHubModelsClient
+            except Exception as import_err:
+                GitHubModelsClient = None
+                logger.warning(f"EA aggregated importance tagging skipped: could not import pipeline.llm_client ({import_err})")
+
+            if GitHubModelsClient is not None:
+                client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get('request_timeout_sec', 25)))
+                importance_store = _importance_cache(cache)
+                graded = 0
+                reused = 0
+                for entry in recent_sorted:
+                    cache_key = _importance_key_for_entry(cfg, entry)
+                    existing = importance_store.get(cache_key)
+                    if isinstance(existing, dict) and str(existing.get('rubric_hash') or '') == rubric_h:
+                        business_level = existing.get('business_level')
+                        technical_level = existing.get('technical_level')
+                        try:
+                            b_tag = BUSINESS_TAGS.get(int(business_level))
+                            t_tag = TECHNICAL_TAGS.get(int(technical_level))
+                        except Exception:
+                            b_tag = None
+                            t_tag = None
+                        if b_tag and t_tag:
+                            base_title = _strip_trailing_importance_tags(entry.get('title') or '')
+                            entry['title'] = f"{base_title} {b_tag} {t_tag}".strip()
+                            reused += 1
+                        continue
+
+                    title_for_grading = str(entry.get('title') or '')
+                    # Reduce noise from source attribution in title (if present)
+                    title_for_grading = re.sub(r"\s*\(Source:.*\)\s*$", "", title_for_grading).strip()
+                    context_for_grading = str(entry.get('description') or '')
+                    try:
+                        result, _meta = _call_with_retry(
+                            lambda: client.grade_importance(
+                                title_for_grading,
+                                context_for_grading,
+                                rubric,
+                                model=str(cfg.get('importance_model') or 'openai/gpt-4.1-mini'),
+                            ),
+                            max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
+                            base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
+                            max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
+                        )
+                        importance_store[cache_key] = {
+                            'business_level': result.get('business_level'),
+                            'technical_level': result.get('technical_level'),
+                            'business_rationale': result.get('business_rationale', ''),
+                            'technical_rationale': result.get('technical_rationale', ''),
+                            'rubric_hash': rubric_h,
+                            'graded_at': datetime.now(timezone.utc).isoformat(),
+                            'model': result.get('model'),
+                            'input_hash': result.get('input_hash'),
+                        }
+                        try:
+                            b_tag = BUSINESS_TAGS.get(int(result.get('business_level')))
+                            t_tag = TECHNICAL_TAGS.get(int(result.get('technical_level')))
+                        except Exception:
+                            b_tag = None
+                            t_tag = None
+                        if b_tag and t_tag:
+                            base_title = _strip_trailing_importance_tags(entry.get('title') or '')
+                            entry['title'] = f"{base_title} {b_tag} {t_tag}".strip()
+                            graded += 1
+                    except Exception as grade_err:
+                        logger.warning(f"EA aggregated importance grading failed for entry: {grade_err}")
+
+                logger.info(f"EA aggregated importance tagging complete: graded={graded} reused={reused} total={len(recent_sorted)}")
+
     logger.info(f"Writing {len(recent_sorted)} recent aggregated items; {len(archive_additions)} to archive")
     fg = FeedGenerator()
     fg.title(cfg.get('title'))
