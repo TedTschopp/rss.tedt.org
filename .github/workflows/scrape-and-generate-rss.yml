@@ -41,6 +41,11 @@ jobs:
       run: python enhanced_scraper.py
       env:
         DEBUG: "false"
+
+    - name: Run full aggregation pipeline
+      run: python -m pipeline.run_all
+      env:
+        GH_MODELS_TOKEN: ${{ secrets.GH_MODELS_TOKEN || secrets.GH_Models_Token }}
       
     - name: Run RSS health monitoring
       run: python monitor.py
@@ -68,6 +73,13 @@ jobs:
           previous_data.json
           skipped_sources.json
           aggregator_cache.json
+          api/*.json
+          feeds/*
+          data/*.json
+          derived/*.json
+          derived/*.jsonl
+          reports/*.json
+          reports/*.md
         )
         git add "${files[@]}"
 

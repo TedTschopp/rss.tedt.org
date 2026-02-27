@@ -1,0 +1,65 @@
+schema_version: 1.0.0
+sources:
+- id: rss_openai_blog
+  type: labs
+  name: OpenAI Blog
+  url: https://openai.com/news/rss.xml
+  authority_weight: 0.95
+  category: labs
+  enabled: true
+
+- id: rss_anthropic_news
+  type: labs
+  name: Anthropic News
+  url: https://www.anthropic.com/news/rss.xml
+  authority_weight: 0.95
+  category: labs
+  enabled: true
+
+- id: rss_ars_tech_lab
+  type: rss
+  name: Ars Technica Technology Lab
+  url: https://feeds.arstechnica.com/arstechnica/technology-lab
+  authority_weight: 0.72
+  category: rss
+  enabled: true
+
+- id: rss_infoq_ea
+  type: rss
+  name: InfoQ Enterprise Architecture
+  url: https://feed.infoq.com/enterprise-architecture
+  authority_weight: 0.8
+  category: ea
+  enabled: true
+
+- id: hn_front_page
+  type: hackernews
+  name: Hacker News Front Page
+  url: https://hn.algolia.com/api/v1/search?tags=front_page
+  authority_weight: 0.7
+  category: hn
+  enabled: true
+
+- id: reddit_machinelearning
+  type: reddit
+  name: Reddit r/MachineLearning
+  url: https://www.reddit.com/r/MachineLearning/hot.json?limit=50
+  authority_weight: 0.62
+  category: reddit
+  enabled: true
+
+- id: reddit_localllama
+  type: reddit
+  name: Reddit r/LocalLLaMA
+  url: https://www.reddit.com/r/LocalLLaMA/hot.json?limit=50
+  authority_weight: 0.65
+  category: reddit
+  enabled: true
+
+- id: arxiv_cs_ai
+  type: arxiv
+  name: arXiv cs.AI
+  url: https://export.arxiv.org/rss/cs.AI
+  authority_weight: 0.9
+  category: papers
+  enabled: true

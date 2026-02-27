@@ -27,6 +27,24 @@ This project scrapes a dynamic table (GAI Insights) and also aggregates multiple
    - `aggregated_external.xml` / `aggregated_external_archive.xml`
    - `previous_data.json` (change tracking)
 
+### GitHub Models Token Setup (for LLM enrichment)
+
+The pipeline supports optional LLM enrichment through GitHub Models.
+
+1. Create a fine-grained PAT in GitHub with:
+   - Resource owner: your account/org
+   - Repository access: this repository (or broader, if intended)
+   - Permission: `Models` → `Read`
+2. Add a repository secret in GitHub:
+   - Preferred: `GH_MODELS_TOKEN`
+   - Also supported: `GH_Models_Token`
+3. For local runs, export one of these before running the pipeline:
+   - `export GH_MODELS_TOKEN=...`
+4. Run:
+   - `source .venv/bin/activate && python -m pipeline.run_all`
+
+When the token is missing, the pipeline still runs in degraded mode (no summaries/embeddings) and publishes feeds/API JSON.
+
 ## How It Works
 
 1. **Scraping**: The script fetches the webpage and extracts all data from the table with ID "newsTable"

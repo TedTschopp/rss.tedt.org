@@ -169,6 +169,66 @@ def check_rss_health():
     except Exception:
         pass
 
+    # Pipeline artifact health checks
+    pipeline_checks = {
+        'api_feed_exists': False,
+        'stories_exists': False,
+        'clusters_exists': False,
+        'pipeline_report_exists': False,
+        'errors': [],
+        'counts': {}
+    }
+    try:
+        api_feed_path = Path('api/feed.json')
+        stories_path = Path('data/stories.json')
+        clusters_path = Path('data/clusters.json')
+        report_path = Path('reports/pipeline_report.json')
+
+        pipeline_checks['api_feed_exists'] = api_feed_path.exists()
+        pipeline_checks['stories_exists'] = stories_path.exists()
+        pipeline_checks['clusters_exists'] = clusters_path.exists()
+        pipeline_checks['pipeline_report_exists'] = report_path.exists()
+
+        if not pipeline_checks['api_feed_exists']:
+            pipeline_checks['errors'].append('Missing api/feed.json')
+        if not pipeline_checks['stories_exists']:
+            pipeline_checks['errors'].append('Missing data/stories.json')
+        if not pipeline_checks['clusters_exists']:
+            pipeline_checks['errors'].append('Missing data/clusters.json')
+        if not pipeline_checks['pipeline_report_exists']:
+            pipeline_checks['errors'].append('Missing reports/pipeline_report.json')
+
+        if pipeline_checks['api_feed_exists']:
+            with open(api_feed_path, 'r', encoding='utf-8') as f:
+                api_payload = json.load(f)
+            pipeline_checks['counts']['api_items'] = len(api_payload.get('items', []))
+
+        if pipeline_checks['stories_exists']:
+            with open(stories_path, 'r', encoding='utf-8') as f:
+                stories_payload = json.load(f)
+            pipeline_checks['counts']['stories'] = len(stories_payload.get('items', []))
+
+        if pipeline_checks['clusters_exists']:
+            with open(clusters_path, 'r', encoding='utf-8') as f:
+                clusters_payload = json.load(f)
+            pipeline_checks['counts']['clusters'] = len(clusters_payload.get('items', []))
+
+        if pipeline_checks['pipeline_report_exists']:
+            with open(report_path, 'r', encoding='utf-8') as f:
+                report_payload = json.load(f)
+            llm_status = report_payload.get('llm_status', {})
+            pipeline_checks['llm_status'] = llm_status
+
+        if pipeline_checks['errors'] and status['overall_status'] == 'healthy':
+            status['overall_status'] = 'warning'
+
+    except Exception as exc:
+        pipeline_checks['errors'].append(f'Pipeline health check failed: {str(exc)}')
+        if status['overall_status'] == 'healthy':
+            status['overall_status'] = 'warning'
+
+    status['pipeline_health'] = pipeline_checks
+
     return status
 
 def save_status_report(status):
@@ -250,6 +310,27 @@ def create_github_action_summary(status):
                         for error in feed_status['errors']:
                             f.write(f"- {error}\n")
                         f.write("\n")
+
+            # Pipeline artifact summary
+            pipeline = status.get('pipeline_health', {})
+            if pipeline:
+                f.write("## Pipeline Artifacts\n\n")
+                f.write(f"- API feed: {'✅' if pipeline.get('api_feed_exists') else '❌'}\n")
+                f.write(f"- Stories: {'✅' if pipeline.get('stories_exists') else '❌'}\n")
+                f.write(f"- Clusters: {'✅' if pipeline.get('clusters_exists') else '❌'}\n")
+                f.write(f"- Report: {'✅' if pipeline.get('pipeline_report_exists') else '❌'}\n")
+                counts = pipeline.get('counts', {})
+                if counts:
+                    f.write(f"- Story count: {counts.get('stories', 0)}\n")
+                    f.write(f"- Cluster count: {counts.get('clusters', 0)}\n")
+                    f.write(f"- API item count: {counts.get('api_items', 0)}\n")
+                llm_status = pipeline.get('llm_status') or {}
+                if llm_status:
+                    f.write(f"- LLM status: {llm_status}\n")
+                if pipeline.get('errors'):
+                    f.write("\n### Pipeline Errors\n")
+                    for error in pipeline.get('errors', []):
+                        f.write(f"- {error}\n")
 
 if __name__ == "__main__":
     print("Starting RSS feed health monitoring...")
