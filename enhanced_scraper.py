@@ -693,18 +693,101 @@ def _importance_key_for_entry(cfg: dict, entry: dict) -> str:
     return f"{feed_key}_{key_hash}"
 
 
-def _call_with_retry(call, max_attempts: int = 4, base_delay_sec: float = 1.5, max_delay_sec: float = 20.0) -> tuple[dict, dict]:
+def _status_code_from_exception(exc: Exception) -> int | None:
+    response = getattr(exc, 'response', None)
+    if response is None:
+        return None
+    status = getattr(response, 'status_code', None)
+    if isinstance(status, int):
+        return status
+    return None
+
+
+def _retry_after_seconds(exc: Exception) -> float | None:
+    response = getattr(exc, 'response', None)
+    if response is None:
+        return None
+    headers = getattr(response, 'headers', None)
+    if not headers:
+        return None
+    retry_after = headers.get('Retry-After')
+    if retry_after is None:
+        return None
+    try:
+        return float(retry_after)
+    except Exception:
+        return None
+
+
+def _call_with_retry(
+    call,
+    max_attempts: int = 4,
+    base_delay_sec: float = 1.5,
+    max_delay_sec: float = 20.0,
+    rate_limit_state: dict | None = None,
+    rate_limit_window_sec: float = 60.0,
+    rate_limit_threshold: int = 5,
+    rate_limit_cooldown_base_sec: float = 45.0,
+    rate_limit_cooldown_max_sec: float = 300.0,
+) -> tuple[dict, dict]:
     retries = 0
+    state = rate_limit_state if isinstance(rate_limit_state, dict) else None
+
     for attempt in range(1, max_attempts + 1):
         try:
+            if state is not None:
+                now = time.time()
+                cooldown_until = float(state.get('cooldown_until', 0.0) or 0.0)
+                if now < cooldown_until:
+                    sleep_for = max(0.0, cooldown_until - now)
+                    logger.warning(f'LLM 429 cooldown active: sleeping {sleep_for:.1f}s')
+                    time.sleep(sleep_for)
+
             result = call()
+            if state is not None:
+                state['recent_429'] = []
+                state['cooldown_strikes'] = 0
             return result, {'attempt': attempt, 'retries': retries}
         except Exception as exc:
             msg = str(exc).lower()
-            retryable = '429' in msg or 'too many requests' in msg or 'timed out' in msg or 'timeout' in msg
+            status_code = _status_code_from_exception(exc)
+            retryable = status_code in {429, 500, 502, 503, 504} or 'too many requests' in msg or 'timed out' in msg or 'timeout' in msg
             if attempt >= max_attempts or not retryable:
                 raise
-            delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)))
+
+            retry_after = _retry_after_seconds(exc)
+            if state is not None and status_code == 429:
+                now = time.time()
+                recent = state.setdefault('recent_429', [])
+                if not isinstance(recent, list):
+                    recent = []
+                    state['recent_429'] = recent
+                recent.append(now)
+                cutoff = now - float(max(1.0, rate_limit_window_sec))
+                state['recent_429'] = [t for t in recent if isinstance(t, (int, float)) and t >= cutoff]
+                if len(state['recent_429']) >= int(max(1, rate_limit_threshold)):
+                    strikes = int(state.get('cooldown_strikes', 0) or 0) + 1
+                    state['cooldown_strikes'] = strikes
+                    cooldown = min(float(rate_limit_cooldown_max_sec), float(rate_limit_cooldown_base_sec) * (2 ** (strikes - 1)))
+                    if retry_after is not None:
+                        cooldown = max(cooldown, float(retry_after))
+                    cooldown = min(float(rate_limit_cooldown_max_sec), cooldown + (0.1 * cooldown))
+                    state['cooldown_until'] = max(float(state.get('cooldown_until', 0.0) or 0.0), now + cooldown)
+                    logger.warning(
+                        f"Sustained 429s detected (count={len(state['recent_429'])} window={rate_limit_window_sec}s); "
+                        f"cooling down for ~{cooldown:.1f}s"
+                    )
+
+            if retry_after is not None:
+                delay = min(max_delay_sec, max(0.0, retry_after))
+            else:
+                delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)))
+
+            if state is not None:
+                cooldown_until = float(state.get('cooldown_until', 0.0) or 0.0)
+                cooldown_remaining = max(0.0, cooldown_until - time.time())
+                delay = max(float(delay), cooldown_remaining)
+
             time.sleep(delay)
             retries += 1
 
@@ -1062,6 +1145,12 @@ def aggregate_external_feeds(cfg):
                 importance_client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get('request_timeout_sec', 25)))
                 importance_store = _importance_cache(cache)
 
+    rate_limit_state: dict = {}
+    rate_limit_window_sec = float(cfg.get('llm_429_window_sec', 60))
+    rate_limit_threshold = int(cfg.get('llm_429_threshold', 5))
+    rate_limit_cooldown_base_sec = float(cfg.get('llm_429_cooldown_base_sec', 45.0))
+    rate_limit_cooldown_max_sec = float(cfg.get('llm_429_cooldown_max_sec', 300.0))
+
     def _tag_entries_with_importance(entries: list[dict], label: str) -> None:
         if not entries:
             return
@@ -1106,6 +1195,11 @@ def aggregate_external_feeds(cfg):
                     max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
                     base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
                     max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
+                            rate_limit_state=rate_limit_state,
+                            rate_limit_window_sec=rate_limit_window_sec,
+                            rate_limit_threshold=rate_limit_threshold,
+                            rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                            rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
                 )
                 importance_store[cache_key] = {
                     'business_level': result.get('business_level'),

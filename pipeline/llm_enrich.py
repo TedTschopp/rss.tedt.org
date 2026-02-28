@@ -55,17 +55,65 @@ def _is_retryable_exception(exc: Exception) -> bool:
     return "too many requests" in text or "timed out" in text
 
 
+def _rate_limit_wait_if_needed(state: dict[str, Any]) -> None:
+    now = time.time()
+    cooldown_until = float(state.get("cooldown_until", 0.0) or 0.0)
+    if now < cooldown_until:
+        time.sleep(max(0.0, cooldown_until - now))
+
+
+def _rate_limit_note_429(
+    state: dict[str, Any],
+    *,
+    window_sec: float,
+    threshold: int,
+    cooldown_base_sec: float,
+    cooldown_max_sec: float,
+    retry_after_sec: float | None,
+) -> None:
+    now = time.time()
+    recent = state.setdefault("recent_429", [])
+    if not isinstance(recent, list):
+        recent = []
+        state["recent_429"] = recent
+    recent.append(now)
+    cutoff = now - float(max(1.0, window_sec))
+    state["recent_429"] = [t for t in recent if isinstance(t, (int, float)) and t >= cutoff]
+
+    if len(state["recent_429"]) < int(max(1, threshold)):
+        return
+
+    strikes = int(state.get("cooldown_strikes", 0) or 0) + 1
+    state["cooldown_strikes"] = strikes
+    cooldown = min(float(cooldown_max_sec), float(cooldown_base_sec) * (2 ** (strikes - 1)))
+    if retry_after_sec is not None:
+        cooldown = max(cooldown, float(retry_after_sec))
+    cooldown = min(float(cooldown_max_sec), cooldown + (0.1 * cooldown))
+    state["cooldown_until"] = max(float(state.get("cooldown_until", 0.0) or 0.0), now + cooldown)
+
+
 def _call_with_retry(
     call,
     max_attempts: int,
     base_delay_sec: float,
     max_delay_sec: float,
     jitter_sec: float,
+    rate_limit_state: dict[str, Any] | None = None,
+    rate_limit_window_sec: float = 60.0,
+    rate_limit_threshold: int = 5,
+    rate_limit_cooldown_base_sec: float = 45.0,
+    rate_limit_cooldown_max_sec: float = 300.0,
 ) -> tuple[Any, dict[str, Any]]:
     retries = 0
+    state = rate_limit_state if isinstance(rate_limit_state, dict) else None
     for attempt in range(1, max_attempts + 1):
         try:
+            if state is not None:
+                _rate_limit_wait_if_needed(state)
             result = call()
+            if state is not None:
+                state["recent_429"] = []
+                state["cooldown_strikes"] = 0
             return result, {"attempt": attempt, "retries": retries}
         except Exception as exc:
             retryable = _is_retryable_exception(exc)
@@ -75,11 +123,26 @@ def _call_with_retry(
                     f"llm_call_failed attempt={attempt} retries={retries} status={status_code} error={exc}"
                 ) from exc
 
+            status_code = _status_code_from_exception(exc)
             retry_after = _retry_after_seconds(exc)
+            if state is not None and status_code == 429:
+                _rate_limit_note_429(
+                    state,
+                    window_sec=rate_limit_window_sec,
+                    threshold=rate_limit_threshold,
+                    cooldown_base_sec=rate_limit_cooldown_base_sec,
+                    cooldown_max_sec=rate_limit_cooldown_max_sec,
+                    retry_after_sec=retry_after,
+                )
             if retry_after is not None:
                 delay = min(max_delay_sec, max(0.0, retry_after))
             else:
                 delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)) + random.uniform(0.0, jitter_sec))
+
+            if state is not None:
+                cooldown_until = float(state.get("cooldown_until", 0.0) or 0.0)
+                cooldown_remaining = max(0.0, cooldown_until - time.time())
+                delay = max(float(delay), cooldown_remaining)
             time.sleep(delay)
             retries += 1
 
@@ -103,8 +166,13 @@ def enrich_stories(
     retry_base_delay_sec = float(cfg.get("llm_retry_base_delay_sec", 1.5))
     retry_max_delay_sec = float(cfg.get("llm_retry_max_delay_sec", 20.0))
     retry_jitter_sec = float(cfg.get("llm_retry_jitter_sec", 0.8))
+    rate_limit_window_sec = float(cfg.get("llm_429_window_sec", 60))
+    rate_limit_threshold = int(cfg.get("llm_429_threshold", 5))
+    rate_limit_cooldown_base_sec = float(cfg.get("llm_429_cooldown_base_sec", 45.0))
+    rate_limit_cooldown_max_sec = float(cfg.get("llm_429_cooldown_max_sec", 300.0))
     client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get("request_timeout_sec", 25)))
     call_rows: list[dict[str, Any]] = []
+    rate_limit_state: dict[str, Any] = {}
 
     target_stories = stories[:top_n]
     embed_inputs = [f"{_as_story_text(story, 'title')}\n\n{_as_story_text(story, 'summary')}".strip() for story in target_stories]
@@ -116,6 +184,11 @@ def enrich_stories(
                 base_delay_sec=retry_base_delay_sec,
                 max_delay_sec=retry_max_delay_sec,
                 jitter_sec=retry_jitter_sec,
+                rate_limit_state=rate_limit_state,
+                rate_limit_window_sec=rate_limit_window_sec,
+                rate_limit_threshold=rate_limit_threshold,
+                rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
             )
             vectors = cast(list[Any], embed_result.get("vectors", []))
             for index, story in enumerate(target_stories):
@@ -175,6 +248,11 @@ def enrich_stories(
                 base_delay_sec=retry_base_delay_sec,
                 max_delay_sec=retry_max_delay_sec,
                 jitter_sec=retry_jitter_sec,
+                rate_limit_state=rate_limit_state,
+                rate_limit_window_sec=rate_limit_window_sec,
+                rate_limit_threshold=rate_limit_threshold,
+                rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
             )
             cache_entry.update(
                 {

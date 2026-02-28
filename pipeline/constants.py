@@ -22,6 +22,12 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "llm_retry_base_delay_sec": 1.5,
     "llm_retry_max_delay_sec": 20.0,
     "llm_retry_jitter_sec": 0.8,
+    # If we see a burst of HTTP 429 responses, treat it as a signal to back off harder
+    # than simple per-call exponential retry.
+    "llm_429_window_sec": 60,
+    "llm_429_threshold": 5,
+    "llm_429_cooldown_base_sec": 45.0,
+    "llm_429_cooldown_max_sec": 300.0,
     "half_life_hours": 36,
     "request_timeout_sec": 25,
     "importance_backfill_days": 7,
