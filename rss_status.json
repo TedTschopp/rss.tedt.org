@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-03-31T01:27:19.101724+00:00",
+  "timestamp": "2026-03-31T08:49:05.401710+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Tue, 31 Mar 2026 01:24:27 +0000",
-      "size_bytes": 42966,
+      "last_updated": "Tue, 31 Mar 2026 08:46:24 +0000",
+      "size_bytes": 42869,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
@@ -23,7 +23,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 14,
-      "last_updated": "Tue, 31 Mar 2026 01:24:53 +0000",
+      "last_updated": "Tue, 31 Mar 2026 08:46:47 +0000",
       "size_bytes": 13792,
       "errors": []
     },
@@ -31,7 +31,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 103,
-      "last_updated": "Tue, 31 Mar 2026 01:24:53 +0000",
+      "last_updated": "Tue, 31 Mar 2026 08:46:47 +0000",
       "size_bytes": 133254,
       "errors": []
     },
@@ -39,20 +39,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Tue, 31 Mar 2026 01:27:01 +0000",
-      "size_bytes": 226871,
+      "last_updated": "Tue, 31 Mar 2026 08:48:45 +0000",
+      "size_bytes": 339790,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 567,
-      "last_updated": "Tue, 31 Mar 2026 01:27:02 +0000",
+      "last_updated": "Tue, 31 Mar 2026 08:48:45 +0000",
       "size_bytes": 288332,
       "errors": []
     }
   },
-  "overall_status": "healthy",
+  "overall_status": "warning",
   "aggregation_health": {
     "aggregated_ea.xml": {
       "total_sources": 7,
@@ -67,12 +67,21 @@
       "total_sources": 21,
       "attempted": 19,
       "skipped": 2,
-      "with_items": 10,
+      "with_items": 13,
       "failures": 1,
       "recovered": 0,
       "failure_rate": 5.26
     }
   },
+  "pruning_suggestions": [
+    {
+      "feed": "aggregated_broad_ai_news.xml",
+      "url": "https://aiweekly.co/issues.rss",
+      "consecutive_failures": 3,
+      "last_status": "exception",
+      "last_error_excerpt": "http 404"
+    }
+  ],
   "pipeline_health": {
     "api_feed_exists": true,
     "stories_exists": true,
@@ -81,8 +90,8 @@
     "errors": [],
     "counts": {
       "api_items": 200,
-      "stories": 940,
-      "clusters": 937
+      "stories": 1447,
+      "clusters": 1444
     },
     "llm_status": {
       "status": "ok",
