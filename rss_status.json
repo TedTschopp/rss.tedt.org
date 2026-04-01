@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-04-01T01:47:29.577624+00:00",
+  "timestamp": "2026-04-01T08:57:00.381725+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Wed, 01 Apr 2026 01:44:45 +0000",
+      "last_updated": "Wed, 01 Apr 2026 08:54:36 +0000",
       "size_bytes": 42923,
       "errors": []
     },
@@ -22,16 +22,16 @@
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 23,
-      "last_updated": "Wed, 01 Apr 2026 01:45:12 +0000",
-      "size_bytes": 22734,
+      "entry_count": 13,
+      "last_updated": "Wed, 01 Apr 2026 08:55:04 +0000",
+      "size_bytes": 12712,
       "errors": []
     },
     "aggregated_ea_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 104,
-      "last_updated": "Wed, 01 Apr 2026 01:45:12 +0000",
+      "last_updated": "Wed, 01 Apr 2026 08:55:04 +0000",
       "size_bytes": 134334,
       "errors": []
     },
@@ -39,49 +39,40 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Wed, 01 Apr 2026 01:47:08 +0000",
-      "size_bytes": 234137,
+      "last_updated": "Wed, 01 Apr 2026 08:56:46 +0000",
+      "size_bytes": 325122,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 568,
-      "last_updated": "Wed, 01 Apr 2026 01:47:08 +0000",
+      "last_updated": "Wed, 01 Apr 2026 08:56:46 +0000",
       "size_bytes": 288948,
       "errors": []
     }
   },
-  "overall_status": "warning",
+  "overall_status": "healthy",
   "aggregation_health": {
     "aggregated_ea.xml": {
       "total_sources": 7,
       "attempted": 6,
       "skipped": 1,
-      "with_items": 4,
+      "with_items": 3,
       "failures": 0,
       "recovered": 0,
       "failure_rate": 0.0
     },
     "aggregated_broad_ai_news.xml": {
       "total_sources": 21,
-      "attempted": 19,
-      "skipped": 2,
-      "with_items": 10,
-      "failures": 1,
+      "attempted": 18,
+      "skipped": 3,
+      "with_items": 13,
+      "failures": 0,
       "recovered": 0,
-      "failure_rate": 5.26
+      "failure_rate": 0.0
     }
   },
-  "pruning_suggestions": [
-    {
-      "feed": "aggregated_broad_ai_news.xml",
-      "url": "https://aiweekly.co/issues.rss",
-      "consecutive_failures": 5,
-      "last_status": "exception",
-      "last_error_excerpt": "http 404"
-    }
-  ],
   "pipeline_health": {
     "api_feed_exists": true,
     "stories_exists": true,
@@ -90,8 +81,8 @@
     "errors": [],
     "counts": {
       "api_items": 200,
-      "stories": 941,
-      "clusters": 938
+      "stories": 1271,
+      "clusters": 1268
     },
     "llm_status": {
       "status": "ok",
