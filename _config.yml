@@ -102,11 +102,24 @@ feeds:
     json: "/ai_rss_feed.json"
 
 - name: "Wes's AI News"
-  url: "https://natural20.com/feed.xml"
+  aggregated: true
+  key: aggregated_wes_ai_news
+  enabled: true
+  output: "/aggregated_wes_ai_news.xml"
+  url: "/aggregated_wes_ai_news.xml"
+  title: "Wes's AI News"
+  link: "https://rss.tedt.org/aggregated_wes_ai_news.xml"
   description: "Latest AI News and Commentary from Wes"
-  external: true
+  max_items: 100
+  retention_days: 60
+  source_attribution: none
+  sources:
+  - "https://natural20.com/feed.xml"
   formats:
-    rss2: "https://natural20.com/feed.xml"
+    rss2: "/aggregated_wes_ai_news.xml"
+    rss1: "/aggregated_wes_ai_news_rss1.xml"
+    atom: "/aggregated_wes_ai_news.atom"
+    json: "/aggregated_wes_ai_news.json"
 
 - name: "Top Stories (LLM Aggregated)"
   url: "/feeds/top.xml"
@@ -359,7 +372,7 @@ rss_feeds:
   url: "/ai_rss_feed.xml"
   description: "Latest AI News and Ratings from Ted Tschopp"
 - name: "Wes's AI News"
-  url: "https://natural20.com/feed.xml"
+  url: "/aggregated_wes_ai_news.xml"
   description: "Latest AI News and Commentary from Wes"
 - name: "Aggregated External Tech News"
   url: "/aggregated_external.xml"

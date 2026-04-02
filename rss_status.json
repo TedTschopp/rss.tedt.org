@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-02T08:47:29.235001+00:00",
+  "timestamp": "2026-04-02T13:23:34.389821+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
@@ -10,6 +10,24 @@
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
+      "exists": false,
+      "valid_xml": false,
+      "entry_count": 0,
+      "last_updated": null,
+      "size_bytes": 0,
+      "errors": [
+        "Archive not yet created (no items older than 60 days)"
+      ]
+    },
+    "aggregated_wes_ai_news.xml": {
+      "exists": true,
+      "valid_xml": true,
+      "entry_count": 30,
+      "last_updated": "Thu, 02 Apr 2026 13:23:34 +0000",
+      "size_bytes": 15068,
+      "errors": []
+    },
+    "aggregated_wes_ai_news_archive.xml": {
       "exists": false,
       "valid_xml": false,
       "entry_count": 0,
@@ -54,6 +72,15 @@
   },
   "overall_status": "healthy",
   "aggregation_health": {
+    "aggregated_wes_ai_news.xml": {
+      "total_sources": 1,
+      "attempted": 1,
+      "skipped": 0,
+      "with_items": 1,
+      "failures": 0,
+      "recovered": 0,
+      "failure_rate": 0.0
+    },
     "aggregated_ea.xml": {
       "total_sources": 7,
       "attempted": 6,
