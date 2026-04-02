@@ -1,5 +1,6 @@
 import math
 from datetime import datetime, timezone
+from typing import Any
 
 from .constants import DEFAULT_PIPELINE_CONFIG
 from .text_utils import parse_datetime
@@ -14,7 +15,7 @@ def _freshness_score(published: str, half_life_hours: float) -> float:
     return math.exp(-math.log(2) * age_hours / max(1e-6, half_life_hours))
 
 
-def _engagement_score(story: dict) -> float:
+def _engagement_score(story: dict[str, Any]) -> float:
     upvotes = 0
     comments = 0
     for mention in story.get("mentions", []):
@@ -24,14 +25,24 @@ def _engagement_score(story: dict) -> float:
     return min(1.0, raw / 6.0)
 
 
-def _coverage_score(story: dict) -> float:
+def _coverage_score(story: dict[str, Any]) -> float:
     sources = {mention.get("source_id") for mention in story.get("mentions", []) if mention.get("source_id")}
     return min(1.0, len(sources) / 5.0)
 
 
-def score_stories(stories: list[dict], cluster_map: dict[str, str], config: dict | None = None) -> list[dict]:
+def score_stories(
+    stories: list[dict[str, Any]],
+    cluster_map: dict[str, str],
+    config: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
     cfg = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
     half_life = float(cfg.get("half_life_hours", 36))
+    authority_weight = float(cfg.get("score_weight_authority", 100.0))
+    freshness_weight = float(cfg.get("score_weight_freshness", 120.0))
+    engagement_weight = float(cfg.get("score_weight_engagement", 80.0))
+    velocity_weight = float(cfg.get("score_weight_velocity", 40.0))
+    coverage_weight = float(cfg.get("score_weight_coverage", 30.0))
+    novelty_penalty_weight = float(cfg.get("score_weight_novelty_penalty", 50.0))
 
     for story in stories:
         authority = max(0.0, min(1.0, float(story.get("authority_weight", 0.5))))
@@ -42,12 +53,12 @@ def score_stories(stories: list[dict], cluster_map: dict[str, str], config: dict
         novelty_penalty = 0.0
 
         score = (
-            100 * authority
-            + 120 * freshness
-            + 80 * engagement
-            + 40 * velocity
-            + 30 * coverage
-            - 50 * novelty_penalty
+            authority_weight * authority
+            + freshness_weight * freshness
+            + engagement_weight * engagement
+            + velocity_weight * velocity
+            + coverage_weight * coverage
+            - novelty_penalty_weight * novelty_penalty
         )
 
         story["cluster_id"] = cluster_map.get(story["story_id"])

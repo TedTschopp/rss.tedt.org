@@ -24,7 +24,7 @@ from .llm_enrich import enrich_stories
 from .normalize import normalize_items
 from .publish import publish_outputs
 from .score import score_stories
-from .source_registry import load_sources
+from .source_registry import load_pipeline_settings, load_sources
 
 
 def _write_report(report_path_json: str, report_path_md: str, report: dict) -> None:
@@ -53,9 +53,12 @@ def main():
 
     pipeline_config = {
         "schema_version": SCHEMA_VERSION,
-        "llm_top_n": int(os.environ.get("PIPELINE_LLM_TOP_N", "50")),
-        "publish_top_n": int(os.environ.get("PIPELINE_PUBLISH_TOP_N", "200")),
+        **load_pipeline_settings(args.sources),
     }
+    if "PIPELINE_LLM_TOP_N" in os.environ:
+        pipeline_config["llm_top_n"] = int(os.environ["PIPELINE_LLM_TOP_N"])
+    if "PIPELINE_PUBLISH_TOP_N" in os.environ:
+        pipeline_config["publish_top_n"] = int(os.environ["PIPELINE_PUBLISH_TOP_N"])
 
     sources = load_sources(args.sources)
     state = read_json(SOURCE_STATE_FILE, {})

@@ -45,6 +45,22 @@ The pipeline supports optional LLM enrichment through GitHub Models.
 
 When the token is missing, the pipeline still runs in degraded mode (no summaries/embeddings) and publishes feeds/API JSON.
 
+## Top Stories Controls
+
+`Top Stories (LLM Aggregated)` now reads both its source list and ranking settings from `sources.yml`.
+
+- `ranking.half_life_hours` controls how quickly older stories decay.
+- `ranking.weights.*` controls the contribution of authority, freshness, engagement, coverage, and other score factors.
+- `sources[*].authority_weight` controls how much each source influences ranking.
+
+For a browser-based editor, open `/top-stories-manager/` locally or on the site. The page can:
+
+- load the repo copy of `sources.yml`
+- open a local `sources.yml` file
+- add, duplicate, disable, or delete Top Stories sources
+- edit ranking weights
+- save back to the opened file when browser file APIs are available, or download the updated YAML otherwise
+
 ## How It Works
 
 1. **Scraping**: The script fetches the webpage and extracts all data from the table with ID "newsTable"

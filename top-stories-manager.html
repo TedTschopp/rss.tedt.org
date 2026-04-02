@@ -1,0 +1,499 @@
+---
+layout: default
+title: "Top Stories Manager"
+permalink: /top-stories-manager/
+---
+
+<div class="row mb-4">
+    <div class="col-lg-8">
+        <h1>Top Stories Manager</h1>
+        <p class="lead mb-2">Edit the feeds included in Top Stories and tune the ranking model without changing Python code.</p>
+        <p class="text-muted mb-0">This page works against <code>sources.yml</code>. Open the file from your repo to save changes directly, or load the repo copy and download an updated version.</p>
+    </div>
+    <div class="col-lg-4">
+        <div class="card border-0 box-shadow h-100">
+            <div class="card-body">
+                <div class="small text-uppercase text-muted mb-2">What This Controls</div>
+                <div><strong>Included feeds:</strong> add, disable, duplicate, or delete source entries.</div>
+                <div><strong>Ranking:</strong> adjust authority, freshness, engagement, coverage, and decay.</div>
+                <div><strong>Source influence:</strong> change each feed's <code>authority_weight</code>.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <button id="load-repo-config" class="btn btn-outline-primary btn-sm">Load Repo Copy</button>
+            <button id="open-local-config" class="btn btn-primary btn-sm">Open Local sources.yml</button>
+            <button id="save-config" class="btn btn-success btn-sm">Save Changes</button>
+            <button id="download-config" class="btn btn-outline-secondary btn-sm">Download YAML</button>
+            <button id="add-source" class="btn btn-outline-dark btn-sm">Add Source</button>
+            <span id="file-status" class="small text-muted">No local file opened yet.</span>
+        </div>
+        <input id="config-file-input" type="file" accept=".yml,.yaml,text/yaml,text/x-yaml" class="d-none">
+        <label class="visually-hidden" for="config-file-input">Open a local Top Stories configuration file</label>
+        <div id="manager-alert" class="alert alert-secondary mb-0">Loading current configuration…</div>
+    </div>
+</div>
+
+<style>
+    .source-col-toggle { min-width: 70px; }
+    .source-col-id { min-width: 140px; }
+    .source-col-name { min-width: 180px; }
+    .source-col-type { min-width: 110px; }
+    .source-col-category { min-width: 120px; }
+    .source-col-authority { min-width: 120px; }
+    .source-col-url { min-width: 320px; }
+    .source-col-actions { min-width: 120px; }
+</style>
+
+<div class="row g-4">
+    <div class="col-xl-4">
+        <div class="card border-0 box-shadow h-100">
+            <div class="card-header bg-transparent">
+                <h3 class="h5 mb-0">Ranking Settings</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label" for="half-life-hours">Freshness Half-Life Hours</label>
+                    <input id="half-life-hours" type="number" min="1" step="1" class="form-control">
+                    <div class="form-text">Higher values keep older stories competitive for longer.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="weight-authority">Authority Weight</label>
+                    <input id="weight-authority" type="number" step="1" class="form-control ranking-input" data-weight="authority">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="weight-freshness">Freshness Weight</label>
+                    <input id="weight-freshness" type="number" step="1" class="form-control ranking-input" data-weight="freshness">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="weight-engagement">Engagement Weight</label>
+                    <input id="weight-engagement" type="number" step="1" class="form-control ranking-input" data-weight="engagement">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="weight-coverage">Coverage Weight</label>
+                    <input id="weight-coverage" type="number" step="1" class="form-control ranking-input" data-weight="coverage">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="weight-velocity">Velocity Weight</label>
+                    <input id="weight-velocity" type="number" step="1" class="form-control ranking-input" data-weight="velocity">
+                    <div class="form-text">Currently the pipeline computes velocity as 0, so this is future-facing until velocity logic is added.</div>
+                </div>
+                <div class="mb-0">
+                    <label class="form-label" for="weight-novelty">Novelty Penalty Weight</label>
+                    <input id="weight-novelty" type="number" step="1" class="form-control ranking-input" data-weight="novelty_penalty">
+                    <div class="form-text">Currently the pipeline computes novelty penalty as 0, so this is also future-facing.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <div class="card border-0 box-shadow h-100">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h3 class="h5 mb-0">Top Stories Sources</h3>
+                    <div class="small text-muted">Only enabled sources with a URL are included by the pipeline.</div>
+                </div>
+                <div id="source-summary" class="small text-muted"></div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th class="source-col-toggle">On</th>
+                                <th class="source-col-id">ID</th>
+                                <th class="source-col-name">Name</th>
+                                <th class="source-col-type">Type</th>
+                                <th class="source-col-category">Category</th>
+                                <th class="source-col-authority">Authority</th>
+                                <th class="source-col-url">URL</th>
+                                <th class="source-col-actions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sources-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card border-0 box-shadow">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <h3 class="h5 mb-0">YAML Preview</h3>
+                <button id="copy-yaml" class="btn btn-outline-secondary btn-sm">Copy YAML</button>
+            </div>
+            <div class="card-body">
+                <label class="form-label" for="yaml-preview">Editable YAML Preview</label>
+                <textarea id="yaml-preview" class="form-control" rows="20" spellcheck="false"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script>
+(function () {
+    const defaultState = {
+        schema_version: '1.0.0',
+        ranking: {
+            half_life_hours: 36,
+            weights: {
+                authority: 100,
+                freshness: 120,
+                engagement: 80,
+                velocity: 40,
+                coverage: 30,
+                novelty_penalty: 50
+            }
+        },
+        sources: []
+    };
+
+    const typeOptions = ['rss', 'labs', 'reddit', 'hackernews', 'arxiv'];
+    let state = structuredClone(defaultState);
+    let fileHandle = null;
+    let openedFileName = 'sources.yml';
+
+    const alertEl = document.getElementById('manager-alert');
+    const fileStatusEl = document.getElementById('file-status');
+    const sourceSummaryEl = document.getElementById('source-summary');
+    const yamlPreviewEl = document.getElementById('yaml-preview');
+    const tableBodyEl = document.getElementById('sources-table-body');
+    const fileInputEl = document.getElementById('config-file-input');
+    const halfLifeEl = document.getElementById('half-life-hours');
+
+    function showAlert(kind, message) {
+        alertEl.className = 'alert alert-' + kind + ' mb-0';
+        alertEl.textContent = message;
+    }
+
+    function toNumber(value, fallback) {
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : fallback;
+    }
+
+    function normalizeSource(source, index) {
+        const safeSource = source && typeof source === 'object' ? source : {};
+        const sourceId = String(safeSource.id || '').trim() || 'source_' + String(index + 1).padStart(2, '0');
+        return {
+            id: sourceId,
+            type: String(safeSource.type || 'rss').trim() || 'rss',
+            name: String(safeSource.name || sourceId).trim() || sourceId,
+            url: String(safeSource.url || '').trim(),
+            category: String(safeSource.category || safeSource.type || 'rss').trim() || 'rss',
+            authority_weight: toNumber(safeSource.authority_weight, 0.5),
+            enabled: safeSource.enabled !== false
+        };
+    }
+
+    function normalizeConfig(payload) {
+        const safePayload = payload && typeof payload === 'object' ? payload : {};
+        const ranking = safePayload.ranking && typeof safePayload.ranking === 'object' ? safePayload.ranking : {};
+        const weights = ranking.weights && typeof ranking.weights === 'object' ? ranking.weights : {};
+        const sources = Array.isArray(safePayload.sources) ? safePayload.sources : [];
+
+        return {
+            schema_version: String(safePayload.schema_version || defaultState.schema_version),
+            ranking: {
+                half_life_hours: toNumber(ranking.half_life_hours, defaultState.ranking.half_life_hours),
+                weights: {
+                    authority: toNumber(weights.authority, defaultState.ranking.weights.authority),
+                    freshness: toNumber(weights.freshness, defaultState.ranking.weights.freshness),
+                    engagement: toNumber(weights.engagement, defaultState.ranking.weights.engagement),
+                    velocity: toNumber(weights.velocity, defaultState.ranking.weights.velocity),
+                    coverage: toNumber(weights.coverage, defaultState.ranking.weights.coverage),
+                    novelty_penalty: toNumber(weights.novelty_penalty, defaultState.ranking.weights.novelty_penalty)
+                }
+            },
+            sources: sources.map(normalizeSource)
+        };
+    }
+
+    function buildYaml() {
+        const cleanPayload = {
+            schema_version: state.schema_version,
+            ranking: {
+                half_life_hours: toNumber(state.ranking.half_life_hours, defaultState.ranking.half_life_hours),
+                weights: {
+                    authority: toNumber(state.ranking.weights.authority, defaultState.ranking.weights.authority),
+                    freshness: toNumber(state.ranking.weights.freshness, defaultState.ranking.weights.freshness),
+                    engagement: toNumber(state.ranking.weights.engagement, defaultState.ranking.weights.engagement),
+                    velocity: toNumber(state.ranking.weights.velocity, defaultState.ranking.weights.velocity),
+                    coverage: toNumber(state.ranking.weights.coverage, defaultState.ranking.weights.coverage),
+                    novelty_penalty: toNumber(state.ranking.weights.novelty_penalty, defaultState.ranking.weights.novelty_penalty)
+                }
+            },
+            sources: state.sources.map((source) => ({
+                id: String(source.id || '').trim(),
+                type: String(source.type || 'rss').trim() || 'rss',
+                name: String(source.name || '').trim(),
+                url: String(source.url || '').trim(),
+                authority_weight: toNumber(source.authority_weight, 0.5),
+                category: String(source.category || source.type || 'rss').trim() || 'rss',
+                enabled: source.enabled !== false
+            }))
+        };
+
+        return window.jsyaml.dump(cleanPayload, {
+            lineWidth: -1,
+            noRefs: true,
+            quotingType: '"'
+        });
+    }
+
+    function renderSourceRow(source, index) {
+        const typeOptionsHtml = typeOptions.map((option) => (
+            '<option value="' + option + '"' + (source.type === option ? ' selected' : '') + '>' + option + '</option>'
+        )).join('');
+
+        return [
+            '<tr data-index="', index, '">',
+                '<td><input type="checkbox" class="form-check-input source-enabled"', source.enabled ? ' checked' : '', '></td>',
+                '<td><input type="text" class="form-control form-control-sm source-field" data-field="id" value="', escapeHtml(source.id), '"></td>',
+                '<td><input type="text" class="form-control form-control-sm source-field" data-field="name" value="', escapeHtml(source.name), '"></td>',
+                '<td><select class="form-select form-select-sm source-field" data-field="type">', typeOptionsHtml, '</select></td>',
+                '<td><input type="text" class="form-control form-control-sm source-field" data-field="category" value="', escapeHtml(source.category), '"></td>',
+                '<td><input type="number" step="0.01" min="0" max="2" class="form-control form-control-sm source-field" data-field="authority_weight" value="', escapeHtml(String(source.authority_weight)), '"></td>',
+                '<td><input type="text" class="form-control form-control-sm source-field" data-field="url" value="', escapeHtml(source.url), '"></td>',
+                '<td>',
+                    '<div class="btn-group btn-group-sm" role="group">',
+                        '<button type="button" class="btn btn-outline-secondary duplicate-source">Duplicate</button>',
+                        '<button type="button" class="btn btn-outline-danger delete-source">Delete</button>',
+                    '</div>',
+                '</td>',
+            '</tr>'
+        ].join('');
+    }
+
+    function refreshDerivedView() {
+        const enabledCount = state.sources.filter((source) => source.enabled && source.url).length;
+        sourceSummaryEl.textContent = enabledCount + ' enabled of ' + state.sources.length + ' total';
+        yamlPreviewEl.value = buildYaml();
+    }
+
+    function render() {
+        halfLifeEl.value = state.ranking.half_life_hours;
+        document.querySelectorAll('.ranking-input').forEach((input) => {
+            const key = input.dataset.weight;
+            input.value = state.ranking.weights[key];
+        });
+
+        tableBodyEl.innerHTML = state.sources.map(renderSourceRow).join('');
+        refreshDerivedView();
+    }
+
+    function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, function (char) {
+            return ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            })[char] || char;
+        });
+    }
+
+    async function loadFromYamlText(text, label) {
+        try {
+            const parsed = window.jsyaml.load(text) || {};
+            state = normalizeConfig(parsed);
+            render();
+            showAlert('success', 'Loaded configuration from ' + label + '.');
+        } catch (error) {
+            showAlert('danger', 'Could not parse YAML from ' + label + ': ' + error.message);
+        }
+    }
+
+    async function loadRepoCopy() {
+        const response = await fetch('/sources.yml', { cache: 'no-store' });
+        if (!response.ok) {
+            throw new Error('HTTP ' + response.status);
+        }
+        const text = await response.text();
+        fileHandle = null;
+        openedFileName = 'sources.yml';
+        fileStatusEl.textContent = 'Loaded repo copy. Saving will download unless you open a local file.';
+        await loadFromYamlText(text, 'repo copy');
+    }
+
+    async function openLocalFile() {
+        if (window.showOpenFilePicker) {
+            const [handle] = await window.showOpenFilePicker({
+                multiple: false,
+                types: [{
+                    description: 'YAML files',
+                    accept: { 'text/yaml': ['.yml', '.yaml'] }
+                }]
+            });
+            if (!handle) {
+                return;
+            }
+            fileHandle = handle;
+            openedFileName = handle.name || 'sources.yml';
+            const file = await handle.getFile();
+            const text = await file.text();
+            fileStatusEl.textContent = 'Opened local file: ' + openedFileName;
+            await loadFromYamlText(text, openedFileName);
+            return;
+        }
+
+        fileInputEl.click();
+    }
+
+    async function saveConfig() {
+        const yamlText = buildYaml();
+        if (fileHandle && fileHandle.createWritable) {
+            const writable = await fileHandle.createWritable();
+            await writable.write(yamlText);
+            await writable.close();
+            showAlert('success', 'Saved changes to ' + openedFileName + '.');
+            return;
+        }
+        downloadConfig();
+        showAlert('warning', 'Direct file save is not available here, so the updated YAML was downloaded instead.');
+    }
+
+    function downloadConfig() {
+        const yamlText = buildYaml();
+        const blob = new Blob([yamlText], { type: 'text/yaml;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = openedFileName || 'sources.yml';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+    }
+
+    function addSource() {
+        const nextIndex = state.sources.length + 1;
+        state.sources.push(normalizeSource({
+            id: 'new_source_' + String(nextIndex).padStart(2, '0'),
+            type: 'rss',
+            name: 'New Source',
+            url: '',
+            category: 'rss',
+            authority_weight: 0.5,
+            enabled: true
+        }, nextIndex));
+        render();
+    }
+
+    function duplicateSource(index) {
+        const existing = state.sources[index];
+        if (!existing) {
+            return;
+        }
+        state.sources.splice(index + 1, 0, normalizeSource({
+            ...existing,
+            id: existing.id + '_copy',
+            name: existing.name + ' Copy'
+        }, index + 1));
+        render();
+    }
+
+    function deleteSource(index) {
+        state.sources.splice(index, 1);
+        render();
+    }
+
+    halfLifeEl.addEventListener('input', function (event) {
+        state.ranking.half_life_hours = toNumber(event.target.value, defaultState.ranking.half_life_hours);
+        refreshDerivedView();
+    });
+
+    document.querySelectorAll('.ranking-input').forEach((input) => {
+        input.addEventListener('input', function (event) {
+            const key = event.target.dataset.weight;
+            state.ranking.weights[key] = toNumber(event.target.value, defaultState.ranking.weights[key]);
+            refreshDerivedView();
+        });
+    });
+
+    tableBodyEl.addEventListener('input', function (event) {
+        const row = event.target.closest('tr[data-index]');
+        if (!row) {
+            return;
+        }
+        const index = Number(row.dataset.index);
+        const source = state.sources[index];
+        if (!source) {
+            return;
+        }
+
+        if (event.target.classList.contains('source-enabled')) {
+            source.enabled = event.target.checked;
+        } else if (event.target.classList.contains('source-field')) {
+            const field = event.target.dataset.field;
+            if (field === 'authority_weight') {
+                source[field] = toNumber(event.target.value, 0.5);
+            } else {
+                source[field] = event.target.value;
+                if (field === 'type' && !source.category) {
+                    source.category = event.target.value;
+                }
+            }
+        }
+        refreshDerivedView();
+    });
+
+    tableBodyEl.addEventListener('click', function (event) {
+        const row = event.target.closest('tr[data-index]');
+        if (!row) {
+            return;
+        }
+        const index = Number(row.dataset.index);
+        if (event.target.closest('.duplicate-source')) {
+            duplicateSource(index);
+        }
+        if (event.target.closest('.delete-source')) {
+            deleteSource(index);
+        }
+    });
+
+    document.getElementById('load-repo-config').addEventListener('click', function () {
+        loadRepoCopy().catch((error) => showAlert('danger', 'Could not load repo copy: ' + error.message));
+    });
+    document.getElementById('open-local-config').addEventListener('click', function () {
+        openLocalFile().catch((error) => showAlert('danger', 'Could not open local file: ' + error.message));
+    });
+    document.getElementById('save-config').addEventListener('click', function () {
+        saveConfig().catch((error) => showAlert('danger', 'Could not save configuration: ' + error.message));
+    });
+    document.getElementById('download-config').addEventListener('click', downloadConfig);
+    document.getElementById('add-source').addEventListener('click', addSource);
+    document.getElementById('copy-yaml').addEventListener('click', async function () {
+        await navigator.clipboard.writeText(yamlPreviewEl.value);
+        showAlert('success', 'Copied updated YAML to the clipboard.');
+    });
+
+    fileInputEl.addEventListener('change', async function (event) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) {
+            return;
+        }
+        openedFileName = file.name || 'sources.yml';
+        fileHandle = null;
+        fileStatusEl.textContent = 'Opened local file without direct-save support: ' + openedFileName;
+        await loadFromYamlText(await file.text(), openedFileName);
+        fileInputEl.value = '';
+    });
+
+    yamlPreviewEl.addEventListener('change', function (event) {
+        loadFromYamlText(event.target.value, 'YAML preview').catch((error) => {
+            showAlert('danger', 'Could not apply edited YAML: ' + error.message);
+        });
+    });
+
+    loadRepoCopy().catch((error) => showAlert('danger', 'Could not load repo copy: ' + error.message));
+})();
+</script>

@@ -1,4 +1,13 @@
 schema_version: 1.0.0
+ranking:
+  half_life_hours: 36
+  weights:
+    authority: 100
+    freshness: 120
+    engagement: 80
+    velocity: 40
+    coverage: 30
+    novelty_penalty: 50
 sources:
 - id: rss_openai_blog
   type: labs

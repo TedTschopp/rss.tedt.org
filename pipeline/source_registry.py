@@ -4,14 +4,19 @@ import yaml
 from .text_utils import stable_id
 
 
-def _from_sources_yaml(path: str) -> list[dict]:
+def _load_sources_payload(path: str) -> dict:
     file_path = Path(path)
     if not file_path.exists():
-        return []
+        return {}
 
     with file_path.open("r", encoding="utf-8") as handle:
         payload = yaml.safe_load(handle) or {}
 
+    return payload if isinstance(payload, dict) else {}
+
+
+def _from_sources_yaml(path: str) -> list[dict]:
+    payload = _load_sources_payload(path)
     sources = payload.get("sources", [])
     normalized = []
     for source in sources:
@@ -31,6 +36,38 @@ def _from_sources_yaml(path: str) -> list[dict]:
         )
 
     return [source for source in normalized if source.get("enabled") and source.get("url")]
+
+
+def load_pipeline_settings(path: str = "sources.yml") -> dict:
+    payload = _load_sources_payload(path)
+    ranking = payload.get("ranking", {})
+    if not isinstance(ranking, dict):
+        return {}
+
+    weights = ranking.get("weights", {})
+    if not isinstance(weights, dict):
+        weights = {}
+
+    settings = {}
+
+    half_life_hours = ranking.get("half_life_hours")
+    if half_life_hours is not None:
+        settings["half_life_hours"] = float(half_life_hours)
+
+    mapping = {
+        "authority": "score_weight_authority",
+        "freshness": "score_weight_freshness",
+        "engagement": "score_weight_engagement",
+        "velocity": "score_weight_velocity",
+        "coverage": "score_weight_coverage",
+        "novelty_penalty": "score_weight_novelty_penalty",
+    }
+    for source_key, setting_key in mapping.items():
+        value = weights.get(source_key)
+        if value is not None:
+            settings[setting_key] = float(value)
+
+    return settings
 
 
 def _from_jekyll_config(path: str) -> list[dict]:
