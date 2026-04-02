@@ -92,6 +92,13 @@ class: home-template
     const allFeeds = {{ site.feeds | jsonify }};
     // Filter to only enabled feeds (skip feeds with enabled: false)
     const feeds = allFeeds.filter(f => f.enabled !== false);
+    function isExternalFeedUrl(url){
+        try {
+            return new URL(url, window.location.origin).origin !== window.location.origin;
+        } catch (err) {
+            return false;
+        }
+    }
     // Showing all items (preview limit removed as per request)
     function esc(s){return (s||'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]||c));}
     function parseItems(xml){
@@ -150,6 +157,11 @@ class: home-template
     feeds.forEach((f,i)=>{
         const el = document.getElementById('feed-preview-'+i);
         if(!el) return;
+        if (f.external || isExternalFeedUrl(f.url)) {
+            const externalUrl = esc(f.url);
+            el.innerHTML = `<div class="text-muted"><small>External RSS feed. Preview is not embedded here because the source does not expose browser fetch access. <a href="${externalUrl}" target="_blank" rel="noopener">Open the feed</a>.</small></div>`;
+            return;
+        }
         fetch(f.url).then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
             .then(txt=>{
                 const items = parseItems(txt);
