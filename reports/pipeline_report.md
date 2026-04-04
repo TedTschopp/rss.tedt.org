@@ -1,6 +1,6 @@
 # Pipeline Report
 
-- Timestamp: 2026-04-04T08:32:54.018503Z
+- Timestamp: 2026-04-04T16:27:03.561656Z
 - Sources configured: 8
 - Raw items: 944
 - Stories: 944
