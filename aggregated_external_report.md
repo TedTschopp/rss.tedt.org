@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_external.xml
 
-Generated: 2026-04-12T01:46:15.240691+00:00 UTC
+Generated: 2026-04-12T08:40:14.630911+00:00 UTC
 
 - Total sources: 2
 - Attempted: 1  Skipped: 1  Failures: 0  With Items: 0  Recovered: 0
@@ -10,5 +10,5 @@ Generated: 2026-04-12T01:46:15.240691+00:00 UTC
 
 | URL | Category | Status | Class | CF | Items | Last Status | Error Excerpt |
 |-----|----------|--------|-------|----|-------|-------------|---------------|
-| https://feeds.arstechnica.com/arstechnica/technology-lab |  | empty | not_modified | 0 | 0 | 304 |  |
 | https://www.infoworld.com/index.rss |  | skipped | skipped | 5 | 0 | exception | HTTP 404 |
+| https://feeds.arstechnica.com/arstechnica/technology-lab |  | empty | not_modified | 0 | 0 | 304 |  |
