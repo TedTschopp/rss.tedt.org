@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Inputs</title><link rel="stylesheet" href="_card.css">
+<style>
+.field{display:flex;flex-direction:column;gap:6px;width:280px}
+.field label{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-muted)}
+.field input,.field select,.field textarea{font-family:var(--font-sans);font-size:14px;padding:10px 12px;border:1px solid var(--border);border-radius:4px;background:var(--bg-elev);color:var(--fg);outline:none;transition:border-color 120ms}
+.field input:focus,.field select:focus{border-color:var(--ink-900)}
+.field.err input{border-color:#8E2F08}
+.field-err{font-family:var(--font-mono);font-size:11px;color:#8E2F08}
+</style></head>
+<body><div class="card">
+<div class="note">Inputs</div>
+<div class="row" style="gap:14px;align-items:flex-start">
+<div class="field"><label>Email</label><input type="email" placeholder="you@company.com" value="reader@stripe.com"></div>
+<div class="field"><label>Search</label><input type="search" placeholder="Search stories…"></div>
+<div class="field err"><label>Email</label><input type="email" value="not-an-email"><div class="field-err">Enter a valid work email.</div></div>
+</div>
+</div></body></html>

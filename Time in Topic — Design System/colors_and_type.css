@@ -1,0 +1,267 @@
+/* ============================================================
+   Yesterday in AI — Colors & Type
+   Drop this into any HTML file: <link rel="stylesheet" href="colors_and_type.css">
+   ============================================================ */
+
+/* ---------- Web fonts (Google Fonts substitutes) ------------ */
+/* SUBSTITUTIONS: We're using Google Fonts proxies. If you have
+   licensed copies of Söhne (sans) and GT Sectra (display serif),
+   swap them in /fonts/ and update these @font-face declarations. */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---------- Color: ink (neutrals, warm-leaning) ---------- */
+  --ink-0:   #FBFAF7;  /* page background — warm paper */
+  --ink-50:  #F4F2EC;  /* card / subtle fill */
+  --ink-100: #E8E5DD;  /* divider, hairline alt */
+  --ink-200: #D4D0C5;  /* borders */
+  --ink-300: #A8A296;  /* muted text on light */
+  --ink-400: #6B6659;  /* secondary text */
+  --ink-600: #2E2A22;  /* body text */
+  --ink-900: #14110B;  /* headlines, max contrast */
+
+  /* ---------- Color: signal (single warm accent) ---------- */
+  --signal-50:  #FCEFE3;
+  --signal-100: #F8D9BB;
+  --signal-500: #D9531E;  /* primary accent — burnt sienna */
+  --signal-600: #B8410F;  /* hover */
+  --signal-700: #8E2F08;  /* press / on-light text */
+
+  /* ---------- Semantic ---------- */
+  --bg:           var(--ink-0);
+  --bg-elev:      #FFFFFF;
+  --bg-subtle:    var(--ink-50);
+  --bg-inverse:   var(--ink-900);
+
+  --fg:           var(--ink-900);
+  --fg-body:      var(--ink-600);
+  --fg-muted:     var(--ink-400);
+  --fg-faint:     var(--ink-300);
+  --fg-on-dark:   var(--ink-0);
+
+  --border:       var(--ink-200);
+  --border-soft:  var(--ink-100);
+  --border-strong: var(--ink-900);
+
+  --accent:       var(--signal-500);
+  --accent-hover: var(--signal-600);
+  --accent-press: var(--signal-700);
+  --accent-tint:  var(--signal-50);
+
+  /* Section pill colors — desaturated, low chroma */
+  --tag-tldr:       #2E2A22;
+  --tag-bigmoves:   #8E2F08;
+  --tag-ops:        #1F4D3A;
+  --tag-vendors:    #2A3F6B;
+  --tag-security:   #6B2D2D;
+  --tag-policy:     #4A3A1F;
+  --tag-quick:      #4A4A4A;
+
+  /* ---------- Type families ---------- */
+  --font-sans:    "Inter Tight", "Söhne", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-serif:   "Source Serif 4", "GT Sectra", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", ui-monospace, "Roboto Mono", Menlo, Consolas, monospace;
+  /* Display = the headline face. Defaults to serif so all the existing rules
+     still work, but components can opt into --font-display directly so a
+     single token swap can change every headline without touching prose. */
+  --font-display: var(--font-serif);
+
+  /* ---------- Type scale (modular, 1.250 minor third) ---------- */
+  --fs-12: 0.75rem;     /* 12 — meta, eyebrow */
+  --fs-13: 0.8125rem;   /* 13 — small UI */
+  --fs-14: 0.875rem;    /* 14 — UI, captions */
+  --fs-16: 1rem;        /* 16 — body */
+  --fs-18: 1.125rem;    /* 18 — body-lg, lede */
+  --fs-20: 1.25rem;     /* 20 — h5 */
+  --fs-24: 1.5rem;      /* 24 — h4 */
+  --fs-30: 1.875rem;    /* 30 — h3 */
+  --fs-38: 2.375rem;    /* 38 — h2 */
+  --fs-48: 3rem;        /* 48 — h1 */
+  --fs-64: 4rem;        /* 64 — display */
+
+  /* Line heights — tight for display, generous for reading */
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-body:  1.55;
+  --lh-prose: 1.65;
+
+  /* Tracking */
+  --tr-eyebrow: 0.08em;
+  --tr-tight:   -0.02em;
+  --tr-display: -0.03em;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* ---------- Radius (mostly square; subtle softening) ---------- */
+  --r-0:  0px;
+  --r-1:  2px;     /* default — almost square */
+  --r-2:  4px;     /* buttons, inputs */
+  --r-3:  8px;     /* cards */
+  --r-pill: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-0: none;
+  --shadow-1: 0 1px 0 rgba(20, 17, 11, 0.04), 0 1px 2px rgba(20, 17, 11, 0.06);
+  --shadow-2: 0 2px 4px rgba(20, 17, 11, 0.05), 0 4px 12px rgba(20, 17, 11, 0.06);
+  --shadow-pop: 0 12px 32px rgba(20, 17, 11, 0.10), 0 2px 6px rgba(20, 17, 11, 0.06);
+
+  /* ---------- Layout widths ---------- */
+  --w-prose:   680px;
+  --w-text:    760px;
+  --w-page:    1200px;
+  --w-wide:    1440px;
+
+  /* ---------- Motion ---------- */
+  --ease:      cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1:     120ms;
+  --dur-2:     200ms;
+  --dur-3:     320ms;
+}
+
+/* ---------- Base ---------- */
+html, body {
+  background: var(--bg);
+  color: var(--fg-body);
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Semantic typography classes ---------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-64);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-display);
+  color: var(--fg);
+}
+
+.h1 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-48);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-display);
+  color: var(--fg);
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-38);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--fg);
+}
+
+.h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-30);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--fg);
+}
+
+.h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-24);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--fg);
+}
+
+.h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-20);
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.lede {
+  font-family: var(--font-serif);
+  font-size: var(--fs-20);
+  line-height: var(--lh-prose);
+  color: var(--fg-body);
+}
+
+.p, p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  color: var(--fg-body);
+}
+
+.prose {
+  font-family: var(--font-serif);
+  font-size: var(--fs-18);
+  line-height: var(--lh-prose);
+  color: var(--fg-body);
+}
+
+.small {
+  font-size: var(--fs-13);
+  line-height: 1.45;
+  color: var(--fg-muted);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  color: var(--fg-muted);
+  letter-spacing: 0;
+}
+
+.code, code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: var(--r-1);
+  color: var(--fg);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color var(--dur-1) var(--ease);
+}
+a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
+a:active { color: var(--accent-press); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--sp-8) 0;
+}
