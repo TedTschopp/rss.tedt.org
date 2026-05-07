@@ -1,8 +1,8 @@
 # Pipeline Report
 
-- Timestamp: 2026-05-07T02:02:34.696483Z
+- Timestamp: 2026-05-07T10:16:26.767418Z
 - Sources configured: 8
-- Raw items: 980
-- Stories: 980
-- Clusters: 978
+- Raw items: 1259
+- Stories: 1258
+- Clusters: 1256
 - LLM: {'status': 'ok', 'calls': 1}
