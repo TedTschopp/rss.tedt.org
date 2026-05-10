@@ -5,9 +5,9 @@
 
 /* ---------- Web fonts (Google Fonts substitutes) ------------ */
 /* SUBSTITUTIONS: We're using Google Fonts proxies. If you have
-   licensed copies of Söhne (sans) and GT Sectra (display serif),
+  licensed copies of Cal Sans, Söhne (sans), and GT Sectra (display serif),
    swap them in /fonts/ and update these @font-face declarations. */
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
 
 :root {
   /* ---------- Color: ink (neutrals, warm-leaning) ---------- */
@@ -60,7 +60,8 @@
   /* ---------- Type families ---------- */
   --font-sans:    "Inter Tight", "Söhne", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-serif:   "Source Serif 4", "GT Sectra", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  --font-mono:    "JetBrains Mono", "SF Mono", ui-monospace, "Roboto Mono", Menlo, Consolas, monospace;
+  --font-mono:    "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-heading: "Cal Sans", var(--font-sans);
   /* Display = the headline face. Defaults to serif so all the existing rules
      still work, but components can opt into --font-display directly so a
      single token swap can change every headline without touching prose. */
@@ -172,11 +173,11 @@ html, body {
 }
 
 .h2 {
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 400;
   font-size: var(--fs-38);
   line-height: var(--lh-snug);
-  letter-spacing: var(--tr-tight);
+  letter-spacing: 0;
   color: var(--fg);
 }
 

@@ -13,7 +13,7 @@ The daily reading experience: masthead → TL;DR → ranked sections → Quick H
 | `Header` | Sticky top bar with wordmark, nav, search, subscribe CTA. Backdrop-blurred. |
 | `Masthead` | Volume number + date + headline + lede for the day's edition. |
 | `TLDR` | Numbered, hairline-separated 3–5 bullet summary. Mono numerals in accent color. |
-| `SectionHeader` | 2px ink-900 rule + tracked mono eyebrow + serif lede. One per section. |
+| `SectionHeader` | 2px ink-900 rule + tracked mono eyebrow + Cal Sans lede. One per section. |
 | `StoryCard` | Headline (serif) + Why-it-matters (serif) + Leader/IC rows (sans, hairline-separated) + Source link. |
 | `QuickHits` | Bulleted brief list with arrow-up-right links. |
 | `LookingAhead` | Inverted dark block (ink-900) — visual anchor at end of edition. |

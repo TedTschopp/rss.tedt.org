@@ -111,7 +111,7 @@ function EmailStory({ story, section, index }) {
 const es = {
   wrap: { padding:"28px 0", borderBottom:"1px solid var(--border)" },
   eyebrow: { fontFamily:"var(--font-mono)", fontSize:11, fontWeight:500, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--fg-muted)", marginBottom:10 },
-  h: { fontFamily:"var(--font-display)", fontWeight:700, fontSize:22, lineHeight:1.2, letterSpacing:"-0.02em", color:"var(--fg)", margin:"0 0 12px" },
+  h: { fontFamily:"var(--font-heading)", fontWeight:400, fontSize:22, lineHeight:1.2, letterSpacing:0, color:"var(--fg)", margin:"0 0 12px" },
   why: { fontFamily:"var(--font-serif)", fontSize:16, lineHeight:1.5, color:"var(--fg-body)", margin:"0 0 16px" },
   tableLike: { display:"flex", flexDirection:"column", gap:0, marginBottom:14 },
   row: { display:"grid", gridTemplateColumns:"96px 1fr", gap:14, padding:"8px 0", borderTop:"1px solid var(--border-soft)" },

@@ -81,10 +81,10 @@ function SectionHeader({ section, idx }) {
 }
 const sh = {
   wrap: { borderTop:"2px solid var(--ink-900)", paddingTop:18, marginTop:56, marginBottom:24 },
-  eyebrowRow: { display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:8 },
+  eyebrowRow: { display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8 },
   eyebrow: { fontFamily:"var(--font-mono)", fontSize:12, fontWeight:500, letterSpacing:"0.08em", textTransform:"uppercase" },
   count: { fontFamily:"var(--font-mono)", fontSize:11, color:"var(--fg-muted)" },
-  title: { fontFamily:"var(--font-display)", fontWeight:700, fontSize:32, lineHeight:1.15, letterSpacing:"-0.025em", color:"var(--fg)", margin:0 },
+  title: { fontFamily:"var(--font-heading)", fontWeight:400, fontSize:32, lineHeight:1.15, letterSpacing:0, color:"var(--fg)", margin:0 },
 };
 
 function StoryCard({ story, onOpen, hover }) {

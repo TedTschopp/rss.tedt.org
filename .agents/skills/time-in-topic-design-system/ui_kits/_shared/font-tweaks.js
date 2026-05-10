@@ -8,7 +8,7 @@
   const link = document.createElement("link");
   link.id = "yia-tedt-fonts";
   link.rel = "stylesheet";
-  link.href = "https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap";
+  link.href = "https://fonts.googleapis.com/css2?family=Cal+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap";
   document.head.appendChild(link);
 })();
 
@@ -17,17 +17,17 @@ const FONT_SETS = {
     label: "Original",
     sans:  '"Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
     serif: '"Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif',
-    mono:  '"JetBrains Mono", "SF Mono", ui-monospace, "Roboto Mono", Menlo, Consolas, monospace',
+    mono:  '"IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace',
     display: '"Source Serif 4", "Iowan Old Style", Georgia, serif',
-    note: "Source Serif 4 + Inter Tight + JetBrains Mono",
+    note: "Source Serif 4 + Inter Tight + IBM Plex Mono",
   },
   tedt: {
     label: "tedt.org",
     sans:  'Inter, "Noto Sans", "Helvetica Neue", -apple-system, system-ui, sans-serif',
     serif: '"Libre Baskerville", "Iowan Old Style", Georgia, serif',
-    mono:  '"Fira Code", SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+    mono:  '"IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace',
     display: '"Cal Sans", "Titillium Web", "Optima", "Arsenal", sans-serif',
-    note: "Cal Sans (display) + Libre Baskerville (prose) + Inter + Fira Code",
+    note: "Cal Sans (display) + Libre Baskerville (prose) + Inter + IBM Plex Mono",
   },
 };
 

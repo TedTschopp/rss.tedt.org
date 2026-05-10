@@ -15,7 +15,8 @@ Use this when designing for **Yesterday in AI**, a daily editorial product cover
 ## Non-negotiables
 
 - **No emoji.** Use mono glyphs (`→`, `↗`, `·`) for typographic accents.
-- **Sentence case for headlines.** Eyebrows are uppercase mono, tracked.
+- **Sentence case for headlines.** Eyebrows are IBM Plex Mono, uppercase, and tracked.
+- **H2 typography:** use `--font-heading` / Cal Sans for ordinary `h2` headings. Exclude only `.lead-title`, footer headings, and brand headings such as "Yesterday in AI" or "Last Week in AI".
 - **One accent color** (`--accent`, burnt sienna). It's for links, the dateline accent, and the source caret. Never as a fill behind text.
 - **Hairline rules over shadows.** Default cards are bordered, not shadowed.
 - **No gradients, no patterns, no stock photography.** Warm paper background only.

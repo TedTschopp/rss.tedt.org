@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yesterday in AI - Wednesday, April 29, 2026</title>
   <meta name="description" content="The AI news that matters in the enterprise, condensed into five minutes.">
-  <link rel="icon" type="image/svg+xml" href="Time%20in%20Topic%20%E2%80%94%20Design%20System/assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="Time%20in%20Topic%20%E2%80%94%20Design%20System/colors_and_type.css">
+  <link rel="stylesheet" href="styles/colors_and_type.css">
   <style>
     :root {
       --bs-body-bg: var(--bg);
@@ -452,6 +452,29 @@
       text-underline-offset: .18em;
     }
 
+    h2,
+    h2.eyebrow,
+    .section-title,
+    .rail-card .card-title,
+    .tldr-card .card-title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    h2.lead-title,
+    h2.brand-heading,
+    #weekly-heading {
+      font-family: var(--font-serif);
+      font-weight: 700;
+    }
+
+    .site-footer h2 {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      letter-spacing: var(--tr-eyebrow);
+    }
+
     [data-lucide] {
       height: 1em;
       stroke-width: 1.5;
@@ -592,8 +615,8 @@
         </section>
 
         <section class="mb-5" id="enterprise-ops" aria-labelledby="enterprise-ops-heading">
-          <header class="section-rule d-flex flex-column flex-md-row align-items-md-baseline justify-content-between gap-2 mb-2">
-            <div class="d-flex flex-wrap align-items-baseline gap-3">
+          <header class="section-rule d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2 mb-2">
+            <div class="d-flex flex-wrap align-items-center gap-3">
               <span class="story-tag tag-ops">Enterprise Ops</span>
               <h2 class="section-title fs-3 mb-0" id="enterprise-ops-heading">Where AI hit production this week</h2>
             </div>
@@ -622,8 +645,8 @@
         </section>
 
         <section class="mb-5" id="vendors" aria-labelledby="vendors-heading">
-          <header class="section-rule d-flex flex-column flex-md-row align-items-md-baseline justify-content-between gap-2 mb-2">
-            <div class="d-flex flex-wrap align-items-baseline gap-3">
+          <header class="section-rule d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2 mb-2">
+            <div class="d-flex flex-wrap align-items-center gap-3">
               <span class="story-tag tag-vendors">Vendors</span>
               <h2 class="section-title fs-3 mb-0" id="vendors-heading">New models, new SDKs, real changes</h2>
             </div>
@@ -646,7 +669,7 @@
         </section>
 
         <section class="mb-5" id="security" aria-labelledby="security-heading">
-          <header class="section-rule d-flex flex-wrap align-items-baseline gap-3 mb-2">
+          <header class="section-rule d-flex flex-wrap align-items-center gap-3 mb-2">
             <span class="story-tag tag-security">Security &amp; Trust</span>
             <h2 class="section-title fs-3 mb-0" id="security-heading">Incidents and mitigations, in plain English</h2>
           </header>
@@ -667,8 +690,8 @@
         </section>
 
         <section class="mb-5" id="science-technology" aria-labelledby="science-technology-heading">
-          <header class="section-rule d-flex flex-column flex-md-row align-items-md-baseline justify-content-between gap-2 mb-2">
-            <div class="d-flex flex-wrap align-items-baseline gap-3">
+          <header class="section-rule d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2 mb-2">
+            <div class="d-flex flex-wrap align-items-center gap-3">
               <span class="story-tag tag-scitech">Science &amp; Technology</span>
               <h2 class="section-title fs-3 mb-0" id="science-technology-heading">Research signals worth separating from noise</h2>
             </div>
@@ -691,7 +714,7 @@
         </section>
 
         <section class="mb-5" id="quick-hits" aria-labelledby="quick-hits-heading">
-          <header class="section-rule d-flex flex-wrap align-items-baseline gap-3 mb-4">
+          <header class="section-rule d-flex flex-wrap align-items-center gap-3 mb-4">
             <span class="story-tag tag-quick">Quick Hits</span>
             <h2 class="section-title fs-3 mb-0" id="quick-hits-heading">Everything else, in one line</h2>
           </header>
@@ -708,7 +731,7 @@
         </section>
 
         <section class="mb-5" aria-labelledby="shipped-heading">
-          <header class="section-rule d-flex flex-wrap align-items-baseline gap-3 mb-4">
+          <header class="section-rule d-flex flex-wrap align-items-center gap-3 mb-4">
             <span class="story-tag tag-vendors">Shipped Yesterday</span>
             <h2 class="section-title fs-3 mb-0" id="shipped-heading">Vendors, models, and dollars at a glance</h2>
           </header>
@@ -802,7 +825,7 @@
           </section>
           <section class="card rail-card" aria-labelledby="weekly-heading">
             <div class="card-body p-4">
-              <h2 class="card-title" id="weekly-heading">Last Week in AI</h2>
+              <h2 class="card-title brand-heading" id="weekly-heading">Last Week in AI</h2>
               <p class="small mb-3">Same voice, more depth. The weekly long-read goes out Sunday morning.</p>
               <a href="#" class="btn btn-outline-dark btn-sm w-100 btn-icon justify-content-center"><span>Switch to weekly</span><i data-lucide="arrow-right"></i></a>
             </div>

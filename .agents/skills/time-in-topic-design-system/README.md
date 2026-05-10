@@ -88,12 +88,13 @@ The visual register is closer to **Stratechery / The Information** than to **a t
 - **Section tags** are low-chroma desaturated colors used only inside the small section pill. Never as fills elsewhere.
 
 ### Type
-- **Display & headlines:** Source Serif 4 (substituting GT Sectra). Tight tracking. -0.03em on display.
+- **Display & lead headlines:** Source Serif 4 (substituting GT Sectra). Tight tracking. -0.03em on display.
+- **Standard `h2` headings:** Cal Sans via `--font-heading`. This applies to ordinary section, article, card, and module `h2`s. Do not apply it to `.lead-title`, footer headings, or brand headings such as "Yesterday in AI" and "Last Week in AI".
 - **UI & body:** Inter Tight (substituting Söhne). 16px body, 1.55 line-height.
 - **Long-form prose:** Source Serif 4 at 18px, 1.65 line-height — set on `.prose`. Article body uses serif intentionally.
-- **Metadata, timestamps, source attributions, eyebrows:** JetBrains Mono. Always uppercase + tracked for eyebrows; lowercase for inline meta.
+- **Metadata, timestamps, source attributions, eyebrows:** IBM Plex Mono. Always uppercase + tracked for eyebrows; lowercase for inline meta.
 
-> **Font substitutions:** We're using the closest free Google Fonts equivalents (Inter Tight ≈ Söhne, Source Serif 4 ≈ GT Sectra, JetBrains Mono ≈ Berkeley Mono). **If you have licensed copies, please drop them into `fonts/` and update `colors_and_type.css`.**
+> **Font substitutions:** We're using the closest free Google Fonts equivalents (Cal Sans for standard `h2`s, Inter Tight ≈ Söhne, Source Serif 4 ≈ GT Sectra, IBM Plex Mono for mono). **If you have licensed copies, please drop them into `fonts/` and update `colors_and_type.css`.**
 
 ### Spacing & layout
 - **4px base.** Tokens go 4 → 8 → 12 → 16 → 20 → 24 → 32 → 40 → 48 → 64 → 80 → 96.
@@ -185,5 +186,5 @@ Substitute the closest match and **flag the substitution in code review**. Do no
 
 - **Color direction:** Burnt sienna was chosen as a single warm accent. Two alternatives explored briefly but not built into tokens: **electric blue** (`#1E5BD9`, technical/cool register) and **graphite-on-cream** (no chroma at all, B&W with one signal weight). If the burnt sienna feels too editorial, we can swap by changing `--signal-*` values only.
 - **Logo:** The wordmark is typographic, no symbol. A monogram lockup (a literal "Y/AI" mark) is provided as an alternate in `assets/`.
-- **Font licensing:** Inter Tight, Source Serif 4, and JetBrains Mono are free. The system was *designed* assuming Söhne / GT Sectra / Berkeley Mono — if you license them, swap and the system holds.
+- **Font licensing:** Cal Sans, Inter Tight, Source Serif 4, and IBM Plex Mono are free. The system was *designed* assuming Söhne / GT Sectra for sans and display serif; IBM Plex Mono is the canonical mono face.
 
