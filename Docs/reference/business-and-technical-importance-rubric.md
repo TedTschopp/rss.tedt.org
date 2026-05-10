@@ -1,3 +1,5 @@
+# Business And Technical Importance Rubric
+
 ## Technology Impact Levels
 
 ### Level 1 — Informational (Tech-Optional)
@@ -61,7 +63,6 @@ manage AI systems within 6–18 months.
 * Changes to tokenization, context windows, or inference models
 
 ### Level 3 — Transformational (Tech-Essential)
-
 
 **Tag:** `[ ⬢ ]` **Label:** TRANSFORMATIONAL
 
@@ -268,7 +269,7 @@ cross-functionally” news.
 * A **security/privacy event** creates immediate exposure (notification,
   remediation, controls)
 * The change affects **multiple business units** and requires coordinated policy
-  + funding decisions
+  * funding decisions
 * The news implies **board-level** or **audit-level** interest
 
 **Examples:**

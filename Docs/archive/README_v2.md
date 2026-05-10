@@ -1,5 +1,7 @@
 <!-- markdownlint-disable -->
 
+> Archived historical note. Do not use this as current operating guidance. Current operational documentation lives in `Docs/operations/`.
+
 # GitHub Action: Table Scraper to RSS Feed - Enhanced
 
 A sophisticated GitHub Action that scrapes table data from websites to generate an AI news RSS feed automatically.

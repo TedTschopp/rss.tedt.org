@@ -13,7 +13,7 @@ from .llm_client import GitHubModelsClient
 from .text_utils import parse_datetime, to_iso
 
 
-IMPORTANCE_RUBRIC_PATH = "docs/Rules-for-Business-and-Technical-Importance.md"
+IMPORTANCE_RUBRIC_PATH = "Docs/reference/business-and-technical-importance-rubric.md"
 
 
 def _resolve_models_token() -> str:

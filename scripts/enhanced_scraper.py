@@ -625,7 +625,7 @@ _USER_AGENTS = [
 ]
 
 # Importance grading (EA aggregated feed)
-IMPORTANCE_RUBRIC_PATH = 'docs/Rules-for-Business-and-Technical-Importance.md'
+IMPORTANCE_RUBRIC_PATH = 'Docs/reference/business-and-technical-importance-rubric.md'
 BUSINESS_TAGS = {1: '[ ~ ]', 2: '[ * ]', 3: '[ ! ]'}
 TECHNICAL_TAGS = {1: '[ ◻ ]', 2: '[ ◼ ]', 3: '[ ⬢ ]'}
 _ALL_IMPORTANCE_TAGS = set(list(BUSINESS_TAGS.values()) + list(TECHNICAL_TAGS.values()))

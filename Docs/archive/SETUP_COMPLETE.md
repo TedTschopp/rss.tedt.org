@@ -1,5 +1,7 @@
 <!-- markdownlint-disable -->
 
+> Archived historical note. Do not use this as current operating guidance. Current operational documentation lives in `Docs/operations/`.
+
 # Jekyll RSS Feed Hub - Setup Complete! 🎉
 
 ## ✅ What We've Accomplished

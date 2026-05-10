@@ -117,6 +117,7 @@ Aggregated External Feed: `/aggregated_external.xml` (+ archive `/aggregated_ext
 
 ## Documentation
 
-- Setup and deployment notes live in `docs/setup/`.
-- Historical launch/setup notes live in `docs/archive/`.
-- Reference source lists live in `docs/reference/`.
+- Documentation home: [Docs/README.md](Docs/README.md).
+- GitHub Actions pipeline overview: [Docs/operations/github-actions-pipeline.md](Docs/operations/github-actions-pipeline.md).
+- Pipeline extension guide: [Docs/operations/github-actions-extension-guide.md](Docs/operations/github-actions-extension-guide.md).
+- Operations runbook: [Docs/operations/github-actions-runbook.md](Docs/operations/github-actions-runbook.md).
