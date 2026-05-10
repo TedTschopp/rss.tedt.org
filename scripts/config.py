@@ -10,6 +10,16 @@ RSS_FEED_FILES = {
     "gai_archive": "ai_rss_feed_archive.xml"
 }
 
+# Internal artifact locations. Public feeds remain at the repository root because
+# external subscribers depend on those URLs.
+STATE_DIR = "derived"
+REPORTS_DIR = "reports"
+AGGREGATION_REPORTS_DIR = f"{REPORTS_DIR}/aggregation"
+STATUS_REPORT_FILE = "api/rss_status.json"
+PREVIOUS_DATA_FILE = f"{STATE_DIR}/previous_data.json"
+AGGREGATOR_CACHE_FILE = f"{STATE_DIR}/aggregator_cache.json"
+SKIPPED_SOURCES_FILE = f"{STATE_DIR}/skipped_sources.json"
+
 RSS_METADATA = {
     "gai": {
         "title": "Ted Tschopp's AI News",

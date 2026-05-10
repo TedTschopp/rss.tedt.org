@@ -12,20 +12,21 @@ This project scrapes a dynamic table (GAI Insights) and also aggregates multiple
 - 🗄️ Aggregated archive: `aggregated_external_archive.xml`
 - � Change detection with JSON snapshot
 - 🛡️ Robust error handling & retries
-- � Health monitoring (`monitor.py`) writing `rss_status.json`
+- Health monitoring (`scripts/monitor.py`) writing `api/rss_status.json`
 
 ## Setup
 
 1. **Enable GitHub Actions**: Make sure GitHub Actions are enabled for your repository
 2. **Set Permissions**: The workflow has `contents: write` permission to commit the RSS feed back to the repo
 3. **Files of Interest**:
-   - `enhanced_scraper.py` (primary orchestrator: scraping + aggregation + retention)
-   - `monitor.py` (feed health & summary)
-   - `config.py` (constants & defaults)
+   - `scripts/enhanced_scraper.py` (primary orchestrator: scraping + aggregation + retention)
+   - `scripts/monitor.py` (feed health & summary)
+   - `scripts/config.py` (constants & defaults)
    - `_config.yml` (Jekyll + aggregation settings)
    - `ai_rss_feed.xml` / `ai_rss_feed_archive.xml`
    - `aggregated_external.xml` / `aggregated_external_archive.xml`
-   - `previous_data.json` (change tracking)
+   - `derived/previous_data.json` (change tracking)
+   - `reports/aggregation/` (repo-only aggregation health and report artifacts)
 
 ### GitHub Models Token Setup (for LLM enrichment)
 
@@ -71,7 +72,7 @@ For a browser-based editor, open `/top-stories-manager/` locally or on the site.
 
 ## Customization
 
-Primary customization via `_config.yml` (aggregation) & `config.py` (scraping/filters).
+Primary customization via `_config.yml` (aggregation) and `scripts/config.py` (scraping/filters).
 
 Example aggregation block:
 
@@ -90,6 +91,7 @@ aggregated_feeds:
 ## Schedule
 
 The action runs:
+
 - **Automatically**: Every hour at minute 0 (configurable in the workflow file)
 - **Manually**: Via the "Actions" tab in your GitHub repository
 
@@ -112,3 +114,9 @@ Aggregated External Feed: `/aggregated_external.xml` (+ archive `/aggregated_ext
 - `beautifulsoup4`: For HTML parsing
 - `PyYAML`: Parse Jekyll `_config.yml` aggregation settings
 - `feedgen`: For RSS feed generation
+
+## Documentation
+
+- Setup and deployment notes live in `docs/setup/`.
+- Historical launch/setup notes live in `docs/archive/`.
+- Reference source lists live in `docs/reference/`.

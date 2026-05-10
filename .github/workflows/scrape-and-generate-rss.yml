@@ -38,7 +38,7 @@ jobs:
         python -m playwright install --with-deps chromium
         
     - name: Run scraper and generate RSS
-      run: python enhanced_scraper.py
+      run: python -m scripts.enhanced_scraper
       env:
         DEBUG: "false"
 
@@ -48,7 +48,7 @@ jobs:
         GH_MODELS_TOKEN: ${{ secrets.GH_MODELS_TOKEN || secrets.GH_Models_Token }}
       
     - name: Run RSS health monitoring
-      run: python monitor.py
+      run: python -m scripts.monitor
 
     - name: Check for RSS changes
       id: check-changes
@@ -67,12 +67,6 @@ jobs:
           aggregated*.xml
           aggregated*.atom
           aggregated*.json
-          aggregated*_report.md
-          aggregated*_health.json
-          rss_status.json
-          previous_data.json
-          skipped_sources.json
-          aggregator_cache.json
           api/*.json
           feeds/*
           data/*.json
@@ -80,6 +74,8 @@ jobs:
           derived/*.jsonl
           reports/*.json
           reports/*.md
+          reports/aggregation/*.json
+          reports/aggregation/*.md
         )
         git add "${files[@]}"
 

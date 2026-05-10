@@ -5,7 +5,7 @@ import re
 import time
 from typing import Any
 
-from feed_generator import MultiFeedGenerator
+from scripts.feed_generator import MultiFeedGenerator
 
 from .constants import DEFAULT_PIPELINE_CONFIG
 from .io_utils import append_jsonl, write_json

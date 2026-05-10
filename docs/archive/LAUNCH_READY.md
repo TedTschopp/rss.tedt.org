@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # 🎉 Jekyll RSS Feed Hub - DEPLOYMENT READY!
 
 ## ✅ SETUP COMPLETE - ALL SYSTEMS GO!
@@ -76,9 +78,9 @@ Your RSS Feed Hub includes:
 ```
 GitHub Repository
 ├── RSS Scraping (Python)
-│   ├── enhanced_scraper.py    # Multi-source scraping
-│   ├── monitor.py             # Health monitoring
-│   └── config.py              # Centralized config
+│   ├── scripts/enhanced_scraper.py    # Multi-source scraping
+│   ├── scripts/monitor.py             # Health monitoring
+│   └── scripts/config.py              # Centralized config
 ├── Jekyll Site (Ruby)
 │   ├── _layouts/default.html  # Main template
 │   ├── index.html             # Homepage
@@ -104,7 +106,7 @@ GitHub Repository
 Your site includes built-in monitoring:
 
 - **Feed Health Checks**: Automated validation every 8 hours
-- **Status API**: JSON endpoint at `/rss_status.json`
+- **Status API**: JSON endpoint at `/api/rss_status.json`
 - **GitHub Actions Summaries**: Rich workflow reporting
 - **Error Detection**: Automatic alerting for feed failures
 
@@ -139,4 +141,4 @@ git add . && git commit -m "🚀 Launch RSS Feed Hub" && git push
 
 ---
 
-*Questions? Check [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed instructions or [SETUP_COMPLETE.md](./SETUP_COMPLETE.md) for configuration options.*
+*Questions? Check [DEPLOYMENT_GUIDE.md](../setup/DEPLOYMENT_GUIDE.md) for detailed deployment instructions or [SETUP_COMPLETE.md](./SETUP_COMPLETE.md) for configuration options.*

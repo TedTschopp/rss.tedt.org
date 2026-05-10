@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # GitHub Pages Jekyll Site
 
 This directory contains the Jekyll site configuration for displaying RSS feeds at https://rss.tedt.org.

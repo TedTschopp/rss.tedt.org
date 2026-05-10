@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Helper to safely set innerHTML
     function setHTML(el, html) { if (el) el.innerHTML = html; }
 
-    // Load RSS status using feed.url key mapping found in rss_status.json
-    fetch('/rss_status.json')
+    // Load RSS status using feed.url key mapping found in api/rss_status.json
+    fetch('/api/rss_status.json')
         .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
         .then(data => {
             rssFeeds.forEach(feed => {

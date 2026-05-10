@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 http://pitsperilous.blogspot.com/feeds/posts/default?alt=rss
 
 https://buildingsarepeople.blogspot.com/feeds/posts/default?alt=rss

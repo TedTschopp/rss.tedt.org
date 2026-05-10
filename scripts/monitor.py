@@ -9,6 +9,11 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
+try:
+    from scripts.config import AGGREGATION_REPORTS_DIR, STATUS_REPORT_FILE
+except ModuleNotFoundError:
+    from config import AGGREGATION_REPORTS_DIR, STATUS_REPORT_FILE
+
 # Attempt dynamic discovery of aggregated feeds
 def _discover_aggregated_outputs():
     outputs = []
@@ -131,7 +136,7 @@ def check_rss_health():
         for feed_name in list(status['feeds'].keys()):
             if not feed_name.endswith('.xml') or feed_name.endswith('_archive.xml'):
                 continue
-            health_path = Path(feed_name.replace('.xml', '_health.json'))
+            health_path = Path(AGGREGATION_REPORTS_DIR) / f"{Path(feed_name).stem}_health.json"
             if health_path.exists():
                 try:
                     with open(health_path, 'r', encoding='utf-8') as hf:
@@ -239,9 +244,11 @@ def save_status_report(status):
         status (dict): Status report dictionary
     """
     try:
-        with open('rss_status.json', 'w') as f:
+        status_path = Path(STATUS_REPORT_FILE)
+        status_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(status_path, 'w') as f:
             json.dump(status, f, indent=2)
-        print("Status report saved to rss_status.json")
+        print(f"Status report saved to {status_path}")
     except Exception as e:
         print(f"Error saving status report: {e}")
 

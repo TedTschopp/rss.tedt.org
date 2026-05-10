@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # GitHub Action: Table Scraper to RSS Feed - Enhanced
 
 A sophisticated GitHub Action that scrapes table data from websites to generate an AI news RSS feed automatically.
@@ -17,15 +19,15 @@ A sophisticated GitHub Action that scrapes table data from websites to generate 
 ## 📁 Project Structure
 
 ```
-├── scrape_to_rss.py          # Original scraper (legacy)
-├── enhanced_scraper.py       # New enhanced scraper with better architecture
-├── monitor.py                # RSS feed health monitoring
-├── config.py                 # Centralized configuration
+├── scripts/scrape_to_rss.py  # Original scraper (legacy)
+├── scripts/enhanced_scraper.py # New enhanced scraper with better architecture
+├── scripts/monitor.py        # RSS feed health monitoring
+├── scripts/config.py         # Centralized configuration
 ├── requirements.txt          # Python dependencies
 ├── .github/workflows/        # GitHub Actions workflows
 │   └── scrape-and-generate-rss.yml
 ├── ai_rss_feed.xml          # GAI Insights RSS feed
-└── rss_status.json          # Health monitoring report
+└── api/rss_status.json      # Health monitoring report
 ```
 
 ## 📊 RSS Feeds Generated
@@ -92,7 +94,7 @@ aggregated_feeds:
 
 ## 🔧 Configuration
 
-All settings are centralized in `config.py`:
+All settings are centralized in `scripts/config.py`:
 
 ```python
 # URL target
@@ -148,12 +150,12 @@ The project includes comprehensive health monitoring:
 
 2. **Run the Enhanced Scraper**:
    ```bash
-   python enhanced_scraper.py
+   python -m scripts.enhanced_scraper
    ```
 
 3. **Run Health Monitoring**:
    ```bash
-   python monitor.py
+   python -m scripts.monitor
    ```
 
 ### GitHub Actions Setup
@@ -205,14 +207,14 @@ The monitoring system generates detailed reports including:
 
 ### Adding New Data Sources
 
-1. Create a new scraper class in `enhanced_scraper.py`
-2. Add configuration in `config.py`
+1. Create a new scraper class in `scripts/enhanced_scraper.py`
+2. Add configuration in `scripts/config.py`
 3. Update the RSS generation logic
 4. Add monitoring for the new feed
 
 ### Modifying Content Filters
 
-Edit the `CONTENT_FILTERS` in `config.py`:
+Edit the `CONTENT_FILTERS` in `scripts/config.py`:
 
 ```python
 CONTENT_FILTERS = {
@@ -224,7 +226,7 @@ CONTENT_FILTERS = {
 
 ### Adjusting Scraping Behavior
 
-Modify `SCRAPING_CONFIG` in `config.py`:
+Modify `SCRAPING_CONFIG` in `scripts/config.py`:
 
 ```python
 SCRAPING_CONFIG = {
@@ -245,12 +247,12 @@ Your RSS feeds will be available at:
 ### Common Issues
 
 1. **Empty RSS Feed**: No content found
-   - Check status report in `rss_status.json`
+   - Check status report in `api/rss_status.json`
    - Verify source website structure hasn't changed
    - Review error logs in GitHub Actions
 
 2. **Timeout Errors**: Slow page loading
-   - Increase timeout values in `config.py`
+   - Increase timeout values in `scripts/config.py`
    - Check GitHub Actions runner performance
    - Consider reducing content processing
 
@@ -259,7 +261,7 @@ Your RSS feeds will be available at:
 Enable debug mode by setting environment variable:
 ```bash
 export DEBUG=true
-python enhanced_scraper.py
+python -m scripts.enhanced_scraper
 ```
 
 This generates debug HTML files for inspection.

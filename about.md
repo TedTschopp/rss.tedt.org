@@ -3,6 +3,8 @@ layout: default
 title: "About RSS Feed Hub"
 ---
 
+<!-- markdownlint-disable -->
+
 <div class="row">
     <div class="col-md-8">
         <h1>About RSS Feed Hub</h1>
@@ -117,7 +119,7 @@ title: "About RSS Feed Hub"
                     {% if site.github_url %}
                     <li><a href="{{ site.github_url }}" target="_blank"><i class="fab fa-github"></i> Source Code</a></li>
                     {% endif %}
-                    <li><a href="{{ site.baseurl }}/rss_status.json"><i class="fas fa-file-code"></i> Status JSON</a></li>
+                    <li><a href="{{ site.baseurl }}/api/rss_status.json"><i class="fas fa-file-code"></i> Status JSON</a></li>
                     {% for feed in site.feeds %}
                     <li><a href="{{ feed.url }}"><i class="fas fa-rss"></i> {{ feed.name }}</a></li>
                     {% endfor %}
@@ -130,7 +132,7 @@ title: "About RSS Feed Hub"
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Load quick stats
-    fetch('/rss_status.json')
+    fetch('/api/rss_status.json')
         .then(response => response.json())
         .then(data => {
             let totalEntries = 0;

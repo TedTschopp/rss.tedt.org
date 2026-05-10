@@ -16,8 +16,12 @@ import time
 import re
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-# Import multi-format feed generator
-from feed_generator import MultiFeedGenerator
+try:
+    from scripts.config import PREVIOUS_DATA_FILE
+    from scripts.feed_generator import MultiFeedGenerator
+except ModuleNotFoundError:
+    from config import PREVIOUS_DATA_FILE
+    from feed_generator import MultiFeedGenerator
 
 
 def normalize_text(text):
@@ -242,8 +246,8 @@ def load_previous_data():
         dict: Previous data or empty dict if file doesn't exist
     """
     try:
-        if os.path.exists('previous_data.json'):
-            with open('previous_data.json', 'r', encoding='utf-8') as f:
+        if os.path.exists(PREVIOUS_DATA_FILE):
+            with open(PREVIOUS_DATA_FILE, 'r', encoding='utf-8') as f:
                 return json.load(f)
     except Exception as e:
         print(f"Error loading previous data: {e}")
@@ -257,7 +261,8 @@ def save_current_data(data):
         data (list): Current scraped data
     """
     try:
-        with open('previous_data.json', 'w', encoding='utf-8') as f:
+        os.makedirs(os.path.dirname(PREVIOUS_DATA_FILE), exist_ok=True)
+        with open(PREVIOUS_DATA_FILE, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
     except Exception as e:
         print(f"Error saving current data: {e}")

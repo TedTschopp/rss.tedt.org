@@ -27,7 +27,11 @@ def validate_jekyll_setup():
         'robots.txt',
         'sitemap.xml',
         '_layouts/default.html',
-        '.github/workflows/scrape-and-generate-rss.yml'
+        '.github/workflows/scrape-and-generate-rss.yml',
+        'scripts/enhanced_scraper.py',
+        'scripts/monitor.py',
+        'scripts/config.py',
+        'scripts/feed_generator.py'
     ]
     
     print("📁 Checking required files:")
@@ -56,11 +60,12 @@ def validate_jekyll_setup():
     
     # Check status file
     print("\n📊 Checking status monitoring:")
-    if os.path.exists('rss_status.json'):
+    status_path = 'api/rss_status.json'
+    if os.path.exists(status_path):
         try:
-            with open('rss_status.json', 'r') as f:
+            with open(status_path, 'r') as f:
                 status_data = json.load(f)
-            print(f"  ✅ rss_status.json (valid JSON)")
+            print(f"  ✅ {status_path} (valid JSON)")
             
             # Check feed status
             if 'feeds' in status_data:
@@ -73,11 +78,11 @@ def validate_jekyll_setup():
                         warnings.append(f"Feed {feed_name} has no entries")
             
         except json.JSONDecodeError as e:
-            print(f"  ❌ rss_status.json (invalid JSON: {e})")
-            errors.append("rss_status.json is not valid JSON")
+            print(f"  ❌ {status_path} (invalid JSON: {e})")
+            errors.append(f"{status_path} is not valid JSON")
     else:
-        print(f"  ❌ rss_status.json")
-        errors.append("Missing rss_status.json")
+        print(f"  ❌ {status_path}")
+        errors.append(f"Missing {status_path}")
     
     # Check GitHub Actions workflow
     print("\n🚀 Checking GitHub Actions workflow:")
@@ -86,7 +91,7 @@ def validate_jekyll_setup():
         with open(workflow_path, 'r') as f:
             workflow_content = f.read()
         
-        required_jobs = ['scrape-and-generate-rss', 'build-and-deploy-site']
+        required_jobs = ['scrape-and-generate-rss', 'deploy-on-push', 'deploy-after-scrape']
         for job in required_jobs:
             if job in workflow_content:
                 print(f"  ✅ Job: {job}")

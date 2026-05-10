@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Jekyll RSS Feed Hub Deployment Guide
 
 This guide covers the Jekyll site setup and deployment for the RSS Feed Hub at https://rss.tedt.org.
@@ -39,7 +41,7 @@ The Jekyll site is automatically deployed via GitHub Actions to GitHub Pages. Th
 - **Entry Counts**: Shows number of articles in each feed
 - **Last Updated**: Displays when feeds were last refreshed
 - **Error Detection**: Alerts when feeds are unhealthy
-- **JSON API**: Exposes feed status at `/rss_status.json`
+- **JSON API**: Exposes feed status at `/api/rss_status.json`
 
 ### SEO & Performance
 - **Fast Loading**: Minimal dependencies, CDN assets
@@ -73,7 +75,7 @@ The deployment is triggered by:
 ## 📊 Monitoring
 
 ### Feed Status API
-Get real-time feed status: `GET /rss_status.json`
+Get real-time feed status: `GET /api/rss_status.json`
 
 ```json
 {

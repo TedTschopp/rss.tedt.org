@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Jekyll RSS Feed Hub - Setup Complete! 🎉
 
 ## ✅ What We've Accomplished
@@ -54,7 +56,7 @@ git push origin main
 Once deployed, check:
 - [ ] Site loads at your GitHub Pages URL
 - [ ] RSS feed is accessible (`/ai_rss_feed.xml`)
-- [ ] Status monitoring works (`/rss_status.json`)
+- [ ] Status monitoring works (`/api/rss_status.json`)
 - [ ] All pages render correctly (Home, Feeds, About)
 - [ ] Mobile responsiveness works
 
@@ -127,7 +129,7 @@ bundle exec jekyll serve --drafts --watch
 curl -I https://your-site.com/ai_rss_feed.xml
 
 # Test feed status API
-curl https://your-site.com/rss_status.json
+curl https://your-site.com/api/rss_status.json
 ```
 
 ## 📈 Analytics & Monitoring
@@ -163,4 +165,4 @@ Your Jekyll RSS Feed Hub is now **ready for deployment**! The setup includes:
 
 ---
 
-*Need help? Check the [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed deployment instructions.*
+*Need help? Check the [DEPLOYMENT_GUIDE.md](../setup/DEPLOYMENT_GUIDE.md) for detailed deployment instructions.*

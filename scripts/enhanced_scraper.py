@@ -23,11 +23,12 @@ import re
 from dateutil import parser as date_parser
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-# Import configuration
-from config import *
-
-# Import multi-format feed generator
-from feed_generator import MultiFeedGenerator
+try:
+    from scripts.config import *
+    from scripts.feed_generator import MultiFeedGenerator
+except ModuleNotFoundError:
+    from config import *
+    from feed_generator import MultiFeedGenerator
 
 # Setup logging
 logging.basicConfig(
@@ -134,7 +135,7 @@ class DataPersistence:
     """Handle data persistence and change detection."""
     
     @staticmethod
-    def load_previous_data(filename='previous_data.json'):
+    def load_previous_data(filename=PREVIOUS_DATA_FILE):
         """Load previously scraped data."""
         try:
             if Path(filename).exists():
@@ -145,9 +146,10 @@ class DataPersistence:
         return {}
     
     @staticmethod
-    def save_current_data(data, filename='previous_data.json'):
+    def save_current_data(data, filename=PREVIOUS_DATA_FILE):
         """Save current data for future comparison."""
         try:
+            Path(filename).parent.mkdir(parents=True, exist_ok=True)
             with open(filename, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
         except Exception as e:
@@ -613,7 +615,7 @@ def load_aggregator_config():
     configs = load_aggregator_configs()
     return configs[0] if configs else dict(AGGREGATED_DEFAULT)
 
-AGG_CACHE_FILE = 'aggregator_cache.json'
+AGG_CACHE_FILE = AGGREGATOR_CACHE_FILE
 _USER_AGENTS = [
     # A small rotating pool of realistic desktop browser UA strings
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
@@ -804,6 +806,7 @@ def _load_agg_cache():
 
 def _save_agg_cache(cache):
     try:
+        Path(AGG_CACHE_FILE).parent.mkdir(parents=True, exist_ok=True)
         with open(AGG_CACHE_FILE, 'w', encoding='utf-8') as f:
             json.dump(cache, f, indent=2)
     except Exception as e:
@@ -1347,14 +1350,18 @@ def aggregate_external_feeds(cfg):
             logger.error(f"Error updating aggregated archive: {e}")
     # Persist cache updates
     _save_agg_cache(cache)
-    # Write health summary adjacent to output feed for quick inspection
+    # Write health and report artifacts under reports/aggregation; public feed
+    # files remain at the repository root.
     try:
-        health_file = output_file.replace('.xml', '_health.json')
+        report_dir = Path(AGGREGATION_REPORTS_DIR)
+        report_dir.mkdir(parents=True, exist_ok=True)
+        output_stem = Path(output_file).stem
+        health_file = report_dir / f'{output_stem}_health.json'
         with open(health_file, 'w', encoding='utf-8') as hf:
             json.dump(health, hf, indent=2)
         logger.info(f"Health summary written: {health_file} (attempted {health['attempted']}, skipped {health['skipped']}, failures {health['failures']}, recovered {health['recovered']})")
         # Markdown report
-        report_file = output_file.replace('.xml', '_report.md')
+        report_file = report_dir / f'{output_stem}_report.md'
         with open(report_file, 'w', encoding='utf-8') as rf:
             rf.write(f"# Aggregated Feed Health Report: {output_file}\n\n")
             rf.write(f"Generated: {health['timestamp']} UTC\n\n")
@@ -1376,9 +1383,11 @@ def aggregate_external_feeds(cfg):
         logger.info(f"Markdown report written: {report_file}")
         # Skipped sources summary
         skipped_sources = [u for u,m in cache.get('sources',{}).items() if m.get('skipped')]
-        with open('skipped_sources.json','w',encoding='utf-8') as sf:
+        skipped_path = Path(SKIPPED_SOURCES_FILE)
+        skipped_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(skipped_path,'w',encoding='utf-8') as sf:
             json.dump({ 'generated': health['timestamp'], 'skip_threshold': policy.get('skip_after_failures'), 'sources': skipped_sources }, sf, indent=2)
-        logger.info("Skipped sources summary written: skipped_sources.json")
+        logger.info(f"Skipped sources summary written: {skipped_path}")
     except Exception as he:
         logger.warning(f"Failed to write health summary: {he}")
 
