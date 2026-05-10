@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI raises $122 billion - Yesterday in AI</title>
+  <meta name="description" content="Capacity is shifting region by region as enterprise AI procurement moves from pilot to default.">
+  <link rel="icon" type="image/svg+xml" href="Time%20in%20Topic%20%E2%80%94%20Design%20System/assets/favicon.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Time%20in%20Topic%20%E2%80%94%20Design%20System/colors_and_type.css">
+  <style>
+    :root {
+      --bs-body-bg: var(--bg);
+      --bs-body-color: var(--fg-body);
+      --bs-body-font-family: var(--font-sans);
+      --bs-primary: var(--ink-900);
+      --bs-primary-rgb: 20, 17, 11;
+      --bs-link-color: var(--accent);
+      --bs-link-hover-color: var(--accent-hover);
+      --bs-border-color: var(--border);
+      --bs-border-radius: var(--r-2);
+      --bs-border-radius-sm: var(--r-1);
+      --bs-border-radius-lg: var(--r-3);
+      --page-max: var(--w-page);
+      --site-nav-height: 64px;
+      --progress-height: 3px;
+      --tag-scitech: #31525B;
+    }
+
+    html {
+      scroll-padding-top: calc(var(--site-nav-height) + var(--progress-height) + var(--sp-8));
+    }
+
+    [data-bs-theme="dark"] {
+      --bg: #14110B;
+      --bg-elev: #1F1B14;
+      --bg-subtle: #2A241B;
+      --fg: #FBFAF7;
+      --fg-body: #E8E5DD;
+      --fg-muted: #BDB6A7;
+      --fg-faint: #8F8778;
+      --border: #4C4335;
+      --border-soft: #352E25;
+      --border-strong: #FBFAF7;
+      --bs-secondary-color: var(--fg-muted);
+      --bs-tertiary-bg: var(--bg-subtle);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg-body);
+    }
+
+    .container-editorial {
+      max-width: var(--page-max);
+    }
+
+    .site-nav {
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      z-index: 1030;
+    }
+
+    .wordmark {
+      color: var(--fg);
+      display: inline-flex;
+      align-items: baseline;
+      gap: .12em;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .wordmark:hover {
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .wm-cadence {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+      line-height: 1;
+    }
+
+    .wm-slash {
+      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+      font-weight: 500;
+    }
+
+    .wm-tail {
+      font-family: var(--font-sans);
+      font-size: clamp(.9rem, 1.7vw, 1.2rem);
+      font-weight: 600;
+      text-transform: none;
+    }
+
+    .btn-primary {
+      --bs-btn-bg: var(--ink-900);
+      --bs-btn-border-color: var(--ink-900);
+      --bs-btn-hover-bg: #000;
+      --bs-btn-hover-border-color: #000;
+      --bs-btn-active-bg: var(--accent-press);
+      --bs-btn-active-border-color: var(--accent-press);
+      --bs-btn-color: var(--ink-0);
+      --bs-btn-hover-color: var(--ink-0);
+    }
+
+    [data-bs-theme="dark"] .btn-primary {
+      --bs-btn-bg: var(--ink-0);
+      --bs-btn-border-color: var(--ink-0);
+      --bs-btn-hover-bg: #fff;
+      --bs-btn-hover-border-color: #fff;
+      --bs-btn-color: var(--ink-900);
+      --bs-btn-hover-color: var(--ink-900);
+    }
+
+    .btn-outline-dark {
+      --bs-btn-color: var(--fg);
+      --bs-btn-border-color: var(--border-strong);
+      --bs-btn-hover-bg: var(--fg);
+      --bs-btn-hover-border-color: var(--fg);
+      --bs-btn-hover-color: var(--bg);
+    }
+
+    .btn-icon {
+      align-items: center;
+      display: inline-flex;
+      gap: .45rem;
+    }
+
+    .nav-link,
+    .dropdown-item {
+      color: var(--fg-body);
+      text-decoration: none;
+    }
+
+    .nav-link:hover,
+    .nav-link.active,
+    .dropdown-item:hover {
+      color: var(--accent);
+    }
+
+    .reading-progress {
+      background: transparent;
+      height: var(--progress-height);
+      position: sticky;
+      top: var(--site-nav-height);
+      z-index: 1020;
+    }
+
+    .reading-progress .progress-bar {
+      background: var(--accent);
+      transition: width 60ms linear;
+      width: 0;
+    }
+
+    [id] {
+      scroll-margin-top: calc(var(--site-nav-height) + var(--progress-height) + var(--sp-8));
+    }
+
+    .eyebrow,
+    .meta,
+    .story-tag,
+    .source-link,
+    .toc-title,
+    .source-list .list-group-item::before,
+    .stat-label {
+      font-family: var(--font-mono);
+    }
+
+    .story-tag {
+      border: 1px solid currentColor;
+      border-radius: var(--r-pill);
+      display: inline-flex;
+      font-size: var(--fs-12);
+      font-weight: 600;
+      letter-spacing: var(--tr-eyebrow);
+      line-height: 1;
+      padding: .35rem .55rem;
+      text-transform: uppercase;
+    }
+
+    .tag-bigmoves { color: var(--tag-bigmoves); }
+    .tag-ops { color: var(--tag-ops); }
+    .tag-vendors { color: var(--tag-vendors); }
+    .tag-security { color: var(--tag-security); }
+    .tag-scitech { color: var(--tag-scitech); }
+    .tag-policy { color: var(--tag-policy); }
+    .tag-quick { color: var(--tag-quick); }
+
+    .article-hero {
+      border-bottom: 1px solid var(--border-soft);
+      padding: clamp(3rem, 8vw, 5.5rem) 0 var(--sp-10);
+    }
+
+    .breadcrumb {
+      --bs-breadcrumb-divider-color: var(--fg-faint);
+      --bs-breadcrumb-item-active-color: var(--fg-muted);
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      letter-spacing: var(--tr-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .breadcrumb a {
+      color: var(--fg-muted);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: .18em;
+    }
+
+    .article-title {
+      color: var(--fg);
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 5.75rem);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: .98;
+      max-width: 12ch;
+      text-wrap: balance;
+    }
+
+    .article-standfirst {
+      color: var(--fg-body);
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.3vw, 1.7rem);
+      line-height: 1.35;
+      max-width: 36rem;
+      text-wrap: balance;
+    }
+
+    .byline-bar {
+      border-bottom: 1px solid var(--border-soft);
+      border-top: 1px solid var(--border-soft);
+      color: var(--fg-muted);
+      font-family: var(--font-mono);
+      font-size: var(--fs-13);
+      padding: var(--sp-4) 0;
+    }
+
+    .byline-bar strong {
+      color: var(--fg);
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+
+    .hero-frame,
+    .inline-chart {
+      align-items: center;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-subtle);
+      color: var(--fg-muted);
+      display: flex;
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      justify-content: center;
+      letter-spacing: var(--tr-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .article-prose {
+      color: var(--fg-body);
+      font-family: var(--font-sans);
+      font-size: var(--fs-18);
+      line-height: var(--lh-prose);
+    }
+
+    .article-prose > p {
+      margin-bottom: var(--sp-5);
+      text-wrap: pretty;
+    }
+
+    .article-prose > p:first-of-type::first-letter {
+      color: var(--fg);
+      float: left;
+      font-family: var(--font-serif);
+      font-size: 4.1em;
+      font-weight: 700;
+      line-height: .9;
+      padding: .05em .12em 0 0;
+    }
+
+    .article-prose h2,
+    .article-prose h3,
+    .more-title,
+    .more-card-title {
+      color: var(--fg);
+      font-family: var(--font-serif);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .article-prose h2 {
+      font-size: var(--fs-30);
+      line-height: 1.15;
+      margin: var(--sp-12) 0 var(--sp-4);
+    }
+
+    .article-prose h3 {
+      font-size: var(--fs-24);
+      margin: var(--sp-8) 0 var(--sp-3);
+    }
+
+    .more-card-title {
+      font-size: var(--fs-20);
+      line-height: 1.2;
+    }
+
+    .article-prose blockquote {
+      border-left: .25rem solid var(--border-strong);
+      color: var(--fg);
+      font-family: var(--font-serif);
+      font-size: var(--fs-20);
+      line-height: 1.5;
+      margin: var(--sp-8) 0;
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-5);
+    }
+
+    .article-prose figcaption,
+    .figure-caption {
+      color: var(--fg-muted);
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+    }
+
+    .stat-card,
+    .takeaway-card,
+    .rail-card,
+    .more-card {
+      background: var(--bg-elev);
+      border-color: var(--border);
+      box-shadow: none;
+    }
+
+    .stat-num {
+      color: var(--fg);
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-num .accent {
+      color: var(--accent);
+    }
+
+    .stat-label {
+      color: var(--fg-muted);
+      font-size: var(--fs-12);
+      letter-spacing: var(--tr-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .takeaway-card {
+      border-left: .25rem solid var(--accent);
+    }
+
+    .takeaway-card dt {
+      color: var(--fg-muted);
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      letter-spacing: var(--tr-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .takeaway-card dd {
+      color: var(--fg);
+      margin-bottom: var(--sp-4);
+    }
+
+    .source-list {
+      counter-reset: source;
+    }
+
+    .source-list .list-group-item {
+      align-items: baseline;
+      background: transparent;
+      border-color: var(--border-soft);
+      color: var(--fg-body);
+      counter-increment: source;
+      display: grid;
+      gap: var(--sp-3);
+      grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .source-list .list-group-item::before {
+      color: var(--fg-faint);
+      content: "[" counter(source) "]";
+      font-size: var(--fs-12);
+    }
+
+    .source-list a,
+    .toc a,
+    .more-card a,
+    .site-footer a {
+      color: var(--fg-body);
+      text-decoration: none;
+    }
+
+    .source-list a:hover,
+    .toc a:hover,
+    .toc a.active,
+    .more-card a:hover,
+    .site-footer a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+      text-underline-offset: .18em;
+    }
+
+    .article-rail {
+      top: calc(var(--site-nav-height) + var(--progress-height) + var(--sp-8));
+    }
+
+    .toc {
+      border-top: 2px solid var(--border-strong);
+      padding-top: var(--sp-3);
+    }
+
+    .toc-title,
+    .rail-card .card-title {
+      color: var(--fg-muted);
+      font-size: var(--fs-12);
+      font-weight: 500;
+      letter-spacing: var(--tr-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .toc .list-group-item,
+    .rail-card .list-group-item {
+      background: transparent;
+      border-color: var(--border-soft);
+      color: var(--fg-body);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .subscribe-block {
+      background: var(--ink-900);
+      color: var(--fg-on-dark);
+    }
+
+    [data-bs-theme="dark"] .subscribe-block {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      color: var(--fg);
+    }
+
+    .subscribe-block h2 {
+      color: inherit;
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.05;
+    }
+
+    .subscribe-block .form-control {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .2);
+      color: #fff;
+    }
+
+    [data-bs-theme="dark"] .subscribe-block .form-control {
+      background: var(--bg-subtle);
+      border-color: var(--border);
+      color: var(--fg);
+    }
+
+    .form-control {
+      background: var(--bg);
+      border-color: var(--border);
+      color: var(--fg);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 5rem;
+      padding: 3rem 0;
+    }
+
+    [data-lucide] {
+      height: 1em;
+      stroke-width: 1.5;
+      width: 1em;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top site-nav border-bottom" aria-label="Primary navigation">
+    <div class="container-xl container-editorial">
+      <a class="navbar-brand wordmark me-lg-4" href="New-Home-Page.html" aria-label="Yesterday in AI home">
+        <span class="wm-cadence">Yesterday</span><span class="wm-slash">/</span><span class="wm-tail">in&nbsp;AI</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="primaryNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-2 me-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="New-Home-Page.html">Today</a></li>
+          <li class="nav-item"><a class="nav-link" href="New-Home-Page.html#archive">Archive</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">Sections</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="New-Home-Page.html#big-moves">Big Moves</a></li>
+              <li><a class="dropdown-item" href="New-Home-Page.html#enterprise-ops">Enterprise Ops</a></li>
+              <li><a class="dropdown-item" href="New-Home-Page.html#vendors">Vendors</a></li>
+              <li><a class="dropdown-item" href="New-Home-Page.html#security">Security &amp; Trust</a></li>
+              <li><a class="dropdown-item" href="New-Home-Page.html#science-technology">Science &amp; Technology</a></li>
+              <li><a class="dropdown-item" href="New-Home-Page.html#quick-hits">Quick Hits</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        </ul>
+        <form class="d-flex align-items-center gap-2 me-lg-2 mb-3 mb-lg-0" role="search">
+          <label class="visually-hidden" for="site-search">Search editions</label>
+          <input id="site-search" class="form-control form-control-sm" type="search" placeholder="Search 184 editions">
+        </form>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-outline-dark btn-sm btn-icon" type="button" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+            <i data-lucide="moon"></i>
+          </button>
+          <a href="#subscribe" class="btn btn-primary btn-sm btn-icon"><i data-lucide="mail"></i><span>Subscribe</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="progress reading-progress rounded-0" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="progress-bar" id="readingProgress"></div>
+  </div>
+
+  <header class="article-hero" id="top">
+    <div class="container-xl container-editorial">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb mb-4">
+          <li class="breadcrumb-item"><a href="New-Home-Page.html">Today</a></li>
+          <li class="breadcrumb-item"><a href="New-Home-Page.html#big-moves">Big Moves</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Vol. 184</li>
+        </ol>
+      </nav>
+
+      <div class="row g-5 align-items-end">
+        <div class="col-lg-8">
+          <span class="story-tag tag-bigmoves mb-3">Big Moves</span>
+          <h1 class="article-title mb-4">OpenAI raises $122 billion, and the floor on enterprise AI just moved.</h1>
+          <p class="article-standfirst mb-0">Capacity is shifting region by region. The interesting move is not the dollar figure. It is that enterprise procurement has crossed from pilot to default for several governments inside a single week.</p>
+        </div>
+        <div class="col-lg-4">
+          <div class="card stat-card">
+            <div class="card-body p-4">
+              <div class="stat-label mb-2">Primary signal</div>
+              <div class="stat-num"><span class="accent">$122</span>B</div>
+              <p class="small mb-0 mt-3">New capital changes the procurement baseline more than the press cycle.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="byline-bar d-flex flex-column flex-lg-row align-items-lg-center gap-3 mt-5">
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <span><strong>The Editors</strong></span>
+          <span>·</span>
+          <span>Apr 29, 2026</span>
+          <span>·</span>
+          <span>7 min read</span>
+        </div>
+        <div class="d-flex gap-2 ms-lg-auto">
+          <button class="btn btn-outline-dark btn-sm btn-icon" type="button" aria-label="Bookmark story" title="Bookmark story"><i data-lucide="bookmark"></i></button>
+          <button class="btn btn-outline-dark btn-sm btn-icon" type="button" aria-label="Share story" title="Share story"><i data-lucide="share-2"></i></button>
+          <button class="btn btn-outline-dark btn-sm btn-icon" type="button" aria-label="Copy link" title="Copy link"><i data-lucide="link"></i></button>
+        </div>
+      </div>
+
+      <figure class="card mt-5 overflow-hidden">
+        <div class="hero-frame">Regional capacity map</div>
+        <figcaption class="figure-caption card-footer bg-transparent">Stargate expansion site, Korea</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <main class="container-xl container-editorial my-5">
+    <div class="row g-5 justify-content-between">
+      <article class="col-lg-8 article-prose">
+        <p id="headline-number">The headline number is $122&nbsp;billion. The interesting number is three: three sovereign-AI deals signed inside a single week, with India, the UK, and Korea each negotiating capacity as a regional question rather than a global one. That shift, more than the round itself, is what changes the floor for enterprise buyers in 2026.</p>
+
+        <p>For most of the last 18 months, the procurement story for frontier AI has been roughly the same in every market: pick a model, sign a master agreement, watch the bill. What Stargate's Korea expansion and the parallel India and UK deployments make explicit is that the next wave of deals will look more like utility procurement: region, residency, and capacity floor first; model second.</p>
+
+        <h2 id="why-different">Why this week is different</h2>
+        <p>Three things lined up that had not lined up before. First, Samsung and SK joining Stargate is a real commitment of HBM and data-center capacity, not just a press release. Second, the UK Ministry of Justice deployment ships with full data residency, which has been the sticking point on every public-sector deal we have watched fail to close in the last year. Third, the India launch came packaged with workforce-skills programs, which is the delivery layer governments actually want to point at when they justify spend.</p>
+
+        <div class="row g-3 my-5" aria-label="Story statistics">
+          <div class="col-md-4">
+            <div class="card stat-card h-100">
+              <div class="card-body">
+                <div class="stat-num"><span class="accent">$122</span>B</div>
+                <div class="stat-label mt-2">New round, OpenAI</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card stat-card h-100">
+              <div class="card-body">
+                <div class="stat-num">+750<span class="accent"> MW</span></div>
+                <div class="stat-label mt-2">Cerebras inference fleet</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card stat-card h-100">
+              <div class="card-body">
+                <div class="stat-num">3<span class="accent">x</span></div>
+                <div class="stat-label mt-2">Sovereign deals this week</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>Read together, those three signals say something specific: capacity is no longer a global story. It is regional, sovereign, and increasingly a procurement question rather than a product one. If you run platform infrastructure at a Fortune 500, that changes which questions you ask first when scoping a 2026 rollout.</p>
+
+        <div class="card takeaway-card my-5">
+          <div class="card-body p-4">
+            <dl class="mb-0">
+              <dt>As a leader</dt>
+              <dd>Re-baseline your 2026 AI infrastructure budget against new capacity floors and inference-cost glide paths. The deals signed this week reset the lower bound on what available looks like in your region.</dd>
+              <dt>As an individual</dt>
+              <dd class="mb-0">Watch latency SLAs in your region. Capacity is shifting visibly week to week. Re-run your tail-latency benchmarks before you commit to architecture changes.</dd>
+            </dl>
+          </div>
+        </div>
+
+        <h2 id="buyer-impact">What it changes for buyers</h2>
+        <p>The practical effect for a CIO at a regulated industry is that the residency conversation, historically the longest part of any AI procurement, is now happening at the vendor level rather than at the deployment level. That collapses three to six months out of a typical procurement cycle. We are hearing from two banks that contracts which had been stalled at the data-residency clause have moved in the last ten days.</p>
+
+        <figure class="my-5">
+          <div class="card overflow-hidden">
+            <div class="inline-chart">Sovereign deployments by quarter</div>
+          </div>
+          <figcaption class="mt-2">Sovereign AI deployments announced per quarter, 2024-2026. Source: company filings, government press releases.</figcaption>
+        </figure>
+
+        <p>On the vendor side, the procurement question now bifurcates. The companies negotiating regional capacity, including OpenAI, Anthropic, Mistral, and the cloud hyperscalers, are converging on a similar template: residency plus workforce plus capacity floor, priced as a multi-year commitment. The companies that are not, primarily the US-only inference startups, are going to face an uncomfortable Q3 if they do not have a regional story by the time enterprise buyers run their next RFP.</p>
+
+        <blockquote>
+          <p class="mb-2">We stopped asking which model six months ago. The question now is which region, which residency, which floor. Models change every quarter. The infrastructure underneath does not.</p>
+          <footer class="meta">Head of AI platform, Fortune 100 financial services</footer>
+        </blockquote>
+
+        <h3 id="stargate-angle">The Stargate angle</h3>
+        <p>The Samsung and SK additions to Stargate are worth reading carefully. The capacity number attached to the announcement is real, but the more interesting commitment is on HBM allocation, which has been the actual bottleneck on every major training run since Q4. If you are planning a 2026 fine-tune or a custom training pass, the supply picture you modeled at the start of this year is now stale.</p>
+
+        <h2 id="watch-next">What to watch next</h2>
+        <ul>
+          <li>Two more sovereign deployments are rumored before quarter close. Expect Southeast Asia first.</li>
+          <li>EU AI Act technical standards drop is targeted for May 14. That document will affect every European procurement we are tracking.</li>
+          <li>The next public earnings cycle is the first one where AI infrastructure is a line item meaningful enough to move stock prices on its own.</li>
+        </ul>
+
+        <p>None of this changes what frontier models can do. It changes who can buy them, in what regions, on what terms. For an editorial product whose readers are mostly enterprise operators, that is the bigger story.</p>
+
+        <div class="text-center my-5" aria-hidden="true" style="color: var(--accent); font-family: var(--font-serif); font-size: var(--fs-20); font-weight: 700; letter-spacing: .4em;">/ / /</div>
+
+        <section class="mt-5 pt-4 border-top" id="sources" aria-labelledby="sources-heading">
+          <h2 class="eyebrow mb-3" id="sources-heading">Sources</h2>
+          <ol class="list-group list-group-flush source-list">
+            <li class="list-group-item"><a href="#">Accelerating the next phase of AI</a><span class="meta">openai.com</span></li>
+            <li class="list-group-item"><a href="#">Samsung and SK join the Stargate initiative</a><span class="meta">openai.com</span></li>
+            <li class="list-group-item"><a href="#">The next chapter for UK sovereign AI</a><span class="meta">openai.com</span></li>
+            <li class="list-group-item"><a href="#">OpenAI for India expands access</a><span class="meta">openai.com</span></li>
+            <li class="list-group-item"><a href="#">Cerebras partnership announcement</a><span class="meta">cerebras.net</span></li>
+          </ol>
+        </section>
+      </article>
+
+      <aside class="col-lg-4 col-xl-3">
+        <div class="article-rail position-sticky d-grid gap-4">
+          <nav class="toc" aria-label="In this story">
+            <h2 class="toc-title mb-3">In this story</h2>
+            <ol class="list-group list-group-flush">
+              <li class="list-group-item"><a class="active" href="#headline-number">The headline number</a></li>
+              <li class="list-group-item"><a href="#why-different">Why this week is different</a></li>
+              <li class="list-group-item"><a href="#buyer-impact">What it changes for buyers</a></li>
+              <li class="list-group-item"><a href="#stargate-angle">The Stargate angle</a></li>
+              <li class="list-group-item"><a href="#watch-next">What to watch next</a></li>
+            </ol>
+          </nav>
+
+          <section class="card rail-card" aria-labelledby="filed-under-heading">
+            <div class="card-body p-4">
+              <h2 class="card-title mb-3" id="filed-under-heading">Filed under</h2>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="story-tag tag-bigmoves">Big Moves</span>
+                <span class="story-tag tag-policy">Policy &amp; Geo</span>
+                <span class="story-tag tag-vendors">Vendors</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="card rail-card" aria-labelledby="edition-heading">
+            <div class="card-body p-4">
+              <h2 class="card-title mb-3" id="edition-heading">Edition</h2>
+              <p class="small mb-3">Vol. 184 · Apr 29, 2026</p>
+              <a class="meta d-inline-flex align-items-center gap-1" href="New-Home-Page.html">Read full edition <i data-lucide="arrow-right"></i></a>
+            </div>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <section class="subscribe-block rounded-3 p-4 p-md-5 mt-5" id="subscribe" aria-labelledby="subscribe-heading">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h2 id="subscribe-heading" class="mb-3">Get the AI news that matters in five minutes, every weekday at 6 a.m. ET.</h2>
+          <p class="meta mb-0" style="color: color-mix(in srgb, currentColor 72%, transparent);">Free · no tracking · unsubscribe in one click</p>
+        </div>
+        <div class="col-lg-5">
+          <form class="input-group input-group-lg" data-subscribe-form>
+            <label class="visually-hidden" for="subscribe-email">Email address</label>
+            <input id="subscribe-email" type="email" class="form-control" placeholder="you@company.com" required>
+            <button class="btn btn-primary" type="submit">Get it</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5 pt-5 border-top" aria-labelledby="more-heading">
+      <h2 class="more-title mb-4" id="more-heading">More from Big Moves</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <article class="card more-card h-100">
+            <div class="card-body p-4">
+              <div class="meta mb-3"><span class="story-tag tag-bigmoves">Big Moves</span> · 2 days ago</div>
+              <h3 class="more-card-title mb-0"><a href="#">Samsung and SK join OpenAI's Stargate initiative</a></h3>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="card more-card h-100">
+            <div class="card-body p-4">
+              <div class="meta mb-3"><span class="story-tag tag-bigmoves">Big Moves</span> · 4 days ago</div>
+              <h3 class="more-card-title mb-0"><a href="#">Cerebras adds 750 MW of inference capacity</a></h3>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="card more-card h-100">
+            <div class="card-body p-4">
+              <div class="meta mb-3"><span class="story-tag tag-bigmoves">Big Moves</span> · 1 week ago</div>
+              <h3 class="more-card-title mb-0"><a href="#">Anthropic's enterprise commitments quietly shift</a></h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-xl container-editorial">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <a class="wordmark" href="New-Home-Page.html" aria-label="Yesterday in AI home">
+            <span class="wm-cadence">Yesterday</span><span class="wm-slash">/</span><span class="wm-tail">in&nbsp;AI</span>
+          </a>
+          <p class="small mt-3 mb-0" style="max-width: 34rem;">A daily editorial product on enterprise AI for mixed business and technical readership. Free, forever.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="eyebrow mb-3">Read</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="New-Home-Page.html">Today</a></li>
+            <li><a href="New-Home-Page.html#archive">Archive</a></li>
+            <li><a href="#">Last Week in AI</a></li>
+            <li><a href="/feeds/top.xml">RSS</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="eyebrow mb-3">Sections</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="New-Home-Page.html#big-moves">Big Moves</a></li>
+            <li><a href="New-Home-Page.html#enterprise-ops">Enterprise Ops</a></li>
+            <li><a href="New-Home-Page.html#vendors">Vendors</a></li>
+            <li><a href="New-Home-Page.html#security">Security</a></li>
+            <li><a href="New-Home-Page.html#science-technology">Science &amp; Technology</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="eyebrow mb-3">Site</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/feeds/">Feeds</a></li>
+            <li><a href="/top-stories-manager/">Top Stories Manager</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 border-top pt-4 mt-5">
+        <span class="meta">© 2026 tedt.org</span>
+        <span class="meta">v184 · Bootstrap 5.3</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    const root = document.documentElement;
+
+    function updateStickyOffsets() {
+      const siteNav = document.querySelector('.site-nav');
+      if (siteNav) {
+        root.style.setProperty('--site-nav-height', `${siteNav.offsetHeight}px`);
+      }
+    }
+
+    function refreshIcons() {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    function updateReadingProgress() {
+      const progress = document.getElementById('readingProgress');
+      const rail = progress ? progress.closest('.reading-progress') : null;
+      const max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const percentage = max > 0 ? (document.documentElement.scrollTop / max) * 100 : 0;
+      if (progress) {
+        progress.style.width = `${percentage}%`;
+      }
+      if (rail) {
+        rail.setAttribute('aria-valuenow', String(Math.round(percentage)));
+      }
+    }
+
+    updateStickyOffsets();
+    updateReadingProgress();
+    window.addEventListener('resize', () => {
+      updateStickyOffsets();
+      updateReadingProgress();
+    });
+    document.addEventListener('scroll', updateReadingProgress, { passive: true });
+    if (window.ResizeObserver) {
+      const stickyObserver = new ResizeObserver(updateStickyOffsets);
+      document.querySelectorAll('.site-nav').forEach((element) => {
+        stickyObserver.observe(element);
+      });
+    }
+
+    refreshIcons();
+
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-bs-theme', nextTheme);
+      themeToggle.innerHTML = nextTheme === 'dark' ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
+      refreshIcons();
+      updateStickyOffsets();
+    });
+
+    document.querySelectorAll('[data-subscribe-form]').forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const button = form.querySelector('button');
+        button.textContent = 'Sent';
+        button.disabled = true;
+      });
+    });
+  </script>
+</body>
+</html>
