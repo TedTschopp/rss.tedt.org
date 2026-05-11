@@ -330,8 +330,6 @@ class MultiFeedGenerator:
         if include_stylesheet:
             lines.append(f'<?xml-stylesheet type="text/xsl" href="{self.stylesheet_url}"?>')
         
-        ET.register_namespace('', ATOM_NS)
-        
         feed = ET.Element('feed', {'xmlns': ATOM_NS})
         
         ET.SubElement(feed, 'title').text = self.title
