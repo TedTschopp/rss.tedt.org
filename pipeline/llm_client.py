@@ -147,6 +147,128 @@ class GitHubModelsClient:
             "input_hash": self.input_hash(payload),
         }
 
+    def rewrite_output_title(
+        self,
+        title: str,
+        summary: str,
+        source_context: str,
+        model: str = "openai/gpt-4.1-mini",
+    ) -> dict[str, Any]:
+        default_schema: dict[str, Any] = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "output_title_rewrite",
+                "schema": {
+                    "type": "object",
+                    "properties": {"title": {"type": "string"}},
+                    "required": ["title"],
+                    "additionalProperties": False,
+                },
+            },
+        }
+        schema = self._load_json_prompt("output_cleanup/title_schema.json", default_schema)
+        system_prompt = self._load_text_prompt(
+            "output_cleanup/title_system.txt",
+            "Rewrite the news title in neutral language. Return only JSON matching the schema.",
+        )
+        user_template = self._load_text_prompt(
+            "output_cleanup/title_user.txt",
+            "Original Title: {title}\n\nCurrent Description: {summary}\n\nSource Context:\n{source_context}",
+        )
+        user_prompt = user_template.format(title=title, summary=summary, source_context=source_context)
+
+        payload: dict[str, Any] = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.1,
+            "response_format": schema,
+        }
+
+        started = time.perf_counter()
+        response = self.session.post(f"{self.endpoint}/chat/completions", json=payload, timeout=self.timeout_sec)
+        latency_ms = int((time.perf_counter() - started) * 1000)
+        response.raise_for_status()
+        data: dict[str, Any] = response.json()
+        choices = data.get("choices")
+        first_choice: dict[str, Any] = {}
+        if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+            first_choice = cast(dict[str, Any], choices[0])
+        message = first_choice.get("message", {})
+        message_map: dict[str, Any] = cast(dict[str, Any], message) if isinstance(message, dict) else {}
+        content = str(message_map.get("content", "{}") or "{}").strip()
+        parsed: dict[str, Any] = json.loads(content)
+        return {
+            "title": str(parsed.get("title") or title).strip(),
+            "usage": data.get("usage", {}),
+            "latency_ms": latency_ms,
+            "model": model,
+            "input_hash": self.input_hash(payload),
+        }
+
+    def rewrite_output_description(
+        self,
+        title: str,
+        summary: str,
+        source_context: str,
+        model: str = "openai/gpt-4.1-mini",
+    ) -> dict[str, Any]:
+        default_schema: dict[str, Any] = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "output_description_rewrite",
+                "schema": {
+                    "type": "object",
+                    "properties": {"description": {"type": "string"}},
+                    "required": ["description"],
+                    "additionalProperties": False,
+                },
+            },
+        }
+        schema = self._load_json_prompt("output_cleanup/description_schema.json", default_schema)
+        system_prompt = self._load_text_prompt(
+            "output_cleanup/description_system.txt",
+            "Rewrite the news description in neutral language. Return only JSON matching the schema.",
+        )
+        user_template = self._load_text_prompt(
+            "output_cleanup/description_user.txt",
+            "Output Title: {title}\n\nCurrent Description: {summary}\n\nSource Context:\n{source_context}",
+        )
+        user_prompt = user_template.format(title=title, summary=summary, source_context=source_context)
+
+        payload: dict[str, Any] = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.1,
+            "response_format": schema,
+        }
+
+        started = time.perf_counter()
+        response = self.session.post(f"{self.endpoint}/chat/completions", json=payload, timeout=self.timeout_sec)
+        latency_ms = int((time.perf_counter() - started) * 1000)
+        response.raise_for_status()
+        data: dict[str, Any] = response.json()
+        choices = data.get("choices")
+        first_choice: dict[str, Any] = {}
+        if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+            first_choice = cast(dict[str, Any], choices[0])
+        message = first_choice.get("message", {})
+        message_map: dict[str, Any] = cast(dict[str, Any], message) if isinstance(message, dict) else {}
+        content = str(message_map.get("content", "{}") or "{}").strip()
+        parsed: dict[str, Any] = json.loads(content)
+        return {
+            "description": str(parsed.get("description") or summary).strip(),
+            "usage": data.get("usage", {}),
+            "latency_ms": latency_ms,
+            "model": model,
+            "input_hash": self.input_hash(payload),
+        }
+
     def check_ai_relevance(
         self,
         title: str,

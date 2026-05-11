@@ -18,6 +18,14 @@ from .text_utils import parse_datetime, to_iso
 
 IMPORTANCE_RUBRIC_PATH = "Docs/reference/business-and-technical-importance-rubric.md"
 AI_RELEVANCE_RUBRIC_PATH = "Docs/reference/ai-relevance-rubric.md"
+OUTPUT_CLEANUP_PROMPT_PATHS = [
+    "prompts/output_cleanup/title_system.txt",
+    "prompts/output_cleanup/title_user.txt",
+    "prompts/output_cleanup/title_schema.json",
+    "prompts/output_cleanup/description_system.txt",
+    "prompts/output_cleanup/description_user.txt",
+    "prompts/output_cleanup/description_schema.json",
+]
 
 
 def _resolve_models_token() -> str:
@@ -33,6 +41,11 @@ def _read_text_file(path: str) -> str:
             return handle.read().strip()
     except Exception:
         return ""
+
+
+def _prompt_bundle_hash(paths: list[str]) -> str:
+    raw = "\n\n".join(f"{path}\n{_read_text_file(path)}" for path in paths)
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
 
 
 def _status_code_from_exception(exc: Exception) -> int | None:
@@ -263,8 +276,38 @@ def _is_ai_story(story: dict[str, Any], ai_keywords: list[str]) -> bool:
     return keyword_match(haystack)
 
 
+def _story_title(story: dict[str, Any]) -> str:
+    output_cleanup = story.get("output_cleanup")
+    if isinstance(output_cleanup, dict):
+        cleanup_map = cast(dict[str, Any], output_cleanup)
+        title = str(cleanup_map.get("title") or "").strip()
+        if title:
+            return title
+    return str(story.get("title") or "")
+
+
+def _story_base_summary(story: dict[str, Any]) -> str:
+    llm = story.get("llm")
+    if isinstance(llm, dict):
+        llm_map = cast(dict[str, Any], llm)
+        llm_summary = llm_map.get("summary")
+        if llm_summary:
+            return str(llm_summary)
+    return str(story.get("summary") or "")
+
+
+def _story_summary(story: dict[str, Any]) -> str:
+    output_cleanup = story.get("output_cleanup")
+    if isinstance(output_cleanup, dict):
+        cleanup_map = cast(dict[str, Any], output_cleanup)
+        description = str(cleanup_map.get("description") or "").strip()
+        if description:
+            return description
+    return _story_base_summary(story)
+
+
 def _to_feed_entry(story: dict[str, Any]) -> dict[str, Any]:
-    base_title = _strip_trailing_importance_tags(story.get("title", ""))
+    base_title = _strip_trailing_importance_tags(_story_title(story))
     importance_raw = story.get("importance")
     importance = cast(dict[str, Any], importance_raw) if isinstance(importance_raw, dict) else None
     business_tag, technical_tag = _importance_tags(importance)
@@ -279,16 +322,6 @@ def _to_feed_entry(story: dict[str, Any]) -> dict[str, Any]:
         "pub_date": story.get("published"),
         "guid": story.get("story_id"),
     }
-
-
-def _story_summary(story: dict[str, Any]) -> str:
-    llm = story.get("llm")
-    if isinstance(llm, dict):
-        llm_map = cast(dict[str, Any], llm)
-        llm_summary = llm_map.get("summary")
-        if llm_summary:
-            return str(llm_summary)
-    return str(story.get("summary") or "")
 
 
 def _sum_mentions(story: dict[str, Any], key: str) -> int | None:
@@ -306,6 +339,63 @@ def _sum_mentions(story: dict[str, Any], key: str) -> int | None:
         except Exception:
             continue
     return total or None
+
+
+def _source_context(story: dict[str, Any]) -> str:
+    payload = {
+        "primary_source": story.get("primary_source")
+        or {
+            "source_id": story.get("primary_source_id"),
+            "source_name": story.get("source_name"),
+            "source_type": story.get("source_type"),
+            "source_category": story.get("source_category"),
+            "url": story.get("url"),
+            "canonical_url": story.get("canonical_url"),
+            "domain": story.get("domain"),
+        },
+        "sources": story.get("sources", []),
+        "alternate_links": story.get("alternate_links", []),
+        "duplicate_count": story.get("duplicate_count", 0),
+        "duplicate_source_count": story.get("duplicate_source_count", 1),
+    }
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True)
+
+
+def _output_cleanup_context_hash(
+    title: str,
+    summary: str,
+    source_context: str,
+    prompt_hash: str,
+    model: str,
+) -> str:
+    raw = json.dumps(
+        {
+            "title": title,
+            "summary": summary,
+            "source_context": source_context,
+            "prompt_hash": prompt_hash,
+            "model": model,
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
+def _cached_output_cleanup(cache_entry: dict[str, Any], context_hash: str) -> dict[str, Any] | None:
+    output_cleanup = cache_entry.get("output_cleanup")
+    if not isinstance(output_cleanup, dict):
+        return None
+    cleanup_map = cast(dict[str, Any], output_cleanup)
+    if cleanup_map.get("context_hash") != context_hash:
+        return None
+    if not cleanup_map.get("title") or not cleanup_map.get("description"):
+        return None
+    return cleanup_map
+
+
+def _apply_output_cleanup(story: dict[str, Any], cleanup: dict[str, Any]) -> None:
+    story["output_cleanup"] = cleanup
 
 
 def publish_outputs(
@@ -327,6 +417,10 @@ def publish_outputs(
     importance_backfill_days = int(cfg.get("importance_backfill_days", 7))
     ai_relevance_model = str(cfg.get("ai_relevance_model", "openai/gpt-4.1-mini"))
     importance_model = str(cfg.get("importance_model", "openai/gpt-4.1-mini"))
+    output_cleanup_enabled = str(cfg.get("output_cleanup_enabled", True)).lower() not in {"0", "false", "no"}
+    output_cleanup_top_n = int(cfg.get("output_cleanup_top_n", publish_top_n))
+    output_cleanup_model = str(cfg.get("output_cleanup_model", "openai/gpt-4.1-mini"))
+    output_cleanup_prompt_hash = _prompt_bundle_hash(OUTPUT_CLEANUP_PROMPT_PATHS)
     article_fetch_timeout_sec = int(cfg.get("article_fetch_timeout_sec", cfg.get("request_timeout_sec", 25)))
     article_max_chars = int(cfg.get("article_max_chars", 12000))
     retry_max_attempts = int(cfg.get("llm_retry_max_attempts", 4))
@@ -354,7 +448,7 @@ def publish_outputs(
         story_id = str(story.get("story_id") or "").strip()
         if not story_id:
             continue
-        cache_entry = llm_cache.setdefault(story_id, {})
+        cache_entry = llm_cache.get(story_id, {})
         existing_importance_raw = cache_entry.get("importance")
         existing_importance = cast(dict[str, Any], existing_importance_raw) if isinstance(existing_importance_raw, dict) else None
 
@@ -427,6 +521,7 @@ def publish_outputs(
                     "model": relevance_result.get("model"),
                     "input_hash": relevance_result.get("input_hash"),
                 }
+                cache_entry = llm_cache.setdefault(story_id, cache_entry)
                 cache_entry["ai_relevance"] = relevance_payload
                 call_rows.append(
                     {
@@ -514,6 +609,7 @@ def publish_outputs(
                 "model": result.get("model"),
                 "input_hash": result.get("input_hash"),
             }
+            cache_entry = llm_cache.setdefault(story_id, cache_entry)
             cache_entry["importance"] = importance_payload
             story["importance"] = importance_payload
 
@@ -542,6 +638,111 @@ def publish_outputs(
                 }
             )
 
+    if output_cleanup_enabled:
+        for story in top_stories[:output_cleanup_top_n]:
+            story_id = str(story.get("story_id") or "").strip()
+            if not story_id:
+                continue
+            cache_entry = llm_cache.get(story_id, {})
+            title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
+            summary_text = _story_base_summary(story)
+            source_context = _source_context(story)
+            cleanup_context_hash = _output_cleanup_context_hash(
+                title_text,
+                summary_text,
+                source_context,
+                output_cleanup_prompt_hash,
+                output_cleanup_model,
+            )
+
+            cached_cleanup = _cached_output_cleanup(cache_entry, cleanup_context_hash)
+            if cached_cleanup is not None:
+                _apply_output_cleanup(story, cached_cleanup)
+                continue
+
+            if client is None:
+                continue
+
+            try:
+                title_result, title_retry_meta = _call_with_retry(
+                    lambda: client.rewrite_output_title(title_text, summary_text, source_context, model=output_cleanup_model),
+                    max_attempts=retry_max_attempts,
+                    base_delay_sec=retry_base_delay_sec,
+                    max_delay_sec=retry_max_delay_sec,
+                    jitter_sec=retry_jitter_sec,
+                    rate_limit_state=rate_limit_state,
+                    rate_limit_window_sec=rate_limit_window_sec,
+                    rate_limit_threshold=rate_limit_threshold,
+                    rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                    rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                )
+                rewritten_title = str(title_result.get("title") or title_text).strip() or title_text
+
+                description_result, description_retry_meta = _call_with_retry(
+                    lambda: client.rewrite_output_description(rewritten_title, summary_text, source_context, model=output_cleanup_model),
+                    max_attempts=retry_max_attempts,
+                    base_delay_sec=retry_base_delay_sec,
+                    max_delay_sec=retry_max_delay_sec,
+                    jitter_sec=retry_jitter_sec,
+                    rate_limit_state=rate_limit_state,
+                    rate_limit_window_sec=rate_limit_window_sec,
+                    rate_limit_threshold=rate_limit_threshold,
+                    rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                    rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                )
+                rewritten_description = str(description_result.get("description") or summary_text).strip() or summary_text
+
+                cleanup_payload: dict[str, Any] = {
+                    "title": rewritten_title,
+                    "description": rewritten_description,
+                    "context_hash": cleanup_context_hash,
+                    "prompt_hash": output_cleanup_prompt_hash,
+                    "model": output_cleanup_model,
+                    "title_input_hash": title_result.get("input_hash"),
+                    "description_input_hash": description_result.get("input_hash"),
+                    "rewritten_at": to_iso(datetime.now(timezone.utc)),
+                }
+                cache_entry = llm_cache.setdefault(story_id, cache_entry)
+                cache_entry["output_cleanup"] = cleanup_payload
+                _apply_output_cleanup(story, cleanup_payload)
+                call_rows.extend(
+                    [
+                        {
+                            "ts": to_iso(datetime.now(timezone.utc)),
+                            "kind": "output_title_rewrite",
+                            "story_id": story_id,
+                            "model": title_result.get("model"),
+                            "latency_ms": title_result.get("latency_ms"),
+                            "usage": title_result.get("usage", {}),
+                            "input_hash": title_result.get("input_hash"),
+                            "status": "ok",
+                            "retries": title_retry_meta.get("retries", 0),
+                        },
+                        {
+                            "ts": to_iso(datetime.now(timezone.utc)),
+                            "kind": "output_description_rewrite",
+                            "story_id": story_id,
+                            "model": description_result.get("model"),
+                            "latency_ms": description_result.get("latency_ms"),
+                            "usage": description_result.get("usage", {}),
+                            "input_hash": description_result.get("input_hash"),
+                            "status": "ok",
+                            "retries": description_retry_meta.get("retries", 0),
+                        },
+                    ]
+                )
+            except Exception as exc:
+                call_rows.append(
+                    {
+                        "ts": to_iso(datetime.now(timezone.utc)),
+                        "kind": "output_cleanup",
+                        "story_id": story_id,
+                        "status": "error",
+                        "error": str(exc),
+                        "status_code": _status_code_from_exception(exc),
+                    }
+                )
+
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)
 
@@ -551,16 +752,27 @@ def publish_outputs(
         "count": len(top_stories),
         "items": [
             {
-                "title": story.get("title"),
+                "title": _story_title(story),
+                "originalTitle": story.get("title"),
                 "url": story.get("canonical_url") or story.get("url"),
                 "source": story.get("source_name"),
                 "sourceType": story.get("source_type"),
+                "sourceCategory": story.get("source_category"),
                 "published": story.get("published"),
                 "summary": _story_summary(story),
+                "description": _story_summary(story),
+                "originalSummary": _story_base_summary(story),
                 "score": story.get("score"),
                 "upvotes": _sum_mentions(story, "upvotes"),
                 "comments": _sum_mentions(story, "comments"),
                 "clusterId": story.get("cluster_id"),
+                "primarySource": story.get("primary_source"),
+                "sources": story.get("sources", []),
+                "alternateLinks": story.get("alternate_links", []),
+                "isDuplicate": story.get("is_duplicate", False),
+                "duplicateCount": story.get("duplicate_count", 0),
+                "duplicateSourceCount": story.get("duplicate_source_count", 1),
+                "outputCleanup": story.get("output_cleanup"),
                 "aiRelevance": story.get("ai_relevance"),
                 "importance": story.get("importance"),
             }

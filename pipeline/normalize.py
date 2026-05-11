@@ -4,6 +4,19 @@ from urllib.parse import urlparse
 from .text_utils import canonicalize_url, normalize_text, parse_datetime, stable_id, to_iso
 
 
+def _discussion_url(item: dict) -> str:
+    direct_url = item.get("discussion_url", "")
+    if direct_url:
+        return str(direct_url)
+    raw_fields = item.get("raw_fields", {})
+    if not isinstance(raw_fields, dict):
+        return ""
+    hn_item_id = raw_fields.get("hn_item_id")
+    if hn_item_id:
+        return f"https://news.ycombinator.com/item?id={hn_item_id}"
+    return ""
+
+
 def normalize_items(raw_items: list[dict]) -> list[dict]:
     normalized = []
     now_iso = to_iso(datetime.now(timezone.utc))
@@ -30,6 +43,7 @@ def normalize_items(raw_items: list[dict]) -> list[dict]:
                 "fetched_at": item.get("fetched_at"),
                 "title": title,
                 "url": item.get("url", ""),
+                "discussion_url": _discussion_url(item),
                 "canonical_url": canonical_url,
                 "domain": domain,
                 "summary": summary,

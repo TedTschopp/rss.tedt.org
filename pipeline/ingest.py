@@ -103,10 +103,12 @@ def _parse_hn_items(payload: dict[str, Any]) -> list[dict[str, Any]]:
         title = _as_str(hit_map.get("title") or hit_map.get("story_title") or "")
         object_id = _as_str(hit_map.get("objectID", ""))
         url = _as_str(hit_map.get("url") or hit_map.get("story_url") or f"https://news.ycombinator.com/item?id={object_id}")
+        discussion_url = f"https://news.ycombinator.com/item?id={object_id}" if object_id else ""
         items.append(
             {
                 "title": normalize_text(title),
                 "url": normalize_text(url),
+            "discussion_url": discussion_url,
                 "summary": "",
                 "published": _as_str(hit_map.get("created_at", "")),
                 "upvotes": _as_int(hit_map.get("points", 0)),
@@ -139,6 +141,7 @@ def _parse_reddit_items(payload: dict[str, Any]) -> list[dict[str, Any]]:
         data_map = cast(dict[str, Any], data)
         permalink = _as_str(data_map.get("permalink", ""))
         url = _as_str(data_map.get("url_overridden_by_dest") or data_map.get("url") or (f"https://www.reddit.com{permalink}" if permalink else ""))
+        discussion_url = f"https://www.reddit.com{permalink}" if permalink else ""
         created_utc = data_map.get("created_utc")
         published = ""
         if created_utc is not None:
@@ -148,6 +151,7 @@ def _parse_reddit_items(payload: dict[str, Any]) -> list[dict[str, Any]]:
             {
                 "title": normalize_text(_as_str(data_map.get("title", ""))),
                 "url": normalize_text(url),
+                "discussion_url": discussion_url,
                 "summary": normalize_text(_as_str(data_map.get("selftext", "")))[:700],
                 "published": published,
                 "upvotes": _as_int(data_map.get("ups", data_map.get("score", 0))),
@@ -286,6 +290,7 @@ def run_ingestion(
                     "fetched_at": fetched_at,
                     "title": item.get("title", ""),
                     "url": item.get("url", ""),
+                    "discussion_url": item.get("discussion_url", ""),
                     "summary": item.get("summary", ""),
                     "author": item.get("author", ""),
                     "published": to_iso(published_dt) if published_dt else item.get("published", ""),

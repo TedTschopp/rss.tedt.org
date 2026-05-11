@@ -5,13 +5,17 @@ Multi-format feed generator supporting RSS 2.0, RSS 1.0, Atom 1.0, and JSON Feed
 
 import json
 import hashlib
+import html
+import re
 import unicodedata
 from datetime import datetime, timezone
+from html.parser import HTMLParser
+from typing import Any
 from xml.etree import ElementTree as ET
 from xml.dom import minidom
 
 
-def normalize_text(text):
+def normalize_text(text: str) -> str:
     """
     Normalize text to fix encoding issues and convert special characters.
     """
@@ -59,18 +63,83 @@ def normalize_text(text):
     return text
 
 
+class _DescriptionTextExtractor(HTMLParser):
+    _block_tags: set[str] = {
+        'address', 'article', 'aside', 'blockquote', 'br', 'dd', 'div', 'dl',
+        'dt', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2',
+        'h3', 'h4', 'h5', 'h6', 'header', 'hr', 'li', 'main', 'nav', 'ol', 'p',
+        'pre', 'section', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'tr',
+        'ul',
+    }
+    _skip_tags: set[str] = {'script', 'style'}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self._parts: list[str] = []
+        self._skip_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        tag = tag.lower()
+        if tag in self._skip_tags:
+            self._skip_depth += 1
+        elif tag in self._block_tags:
+            self._parts.append(' ')
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.lower()
+        if tag in self._skip_tags and self._skip_depth:
+            self._skip_depth -= 1
+        elif tag in self._block_tags:
+            self._parts.append(' ')
+
+    def handle_data(self, data: str) -> None:
+        if not self._skip_depth:
+            self._parts.append(data)
+
+    def get_text(self) -> str:
+        return ' '.join(''.join(self._parts).split())
+
+
+def strip_markup(text: object | None) -> str:
+    """Return plain text with HTML/XML markup removed."""
+    if not text:
+        return ''
+
+    unescaped = html.unescape(str(text))
+    unescaped = re.sub(r'<!\[CDATA\[(.*?)\]\]>', r'\1', unescaped, flags=re.DOTALL)
+    parser = _DescriptionTextExtractor()
+    parser.feed(unescaped)
+    parser.close()
+    return parser.get_text()
+
+
+def clean_description(text: object | None) -> str:
+    """Normalize a feed description and remove any embedded markup."""
+    if not text:
+        return ''
+    return normalize_text(strip_markup(text))
+
+
 class FeedEntry:
     """Represents a single feed entry/item."""
     
-    def __init__(self, title, link, description, pub_date=None, guid=None, author=None):
+    def __init__(
+        self,
+        title: str,
+        link: str,
+        description: object | None,
+        pub_date: datetime | str | None = None,
+        guid: str | None = None,
+        author: str | None = None,
+    ) -> None:
         self.title = normalize_text(title) if title else ''
         self.link = link or ''
-        self.description = normalize_text(description) if description else ''
+        self.description = clean_description(description)
         self.pub_date = pub_date or datetime.now(timezone.utc)
         self.guid = guid or hashlib.md5(f"{title}|{link}".encode()).hexdigest()
         self.author = author or ''
     
-    def to_dict(self):
+    def to_dict(self) -> dict[str, Any]:
         """Convert entry to dictionary for JSON serialization."""
         return {
             'id': self.guid,
@@ -87,39 +156,54 @@ class MultiFeedGenerator:
     Generates feeds in multiple formats: RSS 2.0, RSS 1.0, Atom 1.0, JSON Feed.
     """
     
-    def __init__(self, title, link, description, language='en', author=None):
+    def __init__(
+        self,
+        title: str,
+        link: str,
+        description: object | None,
+        language: str = 'en',
+        author: str | None = None,
+    ) -> None:
         self.title = title
         self.link = link
-        self.description = description
+        self.description = clean_description(description)
         self.language = language
         self.author = author
-        self.entries = []
+        self.entries: list[FeedEntry] = []
         self.last_build_date = datetime.now(timezone.utc)
         self.stylesheet_url = '/feed-style.xsl'
     
-    def add_entry(self, entry):
+    def add_entry(self, entry: FeedEntry) -> None:
         """Add a FeedEntry to the feed."""
         self.entries.append(entry)
     
-    def add_item(self, title, link, description, pub_date=None, guid=None, author=None):
+    def add_item(
+        self,
+        title: str,
+        link: str,
+        description: object | None,
+        pub_date: datetime | str | None = None,
+        guid: str | None = None,
+        author: str | None = None,
+    ) -> FeedEntry:
         """Convenience method to add an entry directly."""
         entry = FeedEntry(title, link, description, pub_date, guid, author)
         self.entries.append(entry)
         return entry
     
-    def _format_rfc822_date(self, dt):
+    def _format_rfc822_date(self, dt: datetime | str) -> str:
         """Format datetime as RFC 822 for RSS 2.0."""
         if isinstance(dt, str):
             return dt
         return dt.strftime('%a, %d %b %Y %H:%M:%S +0000')
     
-    def _format_iso8601_date(self, dt):
+    def _format_iso8601_date(self, dt: datetime | str) -> str:
         """Format datetime as ISO 8601 for Atom."""
         if isinstance(dt, str):
             return dt
         return dt.isoformat()
     
-    def _prettify_xml(self, elem, include_declaration=True):
+    def _prettify_xml(self, elem: ET.Element, include_declaration: bool = True) -> str:
         """Return a pretty-printed XML string."""
         rough_string = ET.tostring(elem, encoding='unicode')
         reparsed = minidom.parseString(rough_string)
@@ -132,7 +216,7 @@ class MultiFeedGenerator:
             # Skip XML declaration
             return '\n'.join(lines[1:])
     
-    def generate_rss2(self, include_stylesheet=True):
+    def generate_rss2(self, include_stylesheet: bool = True) -> str:
         """
         Generate RSS 2.0 feed.
         Returns XML string with optional XSL stylesheet reference.
@@ -185,7 +269,7 @@ class MultiFeedGenerator:
         lines.append(xml_body)
         return '\n'.join(lines)
     
-    def generate_rss1(self, include_stylesheet=True):
+    def generate_rss1(self, include_stylesheet: bool = True) -> str:
         """
         Generate RSS 1.0 (RDF) feed.
         """
@@ -236,7 +320,7 @@ class MultiFeedGenerator:
         lines.append(xml_body)
         return '\n'.join(lines)
     
-    def generate_atom(self, include_stylesheet=True):
+    def generate_atom(self, include_stylesheet: bool = True) -> str:
         """
         Generate Atom 1.0 feed.
         """
@@ -299,12 +383,12 @@ class MultiFeedGenerator:
         lines.append(xml_body)
         return '\n'.join(lines)
     
-    def generate_json_feed(self):
+    def generate_json_feed(self) -> str:
         """
         Generate JSON Feed 1.1.
         https://jsonfeed.org/version/1.1
         """
-        feed = {
+        feed: dict[str, Any] = {
             'version': 'https://jsonfeed.org/version/1.1',
             'title': self.title,
             'home_page_url': self.link,
@@ -318,7 +402,7 @@ class MultiFeedGenerator:
             feed['authors'] = [{'name': self.author}]
         
         for entry in self.entries:
-            item = {
+            item: dict[str, Any] = {
                 'id': entry.guid,
                 'url': entry.link,
                 'title': entry.title,
@@ -331,7 +415,7 @@ class MultiFeedGenerator:
         
         return json.dumps(feed, indent=2, ensure_ascii=False)
     
-    def write_all_formats(self, base_filename, include_stylesheet=True):
+    def write_all_formats(self, base_filename: str, include_stylesheet: bool = True) -> dict[str, str]:
         """
         Write feed in all supported formats.
         
@@ -342,7 +426,7 @@ class MultiFeedGenerator:
         Returns:
             dict: Mapping of format name to filename
         """
-        files_written = {}
+        files_written: dict[str, str] = {}
         
         # RSS 2.0
         rss2_file = f'{base_filename}.xml'
@@ -372,8 +456,16 @@ class MultiFeedGenerator:
 
 
 # Convenience function for backward compatibility
-def create_multi_format_feed(title, link, description, entries, base_filename, 
-                              language='en', author=None, include_stylesheet=True):
+def create_multi_format_feed(
+    title: str,
+    link: str,
+    description: object | None,
+    entries: list[dict[str, Any]],
+    base_filename: str,
+    language: str = 'en',
+    author: str | None = None,
+    include_stylesheet: bool = True,
+) -> dict[str, str]:
     """
     Create feeds in all formats from a list of entry dictionaries.
     
