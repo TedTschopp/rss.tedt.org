@@ -19,6 +19,8 @@ from .text_utils import parse_datetime, to_iso
 IMPORTANCE_RUBRIC_PATH = "Docs/reference/business-and-technical-importance-rubric.md"
 AI_RELEVANCE_RUBRIC_PATH = "Docs/reference/ai-relevance-rubric.md"
 OUTPUT_CLEANUP_PROMPT_PATHS = [
+    "Docs/design/Prompts-Needed/Headline-Generation-Instructions.md",
+    "Docs/design/Prompts-Needed/Article-Summary.md",
     "prompts/output_cleanup/title_system.txt",
     "prompts/output_cleanup/title_user.txt",
     "prompts/output_cleanup/title_schema.json",

@@ -28,6 +28,20 @@ REASON_CODE_VALUES = [
     "HYPE",
 ]
 
+HEADLINE_INSTRUCTIONS_PATH = Path("Docs/design/Prompts-Needed/Headline-Generation-Instructions.md")
+ARTICLE_SUMMARY_INSTRUCTIONS_PATH = Path("Docs/design/Prompts-Needed/Article-Summary.md")
+TITLE_OUTPUT_CONTRACT = (
+    "Application output contract: Use the standard headline instructions as editorial policy. "
+    "Return JSON matching the provided schema with exactly one field named title. "
+    "The title value must contain only the rewritten headline, with no alternatives, explanations, scoring, Markdown, HTML, or XML."
+)
+DESCRIPTION_OUTPUT_CONTRACT = (
+    "Application output contract: Use the standard article summary instructions as editorial policy. "
+    "Return JSON matching the provided schema with exactly one field named description. "
+    "The description value must contain only the final formatted description, with no labels, alternatives, explanations, scoring, Markdown, HTML, or XML. "
+    "When multiple paragraphs are warranted, preserve blank lines between paragraphs inside the description value."
+)
+
 
 def _string_list(value: Any) -> list[str]:
     if not isinstance(value, list):
@@ -55,6 +69,8 @@ class GitHubModelsClient:
             }
         )
         self.prompts_dir = Path("prompts")
+        self.headline_instructions_path = HEADLINE_INSTRUCTIONS_PATH
+        self.article_summary_instructions_path = ARTICLE_SUMMARY_INSTRUCTIONS_PATH
 
     def _load_text_prompt(self, filename: str, fallback: str) -> str:
         path = self.prompts_dir / filename
@@ -74,6 +90,46 @@ class GitHubModelsClient:
             return fallback
         except Exception:
             return fallback
+
+    def _load_text_file(self, path: Path) -> str:
+        try:
+            if not path.exists():
+                return ""
+            return path.read_text(encoding="utf-8").strip()
+        except Exception:
+            return ""
+
+    def _load_title_system_prompt(self) -> str:
+        application_prompt = self._load_text_prompt(
+            "output_cleanup/title_system.txt",
+            "Rewrite the news title in neutral language. Return only JSON matching the schema.",
+        )
+        headline_instructions = self._load_text_file(self.headline_instructions_path)
+        if not headline_instructions:
+            return application_prompt
+        return "\n\n".join(
+            [
+                headline_instructions,
+                TITLE_OUTPUT_CONTRACT,
+                application_prompt,
+            ]
+        )
+
+    def _load_description_system_prompt(self) -> str:
+        application_prompt = self._load_text_prompt(
+            "output_cleanup/description_system.txt",
+            "Rewrite the news description in neutral language. Return only JSON matching the schema.",
+        )
+        article_summary_instructions = self._load_text_file(self.article_summary_instructions_path)
+        if not article_summary_instructions:
+            return application_prompt
+        return "\n\n".join(
+            [
+                article_summary_instructions,
+                DESCRIPTION_OUTPUT_CONTRACT,
+                application_prompt,
+            ]
+        )
 
     @staticmethod
     def input_hash(payload: dict[str, Any]) -> str:
@@ -167,10 +223,7 @@ class GitHubModelsClient:
             },
         }
         schema = self._load_json_prompt("output_cleanup/title_schema.json", default_schema)
-        system_prompt = self._load_text_prompt(
-            "output_cleanup/title_system.txt",
-            "Rewrite the news title in neutral language. Return only JSON matching the schema.",
-        )
+        system_prompt = self._load_title_system_prompt()
         user_template = self._load_text_prompt(
             "output_cleanup/title_user.txt",
             "Original Title: {title}\n\nCurrent Description: {summary}\n\nSource Context:\n{source_context}",
@@ -228,10 +281,7 @@ class GitHubModelsClient:
             },
         }
         schema = self._load_json_prompt("output_cleanup/description_schema.json", default_schema)
-        system_prompt = self._load_text_prompt(
-            "output_cleanup/description_system.txt",
-            "Rewrite the news description in neutral language. Return only JSON matching the schema.",
-        )
+        system_prompt = self._load_description_system_prompt()
         user_template = self._load_text_prompt(
             "output_cleanup/description_user.txt",
             "Output Title: {title}\n\nCurrent Description: {summary}\n\nSource Context:\n{source_context}",

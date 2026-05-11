@@ -72,6 +72,105 @@ class FakeOutputCleanupClient:
 
 
 class OutputCleanupTests(unittest.TestCase):
+    def test_title_rewrite_includes_standard_headline_instructions(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            prompts_dir = temp_path / "prompts"
+            cleanup_dir = prompts_dir / "output_cleanup"
+            cleanup_dir.mkdir(parents=True)
+            headline_instructions = temp_path / "Headline-Generation-Instructions.md"
+            headline_instructions.write_text(
+                "# Headline Generation Instructions\n\n"
+                "Rewrite article titles into concise, factual, Techmeme-style headlines.\n\n"
+                "The headline should generally be 18-35 words.\n\n"
+                "Use attribution when needed and avoid hype.",
+                encoding="utf-8",
+            )
+            (cleanup_dir / "title_system.txt").write_text("Application title prompt.", encoding="utf-8")
+            (cleanup_dir / "title_user.txt").write_text(
+                "Title: {title}\nSummary: {summary}\nSources: {source_context}",
+                encoding="utf-8",
+            )
+            (cleanup_dir / "title_schema.json").write_text(
+                json.dumps(
+                    {
+                        "type": "json_schema",
+                        "json_schema": {
+                            "name": "output_title_rewrite",
+                            "schema": {
+                                "type": "object",
+                                "properties": {"title": {"type": "string"}},
+                                "required": ["title"],
+                                "additionalProperties": False,
+                            },
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            client = GitHubModelsClient(token="test-token")
+            client.prompts_dir = prompts_dir
+            client.headline_instructions_path = headline_instructions
+            client.session = FakeSession([json.dumps({"title": "Microsoft adds Copilot Studio approval workflows for enterprise admins"})])
+
+            client.rewrite_output_title("Raw Title", "Raw summary", "Source context", model="test-model")
+
+            system_message = client.session.payloads[0]["messages"][0]["content"]
+            self.assertIn("Techmeme-style headlines", system_message)
+            self.assertIn("18-35 words", system_message)
+            self.assertIn("Application title prompt.", system_message)
+            self.assertIn("Return JSON matching the provided schema", system_message)
+
+    def test_description_rewrite_includes_standard_article_summary_instructions(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            prompts_dir = temp_path / "prompts"
+            cleanup_dir = prompts_dir / "output_cleanup"
+            cleanup_dir.mkdir(parents=True)
+            article_summary_instructions = temp_path / "Article-Summary.md"
+            article_summary_instructions.write_text(
+                "You are an expert news summarizer. Your job is to turn a news article "
+                "into a brief, polished, formatted description of 1 to 3 paragraphs.\n\n"
+                "Return the final formatted description only.",
+                encoding="utf-8",
+            )
+            (cleanup_dir / "description_system.txt").write_text("Application description prompt.", encoding="utf-8")
+            (cleanup_dir / "description_user.txt").write_text(
+                "Title: {title}\nSummary: {summary}\nSources: {source_context}",
+                encoding="utf-8",
+            )
+            (cleanup_dir / "description_schema.json").write_text(
+                json.dumps(
+                    {
+                        "type": "json_schema",
+                        "json_schema": {
+                            "name": "output_description_rewrite",
+                            "schema": {
+                                "type": "object",
+                                "properties": {"description": {"type": "string"}},
+                                "required": ["description"],
+                                "additionalProperties": False,
+                            },
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            client = GitHubModelsClient(token="test-token")
+            client.prompts_dir = prompts_dir
+            client.article_summary_instructions_path = article_summary_instructions
+            client.session = FakeSession([json.dumps({"description": "Microsoft added approval workflows for enterprise AI admins."})])
+
+            client.rewrite_output_description("Raw Title", "Raw summary", "Source context", model="test-model")
+
+            system_message = client.session.payloads[0]["messages"][0]["content"]
+            self.assertIn("brief, polished, formatted description", system_message)
+            self.assertIn("1 to 3 paragraphs", system_message)
+            self.assertIn("Application description prompt.", system_message)
+            self.assertIn("Return JSON matching the provided schema", system_message)
+
     def test_rewrite_methods_use_prompt_folder_and_return_clean_text(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             prompts_dir = Path(temp_dir)
@@ -124,6 +223,8 @@ class OutputCleanupTests(unittest.TestCase):
 
             client = GitHubModelsClient(token="test-token")
             client.prompts_dir = prompts_dir
+            client.headline_instructions_path = prompts_dir / "missing-headline-instructions.md"
+            client.article_summary_instructions_path = prompts_dir / "missing-article-summary-instructions.md"
             client.session = FakeSession(
                 [
                     json.dumps({"title": "Clean output title"}),
