@@ -66,3 +66,5 @@ Data contracts define the JSON and feed shapes consumed by the browser, subscrib
 
 - `generated`, `count`.
 - `items[]` with `title`, `url`, `source`, `sourceType`, `published`, `summary`, `score`, `upvotes`, `comments`, `clusterId`.
+- optional `aiRelevance` with gate decision fields: `is_ai_related`, `decision`, `confidence`, `primary_ai_topic`, `rationale`, `evidence`, `rubric_hash`, `context_hash`, `checked_at`, `model`, and `input_hash`.
+- optional `importance` with rubric scores: `business_level`, `technical_level`, `business_impact`, `technical_impact`, `risk_impact`, `enterprise_readiness`, `labor_workflow_impact`, `confidence`, `attention_priority`, `development_summary`, `reason_codes`, `recommended_action`, `rationale`, `watch_items`, `business_rationale`, `technical_rationale`, `rubric_hash`, `graded_at`, `model`, and `input_hash`.

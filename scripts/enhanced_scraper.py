@@ -20,6 +20,7 @@ import requests
 import random
 import time
 import re
+from typing import Callable
 from dateutil import parser as date_parser
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
@@ -29,6 +30,14 @@ try:
 except ModuleNotFoundError:
     from config import *
     from feed_generator import MultiFeedGenerator
+
+try:
+    from pipeline.article_content import fetch_article_markdown as _fetch_article_markdown
+except ModuleNotFoundError:
+    def _fetch_article_markdown(*_args: object, **_kwargs: object) -> str:
+        return ''
+
+fetch_article_markdown: Callable[..., str] = _fetch_article_markdown
 
 # Setup logging
 logging.basicConfig(
@@ -626,6 +635,7 @@ _USER_AGENTS = [
 
 # Importance grading (EA aggregated feed)
 IMPORTANCE_RUBRIC_PATH = 'Docs/reference/business-and-technical-importance-rubric.md'
+AI_RELEVANCE_RUBRIC_PATH = 'Docs/reference/ai-relevance-rubric.md'
 BUSINESS_TAGS = {1: '[ ~ ]', 2: '[ * ]', 3: '[ ! ]'}
 TECHNICAL_TAGS = {1: '[ ◻ ]', 2: '[ ◼ ]', 3: '[ ⬢ ]'}
 _ALL_IMPORTANCE_TAGS = set(list(BUSINESS_TAGS.values()) + list(TECHNICAL_TAGS.values()))
@@ -645,6 +655,28 @@ def _read_text_file(path: str) -> str:
 
 def _rubric_hash(markdown: str) -> str:
     return hashlib.sha1((markdown or '').encode('utf-8')).hexdigest()
+
+
+def _ai_relevance_context_hash(title: str, summary: str, article: str, rubric_hash: str, model: str) -> str:
+    raw = json.dumps(
+        {
+            'title': title,
+            'summary': summary,
+            'article': article,
+            'rubric_hash': rubric_hash,
+            'model': model,
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+    return hashlib.sha1(raw.encode('utf-8')).hexdigest()
+
+
+def _ai_relevance_allows_grading(relevance: dict | None) -> bool:
+    if not relevance:
+        return False
+    decision = str(relevance.get('decision') or '').strip().lower()
+    return bool(relevance.get('is_ai_related')) and decision == 'proceed'
 
 
 def _strip_trailing_importance_tags(title: str) -> str:
@@ -1121,12 +1153,16 @@ def aggregate_external_feeds(cfg):
     importance_client = None
     importance_rubric = ''
     importance_rubric_hash = ''
+    ai_relevance_rubric = ''
+    ai_relevance_rubric_hash = ''
     importance_store = None
 
     if importance_enabled:
         token = _resolve_models_token()
         importance_rubric = _read_text_file(IMPORTANCE_RUBRIC_PATH)
         importance_rubric_hash = _rubric_hash(importance_rubric) if importance_rubric else ''
+        ai_relevance_rubric = _read_text_file(AI_RELEVANCE_RUBRIC_PATH)
+        ai_relevance_rubric_hash = _rubric_hash(ai_relevance_rubric) if ai_relevance_rubric else ''
         if not token:
             logger.warning(
                 f"{feed_key_norm} aggregated importance tagging skipped: missing GH_MODELS_TOKEN / GH_Models_Token"
@@ -1134,6 +1170,10 @@ def aggregate_external_feeds(cfg):
         elif not importance_rubric_hash:
             logger.warning(
                 f"{feed_key_norm} aggregated importance tagging skipped: missing rubric file {IMPORTANCE_RUBRIC_PATH}"
+            )
+        elif not ai_relevance_rubric_hash:
+            logger.warning(
+                f"{feed_key_norm} aggregated importance tagging skipped: missing rubric file {AI_RELEVANCE_RUBRIC_PATH}"
             )
         else:
             try:
@@ -1153,11 +1193,13 @@ def aggregate_external_feeds(cfg):
     rate_limit_threshold = int(cfg.get('llm_429_threshold', 5))
     rate_limit_cooldown_base_sec = float(cfg.get('llm_429_cooldown_base_sec', 45.0))
     rate_limit_cooldown_max_sec = float(cfg.get('llm_429_cooldown_max_sec', 300.0))
+    article_fetch_timeout_sec = int(cfg.get('article_fetch_timeout_sec', cfg.get('request_timeout_sec', 25)))
+    article_max_chars = int(cfg.get('article_max_chars', 12000))
 
     def _tag_entries_with_importance(entries: list[dict], label: str) -> None:
         if not entries:
             return
-        if not importance_enabled or importance_client is None or importance_store is None or not importance_rubric_hash:
+        if not importance_enabled or importance_client is None or importance_store is None or not importance_rubric_hash or not ai_relevance_rubric_hash:
             return
 
         graded = 0
@@ -1168,6 +1210,9 @@ def aggregate_external_feeds(cfg):
             cache_key = _importance_key_for_entry(cfg, entry)
             existing = importance_store.get(cache_key)
             if isinstance(existing, dict) and str(existing.get('rubric_hash') or '') == importance_rubric_hash:
+                existing_relevance = existing.get('ai_relevance') if isinstance(existing.get('ai_relevance'), dict) else None
+                if isinstance(existing_relevance, dict) and not _ai_relevance_allows_grading(existing_relevance):
+                    continue
                 business_level = existing.get('business_level')
                 technical_level = existing.get('technical_level')
                 try:
@@ -1187,6 +1232,63 @@ def aggregate_external_feeds(cfg):
             # Reduce noise from source attribution in title (if present)
             title_for_grading = re.sub(r"\s*\(Source:.*\)\s*$", "", title_for_grading).strip()
             context_for_grading = str(entry.get('description') or '')
+            article_for_grading = fetch_article_markdown(
+                str(entry.get('link') or ''),
+                timeout_sec=article_fetch_timeout_sec,
+                max_chars=article_max_chars,
+            )
+            relevance_model = str(cfg.get('ai_relevance_model') or 'openai/gpt-4.1-mini')
+            relevance_context_hash = _ai_relevance_context_hash(
+                title_for_grading,
+                context_for_grading,
+                article_for_grading,
+                ai_relevance_rubric_hash,
+                relevance_model,
+            )
+            existing_relevance = existing.get('ai_relevance') if isinstance(existing, dict) and isinstance(existing.get('ai_relevance'), dict) else None
+            relevance_payload = existing_relevance
+            if not isinstance(relevance_payload, dict) or str(relevance_payload.get('context_hash') or '') != relevance_context_hash:
+                try:
+                    relevance_result, _relevance_meta = _call_with_retry(
+                        lambda: importance_client.check_ai_relevance(
+                            title_for_grading,
+                            context_for_grading,
+                            ai_relevance_rubric,
+                            model=relevance_model,
+                            article=article_for_grading,
+                        ),
+                        max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
+                        base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
+                        max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
+                        rate_limit_state=rate_limit_state,
+                        rate_limit_window_sec=rate_limit_window_sec,
+                        rate_limit_threshold=rate_limit_threshold,
+                        rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                        rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                    )
+                    relevance_payload = {
+                        'is_ai_related': bool(relevance_result.get('is_ai_related')),
+                        'decision': relevance_result.get('decision', ''),
+                        'confidence': relevance_result.get('confidence', ''),
+                        'primary_ai_topic': relevance_result.get('primary_ai_topic', ''),
+                        'rationale': relevance_result.get('rationale', ''),
+                        'evidence': relevance_result.get('evidence', []),
+                        'rubric_hash': ai_relevance_rubric_hash,
+                        'context_hash': relevance_context_hash,
+                        'checked_at': datetime.now(timezone.utc).isoformat(),
+                        'model': relevance_result.get('model'),
+                        'input_hash': relevance_result.get('input_hash'),
+                    }
+                    existing_record = existing if isinstance(existing, dict) else {}
+                    existing_record['ai_relevance'] = relevance_payload
+                    importance_store[cache_key] = existing_record
+                except Exception as relevance_err:
+                    logger.warning(f"{feed_key_norm} aggregated AI relevance check failed for entry: {relevance_err}")
+                    continue
+
+            if not _ai_relevance_allows_grading(relevance_payload):
+                continue
+
             try:
                 result, _meta = _call_with_retry(
                     lambda: importance_client.grade_importance(
@@ -1194,6 +1296,7 @@ def aggregate_external_feeds(cfg):
                         context_for_grading,
                         importance_rubric,
                         model=str(cfg.get('importance_model') or 'openai/gpt-4.1-mini'),
+                        article=article_for_grading,
                     ),
                     max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
                     base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
@@ -1205,8 +1308,21 @@ def aggregate_external_feeds(cfg):
                             rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
                 )
                 importance_store[cache_key] = {
+                    'ai_relevance': relevance_payload,
                     'business_level': result.get('business_level'),
                     'technical_level': result.get('technical_level'),
+                    'business_impact': result.get('business_impact', ''),
+                    'technical_impact': result.get('technical_impact', ''),
+                    'risk_impact': result.get('risk_impact', ''),
+                    'enterprise_readiness': result.get('enterprise_readiness', ''),
+                    'labor_workflow_impact': result.get('labor_workflow_impact', ''),
+                    'confidence': result.get('confidence', ''),
+                    'attention_priority': result.get('attention_priority', ''),
+                    'development_summary': result.get('development_summary', ''),
+                    'reason_codes': result.get('reason_codes', []),
+                    'recommended_action': result.get('recommended_action', ''),
+                    'rationale': result.get('rationale', ''),
+                    'watch_items': result.get('watch_items', []),
                     'business_rationale': result.get('business_rationale', ''),
                     'technical_rationale': result.get('technical_rationale', ''),
                     'rubric_hash': importance_rubric_hash,

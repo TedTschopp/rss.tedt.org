@@ -1,0 +1,26 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "ai_relevance_gate",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "is_ai_related": { "type": "boolean" },
+        "decision": { "type": "string", "enum": ["proceed", "skip"] },
+        "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+        "primary_ai_topic": { "type": "string" },
+        "rationale": { "type": "string" },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": [
+        "is_ai_related",
+        "decision",
+        "confidence",
+        "primary_ai_topic",
+        "rationale",
+        "evidence"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

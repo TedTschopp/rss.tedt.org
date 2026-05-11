@@ -1,12 +1,15 @@
 from datetime import datetime, timezone
+from collections.abc import Callable
 import hashlib
+import json
 import os
 import re
 import time
-from typing import Any
+from typing import Any, cast
 
 from scripts.feed_generator import MultiFeedGenerator
 
+from .article_content import fetch_article_markdown
 from .constants import DEFAULT_PIPELINE_CONFIG
 from .io_utils import append_jsonl, write_json
 from .llm_client import GitHubModelsClient
@@ -14,6 +17,7 @@ from .text_utils import parse_datetime, to_iso
 
 
 IMPORTANCE_RUBRIC_PATH = "Docs/reference/business-and-technical-importance-rubric.md"
+AI_RELEVANCE_RUBRIC_PATH = "Docs/reference/ai-relevance-rubric.md"
 
 
 def _resolve_models_token() -> str:
@@ -82,8 +86,10 @@ def _rate_limit_note_429(
     retry_after_sec: float | None,
 ) -> None:
     now = time.time()
-    recent = state.setdefault("recent_429", [])
-    if not isinstance(recent, list):
+    recent_raw = state.setdefault("recent_429", [])
+    if isinstance(recent_raw, list):
+        recent = cast(list[Any], recent_raw)
+    else:
         recent = []
         state["recent_429"] = recent
     recent.append(now)
@@ -105,7 +111,7 @@ def _rate_limit_note_429(
 
 
 def _call_with_retry(
-    call,
+    call: Callable[[], Any],
     max_attempts: int,
     base_delay_sec: float,
     max_delay_sec: float,
@@ -166,6 +172,28 @@ def _rubric_hash(markdown: str) -> str:
     return hashlib.sha1((markdown or "").encode("utf-8")).hexdigest()
 
 
+def _ai_relevance_context_hash(title: str, summary: str, article: str, rubric_hash: str, model: str) -> str:
+    raw = json.dumps(
+        {
+            "title": title,
+            "summary": summary,
+            "article": article,
+            "rubric_hash": rubric_hash,
+            "model": model,
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
+def _ai_relevance_allows_grading(relevance: dict[str, Any] | None) -> bool:
+    if not relevance:
+        return False
+    decision = str(relevance.get("decision") or "").strip().lower()
+    return bool(relevance.get("is_ai_related")) and decision == "proceed"
+
+
 BUSINESS_TAGS = {1: "[ ~ ]", 2: "[ * ]", 3: "[ ! ]"}
 TECHNICAL_TAGS = {1: "[ ◻ ]", 2: "[ ◼ ]", 3: "[ ⬢ ]"}
 ALL_TAG_STRINGS = list(BUSINESS_TAGS.values()) + list(TECHNICAL_TAGS.values())
@@ -188,13 +216,13 @@ def _strip_trailing_importance_tags(title: str) -> str:
 
 
 def _importance_tags(importance: dict[str, Any] | None) -> tuple[str | None, str | None]:
-    if not importance or not isinstance(importance, dict):
+    if not importance:
         return None, None
     business_level = importance.get("business_level")
     technical_level = importance.get("technical_level")
     try:
-        business_level_int = int(business_level)
-        technical_level_int = int(technical_level)
+        business_level_int = int(str(business_level or "0"))
+        technical_level_int = int(str(technical_level or "0"))
     except Exception:
         return None, None
     return BUSINESS_TAGS.get(business_level_int), TECHNICAL_TAGS.get(technical_level_int)
@@ -218,10 +246,15 @@ def _is_ai_story(story: dict[str, Any], ai_keywords: list[str]) -> bool:
                 return True
         return False
 
-    llm_topics = story.get("llm", {}).get("topics", []) if isinstance(story.get("llm"), dict) else []
-    if isinstance(llm_topics, list):
-        if any(keyword_match(str(topic)) for topic in llm_topics):
-            return True
+    llm = story.get("llm")
+    if isinstance(llm, dict):
+        llm_map = cast(dict[str, Any], llm)
+        llm_topics_raw = llm_map.get("topics", [])
+    else:
+        llm_topics_raw = []
+    llm_topics = cast(list[Any], llm_topics_raw) if isinstance(llm_topics_raw, list) else []
+    if any(keyword_match(str(topic)) for topic in llm_topics):
+        return True
 
     title = str(story.get("title", "")).lower()
     summary = str(story.get("summary", "")).lower()
@@ -230,9 +263,11 @@ def _is_ai_story(story: dict[str, Any], ai_keywords: list[str]) -> bool:
     return keyword_match(haystack)
 
 
-def _to_feed_entry(story: dict) -> dict:
+def _to_feed_entry(story: dict[str, Any]) -> dict[str, Any]:
     base_title = _strip_trailing_importance_tags(story.get("title", ""))
-    business_tag, technical_tag = _importance_tags(story.get("importance"))
+    importance_raw = story.get("importance")
+    importance = cast(dict[str, Any], importance_raw) if isinstance(importance_raw, dict) else None
+    business_tag, technical_tag = _importance_tags(importance)
     if business_tag and technical_tag:
         title = f"{base_title} {business_tag} {technical_tag}".strip()
     else:
@@ -240,28 +275,60 @@ def _to_feed_entry(story: dict) -> dict:
     return {
         "title": title,
         "link": story.get("canonical_url") or story.get("url", ""),
-        "description": story.get("llm", {}).get("summary") or story.get("summary", ""),
+        "description": _story_summary(story),
         "pub_date": story.get("published"),
         "guid": story.get("story_id"),
     }
 
 
+def _story_summary(story: dict[str, Any]) -> str:
+    llm = story.get("llm")
+    if isinstance(llm, dict):
+        llm_map = cast(dict[str, Any], llm)
+        llm_summary = llm_map.get("summary")
+        if llm_summary:
+            return str(llm_summary)
+    return str(story.get("summary") or "")
+
+
+def _sum_mentions(story: dict[str, Any], key: str) -> int | None:
+    mentions = story.get("mentions", [])
+    if not isinstance(mentions, list):
+        return None
+    mention_values = cast(list[Any], mentions)
+    total = 0
+    for mention in mention_values:
+        if not isinstance(mention, dict):
+            continue
+        mention_map = cast(dict[str, Any], mention)
+        try:
+            total += max(0, int(mention_map.get(key) or 0))
+        except Exception:
+            continue
+    return total or None
+
+
 def publish_outputs(
-    ranked_stories: list[dict],
+    ranked_stories: list[dict[str, Any]],
     api_path: str,
     base_feed_path: str,
     llm_cache: dict[str, dict[str, Any]] | None = None,
     llm_call_log_path: str | None = None,
-    config: dict | None = None,
-):
-    cfg = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
+    config: dict[str, Any] | None = None,
+)-> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+    cfg: dict[str, Any] = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
     publish_top_n = int(cfg.get("publish_top_n", 200))
-    ai_keywords = [str(keyword).lower() for keyword in cfg.get("ai_keywords", [])]
-    ai_only_stories = [story for story in ranked_stories if _is_ai_story(story, ai_keywords)]
-    top_stories = ai_only_stories[:publish_top_n]
+    raw_ai_keywords = cfg.get("ai_keywords", [])
+    ai_keyword_values = cast(list[Any], raw_ai_keywords) if isinstance(raw_ai_keywords, list) else []
+    ai_keywords = [str(keyword).lower() for keyword in ai_keyword_values]
+    ai_only_stories: list[dict[str, Any]] = [story for story in ranked_stories if _is_ai_story(story, ai_keywords)]
+    top_stories: list[dict[str, Any]] = ai_only_stories[:publish_top_n]
 
     importance_backfill_days = int(cfg.get("importance_backfill_days", 7))
+    ai_relevance_model = str(cfg.get("ai_relevance_model", "openai/gpt-4.1-mini"))
     importance_model = str(cfg.get("importance_model", "openai/gpt-4.1-mini"))
+    article_fetch_timeout_sec = int(cfg.get("article_fetch_timeout_sec", cfg.get("request_timeout_sec", 25)))
+    article_max_chars = int(cfg.get("article_max_chars", 12000))
     retry_max_attempts = int(cfg.get("llm_retry_max_attempts", 4))
     retry_base_delay_sec = float(cfg.get("llm_retry_base_delay_sec", 1.5))
     retry_max_delay_sec = float(cfg.get("llm_retry_max_delay_sec", 20.0))
@@ -276,6 +343,8 @@ def publish_outputs(
 
     rubric_markdown = _read_text_file(IMPORTANCE_RUBRIC_PATH)
     rubric_hash = _rubric_hash(rubric_markdown) if rubric_markdown else ""
+    ai_relevance_rubric = _read_text_file(AI_RELEVANCE_RUBRIC_PATH)
+    ai_relevance_rubric_hash = _rubric_hash(ai_relevance_rubric) if ai_relevance_rubric else ""
     token = _resolve_models_token()
     client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get("request_timeout_sec", 25))) if token else None
     call_rows: list[dict[str, Any]] = []
@@ -286,16 +355,112 @@ def publish_outputs(
         if not story_id:
             continue
         cache_entry = llm_cache.setdefault(story_id, {})
-        existing_importance = cache_entry.get("importance") if isinstance(cache_entry, dict) else None
+        existing_importance_raw = cache_entry.get("importance")
+        existing_importance = cast(dict[str, Any], existing_importance_raw) if isinstance(existing_importance_raw, dict) else None
 
-        if isinstance(existing_importance, dict):
-            story["importance"] = existing_importance
+        existing_relevance_raw = cache_entry.get("ai_relevance")
+        existing_relevance = cast(dict[str, Any], existing_relevance_raw) if isinstance(existing_relevance_raw, dict) else None
 
         if not rubric_markdown or not rubric_hash:
             continue
 
+        if not ai_relevance_rubric or not ai_relevance_rubric_hash:
+            continue
+
         if not _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days):
             continue
+
+        if client is None:
+            if isinstance(existing_relevance, dict):
+                story["ai_relevance"] = existing_relevance
+            if isinstance(existing_importance, dict):
+                story["importance"] = existing_importance
+            continue
+        importance_client = client
+
+        title_text = str(story.get("title") or "")
+        context_text = _story_summary(story)
+        article_url = str(story.get("canonical_url") or story.get("url") or "")
+        article_markdown = fetch_article_markdown(
+            article_url,
+            timeout_sec=article_fetch_timeout_sec,
+            max_chars=article_max_chars,
+        )
+        relevance_context_hash = _ai_relevance_context_hash(
+            title_text,
+            context_text,
+            article_markdown,
+            ai_relevance_rubric_hash,
+            ai_relevance_model,
+        )
+        relevance_payload: dict[str, Any] | None = existing_relevance
+        if not isinstance(relevance_payload, dict) or str(relevance_payload.get("context_hash") or "") != relevance_context_hash:
+            try:
+                relevance_result, relevance_retry_meta = _call_with_retry(
+                    lambda: importance_client.check_ai_relevance(
+                        title_text,
+                        context_text,
+                        ai_relevance_rubric,
+                        model=ai_relevance_model,
+                        article=article_markdown,
+                    ),
+                    max_attempts=retry_max_attempts,
+                    base_delay_sec=retry_base_delay_sec,
+                    max_delay_sec=retry_max_delay_sec,
+                    jitter_sec=retry_jitter_sec,
+                    rate_limit_state=rate_limit_state,
+                    rate_limit_window_sec=rate_limit_window_sec,
+                    rate_limit_threshold=rate_limit_threshold,
+                    rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                    rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                )
+                relevance_payload = {
+                    "is_ai_related": bool(relevance_result.get("is_ai_related")),
+                    "decision": relevance_result.get("decision", ""),
+                    "confidence": relevance_result.get("confidence", ""),
+                    "primary_ai_topic": relevance_result.get("primary_ai_topic", ""),
+                    "rationale": relevance_result.get("rationale", ""),
+                    "evidence": relevance_result.get("evidence", []),
+                    "rubric_hash": ai_relevance_rubric_hash,
+                    "context_hash": relevance_context_hash,
+                    "checked_at": to_iso(datetime.now(timezone.utc)),
+                    "model": relevance_result.get("model"),
+                    "input_hash": relevance_result.get("input_hash"),
+                }
+                cache_entry["ai_relevance"] = relevance_payload
+                call_rows.append(
+                    {
+                        "ts": to_iso(datetime.now(timezone.utc)),
+                        "kind": "ai_relevance",
+                        "story_id": story_id,
+                        "model": relevance_result.get("model"),
+                        "latency_ms": relevance_result.get("latency_ms"),
+                        "usage": relevance_result.get("usage", {}),
+                        "input_hash": relevance_result.get("input_hash"),
+                        "status": "ok",
+                        "retries": relevance_retry_meta.get("retries", 0),
+                    }
+                )
+            except Exception as exc:
+                call_rows.append(
+                    {
+                        "ts": to_iso(datetime.now(timezone.utc)),
+                        "kind": "ai_relevance",
+                        "story_id": story_id,
+                        "status": "error",
+                        "error": str(exc),
+                        "status_code": _status_code_from_exception(exc),
+                    }
+                )
+                continue
+
+        story["ai_relevance"] = relevance_payload
+        if not _ai_relevance_allows_grading(relevance_payload):
+            story.pop("importance", None)
+            continue
+
+        if isinstance(existing_importance, dict):
+            story["importance"] = existing_importance
 
         should_grade = False
         if not isinstance(existing_importance, dict):
@@ -304,14 +469,18 @@ def publish_outputs(
             if str(existing_importance.get("rubric_hash") or "") != rubric_hash:
                 should_grade = True
 
-        if not should_grade or client is None:
+        if not should_grade:
             continue
 
-        title_text = str(story.get("title") or "")
-        context_text = str(story.get("llm", {}).get("summary") or story.get("summary") or "")
         try:
             result, retry_meta = _call_with_retry(
-                lambda: client.grade_importance(title_text, context_text, rubric_markdown, model=importance_model),
+                lambda: importance_client.grade_importance(
+                    title_text,
+                    context_text,
+                    rubric_markdown,
+                    model=importance_model,
+                    article=article_markdown,
+                ),
                 max_attempts=retry_max_attempts,
                 base_delay_sec=retry_base_delay_sec,
                 max_delay_sec=retry_max_delay_sec,
@@ -323,9 +492,21 @@ def publish_outputs(
                 rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
             )
 
-            importance_payload = {
+            importance_payload: dict[str, Any] = {
                 "business_level": result.get("business_level"),
                 "technical_level": result.get("technical_level"),
+                "business_impact": result.get("business_impact", ""),
+                "technical_impact": result.get("technical_impact", ""),
+                "risk_impact": result.get("risk_impact", ""),
+                "enterprise_readiness": result.get("enterprise_readiness", ""),
+                "labor_workflow_impact": result.get("labor_workflow_impact", ""),
+                "confidence": result.get("confidence", ""),
+                "attention_priority": result.get("attention_priority", ""),
+                "development_summary": result.get("development_summary", ""),
+                "reason_codes": result.get("reason_codes", []),
+                "recommended_action": result.get("recommended_action", ""),
+                "rationale": result.get("rationale", ""),
+                "watch_items": result.get("watch_items", []),
                 "business_rationale": result.get("business_rationale", ""),
                 "technical_rationale": result.get("technical_rationale", ""),
                 "rubric_hash": rubric_hash,
@@ -364,7 +545,7 @@ def publish_outputs(
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)
 
-    payload = {
+    payload: dict[str, Any] = {
         "schema_version": cfg.get("schema_version", "1.0.0"),
         "generated": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "count": len(top_stories),
@@ -375,11 +556,13 @@ def publish_outputs(
                 "source": story.get("source_name"),
                 "sourceType": story.get("source_type"),
                 "published": story.get("published"),
-                "summary": story.get("llm", {}).get("summary") or story.get("summary"),
+                "summary": _story_summary(story),
                 "score": story.get("score"),
-                "upvotes": sum(int(m.get("upvotes") or 0) for m in story.get("mentions", [])) or None,
-                "comments": sum(int(m.get("comments") or 0) for m in story.get("mentions", [])) or None,
+                "upvotes": _sum_mentions(story, "upvotes"),
+                "comments": _sum_mentions(story, "comments"),
                 "clusterId": story.get("cluster_id"),
+                "aiRelevance": story.get("ai_relevance"),
+                "importance": story.get("importance"),
             }
             for story in top_stories
         ],
@@ -393,7 +576,7 @@ def publish_outputs(
     )
 
     for story in top_stories:
-        feed.add_item(**_to_feed_entry(story))
+        cast(Any, feed).add_item(**_to_feed_entry(story))
 
-    feed.write_all_formats(base_feed_path)
+    cast(Any, feed).write_all_formats(base_feed_path)
     return payload, llm_cache

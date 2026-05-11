@@ -171,6 +171,18 @@ def _parse_source_items(source_type: str, text_body: str, json_payload: dict[str
     return []
 
 
+def _get_source_response(session: requests.Session, url: str, timeout: int, headers: dict[str, str]) -> requests.Response:
+    response = session.get(url, timeout=timeout, headers=headers)
+    if response.status_code != 403:
+        return response
+
+    try:
+        session.head(url, timeout=timeout, headers=headers, allow_redirects=True)
+        return session.get(url, timeout=timeout, headers=headers)
+    except Exception:
+        return response
+
+
 def run_ingestion(
     sources: list[dict[str, Any]],
     state: dict[str, Any],
@@ -209,7 +221,7 @@ def run_ingestion(
         parsed = []
 
         try:
-            response = session.get(source["url"], timeout=timeout, headers=headers)
+            response = _get_source_response(session, source["url"], timeout, headers)
             status_code = response.status_code
             response.raise_for_status()
             content_type = (response.headers.get("content-type") or "").lower()

@@ -24,9 +24,11 @@ REQUIRED_PATHS = {
     "scripts/config.py",
     "scripts/feed_generator.py",
     "pipeline/run_all.py",
+    "pipeline/article_content.py",
     "api/rss_status.json",
     "api/feed.json",
     "feeds/top.xml",
+    "Docs/reference/ai-relevance-rubric.md",
     "Docs/reference/business-and-technical-importance-rubric.md",
 }
 REQUIRED_STAGE_PATTERNS = {

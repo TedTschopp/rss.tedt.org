@@ -18,7 +18,9 @@ class PathContractTests(unittest.TestCase):
         self.assertEqual(config.AGGREGATION_REPORTS_DIR, "reports/aggregation")
 
     def test_reference_rubric_path_exists(self):
+        relevance_path = Path("Docs/reference/ai-relevance-rubric.md")
         rubric_path = Path("Docs/reference/business-and-technical-importance-rubric.md")
+        self.assertTrue(relevance_path.is_file())
         self.assertTrue(rubric_path.is_file())
 
     def test_public_feed_paths_remain_at_root(self):
