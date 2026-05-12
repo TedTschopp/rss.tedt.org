@@ -100,14 +100,19 @@ def _strip_trailing_importance_tags(title: str) -> str:
 def _importance_tags(importance: dict[str, Any] | None) -> tuple[str | None, str | None]:
     if not importance:
         return None, None
+    business_impact = str(importance.get("business_impact") or "").strip()
+    technical_impact = str(importance.get("technical_impact") or "").strip()
+    business_tag = business_impact if business_impact in BUSINESS_TAGS.values() else None
+    technical_tag = technical_impact if technical_impact in TECHNICAL_TAGS.values() else None
+
     business_level = importance.get("business_level")
     technical_level = importance.get("technical_level")
     try:
         business_level_int = int(str(business_level or "0"))
         technical_level_int = int(str(technical_level or "0"))
     except Exception:
-        return None, None
-    return BUSINESS_TAGS.get(business_level_int), TECHNICAL_TAGS.get(technical_level_int)
+        return business_tag, technical_tag
+    return business_tag or BUSINESS_TAGS.get(business_level_int), technical_tag or TECHNICAL_TAGS.get(technical_level_int)
 
 
 def _eligible_for_importance_backfill(published: str, backfill_days: int) -> bool:
@@ -155,6 +160,16 @@ def _story_title(story: dict[str, Any]) -> str:
     return str(story.get("title") or "")
 
 
+def _story_title_with_importance_tags(story: dict[str, Any]) -> str:
+    base_title = _strip_trailing_importance_tags(_story_title(story))
+    importance_raw = story.get("importance")
+    importance = cast(dict[str, Any], importance_raw) if isinstance(importance_raw, dict) else None
+    business_tag, technical_tag = _importance_tags(importance)
+    title_parts = [base_title]
+    title_parts.extend(tag for tag in (business_tag, technical_tag) if tag)
+    return " ".join(part for part in title_parts if part).strip()
+
+
 def _story_base_summary(story: dict[str, Any]) -> str:
     llm = story.get("llm")
     if isinstance(llm, dict):
@@ -176,16 +191,8 @@ def _story_summary(story: dict[str, Any]) -> str:
 
 
 def _to_feed_entry(story: dict[str, Any]) -> dict[str, Any]:
-    base_title = _strip_trailing_importance_tags(_story_title(story))
-    importance_raw = story.get("importance")
-    importance = cast(dict[str, Any], importance_raw) if isinstance(importance_raw, dict) else None
-    business_tag, technical_tag = _importance_tags(importance)
-    if business_tag and technical_tag:
-        title = f"{base_title} {business_tag} {technical_tag}".strip()
-    else:
-        title = base_title
     return {
-        "title": title,
+        "title": _story_title_with_importance_tags(story),
         "link": story.get("canonical_url") or story.get("url", ""),
         "description": _story_summary(story),
         "pub_date": story.get("published"),
@@ -636,7 +643,7 @@ def publish_outputs(
         "count": len(top_stories),
         "items": [
             {
-                "title": _story_title(story),
+                "title": _story_title_with_importance_tags(story),
                 "originalTitle": story.get("title"),
                 "url": story.get("canonical_url") or story.get("url"),
                 "source": story.get("source_name"),

@@ -211,8 +211,10 @@ class ImportanceGradingContractTests(unittest.TestCase):
                 )
 
             self.assertEqual(payload["items"][0]["importance"], importance)
+            self.assertEqual(payload["items"][0]["title"], "Enterprise AI governance platform launches [ * ] [ ⬢ ]")
             saved_payload = json.loads(api_path.read_text(encoding="utf-8"))
             self.assertEqual(saved_payload["items"][0]["importance"]["attention_priority"], "P3")
+            self.assertEqual(saved_payload["items"][0]["title"], "Enterprise AI governance platform launches [ * ] [ ⬢ ]")
 
     def test_publish_outputs_uses_default_importance_model_constant(self):
         class FakeImportanceClient:

@@ -373,7 +373,7 @@ class OutputCleanupTests(unittest.TestCase):
                 )
 
             item = payload["items"][0]
-            self.assertEqual(item["title"], output_cleanup["title"])
+            self.assertEqual(item["title"], f"{output_cleanup['title']} [ * ] [ ⬢ ]")
             self.assertEqual(item["summary"], output_cleanup["description"])
             self.assertEqual(item["description"], output_cleanup["description"])
             self.assertEqual(item["originalTitle"], "Raw OpenAI data controls headline")

@@ -327,29 +327,7 @@
                                 </xsl:choose>
 
                                 <a href="{link}" target="_blank" rel="noopener">
-                                    <xsl:choose>
-                                        <xsl:when test="contains($title, '[ ! ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ! ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ * ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ * ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ~ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ⬢ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◼ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◻ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of select="$title"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+                                    <xsl:value-of select="$title"/>
                                 </a>
                             </h3>
                             <div class="meta">
@@ -400,29 +378,7 @@
                                 </xsl:choose>
 
                                 <a href="{atom:link/@href}" target="_blank" rel="noopener">
-                                    <xsl:choose>
-                                        <xsl:when test="contains($title, '[ ! ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ! ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ * ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ * ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ~ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ⬢ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◼ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◻ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of select="$title"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+                                    <xsl:value-of select="$title"/>
                                 </a>
                             </h3>
                             <div class="meta">
@@ -473,29 +429,7 @@
                                 </xsl:choose>
 
                                 <a href="{rss1:link}" target="_blank" rel="noopener">
-                                    <xsl:choose>
-                                        <xsl:when test="contains($title, '[ ! ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ! ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ * ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ * ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ~ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ⬢ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◼ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◻ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of select="$title"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+                                    <xsl:value-of select="$title"/>
                                 </a>
                             </h3>
                             <div class="meta">
@@ -546,29 +480,7 @@
                                 </xsl:choose>
 
                                 <a href="{link}" target="_blank" rel="noopener">
-                                    <xsl:choose>
-                                        <xsl:when test="contains($title, '[ ! ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ! ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ * ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ * ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ~ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ~ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ⬢ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ⬢ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◼ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◼ ]')"/>
-                                        </xsl:when>
-                                        <xsl:when test="contains($title, '[ ◻ ]')">
-                                            <xsl:value-of select="substring-before($title, ' [ ◻ ]')"/>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of select="$title"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+                                    <xsl:value-of select="$title"/>
                                 </a>
                             </h3>
                             <div class="meta">
