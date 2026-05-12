@@ -1,10 +1,8 @@
 from datetime import datetime, timezone
-from collections.abc import Callable
 import hashlib
 import json
 import os
 import re
-import time
 from typing import Any, cast
 
 from scripts.feed_generator import MultiFeedGenerator
@@ -13,6 +11,8 @@ from .article_content import fetch_article_markdown
 from .constants import DEFAULT_PIPELINE_CONFIG
 from .io_utils import append_jsonl, write_json
 from .llm_client import GitHubModelsClient
+from .llm_rate_limit import call_with_retry as _call_with_retry
+from .llm_rate_limit import status_code_from_exception as _status_code_from_exception
 from .text_utils import parse_datetime, to_iso
 
 
@@ -48,139 +48,6 @@ def _read_text_file(path: str) -> str:
 def _prompt_bundle_hash(paths: list[str]) -> str:
     raw = "\n\n".join(f"{path}\n{_read_text_file(path)}" for path in paths)
     return hashlib.sha1(raw.encode("utf-8")).hexdigest()
-
-
-def _status_code_from_exception(exc: Exception) -> int | None:
-    response = getattr(exc, "response", None)
-    if response is None:
-        return None
-    status = getattr(response, "status_code", None)
-    if isinstance(status, int):
-        return status
-    return None
-
-
-def _retry_after_seconds(exc: Exception) -> float | None:
-    response = getattr(exc, "response", None)
-    if response is None:
-        return None
-    headers = getattr(response, "headers", None)
-    if not headers:
-        return None
-    retry_after = headers.get("Retry-After")
-    if retry_after is None:
-        return None
-    try:
-        return float(retry_after)
-    except Exception:
-        return None
-
-
-def _is_retryable_exception(exc: Exception) -> bool:
-    status_code = _status_code_from_exception(exc)
-    if status_code in {429, 500, 502, 503, 504}:
-        return True
-    text = str(exc).lower()
-    return "too many requests" in text or "timed out" in text
-
-
-def _rate_limit_wait_if_needed(state: dict[str, Any]) -> None:
-    now = time.time()
-    cooldown_until = float(state.get("cooldown_until", 0.0) or 0.0)
-    if now < cooldown_until:
-        time.sleep(max(0.0, cooldown_until - now))
-
-
-def _rate_limit_note_429(
-    state: dict[str, Any],
-    *,
-    window_sec: float,
-    threshold: int,
-    cooldown_base_sec: float,
-    cooldown_max_sec: float,
-    retry_after_sec: float | None,
-) -> None:
-    now = time.time()
-    recent_raw = state.setdefault("recent_429", [])
-    if isinstance(recent_raw, list):
-        recent = cast(list[Any], recent_raw)
-    else:
-        recent = []
-        state["recent_429"] = recent
-    recent.append(now)
-    # Trim outside the window
-    cutoff = now - float(max(1.0, window_sec))
-    state["recent_429"] = [t for t in recent if isinstance(t, (int, float)) and t >= cutoff]
-
-    if len(state["recent_429"]) < int(max(1, threshold)):
-        return
-
-    strikes = int(state.get("cooldown_strikes", 0) or 0) + 1
-    state["cooldown_strikes"] = strikes
-    cooldown = min(float(cooldown_max_sec), float(cooldown_base_sec) * (2 ** (strikes - 1)))
-    if retry_after_sec is not None:
-        cooldown = max(cooldown, float(retry_after_sec))
-    # Add a touch of jitter so we don't re-sync with other callers.
-    cooldown = min(float(cooldown_max_sec), cooldown + (0.1 * cooldown))
-    state["cooldown_until"] = max(float(state.get("cooldown_until", 0.0) or 0.0), now + cooldown)
-
-
-def _call_with_retry(
-    call: Callable[[], Any],
-    max_attempts: int,
-    base_delay_sec: float,
-    max_delay_sec: float,
-    jitter_sec: float,
-    rate_limit_state: dict[str, Any] | None = None,
-    rate_limit_window_sec: float = 60.0,
-    rate_limit_threshold: int = 5,
-    rate_limit_cooldown_base_sec: float = 45.0,
-    rate_limit_cooldown_max_sec: float = 300.0,
-) -> tuple[Any, dict[str, Any]]:
-    retries = 0
-    state = rate_limit_state if isinstance(rate_limit_state, dict) else None
-    for attempt in range(1, max_attempts + 1):
-        try:
-            if state is not None:
-                _rate_limit_wait_if_needed(state)
-            result = call()
-            if state is not None:
-                state["recent_429"] = []
-                state["cooldown_strikes"] = 0
-            return result, {"attempt": attempt, "retries": retries}
-        except Exception as exc:
-            retryable = _is_retryable_exception(exc)
-            if attempt >= max_attempts or not retryable:
-                status_code = _status_code_from_exception(exc)
-                raise RuntimeError(
-                    f"llm_call_failed attempt={attempt} retries={retries} status={status_code} error={exc}"
-                ) from exc
-
-            status_code = _status_code_from_exception(exc)
-            retry_after = _retry_after_seconds(exc)
-            if state is not None and status_code == 429:
-                _rate_limit_note_429(
-                    state,
-                    window_sec=rate_limit_window_sec,
-                    threshold=rate_limit_threshold,
-                    cooldown_base_sec=rate_limit_cooldown_base_sec,
-                    cooldown_max_sec=rate_limit_cooldown_max_sec,
-                    retry_after_sec=retry_after,
-                )
-            if retry_after is not None:
-                delay = min(max_delay_sec, max(0.0, retry_after))
-            else:
-                delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)) + (jitter_sec * (attempt / max_attempts)))
-
-            if state is not None:
-                cooldown_until = float(state.get("cooldown_until", 0.0) or 0.0)
-                cooldown_remaining = max(0.0, cooldown_until - time.time())
-                delay = max(float(delay), cooldown_remaining)
-
-            time.sleep(delay)
-            retries += 1
-
-    raise RuntimeError("llm_call_failed exhausted retries")
 
 
 def _rubric_hash(markdown: str) -> str:
@@ -433,6 +300,9 @@ def publish_outputs(
     rate_limit_threshold = int(cfg.get("llm_429_threshold", 5))
     rate_limit_cooldown_base_sec = float(cfg.get("llm_429_cooldown_base_sec", 45.0))
     rate_limit_cooldown_max_sec = float(cfg.get("llm_429_cooldown_max_sec", 300.0))
+    request_rate_limit_window_sec = float(cfg.get("llm_rate_limit_window_sec", 60.0))
+    request_rate_limit_max_calls = int(cfg.get("llm_rate_limit_requests_per_window", 0))
+    request_rate_limit_min_interval_sec = float(cfg.get("llm_rate_limit_min_interval_sec", 0.0))
 
     if llm_cache is None:
         llm_cache = {}
@@ -509,6 +379,9 @@ def publish_outputs(
                     rate_limit_threshold=rate_limit_threshold,
                     rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
                     rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                    request_rate_limit_window_sec=request_rate_limit_window_sec,
+                    request_rate_limit_max_calls=request_rate_limit_max_calls,
+                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
                 )
                 relevance_payload = {
                     "is_ai_related": bool(relevance_result.get("is_ai_related")),
@@ -587,6 +460,9 @@ def publish_outputs(
                 rate_limit_threshold=rate_limit_threshold,
                 rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
                 rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                request_rate_limit_window_sec=request_rate_limit_window_sec,
+                request_rate_limit_max_calls=request_rate_limit_max_calls,
+                request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
             )
 
             importance_payload: dict[str, Any] = {
@@ -677,6 +553,9 @@ def publish_outputs(
                     rate_limit_threshold=rate_limit_threshold,
                     rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
                     rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                    request_rate_limit_window_sec=request_rate_limit_window_sec,
+                    request_rate_limit_max_calls=request_rate_limit_max_calls,
+                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
                 )
                 rewritten_title = str(title_result.get("title") or title_text).strip() or title_text
 
@@ -691,6 +570,9 @@ def publish_outputs(
                     rate_limit_threshold=rate_limit_threshold,
                     rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
                     rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                    request_rate_limit_window_sec=request_rate_limit_window_sec,
+                    request_rate_limit_max_calls=request_rate_limit_max_calls,
+                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
                 )
                 rewritten_description = str(description_result.get("description") or summary_text).strip() or summary_text
 
@@ -786,7 +668,7 @@ def publish_outputs(
     feed = MultiFeedGenerator(
         title="TedTschopp News Graph - Top Stories",
         link="https://rss.tedt.org/feeds/top.xml",
-        description="Natural20-style ranked stories across configured sources",
+        description="Top Ranked AI stories across configured sources",
     )
 
     for story in top_stories:

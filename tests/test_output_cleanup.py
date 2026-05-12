@@ -276,6 +276,8 @@ class OutputCleanupTests(unittest.TestCase):
                             "publish_top_n": 1,
                             "output_cleanup_top_n": 1,
                             "output_cleanup_model": "test-cleanup-model",
+                            "llm_rate_limit_requests_per_window": 0,
+                            "llm_rate_limit_min_interval_sec": 0.0,
                             "importance_backfill_days": 0,
                             "ai_keywords": ["openai"],
                         },

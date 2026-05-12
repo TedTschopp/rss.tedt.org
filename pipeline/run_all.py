@@ -59,6 +59,12 @@ def main():
         pipeline_config["llm_top_n"] = int(os.environ["PIPELINE_LLM_TOP_N"])
     if "PIPELINE_PUBLISH_TOP_N" in os.environ:
         pipeline_config["publish_top_n"] = int(os.environ["PIPELINE_PUBLISH_TOP_N"])
+    if "PIPELINE_LLM_RATE_LIMIT_REQUESTS_PER_WINDOW" in os.environ:
+        pipeline_config["llm_rate_limit_requests_per_window"] = int(os.environ["PIPELINE_LLM_RATE_LIMIT_REQUESTS_PER_WINDOW"])
+    if "PIPELINE_LLM_RATE_LIMIT_WINDOW_SEC" in os.environ:
+        pipeline_config["llm_rate_limit_window_sec"] = float(os.environ["PIPELINE_LLM_RATE_LIMIT_WINDOW_SEC"])
+    if "PIPELINE_LLM_RATE_LIMIT_MIN_INTERVAL_SEC" in os.environ:
+        pipeline_config["llm_rate_limit_min_interval_sec"] = float(os.environ["PIPELINE_LLM_RATE_LIMIT_MIN_INTERVAL_SEC"])
 
     sources = load_sources(args.sources)
     state = read_json(SOURCE_STATE_FILE, {})

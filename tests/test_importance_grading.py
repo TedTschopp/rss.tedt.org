@@ -201,13 +201,14 @@ class ImportanceGradingContractTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             api_path = Path(temp_dir) / "feed.json"
             base_feed_path = Path(temp_dir) / "top"
-            payload, _cache = publish_outputs(
-                [story],
-                str(api_path),
-                str(base_feed_path),
-                llm_cache={"story-1": {"importance": importance}},
-                config={"publish_top_n": 1},
-            )
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "", "GH_Models_Token": ""}):
+                payload, _cache = publish_outputs(
+                    [story],
+                    str(api_path),
+                    str(base_feed_path),
+                    llm_cache={"story-1": {"importance": importance}},
+                    config={"publish_top_n": 1},
+                )
 
             self.assertEqual(payload["items"][0]["importance"], importance)
             saved_payload = json.loads(api_path.read_text(encoding="utf-8"))
@@ -284,7 +285,11 @@ class ImportanceGradingContractTests(unittest.TestCase):
                             str(api_path),
                             str(base_feed_path),
                             llm_cache={},
-                            config={"publish_top_n": 1},
+                            config={
+                                "publish_top_n": 1,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                            },
                         )
 
         expected_model = DEFAULT_PIPELINE_CONFIG["importance_model"]
@@ -343,7 +348,11 @@ class ImportanceGradingContractTests(unittest.TestCase):
                             str(api_path),
                             str(base_feed_path),
                             llm_cache={},
-                            config={"publish_top_n": 1},
+                            config={
+                                "publish_top_n": 1,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                            },
                         )
 
         self.assertEqual(FakeImportanceClient.relevance_calls, 1)
