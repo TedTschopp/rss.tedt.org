@@ -2,8 +2,10 @@ name: RSS Feed Hub - Scrape and Deploy
 
 on:
   schedule:
-    # Run every 8 hours at minute 0
+    # Light run every 8 hours
     - cron: '0 */8 * * *'
+    # Heavy run once daily for deeper enrichment/cleanup
+    - cron: '30 3 * * *'
   workflow_dispatch:
     # Allow manual triggering
   push:
@@ -13,6 +15,11 @@ jobs:
   scrape-and-generate-rss:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'push' }}
+    timeout-minutes: 120
+
+    concurrency:
+      group: "scrape-${{ github.workflow }}"
+      cancel-in-progress: ${{ github.event_name == 'schedule' }}
     
     permissions:
       contents: write
@@ -30,22 +37,49 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
+        cache: 'pip'
         
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        python -m playwright install --with-deps chromium
+
+    - name: Cache Playwright browsers
+      id: playwright-cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/ms-playwright
+        key: ${{ runner.os }}-playwright-chromium-v1
+
+    - name: Install Playwright browser binaries
+      if: ${{ steps.playwright-cache.outputs.cache-hit != 'true' && !(github.event_name == 'schedule' && github.event.schedule != '30 3 * * *') }}
+      run: python -m playwright install --with-deps chromium
         
     - name: Run scraper and generate RSS
       run: python -m scripts.enhanced_scraper
       env:
         DEBUG: "false"
+        GAI_SCRAPE_ENABLED: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && 'false' || 'true' }}
 
     - name: Run full aggregation pipeline
       run: python -m pipeline.run_all
       env:
         GH_MODELS_TOKEN: ${{ secrets.GH_MODELS_TOKEN || secrets.GH_Models_Token }}
+        # Light mode for the 8-hour schedule; heavy mode for daily schedule and manual runs.
+        PIPELINE_LLM_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
+        PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25' }}
+        PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
+        PIPELINE_OUTPUT_CLEANUP_ENABLED: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && 'false' || 'true' }}
+        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '0' || '200' }}
+        PIPELINE_IMPORTANCE_BACKFILL_DAYS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '7' }}
+        PIPELINE_LLM_RETRY_MAX_ATTEMPTS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '4' }}
+        PIPELINE_LLM_RETRY_BASE_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '1.0' || '1.5' }}
+        PIPELINE_LLM_RETRY_MAX_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '8.0' || '20.0' }}
+        PIPELINE_LLM_RETRY_JITTER_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '0.3' || '0.8' }}
+        PIPELINE_LLM_429_WINDOW_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '30' || '60' }}
+        PIPELINE_LLM_429_THRESHOLD: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '3' || '5' }}
+        PIPELINE_LLM_429_COOLDOWN_BASE_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10.0' || '45.0' }}
+        PIPELINE_LLM_429_COOLDOWN_MAX_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '60.0' || '300.0' }}
       
     - name: Run RSS health monitoring
       run: python -m scripts.monitor
@@ -57,6 +91,18 @@ jobs:
         set -euo pipefail
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+
+        # Keep JSONL runtime logs bounded to control repository growth and commit size.
+        prune_jsonl() {
+          local file_path="$1"
+          local max_lines="$2"
+          if [[ -f "$file_path" ]]; then
+            tail -n "$max_lines" "$file_path" > "$file_path.tmp" || true
+            mv "$file_path.tmp" "$file_path"
+          fi
+        }
+        prune_jsonl "derived/fetch_log.jsonl" 5000
+        prune_jsonl "derived/llm_call_log.jsonl" 10000
 
         # Stage only generated artifacts (avoid accidentally committing workflow/runtime files)
         shopt -s nullglob

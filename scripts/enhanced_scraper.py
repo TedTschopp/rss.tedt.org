@@ -22,7 +22,13 @@ import time
 import re
 from typing import Callable
 from dateutil import parser as date_parser
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+try:
+    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+except Exception:
+    sync_playwright = None
+
+    class PlaywrightTimeoutError(Exception):
+        pass
 
 try:
     from scripts.config import *
@@ -118,6 +124,10 @@ class BrowserManager:
         self._page = None
 
     def __enter__(self):
+        if sync_playwright is None:
+            raise RSSScraperError(
+                "Playwright is unavailable. Install browser dependencies or disable browser scraping for this run."
+            )
         self._play = sync_playwright().start()
         # Use chromium; Playwright bundles compatible browsers (install via 'playwright install --with-deps chromium')
         self._browser = self._play.chromium.launch(headless=self.config.get("headless", True))
@@ -1519,23 +1529,35 @@ def main():
         # Load previous data
         previous_data = persistence.load_previous_data()
         
+        current_gai_data = previous_data.get('gai_data', [])
+        gai_enabled = str(os.environ.get("GAI_SCRAPE_ENABLED", "true")).strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
+
         # Scrape GAI Insights
         logger.info("=" * 60)
         logger.info("SCRAPING GAI INSIGHTS")
         logger.info("=" * 60)
-        
-        try:
-            current_gai_data = gai_scraper.scrape()
-            # Check for changes
-            if persistence.has_data_changed(current_gai_data, previous_data, 'gai_data'):
-                logger.info("Changes detected in GAI data")
-            else:
-                logger.info("No changes detected in GAI data")
-            # Generate primary GAI feed
-            RSSGenerator.generate_gai_feed(current_gai_data)
-        except Exception as gai_err:
-            logger.error(f"GAI scraping failed; skipping GAI feed and continuing: {gai_err}")
-            current_gai_data = previous_data.get('gai_data', [])
+
+        if not gai_enabled:
+            logger.info("GAI scraping disabled for this run; reusing previous data and skipping browser-dependent scrape")
+            if current_gai_data:
+                RSSGenerator.generate_gai_feed(current_gai_data)
+        else:
+            try:
+                current_gai_data = gai_scraper.scrape()
+                # Check for changes
+                if persistence.has_data_changed(current_gai_data, previous_data, 'gai_data'):
+                    logger.info("Changes detected in GAI data")
+                else:
+                    logger.info("No changes detected in GAI data")
+                # Generate primary GAI feed
+                RSSGenerator.generate_gai_feed(current_gai_data)
+            except Exception as gai_err:
+                logger.error(f"GAI scraping failed; skipping GAI feed and continuing: {gai_err}")
 
         # Aggregated external feeds (multi-feed support)
         try:
