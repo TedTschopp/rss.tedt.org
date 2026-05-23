@@ -7,6 +7,7 @@ import json
 import hashlib
 import logging
 import os
+import html as html_lib
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
@@ -265,6 +266,10 @@ class GAIInsightsScraper:
                 logger.info(f"Using heuristic table match (score={best_score})")
                 table = best
             else:
+                inline_rows = self._extract_inline_payload_rows(str(soup))
+                if inline_rows:
+                    logger.info(f"Recovered {len(inline_rows)} rows from inline payload fallback")
+                    return inline_rows
                 raise RSSScraperError(f"Table with ID '{self.table_id}' not found and no suitable fallback table detected")
         
         # Extract headers
@@ -299,9 +304,73 @@ class GAIInsightsScraper:
             # Only add rows with content
             if any(data['text'] or data['links'] for data in row_data.values()):
                 table_data.append(row_data)
+
+        if not table_data:
+            inline_rows = self._extract_inline_payload_rows(str(soup))
+            if inline_rows:
+                logger.info(f"Recovered {len(inline_rows)} rows from inline payload fallback after empty table parse")
+                return inline_rows
         
         logger.info(f"Successfully extracted {len(table_data)} rows from GAI table")
         return table_data
+
+    @staticmethod
+    def _decode_js_fragment(value: str) -> str:
+        if not value:
+            return ''
+        text = str(value)
+        text = text.replace('\\/', '/')
+        text = text.replace('\\n', ' ')
+        text = text.replace('\\r', ' ')
+        text = text.replace('\\t', ' ')
+        text = text.replace('\\"', '"')
+        text = text.replace("\\'", "'")
+        text = re.sub(
+            r'\\u([0-9a-fA-F]{4})',
+            lambda m: chr(int(m.group(1), 16)),
+            text,
+        )
+        return html_lib.unescape(text).strip()
+
+    @classmethod
+    def _extract_inline_payload_rows(cls, html: str):
+        if not html:
+            return []
+
+        # GAI page includes JS object literals like:
+        # {date:"05/22/2026",rating:"Essential",title:`<a href=...>...</a>`,rationale:`...`}
+        pattern = re.compile(
+            r'\{\s*date:"(?P<date>\d{2}/\d{2}/\d{4})"\s*,\s*rating:"(?P<rating>[^"]+)"\s*,\s*title:`(?P<title>.*?)`\s*,\s*rationale:`(?P<rationale>.*?)`\s*\}',
+            re.DOTALL,
+        )
+
+        rows = []
+        for match in pattern.finditer(html):
+            date_text = cls._decode_js_fragment(match.group('date'))
+            rating_text = cls._decode_js_fragment(match.group('rating'))
+            title_html = cls._decode_js_fragment(match.group('title'))
+            rationale_text = cls._decode_js_fragment(match.group('rationale'))
+
+            title_links = []
+            title_text = ''
+            if title_html:
+                title_soup = BeautifulSoup(title_html, 'html.parser')
+                title_text = normalize_text(title_soup.get_text(strip=True))
+                title_links = [a.get('href') for a in title_soup.find_all('a', href=True)]
+
+            if not title_text:
+                title_text = normalize_text(title_html)
+
+            rows.append(
+                {
+                    'Date': {'text': normalize_text(date_text), 'links': []},
+                    'Rating': {'text': normalize_text(rating_text), 'links': []},
+                    'Title': {'text': title_text, 'links': title_links},
+                    'Rationale': {'text': normalize_text(rationale_text), 'links': []},
+                }
+            )
+
+        return rows
 
 class RSSGenerator:
     """Generate RSS feeds from scraped data."""
@@ -1557,7 +1626,8 @@ def main():
                 # Generate primary GAI feed
                 RSSGenerator.generate_gai_feed(current_gai_data)
             except Exception as gai_err:
-                logger.error(f"GAI scraping failed; skipping GAI feed and continuing: {gai_err}")
+                logger.error(f"GAI scraping failed while enabled; failing run instead of publishing stale cache: {gai_err}")
+                raise
 
         # Aggregated external feeds (multi-feed support)
         try:
