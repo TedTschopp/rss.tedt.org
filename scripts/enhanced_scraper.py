@@ -635,6 +635,48 @@ class RSSGenerator:
         
         return None
 
+    @staticmethod
+    def _latest_item_datetime(rows):
+        """Return newest parseable item datetime from scraped rows."""
+        latest = None
+        for row in rows or []:
+            date_text = ''
+            if isinstance(row, dict):
+                date_cell = row.get('Date')
+                if isinstance(date_cell, dict):
+                    date_text = str(date_cell.get('text') or '').strip()
+            parsed = RSSGenerator._parse_date(date_text)
+            if parsed and (latest is None or parsed > latest):
+                latest = parsed
+        return latest
+
+    @staticmethod
+    def _validate_freshness(rows, max_staleness_days, now=None):
+        """Validate freshness of scraped rows against staleness threshold.
+
+        Raises RSSScraperError when no parseable dates are found or when
+        newest item is older than max_staleness_days.
+        """
+        latest = RSSGenerator._latest_item_datetime(rows)
+        if latest is None:
+            raise RSSScraperError("GAI freshness check failed: no parseable item dates found")
+
+        current = now or datetime.now(timezone.utc)
+        age_days = (current.date() - latest.date()).days
+        if age_days > max_staleness_days:
+            raise RSSScraperError(
+                "GAI freshness check failed: latest item "
+                f"{latest.date().isoformat()} is {age_days} day(s) old; "
+                f"threshold is {max_staleness_days}"
+            )
+
+        logger.info(
+            "GAI freshness check passed: latest item %s (%s day(s) old; threshold=%s)",
+            latest.date().isoformat(),
+            age_days,
+            max_staleness_days,
+        )
+
 # ---------------- Aggregator Utilities ---------------- #
 
 def load_aggregator_configs():
@@ -1618,6 +1660,9 @@ def main():
         else:
             try:
                 current_gai_data = gai_scraper.scrape()
+                max_staleness_days = int(str(os.environ.get("GAI_MAX_STALENESS_DAYS", "7")).strip())
+                if max_staleness_days >= 0:
+                    RSSGenerator._validate_freshness(current_gai_data, max_staleness_days)
                 # Check for changes
                 if persistence.has_data_changed(current_gai_data, previous_data, 'gai_data'):
                     logger.info("Changes detected in GAI data")
