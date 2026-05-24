@@ -59,7 +59,7 @@ jobs:
       run: python -m scripts.enhanced_scraper
       env:
         DEBUG: "false"
-        GAI_SCRAPE_ENABLED: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && 'false' || 'true' }}
+        GAI_SCRAPE_ENABLED: "true"
 
     - name: Run full aggregation pipeline
       run: python -m pipeline.run_all
