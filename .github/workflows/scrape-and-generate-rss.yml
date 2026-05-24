@@ -80,6 +80,10 @@ jobs:
         PIPELINE_LLM_429_THRESHOLD: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '3' || '5' }}
         PIPELINE_LLM_429_COOLDOWN_BASE_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10.0' || '45.0' }}
         PIPELINE_LLM_429_COOLDOWN_MAX_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '60.0' || '300.0' }}
+        PIPELINE_ARTICLE_FETCH_WORKERS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '3' || '6' }}
+        PIPELINE_ARTICLE_CACHE_ENABLED: 'true'
+        PIPELINE_ARTICLE_CACHE_TTL_HOURS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '24' || '48' }}
+        PIPELINE_ARTICLE_CACHE_PATH: derived/article_cache.json
       
     - name: Run RSS health monitoring
       run: python -m scripts.monitor

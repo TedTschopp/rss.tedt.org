@@ -26,6 +26,10 @@ class RunAllConfigTests(unittest.TestCase):
             "PIPELINE_OUTPUT_CLEANUP_TOP_N": "0",
             "PIPELINE_IMPORTANCE_BACKFILL_DAYS": "2",
             "PIPELINE_OUTPUT_CLEANUP_ENABLED": "false",
+            "PIPELINE_ARTICLE_FETCH_WORKERS": "4",
+            "PIPELINE_ARTICLE_CACHE_ENABLED": "true",
+            "PIPELINE_ARTICLE_CACHE_TTL_HOURS": "24",
+            "PIPELINE_ARTICLE_CACHE_PATH": "derived/article_cache.json",
         }
 
         result = _apply_env_overrides(config, env)
@@ -47,6 +51,10 @@ class RunAllConfigTests(unittest.TestCase):
         self.assertEqual(result["output_cleanup_top_n"], 0)
         self.assertEqual(result["importance_backfill_days"], 2)
         self.assertFalse(result["output_cleanup_enabled"])
+        self.assertEqual(result["article_fetch_workers"], 4)
+        self.assertTrue(result["article_cache_enabled"])
+        self.assertEqual(result["article_cache_ttl_hours"], 24)
+        self.assertEqual(result["article_cache_path"], "derived/article_cache.json")
 
     def test_apply_env_overrides_parses_true_values_for_cleanup_flag(self):
         config = {"output_cleanup_enabled": False}
