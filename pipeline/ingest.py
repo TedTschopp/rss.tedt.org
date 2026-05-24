@@ -191,7 +191,6 @@ def _get_source_response(session: requests.Session, url: str, timeout: int, head
 def _fetch_source_worker(
     source: dict[str, Any],
     state: dict[str, Any],
-    session: requests.Session,
     timeout: int,
     raw_daily_dir: Path,
     cfg: dict[str, Any],
@@ -214,6 +213,9 @@ def _fetch_source_worker(
     error = ""
     parsed = []
     raw_items: list[dict[str, Any]] = []
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": str(cfg.get("user_agent", "rss.tedt.org-pipeline/1.0"))})
 
     try:
         response = _get_source_response(session, source["url"], timeout, headers)
@@ -309,14 +311,11 @@ def run_ingestion(
     raw_daily_dir = Path(raw_dir) / run_date
     raw_daily_dir.mkdir(parents=True, exist_ok=True)
 
-    session = requests.Session()
-    session.headers.update({"User-Agent": str(cfg.get("user_agent", "rss.tedt.org-pipeline/1.0"))})
-
     # Parallel source fetching with ThreadPoolExecutor
     max_workers = min(5, len(sources))  # Use up to 5 concurrent workers
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(_fetch_source_worker, source, next_state, session, timeout, raw_daily_dir, cfg): source
+            executor.submit(_fetch_source_worker, source, next_state, timeout, raw_daily_dir, cfg): source
             for source in sources
         }
 

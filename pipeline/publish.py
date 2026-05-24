@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -9,7 +10,7 @@ from scripts.feed_generator import MultiFeedGenerator
 
 from .article_content import fetch_article_markdown
 from .constants import DEFAULT_PIPELINE_CONFIG
-from .io_utils import append_jsonl, write_json
+from .io_utils import append_jsonl, read_json, write_json
 from .llm_client import GitHubModelsClient
 from .llm_rate_limit import call_with_retry as _call_with_retry
 from .llm_rate_limit import status_code_from_exception as _status_code_from_exception
@@ -270,6 +271,36 @@ def _cached_output_cleanup(cache_entry: dict[str, Any], context_hash: str) -> di
     return cleanup_map
 
 
+def _load_article_cache(path: str) -> dict[str, dict[str, Any]]:
+    payload = read_json(path, {})
+    if not isinstance(payload, dict):
+        return {}
+    cache: dict[str, dict[str, Any]] = {}
+    for key, value in payload.items():
+        if not isinstance(key, str) or not isinstance(value, dict):
+            continue
+        value_map = cast(dict[str, Any], value)
+        markdown = str(value_map.get("markdown") or "")
+        fetched_at = str(value_map.get("fetched_at") or "")
+        if not markdown or not fetched_at:
+            continue
+        cache[key] = {"markdown": markdown, "fetched_at": fetched_at}
+    return cache
+
+
+def _article_cache_fresh(entry: dict[str, Any], ttl_hours: int) -> bool:
+    fetched_at = parse_datetime(str(entry.get("fetched_at") or ""))
+    if not fetched_at:
+        return False
+    age_seconds = (datetime.now(timezone.utc) - fetched_at).total_seconds()
+    return age_seconds <= max(0, int(ttl_hours)) * 3600
+
+
+def _fetch_article_with_url(url: str, timeout_sec: int, max_chars: int) -> tuple[str, str]:
+    markdown = fetch_article_markdown(url, timeout_sec=timeout_sec, max_chars=max_chars)
+    return url, markdown
+
+
 def _apply_output_cleanup(story: dict[str, Any], cleanup: dict[str, Any]) -> None:
     story["output_cleanup"] = cleanup
 
@@ -299,6 +330,10 @@ def publish_outputs(
     output_cleanup_prompt_hash = _prompt_bundle_hash(OUTPUT_CLEANUP_PROMPT_PATHS)
     article_fetch_timeout_sec = int(cfg.get("article_fetch_timeout_sec", cfg.get("request_timeout_sec", 25)))
     article_max_chars = int(cfg.get("article_max_chars", 12000))
+    article_fetch_workers = max(1, int(cfg.get("article_fetch_workers", 5)))
+    article_cache_enabled = str(cfg.get("article_cache_enabled", True)).lower() not in {"0", "false", "no"}
+    article_cache_path = str(cfg.get("article_cache_path", "derived/article_cache.json"))
+    article_cache_ttl_hours = int(cfg.get("article_cache_ttl_hours", 48))
     retry_max_attempts = int(cfg.get("llm_retry_max_attempts", 4))
     retry_base_delay_sec = float(cfg.get("llm_retry_base_delay_sec", 1.5))
     retry_max_delay_sec = float(cfg.get("llm_retry_max_delay_sec", 20.0))
@@ -322,6 +357,59 @@ def publish_outputs(
     client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get("request_timeout_sec", 25))) if token else None
     call_rows: list[dict[str, Any]] = []
     rate_limit_state: dict[str, Any] = {}
+
+    article_cache = _load_article_cache(article_cache_path) if article_cache_enabled else {}
+    article_cache_updated = False
+    article_markdown_by_url: dict[str, str] = {}
+
+    stories_needing_article: list[dict[str, Any]] = []
+    for story in top_stories:
+        story_id = str(story.get("story_id") or "").strip()
+        if not story_id:
+            continue
+        if not _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days):
+            continue
+        if not rubric_markdown or not rubric_hash:
+            continue
+        if not ai_relevance_rubric or not ai_relevance_rubric_hash:
+            continue
+        if client is None:
+            continue
+        stories_needing_article.append(story)
+
+    unique_urls: set[str] = set()
+    for story in stories_needing_article:
+        article_url = str(story.get("canonical_url") or story.get("url") or "").strip()
+        if article_url:
+            unique_urls.add(article_url)
+
+    urls_to_fetch: list[str] = []
+    for url in unique_urls:
+        cached_entry = article_cache.get(url)
+        if cached_entry and _article_cache_fresh(cached_entry, article_cache_ttl_hours):
+            article_markdown_by_url[url] = str(cached_entry.get("markdown") or "")
+        else:
+            urls_to_fetch.append(url)
+
+    if urls_to_fetch:
+        with ThreadPoolExecutor(max_workers=min(article_fetch_workers, len(urls_to_fetch))) as executor:
+            futures = {
+                executor.submit(_fetch_article_with_url, url, article_fetch_timeout_sec, article_max_chars): url
+                for url in urls_to_fetch
+            }
+            for future in as_completed(futures):
+                url = futures[future]
+                try:
+                    fetched_url, markdown = future.result()
+                    article_markdown_by_url[fetched_url] = markdown
+                    if article_cache_enabled and markdown:
+                        article_cache[fetched_url] = {
+                            "markdown": markdown,
+                            "fetched_at": to_iso(datetime.now(timezone.utc)),
+                        }
+                        article_cache_updated = True
+                except Exception:
+                    article_markdown_by_url[url] = ""
 
     for story in top_stories:
         story_id = str(story.get("story_id") or "").strip()
@@ -354,11 +442,7 @@ def publish_outputs(
         title_text = str(story.get("title") or "")
         context_text = _story_summary(story)
         article_url = str(story.get("canonical_url") or story.get("url") or "")
-        article_markdown = fetch_article_markdown(
-            article_url,
-            timeout_sec=article_fetch_timeout_sec,
-            max_chars=article_max_chars,
-        )
+        article_markdown = article_markdown_by_url.get(article_url, "")
         relevance_context_hash = _ai_relevance_context_hash(
             title_text,
             context_text,
@@ -636,6 +720,9 @@ def publish_outputs(
 
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)
+
+    if article_cache_enabled and article_cache_updated:
+        write_json(article_cache_path, article_cache)
 
     payload: dict[str, Any] = {
         "schema_version": cfg.get("schema_version", "1.0.0"),

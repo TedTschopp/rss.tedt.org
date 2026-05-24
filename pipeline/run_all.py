@@ -99,6 +99,19 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
             "yes",
             "on",
         }
+    if "PIPELINE_ARTICLE_FETCH_WORKERS" in env:
+        pipeline_config["article_fetch_workers"] = int(env["PIPELINE_ARTICLE_FETCH_WORKERS"])
+    if "PIPELINE_ARTICLE_CACHE_ENABLED" in env:
+        pipeline_config["article_cache_enabled"] = str(env["PIPELINE_ARTICLE_CACHE_ENABLED"]).strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
+    if "PIPELINE_ARTICLE_CACHE_TTL_HOURS" in env:
+        pipeline_config["article_cache_ttl_hours"] = int(env["PIPELINE_ARTICLE_CACHE_TTL_HOURS"])
+    if "PIPELINE_ARTICLE_CACHE_PATH" in env:
+        pipeline_config["article_cache_path"] = str(env["PIPELINE_ARTICLE_CACHE_PATH"])
 
     return pipeline_config
 
