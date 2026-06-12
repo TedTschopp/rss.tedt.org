@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-12T08:30:36.758351+00:00",
+  "timestamp": "2026-06-12T11:41:30.358223+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Fri, 12 Jun 2026 08:08:27 +0000",
+      "last_updated": "Fri, 12 Jun 2026 11:35:24 +0000",
       "size_bytes": 41589,
       "errors": []
     },
@@ -23,8 +23,8 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 30,
-      "last_updated": "Fri, 12 Jun 2026 08:08:31 +0000",
-      "size_bytes": 15420,
+      "last_updated": "Fri, 12 Jun 2026 11:35:28 +0000",
+      "size_bytes": 16863,
       "errors": []
     },
     "aggregated_wes_ai_news_archive.xml": {
@@ -40,16 +40,16 @@
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 20,
-      "last_updated": "Fri, 12 Jun 2026 08:08:53 +0000",
-      "size_bytes": 16124,
+      "entry_count": 10,
+      "last_updated": "Fri, 12 Jun 2026 11:35:50 +0000",
+      "size_bytes": 10829,
       "errors": []
     },
     "aggregated_ea_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 121,
-      "last_updated": "Fri, 12 Jun 2026 08:08:53 +0000",
+      "last_updated": "Fri, 12 Jun 2026 11:35:50 +0000",
       "size_bytes": 153564,
       "errors": []
     },
@@ -57,20 +57,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Fri, 12 Jun 2026 08:11:02 +0000",
-      "size_bytes": 324067,
+      "last_updated": "Fri, 12 Jun 2026 11:37:54 +0000",
+      "size_bytes": 214247,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 627,
-      "last_updated": "Fri, 12 Jun 2026 08:11:02 +0000",
+      "last_updated": "Fri, 12 Jun 2026 11:37:54 +0000",
       "size_bytes": 319728,
       "errors": []
     }
   },
-  "overall_status": "healthy",
+  "overall_status": "warning",
   "aggregation_health": {
     "aggregated_wes_ai_news.xml": {
       "total_sources": 1,
@@ -85,7 +85,7 @@
       "total_sources": 7,
       "attempted": 6,
       "skipped": 1,
-      "with_items": 4,
+      "with_items": 3,
       "failures": 0,
       "recovered": 0,
       "failure_rate": 0.0
@@ -94,12 +94,21 @@
       "total_sources": 21,
       "attempted": 18,
       "skipped": 3,
-      "with_items": 13,
+      "with_items": 10,
       "failures": 3,
       "recovered": 0,
       "failure_rate": 16.67
     }
   },
+  "pruning_suggestions": [
+    {
+      "feed": "aggregated_broad_ai_news.xml",
+      "url": "https://www.reddit.com/r/singularity/.rss",
+      "consecutive_failures": 3,
+      "last_status": "exception",
+      "last_error_excerpt": "http 429"
+    }
+  ],
   "pipeline_health": {
     "api_feed_exists": true,
     "stories_exists": true,
@@ -107,9 +116,9 @@
     "pipeline_report_exists": true,
     "errors": [],
     "counts": {
-      "api_items": 200,
-      "stories": 2737,
-      "clusters": 2734
+      "api_items": 80,
+      "stories": 2387,
+      "clusters": 2375
     },
     "llm_status": {
       "status": "ok",
