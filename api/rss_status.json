@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-22T09:49:33.373079+00:00",
+  "timestamp": "2026-06-22T13:31:39.146630+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Mon, 22 Jun 2026 09:28:04 +0000",
+      "last_updated": "Mon, 22 Jun 2026 13:26:11 +0000",
       "size_bytes": 41007,
       "errors": []
     },
@@ -23,8 +23,8 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 30,
-      "last_updated": "Mon, 22 Jun 2026 09:28:09 +0000",
-      "size_bytes": 13072,
+      "last_updated": "Mon, 22 Jun 2026 13:26:15 +0000",
+      "size_bytes": 14223,
       "errors": []
     },
     "aggregated_wes_ai_news_archive.xml": {
@@ -40,16 +40,16 @@
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 9,
-      "last_updated": "Mon, 22 Jun 2026 09:28:35 +0000",
-      "size_bytes": 9726,
+      "entry_count": 19,
+      "last_updated": "Mon, 22 Jun 2026 13:26:45 +0000",
+      "size_bytes": 19669,
       "errors": []
     },
     "aggregated_ea_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 121,
-      "last_updated": "Mon, 22 Jun 2026 09:28:35 +0000",
+      "last_updated": "Mon, 22 Jun 2026 13:26:45 +0000",
       "size_bytes": 153564,
       "errors": []
     },
@@ -57,20 +57,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Mon, 22 Jun 2026 09:30:01 +0000",
-      "size_bytes": 221769,
+      "last_updated": "Mon, 22 Jun 2026 13:28:07 +0000",
+      "size_bytes": 224841,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 633,
-      "last_updated": "Mon, 22 Jun 2026 09:30:01 +0000",
+      "last_updated": "Mon, 22 Jun 2026 13:28:07 +0000",
       "size_bytes": 323166,
       "errors": []
     }
   },
-  "overall_status": "healthy",
+  "overall_status": "warning",
   "aggregation_health": {
     "aggregated_wes_ai_news.xml": {
       "total_sources": 1,
@@ -85,21 +85,30 @@
       "total_sources": 7,
       "attempted": 6,
       "skipped": 1,
-      "with_items": 2,
-      "failures": 1,
+      "with_items": 3,
+      "failures": 2,
       "recovered": 0,
-      "failure_rate": 16.67
+      "failure_rate": 33.33
     },
     "aggregated_broad_ai_news.xml": {
       "total_sources": 21,
       "attempted": 16,
       "skipped": 5,
-      "with_items": 10,
+      "with_items": 9,
       "failures": 2,
       "recovered": 0,
       "failure_rate": 12.5
     }
   },
+  "pruning_suggestions": [
+    {
+      "feed": "aggregated_broad_ai_news.xml",
+      "url": "https://www.reddit.com/r/LocalLLaMA/.rss",
+      "consecutive_failures": 3,
+      "last_status": "exception",
+      "last_error_excerpt": "http 429"
+    }
+  ],
   "pipeline_health": {
     "api_feed_exists": true,
     "stories_exists": true,
@@ -107,9 +116,9 @@
     "pipeline_report_exists": true,
     "errors": [],
     "counts": {
-      "api_items": 200,
-      "stories": 1793,
-      "clusters": 1780
+      "api_items": 80,
+      "stories": 1751,
+      "clusters": 1740
     },
     "llm_status": {
       "status": "ok",
