@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-23T07:25:12.775865+00:00",
+  "timestamp": "2026-06-23T11:00:07.112524+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Tue, 23 Jun 2026 07:03:34 +0000",
+      "last_updated": "Tue, 23 Jun 2026 10:54:37 +0000",
       "size_bytes": 41030,
       "errors": []
     },
@@ -23,8 +23,8 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 30,
-      "last_updated": "Tue, 23 Jun 2026 07:03:39 +0000",
-      "size_bytes": 17013,
+      "last_updated": "Tue, 23 Jun 2026 10:54:41 +0000",
+      "size_bytes": 17953,
       "errors": []
     },
     "aggregated_wes_ai_news_archive.xml": {
@@ -40,16 +40,16 @@
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 9,
-      "last_updated": "Tue, 23 Jun 2026 07:04:08 +0000",
-      "size_bytes": 9726,
+      "entry_count": 10,
+      "last_updated": "Tue, 23 Jun 2026 10:55:04 +0000",
+      "size_bytes": 10725,
       "errors": []
     },
     "aggregated_ea_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 121,
-      "last_updated": "Tue, 23 Jun 2026 07:04:08 +0000",
+      "last_updated": "Tue, 23 Jun 2026 10:55:04 +0000",
       "size_bytes": 153564,
       "errors": []
     },
@@ -57,20 +57,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Tue, 23 Jun 2026 07:05:36 +0000",
-      "size_bytes": 224847,
+      "last_updated": "Tue, 23 Jun 2026 10:56:33 +0000",
+      "size_bytes": 322665,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 633,
-      "last_updated": "Tue, 23 Jun 2026 07:05:36 +0000",
+      "last_updated": "Tue, 23 Jun 2026 10:56:33 +0000",
       "size_bytes": 323166,
       "errors": []
     }
   },
-  "overall_status": "warning",
+  "overall_status": "healthy",
   "aggregation_health": {
     "aggregated_wes_ai_news.xml": {
       "total_sources": 1,
@@ -92,23 +92,14 @@
     },
     "aggregated_broad_ai_news.xml": {
       "total_sources": 21,
-      "attempted": 16,
-      "skipped": 5,
-      "with_items": 9,
-      "failures": 2,
-      "recovered": 0,
-      "failure_rate": 12.5
+      "attempted": 15,
+      "skipped": 6,
+      "with_items": 11,
+      "failures": 0,
+      "recovered": 1,
+      "failure_rate": 0.0
     }
   },
-  "pruning_suggestions": [
-    {
-      "feed": "aggregated_broad_ai_news.xml",
-      "url": "https://www.reddit.com/r/artificial/.rss",
-      "consecutive_failures": 5,
-      "last_status": "exception",
-      "last_error_excerpt": "http 429"
-    }
-  ],
   "pipeline_health": {
     "api_feed_exists": true,
     "stories_exists": true,
@@ -116,9 +107,9 @@
     "pipeline_report_exists": true,
     "errors": [],
     "counts": {
-      "api_items": 200,
-      "stories": 3280,
-      "clusters": 3277
+      "api_items": 80,
+      "stories": 1777,
+      "clusters": 1763
     },
     "llm_status": {
       "status": "ok",
