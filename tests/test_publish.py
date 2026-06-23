@@ -1,3 +1,4 @@
+import os
 import tempfile
 import unittest
 from datetime import datetime, timezone
@@ -96,22 +97,23 @@ class PublishTests(unittest.TestCase):
             base_feed_path = str(Path(temp_dir) / "feeds" / "top")
             ranked = [self._story("s1", url)]
 
-            with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
-                with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
-                    with patch("pipeline.publish.fetch_article_markdown") as fetch_mock:
-                        publish_outputs(
-                            ranked,
-                            api_path,
-                            base_feed_path,
-                            llm_cache={},
-                            config={
-                                "request_timeout_sec": 5,
-                                "output_cleanup_enabled": False,
-                                "article_cache_enabled": True,
-                                "article_cache_path": str(cache_path),
-                                "article_cache_ttl_hours": 48,
-                            },
-                        )
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
+                    with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                        with patch("pipeline.publish.fetch_article_markdown") as fetch_mock:
+                            publish_outputs(
+                                ranked,
+                                api_path,
+                                base_feed_path,
+                                llm_cache={},
+                                config={
+                                    "request_timeout_sec": 5,
+                                    "output_cleanup_enabled": False,
+                                    "article_cache_enabled": True,
+                                    "article_cache_path": str(cache_path),
+                                    "article_cache_ttl_hours": 48,
+                                },
+                            )
 
             self.assertEqual(fetch_mock.call_count, 0)
 
@@ -123,26 +125,26 @@ class PublishTests(unittest.TestCase):
             url = "https://example.com/shared"
             ranked = [self._story("s1", url), self._story("s2", url)]
 
-            with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
-                with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
-                    with patch("pipeline.publish.fetch_article_markdown", return_value="fresh markdown") as fetch_mock:
-                        publish_outputs(
-                            ranked,
-                            api_path,
-                            base_feed_path,
-                            llm_cache={},
-                            config={
-                                "request_timeout_sec": 5,
-                                "output_cleanup_enabled": False,
-                                "article_cache_enabled": True,
-                                "article_cache_path": str(cache_path),
-                                "article_cache_ttl_hours": 48,
-                                "article_fetch_workers": 4,
-                            },
-                        )
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
+                    with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                        with patch("pipeline.publish.fetch_article_markdown", return_value="fresh markdown") as fetch_mock:
+                            publish_outputs(
+                                ranked,
+                                api_path,
+                                base_feed_path,
+                                llm_cache={},
+                                config={
+                                    "request_timeout_sec": 5,
+                                    "output_cleanup_enabled": False,
+                                    "article_cache_enabled": True,
+                                    "article_cache_path": str(cache_path),
+                                    "article_cache_ttl_hours": 48,
+                                    "article_fetch_workers": 4,
+                                },
+                            )
 
             self.assertEqual(fetch_mock.call_count, 1)
-
 
 if __name__ == "__main__":
     unittest.main()

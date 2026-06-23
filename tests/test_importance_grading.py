@@ -289,6 +289,8 @@ class ImportanceGradingContractTests(unittest.TestCase):
                             llm_cache={},
                             config={
                                 "publish_top_n": 1,
+                                "importance_backfill_days": 9999,
+                                "article_cache_path": str(Path(temp_dir) / "article_cache.json"),
                                 "llm_rate_limit_requests_per_window": 0,
                                 "llm_rate_limit_min_interval_sec": 0.0,
                             },
@@ -352,6 +354,8 @@ class ImportanceGradingContractTests(unittest.TestCase):
                             llm_cache={},
                             config={
                                 "publish_top_n": 1,
+                                "importance_backfill_days": 9999,
+                                "article_cache_path": str(Path(temp_dir) / "article_cache.json"),
                                 "llm_rate_limit_requests_per_window": 0,
                                 "llm_rate_limit_min_interval_sec": 0.0,
                             },

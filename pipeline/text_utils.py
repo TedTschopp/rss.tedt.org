@@ -2,6 +2,7 @@ import hashlib
 import re
 import unicodedata
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 TRACKING_PARAMS = {
@@ -52,16 +53,22 @@ def parse_datetime(value: str):
         return None
     if raw.endswith("Z"):
         raw = raw.replace("Z", "+00:00")
-    for parser in (
-        datetime.fromisoformat,
-    ):
-        try:
-            dt = parser(raw)
-            if dt.tzinfo is None:
-                dt = dt.replace(tzinfo=timezone.utc)
-            return dt.astimezone(timezone.utc)
-        except Exception:
-            continue
+    try:
+        dt = datetime.fromisoformat(raw)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except Exception:
+        pass
+
+    try:
+        dt = parsedate_to_datetime(value.strip())
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except Exception:
+        pass
+
     return None
 
 

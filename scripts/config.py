@@ -52,6 +52,9 @@ RATING_TAGS = {
 }
 
 # Aggregated feed default settings; overridden by _config.yml aggregated_feeds block if present
+MIN_AGGREGATED_RETENTION_DAYS = 60
+
+
 AGGREGATED_DEFAULT = {
     "enabled": True,
     "output": "aggregated_external.xml",
@@ -63,6 +66,14 @@ AGGREGATED_DEFAULT = {
     "source_attribution": "title",  # 'title', 'description', or 'none'
     "sources": []
 }
+
+
+def aggregate_retention_days(value):
+    try:
+        configured_days = int(value)
+    except (TypeError, ValueError):
+        configured_days = MIN_AGGREGATED_RETENTION_DAYS
+    return max(MIN_AGGREGATED_RETENTION_DAYS, configured_days)
 
 # Polite fetch defaults for aggregation (can be extended later to parse from YAML if desired)
 AGGREGATED_FETCH_POLICY = {

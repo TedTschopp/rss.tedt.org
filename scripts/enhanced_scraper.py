@@ -1150,7 +1150,7 @@ def normalize_aggregated_sources(raw_sources):
 def aggregate_external_feeds(cfg):
     sources = normalize_aggregated_sources(cfg.get('sources', []))
     max_items = int(cfg.get('max_items', 150))
-    retention_days = int(cfg.get('retention_days', 60))
+    retention_days = aggregate_retention_days(cfg.get('retention_days', 60))
     source_attr = (cfg.get('source_attribution') or 'title').lower()
     output_file = cfg.get('output', 'aggregated_external.xml')
     archive_file = cfg.get('archive_output') or output_file.replace('.xml', '_archive.xml')
