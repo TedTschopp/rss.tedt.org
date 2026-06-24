@@ -46,6 +46,9 @@ class FakeSession:
 class FakeOutputCleanupClient:
     seen_title_model = None
     seen_description_model = None
+    seen_title_source_context = None
+    seen_description_source_context = None
+    seen_description_summary = None
 
     def __init__(self, token, timeout_sec):
         self.token = token
@@ -53,6 +56,7 @@ class FakeOutputCleanupClient:
 
     def rewrite_output_title(self, title, summary, source_context, model):
         FakeOutputCleanupClient.seen_title_model = model
+        FakeOutputCleanupClient.seen_title_source_context = source_context
         return {
             "title": "OpenAI Adds Enterprise Data Controls",
             "usage": {"total_tokens": 10},
@@ -63,6 +67,8 @@ class FakeOutputCleanupClient:
 
     def rewrite_output_description(self, title, summary, source_context, model):
         FakeOutputCleanupClient.seen_description_model = model
+        FakeOutputCleanupClient.seen_description_summary = summary
+        FakeOutputCleanupClient.seen_description_source_context = source_context
         return {
             "description": "OpenAI introduced enterprise data controls for governed AI deployments.",
             "usage": {"total_tokens": 15},
@@ -267,21 +273,22 @@ class OutputCleanupTests(unittest.TestCase):
             try:
                 os.environ["GH_MODELS_TOKEN"] = "test-token"
                 with patch("pipeline.publish.GitHubModelsClient", FakeOutputCleanupClient):
-                    payload, cache = publish_outputs(
-                        [story],
-                        str(api_path),
-                        str(base_feed_path),
-                        llm_cache={},
-                        config={
-                            "publish_top_n": 1,
-                            "output_cleanup_top_n": 1,
-                            "output_cleanup_model": "test-cleanup-model",
-                            "llm_rate_limit_requests_per_window": 0,
-                            "llm_rate_limit_min_interval_sec": 0.0,
-                            "importance_backfill_days": 0,
-                            "ai_keywords": ["openai"],
-                        },
-                    )
+                    with patch("pipeline.publish._fetch_article_with_url", return_value=("https://example.com/story", "")):
+                        payload, cache = publish_outputs(
+                            [story],
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache={},
+                            config={
+                                "publish_top_n": 1,
+                                "output_cleanup_top_n": 1,
+                                "output_cleanup_model": "test-cleanup-model",
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "importance_backfill_days": 0,
+                                "ai_keywords": ["openai"],
+                            },
+                        )
             finally:
                 os.environ.clear()
                 os.environ.update(old_env)
@@ -301,6 +308,70 @@ class OutputCleanupTests(unittest.TestCase):
             self.assertIn("OpenAI Adds Enterprise Data Controls", xml_text)
             self.assertIn("OpenAI introduced enterprise data controls", xml_text)
             self.assertNotIn("Raw OpenAI data controls headline", xml_text)
+
+    def test_publish_outputs_sends_fetched_article_to_output_cleanup(self):
+        old_env = dict(os.environ)
+        story = {
+            "story_id": "story-futo",
+            "title": "FUTO Swipe - A new swipe typing model",
+            "summary": "Comments",
+            "canonical_url": "https://swipe.futo.tech/",
+            "url": "https://news.ycombinator.com/item?id=123",
+            "source_name": "Hacker News",
+            "source_type": "social",
+            "source_category": "hackernews",
+            "published": "2020-01-01T00:00:00Z",
+            "score": 100,
+            "mentions": [],
+            "sources": [],
+            "alternate_links": [],
+            "cluster_id": "cluster-futo",
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            api_path = Path(temp_dir) / "feed.json"
+            base_feed_path = Path(temp_dir) / "top"
+            article_cache_path = Path(temp_dir) / "article_cache.json"
+            try:
+                os.environ["GH_MODELS_TOKEN"] = "test-token"
+                with patch("pipeline.publish.GitHubModelsClient", FakeOutputCleanupClient):
+                    with patch(
+                        "pipeline.publish._fetch_article_with_url",
+                        return_value=(
+                            "https://swipe.futo.tech/",
+                            "FUTO built an open-source swipe typing model from a one million swipe dataset.",
+                        ),
+                    ):
+                        payload, _cache = publish_outputs(
+                            [story],
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache={},
+                            config={
+                                "publish_top_n": 1,
+                                "output_cleanup_top_n": 1,
+                                "output_cleanup_model": "test-cleanup-model",
+                                "importance_backfill_days": 0,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "article_cache_path": str(article_cache_path),
+                                "ai_keywords": ["model"],
+                            },
+                        )
+            finally:
+                os.environ.clear()
+                os.environ.update(old_env)
+
+            self.assertEqual(FakeOutputCleanupClient.seen_description_summary, "Comments")
+            assert FakeOutputCleanupClient.seen_description_source_context is not None
+            self.assertIn(
+                "one million swipe dataset",
+                FakeOutputCleanupClient.seen_description_source_context,
+            )
+            self.assertEqual(
+                payload["items"][0]["summary"],
+                "OpenAI introduced enterprise data controls for governed AI deployments.",
+            )
 
     def test_publish_outputs_writes_feed_with_rewrites_and_importance_tags(self):
         importance = {

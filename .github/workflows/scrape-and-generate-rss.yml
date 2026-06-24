@@ -80,6 +80,7 @@ jobs:
         PIPELINE_LLM_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
         PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25' }}
         PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
+        PIPELINE_IMPORTANCE_MODEL: 'openai/gpt-4.1-mini'
         PIPELINE_GITHUB_MODELS_COPILOT_PLAN: 'copilot_enterprise'
         PIPELINE_GITHUB_MODELS_DAILY_BUDGET_ENABLED: 'true'
         PIPELINE_GITHUB_MODELS_DAILY_REQUEST_CAP: '12'

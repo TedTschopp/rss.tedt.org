@@ -58,7 +58,7 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "importance_backfill_days": 7,
     "summary_model": "openai/gpt-4.1-mini",
     "ai_relevance_model": "openai/gpt-4.1-mini",
-    "importance_model": "openai/gpt-5",
+    "importance_model": "openai/gpt-4.1-mini",
     "output_cleanup_enabled": True,
     "output_cleanup_top_n": 200,
     "output_cleanup_model": "openai/gpt-4.1-mini",

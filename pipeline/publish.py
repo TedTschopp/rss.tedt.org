@@ -250,7 +250,16 @@ def _sum_mentions(story: dict[str, Any], key: str) -> int | None:
     return total or None
 
 
-def _source_context(story: dict[str, Any]) -> str:
+def _article_excerpt(article_markdown: str, max_chars: int) -> str:
+    article = str(article_markdown or "").strip()
+    if not article or max_chars <= 0:
+        return ""
+    if len(article) <= max_chars:
+        return article
+    return article[:max_chars].rstrip() + "\n\n[truncated]"
+
+
+def _source_context(story: dict[str, Any], article_markdown: str = "") -> str:
     payload = {
         "primary_source": story.get("primary_source")
         or {
@@ -267,6 +276,8 @@ def _source_context(story: dict[str, Any]) -> str:
         "duplicate_count": story.get("duplicate_count", 0),
         "duplicate_source_count": story.get("duplicate_source_count", 1),
     }
+    if article_markdown:
+        payload["article_markdown"] = article_markdown
     return json.dumps(payload, ensure_ascii=False, sort_keys=True)
 
 
@@ -359,6 +370,7 @@ def publish_outputs(
     output_cleanup_enabled = str(cfg.get("output_cleanup_enabled", True)).lower() not in {"0", "false", "no"}
     output_cleanup_top_n = int(cfg.get("output_cleanup_top_n", publish_top_n))
     output_cleanup_model = str(cfg.get("output_cleanup_model", "openai/gpt-4.1-mini"))
+    output_cleanup_article_max_chars = int(cfg.get("output_cleanup_article_max_chars", 5000))
     output_cleanup_prompt_hash = _prompt_bundle_hash(OUTPUT_CLEANUP_PROMPT_PATHS)
     article_fetch_timeout_sec = int(cfg.get("article_fetch_timeout_sec", cfg.get("request_timeout_sec", 25)))
     article_max_chars = int(cfg.get("article_max_chars", 12000))
@@ -445,19 +457,23 @@ def publish_outputs(
     article_markdown_by_url: dict[str, str] = {}
 
     stories_needing_article: list[dict[str, Any]] = []
-    for story in top_stories:
+    seen_article_story_ids: set[str] = set()
+    for index, story in enumerate(top_stories):
         story_id = str(story.get("story_id") or "").strip()
         if not story_id:
             continue
-        if not _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days):
+        if story_id in seen_article_story_ids:
             continue
-        if not rubric_markdown or not rubric_hash:
-            continue
-        if not ai_relevance_rubric or not ai_relevance_rubric_hash:
-            continue
-        if client is None:
+        needs_importance_article = (
+            _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days)
+            and bool(rubric_markdown and rubric_hash)
+            and bool(ai_relevance_rubric and ai_relevance_rubric_hash)
+        )
+        needs_cleanup_article = output_cleanup_enabled and index < output_cleanup_top_n
+        if client is None or not (needs_importance_article or needs_cleanup_article):
             continue
         stories_needing_article.append(story)
+        seen_article_story_ids.add(story_id)
 
     unique_urls: set[str] = set()
     for story in stories_needing_article:
@@ -663,7 +679,12 @@ def publish_outputs(
             cache_entry = llm_cache.get(story_id, {})
             title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
             summary_text = _story_base_summary(story)
-            source_context = _source_context(story)
+            article_url = str(story.get("canonical_url") or story.get("url") or "")
+            article_markdown = _article_excerpt(
+                article_markdown_by_url.get(article_url, ""),
+                output_cleanup_article_max_chars,
+            )
+            source_context = _source_context(story, article_markdown)
             cleanup_context_hash = _output_cleanup_context_hash(
                 title_text,
                 summary_text,
