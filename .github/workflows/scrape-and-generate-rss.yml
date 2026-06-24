@@ -65,10 +65,26 @@ jobs:
       run: python -m pipeline.run_all
       env:
         GH_MODELS_TOKEN: ${{ secrets.GH_MODELS_TOKEN || secrets.GH_Models_Token }}
+        # Prefer OpenAI workload identity federation in Actions. OPENAI_API_KEY
+        # remains a local/temporary fallback if WIF variables are not configured.
+        PIPELINE_LLM_PROVIDER: 'openai'
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_WIF_AUDIENCE: ${{ vars.OPENAI_WIF_AUDIENCE }}
+        OPENAI_IDENTITY_PROVIDER_ID: ${{ vars.OPENAI_IDENTITY_PROVIDER_ID }}
+        OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.OPENAI_SERVICE_ACCOUNT_ID }}
+        OPENAI_WIF_CLIENT_ID: ${{ vars.OPENAI_WIF_CLIENT_ID }}
+        PIPELINE_OPENAI_RATE_LIMIT_REQUESTS_PER_MINUTE: '60'
+        PIPELINE_OPENAI_DAILY_REQUEST_CAP: '0'
+        PIPELINE_OPENAI_GLOBAL_DAILY_REQUEST_CAP: '0'
         # Light mode for the 8-hour schedule; heavy mode for daily schedule and manual runs.
         PIPELINE_LLM_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
         PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25' }}
         PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
+        PIPELINE_GITHUB_MODELS_COPILOT_PLAN: 'copilot_enterprise'
+        PIPELINE_GITHUB_MODELS_DAILY_BUDGET_ENABLED: 'true'
+        PIPELINE_GITHUB_MODELS_DAILY_REQUEST_CAP: '12'
+        PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP: '0'
+        PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH: 'true'
         PIPELINE_OUTPUT_CLEANUP_ENABLED: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && 'false' || 'true' }}
         PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '0' || '200' }}
         PIPELINE_IMPORTANCE_BACKFILL_DAYS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '7' }}

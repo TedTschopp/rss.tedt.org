@@ -1,11 +1,27 @@
 from collections.abc import Callable
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import random
 import time
 from typing import Any
 
 
-def status_code_from_exception(exc: Exception) -> int | None:
+class RateLimitBudgetExceeded(RuntimeError):
+    """Raised when the local daily model-call budget is exhausted."""
+
+
+def _response_from_exception(exc: Exception) -> Any | None:
     response = getattr(exc, "response", None)
+    if response is not None:
+        return response
+    cause = getattr(exc, "__cause__", None)
+    if isinstance(cause, Exception):
+        return _response_from_exception(cause)
+    return None
+
+
+def status_code_from_exception(exc: Exception) -> int | None:
+    response = _response_from_exception(exc)
     if response is None:
         return None
     status = getattr(response, "status_code", None)
@@ -14,11 +30,18 @@ def status_code_from_exception(exc: Exception) -> int | None:
     return None
 
 
-def retry_after_seconds(exc: Exception) -> float | None:
-    response = getattr(exc, "response", None)
+def _headers_from_exception(exc: Exception) -> Any | None:
+    response = _response_from_exception(exc)
     if response is None:
         return None
     headers = getattr(response, "headers", None)
+    if not headers:
+        return None
+    return headers
+
+
+def retry_after_seconds(exc: Exception, clock: Callable[[], float] | None = None) -> float | None:
+    headers = _headers_from_exception(exc)
     if not headers:
         return None
     retry_after = headers.get("Retry-After")
@@ -27,15 +50,69 @@ def retry_after_seconds(exc: Exception) -> float | None:
     try:
         return float(retry_after)
     except Exception:
+        try:
+            parsed = parsedate_to_datetime(str(retry_after))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return max(0.0, parsed.timestamp() - (clock or time.time)())
+        except Exception:
+            return None
+
+
+def rate_limit_reset_seconds(exc: Exception, clock: Callable[[], float] | None = None) -> float | None:
+    headers = _headers_from_exception(exc)
+    if not headers:
         return None
+    reset_at = headers.get("x-ratelimit-reset") or headers.get("X-RateLimit-Reset")
+    if reset_at is None:
+        return None
+    try:
+        return max(0.0, float(reset_at) - (clock or time.time)())
+    except Exception:
+        return None
+
+
+def rate_limit_remaining(exc: Exception) -> int | None:
+    headers = _headers_from_exception(exc)
+    if not headers:
+        return None
+    remaining = headers.get("x-ratelimit-remaining") or headers.get("X-RateLimit-Remaining")
+    if remaining is None:
+        return None
+    try:
+        return int(str(remaining))
+    except Exception:
+        return None
+
+
+def is_rate_limit_exception(exc: Exception) -> bool:
+    status_code = status_code_from_exception(exc)
+    text = str(exc).lower()
+    if status_code == 429:
+        return True
+    if status_code == 403:
+        if retry_after_seconds(exc) is not None:
+            return True
+        remaining = rate_limit_remaining(exc)
+        return remaining == 0 or "rate limit" in text or "secondary rate limit" in text
+    return "too many requests" in text or "rate limit" in text
+
+
+def is_auth_or_permission_exception(exc: Exception) -> bool:
+    status_code = status_code_from_exception(exc)
+    if status_code == 401:
+        return True
+    return status_code == 403 and not is_rate_limit_exception(exc)
 
 
 def is_retryable_exception(exc: Exception) -> bool:
     status_code = status_code_from_exception(exc)
-    if status_code in {429, 500, 502, 503, 504}:
+    if status_code in {500, 502, 503, 504}:
+        return True
+    if is_rate_limit_exception(exc):
         return True
     text = str(exc).lower()
-    return "too many requests" in text or "timed out" in text or "timeout" in text
+    return "timed out" in text or "timeout" in text
 
 
 def _numeric_list(value: Any) -> list[float]:
@@ -84,12 +161,45 @@ def _wait_for_request_budget(
         total_sleep += sleep_for
 
 
+def _wait_for_daily_budget(
+    state: dict[str, Any],
+    *,
+    request_daily_max_calls: int,
+    clock: Callable[[], float],
+) -> None:
+    daily_max_calls = int(max(0, request_daily_max_calls))
+    if daily_max_calls <= 0:
+        return
+
+    now = clock()
+    reset_at = float(state.get("daily_reset_at", 0.0) or 0.0)
+    if reset_at <= now:
+        next_reset = datetime.fromtimestamp(now, tz=timezone.utc).replace(
+            hour=0,
+            minute=0,
+            second=0,
+            microsecond=0,
+        ).timestamp() + 86400.0
+        state["daily_request_count"] = 0
+        state["daily_reset_at"] = next_reset
+    if int(state.get("daily_request_count", 0) or 0) >= daily_max_calls:
+        reset_at = float(state.get("daily_reset_at", 0.0) or 0.0)
+        raise RateLimitBudgetExceeded(
+            f"github_models_daily_budget_exhausted limit={daily_max_calls} reset_at={int(reset_at)}"
+        )
+
+
 def _note_request_attempt(state: dict[str, Any], clock: Callable[[], float]) -> None:
     now = clock()
     state["last_request_at"] = now
     recent = _numeric_list(state.get("request_timestamps"))
     recent.append(now)
     state["request_timestamps"] = recent
+
+
+def _note_daily_request_attempt(state: dict[str, Any], request_daily_max_calls: int) -> None:
+    if int(max(0, request_daily_max_calls)) > 0:
+        state["daily_request_count"] = int(state.get("daily_request_count", 0) or 0) + 1
 
 
 def _note_429(
@@ -135,6 +245,10 @@ def call_with_retry(
     request_rate_limit_window_sec: float = 60.0,
     request_rate_limit_max_calls: int = 0,
     request_rate_limit_min_interval_sec: float = 0.0,
+    request_daily_max_calls: int = 0,
+    daily_rate_limit_state: dict[str, Any] | None = None,
+    global_daily_max_calls: int = 0,
+    global_daily_rate_limit_state: dict[str, Any] | None = None,
     sleep: Callable[[float], None] | None = None,
     clock: Callable[[], float] | None = None,
 ) -> tuple[Any, dict[str, Any]]:
@@ -142,11 +256,29 @@ def call_with_retry(
     total_rate_limit_sleep = 0.0
     total_retry_sleep = 0.0
     state = rate_limit_state if isinstance(rate_limit_state, dict) else None
+    daily_state = daily_rate_limit_state if isinstance(daily_rate_limit_state, dict) else state
+    global_daily_state = (
+        global_daily_rate_limit_state if isinstance(global_daily_rate_limit_state, dict) else None
+    )
     sleep_fn = sleep or time.sleep
     clock_fn = clock or time.time
 
     for attempt in range(1, max_attempts + 1):
         try:
+            if global_daily_state is not None:
+                _wait_for_daily_budget(
+                    global_daily_state,
+                    request_daily_max_calls=global_daily_max_calls,
+                    clock=clock_fn,
+                )
+
+            if daily_state is not None:
+                _wait_for_daily_budget(
+                    daily_state,
+                    request_daily_max_calls=request_daily_max_calls,
+                    clock=clock_fn,
+                )
+
             if state is not None:
                 total_rate_limit_sleep += _wait_for_request_budget(
                     state,
@@ -158,6 +290,11 @@ def call_with_retry(
                 )
                 _note_request_attempt(state, clock_fn)
 
+            if daily_state is not None:
+                _note_daily_request_attempt(daily_state, request_daily_max_calls)
+            if global_daily_state is not None:
+                _note_daily_request_attempt(global_daily_state, global_daily_max_calls)
+
             result = call()
             if state is not None:
                 state["recent_429"] = []
@@ -168,6 +305,8 @@ def call_with_retry(
                 "rate_limit_sleep_sec": total_rate_limit_sleep,
                 "retry_sleep_sec": total_retry_sleep,
             }
+        except RateLimitBudgetExceeded:
+            raise
         except Exception as exc:
             retryable = is_retryable_exception(exc)
             if attempt >= max_attempts or not retryable:
@@ -177,7 +316,7 @@ def call_with_retry(
                 ) from exc
 
             status_code = status_code_from_exception(exc)
-            retry_after = retry_after_seconds(exc)
+            retry_after = retry_after_seconds(exc, clock_fn)
             if state is not None and status_code == 429:
                 _note_429(
                     state,
@@ -191,6 +330,15 @@ def call_with_retry(
 
             if retry_after is not None:
                 delay = min(rate_limit_cooldown_max_sec, max(0.0, retry_after))
+            elif status_code in {403, 429} and is_rate_limit_exception(exc):
+                reset_delay = rate_limit_reset_seconds(exc, clock_fn)
+                if rate_limit_remaining(exc) == 0 and reset_delay is not None:
+                    delay = min(rate_limit_cooldown_max_sec, reset_delay)
+                else:
+                    delay = min(
+                        rate_limit_cooldown_max_sec,
+                        max(60.0, base_delay_sec * (2 ** (attempt - 1))),
+                    )
             else:
                 jitter = random.uniform(0.0, max(0.0, float(jitter_sec))) if jitter_sec > 0 else 0.0
                 delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)) + jitter)

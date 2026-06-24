@@ -68,6 +68,36 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
         pipeline_config["llm_rate_limit_window_sec"] = float(env["PIPELINE_LLM_RATE_LIMIT_WINDOW_SEC"])
     if "PIPELINE_LLM_RATE_LIMIT_MIN_INTERVAL_SEC" in env:
         pipeline_config["llm_rate_limit_min_interval_sec"] = float(env["PIPELINE_LLM_RATE_LIMIT_MIN_INTERVAL_SEC"])
+    if "PIPELINE_LLM_PROVIDER" in env:
+        pipeline_config["llm_provider"] = str(env["PIPELINE_LLM_PROVIDER"])
+    if "PIPELINE_GITHUB_MODELS_COPILOT_PLAN" in env:
+        pipeline_config["github_models_copilot_plan"] = str(env["PIPELINE_GITHUB_MODELS_COPILOT_PLAN"])
+    if "PIPELINE_GITHUB_MODELS_DAILY_BUDGET_ENABLED" in env:
+        pipeline_config["github_models_daily_budget_enabled"] = str(env["PIPELINE_GITHUB_MODELS_DAILY_BUDGET_ENABLED"]).strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
+    if "PIPELINE_GITHUB_MODELS_DAILY_REQUEST_CAP" in env:
+        pipeline_config["github_models_daily_request_cap"] = int(env["PIPELINE_GITHUB_MODELS_DAILY_REQUEST_CAP"])
+    if "PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP" in env:
+        pipeline_config["github_models_global_daily_request_cap"] = int(env["PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP"])
+    if "PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH" in env:
+        pipeline_config["github_models_fail_fast_auth"] = str(env["PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH"]).strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
+    if "PIPELINE_OPENAI_BASE_URL" in env:
+        pipeline_config["openai_base_url"] = str(env["PIPELINE_OPENAI_BASE_URL"])
+    if "PIPELINE_OPENAI_RATE_LIMIT_REQUESTS_PER_MINUTE" in env:
+        pipeline_config["openai_rate_limit_requests_per_minute"] = int(env["PIPELINE_OPENAI_RATE_LIMIT_REQUESTS_PER_MINUTE"])
+    if "PIPELINE_OPENAI_DAILY_REQUEST_CAP" in env:
+        pipeline_config["openai_daily_request_cap"] = int(env["PIPELINE_OPENAI_DAILY_REQUEST_CAP"])
+    if "PIPELINE_OPENAI_GLOBAL_DAILY_REQUEST_CAP" in env:
+        pipeline_config["openai_global_daily_request_cap"] = int(env["PIPELINE_OPENAI_GLOBAL_DAILY_REQUEST_CAP"])
     if "PIPELINE_LLM_RETRY_MAX_ATTEMPTS" in env:
         pipeline_config["llm_retry_max_attempts"] = int(env["PIPELINE_LLM_RETRY_MAX_ATTEMPTS"])
     if "PIPELINE_LLM_RETRY_BASE_DELAY_SEC" in env:
@@ -88,6 +118,14 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
     # Additional controls for runtime/cost tuning
     if "PIPELINE_LLM_CHAT_MAX_CALLS" in env:
         pipeline_config["llm_chat_max_calls"] = int(env["PIPELINE_LLM_CHAT_MAX_CALLS"])
+    if "PIPELINE_SUMMARY_MODEL" in env:
+        pipeline_config["summary_model"] = str(env["PIPELINE_SUMMARY_MODEL"])
+    if "PIPELINE_AI_RELEVANCE_MODEL" in env:
+        pipeline_config["ai_relevance_model"] = str(env["PIPELINE_AI_RELEVANCE_MODEL"])
+    if "PIPELINE_IMPORTANCE_MODEL" in env:
+        pipeline_config["importance_model"] = str(env["PIPELINE_IMPORTANCE_MODEL"])
+    if "PIPELINE_OUTPUT_CLEANUP_MODEL" in env:
+        pipeline_config["output_cleanup_model"] = str(env["PIPELINE_OUTPUT_CLEANUP_MODEL"])
     if "PIPELINE_OUTPUT_CLEANUP_TOP_N" in env:
         pipeline_config["output_cleanup_top_n"] = int(env["PIPELINE_OUTPUT_CLEANUP_TOP_N"])
     if "PIPELINE_IMPORTANCE_BACKFILL_DAYS" in env:

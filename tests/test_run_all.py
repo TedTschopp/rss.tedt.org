@@ -15,6 +15,16 @@ class RunAllConfigTests(unittest.TestCase):
             "PIPELINE_LLM_RATE_LIMIT_REQUESTS_PER_WINDOW": "12",
             "PIPELINE_LLM_RATE_LIMIT_WINDOW_SEC": "30",
             "PIPELINE_LLM_RATE_LIMIT_MIN_INTERVAL_SEC": "0.5",
+            "PIPELINE_LLM_PROVIDER": "openai",
+            "PIPELINE_GITHUB_MODELS_COPILOT_PLAN": "copilot_enterprise",
+            "PIPELINE_GITHUB_MODELS_DAILY_BUDGET_ENABLED": "true",
+            "PIPELINE_GITHUB_MODELS_DAILY_REQUEST_CAP": "12",
+            "PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP": "0",
+            "PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH": "true",
+            "PIPELINE_OPENAI_BASE_URL": "https://api.openai.com/v1",
+            "PIPELINE_OPENAI_RATE_LIMIT_REQUESTS_PER_MINUTE": "60",
+            "PIPELINE_OPENAI_DAILY_REQUEST_CAP": "0",
+            "PIPELINE_OPENAI_GLOBAL_DAILY_REQUEST_CAP": "0",
             "PIPELINE_LLM_RETRY_MAX_ATTEMPTS": "2",
             "PIPELINE_LLM_RETRY_BASE_DELAY_SEC": "1.0",
             "PIPELINE_LLM_RETRY_MAX_DELAY_SEC": "8",
@@ -23,6 +33,10 @@ class RunAllConfigTests(unittest.TestCase):
             "PIPELINE_LLM_429_THRESHOLD": "3",
             "PIPELINE_LLM_429_COOLDOWN_BASE_SEC": "10",
             "PIPELINE_LLM_429_COOLDOWN_MAX_SEC": "60",
+            "PIPELINE_SUMMARY_MODEL": "openai/gpt-4.1-mini",
+            "PIPELINE_AI_RELEVANCE_MODEL": "openai/gpt-4.1-mini",
+            "PIPELINE_IMPORTANCE_MODEL": "openai/gpt-5",
+            "PIPELINE_OUTPUT_CLEANUP_MODEL": "openai/gpt-4.1-mini",
             "PIPELINE_OUTPUT_CLEANUP_TOP_N": "0",
             "PIPELINE_IMPORTANCE_BACKFILL_DAYS": "2",
             "PIPELINE_OUTPUT_CLEANUP_ENABLED": "false",
@@ -40,6 +54,16 @@ class RunAllConfigTests(unittest.TestCase):
         self.assertEqual(result["llm_rate_limit_requests_per_window"], 12)
         self.assertEqual(result["llm_rate_limit_window_sec"], 30.0)
         self.assertEqual(result["llm_rate_limit_min_interval_sec"], 0.5)
+        self.assertEqual(result["llm_provider"], "openai")
+        self.assertEqual(result["github_models_copilot_plan"], "copilot_enterprise")
+        self.assertTrue(result["github_models_daily_budget_enabled"])
+        self.assertEqual(result["github_models_daily_request_cap"], 12)
+        self.assertEqual(result["github_models_global_daily_request_cap"], 0)
+        self.assertTrue(result["github_models_fail_fast_auth"])
+        self.assertEqual(result["openai_base_url"], "https://api.openai.com/v1")
+        self.assertEqual(result["openai_rate_limit_requests_per_minute"], 60)
+        self.assertEqual(result["openai_daily_request_cap"], 0)
+        self.assertEqual(result["openai_global_daily_request_cap"], 0)
         self.assertEqual(result["llm_retry_max_attempts"], 2)
         self.assertEqual(result["llm_retry_base_delay_sec"], 1.0)
         self.assertEqual(result["llm_retry_max_delay_sec"], 8.0)
@@ -48,6 +72,10 @@ class RunAllConfigTests(unittest.TestCase):
         self.assertEqual(result["llm_429_threshold"], 3)
         self.assertEqual(result["llm_429_cooldown_base_sec"], 10.0)
         self.assertEqual(result["llm_429_cooldown_max_sec"], 60.0)
+        self.assertEqual(result["summary_model"], "openai/gpt-4.1-mini")
+        self.assertEqual(result["ai_relevance_model"], "openai/gpt-4.1-mini")
+        self.assertEqual(result["importance_model"], "openai/gpt-5")
+        self.assertEqual(result["output_cleanup_model"], "openai/gpt-4.1-mini")
         self.assertEqual(result["output_cleanup_top_n"], 0)
         self.assertEqual(result["importance_backfill_days"], 2)
         self.assertFalse(result["output_cleanup_enabled"])

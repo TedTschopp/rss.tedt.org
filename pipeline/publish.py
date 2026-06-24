@@ -10,9 +10,19 @@ from scripts.feed_generator import MultiFeedGenerator
 
 from .article_content import fetch_article_markdown
 from .constants import DEFAULT_PIPELINE_CONFIG
+from .github_models_limits import (
+    llm_call_limits,
+    llm_global_daily_request_cap,
+    normalize_llm_provider,
+    rate_limit_state_for_model,
+    seed_global_daily_state_from_call_log,
+    seed_model_daily_states_from_call_log,
+)
 from .io_utils import append_jsonl, read_json, write_json
-from .llm_client import GitHubModelsClient
+from .llm_client import GitHubModelsClient, LLMProviderConfigError, OpenAIAPIClient
+from .llm_rate_limit import RateLimitBudgetExceeded
 from .llm_rate_limit import call_with_retry as _call_with_retry
+from .llm_rate_limit import is_auth_or_permission_exception as _is_auth_or_permission_exception
 from .llm_rate_limit import status_code_from_exception as _status_code_from_exception
 from .text_utils import parse_datetime, to_iso
 
@@ -36,6 +46,28 @@ def _resolve_models_token() -> str:
         os.environ.get("GH_MODELS_TOKEN", "").strip()
         or os.environ.get("GH_Models_Token", "").strip()
     )
+
+
+def _resolve_llm_client(cfg: dict[str, Any]):
+    provider = normalize_llm_provider(cfg.get("llm_provider", "github_models"))
+    timeout_sec = int(cfg.get("request_timeout_sec", 25))
+    if provider == "openai":
+        try:
+            return (
+                OpenAIAPIClient.from_env(
+                    endpoint=str(cfg.get("openai_base_url") or "https://api.openai.com/v1"),
+                    timeout_sec=timeout_sec,
+                ),
+                None,
+                "OpenAI",
+            )
+        except LLMProviderConfigError as exc:
+            return None, str(exc), "OpenAI"
+
+    token = _resolve_models_token()
+    if not token:
+        return None, "missing GH_MODELS_TOKEN or GH_Models_Token", "GitHub Models"
+    return GitHubModelsClient(token=token, timeout_sec=timeout_sec), None, "GitHub Models"
 
 
 def _read_text_file(path: str) -> str:
@@ -342,9 +374,7 @@ def publish_outputs(
     rate_limit_threshold = int(cfg.get("llm_429_threshold", 5))
     rate_limit_cooldown_base_sec = float(cfg.get("llm_429_cooldown_base_sec", 45.0))
     rate_limit_cooldown_max_sec = float(cfg.get("llm_429_cooldown_max_sec", 300.0))
-    request_rate_limit_window_sec = float(cfg.get("llm_rate_limit_window_sec", 60.0))
-    request_rate_limit_max_calls = int(cfg.get("llm_rate_limit_requests_per_window", 0))
-    request_rate_limit_min_interval_sec = float(cfg.get("llm_rate_limit_min_interval_sec", 0.0))
+    fail_fast_auth = str(cfg.get("github_models_fail_fast_auth", True)).strip().lower() not in {"0", "false", "no", "off"}
 
     if llm_cache is None:
         llm_cache = {}
@@ -353,10 +383,62 @@ def publish_outputs(
     rubric_hash = _rubric_hash(rubric_markdown) if rubric_markdown else ""
     ai_relevance_rubric = _read_text_file(AI_RELEVANCE_RUBRIC_PATH)
     ai_relevance_rubric_hash = _rubric_hash(ai_relevance_rubric) if ai_relevance_rubric else ""
-    token = _resolve_models_token()
-    client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get("request_timeout_sec", 25))) if token else None
+    client, _client_error, _provider_label = _resolve_llm_client(cfg)
     call_rows: list[dict[str, Any]] = []
-    rate_limit_state: dict[str, Any] = {}
+    rate_limit_states: dict[str, dict[str, Any]] = seed_model_daily_states_from_call_log(llm_call_log_path)
+    global_daily_max_calls = llm_global_daily_request_cap(cfg)
+    global_daily_rate_limit_state = (
+        seed_global_daily_state_from_call_log(llm_call_log_path) if global_daily_max_calls > 0 else None
+    )
+    models_auth_failed = False
+    model_budget_exhausted = False
+
+    def _model_call(model: str, call) -> tuple[dict[str, Any], dict[str, Any]]:
+        limits = llm_call_limits(cfg, model)
+        return _call_with_retry(
+            call,
+            max_attempts=retry_max_attempts,
+            base_delay_sec=retry_base_delay_sec,
+            max_delay_sec=retry_max_delay_sec,
+            jitter_sec=retry_jitter_sec,
+            rate_limit_state=rate_limit_state_for_model(rate_limit_states, model),
+            rate_limit_window_sec=rate_limit_window_sec,
+            rate_limit_threshold=rate_limit_threshold,
+            rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+            rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+            request_rate_limit_window_sec=60.0,
+            request_rate_limit_max_calls=limits.requests_per_minute,
+            request_rate_limit_min_interval_sec=limits.min_interval_sec,
+            request_daily_max_calls=limits.requests_per_day,
+            global_daily_max_calls=global_daily_max_calls,
+            global_daily_rate_limit_state=global_daily_rate_limit_state,
+        )
+
+    def _record_model_exception(kind: str, story_id: str, model: str, exc: Exception) -> str:
+        nonlocal models_auth_failed, model_budget_exhausted
+        if isinstance(exc, RateLimitBudgetExceeded):
+            model_budget_exhausted = True
+            status = "skipped"
+            action = "budget"
+        elif fail_fast_auth and _is_auth_or_permission_exception(exc):
+            models_auth_failed = True
+            status = "error"
+            action = "auth"
+        else:
+            status = "error"
+            action = "error"
+        call_rows.append(
+            {
+                "ts": to_iso(datetime.now(timezone.utc)),
+                "kind": kind,
+                "story_id": story_id,
+                "model": model,
+                "status": status,
+                "error": str(exc),
+                "status_code": _status_code_from_exception(exc),
+            }
+        )
+        return action
 
     article_cache = _load_article_cache(article_cache_path) if article_cache_enabled else {}
     article_cache_updated = False
@@ -437,6 +519,12 @@ def publish_outputs(
             if isinstance(existing_importance, dict):
                 story["importance"] = existing_importance
             continue
+        if models_auth_failed or model_budget_exhausted:
+            if isinstance(existing_relevance, dict):
+                story["ai_relevance"] = existing_relevance
+            if isinstance(existing_importance, dict):
+                story["importance"] = existing_importance
+            continue
         importance_client = client
 
         title_text = str(story.get("title") or "")
@@ -453,7 +541,8 @@ def publish_outputs(
         relevance_payload: dict[str, Any] | None = existing_relevance
         if not isinstance(relevance_payload, dict) or str(relevance_payload.get("context_hash") or "") != relevance_context_hash:
             try:
-                relevance_result, relevance_retry_meta = _call_with_retry(
+                relevance_result, relevance_retry_meta = _model_call(
+                    ai_relevance_model,
                     lambda: importance_client.check_ai_relevance(
                         title_text,
                         context_text,
@@ -461,18 +550,6 @@ def publish_outputs(
                         model=ai_relevance_model,
                         article=article_markdown,
                     ),
-                    max_attempts=retry_max_attempts,
-                    base_delay_sec=retry_base_delay_sec,
-                    max_delay_sec=retry_max_delay_sec,
-                    jitter_sec=retry_jitter_sec,
-                    rate_limit_state=rate_limit_state,
-                    rate_limit_window_sec=rate_limit_window_sec,
-                    rate_limit_threshold=rate_limit_threshold,
-                    rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
-                    rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
-                    request_rate_limit_window_sec=request_rate_limit_window_sec,
-                    request_rate_limit_max_calls=request_rate_limit_max_calls,
-                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
                 )
                 relevance_payload = {
                     "is_ai_related": bool(relevance_result.get("is_ai_related")),
@@ -503,16 +580,7 @@ def publish_outputs(
                     }
                 )
             except Exception as exc:
-                call_rows.append(
-                    {
-                        "ts": to_iso(datetime.now(timezone.utc)),
-                        "kind": "ai_relevance",
-                        "story_id": story_id,
-                        "status": "error",
-                        "error": str(exc),
-                        "status_code": _status_code_from_exception(exc),
-                    }
-                )
+                _record_model_exception("ai_relevance", story_id, ai_relevance_model, exc)
                 continue
 
         story["ai_relevance"] = relevance_payload
@@ -534,7 +602,8 @@ def publish_outputs(
             continue
 
         try:
-            result, retry_meta = _call_with_retry(
+            result, retry_meta = _model_call(
+                importance_model,
                 lambda: importance_client.grade_importance(
                     title_text,
                     context_text,
@@ -542,18 +611,6 @@ def publish_outputs(
                     model=importance_model,
                     article=article_markdown,
                 ),
-                max_attempts=retry_max_attempts,
-                base_delay_sec=retry_base_delay_sec,
-                max_delay_sec=retry_max_delay_sec,
-                jitter_sec=retry_jitter_sec,
-                rate_limit_state=rate_limit_state,
-                rate_limit_window_sec=rate_limit_window_sec,
-                rate_limit_threshold=rate_limit_threshold,
-                rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
-                rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
-                request_rate_limit_window_sec=request_rate_limit_window_sec,
-                request_rate_limit_max_calls=request_rate_limit_max_calls,
-                request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
             )
 
             importance_payload: dict[str, Any] = {
@@ -596,16 +653,7 @@ def publish_outputs(
                 }
             )
         except Exception as exc:
-            call_rows.append(
-                {
-                    "ts": to_iso(datetime.now(timezone.utc)),
-                    "kind": "importance",
-                    "story_id": story_id,
-                    "status": "error",
-                    "error": str(exc),
-                    "status_code": _status_code_from_exception(exc),
-                }
-            )
+            _record_model_exception("importance", story_id, importance_model, exc)
 
     if output_cleanup_enabled:
         for story in top_stories[:output_cleanup_top_n]:
@@ -629,43 +677,47 @@ def publish_outputs(
                 _apply_output_cleanup(story, cached_cleanup)
                 continue
 
-            if client is None:
+            if client is None or models_auth_failed or model_budget_exhausted:
                 continue
 
             try:
-                title_result, title_retry_meta = _call_with_retry(
+                title_result, title_retry_meta = _model_call(
+                    output_cleanup_model,
                     lambda: client.rewrite_output_title(title_text, summary_text, source_context, model=output_cleanup_model),
-                    max_attempts=retry_max_attempts,
-                    base_delay_sec=retry_base_delay_sec,
-                    max_delay_sec=retry_max_delay_sec,
-                    jitter_sec=retry_jitter_sec,
-                    rate_limit_state=rate_limit_state,
-                    rate_limit_window_sec=rate_limit_window_sec,
-                    rate_limit_threshold=rate_limit_threshold,
-                    rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
-                    rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
-                    request_rate_limit_window_sec=request_rate_limit_window_sec,
-                    request_rate_limit_max_calls=request_rate_limit_max_calls,
-                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
                 )
                 rewritten_title = str(title_result.get("title") or title_text).strip() or title_text
+                call_rows.append(
+                    {
+                        "ts": to_iso(datetime.now(timezone.utc)),
+                        "kind": "output_title_rewrite",
+                        "story_id": story_id,
+                        "model": title_result.get("model"),
+                        "latency_ms": title_result.get("latency_ms"),
+                        "usage": title_result.get("usage", {}),
+                        "input_hash": title_result.get("input_hash"),
+                        "status": "ok",
+                        "retries": title_retry_meta.get("retries", 0),
+                    }
+                )
 
-                description_result, description_retry_meta = _call_with_retry(
+                description_result, description_retry_meta = _model_call(
+                    output_cleanup_model,
                     lambda: client.rewrite_output_description(rewritten_title, summary_text, source_context, model=output_cleanup_model),
-                    max_attempts=retry_max_attempts,
-                    base_delay_sec=retry_base_delay_sec,
-                    max_delay_sec=retry_max_delay_sec,
-                    jitter_sec=retry_jitter_sec,
-                    rate_limit_state=rate_limit_state,
-                    rate_limit_window_sec=rate_limit_window_sec,
-                    rate_limit_threshold=rate_limit_threshold,
-                    rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
-                    rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
-                    request_rate_limit_window_sec=request_rate_limit_window_sec,
-                    request_rate_limit_max_calls=request_rate_limit_max_calls,
-                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
                 )
                 rewritten_description = str(description_result.get("description") or summary_text).strip() or summary_text
+                call_rows.append(
+                    {
+                        "ts": to_iso(datetime.now(timezone.utc)),
+                        "kind": "output_description_rewrite",
+                        "story_id": story_id,
+                        "model": description_result.get("model"),
+                        "latency_ms": description_result.get("latency_ms"),
+                        "usage": description_result.get("usage", {}),
+                        "input_hash": description_result.get("input_hash"),
+                        "status": "ok",
+                        "retries": description_retry_meta.get("retries", 0),
+                    }
+                )
 
                 cleanup_payload: dict[str, Any] = {
                     "title": rewritten_title,
@@ -680,43 +732,8 @@ def publish_outputs(
                 cache_entry = llm_cache.setdefault(story_id, cache_entry)
                 cache_entry["output_cleanup"] = cleanup_payload
                 _apply_output_cleanup(story, cleanup_payload)
-                call_rows.extend(
-                    [
-                        {
-                            "ts": to_iso(datetime.now(timezone.utc)),
-                            "kind": "output_title_rewrite",
-                            "story_id": story_id,
-                            "model": title_result.get("model"),
-                            "latency_ms": title_result.get("latency_ms"),
-                            "usage": title_result.get("usage", {}),
-                            "input_hash": title_result.get("input_hash"),
-                            "status": "ok",
-                            "retries": title_retry_meta.get("retries", 0),
-                        },
-                        {
-                            "ts": to_iso(datetime.now(timezone.utc)),
-                            "kind": "output_description_rewrite",
-                            "story_id": story_id,
-                            "model": description_result.get("model"),
-                            "latency_ms": description_result.get("latency_ms"),
-                            "usage": description_result.get("usage", {}),
-                            "input_hash": description_result.get("input_hash"),
-                            "status": "ok",
-                            "retries": description_retry_meta.get("retries", 0),
-                        },
-                    ]
-                )
             except Exception as exc:
-                call_rows.append(
-                    {
-                        "ts": to_iso(datetime.now(timezone.utc)),
-                        "kind": "output_cleanup",
-                        "story_id": story_id,
-                        "status": "error",
-                        "error": str(exc),
-                        "status_code": _status_code_from_exception(exc),
-                    }
-                )
+                _record_model_exception("output_cleanup", story_id, output_cleanup_model, exc)
 
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)

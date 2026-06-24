@@ -1277,18 +1277,24 @@ def aggregate_external_feeds(cfg):
     ai_relevance_rubric = ''
     ai_relevance_rubric_hash = ''
     importance_store = None
+    github_model_call_with_retry = None
+    github_models_call_limits_fn = None
+    llm_global_daily_request_cap_fn = None
+    rate_limit_state_for_model_fn = None
+    seed_global_daily_state_fn = None
+    seed_model_daily_states_fn = None
+    github_models_budget_exceeded = None
+    github_models_auth_check = None
+    provider_label = 'GitHub Models'
 
     if importance_enabled:
+        provider_name = str(cfg.get('llm_provider') or os.environ.get('PIPELINE_LLM_PROVIDER') or 'github_models')
         token = _resolve_models_token()
         importance_rubric = _read_text_file(IMPORTANCE_RUBRIC_PATH)
         importance_rubric_hash = _rubric_hash(importance_rubric) if importance_rubric else ''
         ai_relevance_rubric = _read_text_file(AI_RELEVANCE_RUBRIC_PATH)
         ai_relevance_rubric_hash = _rubric_hash(ai_relevance_rubric) if ai_relevance_rubric else ''
-        if not token:
-            logger.warning(
-                f"{feed_key_norm} aggregated importance tagging skipped: missing GH_MODELS_TOKEN / GH_Models_Token"
-            )
-        elif not importance_rubric_hash:
+        if not importance_rubric_hash:
             logger.warning(
                 f"{feed_key_norm} aggregated importance tagging skipped: missing rubric file {IMPORTANCE_RUBRIC_PATH}"
             )
@@ -1298,16 +1304,53 @@ def aggregate_external_feeds(cfg):
             )
         else:
             try:
-                from pipeline.llm_client import GitHubModelsClient
+                from pipeline.llm_client import GitHubModelsClient, LLMProviderConfigError, OpenAIAPIClient
+                from pipeline.github_models_limits import (
+                    llm_call_limits as github_models_call_limits_fn,
+                    llm_global_daily_request_cap as llm_global_daily_request_cap_fn,
+                    normalize_llm_provider,
+                    rate_limit_state_for_model as rate_limit_state_for_model_fn,
+                    seed_global_daily_state_from_call_log as seed_global_daily_state_fn,
+                    seed_model_daily_states_from_call_log as seed_model_daily_states_fn,
+                )
+                from pipeline.llm_rate_limit import (
+                    RateLimitBudgetExceeded as github_models_budget_exceeded,
+                    call_with_retry as github_model_call_with_retry,
+                    is_auth_or_permission_exception as github_models_auth_check,
+                )
+                provider_name = normalize_llm_provider(provider_name)
+                provider_label = 'OpenAI' if provider_name == 'openai' else 'GitHub Models'
             except Exception as import_err:
                 GitHubModelsClient = None
+                OpenAIAPIClient = None
+                LLMProviderConfigError = Exception
                 logger.warning(
                     f"{feed_key_norm} aggregated importance tagging skipped: could not import pipeline.llm_client ({import_err})"
                 )
 
             if GitHubModelsClient is not None:
-                importance_client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get('request_timeout_sec', 25)))
-                importance_store = _importance_cache(cache)
+                if provider_name == 'openai':
+                    try:
+                        importance_client = OpenAIAPIClient.from_env(
+                            endpoint=str(
+                                cfg.get('openai_base_url')
+                                or os.environ.get('PIPELINE_OPENAI_BASE_URL')
+                                or 'https://api.openai.com/v1'
+                            ),
+                            timeout_sec=int(cfg.get('request_timeout_sec', 25)),
+                        )
+                    except LLMProviderConfigError as client_err:
+                        logger.warning(
+                            f"{feed_key_norm} aggregated importance tagging skipped: {client_err}"
+                        )
+                elif token:
+                    importance_client = GitHubModelsClient(token=token, timeout_sec=int(cfg.get('request_timeout_sec', 25)))
+                else:
+                    logger.warning(
+                        f"{feed_key_norm} aggregated importance tagging skipped: missing GH_MODELS_TOKEN / GH_Models_Token"
+                    )
+                if importance_client is not None:
+                    importance_store = _importance_cache(cache)
 
     rate_limit_state: dict = {}
     rate_limit_window_sec = float(cfg.get('llm_429_window_sec', 60))
@@ -1316,11 +1359,60 @@ def aggregate_external_feeds(cfg):
     rate_limit_cooldown_max_sec = float(cfg.get('llm_429_cooldown_max_sec', 300.0))
     article_fetch_timeout_sec = int(cfg.get('article_fetch_timeout_sec', cfg.get('request_timeout_sec', 25)))
     article_max_chars = int(cfg.get('article_max_chars', 12000))
+    model_rate_limit_states: dict = (
+        seed_model_daily_states_fn('derived/llm_call_log.jsonl') if callable(seed_model_daily_states_fn) else {}
+    )
+    global_daily_max_calls = (
+        llm_global_daily_request_cap_fn(cfg)
+        if callable(llm_global_daily_request_cap_fn)
+        else int(max(0, int(cfg.get('github_models_global_daily_request_cap', 0) or 0)))
+    )
+    global_daily_rate_limit_state = (
+        seed_global_daily_state_fn('derived/llm_call_log.jsonl') if callable(seed_global_daily_state_fn) and global_daily_max_calls > 0 else None
+    )
+    models_auth_failed = False
+    model_budget_exhausted = False
+
+    def _aggregated_model_call(model: str, call):
+        if callable(github_model_call_with_retry) and callable(github_models_call_limits_fn) and callable(rate_limit_state_for_model_fn):
+            limits = github_models_call_limits_fn(cfg, model)
+            return github_model_call_with_retry(
+                call,
+                max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
+                base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
+                max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
+                jitter_sec=float(cfg.get('llm_retry_jitter_sec', 0.0)),
+                rate_limit_state=rate_limit_state_for_model_fn(model_rate_limit_states, model),
+                rate_limit_window_sec=rate_limit_window_sec,
+                rate_limit_threshold=rate_limit_threshold,
+                rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+                rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+                request_rate_limit_window_sec=60.0,
+                request_rate_limit_max_calls=limits.requests_per_minute,
+                request_rate_limit_min_interval_sec=limits.min_interval_sec,
+                request_daily_max_calls=limits.requests_per_day,
+                global_daily_max_calls=global_daily_max_calls,
+                global_daily_rate_limit_state=global_daily_rate_limit_state,
+            )
+        return _call_with_retry(
+            call,
+            max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
+            base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
+            max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
+            rate_limit_state=rate_limit_state,
+            rate_limit_window_sec=rate_limit_window_sec,
+            rate_limit_threshold=rate_limit_threshold,
+            rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
+            rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
+        )
 
     def _tag_entries_with_importance(entries: list[dict], label: str) -> None:
+        nonlocal models_auth_failed, model_budget_exhausted
         if not entries:
             return
         if not importance_enabled or importance_client is None or importance_store is None or not importance_rubric_hash or not ai_relevance_rubric_hash:
+            return
+        if models_auth_failed or model_budget_exhausted:
             return
 
         graded = 0
@@ -1370,7 +1462,8 @@ def aggregate_external_feeds(cfg):
             relevance_payload = existing_relevance
             if not isinstance(relevance_payload, dict) or str(relevance_payload.get('context_hash') or '') != relevance_context_hash:
                 try:
-                    relevance_result, _relevance_meta = _call_with_retry(
+                    relevance_result, _relevance_meta = _aggregated_model_call(
+                        relevance_model,
                         lambda: importance_client.check_ai_relevance(
                             title_for_grading,
                             context_for_grading,
@@ -1378,14 +1471,6 @@ def aggregate_external_feeds(cfg):
                             model=relevance_model,
                             article=article_for_grading,
                         ),
-                        max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
-                        base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
-                        max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
-                        rate_limit_state=rate_limit_state,
-                        rate_limit_window_sec=rate_limit_window_sec,
-                        rate_limit_threshold=rate_limit_threshold,
-                        rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
-                        rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
                     )
                     relevance_payload = {
                         'is_ai_related': bool(relevance_result.get('is_ai_related')),
@@ -1404,6 +1489,14 @@ def aggregate_external_feeds(cfg):
                     existing_record['ai_relevance'] = relevance_payload
                     importance_store[cache_key] = existing_record
                 except Exception as relevance_err:
+                    if github_models_budget_exceeded is not None and isinstance(relevance_err, github_models_budget_exceeded):
+                        model_budget_exhausted = True
+                        logger.warning(f"{feed_key_norm} aggregated AI relevance stopped: {provider_label} daily request budget exhausted")
+                        return
+                    if callable(github_models_auth_check) and github_models_auth_check(relevance_err):
+                        models_auth_failed = True
+                        logger.warning(f"{feed_key_norm} aggregated AI relevance stopped: {provider_label} authentication or permission failure")
+                        return
                     logger.warning(f"{feed_key_norm} aggregated AI relevance check failed for entry: {relevance_err}")
                     continue
 
@@ -1411,22 +1504,16 @@ def aggregate_external_feeds(cfg):
                 continue
 
             try:
-                result, _meta = _call_with_retry(
+                importance_model = str(cfg.get('importance_model') or 'openai/gpt-4.1-mini')
+                result, _meta = _aggregated_model_call(
+                    importance_model,
                     lambda: importance_client.grade_importance(
                         title_for_grading,
                         context_for_grading,
                         importance_rubric,
-                        model=str(cfg.get('importance_model') or 'openai/gpt-4.1-mini'),
+                        model=importance_model,
                         article=article_for_grading,
                     ),
-                    max_attempts=int(cfg.get('llm_retry_max_attempts', 4)),
-                    base_delay_sec=float(cfg.get('llm_retry_base_delay_sec', 1.5)),
-                    max_delay_sec=float(cfg.get('llm_retry_max_delay_sec', 20.0)),
-                            rate_limit_state=rate_limit_state,
-                            rate_limit_window_sec=rate_limit_window_sec,
-                            rate_limit_threshold=rate_limit_threshold,
-                            rate_limit_cooldown_base_sec=rate_limit_cooldown_base_sec,
-                            rate_limit_cooldown_max_sec=rate_limit_cooldown_max_sec,
                 )
                 importance_store[cache_key] = {
                     'ai_relevance': relevance_payload,
@@ -1462,6 +1549,14 @@ def aggregate_external_feeds(cfg):
                     entry['title'] = f"{base_title} {b_tag} {t_tag}".strip()
                     graded += 1
             except Exception as grade_err:
+                if github_models_budget_exceeded is not None and isinstance(grade_err, github_models_budget_exceeded):
+                    model_budget_exhausted = True
+                    logger.warning(f"{feed_key_norm} aggregated importance grading stopped: {provider_label} daily request budget exhausted")
+                    return
+                if callable(github_models_auth_check) and github_models_auth_check(grade_err):
+                    models_auth_failed = True
+                    logger.warning(f"{feed_key_norm} aggregated importance grading stopped: {provider_label} authentication or permission failure")
+                    return
                 logger.warning(f"{feed_key_norm} aggregated importance grading failed for entry: {grade_err}")
 
         logger.info(f"{feed_key_norm} aggregated importance tagging complete ({label}): graded={graded} reused={reused} total={total}")

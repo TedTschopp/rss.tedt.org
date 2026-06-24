@@ -1,0 +1,90 @@
+import unittest
+
+from pipeline.llm_client import OpenAIAPIClient, OpenAIWorkloadIdentityTokenProvider
+
+
+class FakeResponse:
+    def __init__(self, payload):
+        self.payload = payload
+
+    def raise_for_status(self):
+        return None
+
+    def json(self):
+        return self.payload
+
+
+class FakeOpenAISession:
+    def __init__(self):
+        self.headers = {}
+        self.posts = []
+
+    def post(self, url, json=None, timeout=None):
+        self.posts.append({"url": url, "json": json, "timeout": timeout, "headers": dict(self.headers)})
+        return FakeResponse(
+            {
+                "data": [{"embedding": [0.1, 0.2, 0.3]}],
+                "usage": {"total_tokens": 3},
+            }
+        )
+
+
+class FakeWIFSession:
+    def __init__(self):
+        self.gets = []
+        self.posts = []
+
+    def get(self, url, headers=None, timeout=None):
+        self.gets.append({"url": url, "headers": headers or {}, "timeout": timeout})
+        return FakeResponse({"value": "github-oidc-jwt"})
+
+    def post(self, url, json=None, headers=None, timeout=None):
+        self.posts.append({"url": url, "json": json or {}, "headers": headers or {}, "timeout": timeout})
+        return FakeResponse({"access_token": "openai-access-token", "expires_in": 3600})
+
+
+class OpenAIClientTests(unittest.TestCase):
+    def test_openai_client_strips_github_models_vendor_prefix_on_wire(self):
+        client = OpenAIAPIClient(api_key="test-openai-key", timeout_sec=7)
+        fake_session = FakeOpenAISession()
+        client.session = fake_session
+
+        result = client.embed(["hello"], model="openai/text-embedding-3-small")
+
+        self.assertEqual(result["model"], "openai/text-embedding-3-small")
+        self.assertEqual(fake_session.posts[0]["url"], "https://api.openai.com/v1/embeddings")
+        self.assertEqual(fake_session.posts[0]["json"]["model"], "text-embedding-3-small")
+        self.assertEqual(fake_session.posts[0]["headers"]["Authorization"], "Bearer test-openai-key")
+        self.assertEqual(fake_session.posts[0]["timeout"], 7)
+
+    def test_workload_identity_provider_exchanges_github_oidc_token_and_caches_access_token(self):
+        fake_session = FakeWIFSession()
+        provider = OpenAIWorkloadIdentityTokenProvider(
+            identity_provider_id="idp_123",
+            service_account_id="svc_123",
+            audience="openai-audience",
+            request_url="https://token.actions.githubusercontent.com?api-version=2",
+            request_token="github-request-token",
+            session=fake_session,
+            clock=lambda: 1000.0,
+        )
+
+        token = provider.get_token()
+        cached_token = provider.get_token()
+
+        self.assertEqual(token, "openai-access-token")
+        self.assertEqual(cached_token, "openai-access-token")
+        self.assertEqual(len(fake_session.gets), 1)
+        self.assertEqual(len(fake_session.posts), 1)
+        self.assertIn("api-version=2", fake_session.gets[0]["url"])
+        self.assertIn("audience=openai-audience", fake_session.gets[0]["url"])
+        self.assertEqual(fake_session.gets[0]["headers"]["Authorization"], "bearer github-request-token")
+        self.assertEqual(fake_session.posts[0]["url"], "https://auth.openai.com/oauth/token")
+        self.assertEqual(fake_session.posts[0]["json"]["subject_token"], "github-oidc-jwt")
+        self.assertEqual(fake_session.posts[0]["json"]["subject_token_type"], "urn:ietf:params:oauth:token-type:jwt")
+        self.assertEqual(fake_session.posts[0]["json"]["identity_provider_id"], "idp_123")
+        self.assertEqual(fake_session.posts[0]["json"]["service_account_id"], "svc_123")
+
+
+if __name__ == "__main__":
+    unittest.main()
