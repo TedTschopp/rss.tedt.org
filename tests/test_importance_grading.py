@@ -164,6 +164,35 @@ class ImportanceGradingContractTests(unittest.TestCase):
         self.assertIn("Rubric text", fake_session.last_payload["messages"][1]["content"])
         self.assertIn("Article body text", fake_session.last_payload["messages"][1]["content"])
 
+    def test_grade_importance_normalizes_invalid_impact_tags_from_model(self):
+        response_content = json.dumps(
+            {
+                "business_level": 2,
+                "technical_level": 1,
+                "business_impact": "[ * ]",
+                "technical_impact": "[ \u0003 ]",
+                "risk_impact": "R1",
+                "enterprise_readiness": "ER1",
+                "labor_workflow_impact": "L0",
+                "confidence": "C2",
+                "attention_priority": "P1",
+                "development_summary": "A model produced a malformed technical tag.",
+                "reason_codes": ["HYPE"],
+                "recommended_action": "Track",
+                "rationale": "The numeric technical level still indicates an informational item.",
+                "watch_items": ["Better evidence"],
+                "business_rationale": "Some business relevance exists.",
+                "technical_rationale": "The technical impact is informational.",
+            }
+        )
+        client = GitHubModelsClient(token="test-token")
+        client.session = FakeSession(response_content)
+
+        result = client.grade_importance("Title", "Summary", "Rubric", model="test-model")
+
+        self.assertEqual(result["business_impact"], "[ * ]")
+        self.assertEqual(result["technical_impact"], "[ ◻ ]")
+
     def test_publish_outputs_preserves_expanded_importance_payload(self):
         importance = {
             "business_level": 2,

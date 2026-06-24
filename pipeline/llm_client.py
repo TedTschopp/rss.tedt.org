@@ -659,11 +659,18 @@ class GitHubModelsClient:
         except Exception:
             technical_level_int = 0
 
+        business_impact = str(parsed.get("business_impact") or "").strip()
+        if business_impact not in BUSINESS_IMPACT_TAGS.values():
+            business_impact = BUSINESS_IMPACT_TAGS.get(business_level_int, "")
+        technical_impact = str(parsed.get("technical_impact") or "").strip()
+        if technical_impact not in TECHNICAL_IMPACT_TAGS.values():
+            technical_impact = TECHNICAL_IMPACT_TAGS.get(technical_level_int, "")
+
         return {
             "business_level": business_level,
             "technical_level": technical_level,
-            "business_impact": parsed.get("business_impact") or BUSINESS_IMPACT_TAGS.get(business_level_int, ""),
-            "technical_impact": parsed.get("technical_impact") or TECHNICAL_IMPACT_TAGS.get(technical_level_int, ""),
+            "business_impact": business_impact,
+            "technical_impact": technical_impact,
             "risk_impact": parsed.get("risk_impact", ""),
             "enterprise_readiness": parsed.get("enterprise_readiness", ""),
             "labor_workflow_impact": parsed.get("labor_workflow_impact", ""),

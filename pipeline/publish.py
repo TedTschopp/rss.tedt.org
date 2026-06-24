@@ -148,6 +148,18 @@ def _importance_tags(importance: dict[str, Any] | None) -> tuple[str | None, str
     return business_tag or BUSINESS_TAGS.get(business_level_int), technical_tag or TECHNICAL_TAGS.get(technical_level_int)
 
 
+def _normalize_importance_payload(importance: dict[str, Any] | None) -> dict[str, Any] | None:
+    if not isinstance(importance, dict):
+        return None
+    normalized = dict(importance)
+    business_tag, technical_tag = _importance_tags(normalized)
+    if business_tag:
+        normalized["business_impact"] = business_tag
+    if technical_tag:
+        normalized["technical_impact"] = technical_tag
+    return normalized
+
+
 def _eligible_for_importance_backfill(published: str, backfill_days: int) -> bool:
     published_dt = parse_datetime(published)
     if not published_dt:
@@ -515,7 +527,12 @@ def publish_outputs(
             continue
         cache_entry = llm_cache.get(story_id, {})
         existing_importance_raw = cache_entry.get("importance")
-        existing_importance = cast(dict[str, Any], existing_importance_raw) if isinstance(existing_importance_raw, dict) else None
+        existing_importance = _normalize_importance_payload(
+            cast(dict[str, Any], existing_importance_raw) if isinstance(existing_importance_raw, dict) else None
+        )
+        if existing_importance is not None and existing_importance != existing_importance_raw:
+            cache_entry = llm_cache.setdefault(story_id, cache_entry)
+            cache_entry["importance"] = existing_importance
 
         existing_relevance_raw = cache_entry.get("ai_relevance")
         existing_relevance = cast(dict[str, Any], existing_relevance_raw) if isinstance(existing_relevance_raw, dict) else None
@@ -652,8 +669,9 @@ def publish_outputs(
                 "input_hash": result.get("input_hash"),
             }
             cache_entry = llm_cache.setdefault(story_id, cache_entry)
-            cache_entry["importance"] = importance_payload
-            story["importance"] = importance_payload
+            normalized_importance_payload = _normalize_importance_payload(importance_payload) or importance_payload
+            cache_entry["importance"] = normalized_importance_payload
+            story["importance"] = normalized_importance_payload
 
             call_rows.append(
                 {
