@@ -376,11 +376,11 @@ def publish_outputs(
     ai_only_stories: list[dict[str, Any]] = [story for story in ranked_stories if _is_ai_story(story, ai_keywords)]
     top_stories: list[dict[str, Any]] = ai_only_stories[:publish_top_n]
 
-    importance_backfill_days = int(cfg.get("importance_backfill_days", 7))
+    importance_backfill_days = int(cfg.get("importance_backfill_days", 60))
     ai_relevance_model = str(cfg.get("ai_relevance_model", "openai/gpt-4.1-mini"))
     importance_model = str(cfg.get("importance_model", "openai/gpt-4.1-mini"))
     output_cleanup_enabled = str(cfg.get("output_cleanup_enabled", True)).lower() not in {"0", "false", "no"}
-    output_cleanup_top_n = int(cfg.get("output_cleanup_top_n", publish_top_n))
+    output_cleanup_top_n = max(0, int(cfg.get("output_cleanup_top_n", publish_top_n)))
     output_cleanup_model = str(cfg.get("output_cleanup_model", "openai/gpt-4.1-mini"))
     output_cleanup_article_max_chars = int(cfg.get("output_cleanup_article_max_chars", 5000))
     output_cleanup_prompt_hash = _prompt_bundle_hash(OUTPUT_CLEANUP_PROMPT_PATHS)
@@ -477,12 +477,13 @@ def publish_outputs(
         if story_id in seen_article_story_ids:
             continue
         needs_importance_article = (
-            _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days)
+            client is not None
+            and _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days)
             and bool(rubric_markdown and rubric_hash)
             and bool(ai_relevance_rubric and ai_relevance_rubric_hash)
         )
-        needs_cleanup_article = output_cleanup_enabled and index < output_cleanup_top_n
-        if client is None or not (needs_importance_article or needs_cleanup_article):
+        needs_cleanup_article = index < output_cleanup_top_n
+        if not (needs_importance_article or needs_cleanup_article):
             continue
         stories_needing_article.append(story)
         seen_article_story_ids.add(story_id)
@@ -689,90 +690,89 @@ def publish_outputs(
         except Exception as exc:
             _record_model_exception("importance", story_id, importance_model, exc)
 
-    if output_cleanup_enabled:
-        for story in top_stories[:output_cleanup_top_n]:
-            story_id = str(story.get("story_id") or "").strip()
-            if not story_id:
-                continue
-            cache_entry = llm_cache.get(story_id, {})
-            title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
-            summary_text = _story_base_summary(story)
-            article_url = str(story.get("canonical_url") or story.get("url") or "")
-            article_markdown = _article_excerpt(
-                article_markdown_by_url.get(article_url, ""),
-                output_cleanup_article_max_chars,
-            )
-            source_context = _source_context(story, article_markdown)
-            cleanup_context_hash = _output_cleanup_context_hash(
-                title_text,
-                summary_text,
-                source_context,
-                output_cleanup_prompt_hash,
+    for story in top_stories[:output_cleanup_top_n]:
+        story_id = str(story.get("story_id") or "").strip()
+        if not story_id:
+            continue
+        cache_entry = llm_cache.get(story_id, {})
+        title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
+        summary_text = _story_base_summary(story)
+        article_url = str(story.get("canonical_url") or story.get("url") or "")
+        article_markdown = _article_excerpt(
+            article_markdown_by_url.get(article_url, ""),
+            output_cleanup_article_max_chars,
+        )
+        source_context = _source_context(story, article_markdown)
+        cleanup_context_hash = _output_cleanup_context_hash(
+            title_text,
+            summary_text,
+            source_context,
+            output_cleanup_prompt_hash,
+            output_cleanup_model,
+        )
+
+        cached_cleanup = _cached_output_cleanup(cache_entry, cleanup_context_hash)
+        if cached_cleanup is not None:
+            _apply_output_cleanup(story, cached_cleanup)
+            continue
+
+        if not output_cleanup_enabled or client is None or models_auth_failed or model_budget_exhausted:
+            continue
+
+        try:
+            title_result, title_retry_meta = _model_call(
                 output_cleanup_model,
+                lambda: client.rewrite_output_title(title_text, summary_text, source_context, model=output_cleanup_model),
+            )
+            rewritten_title = str(title_result.get("title") or title_text).strip() or title_text
+            call_rows.append(
+                {
+                    "ts": to_iso(datetime.now(timezone.utc)),
+                    "kind": "output_title_rewrite",
+                    "story_id": story_id,
+                    "model": title_result.get("model"),
+                    "latency_ms": title_result.get("latency_ms"),
+                    "usage": title_result.get("usage", {}),
+                    "input_hash": title_result.get("input_hash"),
+                    "status": "ok",
+                    "retries": title_retry_meta.get("retries", 0),
+                }
             )
 
-            cached_cleanup = _cached_output_cleanup(cache_entry, cleanup_context_hash)
-            if cached_cleanup is not None:
-                _apply_output_cleanup(story, cached_cleanup)
-                continue
-
-            if client is None or models_auth_failed or model_budget_exhausted:
-                continue
-
-            try:
-                title_result, title_retry_meta = _model_call(
-                    output_cleanup_model,
-                    lambda: client.rewrite_output_title(title_text, summary_text, source_context, model=output_cleanup_model),
-                )
-                rewritten_title = str(title_result.get("title") or title_text).strip() or title_text
-                call_rows.append(
-                    {
-                        "ts": to_iso(datetime.now(timezone.utc)),
-                        "kind": "output_title_rewrite",
-                        "story_id": story_id,
-                        "model": title_result.get("model"),
-                        "latency_ms": title_result.get("latency_ms"),
-                        "usage": title_result.get("usage", {}),
-                        "input_hash": title_result.get("input_hash"),
-                        "status": "ok",
-                        "retries": title_retry_meta.get("retries", 0),
-                    }
-                )
-
-                description_result, description_retry_meta = _model_call(
-                    output_cleanup_model,
-                    lambda: client.rewrite_output_description(rewritten_title, summary_text, source_context, model=output_cleanup_model),
-                )
-                rewritten_description = str(description_result.get("description") or summary_text).strip() or summary_text
-                call_rows.append(
-                    {
-                        "ts": to_iso(datetime.now(timezone.utc)),
-                        "kind": "output_description_rewrite",
-                        "story_id": story_id,
-                        "model": description_result.get("model"),
-                        "latency_ms": description_result.get("latency_ms"),
-                        "usage": description_result.get("usage", {}),
-                        "input_hash": description_result.get("input_hash"),
-                        "status": "ok",
-                        "retries": description_retry_meta.get("retries", 0),
-                    }
-                )
-
-                cleanup_payload: dict[str, Any] = {
-                    "title": rewritten_title,
-                    "description": rewritten_description,
-                    "context_hash": cleanup_context_hash,
-                    "prompt_hash": output_cleanup_prompt_hash,
-                    "model": output_cleanup_model,
-                    "title_input_hash": title_result.get("input_hash"),
-                    "description_input_hash": description_result.get("input_hash"),
-                    "rewritten_at": to_iso(datetime.now(timezone.utc)),
+            description_result, description_retry_meta = _model_call(
+                output_cleanup_model,
+                lambda: client.rewrite_output_description(rewritten_title, summary_text, source_context, model=output_cleanup_model),
+            )
+            rewritten_description = str(description_result.get("description") or summary_text).strip() or summary_text
+            call_rows.append(
+                {
+                    "ts": to_iso(datetime.now(timezone.utc)),
+                    "kind": "output_description_rewrite",
+                    "story_id": story_id,
+                    "model": description_result.get("model"),
+                    "latency_ms": description_result.get("latency_ms"),
+                    "usage": description_result.get("usage", {}),
+                    "input_hash": description_result.get("input_hash"),
+                    "status": "ok",
+                    "retries": description_retry_meta.get("retries", 0),
                 }
-                cache_entry = llm_cache.setdefault(story_id, cache_entry)
-                cache_entry["output_cleanup"] = cleanup_payload
-                _apply_output_cleanup(story, cleanup_payload)
-            except Exception as exc:
-                _record_model_exception("output_cleanup", story_id, output_cleanup_model, exc)
+            )
+
+            cleanup_payload: dict[str, Any] = {
+                "title": rewritten_title,
+                "description": rewritten_description,
+                "context_hash": cleanup_context_hash,
+                "prompt_hash": output_cleanup_prompt_hash,
+                "model": output_cleanup_model,
+                "title_input_hash": title_result.get("input_hash"),
+                "description_input_hash": description_result.get("input_hash"),
+                "rewritten_at": to_iso(datetime.now(timezone.utc)),
+            }
+            cache_entry = llm_cache.setdefault(story_id, cache_entry)
+            cache_entry["output_cleanup"] = cleanup_payload
+            _apply_output_cleanup(story, cleanup_payload)
+        except Exception as exc:
+            _record_model_exception("output_cleanup", story_id, output_cleanup_model, exc)
 
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)

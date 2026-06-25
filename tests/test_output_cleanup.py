@@ -49,12 +49,25 @@ class FakeOutputCleanupClient:
     seen_title_source_context = None
     seen_description_source_context = None
     seen_description_summary = None
+    title_calls = 0
+    description_calls = 0
+
+    @classmethod
+    def reset(cls):
+        cls.seen_title_model = None
+        cls.seen_description_model = None
+        cls.seen_title_source_context = None
+        cls.seen_description_source_context = None
+        cls.seen_description_summary = None
+        cls.title_calls = 0
+        cls.description_calls = 0
 
     def __init__(self, token, timeout_sec):
         self.token = token
         self.timeout_sec = timeout_sec
 
     def rewrite_output_title(self, title, summary, source_context, model):
+        FakeOutputCleanupClient.title_calls += 1
         FakeOutputCleanupClient.seen_title_model = model
         FakeOutputCleanupClient.seen_title_source_context = source_context
         return {
@@ -66,6 +79,7 @@ class FakeOutputCleanupClient:
         }
 
     def rewrite_output_description(self, title, summary, source_context, model):
+        FakeOutputCleanupClient.description_calls += 1
         FakeOutputCleanupClient.seen_description_model = model
         FakeOutputCleanupClient.seen_description_summary = summary
         FakeOutputCleanupClient.seen_description_source_context = source_context
@@ -308,6 +322,148 @@ class OutputCleanupTests(unittest.TestCase):
             self.assertIn("OpenAI Adds Enterprise Data Controls", xml_text)
             self.assertIn("OpenAI introduced enterprise data controls", xml_text)
             self.assertNotIn("Raw OpenAI data controls headline", xml_text)
+
+    def test_publish_outputs_reuses_cached_cleanup_and_skips_model_call(self):
+        old_env = dict(os.environ)
+        story = {
+            "story_id": "story-cache",
+            "title": "Raw OpenAI headline",
+            "summary": "Raw OpenAI summary.",
+            "canonical_url": "https://example.com/cache-story",
+            "url": "https://example.com/cache-story",
+            "source_name": "Example Source",
+            "source_type": "rss",
+            "source_category": "rss",
+            "published": "2020-01-01T00:00:00Z",
+            "score": 100,
+            "mentions": [],
+            "sources": [],
+            "alternate_links": [],
+            "cluster_id": "cluster-cache",
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            api_path = Path(temp_dir) / "feed.json"
+            base_feed_path = Path(temp_dir) / "top"
+            try:
+                os.environ["GH_MODELS_TOKEN"] = "test-token"
+                FakeOutputCleanupClient.reset()
+                with patch("pipeline.publish.GitHubModelsClient", FakeOutputCleanupClient):
+                    with patch("pipeline.publish._fetch_article_with_url", return_value=("https://example.com/cache-story", "")):
+                        first_payload, cache = publish_outputs(
+                            [story],
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache={},
+                            config={
+                                "publish_top_n": 1,
+                                "output_cleanup_top_n": 1,
+                                "output_cleanup_model": "test-cleanup-model",
+                                "importance_backfill_days": 0,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "ai_keywords": ["openai"],
+                            },
+                        )
+                        second_payload, _second_cache = publish_outputs(
+                            [dict(story)],
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache=cache,
+                            config={
+                                "publish_top_n": 1,
+                                "output_cleanup_top_n": 1,
+                                "output_cleanup_model": "test-cleanup-model",
+                                "importance_backfill_days": 0,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "ai_keywords": ["openai"],
+                            },
+                        )
+            finally:
+                os.environ.clear()
+                os.environ.update(old_env)
+
+            self.assertEqual(FakeOutputCleanupClient.title_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.description_calls, 1)
+            self.assertEqual(first_payload["items"][0]["summary"], second_payload["items"][0]["summary"])
+            self.assertEqual(second_payload["items"][0]["title"], "OpenAI Adds Enterprise Data Controls")
+
+    def test_publish_outputs_applies_cached_cleanup_when_new_cleanup_calls_disabled(self):
+        old_env = dict(os.environ)
+        story = {
+            "story_id": "story-disabled-cache",
+            "title": "Raw OpenAI cached headline",
+            "summary": "Raw cached summary.",
+            "canonical_url": "https://example.com/disabled-cache-story",
+            "url": "https://example.com/disabled-cache-story",
+            "source_name": "Example Source",
+            "source_type": "rss",
+            "source_category": "rss",
+            "published": "2020-01-01T00:00:00Z",
+            "score": 100,
+            "mentions": [],
+            "sources": [],
+            "alternate_links": [],
+            "cluster_id": "cluster-disabled-cache",
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            api_path = Path(temp_dir) / "feed.json"
+            base_feed_path = Path(temp_dir) / "top"
+            try:
+                os.environ["GH_MODELS_TOKEN"] = "test-token"
+                FakeOutputCleanupClient.reset()
+                with patch("pipeline.publish.GitHubModelsClient", FakeOutputCleanupClient):
+                    with patch(
+                        "pipeline.publish._fetch_article_with_url",
+                        return_value=("https://example.com/disabled-cache-story", ""),
+                    ):
+                        _first_payload, cache = publish_outputs(
+                            [story],
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache={},
+                            config={
+                                "publish_top_n": 1,
+                                "output_cleanup_top_n": 1,
+                                "output_cleanup_model": "test-cleanup-model",
+                                "importance_backfill_days": 0,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "ai_keywords": ["openai"],
+                            },
+                        )
+                os.environ.pop("GH_MODELS_TOKEN", None)
+                with patch(
+                    "pipeline.publish._fetch_article_with_url",
+                    return_value=("https://example.com/disabled-cache-story", ""),
+                ):
+                    second_payload, _second_cache = publish_outputs(
+                        [dict(story)],
+                        str(api_path),
+                        str(base_feed_path),
+                        llm_cache=cache,
+                        config={
+                            "publish_top_n": 1,
+                            "output_cleanup_enabled": False,
+                            "output_cleanup_top_n": 1,
+                            "output_cleanup_model": "test-cleanup-model",
+                            "importance_backfill_days": 0,
+                            "ai_keywords": ["openai"],
+                        },
+                    )
+            finally:
+                os.environ.clear()
+                os.environ.update(old_env)
+
+            self.assertEqual(FakeOutputCleanupClient.title_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.description_calls, 1)
+            self.assertEqual(second_payload["items"][0]["title"], "OpenAI Adds Enterprise Data Controls")
+            self.assertEqual(
+                second_payload["items"][0]["summary"],
+                "OpenAI introduced enterprise data controls for governed AI deployments.",
+            )
 
     def test_publish_outputs_sends_fetched_article_to_output_cleanup(self):
         old_env = dict(os.environ)

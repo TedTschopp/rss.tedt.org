@@ -55,7 +55,7 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "article_cache_enabled": True,
     "article_cache_path": "derived/article_cache.json",
     "article_cache_ttl_hours": 48,
-    "importance_backfill_days": 7,
+    "importance_backfill_days": 60,
     "summary_model": "openai/gpt-4.1-mini",
     "ai_relevance_model": "openai/gpt-4.1-mini",
     "importance_model": "openai/gpt-4.1-mini",

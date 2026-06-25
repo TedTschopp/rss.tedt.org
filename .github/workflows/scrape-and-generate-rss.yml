@@ -76,7 +76,8 @@ jobs:
         PIPELINE_OPENAI_RATE_LIMIT_REQUESTS_PER_MINUTE: '60'
         PIPELINE_OPENAI_DAILY_REQUEST_CAP: '0'
         PIPELINE_OPENAI_GLOBAL_DAILY_REQUEST_CAP: '0'
-        # Light mode for the 8-hour schedule; heavy mode for daily schedule and manual runs.
+        # Light mode trims feed size/retries, but still performs missing LLM
+        # transformations. Cached LLM outputs are reused by story/context hash.
         PIPELINE_LLM_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
         PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25' }}
         PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
@@ -86,9 +87,9 @@ jobs:
         PIPELINE_GITHUB_MODELS_DAILY_REQUEST_CAP: '12'
         PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP: '0'
         PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH: 'true'
-        PIPELINE_OUTPUT_CLEANUP_ENABLED: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && 'false' || 'true' }}
-        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '0' || '200' }}
-        PIPELINE_IMPORTANCE_BACKFILL_DAYS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '7' }}
+        PIPELINE_OUTPUT_CLEANUP_ENABLED: 'true'
+        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
+        PIPELINE_IMPORTANCE_BACKFILL_DAYS: '60'
         PIPELINE_LLM_RETRY_MAX_ATTEMPTS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '4' }}
         PIPELINE_LLM_RETRY_BASE_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '1.0' || '1.5' }}
         PIPELINE_LLM_RETRY_MAX_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '8.0' || '20.0' }}
