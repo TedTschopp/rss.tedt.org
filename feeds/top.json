@@ -7,109 +7,291 @@
   "language": "en",
   "items": [
     {
-      "id": "sty_db8f2f508569a346",
-      "url": "https://aditya.patadia.org/p/ai-and-cloud-costs",
-      "title": "Analysis: Current large language model costs are unsustainable due to performance plateaus, open-weight models, chip advances, zero switching costs, and emerging local model deployment [ ~ ] [ ◻ ]",
-      "content_text": "The article analyzes the unsustainable costs of current large language models (LLMs) due to several converging factors including performance plateaus, the rise of open-weight models, advances in specialized AI chips, zero switching costs between providers, and the emerging trend of local model deployment. It highlights how these elements are driving down prices and challenging the high costs charged by frontier AI labs. It explains that improvements in model performance are slowing, limiting justification for price increases, while open-weight models offer cheaper alternatives that can be hosted by various providers. Advances in AI-specific hardware and model architectures are reducing inference costs, and the ability to switch models easily without switching costs intensifies competition. Additionally, the article predicts that local deployment of AI models on personal devices will further reduce reliance on costly cloud-hosted models. These trends suggest a future where AI model costs will decline significantly, making AI more accessible and forcing major AI labs to adapt their pricing and business models. The shift toward local models and open-weight alternatives could reshape the AI landscape by democratizing access and reducing the dominance of large, expensive AI providers.",
-      "date_published": "2026-06-26T07:44:11Z"
+      "id": "sty_b8fb5103a991230c",
+      "url": "https://github.com/workweave/router",
+      "title": "Weave launches Router, a proxy that routes requests to the best AI model across Claude, Codex, Cursor, and others with on-box embedding and API compatibility [ * ] [ ◼ ]",
+      "content_text": "Weave has introduced Router, a proxy service that intelligently routes requests to the most suitable AI model across platforms like Claude, Codex, Cursor, and others. It features an on-box embedder for model selection rather than relying on prompt-based methods, supports multiple APIs including Anthropic, OpenAI, and Gemini, and maintains provider keys securely on the user's device. Router also offers observability through OTLP traces and integrates with various monitoring tools, making it a versatile solution for managing AI model requests efficiently. The Router can be quickly set up using a single command and supports both hosted and self-hosted deployments. It seamlessly integrates with popular AI tools by automatically configuring them to route through the proxy, allowing users to switch routing on or off as needed without disrupting existing configurations. This flexibility and ease of use position Router as a practical tool for developers seeking optimized AI model utilization across different providers.",
+      "date_published": "2026-06-26T16:40:11Z"
     },
     {
       "id": "sty_7531c23582a6a053",
       "url": "https://www.fernandoi.cl/posts/hackmyclaw/",
-      "title": "Developer runs public test where 2,000 people sent 6,000 emails trying to hack AI assistant; secrets.env file never leaked despite sophisticated prompt injection attempts [ ~ ] [ ◻ ]",
-      "content_text": "A developer created an AI assistant named Fiu and invited the public to try hacking it by sending emails to extract the contents of a secrets.env file. Over 2,000 people sent more than 6,000 emails with various prompt injection attempts, including impersonation and multilingual social engineering, but the AI successfully resisted all attempts and never leaked the secret information. The experiment revealed that the AI, running on Anthropic's Claude Opus 4.6 model, effectively followed simple security instructions and identified coordinated attack patterns. Despite challenges such as Google suspending the developer's account due to high email volume and significant API costs, the test demonstrated the model's robustness against prompt injection attacks. The developer concluded that while prompt injection remains a security concern, powerful models with proper safeguards can significantly mitigate risks.",
+      "title": "Developer runs public test where 2,000 people sent 6,000+ emails trying to hack AI assistant; no secrets leaked despite sophisticated prompt injection attempts [ ~ ] [ ◻ ]",
+      "content_text": "A developer launched a public test inviting over 2,000 participants to send more than 6,000 emails attempting to hack an AI assistant named Fiu by extracting secret information from a protected file. Despite sophisticated prompt injection attempts, including impersonation and multilingual social engineering, the AI successfully resisted all attacks without leaking any secrets. The experiment, conducted using the Claude Opus 4.6 model known for its resistance to prompt injection, revealed that simple but clear security instructions helped the AI maintain its defenses. The test also highlighted challenges such as high API costs, account suspensions due to unusual activity, and the impact of batch processing on the AI's suspicion levels. The developer concluded that while prompt injection remains a security concern, powerful models with proper safeguards can effectively mitigate risks. The experiment's results have increased optimism about AI security, and future tests may explore responses to ongoing interactions and the vulnerabilities of less capable models.",
       "date_published": "2026-06-26T02:29:23Z"
-    },
-    {
-      "id": "sty_e53fc71b625a6722",
-      "url": "https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true",
-      "title": "Apple plans to skip high-end M6 Mac chips and launch AI-focused M7 Pro, M7 Max, and M7 Ultra chips instead in 2026 [ * ] [ ◼ ]",
-      "content_text": "Apple plans to bypass the high-end M6 Mac chips and instead introduce a new lineup of AI-focused processors called the M7 Pro, M7 Max, and M7 Ultra in 2026. This shift highlights Apple's strategic emphasis on integrating advanced artificial intelligence capabilities into its future Mac devices. The new chips are expected to enhance performance and efficiency, aligning with the growing demand for AI-driven computing in professional and consumer markets.",
-      "date_published": "2026-06-25T17:38:44Z"
     },
     {
       "id": "sty_a9ccce668f097bff",
       "url": "https://github.com/inkeep/open-knowledge",
       "title": "OpenKnowledge launches open source AI-first markdown editor and LLM wiki as alternative to Obsidian and Notion, available on macOS, Linux, and Windows [ ~ ] [ ◻ ]",
-      "content_text": "OpenKnowledge is a new open source, AI-first markdown editor and LLM wiki designed as an alternative to Obsidian and Notion. It offers a local-first, full WYSIWYG editing experience that integrates with AI models like Claude and Codex, supporting collaborative AI-assisted editing. The software is available as a macOS desktop app and as a web app/CLI for Linux, Windows, and Intel Mac systems. The platform includes features such as no-code team sharing, auto-sync powered by git/GitHub, and built-in support for agentic search and spec-driven development. Users can install the macOS app directly or run the editor locally via Node.js on other operating systems. OpenKnowledge is licensed under the GNU General Public License v3.0 or later and welcomes public contributions through its GitHub repository.",
+      "content_text": "OpenKnowledge is a new open source, AI-first markdown editor and LLM wiki designed as an alternative to Obsidian and Notion. It offers a local-first, full WYSIWYG editing experience that integrates with AI models like Claude and Codex, supporting collaborative AI-assisted editing. The software is available as a macOS desktop app and as a web app/CLI for Linux, Windows, and Intel Mac systems. The platform includes features such as no-code team sharing, auto-sync powered by git/GitHub, and built-in support for agentic search and spec-driven development. Users can install the macOS app directly or run the editor locally via Node.js on other operating systems. OpenKnowledge is licensed under the GNU General Public License v3.0 or later, and contributions are welcome through public pull requests.",
       "date_published": "2026-06-25T16:04:46Z"
     },
     {
       "id": "sty_fd5e732497394a14",
       "url": "https://unconv.ai/blog/introducing-un-0-generating-images-with-coupled-oscillators/",
-      "title": "Unconventional AI launches Un-0, an image generator using simulated coupled oscillators, achieving FID 6.74 on ImageNet 64×64 with open-source weights and code [ ~ ] [ ◼ ]",
-      "content_text": "Unconventional AI has introduced Un-0, an image generator that uses a simulated system of coupled oscillators to produce images. This approach, which leverages physical computing principles rather than traditional deep neural networks on GPUs, achieves a Fréchet Inception Distance (FID) score of 6.74 on the ImageNet 64×64 dataset, comparable to early leading image generation models. The team has made the model weights, training, and evaluation code openly available to encourage further experimentation. Un-0 operates by simulating thousands of oscillators whose interactions are governed by learnable coupling strengths, inspired by natural synchronization phenomena such as metronomes aligning their ticks. This method represents a step toward more energy-efficient AI computing, aiming to reduce energy consumption by about 1,000 times compared to current hardware. The project builds on a history of physics-based computing models and demonstrates that physical dynamical systems can effectively handle modern AI tasks like image generation. By releasing their work openly, Unconventional AI hopes to accelerate research into physical computing substrates for AI, potentially leading to significant improvements in energy efficiency and new computational paradigms beyond conventional digital processors.",
+      "title": "Unconventional AI releases Un-0, an image generator using simulated coupled oscillators achieving FID 6.74 on ImageNet 64×64 with open-source weights and code [ ~ ] [ ◼ ]",
+      "content_text": "Unconventional AI has introduced Un-0, an image generator that uses a simulated system of coupled oscillators to produce images. This approach, based on physical computing principles rather than traditional deep neural networks, achieves a Fréchet Inception Distance (FID) score of 6.74 on the ImageNet 64×64 benchmark, comparable to early leading image generation models. The team has released the model weights, training code, and evaluation tools as open source to encourage further experimentation. Un-0 operates by simulating thousands of oscillators whose interactions are governed by learnable coupling strengths, inspired by natural synchronization phenomena like metronomes ticking in unison. This method represents a shift toward energy-efficient AI computing by leveraging physical dynamics, aiming for significant reductions in energy consumption compared to conventional GPU-based neural networks. The project highlights the potential of physical dynamical systems as a substrate for modern AI workloads and marks a step toward more sustainable AI technologies.",
       "date_published": "2026-06-25T20:50:02Z"
     },
     {
-      "id": "sty_db715438264a21a8",
-      "url": "https://www.youtube.com/watch?v=yFp5-i5fzyQ",
-      "title": "Sophie Winkleman outlines challenges and risks of AI integration in classrooms, highlighting potential negative impacts on education [ ~ ] [ ◻ ]",
-      "content_text": "Sophie Winkleman addresses the challenges and risks associated with integrating artificial intelligence in classrooms, emphasizing concerns about its potential negative effects on education. She highlights how AI could impact both teaching methods and student learning experiences. Winkleman discusses specific issues such as the reliability of AI tools, the risk of diminishing critical thinking skills, and the possible disruption to traditional educational practices. Her insights call for careful consideration and balanced implementation of AI technologies in educational settings to avoid unintended consequences.",
-      "date_published": "2026-06-26T10:25:31Z"
+      "id": "sty_5e40b31764734945",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol",
+      "title": "OpenAI previews GPT-5.6 Sol, a next-generation model with enhanced coding, science, and cybersecurity capabilities and advanced safety features [ * ] [ ◼ ]",
+      "content_text": "OpenAI has introduced GPT-5.6 Sol, a next-generation AI model that enhances performance in coding, scientific research, and cybersecurity. This model also incorporates OpenAI's most advanced safety features to ensure responsible use. GPT-5.6 Sol builds on previous iterations by improving its ability to handle complex technical tasks and providing more reliable outputs in specialized domains. The integration of a robust safety stack aims to mitigate risks associated with AI deployment, reflecting OpenAI's commitment to safe and ethical AI development.",
+      "date_published": "2026-06-26T10:00:00Z"
     },
     {
-      "id": "sty_fbfb8b892605896d",
-      "url": "https://www.nytimes.com/2026/06/26/technology/ai-advanced-chip-packaging-tsmc.html",
-      "title": "Advanced chip packaging technology emerges as a critical bottleneck in AI development and deployment, impacting industry scalability and progress [ * ] [ ◼ ]",
-      "content_text": "Advanced chip packaging technology has become a significant bottleneck in the development and deployment of artificial intelligence systems. Its specialized nature and limited availability are constraining the scalability and progress of AI across the industry. This technology's unique capabilities are essential for AI hardware performance, making it a critical component in the supply chain. The scarcity of advanced packaging solutions is slowing down the pace at which AI innovations can be scaled and implemented widely.",
-      "date_published": "2026-06-26T10:29:45Z"
+      "id": "sty_ad1f05ad918658fb",
+      "url": "https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/",
+      "title": "TechCrunch: U.S. government imposes strict approval process on Anthropic and OpenAI AI model releases, highlighting need for collective industry action on AI regulation [ ! ] [ ⬢ ]",
+      "content_text": "The U.S. government has implemented a stringent approval process for the release of AI models from companies like Anthropic and OpenAI, requiring individual customer approvals before general availability. This move follows the government's earlier intervention with Anthropic's models and now affects OpenAI's GPT 5.6, potentially slowing the pace of AI development and impacting the industry's economic prospects. This regulatory approach highlights broader challenges, including the government's limited capacity to assess AI safety and the unclear criteria for risk evaluation. Industry experts emphasize the need for collaborative efforts to establish effective and balanced AI regulations, suggesting that collective action and trust in independent oversight are crucial to addressing the political and safety implications of advanced AI technologies. The situation underscores the importance of the AI industry uniting to navigate regulatory demands without compromising innovation. How the industry responds in the coming weeks will be critical in shaping the future of AI development and its integration into society.",
+      "date_published": "2026-06-26T16:24:47Z"
     },
     {
-      "id": "sty_1f797195ffe1b09b",
-      "url": "https://write.as/7e9847vzuyxkx",
-      "title": "Analysis: LinkedIn users increasingly label themselves as AI-native amid professional identity pressures and cultural shifts in 2026 [ ~ ] [ ◻ ]",
-      "content_text": "In 2026, many LinkedIn users are increasingly identifying themselves as \"AI-native,\" reflecting broader professional identity pressures and cultural shifts. This trend is seen as a form of identity foreclosure, where individuals adopt this label not necessarily through genuine self-discovery but as a response to the anxiety of adapting to rapid technological change. The widespread use of this term has led to a professional environment where it is difficult to distinguish between authentic expertise and performative signaling. This phenomenon has created a culture on LinkedIn that feels spiritually thin, with meaningful conversations often overshadowed by those who quickly adopt trending keywords. As a result, professionals with deep knowledge in AI-related fields may choose to remain silent, finding the discourse exhausting and dominated by surface-level engagement rather than substantive dialogue.",
-      "date_published": "2026-06-26T09:20:55Z"
+      "id": "sty_293d65108c6a690f",
+      "url": "https://www.theinformation.com/briefings/openai-releases-gpt-5-6-u-s-government-approved-customers",
+      "title": "OpenAI releases GPT-5.6 to U.S. government-approved customers in controlled rollout due to security concerns [ * ] [ ◼ ]",
+      "content_text": "OpenAI has launched GPT-5.6, its newest AI model, in a controlled rollout limited to customers approved by the U.S. government. This selective release reflects ongoing security concerns surrounding the deployment of advanced AI technologies.",
+      "date_published": "2026-06-26T17:11:50Z"
     },
     {
-      "id": "sty_c9a6509fdce2e061",
-      "url": "https://drive.google.com/file/d/1NJA8clb_wkotSnUkBPGZMw8Dywa5caiF/view?usp=drive_link",
-      "title": "Tlbic proposes 'I Am Not an AI' policy addressing human identity and AI regulatory considerations [ ~ ] [ ◻ ]",
-      "content_text": "The Tlbic policy proposal titled \"I Am Not an AI\" addresses issues related to artificial intelligence, focusing on distinguishing human identity from AI systems. It explores regulatory and ethical considerations for AI deployment and interaction to ensure clear differentiation between humans and AI technologies.",
-      "date_published": "2026-06-26T10:38:37Z"
+      "id": "sty_7ea520def82e6c6b",
+      "url": "https://enterpilot.io/blog/benchmarking-ai-gateways-gomodel-litellm-portkey-bifrost-june-2026/",
+      "title": "Benchmark compares runtime performance and resource usage of AI gateways GoModel, LiteLLM, Portkey, and Bifrost on request path latency, throughput, memory, CPU, cold start, and image size [ * ] [ ◼ ]",
+      "content_text": "A benchmark study compares the runtime performance and resource usage of four AI gateways-GoModel, LiteLLM, Portkey, and Bifrost-focusing on metrics such as request path latency, throughput, memory consumption, CPU usage, cold start time, and image size. The evaluation isolates the gateways' overhead by using a consistent mock backend and standardized testing environment to measure their efficiency on the critical request path rather than feature sets or provider coverage. The analysis highlights that while latency differences may be minor compared to model inference times, factors like memory footprint, CPU load, cold start speed, and deployment size significantly impact operational feasibility, especially in high-volume or resource-constrained scenarios. The benchmark does not assess broader features or provider support but emphasizes the importance of runtime footprint for deploying AI gateways effectively in various environments.",
+      "date_published": "2026-06-26T16:04:02Z"
     },
     {
-      "id": "sty_2da0002bb0f8ea07",
-      "url": "https://elevenwritt.com/blog/ai-linkedin-post-generator",
-      "title": "Elevenwritt launches AI tool to generate personalized LinkedIn posts that help professionals build their brand and engage industry audiences [ ~ ] [ ◻ ]",
-      "content_text": "Elevenwritt has introduced an AI-powered tool designed to help professionals create personalized LinkedIn posts that enhance their personal brand and engage industry audiences. The tool generates content tailored to individual career goals and industries, aiming to improve users' online presence through consistent, insightful, and authentic storytelling. The platform leverages LinkedIn's unique content dynamics, where organic reach remains high and quality engagement is valued. It guides users to produce posts that resonate by transforming raw experiences into compelling narratives, insights, or lessons, while avoiding generic corporate language. This approach helps users stand out in a crowded space and build authority more efficiently.",
-      "date_published": "2026-06-26T10:21:05Z"
+      "id": "sty_6f6187184e9b9baa",
+      "url": "https://www.theregister.com/ai-and-ml/2026/06/24/ai-coding-agents-could-soon-cost-more-than-the-developers-using-them/5260864",
+      "title": "Gartner warns AI coding agent costs may exceed developer salaries by 2028 due to consumption-based pricing and lack of cost controls [ * ] [ ◼ ]",
+      "content_text": "Gartner has warned that the costs of AI coding agents, driven by consumption-based pricing and limited cost control features, could surpass developer salaries by 2028. This trend is raising concerns about the financial sustainability of integrating AI tools into software development, especially as monthly bills for AI usage have escalated significantly without clear links to productivity gains. The shift from seat-based licensing to consumption-based models has led to unpredictable and often high expenses, with some developers facing monthly charges in the thousands of dollars. Gartner highlights the lack of transparency and cost optimization tools from AI vendors, urging development teams to adopt strategies like context engineering and model routing to manage token consumption and improve output quality. This situation is particularly impactful in regions with lower developer salaries, where AI coding costs may already match or exceed earnings. Gartner's analysis suggests that without improved cost management and vendor support, the economic balance between AI tool expenses and developer compensation could become unsustainable in the near future.",
+      "date_published": "2026-06-26T17:03:13Z"
     },
     {
-      "id": "sty_57bdebeed605c001",
-      "url": "https://aiweekly.co/recap/q2-2026",
-      "title": "Analysis of over 3,000 AI thought leader posts reveals Q2 2026 trends and discussions in the artificial intelligence community [ * ] [ ◻ ]",
-      "content_text": "An analysis of over 3,000 posts by AI thought leaders during the second quarter of 2026 highlights significant developments in the artificial intelligence sector, including major IPO filings and valuation shifts among leading companies like Anthropic, OpenAI, and SpaceX. Anthropic surpassed OpenAI with a $965 billion valuation and filed confidentially to go public, while SpaceX's IPO added nearly $1 trillion in value, reflecting the growing financial scale of AI enterprises. The report also details complex financial interactions among these companies, with substantial investments and compute resource agreements creating a network of mutual financing. Despite this growth, some experts expressed skepticism about the market's sustainability, a concern underscored by a notable market dip in early June affecting major AI-related tech stocks. This analysis provides insight into the evolving dynamics and challenges within the AI industry during this period.",
-      "date_published": "2026-06-26T10:28:51Z"
+      "id": "sty_5f88d93fe20d2015",
+      "url": "https://simonwillison.net/2026/Jun/26/openai/",
+      "title": "OpenAI launches limited preview of GPT-5.6 series with Sol, Terra, and Luna models, starting with trusted partners in coordination with the U.S. government [ * ] [ ◼ ]",
+      "content_text": "OpenAI has launched a limited preview of its GPT-5.6 series, featuring three models: Sol, the flagship; Terra, which offers performance comparable to GPT-5.5 at half the cost; and Luna, designed for speed and affordability. This preview is initially available to a small group of trusted partners in coordination with the U.S. government, with plans for broader availability in the coming weeks. The GPT-5.6 series introduces enhanced prompt caching to improve cost predictability, and pricing is based on token usage with different rates for input and output across the models. OpenAI's approach reflects ongoing collaboration with government entities while aiming to expand access to these advanced AI models.",
+      "date_published": "2026-06-26T17:10:43Z"
     },
     {
-      "id": "sty_0b6a94030b8f1c28",
-      "url": "https://cecuro.ai/blog/building-effective-pen-testing-agents",
-      "title": "Cecuro.ai publishes guide on building effective AI-powered penetration testing agents",
-      "content_text": "Cecuro.ai has released a comprehensive guide on developing AI-powered penetration testing agents designed to enhance cybersecurity efforts. The guide outlines best practices and strategies for building effective automated tools that can identify vulnerabilities and improve security assessments. This resource aims to support security professionals in leveraging artificial intelligence to streamline and strengthen penetration testing processes.",
-      "date_published": "2026-06-26T08:16:30Z"
+      "id": "sty_156929b9f9d2c016",
+      "url": "https://ads.gitlawb.com",
+      "title": "Gitlawb launches AI credits system that rewards users for viewing ads while coding agents run tasks [ ~ ] [ ◻ ]",
+      "content_text": "Gitlawb has introduced an AI credits system that rewards users with credits for viewing advertisements while their coding agents perform tasks. This system integrates with Gitlawb's platform, which offers features like a single API key for multiple open models, an OpenAI-compatible endpoint, and a sandboxed development environment for building and publishing applications. Users can earn credits to continue coding without additional costs by enabling sponsored tips, making it easier to access AI-powered development tools.",
+      "date_published": "2026-06-26T16:28:37Z"
     },
     {
-      "id": "sty_00d1380e86cc0fea",
-      "url": "https://www.bloomberg.com/news/articles/2026-06-25/california-state-government-launches-ai-job-loss-tracker-as-layoff-fears-grow",
-      "title": "California state government launches AI job loss tracker amid rising layoff concerns",
-      "content_text": "The California state government has introduced a new AI job loss tracker to monitor employment impacts amid growing concerns about layoffs driven by artificial intelligence advancements. This initiative aims to provide real-time data on job displacements linked to AI technologies across the state. The tracker reflects increasing attention to the economic and social effects of AI on the workforce, as industries adapt to automation and digital transformation. By collecting and analyzing job loss information, the state seeks to inform policy decisions and support affected workers during this period of technological change.",
-      "date_published": "2026-06-26T09:10:31Z"
+      "id": "sty_302bcc4b09f3bb76",
+      "url": "https://openorb.onrender.com",
+      "title": "OpenOrb launches BYOK multi-AI council platform with transparent workflow display",
+      "content_text": "OpenOrb has introduced a new platform that enables users to bring their own AI models to a multi-AI council system, featuring a transparent workflow display. This platform aims to enhance collaboration and decision-making by integrating multiple AI inputs in a clear and accessible manner. The launch highlights OpenOrb's commitment to providing flexible and transparent AI solutions for diverse applications.",
+      "date_published": "2026-06-26T16:15:10Z"
     },
     {
-      "id": "sty_47e0d42853736a6d",
-      "url": "https://ai2027-tracker.com/",
-      "title": "AI 2027 Tracker updates on AI progress and milestones through mid-2026, highlighting mixed signals and timing uncertainties in capability and scale [ ~ ] [ ◻ ]",
-      "content_text": "The AI 2027 Tracker provides an updated overview of AI progress and milestones through mid-2026, revealing a mixed but generally forward-moving landscape. It highlights advancements in AI agents and coding tools, as well as increased infrastructure investment and competition among labs, while noting that some key quantitative milestones related to training compute and valuation targets remain uneven or delayed. The tracker points to a divergence between rapid improvements in AI capabilities and slower progress in scaling and certain research feedback loops. Although several qualitative predictions have materialized, substantial uncertainty persists regarding the timing and impact of major developments expected in 2026 and 2027. Overall, the AI 2027 Tracker remains a valuable resource for monitoring AI trends, emphasizing cautious interpretation of the available public evidence.",
-      "date_published": "2026-06-26T08:48:26Z"
+      "id": "sty_e45c670184addc78",
+      "url": "https://www.theinformation.com/articles/anthropics-mythos-spooked-deepseek-prompting-7-4-billion-fundraising",
+      "title": "DeepSeek raises $7.4 billion in first external funding after Anthropic previews Mythos model capable of exploiting software vulnerabilities [ * ] [ ◼ ]",
+      "content_text": "DeepSeek, a three-year-old Chinese AI lab that had previously relied solely on CEO Liang Wenfeng's personal wealth, has raised $7.4 billion in its first external funding round, valuing the company at over $50 billion. This marks the largest initial fundraising by a Chinese startup. The decision to seek outside investment was influenced by Anthropic's recent preview of its Mythos model, which demonstrated the capability to identify and exploit software vulnerabilities, raising concerns about potential misuse. The substantial funding round reflects DeepSeek's response to the heightened competitive and security challenges in the global AI landscape, particularly following Anthropic's announcement in April. The Mythos model's advanced capabilities have prompted DeepSeek to accelerate its development and resource acquisition to maintain its position in the industry.",
+      "date_published": "2026-06-26T13:00:50Z"
     },
     {
-      "id": "sty_c67d0e508b380186",
-      "url": "https://the-decoder.com/linux-foundation-and-20-tech-giants-launch-akrites-to-fix-open-source-flaws-before-ai-powered-attacks-hit/",
-      "title": "Linux Foundation and 20 tech companies launch Akrites to coordinate fixing open-source software vulnerabilities before AI-powered attacks exploit them [ * ] [ ⬢ ]",
-      "content_text": "The Linux Foundation, together with about twenty technology companies, AI labs, and financial institutions, has launched Akrites, an initiative designed to identify and fix vulnerabilities in critical open-source software before AI-powered cyberattacks can exploit them. This collaborative effort aims to replace the current fragmented system of vulnerability reporting with a centralized Security Incident Response Team that confidentially vets reports, coordinates fixes, and supports maintainers. Akrites addresses the growing threat posed by AI models that can rapidly scan code and enable sophisticated attacks even by less skilled adversaries. The initiative uses established standards for coordinated vulnerability disclosure and plans to act as a maintainer of last resort for abandoned projects, ensuring timely patch deployment. Founding members include major organizations such as Amazon Web Services, Google, Microsoft, OpenAI, and others, with the goal of improving open-source security through shared resources and streamlined processes.",
-      "date_published": "2026-06-26T10:07:05Z"
+      "id": "sty_28b783a67bb981d1",
+      "url": "https://github.com/omkar-foss/noslop-oss",
+      "title": "No-Slop OSS publishes checklist of best practices for open source contributions with or without AI use [ ~ ] [ ◻ ]",
+      "content_text": "No-Slop OSS has published a comprehensive checklist outlining best practices for contributing to open source projects, whether contributors use AI tools or not. The guide addresses common issues with low-quality or unclear AI-generated contributions, aiming to help contributors build trust and submit valuable, well-prepared pull requests that maintainers appreciate. The checklist covers key steps such as understanding the project and its community, setting up the development environment, adhering to AI usage policies, and emphasizing thorough testing and documentation. It encourages contributors to use AI as an aid rather than a replacement, to communicate effectively, and to follow project-specific guidelines to ensure meaningful and high-quality contributions.",
+      "date_published": "2026-06-26T16:08:10Z"
+    },
+    {
+      "id": "sty_7eb6412c8d468b99",
+      "url": "https://spectrum.ieee.org/ai-radio-chip-design",
+      "title": "Princeton researchers develop AI system that designs radio-frequency integrated circuits, reducing design time and surpassing human performance [ * ] [ ◼ ]",
+      "content_text": "Princeton researchers have developed an artificial intelligence system that designs radio-frequency integrated circuits (RFICs), a task traditionally reliant on expert intuition and experience. This AI-driven approach uses reinforcement learning and inverse design techniques to rapidly generate RFIC layouts, achieving performance that surpasses human-designed circuits while significantly reducing design time. The AI system overcomes the complexity of RFIC design, which involves multiple physical domains and competing optimization priorities governed by Maxwell's equations and thermodynamics. By freeing the design process from human constraints and templates, the AI produces novel circuit layouts that can accelerate advancements in wireless technologies such as 5G, autonomous vehicles, and satellite communications. This breakthrough suggests a future where AI could become the standard for RFIC design, potentially transforming the development of wireless devices and enabling faster innovation. Continued progress will depend on creating large, shared datasets and open ecosystems to help AI systems learn universal electromagnetic and circuit behaviors.",
+      "date_published": "2026-06-26T17:02:01Z"
+    },
+    {
+      "id": "sty_92171129a82a1a52",
+      "url": "https://www.ft.com/content/4a76d755-d269-4f06-b5a8-9440407a5c50",
+      "title": "Financial Times reports on the pervasive integration of AI across industries and technologies in 2026",
+      "content_text": "The Financial Times reports that by 2026, artificial intelligence has become deeply integrated across a wide range of industries and technologies, influencing various aspects of business and daily life. This pervasive adoption highlights AI's growing role as a fundamental driver of innovation and operational change worldwide. The article emphasizes the broad impact of AI advancements, noting how organizations are increasingly leveraging AI tools to enhance efficiency, decision-making, and customer engagement. It also reflects on the evolving landscape of AI applications, underscoring the technology's significance in shaping future economic and technological developments.",
+      "date_published": "2026-06-26T16:25:41Z"
+    },
+    {
+      "id": "sty_6d994b5c51df9134",
+      "url": "https://www.wired.com/story/europe-is-fed-up-and-wants-its-own-ai/",
+      "title": "Europe pushes for AI sovereignty with plans for a multinational AI ecosystem and over 100 billion euros in funding, citing US policies under Trump as a catalyst [ * ] [ ◻ ]",
+      "content_text": "Europe is advancing plans to establish its own AI ecosystem, aiming for technological sovereignty with over 100 billion euros in funding. This initiative, supported by countries like France and Germany, seeks to counterbalance the dominance of American and Chinese AI developments and is partly motivated by restrictive US policies under the Trump administration. European leaders and tech firms are collaborating on multinational partnerships and infrastructure projects to build competitive AI capabilities aligned with European values. Despite challenges such as fragmented markets and risk-averse attitudes, Europe is leveraging significant investments and strategic alliances to foster innovation. Efforts include large-scale data center projects and cooperative ventures among governments and private companies, aiming to create open, adaptable AI models that reflect diverse cultural and political perspectives. The shift is seen as a response to declining European talent migration to the US and a desire to secure a democratic presence in the global AI landscape.",
+      "date_published": "2026-06-26T15:00:00Z"
+    },
+    {
+      "id": "sty_e45a73ba91d3f929",
+      "url": "https://techcrunch.com/podcast/openais-jalapeno-chip-is-big-techs-spiciest-move-away-from-nvidia/",
+      "title": "OpenAI unveils Jalapeño, its custom AI inference chip built with Broadcom, joining Big Tech efforts to reduce dependence on Nvidia [ * ] [ ◼ ]",
+      "content_text": "OpenAI has announced Jalapeño, its custom AI inference chip developed in partnership with Broadcom, marking a significant step among major tech companies to reduce reliance on Nvidia. This move aligns OpenAI with other industry leaders like Google, Apple, and SpaceX, who are also investing in custom silicon to gain more control and optimize performance for their specific needs. The development of Jalapeño reflects a broader trend in the tech industry to diversify hardware suppliers and mitigate risks associated with dependence on a single vendor. Custom chips offer tailored solutions that can enhance efficiency and performance, similar to the advantages Apple achieved by designing its own processors instead of relying on Intel. This shift could influence the competitive landscape of AI hardware, potentially leading to more innovation and varied options for AI computing. It also highlights the strategic importance companies place on controlling their technology stack to support their AI ambitions and reduce supply chain vulnerabilities.",
+      "date_published": "2026-06-26T14:00:00Z"
+    },
+    {
+      "id": "sty_c2b38f2706501901",
+      "url": "https://danielmiessler.com/blog/ai-native-divide",
+      "title": "Daniel Miessler warns of a growing divide between AI-native users who integrate AI into their work and those who avoid it, predicting significant productivity gaps [ ~ ] [ ◻ ]",
+      "content_text": "Daniel Miessler highlights a growing divide between individuals who embrace AI as an integral tool in their work and those who avoid it, warning that this split could lead to significant productivity disparities. He argues that being \"AI-native\" offers a substantial advantage, akin to the difference between avid readers and those who rarely engage with books, affecting both technical and non-technical users. Miessler observes that AI-native users are more productive and innovative, while those skeptical or dismissive of AI risk falling behind. He encourages people to adopt AI thoughtfully, recognizing its potential benefits despite moral and practical challenges, to avoid being disadvantaged in the evolving landscape of work and life.",
+      "date_published": "2026-06-26T16:31:22Z"
+    },
+    {
+      "id": "sty_431c238892f0521f",
+      "url": "https://clarvia.dev/geo-checker",
+      "title": "Clarvia.dev launches free GEO checker to assess website visibility and citation potential across AI search engines like ChatGPT, Claude, Perplexity, and Gemini [ ~ ] [ ◻ ]",
+      "content_text": "Clarvia.dev has introduced a free GEO checker tool designed to evaluate a website's visibility and citation potential across AI search engines such as ChatGPT, Claude, Perplexity, and Gemini. The tool assesses seven key discovery layers that influence how AI systems find, understand, and recommend websites, providing a comprehensive score and actionable recommendations without requiring user registration. The GEO checker analyzes elements including plain-text files, JSON-LD schemas, machine-readable APIs, standardized API specifications, agent-to-agent discovery files, service liveness checks, and traditional web standards. This approach helps businesses optimize their presence for generative AI search engines, a process referred to as generative engine optimization (GEO), which parallels traditional SEO but focuses on AI-driven discovery and recommendation. Users can scan any website to receive a detailed breakdown of their GEO score with letter grades from A to F, enabling them to track improvements over time. The service is offered free indefinitely, supporting businesses in enhancing their visibility within emerging AI search platforms.",
+      "date_published": "2026-06-26T16:40:10Z"
+    },
+    {
+      "id": "sty_a9ba9d1d38cc91db",
+      "url": "https://cacm.acm.org/opinion/hidden-prompts-in-manuscripts-exploit-ai-assisted-peer-review/",
+      "title": "Researchers find hidden prompts in manuscripts exploiting AI-assisted peer review systems",
+      "content_text": "Researchers have identified hidden prompts embedded within academic manuscripts that exploit AI-assisted peer review systems. These concealed instructions manipulate the AI tools used in the review process, potentially influencing the evaluation of scholarly work. The discovery raises concerns about the integrity and reliability of AI-supported peer review methods and highlights the need for improved safeguards against such exploitation.",
+      "date_published": "2026-06-26T16:11:25Z"
+    },
+    {
+      "id": "sty_e1b9ad3563656ffa",
+      "url": "https://www.wired.com/story/openai-gpt-56-model-release-trump-admin-approval/",
+      "title": "OpenAI delays public release of GPT-5.6 AI models at Trump administration's request, plans limited rollout with US government approval [ * ] [ ◼ ]",
+      "content_text": "OpenAI has postponed the public release of its GPT-5.6 AI models following a request from the Trump administration. The company will initially provide access to a limited group of customers pre-approved by the US government and plans to gradually expand availability in coordination with the administration. OpenAI expressed that this government approval process is temporary and hopes to make the models widely accessible in the coming weeks. This delay comes amid increased government scrutiny of advanced AI technologies, following an executive order aimed at addressing cybersecurity concerns related to powerful AI models. The White House's request follows similar actions taken against Anthropic, which temporarily took its most advanced AI models offline. OpenAI's GPT-5.6 models include three versions-Sol, Terra, and Luna-with enhanced capabilities and safeguards designed to prevent misuse, particularly in cybersecurity contexts. The situation reflects growing tensions between AI innovation and regulatory oversight, as the US government seeks to balance technological advancement with national security. OpenAI's cooperation with the administration marks a cautious approach to releasing cutting-edge AI, while the broader framework for government involvement in AI model deployment remains under development.",
+      "date_published": "2026-06-26T17:05:40Z"
+    },
+    {
+      "id": "sty_d66213447cd5cf83",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/957845/openai-gpt-5-6-trump-administration-ai-preview",
+      "title": "OpenAI launches GPT-5.6 model suite including Sol, Terra, and Luna with enhanced safety features amid US government review and staggered release request [ * ] [ ◼ ]",
+      "content_text": "OpenAI has launched GPT-5.6, a new suite of AI models named Sol, Terra, and Luna, following a request from the Trump administration to stagger the model's release. The models cater to different usage needs, with Sol as the flagship, Terra for high-volume tasks, and Luna as a fast, affordable option. OpenAI emphasized enhanced safety features, including protections against misuse and cyber threats, and highlighted ongoing testing and government cooperation during the limited preview phase. The GPT-5.6 models are designed to excel in coding, cybersecurity, and biology, with pricing structured to offer competitive costs compared to similar AI models. OpenAI has implemented robust safety measures, dedicating significant resources to automated red-teaming and third-party testing to prevent misuse. The company aims for broad access to the models in the coming weeks while working with the US government to establish a framework for future AI releases, though it hopes such government oversight will not become a standard practice.",
+      "date_published": "2026-06-26T17:00:00Z"
+    },
+    {
+      "id": "sty_a4ac15843c38002a",
+      "url": "https://the-decoder.com/ai-startup-lindy-ditched-claude-entirely-for-deepseek-saving-millions-as-cost-pressure-mounts-on-anthropic/",
+      "title": "AI startup Lindy switches from Anthropic's Claude to Deepseek, saving millions as AI costs exceed personnel expenses [ * ] [ ◼ ]",
+      "content_text": "AI startup Lindy has completely replaced Anthropic's Claude with Deepseek, a move that has significantly reduced its AI-related expenses. CEO Flo Crivello described the switch as essential for the company's survival, noting that AI costs had become unsustainable and even surpassed personnel expenses. Lindy, a 25-person company, chose Deepseek because it is hosted by a US-based provider, offering a more cost-effective solution. This change reflects broader industry trends where companies are seeking more affordable AI alternatives amid rising costs. Analysis indicates that while some cheaper models, including Chinese offerings like GLM-5.2, may not fully match Claude's capabilities, they offer competitive price-performance ratios. The shift highlights growing cost pressures on AI providers like Anthropic and OpenAI, with the latter's CEO acknowledging the financial challenges posed by advanced AI systems.",
+      "date_published": "2026-06-26T15:09:26Z"
+    },
+    {
+      "id": "sty_a62846ca24519a77",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/957327/anthropic-mythos-fable-ai-trump-administration-negotiations",
+      "title": "Anthropic's Mythos AI models remain offline two weeks after Trump administration export control order amid stalled negotiations and unclear resolution timeline [ ! ] [ ⬢ ]",
+      "content_text": "Anthropic has kept its Mythos-class AI models offline for two weeks following a Trump administration export control order that barred access to these models by any foreign nationals due to security concerns. Despite sending executives to negotiate in Washington, DC, the company has not provided updates, and the talks remain unresolved, leaving the timeline for the models' return unclear. This standoff highlights challenges in applying export controls to AI technology and has significant implications for Anthropic and the broader US AI industry. The export control order, issued on June 12th, restricts access to Mythos 5 and Fable 5 models for non-US citizens, including Anthropic employees, forcing the company to suspend the models entirely. The dispute partly stems from the lack of a clear regulatory framework for AI export controls and concerns raised after a vulnerability in Fable 5 was flagged, reportedly by Amazon CEO Andy Jassy. Security experts have argued that the identified vulnerability is overstated and represents a necessary function for AI in cybersecurity. The ongoing impasse has affected Anthropic's financial prospects, as Mythos models were expected to drive revenue ahead of an IPO and support costly infrastructure deals. The situation also creates uncertainty in the global AI market, as the US government signals a readiness to impose similar restrictions on other AI companies, potentially reshaping industry dynamics and regulatory approaches.",
+      "date_published": "2026-06-26T14:07:03Z"
+    },
+    {
+      "id": "sty_2141eb18c3dee597",
+      "url": "https://github.com/hallucinatemd/hallucinate.md",
+      "title": "HALLUCINATE.md launches as an open standard file instructing AI coding agents not to hallucinate, supported by major AI tools including Claude and GitHub Copilot [ ~ ] [ ◻ ]",
+      "content_text": "HALLUCINATE.md has been launched as an open standard file designed to instruct AI coding agents not to hallucinate, meaning to avoid generating inaccurate or fabricated information. This simple, three-word directive file can be placed in any repository directory to guide AI behavior and is supported by major AI tools such as Claude, GitHub Copilot, and others. The standard emphasizes minimalism and ease of adoption, requiring no configuration or dependencies. Projects that include HALLUCINATE.md are automatically indexed for visibility, and the file works alongside other agent instruction files like AGENTS.md to improve AI output reliability. The initiative is maintained by the independent HALLUCINATE.md Foundation and aims to enhance trustworthiness in AI-generated code and content.",
+      "date_published": "2026-06-26T17:15:36Z"
+    },
+    {
+      "id": "sty_3e794bf5cb37a964",
+      "url": "https://the-decoder.com/an-ai-model-programmed-nonstop-for-19-days-on-a-single-mirrorcode-task-that-cost-2600-to-run/",
+      "title": "Epoch AI's MirrorCode benchmark reveals an AI model ran nonstop for 19 days on a single task costing $2,600, while Claude Opus 4.7 leads with a 56% solve rate [ ~ ] [ ◻ ]",
+      "content_text": "Epoch AI and METR have launched the MirrorCode benchmark to assess AI models' ability to recreate entire software programs without access to the original source code. Claude Opus 4.7 leads the benchmark with a 56% success rate, notably reimplementing a 16,000-line bioinformatics toolkit in 14 hours. Despite these advances, the most complex tasks remain unsolved by any model, with one AI running continuously for 19 days on a single task at a cost of $2,600. The benchmark includes 25 programs across various domains such as Unix utilities, cryptography, and compression, requiring AI-generated solutions to match original program outputs exactly. While smaller programs are reliably handled, larger and more complex tasks still challenge current AI capabilities. The researchers note that although some models may have encountered the original code during training, memorization does not fully explain their performance. MirrorCode remains an open-source project, encouraging further development in AI-driven software reconstruction.",
+      "date_published": "2026-06-26T17:24:27Z"
+    },
+    {
+      "id": "sty_8575d47dc9fbfab3",
+      "url": "https://futurism.com/artificial-intelligence/ai-data-centers-opposition-inflation",
+      "title": "Report: AI data center construction is driving a third wave of inflation in the US, increasing consumer prices and straining resources amid ongoing tech industry expansion [ * ] [ ◻ ]",
+      "content_text": "The rapid expansion of AI data centers in the United States is contributing to a third wave of inflation, increasing consumer prices and straining resources such as electricity and water. This surge follows earlier inflationary pressures from tariffs and geopolitical conflicts, with the data center boom driving up costs for electronic components and prompting companies like Apple to raise prices significantly. Analysts warn that this inflationary trend may persist for years as the construction of data centers continues, despite expectations that AI-driven productivity gains could eventually reduce inflation. For now, consumers face higher costs amid the tech industry's growing investment in AI infrastructure, which has become a significant economic and political challenge.",
+      "date_published": "2026-06-26T14:48:28Z"
+    },
+    {
+      "id": "sty_c246bb6cbc285099",
+      "url": "https://vanessaandreotti.substack.com/p/ai-cheerleading-ai-abstention-and",
+      "title": "Vanessa Andreotti discusses AI cheerleading, abstention, and redirection in recent analysis",
+      "content_text": "Vanessa Andreotti explores the concepts of AI cheerleading, abstention, and redirection in her recent analysis, examining how these approaches influence the development and deployment of artificial intelligence. She discusses the implications of enthusiastic support for AI technologies, the choice to abstain from certain AI applications, and strategies for redirecting AI use toward more ethical and thoughtful outcomes. Her insights contribute to ongoing conversations about responsible AI engagement and the diverse ways individuals and organizations interact with emerging technologies.",
+      "date_published": "2026-06-26T16:37:54Z"
+    },
+    {
+      "id": "sty_a7c540a89ad0d111",
+      "url": "https://github.com/Karthick-Ramachandran/persist-os",
+      "title": "Persist OS launches local-first CLI to record and validate engineering decisions in code repositories, aiming to improve AI coding context retention and consistency [ ~ ] [ ◼ ]",
+      "content_text": "Persist OS has introduced a local-first command-line interface designed to embed and validate engineering decisions directly within code repositories. This tool aims to preserve the rationale behind architectural choices, product intent, and module ownership in a structured, reviewable format that remains consistent over time, addressing the challenge of AI tools losing context during coding sessions. By integrating a deterministic validation system called persist doctor, it ensures that the recorded decisions stay accurate and up to date without relying on network connections or telemetry. The CLI supports capturing detailed project memory such as testing and security expectations and AI agent rules, enabling repositories to serve as a comprehensive source of truth for why code is built a certain way. Persist OS emphasizes safety and privacy by operating entirely locally, avoiding code generation or automatic framework selections, and providing mechanisms to track changes in decisions through auditable records. It also includes features to prevent context degradation and encourages reuse of established conventions and lessons, enhancing consistency across development workflows. This approach allows teams to maintain durable engineering memory that outlives individual conversations or AI sessions, facilitating better collaboration and reducing redundant work. The tool integrates with existing version control hooks to enforce consistency checks before code is committed or pushed, helping ensure that engineering decisions remain aligned with project goals and reducing the risk of drift or forgotten context.",
+      "date_published": "2026-06-26T16:35:48Z"
+    },
+    {
+      "id": "sty_81746aaa960245d2",
+      "url": "https://github.com/cheapsteak/tbd",
+      "title": "TBD launches as a Mac-native CLI tool to manage git worktrees and terminals for multi-agent Claude Code workflows [ ~ ] [ ◻ ]",
+      "content_text": "TBD is a new macOS-native application designed to manage git worktrees and terminals, specifically tailored for multi-agent Claude Code workflows. It provides a unified SwiftUI interface that allows users to create isolated worktrees, run Claude Code sessions in embedded terminals, and coordinate parallel development across branches efficiently. The tool consists of three components communicating via a Unix socket using JSON RPC: a daemon managing state and git operations, a CLI client for scripting, and a SwiftUI app with embedded terminal views. TBD supports migration from existing tools like Conductor and Claude Code Desktop, enabling seamless adoption without disrupting current workflows.",
+      "date_published": "2026-06-26T16:59:20Z"
+    },
+    {
+      "id": "sty_6c7a09c9c51e64f2",
+      "url": "https://llm-api.vynexcloud.com/",
+      "title": "Vynex launches API providing a single OpenAI-compatible endpoint for 34 LLM models with USDT payment support [ * ] [ ◼ ]",
+      "content_text": "Vynex has launched a unified API that offers a single OpenAI-compatible endpoint supporting 34 large language models (LLMs) from various providers, including OpenAI, Anthropic, Google, and open-source projects. Developers can use their existing OpenAI SDKs by simply changing the base URL and model name to access models like GPT-5.x, Claude 4.x, Gemini 3.x, and others, with features such as streaming and function calling supported. The API provides transparent per-token pricing and supports USDT payments. Users can quickly get started by creating an API key and selecting their desired model without needing to modify their SDKs. Documentation, pricing details, and registration are available on Vynex's website.",
+      "date_published": "2026-06-26T16:54:58Z"
+    },
+    {
+      "id": "sty_11ac5298d8f6eba3",
+      "url": "https://github.com/team-telnyx/telnyx-code-examples/tree/main/outbound-hold-agent-python",
+      "title": "Telnyx releases outbound AI voice agent that pauses during hold and resumes with context after representative pickup [ ~ ] [ ◼ ]",
+      "content_text": "Telnyx has introduced an outbound AI voice agent designed to handle calls to businesses by navigating IVR systems, pausing during hold times, and resuming with full context once a representative answers. This agent can manage tasks such as sending DTMF tones, detecting hold and unhold events, and restarting with the original objective and context after hold periods, making it useful for industries like insurance, hospitality, and healthcare. The system operates by initiating outbound calls, starting an AI assistant to navigate menus, and switching to transcription-only monitoring during hold. When a representative picks up, a second AI assistant resumes the interaction with the relevant context and recent transcript. The solution leverages various Telnyx API endpoints and webhook events to manage call states and actions, and includes a test environment with a simulated company for development and demonstration purposes.",
+      "date_published": "2026-06-26T15:51:26Z"
+    },
+    {
+      "id": "sty_7abde2bc7445d745",
+      "url": "https://socialplod.com/blog/how-to-let-ai-workflows-and-custom-systems-manage-your-social-media-through-socialplod",
+      "title": "Socialplod launches unified API to let AI agents, workflows, and custom systems manage social media publishing across multiple platforms [ ~ ] [ ◼ ]",
+      "content_text": "Socialplod has introduced a unified API that enables AI agents, workflow automation tools, and custom business systems to manage social media publishing across multiple platforms through a single connection. This API supports a wide range of networks including LinkedIn, X, Facebook, Instagram, and more, simplifying the process of content distribution and scheduling for developers and businesses. The platform allows AI systems like OpenClaw to handle content creation, scheduling, publishing, and performance analysis without needing to interact with each social network's API individually. Additionally, Socialplod integrates with existing workflow platforms and internal business software, enabling automated social media management tied to events such as new blog posts, sales milestones, or product launches. By reducing the complexity of maintaining multiple social media integrations, Socialplod aims to support the growing trend of autonomous marketing where AI and automation streamline repetitive marketing tasks. This approach helps businesses focus more on growth while leveraging intelligent systems to manage their social media presence efficiently.",
+      "date_published": "2026-06-26T15:51:05Z"
+    },
+    {
+      "id": "sty_ed286aadd4e8ee83",
+      "url": "https://netzhansa.com/echoes-of-the-ai-winter/",
+      "title": "Analysis: Current AI boom echoes 1980s AI winter with overpromises and potential for a similar market downturn despite large-scale investments [ ~ ] [ ◻ ]",
+      "content_text": "The article draws parallels between the current surge in artificial intelligence, driven by large language models, and the AI boom of the 1980s that ended in the AI winter. It highlights how both periods were marked by high expectations and significant investments, followed by disillusionment when the technology failed to meet ambitious promises. Despite the impressive capabilities of today's AI systems, the article cautions that the current hype may similarly lead to a market downturn due to overpromises and oversimplifications. The 1980s AI boom saw substantial funding for specialized hardware like Lisp machines and rule-based expert systems, which ultimately became obsolete as general-purpose microprocessors advanced rapidly. This historical context serves as a warning that the present AI enthusiasm, fueled by investments on a scale comparable to national GDPs, might not result in the transformative societal changes often predicted. The article suggests that while AI tools like large language models are valuable, the broader expectations for AI's impact should be tempered by the lessons of past technology cycles.",
+      "date_published": "2026-06-26T15:48:50Z"
+    },
+    {
+      "id": "sty_6e41f86caa083660",
+      "url": "https://news.mit.edu/2026/david-autor-named-head-department-economics-0626",
+      "title": "MIT names David Autor head of Department of Economics effective July 1; Autor is a leading AI and labor economics researcher since 1999 [ ~ ] [ ◻ ]",
+      "content_text": "David Autor, a prominent labor economist and AI researcher, has been appointed head of MIT's Department of Economics effective July 1. A faculty member since 1999, Autor is recognized for his work on the labor market impacts of technological change, globalization, and inequality. He succeeds Jon Gruber and aims to advance the department's research and teaching, particularly in areas related to artificial intelligence. Autor's scholarship has earned him numerous awards, including the National Science Foundation CAREER Award and the Heinz Family Foundation's Special Recognition Award. He also co-directs the James M. and Cathleen D. Stone Center on Inequality and Shaping the Future of Work and the National Bureau of Economic Research Labor Studies Program. Autor plans to navigate budget challenges while leveraging AI advancements to enhance the department's academic mission.",
+      "date_published": "2026-06-26T16:00:00Z"
+    },
+    {
+      "id": "sty_664d689b968ceb2c",
+      "url": "https://www.technologyreview.com/2026/06/26/1139780/the-download-heatwaves-brain-health-openai-restrictions/",
+      "title": "Scientists study how extreme heatwaves affect brain function amid Western Europe's record temperatures; US government orders OpenAI to restrict GPT-5.6 model release [ ~ ] [ ◻ ]",
+      "content_text": "Scientists are investigating how extreme heatwaves, like the recent record temperatures in Western Europe, impact brain function. Research indicates that rising temperatures can increase irritability and reduce focus, with particularly severe effects on children and individuals with mental health conditions. Laboratory studies suggest heat alters brain chemical signaling, but the precise mechanisms remain unclear. Meanwhile, the US government has directed OpenAI to restrict the initial release of its GPT-5.6 model, requiring government approval for early users. This marks the first time a US company has been ordered to limit an AI model's deployment before a wider launch, reflecting growing regulatory scrutiny of advanced artificial intelligence technologies.",
+      "date_published": "2026-06-26T12:10:00Z"
+    },
+    {
+      "id": "sty_843f1641cf142ac8",
+      "url": "https://www.transformernews.ai/p/gpt-56-gets-the-fable-treatment-openai-anthropic-licensing-regime",
+      "title": "The White House delays public release of OpenAI's GPT-5.6 under new frontier AI licensing regime amid government safety review [ ! ] [ ⬢ ]",
+      "content_text": "The White House has instructed OpenAI to delay the public release of its GPT-5.6 model as part of a new licensing regime for frontier AI technologies, reflecting increased government oversight amid safety concerns. This move, driven by the Office of the National Cyber Director and the Office of Science and Technology Policy, marks a significant step in the U.S. government's efforts to regulate advanced AI models before they become widely accessible. OpenAI CEO Sam Altman indicated that access to GPT-5.6 will be granted on a case-by-case basis during this preview period, with a broader release expected in the coming weeks once the government completes its testing and evaluation framework. This approach follows similar restrictions that affected other AI deployments and signals a shift toward more structured governance of AI development and deployment. The article also highlights broader trends in the AI industry, including a notable influx of talent from academia and public sectors into AI companies, raising questions about the balance between innovation, safety, and ethical oversight. The evolving regulatory landscape and talent dynamics underscore the complexities of managing AI's rapid advancement while addressing potential risks.",
+      "date_published": "2026-06-26T15:02:52Z"
+    },
+    {
+      "id": "sty_6b1c6897ae9b95c2",
+      "url": "https://www.bloodinthemachine.com/p/the-ai-industry-is-pouring-hundreds",
+      "title": "Report: AI industry is spending hundreds of millions of dollars to influence US elections in 2026 cycle [ ~ ] [ ◻ ]",
+      "content_text": "The AI industry is investing hundreds of millions of dollars to influence the 2026 US election cycle, according to a new report. This development highlights the growing political involvement of AI and crypto companies as they seek to sway electoral outcomes through significant financial contributions. A new podcast series launched by Blood in the Machine explores this trend, featuring discussions with experts like Molly White, who tracks the expanding influence of tech money in politics through her project Tech Influence Watch. The series aims to shed light on the broader resistance against the concentration of power in big tech and the AI sector, documenting protests, worker organizing, and public pushback against AI's societal impact. The podcast also seeks to provide a platform for voices critical of the tech industry, contrasting with many existing shows that focus on business perspectives. By combining audio and video formats, the series intends to reach a wide audience and offer ongoing coverage of the political and social implications of AI's growing role in US elections.",
+      "date_published": "2026-06-26T15:02:43Z"
+    },
+    {
+      "id": "sty_649b012cdef74f60",
+      "url": "https://thezvi.substack.com/p/white-house-will-ad-hoc-decide-who",
+      "title": "White House announces ad hoc policy for individual access to GPT-5.6 frontier AI model [ * ] [ ◼ ]",
+      "content_text": "The White House has introduced a new ad hoc policy for granting individual access to the GPT-5.6 frontier AI model. This approach involves case-by-case decisions rather than a standardized framework for releasing advanced AI technologies. Critics have expressed concerns about the lack of clear guidelines and potential implications for transparency and fairness in AI deployment.",
+      "date_published": "2026-06-26T14:51:53Z"
+    },
+    {
+      "id": "sty_7116cab21ad231dc",
+      "url": "https://www.ycombinator.com/companies/liva-ai/jobs/gvtc3Ep-founding-operations-lead",
+      "title": "Liva AI, a YC S25 startup focused on multimodal data for inclusive AI, is hiring a Founding Operations Lead in San Francisco [ ~ ] [ ◻ ]",
+      "content_text": "Liva AI, a startup from Y Combinator's Summer 2025 batch specializing in multimodal data to create more inclusive and emotionally intelligent AI, is hiring a Founding Operations Lead in San Francisco. The role involves managing data collection projects, coordinating contributors and contractors, and developing scalable operational systems to support AI development. The company aims to build AI that better reflects diverse human voices and appearances by creating a comprehensive library of voice and video data. Candidates should be highly organized, comfortable with intensive work hours, and experienced in managing people and complex projects, with a strong interest in AI automation and data operations.",
+      "date_published": "2026-06-26T17:00:43Z"
     },
     {
       "id": "sty_f19245b8bc054e3f",
@@ -119,95 +301,81 @@
       "date_published": "2026-06-26T09:09:10Z"
     },
     {
-      "id": "sty_4346f68449d0e8a0",
-      "url": "https://www.theregister.com/ai-and-ml/2026/06/23/openai-codex-bombards-ssds-with-needless-write-operations-costing-millions/5260402",
-      "title": "OpenAI confirms Codex excessive SSD write operations cause hardware wear and cost millions, engineers working on fixes [ ~ ] [ ◼ ]",
-      "content_text": "OpenAI has acknowledged that its Codex coding assistant has been causing excessive write operations on users' solid-state drives (SSDs), leading to accelerated hardware wear and significant financial costs. The issue stems from a flawed logging implementation that generates large volumes of data writes, potentially exhausting the write endurance of consumer SSDs within a year. Engineers at OpenAI are actively working on fixes to reduce the impact of these unnecessary write operations. The problem was identified through reports showing that Codex's SQLite feedback logs could write up to 640 terabytes per year on a single device, far exceeding typical SSD endurance ratings. This excessive logging, introduced around the app's launch, has raised concerns among users about hardware degradation and associated costs, estimated to have reached millions of dollars collectively. OpenAI has confirmed that the logs were intended for diagnostic purposes but were stored in a way that caused unexpectedly high disk activity. While OpenAI has made progress with recent updates aimed at mitigating the issue, users continue to report problems. The company plans to improve logging practices and telemetry to better manage data writes and preserve SSD lifespan, highlighting the challenges of balancing diagnostic needs with hardware efficiency in AI-driven tools.",
-      "date_published": "2026-06-26T10:24:58Z"
+      "id": "sty_e0a4884f3c7dc3d4",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNTjY4aXlORFJCOGdTRHFaby01RkxmNDdIOF9DeHIyT3NMZmdOMUQzZ2FnZkhHdG9UN0NBbEV2clBvRzdpYTVtSHRyX0YwWjJldmtmeGhNSno5Q29rYUM4MWRGbmxTZlEyd05veXJBMmtPYjZDdk4yZ2x3UlB0UGJRVlhxd0hCbWtFbE5ONVVhYm5wN1lpYXZQUjBfREJQal9NTXlsVlBrYk9iWFFCdzFyMF9EdTQ4V1o5YTFEM2pwRXJySHY3cDl2QQ?oc=5",
+      "title": "Report: Trump Administration advanced Anthropic collaboration by avoiding direct contact with CEO Dario Amodei",
+      "content_text": "The Trump Administration reportedly advanced its collaboration with the AI company Anthropic by deliberately avoiding direct communication with CEO Dario Amodei. This approach was seen as a strategic move to facilitate progress in their partnership. Details suggest that bypassing direct contact with Amodei allowed the administration to navigate the collaboration more effectively, although the reasons behind this tactic and its impact on the relationship remain unclear.",
+      "date_published": "2026-06-26T16:34:20Z"
     },
     {
-      "id": "sty_743936b7a6c18a36",
-      "url": "https://www.vincentschmalbach.com/the-ai-productivity-trap-is-more-output/",
-      "title": "Analysis: AI productivity gains may lead to increased output demands rather than reduced workload",
-      "content_text": "An analysis explores how productivity improvements driven by artificial intelligence may not reduce workloads as expected but instead lead to higher output demands. The article argues that rather than easing work, AI-enhanced efficiency could prompt organizations to expect more results from employees, potentially increasing pressure and workload. This perspective highlights a potential productivity paradox where gains from AI tools translate into intensified work expectations, challenging assumptions that automation inherently lightens labor. The discussion underscores the need to consider how AI-driven productivity changes affect workplace dynamics and employee well-being.",
-      "date_published": "2026-06-26T09:59:48Z"
+      "id": "sty_aa48c56ad5c76ee5",
+      "url": "https://the-decoder.com/altman-wont-go-public-for-less-than-1-trillion-so-openais-ipo-may-slip-to-2027/",
+      "title": "OpenAI delays IPO to 2027 as CEO Sam Altman insists on $1 trillion valuation amid volatile tech markets and SoftBank stock drop [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI is expected to delay its initial public offering (IPO) to 2027 as CEO Sam Altman insists on a $1 trillion valuation, according to sources cited by The New York Times. The company had initially planned to go public in late 2026 but advisors have recommended postponing due to volatile technology markets and the weak stock performance of SpaceX following its recent IPO. This delay has also impacted SoftBank, one of OpenAI's major investors, whose stock dropped 13 percent in response. OpenAI's push for a $1 trillion valuation represents a significant increase from its last private valuation of $730 billion. Despite strong user growth in some products like the Codex coding tool, the company continues to face financial challenges, including ongoing losses and stalled user numbers for ChatGPT. The uncertain market environment and recent tech IPO performances have made investors cautious, leading to concerns about retail investor enthusiasm for OpenAI's public offering. The postponement of the IPO has broader implications for SoftBank, which has heavily invested in OpenAI and was counting on a near-term public offering to boost its own market value. The delay dampens expectations for a quick return on investment and affects SoftBank's stock valuation, highlighting the interconnected risks in the tech investment landscape.",
+      "date_published": "2026-06-26T12:43:53Z"
     },
     {
-      "id": "sty_98963c4740c42996",
-      "url": "https://exa.ai/blog/announcing-series-c",
-      "title": "Exa raises $250 million Series C led by a16z at $2.2 billion valuation to expand AI-focused web search engine powering over 400,000 developers [ * ] [ ◼ ]",
-      "content_text": "Exa has raised $250 million in a Series C funding round led by a16z, valuing the company at $2.2 billion. The startup focuses on developing an AI-optimized web search engine designed to support AI agents, which are expected to conduct significantly more searches than humans in the near future. Exa's technology already powers search for over 400,000 developers and companies like Cursor, Cognition, and HubSpot. Founded five years ago, Exa built its own web-scale search engine from scratch, enabling it to offer high-quality, comprehensive search results tailored for various AI applications, including coding and business intelligence. The company plans to use the new funding to enhance its infrastructure, train next-generation models, and expand its global go-to-market team to meet the growing demand for AI-driven search capabilities. As AI agents become more prevalent, Exa aims to provide the precise, comprehensive, and up-to-date information these systems require, positioning itself as a critical infrastructure provider in the evolving AI landscape. The company emphasizes the importance of trustworthy information in a complex global environment and seeks to ensure that both AI and humans have access to the highest quality search results.",
-      "date_published": "2026-06-26T09:44:30Z"
+      "id": "sty_fb6a2b77d32636c6",
+      "url": "https://the-decoder.com/anthropic-doesnt-need-junior-engineers-anymore-thanks-to-ai-and-warns-of-an-economic-shock-when-other-industries-follow/",
+      "title": "Anthropic says AI eliminates need for junior engineers and warns of potential economic shock as other industries adopt similar automation [ * ] [ ◻ ]",
+      "content_text": "Anthropic co-founder Jack Clark revealed that the company no longer requires junior engineers due to advancements in AI, specifically their AI system Claude, which can scale experiments that previously needed large teams. This shift has led Anthropic to prioritize hiring highly experienced professionals, as AI enhances the productivity of senior experts while automating entry-level tasks. Clark warned that this trend could cause significant economic disruption as other industries adopt similar automation, potentially resulting in rapid GDP growth alongside increased unemployment rates. He emphasized that governments are currently unprepared for such a paradoxical economic scenario, which could resemble recession-like job losses despite overall economic expansion.",
+      "date_published": "2026-06-26T11:18:07Z"
     },
     {
-      "id": "sty_5df31f8628f68052",
-      "url": "https://thoughtbot.com/blog/what-it-took-to-use-this-overnight-ai-solution",
-      "title": "Thoughtbot reports it took two weeks to refine Claude AI's overnight fixes for flaky tests into reliable improvements in their CI test suite [ ~ ] [ ◻ ]",
-      "content_text": "Thoughtbot addressed a persistent issue with flaky tests in their continuous integration (CI) suite, where 60% of runs were failing due to a problematic group of tests. Using Claude AI, an AI coding assistant, they were able to analyze and fix these tests overnight by running them repeatedly and identifying failure patterns. However, refining Claude's initial fixes into reliable, maintainable improvements took two weeks of careful review and adjustment by developers. The process involved separating effective changes from coincidental ones, removing unnecessary code additions, and applying best practices to ensure the fixes were sustainable. Claude's suggestions initially included both helpful improvements and irrelevant modifications, requiring human expertise to distill the valuable changes. Ultimately, the team restored the flaky tests to the CI suite with zero failures, significantly improving test reliability and confidence in their codebase.",
-      "date_published": "2026-06-26T09:40:59Z"
+      "id": "sty_1e43330bc5bff8bc",
+      "url": "https://simonwillison.net/2026/Jun/25/ai-and-liability/",
+      "title": "Bruce Schneier discusses German court ruling holding Google liable for inaccuracies in AI-generated summaries, emphasizing legal responsibility of AI deployers [ ! ] [ ◻ ]",
+      "content_text": "Bruce Schneier discusses a recent German court ruling that holds Google legally responsible for inaccuracies in AI-generated summaries. The ruling establishes that AI systems should be treated as agents of the organizations deploying them, making those organizations liable for any errors produced by the AI. Schneier argues that allowing companies to avoid liability by blaming AI would create harmful incentives, potentially encouraging corporate misbehavior by replacing human professionals with AI systems that absolve employers of responsibility. This decision emphasizes the need for clear legal accountability in the deployment of AI technologies.",
+      "date_published": "2026-06-25T22:28:46Z"
     },
     {
-      "id": "sty_22e314311b308aab",
-      "url": "https://workspace.google.com/products/vids/",
-      "title": "Google launches Vids, an AI-powered video creation and editing tool integrated with Workspace, offering templates, AI avatars, and collaborative features for business and enterprise users [ * ] [ ◼ ]",
-      "content_text": "Google has introduced Vids, an AI-powered video creation and editing tool integrated with Google Workspace, designed to help businesses and enterprises produce engaging video content efficiently. Vids offers features such as AI-generated storyboards, customizable templates, a vast content library, and AI avatars to personalize messages, enabling users to create professional videos without prior experience. The tool supports collaborative editing and secure sharing within Workspace, enhancing communication through video storytelling for training, announcements, and updates. Vids leverages Google's Gemini AI to generate video outlines and suggested scenes from simple prompts or files, while the Veo feature allows users to create dynamic video clips and animate images with native audio. The platform also includes a screen recorder extension and a teleprompter to facilitate confident recording. Available on Business and Enterprise Workspace plans, Vids aims to streamline video production and foster creativity in professional settings.",
-      "date_published": "2026-06-26T08:28:15Z"
+      "id": "sty_c67d0e508b380186",
+      "url": "https://the-decoder.com/linux-foundation-and-20-tech-giants-launch-akrites-to-fix-open-source-flaws-before-ai-powered-attacks-hit/",
+      "title": "Linux Foundation and 20 tech companies launch Akrites to coordinate fixing open-source software vulnerabilities before AI-powered attacks increase [ * ] [ ⬢ ]",
+      "content_text": "The Linux Foundation, along with about 20 major tech companies, AI labs, and banks, has launched Akrites, an initiative aimed at coordinating the identification and fixing of vulnerabilities in critical open-source software before AI-powered attacks can exploit them. This effort addresses the growing threat posed by AI models that can quickly scan code and enable even non-experts to carry out complex cyberattacks. Akrites establishes a centralized Security Incident Response Team to streamline vulnerability reporting and patch coordination, reducing duplicate reports and conflicting fixes that currently overwhelm maintainers. The initiative also plans to act as a \"maintainer of last resort\" for abandoned projects, ensuring timely patch deployment, and will collaborate with government agencies to enhance public and private cybersecurity efforts.",
+      "date_published": "2026-06-26T10:07:05Z"
     },
     {
-      "id": "sty_9f09d50c3213c8e1",
-      "url": "https://www.intelligence-per-watt.ai/",
-      "title": "Intelligence Per Watt proposes a unified metric measuring AI task accuracy per power unit to guide AI workload distribution, economic impact, and national competitiveness [ * ] [ ◼ ]",
-      "content_text": "Intelligence Per Watt (IPW) introduces a unified metric that measures AI task accuracy per unit of power consumed, aiming to guide the distribution of AI workloads, assess economic impact, and evaluate national competitiveness in AI development. This metric parallels historical performance-per-watt improvements that enabled shifts in computing paradigms and now seeks to clarify the transition from centralized AI datacenters to distributed intelligence across devices. IPW highlights how local language models can efficiently handle a majority of practical AI queries, enabling significant energy and cost savings by routing tasks to appropriate hardware. The framework also quantifies AI's economic value by linking intelligence efficiency to GDP-relevant tasks and proposes Gross Domestic Intelligence (GDI) as a measure of national AI capacity, emphasizing the strategic advantage of widespread local accelerators in the United States compared to China's compute constraints. The initiative includes a coordinated research agenda to maximize intelligence efficiency across hardware and software stacks, supported by benchmarks, models, and related studies. By providing a common framework, IPW aims to inform AI workload management, economic productivity, and global AI competition strategies.",
-      "date_published": "2026-06-26T09:26:26Z"
+      "id": "sty_3bafc0f464b93aa2",
+      "url": "https://arstechnica.com/gadgets/2026/06/notion-killing-skiff-influenced-email-app-since-most-users-use-ai-agents-instead/",
+      "title": "Notion to shut down Skiff-influenced Notion Mail on September 22 as most users shift to AI agents for email management [ ~ ] [ ◻ ]",
+      "content_text": "Notion announced it will shut down Notion Mail, its email client influenced by the Skiff acquisition, on September 22, 2026. The company cited that most users now rely on AI agents to manage their email workflows instead of opening their inboxes directly. Notion plans to focus on enhancing these AI agents to handle email management more effectively. Notion Mail was launched in April 2025 using technology and personnel from Skiff, an encrypted email startup acquired by Notion in 2024. While Notion Mail lacked Skiff's end-to-end encryption focus, it integrated AI capabilities to personalize email handling. Users are advised to export drafts and scheduled emails before the shutdown, though most email data will remain accessible in Gmail. Organizations requiring HIPAA compliance must transition off Notion Mail by June 30, 2026. Despite discontinuing Notion Mail, Notion may continue to leverage Skiff's technology and expertise in other productivity areas such as calendars and storage to compete with platforms like Google Workspace. The move reflects a broader shift toward AI-driven email management rather than traditional email clients.",
+      "date_published": "2026-06-25T19:04:57Z"
     },
     {
       "id": "sty_2bf789a86f35f389",
       "url": "https://the-decoder.com/openais-gpt-5-6-rollout-now-requires-us-government-approval-on-a-customer-by-customer-basis/",
-      "title": "OpenAI requires US government approval for GPT-5.6 access on a customer-by-customer basis during initial rollout, CEO says this is not a preferred long-term model [ ! ] [ ◼ ]",
-      "content_text": "OpenAI will initially restrict access to its new GPT-5.6 model to select partners, requiring approval from the U.S. government on a customer-by-customer basis during the rollout. CEO Sam Altman stated that this approach is not the company's preferred long-term strategy and expressed a desire to work with the government and industry to develop a more sustainable release model. This phased release follows discussions with U.S. agencies concerned about cybersecurity risks, reflecting the influence of a recent executive order calling for voluntary reviews of new AI models. The move comes amid heightened government scrutiny after Anthropic's forced takedown of its Fable model, which raised concerns about a potential de facto licensing regime for AI technologies. The situation highlights ongoing tensions between AI developers and government authorities over security and regulatory oversight. OpenAI hopes to expand access to GPT-5.6 in the coming weeks if the initial phase proceeds smoothly, while broader industry collaboration continues to address the challenges of scaling advanced AI systems responsibly.",
+      "title": "OpenAI requires US government approval for GPT-5.6 access on a customer-by-customer basis during initial rollout, CEO Sam Altman says this is not a preferred long-term model [ ! ] [ ◼ ]",
+      "content_text": "OpenAI will initially restrict access to its new GPT-5.6 model to select partners, requiring approval from the U.S. government on a customer-by-customer basis during the rollout. CEO Sam Altman stated that this approach is not a preferred long-term model and expressed a desire to work with the government and industry to develop a more sustainable release strategy. This measure follows concerns raised by the U.S. government about AI cybersecurity risks and reflects ongoing regulatory scrutiny. The phased release plan emerged from discussions with the Office of the National Cyber Director and the Office of Science and Technology Policy, influenced by recent government actions such as the forced takedown of Anthropic's Fable model due to security concerns. The situation highlights tensions between AI developers and government agencies over model deployment and oversight, with the White House continuing to collaborate with AI labs to address challenges related to scaling advanced AI technologies.",
       "date_published": "2026-06-26T08:35:35Z"
-    },
-    {
-      "id": "sty_0c1ecac3e1faa148",
-      "url": "https://www.thatprivacyguy.com/blog/un-tracking-without-consent/",
-      "title": "Report: United Nations calls for AI accountability while using Google ad-tech on its website without user consent [ * ] [ ◻ ]",
-      "content_text": "The United Nations has called for greater accountability in the environmental and ethical impacts of artificial intelligence, emphasizing the need for industry responsibility. However, an analysis of the UN's English-language homepage reveals that it uses Google's advertising and tracking technologies without obtaining user consent, highlighting a discrepancy between its public advocacy and its own digital practices. Despite its legal immunity from national data protection laws, the UN's use of third-party tracking services contradicts its commitment to human rights and privacy. This practice not only undermines its moral authority but also contributes to environmental harm, raising questions about the organization's adherence to the standards it promotes globally.",
-      "date_published": "2026-06-26T10:41:10Z"
-    },
-    {
-      "id": "sty_45a7c193e7f63892",
-      "url": "https://github.com/sums001/Windows-Copilot-API",
-      "title": "Windows-Copilot-API enables access to GPT-4 and GPT-5 models without API keys or billing by leveraging Microsoft Copilot sessions [ ~ ] [ ◼ ]",
-      "content_text": "Windows-Copilot-API is an unofficial tool that enables users to access GPT-4 and GPT-5 language models through Microsoft Copilot sessions without requiring API keys or billing. It converts the free chat service at copilot.microsoft.com into an API accessible via Python or as a local OpenAI-compatible server, simplifying integration with existing OpenAI clients. The API works by signing in once with a Microsoft or Google account, saving and refreshing the session automatically. It supports streaming responses, multi-turn conversations, and runs on Windows, macOS, and Linux. While not affiliated with Microsoft, it leverages the consumer Copilot web experience for personal use, offering a free alternative to traditional paid API access.",
-      "date_published": "2026-06-26T10:07:09Z"
-    },
-    {
-      "id": "sty_4fdd608cbebbfff2",
-      "url": "https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/",
-      "title": "GitHub evaluates performance and efficiency of Copilot agentic harness across models and tasks [ ~ ] [ ◻ ]",
-      "content_text": "GitHub has conducted an evaluation of the performance and efficiency of its Copilot agentic harness across various models and tasks. This assessment aims to understand how effectively the harness supports coding agents in different scenarios. The findings provide insights into optimizing AI-assisted coding tools to enhance developer productivity and code quality.",
-      "date_published": "2026-06-26T07:49:03Z"
-    },
-    {
-      "id": "sty_27c9d0f4d6bfb754",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPLTVXNldWWGFUeDJTUEFWZ2ZGOWxqQUdnRnVkaTBZYV9JcDZrTjlKR196YXpLWUJhODllWTRTMkpzdEZ5QWtSUnBsYXhHVUJEUFo2Y0VSaDB4Umo1MUVXRW91RWQyNVVFdjNqNV9tRHdFRG5lX1c0c05xa1VfVkNfUQ?oc=5",
-      "title": "Anthropic supports AI tax proposal with $350 million fund for workers [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic has announced its support for a proposed tax on artificial intelligence, pledging $350 million to create a fund aimed at assisting workers affected by AI-driven changes in the labor market. This initiative reflects the company's commitment to addressing the economic impact of AI advancements on employment. The fund is intended to provide resources and support for workers who may face job displacement or require retraining due to the increasing integration of AI technologies in various industries. Anthropic's backing of the AI tax proposal highlights a growing recognition within the tech sector of the need for measures that balance innovation with social responsibility.",
-      "date_published": "2026-06-26T08:05:43Z"
     },
     {
       "id": "sty_63122f45ec76f75d",
       "url": "https://www.theinformation.com/articles/trumps-burdensome-ai-regulation-apples-price-hike",
-      "title": "The Information reports Trump administration imposes strict AI model access controls on OpenAI and Anthropic, contradicting earlier promises of minimal regulation [ * ] [ ◼ ]",
-      "content_text": "The Trump administration has implemented strict controls on access to AI models from OpenAI and Anthropic, requiring government approval for each customer during preview periods. This approach contrasts with President Trump's earlier promise of a \"minimally burdensome national standard\" aimed at promoting U.S. AI leadership by removing regulatory barriers. Specifically, OpenAI's latest model is being released only to a limited group of companies under government oversight, while export controls have been imposed on Anthropic's Fable model. These measures suggest a more cautious and controlled regulatory stance than initially indicated by the administration's previous statements.",
+      "title": "The Information reports Trump administration restricts OpenAI model access and imposes export controls on Anthropic, contradicting earlier claims of minimal AI regulation [ * ] [ ◼ ]",
+      "content_text": "The Trump administration has imposed new restrictions on AI development, requiring OpenAI to limit access to its latest model to a select group of companies and approving access on a case-by-case basis during the preview period. Additionally, export controls have been placed on Anthropic's Fable model, signaling a shift from earlier promises of minimal regulation in the AI sector. These measures contrast with President Trump's December executive order, which aimed to remove barriers to U.S. AI leadership and promised a \"minimally burdensome national standard\" for AI regulation. The recent actions suggest a more cautious and controlled approach to AI deployment than initially indicated.",
       "date_published": "2026-06-26T00:01:09Z"
     },
     {
-      "id": "sty_6899e1e05d9c2065",
-      "url": "https://www.reddit.com/r/MachineLearning/comments/1ug2twg/how_can_a_student_from_a_tier3_university_get/",
-      "title": "Student from Tier-3 university seeks advice on entering AI/ML research and publishing papers without local lab support [ ~ ] [ ◻ ]",
-      "content_text": "A second-year undergraduate student from a Tier-3 university is seeking guidance on how to begin research in artificial intelligence and machine learning (AI/ML) and publish academic papers despite lacking access to local research labs or faculty in the field. The student plans to pursue graduate studies abroad and is looking for advice on initiating research projects, finding opportunities without institutional support, the possibility of independent or remote collaboration for publishing, essential skills to develop, and communities or platforms to connect with other researchers.",
-      "date_published": "2026-06-26T10:18:55Z"
+      "id": "sty_581adaffaa722cad",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQR1RjRUNRVlM4a255cXBlZHdYNUtkT1dCeXQ0OXYxR1JMNzRCckxEVW9SdFpHQWV1TmhnWnBIekluYkR1M3RLVkdnc1p2Y2RmTk1hMkF6cW9QMGFpXzV5VW5EWkkyS2VsSVM0NlA4WUhnby1jM2dYMHhFOXMtUTBpOTZreTRKdHlM?oc=5",
+      "title": "SpaceX stock falls 30% from IPO peak amid global AI sector sell-off in June 2026",
+      "content_text": "SpaceX's stock price has declined by 30% from its peak following its initial public offering, amid a broader sell-off in the global artificial intelligence sector in June 2026. This downturn reflects wider market volatility affecting AI-related companies during this period. The sell-off has impacted investor confidence in technology stocks, particularly those linked to AI advancements, contributing to the significant drop in SpaceX's market valuation since its IPO.",
+      "date_published": "2026-06-26T11:07:14Z"
+    },
+    {
+      "id": "sty_40befbeaf48d413b",
+      "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxQUVZuYUVnaHAxMGdvak1NVm1SRW9GaWV3WUtKQVh1SkFad2UzRmhHXzlLZFNTM1lUT3NHN3JkOTF0ZTB4UDRDRXVRbk5yOWRmeUt1aEQ3MVQtMGRtd1FhNl9ZUUg3cGhBZWJMeEVvOC1RV3I2NUIxODQxR3BoNDBEeExpN2ZKcjY3WjZnNXVZSzg4THJZVEtOR0hCSXB2Qmx4OFZIWGs4RktkV3hjUElfRjhBQWMtb3JQajdraVNYOWp1cUtuUVduMHRONFNDdFBWQjRpU1k1QV83REE0dGdvRHBpMktDcGM1bjhrOUZ6SjRMYklaMVFTTDBnWXJSNUgxNnVOX0pWX2hqUnAzdkt0dGY3UjRENmd4TGFFVlhhR2pTbFhVV1R2ZnUydk10UdIBswJBVV95cUxQbDBVcGhIVGpmMVpmRk5OTVhfVDlKMm5ISER5RmNhRDE4aHlZMklRUWNPd1N6YkNUSFZ3d1Y2eE1TZlhNUGVBU2UwLWNzUGZ5dlU3NkhCVjdEUHl1U2VaallYUWNGbDlUUkFYV19aVERLRjY3blZXTmM5VXZQU25xeG5vdjh2RmhzSzl3cHRyTVdJQUhTbnZ0dnFoNUhqNG1wdzJlUmxycno4c0YzY1Fpd0VQcllVSjVxb25iQ2NNd2Rna3huRlVBMUZzcFFmcy01OGlPRTg4YmozaHhSSUlWTVlLS1BGdkd2TE5rRmgxTGZ4VDFGTHBpZ1dWVF9xS1hRdnRZV3QwNWphR0RhUURDSlNjbFVmbzRseWRyemdRNkEtTk9YSm1zT3pNa3lzT3o0YW84?oc=5",
+      "title": "Anthropic regains White House trust after changes, leading to renewed communication with Dario Amodei",
+      "content_text": "Anthropic has regained the trust of the White House after implementing certain changes, leading to renewed communication with Dario Amodei. This development marks a positive shift in the relationship between the AI company and the U.S. government, which had previously experienced a breakdown in trust. The renewed dialogue suggests that Anthropic's adjustments addressed the concerns that had caused the initial loss of confidence. This restoration of trust may influence future collaborations and policy discussions involving AI technologies and government oversight.",
+      "date_published": "2026-06-26T11:00:00Z"
+    },
+    {
+      "id": "sty_04ba66d582c5ae99",
+      "url": "https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/",
+      "title": "The White House asks OpenAI to limit initial release of GPT 5.6 to select partners over safety concerns, with government reviewing access customer by customer [ * ] [ ◼ ]",
+      "content_text": "OpenAI plans to limit the initial release of its latest model, GPT 5.6, to a select group of partners following requests from the Trump administration, which is reviewing access on a case-by-case basis. CEO Sam Altman indicated that if this controlled preview goes well, a broader public release could follow in a few weeks. This approach aligns with recent government efforts to oversee AI developments more closely, including an executive order requiring certain AI companies to submit new models for evaluation before public release. The administration's involvement includes collaboration with the Office of the National Cyber Director and the Office of Science and Technology Policy, reflecting concerns about the potential risks of powerful AI models. Similar to Anthropic's cautious release of its Claude Mythos model, OpenAI's limited rollout aims to mitigate risks associated with advanced AI capabilities, such as automated cyberattacks and exploitation of software vulnerabilities. This cautious stance highlights growing government and industry attention to AI safety and security.",
+      "date_published": "2026-06-25T23:34:39Z"
     },
     {
       "id": "sty_b9d5f537768b2bc0",
@@ -224,25 +392,25 @@
       "date_published": "2026-06-25T20:02:35Z"
     },
     {
+      "id": "sty_33fdddeb04a6474e",
+      "url": "https://www.theinformation.com/articles/anthropic-customers-find-errant-charges-auditing-startup-says",
+      "title": "Vaudit audit finds $1.7 million in Anthropic customer overcharges from March to June, with 80% refunded after appeals to AI providers including Anthropic and OpenAI [ * ] [ ◻ ]",
+      "content_text": "Vaudit, a startup specializing in AI bill auditing, found $1.7 million in overcharges on bills from March to June for 60 companies using Anthropic's Claude Code and OpenAI products. These overcharges, identified through Vaudit's software that compares AI usage data with invoices, included billing for older models as if they were newer and charges for incomplete or failed AI requests. After appeals, about 80% of the overcharged amounts were refunded by providers including Anthropic, OpenAI, and major cloud companies. Vaudit's CEO Michael Hahn noted that enterprise AI billing has become increasingly opaque, with issues such as retry storms-where failed AI tasks repeatedly attempt completion-adding to unexpected costs. While Anthropic and OpenAI representatives stated that overbilling is not widespread and that customers are not charged for incomplete requests, Vaudit's findings highlight billing complexities in AI services. The startup charges a fee based on the value of audited bills and refunds obtained, reflecting growing demand for transparency in AI billing amid rising enterprise adoption.",
+      "date_published": "2026-06-25T19:31:53Z"
+    },
+    {
+      "id": "sty_27c9d0f4d6bfb754",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPLTVXNldWWGFUeDJTUEFWZ2ZGOWxqQUdnRnVkaTBZYV9JcDZrTjlKR196YXpLWUJhODllWTRTMkpzdEZ5QWtSUnBsYXhHVUJEUFo2Y0VSaDB4Umo1MUVXRW91RWQyNVVFdjNqNV9tRHdFRG5lX1c0c05xa1VfVkNfUQ?oc=5",
+      "title": "Anthropic supports AI tax proposal with $350 million fund for workers [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic has announced its support for a proposed tax on artificial intelligence, pledging $350 million to create a fund aimed at assisting workers affected by AI-driven changes in the labor market. This initiative reflects the company's commitment to addressing the economic impact of AI advancements on employment. The fund is intended to provide resources and support for workers who may face job displacement or require retraining due to the increasing integration of AI technologies in various industries. Anthropic's backing of the AI tax proposal highlights a growing recognition within the tech sector of the need for measures that balance innovation with social responsibility.",
+      "date_published": "2026-06-26T08:05:43Z"
+    },
+    {
       "id": "sty_81341c0033de2b99",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPZ1pTRkFKVjNtbGFYaHJIMEIxdE45eDAzMUEtMndnUUVEMnFOSFpvVEloVktyZ19uNm4tcy1UdXEyZ2UtNkZKZ3Vva2I4eko0amUyNjhNTGZ3SHYyaUhJcGdCaGVMRDJkOFgydXlCd1Izb3dJXzBxV0d1UTZQZEhIQmhXTjlsazVhbkNCODdTaFRZanVia1pWNkw0REVNNGN4dWlSaU1SUTBsclJkaGVoblJDY3p0T1MyUVE?oc=5",
       "title": "Report: Trump White House called Anthropic CEO a weirdo and sent a different representative to negotiations",
       "content_text": "The Trump White House reportedly referred to Anthropic's CEO as a \"weirdo\" and chose to send a different representative to negotiations instead of engaging directly with him. This decision highlights tensions in the interactions between the administration and the AI company during discussions. The report sheds light on the strained relationship and communication challenges between the Trump administration and Anthropic, a notable player in the AI industry. The choice to bypass the CEO in negotiations suggests underlying disagreements or discomfort with his approach or persona.",
       "date_published": "2026-06-26T07:13:46Z"
-    },
-    {
-      "id": "sty_33fdddeb04a6474e",
-      "url": "https://www.theinformation.com/articles/anthropic-customers-find-errant-charges-auditing-startup-says",
-      "title": "Vaudit audit finds $1.7 million in Anthropic customer overcharges from March to June, with 80% refunded after appeals to AI providers including Anthropic and OpenAI",
-      "content_text": "Vaudit, a startup specializing in AI bill auditing, found $1.7 million in overcharges on bills from March to June for 60 companies using Anthropic's Claude Code and OpenAI products. These overcharges, identified through Vaudit's software that compares AI usage data with invoices, included billing for older models as if they were newer and charges for incomplete or failed AI requests. After appeals, about 80% of the overcharged amounts were refunded by providers including Anthropic, OpenAI, and major cloud companies. Vaudit's CEO Michael Hahn noted that enterprise AI billing has become increasingly opaque, with issues such as retry storms-where failed AI tasks repeatedly attempt completion-adding to unexpected costs. While Anthropic and OpenAI representatives stated that overbilling is not widespread and that customers are not charged for incomplete requests, Vaudit's findings highlight billing complexities in AI services. The startup charges a fee based on the value of audited bills and refunds obtained, reflecting growing demand for transparency in AI billing amid rising enterprise adoption.",
-      "date_published": "2026-06-25T19:31:53Z"
-    },
-    {
-      "id": "sty_e214f6b30361f123",
-      "url": "https://www.technologyreview.com/2026/06/25/1137848/repositioning-retail-for-the-ai-era/",
-      "title": "Macy's adopts AI-first approach to transform retail operations, embedding intelligence in search, inventory, and customer engagement systems for faster, personalized experiences [ * ] [ ◼ ]",
-      "content_text": "Macy's is adopting an \"AI-first\" strategy to transform its retail operations by embedding artificial intelligence directly into key systems such as search, inventory management, and customer engagement. This approach aims to accelerate decision-making and deliver more personalized, relevant experiences for customers by redesigning workflows rather than simply adding AI on top of existing processes. The company has focused initially on high-impact areas like search recommendations and customer engagement, achieving measurable improvements in conversion rates and operational efficiency. Macy's is also expanding AI integration into conversational commerce with tools like Ask Macy's, an AI-powered shopping assistant that offers personalized recommendations based on customer preferences and past purchases. The long-term goal is to create a seamless, adaptive retail experience where AI supports human judgment and continuously improves customer interactions.",
-      "date_published": "2026-06-25T14:22:59Z"
     },
     {
       "id": "sty_7aed8bcfcdfd1977",
@@ -252,11 +420,11 @@
       "date_published": "2026-06-25T21:57:06Z"
     },
     {
-      "id": "sty_2e0b559d8e252f92",
-      "url": "https://www.wired.com/story/anthropic-thinks-ai-can-only-be-safe-under-its-control/",
-      "title": "Anthropic says leading AI development is essential to ensuring its safe and responsible use amid concerns over its growing power [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic, a leading AI development company valued at nearly $1 trillion, argues that maintaining control over advanced AI is essential for ensuring its safe and responsible use. Despite concerns about the company's growing power, Anthropic views its leadership role as necessary to manage the risks and benefits of transformative AI technology. The company believes that by staying at the forefront of AI innovation, it can better influence safety measures and guide the industry toward positive outcomes. Founded in 2021 by former OpenAI employees, Anthropic operates under the conviction that AI's arrival is inevitable and that its impact could be either catastrophic or profoundly beneficial. The company sees accumulating resources and influence not as an end but as a means to fulfill its mission of safely navigating the transition to advanced AI. This approach reflects a strategic commitment to balancing competitive development with responsible stewardship in a rapidly evolving technological landscape.",
-      "date_published": "2026-06-26T00:49:13Z"
+      "id": "sty_54e68cb374a2dc08",
+      "url": "https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/",
+      "title": "Patronus AI raises $50 million Series B to develop digital environments that stress-test AI agents across software engineering and finance sectors [ * ] [ ◼ ]",
+      "content_text": "Patronus AI, a startup founded by former Meta AI researchers, has raised $50 million in a Series B funding round to advance its development of digital environments that rigorously test AI agents. These simulated worlds allow AI models to be evaluated on complex, real-world tasks in sectors like software engineering and finance, helping ensure their reliability before deployment. The company's approach uses reinforcement learning within these digital replicas to identify and correct shortcuts AI agents might take, improving their performance across unpredictable scenarios. The San Francisco-based company has seen rapid growth, with a 15-fold revenue increase over the past year and widespread adoption by leading AI labs and startups. Patronus AI's technology is designed to provide a more thorough evaluation than traditional benchmarks by simulating extended, verifiable tasks that AI agents must complete accurately. The startup competes primarily with internal evaluation teams at AI labs and differentiates itself by automating agent behavior testing without human involvement.",
+      "date_published": "2026-06-25T20:19:25Z"
     },
     {
       "id": "sty_e9d0720583401346",
@@ -266,11 +434,32 @@
       "date_published": "2026-06-25T21:18:57Z"
     },
     {
+      "id": "sty_2e0b559d8e252f92",
+      "url": "https://www.wired.com/story/anthropic-thinks-ai-can-only-be-safe-under-its-control/",
+      "title": "Anthropic says leading AI development is essential to ensuring its safe and responsible use amid concerns over its growing power [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic, a leading AI development company valued at nearly $1 trillion, argues that maintaining control over advanced AI is essential for ensuring its safe and responsible use. Despite concerns about the company's growing power, Anthropic views its leadership role as necessary to manage the risks and benefits of transformative AI technology. The company believes that by staying at the forefront of AI innovation, it can better influence safety measures and guide the industry toward positive outcomes. Founded in 2021 by former OpenAI employees, Anthropic operates under the conviction that AI's arrival is inevitable and that its impact could be either catastrophic or profoundly beneficial. The company sees accumulating resources and influence not as an end but as a means to fulfill its mission of safely navigating the transition to advanced AI. This approach reflects a strategic commitment to balancing competitive development with responsible stewardship in a rapidly evolving technological landscape.",
+      "date_published": "2026-06-26T00:49:13Z"
+    },
+    {
+      "id": "sty_e214f6b30361f123",
+      "url": "https://www.technologyreview.com/2026/06/25/1137848/repositioning-retail-for-the-ai-era/",
+      "title": "Macy's adopts AI-first approach to embed intelligence in retail operations, enhancing personalization, search, and supply chain decisions amid industry-wide AI integration [ * ] [ ◼ ]",
+      "content_text": "Macy's is adopting an \"AI-first\" strategy to integrate artificial intelligence deeply into its retail operations, enhancing personalization, search functionality, and supply chain management. This approach focuses on redesigning decision-making processes to make business operations faster and customer experiences more relevant, rather than simply adding AI as an overlay. The company's efforts include AI-powered tools like Ask Macy's, a conversational shopping assistant that offers personalized recommendations based on customer preferences and past purchases. This shift reflects a broader trend in retail toward embedding AI into core systems to reduce the time between data signals and business actions. Early successes in search recommendations and customer engagement have helped Macy's move from pilot projects to scaling AI solutions as a strategic business decision. The company views AI as a supportive layer that augments human judgment, aiming for a seamless and adaptive retail experience that continuously improves through learning and technological advancements.",
+      "date_published": "2026-06-25T14:22:59Z"
+    },
+    {
       "id": "sty_b6c725f25126735d",
       "url": "https://www.wired.com/story/uncanny-valley-podcast-amazon-mgm-openai-movie-data-center-workers-fight-back-meta-leaks-employee-data/",
       "title": "Amazon-owned MGM Studios drops nearly completed OpenAI biopic amid controversy; data center workers protest and Meta pauses employee tracking after data leak [ ~ ] [ ◻ ]",
       "content_text": "Amazon-owned MGM Studios has abruptly dropped the nearly completed biopic about OpenAI and its CEO Sam Altman, reportedly due to the film's unfavorable portrayal of Altman. The decision highlights growing tensions as AI increasingly influences the film industry, exemplified by Google's DeepMind investing $75 million in a partnership with indie studio A24 to develop AI tools for filmmaking. Meanwhile, data center workers, including electricians and Amazon employees, are protesting against data center construction and facing investigations for advocating regulation. In addition, Meta has paused its controversial employee-tracking program following a significant internal data leak, raising questions about privacy and corporate oversight. The episode also notes improved relations between AI company Anthropic and the government after the departure of CEO Dario Amodei from negotiations, signaling shifting dynamics in AI governance and industry accountability.",
       "date_published": "2026-06-25T23:13:45Z"
+    },
+    {
+      "id": "sty_9cc521e0198b47b6",
+      "url": "https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/",
+      "title": "Data shows Anthropic's Claude gaining paid consumer users and revenue, narrowing gap with ChatGPT despite ChatGPT's market lead [ ~ ] [ ◻ ]",
+      "content_text": "Data from credit card transactions and online education platforms indicates that Anthropic's AI, Claude, is gaining traction among paying consumers, showing significant growth in users and revenue since early 2026. While ChatGPT remains the dominant AI in the consumer market, Claude's increasing popularity suggests it is narrowing the gap, particularly among self-directed learners and individual users. The growth in Claude's user base has persisted despite regulatory challenges, including restrictions on some of its advanced models by the U.S. government. Interest in Claude has surged on platforms like DataCamp, where demand for Claude-related courses has outpaced that for ChatGPT among consumers, highlighting a broader and more diverse customer base beyond enterprise clients. As both Anthropic and OpenAI prepare for potential public offerings, Claude's rising consumer adoption could influence their market positions and future business strategies. However, the full impact of recent government restrictions on Anthropic's offerings remains uncertain, even as the company continues to expand its user base.",
+      "date_published": "2026-06-25T17:38:27Z"
     },
     {
       "id": "sty_7ad24132abe92588",
@@ -280,34 +469,6 @@
       "date_published": "2026-06-26T03:50:00Z"
     },
     {
-      "id": "sty_3bafc0f464b93aa2",
-      "url": "https://arstechnica.com/gadgets/2026/06/notion-killing-skiff-influenced-email-app-since-most-users-use-ai-agents-instead/",
-      "title": "Notion to shut down Skiff-influenced Notion Mail on September 22 as majority of users rely on AI agents to manage email workflows [ ~ ] [ ◻ ]",
-      "content_text": "Notion announced it will shut down Notion Mail, its Skiff-influenced email client, on September 22, 2026, as most users now rely on AI agents to manage their email workflows without opening their inboxes. The company stated that more than half of Notion Mail users handle emails through AI, prompting a shift to fully embrace agent-driven inbox management. Notion Mail users are advised to export drafts and scheduled emails before the shutdown, as these will not transfer automatically. While email history will remain accessible in Gmail, users can save their Notion Mail configurations and auto-label rules to continue using them with Notion's AI agents. Organizations requiring HIPAA compliance are recommended to transition off Notion Mail by June 30, 2026. The closure marks the end of Notion's direct email client efforts following its acquisition of Skiff, which previously offered encrypted email services. Despite discontinuing Notion Mail, Notion may continue to integrate Skiff's productivity innovations in other areas to compete with platforms like Google Workspace.",
-      "date_published": "2026-06-25T19:04:57Z"
-    },
-    {
-      "id": "sty_2d940630e25e0f21",
-      "url": "https://www.reddit.com/r/MachineLearning/comments/1ufyuph/howre_you_deploying_llms_in_production_nowadays/",
-      "title": "Reddit user seeks affordable, user-friendly platforms for deploying and fine-tuning open-source LLMs in private production environments [ ~ ] [ ◻ ]",
-      "content_text": "A Reddit user developing an AI product with large language model (LLM) APIs is seeking recommendations for affordable, user-friendly platforms to deploy and fine-tune open-source LLMs in a private production environment. The user wants full control over the product stack and the ability to customize the model for their specific use case but lacks deep AI engineering expertise and prefers to avoid complex technical challenges like CUDA or Transformers frameworks. They are asking the community for straightforward solutions that enable private deployment without requiring extensive technical knowledge, aiming to balance cost-effectiveness with ease of use.",
-      "date_published": "2026-06-26T06:29:59Z"
-    },
-    {
-      "id": "sty_04ba66d582c5ae99",
-      "url": "https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/",
-      "title": "Report: The White House asks OpenAI to limit GPT 5.6 release to select partners over safety concerns, with government approving access customer by customer [ * ] [ ◼ ]",
-      "content_text": "OpenAI plans to limit the release of its latest model, GPT 5.6, to a select group of partners rather than a broad public launch, following requests from the Trump administration due to safety concerns. The administration will approve access on a case-by-case basis during an initial preview period, with a wider release possible if the limited rollout proceeds smoothly. The decision reflects increased government involvement in AI oversight, with agencies like the Office of the National Cyber Director and the Office of Science and Technology Policy working closely with OpenAI on the release. This approach aligns with recent federal efforts to regulate AI models, including an executive order requiring certain companies to submit new models for government evaluation before public release. This cautious rollout mirrors similar strategies by other AI firms, such as Anthropic, which restrict access to powerful models to prevent misuse. The concern centers on the potential for advanced AI to be exploited for cyberattacks, as these models can identify and exploit software vulnerabilities at unprecedented speeds, posing significant risks to cybersecurity.",
-      "date_published": "2026-06-25T23:34:39Z"
-    },
-    {
-      "id": "sty_aa6663f28e8c6868",
-      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQZmIyT3hsbmV1bndSTjlYY0RmemVySlZEZ3V0Nkx5b1pxdTlueTlQeGw1ekdhUlF1QWxiNm1WT0FMbjBLNmxMOTI0SDRManFrQXZEV0xkYWYtTmlHamc1VHNlOGYtUzZsRy1rUlNlVC1FY0RRbThhRXh6OEVJcEhLOGJld0VLekFjT2FRM21IbGtMR09CaHZWZW1VVm9HRnpqaENvcGwxR3pQRm1CWGNwcXRuSHNkY3RYcmJlODdnNGdpODAwbk5HN2FkZUhzSXNoaTdaQ2pDRlZaQlU?oc=5",
-      "title": "Anthropic CEO Dario Amodei warns $1 trillion compute costs could drive AI firms toward bankruptcy risk by 2027 [ * ] [ ◻ ]",
-      "content_text": "Anthropic CEO Dario Amodei has warned that the escalating costs of computing power, potentially reaching $1 trillion, could push AI companies toward bankruptcy by 2027. This warning highlights the financial risks associated with the rapid growth and resource demands of artificial intelligence development. Amodei's caution reflects concerns about the sustainability of AI firms as they invest heavily in compute resources to advance their technologies. The increasing expenses may challenge smaller companies and startups, potentially reshaping the competitive landscape in the AI industry.",
-      "date_published": "2026-06-26T02:48:57Z"
-    },
-    {
       "id": "sty_e35918a23d03e0fe",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBMS1I0TVlaZVd3Q0o1VWw1LWk2MGNoX1VBX3JUY0hqM29abnJBU1FaVU5rajd0Tlh5ZUNQYkU3RW5laXNJelFYOU9NTzlkNXJWejc3Rzc5YjBTT0ZKRHpKZnB1RlFwRGxtMVE?oc=5",
       "title": "Anthropic releases Claude Code Foundations to support AI development",
@@ -315,11 +476,11 @@
       "date_published": "2026-06-25T22:50:28Z"
     },
     {
-      "id": "sty_950b76eab18f1af4",
-      "url": "https://www.theinformation.com/articles/google-revamps-new-ai-coding-strike-team-amid-struggle-catch-anthropic",
-      "title": "Google reorganizes AI coding strike team to improve model training and expand capabilities amid competition with Anthropic [ * ] [ ◼ ]",
-      "content_text": "Google is reorganizing its AI coding strike team to enhance the training of its AI models and broaden their capabilities beyond coding, aiming to compete more effectively with Anthropic in key AI applications. The restructuring formalizes the previously temporary team and expands its focus to include tasks like creating presentations, aligning with similar efforts by competitors to diversify AI functionalities. This change reflects Google's strategic response to the competitive landscape in AI development, where companies like Anthropic and OpenAI are extending their AI tools into various business functions. By adjusting its approach to model training and team structure, Google seeks to accelerate improvements in AI performance and application scope.",
-      "date_published": "2026-06-25T13:00:57Z"
+      "id": "sty_aa6663f28e8c6868",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQZmIyT3hsbmV1bndSTjlYY0RmemVySlZEZ3V0Nkx5b1pxdTlueTlQeGw1ekdhUlF1QWxiNm1WT0FMbjBLNmxMOTI0SDRManFrQXZEV0xkYWYtTmlHamc1VHNlOGYtUzZsRy1rUlNlVC1FY0RRbThhRXh6OEVJcEhLOGJld0VLekFjT2FRM21IbGtMR09CaHZWZW1VVm9HRnpqaENvcGwxR3pQRm1CWGNwcXRuSHNkY3RYcmJlODdnNGdpODAwbk5HN2FkZUhzSXNoaTdaQ2pDRlZaQlU?oc=5",
+      "title": "Anthropic CEO Dario Amodei warns $1 trillion compute costs could drive AI firms toward bankruptcy risk by 2027 [ * ] [ ◻ ]",
+      "content_text": "Anthropic CEO Dario Amodei has warned that the escalating costs of computing power, potentially reaching $1 trillion, could push AI companies toward bankruptcy by 2027. This warning highlights the financial risks associated with the rapid growth and resource demands of artificial intelligence development. Amodei's caution reflects concerns about the sustainability of AI firms as they invest heavily in compute resources to advance their technologies. The increasing expenses may challenge smaller companies and startups, potentially reshaping the competitive landscape in the AI industry.",
+      "date_published": "2026-06-26T02:48:57Z"
     },
     {
       "id": "sty_44722842530f8573",
@@ -350,27 +511,6 @@
       "date_published": "2026-06-25T17:00:00Z"
     },
     {
-      "id": "sty_16f54f951b5034d9",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaHBwUko0c3RxQmJjWkwxOFloZFk0UGR3LVBfWEdsd2J3aWVkdklyUGtOWDdPMnpDaVlDTXZQTFJleFp3Zlh3RG5XSjRqaTB0ck55LWhhUlJBUjhBODR2RjgwQTRqVV9nX3FXM2l1NjhNaGJRR1dkb21zQkU4ZWwwVVNhQzM2V0pDcGMw?oc=5",
-      "title": "Anthropic says its own success is crucial to advancing AI safety efforts [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic, an AI research company, emphasizes that its own success is essential for advancing efforts to ensure AI safety. The company believes that demonstrating effective and responsible AI development is key to promoting safer AI technologies overall. Anthropic's approach highlights the importance of leading by example in the AI industry, suggesting that progress in AI safety depends on the practical achievements and ethical standards set by pioneering organizations like itself.",
-      "date_published": "2026-06-26T00:49:00Z"
-    },
-    {
-      "id": "sty_59403ff290dfa0fd",
-      "url": "https://arstechnica.com/google/2026/06/google-finance-finally-gets-a-mobile-app-as-ai-powered-overhaul-leaves-beta/",
-      "title": "Google launches first standalone Google Finance Android app with AI features, plans iOS version for later in 2026 [ ~ ] [ ◻ ]",
-      "content_text": "Google has launched the first standalone Google Finance app for Android, marking the service's debut on mobile after 20 years. The app integrates AI features that enhance financial tracking by providing real-time market data, watchlists, and AI-generated insights into stock performance. An iOS version is planned for release later in 2026. Alongside the app launch, Google has updated the Finance website, moving its AI-powered features out of beta. The site and app now include a chatbot that helps users analyze market trends and financial news, with capabilities such as generating key moments in stock charts and offering personalized research updates. Google plans to continue expanding the app's features to align more closely with the website's offerings, including portfolio management and AI-driven financial insights.",
-      "date_published": "2026-06-25T18:38:51Z"
-    },
-    {
-      "id": "sty_54e68cb374a2dc08",
-      "url": "https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/",
-      "title": "Patronus AI raises $50 million Series B to develop digital simulations that stress-test AI agents across software engineering and finance sectors [ * ] [ ◼ ]",
-      "content_text": "Patronus AI, a startup founded by former Meta AI researchers, has raised $50 million in a Series B funding round to advance its development of digital simulations that rigorously test AI agents. These simulations replicate complex environments, allowing AI models to be stress-tested in scenarios relevant to software engineering and finance, ensuring their reliability in real-world tasks. The company has seen rapid revenue growth and widespread adoption among leading AI labs and startups, reflecting strong demand for its technology. Patronus AI creates \"digital world models\" that mimic websites and internal systems, enabling AI agents to undergo reinforcement learning in controlled settings. This approach helps identify shortcuts or errors in agent behavior that traditional benchmarks might miss. The startup aims to expand beyond verifiable tasks to more complex, long-duration operations, positioning itself as a key player in AI agent evaluation. Its main competition comes from internal evaluation teams within AI labs, but Patronus distinguishes itself by automating agent testing without human intervention.",
-      "date_published": "2026-06-25T20:19:25Z"
-    },
-    {
       "id": "sty_da8d86bc718f2b41",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/",
       "title": "Google launches study notebooks in Gemini app to provide personalized, interactive learning with diagnostic quizzes, progress tracking, and standardized test prep [ ~ ] [ ◻ ]",
@@ -399,11 +539,25 @@
       "date_published": "2026-06-25T16:00:00Z"
     },
     {
-      "id": "sty_a330b04f8b19fec8",
-      "url": "https://arstechnica.com/tech-policy/2026/06/anthropic-claims-alibaba-defied-trump-to-attack-claude-and-steal-capabilities/",
-      "title": "Anthropic accuses Alibaba of largest Claude cloning attack using 25,000 accounts for 28.8 million exchanges, urges US Congress to impose penalties [ ! ] [ ◼ ]",
-      "content_text": "Anthropic has accused Alibaba of orchestrating the largest known attempt to clone its AI model Claude by using nearly 25,000 fraudulent accounts to conduct over 28.8 million interactions. This campaign, which took place between April and June, allegedly targeted Claude's advanced capabilities such as agentic reasoning and software engineering, violating terms of service and employing obfuscation techniques to evade detection. The accusations come amid heightened tensions over AI technology theft, with Anthropic urging the US Congress to implement stricter penalties and export controls to prevent similar attacks. Despite previous warnings from the Trump administration against such illicit activities, Alibaba, which is publicly traded in the US, reportedly continued these efforts, prompting calls for legislative action to protect American AI investments and maintain technological leadership.",
-      "date_published": "2026-06-25T18:01:48Z"
+      "id": "sty_59403ff290dfa0fd",
+      "url": "https://arstechnica.com/google/2026/06/google-finance-finally-gets-a-mobile-app-as-ai-powered-overhaul-leaves-beta/",
+      "title": "Google launches first standalone Google Finance Android app with AI features, plans iOS version for later in 2026 [ ~ ] [ ◻ ]",
+      "content_text": "Google has launched the first standalone Google Finance app for Android, marking the service's debut on mobile after 20 years. The app integrates AI features that enhance financial tracking by providing real-time market data, watchlists, and AI-generated insights into stock performance. An iOS version is planned for release later in 2026. Alongside the app launch, Google has updated the Finance website, moving its AI-powered features out of beta. The site and app now include a chatbot that helps users analyze market trends and financial news, with capabilities such as generating key moments in stock charts and offering personalized research updates. Google plans to continue expanding the app's features to align more closely with the website's offerings, including portfolio management and AI-driven financial insights.",
+      "date_published": "2026-06-25T18:38:51Z"
+    },
+    {
+      "id": "sty_16f54f951b5034d9",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaHBwUko0c3RxQmJjWkwxOFloZFk0UGR3LVBfWEdsd2J3aWVkdklyUGtOWDdPMnpDaVlDTXZQTFJleFp3Zlh3RG5XSjRqaTB0ck55LWhhUlJBUjhBODR2RjgwQTRqVV9nX3FXM2l1NjhNaGJRR1dkb21zQkU4ZWwwVVNhQzM2V0pDcGMw?oc=5",
+      "title": "Anthropic says its own success is crucial to advancing AI safety efforts [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic, an AI research company, emphasizes that its own success is essential for advancing efforts to ensure AI safety. The company believes that demonstrating effective and responsible AI development is key to promoting safer AI technologies overall. Anthropic's approach highlights the importance of leading by example in the AI industry, suggesting that progress in AI safety depends on the practical achievements and ethical standards set by pioneering organizations like itself.",
+      "date_published": "2026-06-26T00:49:00Z"
+    },
+    {
+      "id": "sty_6e9851d9e2f2342d",
+      "url": "https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/",
+      "title": "General Intuition raises $320 million at $2.3 billion valuation to train AI agents using millions of hours of video game action data for real-world applications [ * ] [ ◼ ]",
+      "content_text": "General Intuition has raised $320 million at a $2.3 billion valuation to advance its AI technology that learns from millions of hours of video game action data. The company uses detailed gameplay inputs, such as player actions, to train AI agents capable of understanding and navigating both virtual and real-world environments, aiming to develop AI with human-like intuition. The startup, spun out from Medal, leverages its extensive dataset of gameplay footage combined with action labels to enhance spatial-temporal reasoning in its AI models. These models have demonstrated the ability to transfer learning from game simulations to physical robots, requiring minimal real-world data for fine-tuning. The funding will primarily support scaling compute resources and expanding access to the AI through an API, with backing from investors including Khosla Ventures, Jeff Bezos, and Google DeepMind researchers. General Intuition's approach addresses the challenge of training AI agents efficiently by using scalable gameplay data as a shortcut to real-world learning, a method that could accelerate the development of AI systems capable of complex reasoning and interaction in diverse environments.",
+      "date_published": "2026-06-25T16:55:00Z"
     },
     {
       "id": "sty_d323c92367ee0d18",
@@ -411,160 +565,6 @@
       "title": "Industry splits on robotics AI approach as startups and investors back world models while others favor vision-language-action models [ ~ ] [ ◻ ]",
       "content_text": "Tech leaders including Elon Musk and Jensen Huang, along with startup founders and venture capitalists, believe robotics is approaching a transformative \"ChatGPT moment\" where AI will enable diverse physical tasks. However, the industry is divided over the best AI approach to power robots, with some supporting vision-language-action models (VLAs) derived from large language models, while others favor world models that predict physical environment outcomes based on robot actions. Support for world models has been growing in Silicon Valley, highlighted by recent initiatives such as AI video startup Luma launching a physical AI lab focused on world models and humanoid startup 1X announcing its own world model lab. This split reflects differing strategies on how to advance robotics through AI.",
       "date_published": "2026-06-25T14:01:20Z"
-    },
-    {
-      "id": "sty_090041cf4402951a",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5nWlRtQTlrT1FIVDl6N3QyQkR2d1c3TmtvZlBBdkY2UVdOQk5kQ0k5em9BRkJIclU2eURpS3VvQ2RoVWhjY1ZlM2djMkNqUG5rY3lR?oc=5",
-      "title": "Google is overhauling its AI coding team as OpenAI develops the Jalapeno chip amid tensions in robotics AI [ ~ ] [ ◻ ]",
-      "content_text": "Google is restructuring its AI coding team as competition intensifies in the artificial intelligence sector, particularly with OpenAI's development of the Jalapeno chip. This move reflects growing tensions in the robotics AI field, where major companies are racing to advance their technologies and maintain leadership. The changes at Google aim to enhance its capabilities and respond to the evolving landscape shaped by innovations like OpenAI's new hardware.",
-      "date_published": "2026-06-25T17:44:01Z"
-    },
-    {
-      "id": "sty_9cc521e0198b47b6",
-      "url": "https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/",
-      "title": "Data shows Anthropic's Claude gaining paid consumer market share from ChatGPT with 75% growth since January 2026 [ ~ ] [ ◻ ]",
-      "content_text": "Data from credit card transactions analyzed by Indagari reveals that Anthropic's AI, Claude, has experienced a 75% growth in paid consumer usage since January 2026, indicating a rising preference among paying users despite ChatGPT's dominant market position. This trend suggests that Claude is expanding beyond its traditional enterprise and developer base to attract a broader consumer audience. Additional insights from DataCamp show a significant surge in consumer interest for Claude, with searches and course enrollments outpacing those for ChatGPT among individual learners. While ChatGPT remains the leading AI platform in terms of overall consumer adoption and revenue, Claude's increasing market share highlights its growing influence in the AI consumer space. Anthropic's growth continues despite recent regulatory challenges, including restrictions on its cybersecurity-focused models by the U.S. government. As both Anthropic and OpenAI prepare for potential public offerings, these trends provide valuable indicators of their business trajectories and consumer engagement.",
-      "date_published": "2026-06-25T17:38:27Z"
-    },
-    {
-      "id": "sty_245ba20d51aaede9",
-      "url": "https://blog.google/products-and-platforms/devices/google-nest/gemini-home-voice-assistant-tips/",
-      "title": "Google launches 100 new voice commands for Gemini for Home assistant to manage smart devices, routines, and household tasks with optional Premium upgrade [ ~ ] [ ◻ ]",
-      "content_text": "Google has introduced 100 new voice commands for its Gemini for Home assistant, enhancing its ability to manage smart devices, daily routines, and household tasks. Available on Google Home speakers, Gemini helps users control lighting, organize schedules, access cooking tips, and monitor home security. An optional Google Home Premium upgrade, starting at $10 per month, offers advanced features such as live camera searching. The new commands cover a wide range of activities throughout the day, from adjusting home lighting and temperature in the morning to managing chores and to-do lists midday, and simplifying evening routines. Users can also receive news updates, wellness suggestions, and help with cooking, making Gemini a versatile tool for home management and personal assistance.",
-      "date_published": "2026-06-25T13:00:00Z"
-    },
-    {
-      "id": "sty_f8122a38fbd89105",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOZjlzd2NmMXhGV0tqVExnblBrZklCekM1WURUTXphWXNpb184cU02UXpWZ0dPdW9nMXE3NmxWOENhYk9sTXRBcG5UaTJtd1RuaGdSMzEzdmJjZkQ0UW0xbU5XU3ViaGdNM2ZweFozWWJlQmRXZU5VUjZ4anJmTmtXam80Qm1zRTJvTm8tb1l1RmNUX3dxX2dJ0gGfAUFVX3lxTFA3eFlGLVhqTzA4eGNUcUpJMWVyc0hseDl5VmZJS2Z6ZXBqZE40TExOV3VQZExTMTI4ellLc1MyMllTZU1fdC1QMENTMkJrc0V0ZVlQNFJieW5YWTNudWVLdTMxUHpxLTkwMTFBM2gtYnpRWF9vdU1wOUR0RWdjTkpMVHZFUUpQRXZIbVB4OVpOdjBxRVphRUZLMlQ1QTlVQQ?oc=5",
-      "title": "Anthropic urges US Congress to regulate AI distillation practices by Chinese competitors amid rising security concerns [ * ] [ ◻ ]",
-      "content_text": "Anthropic has called on the US Congress to implement regulations on AI distillation practices used by Chinese competitors, citing growing security concerns. The company warns that these practices could pose risks to national security and the integrity of AI development. Anthropic's appeal highlights the competitive and geopolitical tensions in the AI industry, emphasizing the need for oversight to prevent potential misuse or unauthorized replication of advanced AI technologies. The company urges lawmakers to take action to safeguard the US AI ecosystem against these challenges.",
-      "date_published": "2026-06-25T21:13:37Z"
-    },
-    {
-      "id": "sty_6e9851d9e2f2342d",
-      "url": "https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/",
-      "title": "General Intuition raises $320 million at $2.3 billion valuation to train AI agents using millions of hours of video game action data for real-world applications [ * ] [ ◼ ]",
-      "content_text": "General Intuition has raised $320 million at a $2.3 billion valuation to advance its AI technology that learns from millions of hours of video game action data. The company uses detailed gameplay inputs, such as button presses, to train AI agents capable of understanding spatial and temporal dynamics, aiming to develop AI with human-like intuition applicable to real-world tasks. This approach allows their AI models to generalize from virtual environments to physical robots, demonstrating early success in navigation and interaction. The startup, spun out from Medal, leverages its extensive dataset of gameplay combined with action labels to train AI more effectively than methods relying solely on video analysis. Investors including Khosla Ventures, Jeff Bezos, and Eric Schmidt support the company's vision, which focuses on scaling compute resources and broadening access to its AI through an API. General Intuition's technology represents a novel approach to AI training by using scalable gaming data as a shortcut to real-world understanding, though challenges remain in applying these models at scale outside simulated environments.",
-      "date_published": "2026-06-25T16:55:00Z"
-    },
-    {
-      "id": "sty_47966425f0f99761",
-      "url": "https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1000x/",
-      "title": "Databricks' former AI chief launches Unconventional AI with oscillator-based architecture aiming to cut AI power use by 1,000x, debuting image-generation model Un-0 [ ~ ] [ ◼ ]",
-      "content_text": "Unconventional AI, founded by former Databricks AI chief Naveen Rao, has introduced Un-0, an image-generation model that demonstrates the company's new oscillator-based computing architecture. This innovative approach aims to drastically reduce AI power consumption by up to 1,000 times compared to traditional systems. Un-0 operates on a software simulation of this architecture and matches the performance of current state-of-the-art diffusion models. The company plans to develop physical chips based on this design and build a complete inference stack to provide AI compute capacity with significantly lower energy requirements. Rao emphasizes that energy efficiency will be a critical constraint for AI scaling in the near future, positioning Unconventional AI's technology as a potential solution to the growing power demands of AI workloads.",
-      "date_published": "2026-06-25T16:48:11Z"
-    },
-    {
-      "id": "sty_a3c2c089c1312ec4",
-      "url": "https://the-decoder.com/most-major-ai-chatbots-still-lean-left-on-political-questions-even-anti-woke-models-are-no-exception/",
-      "title": "Washington Post investigation finds most major AI chatbots lean left on political questions, including 'anti-woke' models, with Google's Gemini 3.1 Pro as the balanced exception [ ~ ] [ ◻ ]",
-      "content_text": "A Washington Post investigation found that most major AI chatbots tend to lean left on political questions, including those marketed as conservative or \"anti-woke.\" OpenAI's GPT-5.5 and Deepseek V4 Pro showed strong left-leaning biases, with 80% and 70% of their responses respectively presenting exclusively left-leaning arguments. Even chatbots like xAI's Grok and Gab's Arya, which are positioned as conservative alternatives, leaned left more often than not. Google's Gemini 3.1 Pro was the notable exception, presenting balanced perspectives in 93% of cases. The investigation involved posing political questions to six leading AI models, revealing consistent left-leaning tendencies across most platforms. While Grok showed some right-leaning responses on specific topics aligned with its creator Elon Musk's views, it still predominantly favored left-leaning answers. The findings highlight ongoing challenges in achieving political neutrality in AI chatbots, with Google's Gemini standing out for its more balanced approach.",
-      "date_published": "2026-06-25T16:04:32Z"
-    },
-    {
-      "id": "sty_63611155640586d0",
-      "url": "https://openai.com/index/how-agents-are-transforming-work",
-      "title": "OpenAI research shows AI agents like Codex are transforming work by enabling longer, complex tasks and expanding productivity across technical and non-technical roles by mid-2026 [ ! ] [ ⬢ ]",
-      "content_text": "A recent OpenAI research paper highlights how AI agents like Codex are revolutionizing work by enabling users to delegate longer, more complex tasks and significantly boosting productivity across both technical and non-technical roles. By mid-2026, Codex had become the primary AI tool across all departments at OpenAI, including Legal and Recruiting, with widespread adoption beyond engineering teams. The study shows that users increasingly rely on Codex for tasks requiring extended effort, with many requests corresponding to work that would take humans over an hour or more. Non-developer adoption has surged, and employees are using Codex to perform tasks outside their traditional job descriptions, such as coding and technical execution, demonstrating the expanding capabilities and accessibility of agentic AI tools in the workplace.",
-      "date_published": "2026-06-25T02:00:00Z"
-    },
-    {
-      "id": "sty_c4fcb1d663d499c8",
-      "url": "https://futurism.com/artificial-intelligence/peppa-pig-owner-child-actors-voice-rights-ai",
-      "title": "Hasbro requires Peppa Pig child actors to sign contracts surrendering AI voice rights amid industry backlash",
-      "content_text": "Hasbro, the owner of the children's series \"Peppa Pig,\" is requiring child voice actors to sign contracts that surrender their rights to the use of their voices for artificial intelligence purposes. This move has sparked backlash from industry advocacy groups, who argue that children cannot provide fully informed consent for such agreements and that their voices should be exempt from AI usage. The Agents of Young Performers Association has led a public campaign opposing these contract terms, emphasizing the need for careful consent when it involves minors. Hasbro has responded by stating its commitment to protecting child performers' rights and addressing AI-related concerns responsibly, though it declined to comment on specific contract negotiations. The controversy highlights broader industry tensions as studios increasingly seek to use AI technology in voice acting and animation, raising questions about the rights and protections of performers, especially children, in the evolving entertainment landscape.",
-      "date_published": "2026-06-25T19:54:33Z"
-    },
-    {
-      "id": "sty_9417f31efb02d2ce",
-      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/google-play-updates-uk-developers/",
-      "title": "Google updates Play Store business model in the UK to lower fees and allow developers to use their own billing systems starting June 30",
-      "content_text": "Google is updating its Play Store business model in the UK starting June 30, introducing lower service fees and allowing developers to use their own billing systems or direct users to their websites for digital content purchases. These changes aim to provide more choice for developers and Android users while addressing concerns raised by the UK's Competition and Markets Authority (CMA). In addition to the fee reductions, developers can participate in new user-focused programs like the revamped Games Level Up and Apps Experience Programs, which offer even lower rates beginning September 30. Later this year, Google plans to launch a Registered App Stores program to simplify the installation process for app stores that meet safety standards. These updates build on Google's commitment to supporting UK developers, who currently generate over £9.9 billion in revenue on Android.",
-      "date_published": "2026-06-25T11:00:00Z"
-    },
-    {
-      "id": "sty_779afa12c9184ff4",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPY3pVcDVFU0tvVDdGNUNPaG5NZVNEd3pvR0JlOTNTTk9lUFhPemNpTnJ5VDJ5WHRJQ2pIaXNCYVVhb3VZUUg5SFdrSTlrNk03WHl0bFVmNmlKckZNMmp1TDlaYnBfSVQ4YXFyb0xVcjhqMXY3Y01MRW0zQ3Q5SmNDSUNuQ1dHaHFqMDIxdDVpbHNRX3BpM3BR?oc=5",
-      "title": "Bill Gates warns AI will disrupt the economy but doubts public interest in AI competitions between computers [ ~ ] [ ◻ ]",
-      "content_text": "Bill Gates has warned that artificial intelligence will significantly disrupt the economy, highlighting the transformative impact AI technologies are expected to have. However, he expressed skepticism about the public's interest in AI competitions, such as contests between computers, suggesting that such events may not capture widespread attention. Gates' comments reflect ongoing discussions about the economic and social implications of AI advancements, emphasizing both the potential challenges and the limits of public engagement with AI beyond practical applications.",
-      "date_published": "2026-06-25T19:37:09Z"
-    },
-    {
-      "id": "sty_a4f18cda186efa32",
-      "url": "https://www.bloomberg.com/news/articles/2026-06-25/ford-has-been-rehiring-quality-inspectors-after-ai-fell-short",
-      "title": "Ford rehiring experienced quality inspectors after AI inspection systems fall short",
-      "content_text": "Ford has begun rehiring experienced quality inspectors after its AI-based inspection systems failed to meet expectations. The company found that the automated technology was not sufficiently reliable for ensuring vehicle quality, prompting a return to human expertise in the inspection process. This move highlights the challenges automakers face in fully replacing manual quality checks with artificial intelligence.",
-      "date_published": "2026-06-25T14:58:50Z"
-    },
-    {
-      "id": "sty_b63fb72e5327d114",
-      "url": "https://techcrunch.com/2026/06/25/netris-raises-15m-series-a-from-a16z-to-help-ai-neoclouds-go-live-faster/",
-      "title": "Netris raises $15 million Series A from Andreessen Horowitz to accelerate AI neocloud deployment with network automation software",
-      "content_text": "Netris, a network automation startup, has raised $15 million in a Series A funding round led by Andreessen Horowitz to accelerate deployment of AI-focused neocloud data centers. The company offers software that runs on network switches and a platform that automates setup, configuration, and operations, significantly reducing the time it takes for neocloud operators to go live. This solution addresses the complex challenge of configuring data centers for AI inference and training, enabling multi-tenancy and hardware-accelerated networking. Netris' platform is vendor-agnostic and compatible with major networking equipment used in data centers, supporting both Nvidia and AMD servers. The company is already operational in over 35 GPU clusters worldwide, including clients like Lightning AI, Foxconn, and Hewlett Packard Enterprise. Unlike many AI-related startups, Netris relies on established algorithms developed prior to the AI boom, focusing on deterministic and repeatable network automation rather than creative AI approaches. With the new funding, Netris plans to expand its engineering and sales teams, support additional hardware vendors, and enhance its automation algorithms. Andreessen Horowitz partner Guido Appenzeller will join Netris' board, signaling strong investor confidence in the company's approach to simplifying and accelerating AI neocloud deployments.",
-      "date_published": "2026-06-25T14:55:38Z"
-    },
-    {
-      "id": "sty_72a927d4a41322f6",
-      "url": "https://the-decoder.com/insurers-turn-to-generative-ai-for-catastrophe-modeling-but-hallucinations-and-sales-logic-could-get-in-the-way/",
-      "title": "Insurers adopt generative AI for catastrophe modeling to generate extensive weather scenarios, but hallucinations and sales-driven model choices pose challenges [ ~ ] [ ◼ ]",
-      "content_text": "Insurers are increasingly using generative AI, specifically diffusion models, to create extensive synthetic weather scenarios for catastrophe modeling, aiming to improve risk assessment where historical data is limited. Companies like Fathom and Verisk employ these AI techniques to generate and refine thousands of plausible weather events, enhancing the precision of models for extreme weather phenomena such as hurricanes and floods. While these AI-driven models offer more detailed insights, challenges remain, including the risk of hallucinations-AI-generated events that defy physical laws-and the influence of sales-driven preferences that may favor models predicting lower losses. This tension raises questions about whether improved modeling will lead to more accurate insurance premiums or be constrained by business interests prioritizing market expansion over scientific accuracy.",
-      "date_published": "2026-06-25T14:13:14Z"
-    },
-    {
-      "id": "sty_6ca4a51dd2afaf16",
-      "url": "https://futurism.com/artificial-intelligence/softbank-ceo-blasphemy-ai-bubble",
-      "title": "SoftBank CEO Masayoshi Son calls AI bubble warnings blasphemy, defends $64 billion investment in OpenAI and says AI's potential is just beginning [ ~ ] [ ◻ ]",
-      "content_text": "SoftBank CEO Masayoshi Son has dismissed concerns about an AI bubble as \"blasphemy,\" defending the company's $64 billion investment in OpenAI and expressing strong confidence in AI's future potential. Speaking at SoftBank's annual general meeting, Son emphasized that AI's development is just beginning and compared the current AI revolution to being significantly larger than the dot-com boom of the late 1990s. Despite Son's optimism, some SoftBank insiders have expressed unease about the massive investment, fearing it could backfire given OpenAI's high cash burn rate and operational challenges. Son acknowledged the possibility of market corrections but viewed them as opportunities for long-term growth, drawing parallels to historical recoveries after major economic crashes.",
-      "date_published": "2026-06-25T18:52:29Z"
-    },
-    {
-      "id": "sty_4522df485152cdbe",
-      "url": "https://the-decoder.com/grok-ai-is-reportedly-a-porn-platform-now-with-over-half-its-traffic-tied-to-adult-content/",
-      "title": "Former xAI employees say Grok AI traffic is over 50% adult content as xAI expands image and video generation despite industry reluctance [ ~ ] [ ◻ ]",
-      "content_text": "Two former employees of xAI have reported that more than half of the traffic on Grok AI, the company's platform, is related to adult content including pornographic images, videos, and roleplay chats. Unlike other major AI companies such as OpenAI, Anthropic, and Google, which avoid adult content, xAI is actively expanding Grok's capabilities in image and video generation to cater to this demand. This trend became evident earlier in the year when users generated pornographic images of real people on the platform, prompting regulatory scrutiny. The situation reportedly caused discomfort among some researchers at xAI, and all co-founders have since left the company. Despite this, Grok AI continues to grow, generating billions of images and videos monthly, and xAI is renting its GPU resources to Anthropic.",
-      "date_published": "2026-06-25T13:40:46Z"
-    },
-    {
-      "id": "sty_76928a099ed2f38f",
-      "url": "https://blog.google/company-news/outreach-and-initiatives/public-policy/white-paper-ai-regulation/",
-      "title": "Google publishes white paper proposing a pragmatic, evidence-based approach to AI governance balancing safety and innovation in the US [ ~ ] [ ◻ ]",
-      "content_text": "Google has released a white paper proposing a balanced, evidence-based approach to AI governance in the US that aims to avoid the extremes of over-regulation and no regulation. The paper suggests establishing an independent, federally overseen organization to set safety standards and conduct voluntary audits for advanced frontier AI models, while adapting existing laws to address social and economic impacts of widely used AI applications. This approach seeks to protect public safety without hindering innovation, addressing challenges such as child safety, copyright, and workforce transitions. Google hopes this framework will contribute to ongoing discussions about effective AI regulation and ensure broad benefits from AI technologies.",
-      "date_published": "2026-06-25T09:00:00Z"
-    },
-    {
-      "id": "sty_44a0f11e45bdfb16",
-      "url": "https://blog.google/products-and-platforms/products/education/iste-students-2026/",
-      "title": "Google launches connected AI tools including Gemini study notebooks and no-cost practice ACT and GRE tests to personalize student learning and test preparation [ * ] [ ◼ ]",
-      "content_text": "Google has introduced new connected AI tools aimed at enhancing personalized learning and test preparation for students. These include Gemini study notebooks, which create adaptive, interactive lessons tailored to individual learning goals, and no-cost practice tests for the ACT and GRE developed in partnership with The Princeton Review. These tools are designed to help students identify knowledge gaps and improve their study effectiveness. The Gemini study notebooks allow students to upload materials, take diagnostic quizzes, and receive customized lesson plans that update based on their progress. Additionally, these notebooks integrate with NotebookLM for further study support. Google Classroom is also incorporating Gemini to provide safe, AI-driven learning experiences grounded in course materials, with features enabling teachers to assign personalized study notebooks and monitor student progress. These innovations aim to make learning more accessible and effective across various educational settings.",
-      "date_published": "2026-06-25T09:00:00Z"
-    },
-    {
-      "id": "sty_408d645b6c0ec2ed",
-      "url": "https://futurism.com/artificial-intelligence/customers-fed-up-ai-service-agents",
-      "title": "Survey finds over half of US consumers avoid AI customer service agents and may switch brands after three minutes of automated interaction [ * ] [ ◻ ]",
-      "content_text": "A recent survey by customer service AI company Parloa reveals that over half of U.S. consumers actively try to avoid interacting with AI customer service agents, with many willing to switch brands after just three minutes of automated interaction. The study found that frustration with bots that fail to understand users ranks higher than long hold times or multiple transfers, highlighting significant dissatisfaction with current AI service experiences. Despite this, 85% of respondents expressed willingness to embrace automated systems if they reliably resolved issues, indicating potential for improvement. However, trust in AI handling complex requests remains low, with 30.4% expressing no trust at all. The findings underscore growing consumer exhaustion and impatience with ineffective AI customer service, signaling challenges for companies relying on automated agents to maintain brand loyalty.",
-      "date_published": "2026-06-25T17:47:51Z"
-    },
-    {
-      "id": "sty_ff5fe42d0a9a4505",
-      "url": "https://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash/",
-      "title": "Google DeepMind integrates computer use into Gemini 3.5 Flash to enable cross-platform agent interactions and improve enterprise automation tasks [ * ] [ ◼ ]",
-      "content_text": "Google DeepMind has integrated computer use capabilities directly into its Gemini 3.5 Flash model, enhancing its ability to build agents that operate across browser, mobile, and desktop platforms. This integration improves performance for complex tasks such as continuous software testing and enterprise automation, allowing agents to see, reason, and act within various environments. The feature is accessible through the Gemini API and the Gemini Enterprise Agent Platform. To ensure safety in live environments, DeepMind has implemented targeted adversarial training and introduced enterprise safeguards that require user confirmation for sensitive actions and can halt tasks if prompt injection is detected. These measures complement other security practices like sandboxing and human oversight. Early adopters have reported positive results, and developers can begin experimenting with computer use through available demos and documentation.",
-      "date_published": "2026-06-24T16:30:01Z"
-    },
-    {
-      "id": "sty_02d3200ad3bd037c",
-      "url": "https://www.wired.com/story/fifa-world-cup-2026-artificial-intelligence-tools/",
-      "title": "FIFA provides AI agent to all teams at 2026 World Cup aiming to level playing field amid concerns over resource disparities in AI tools [ * ] [ ◼ ]",
-      "content_text": "FIFA is introducing a bespoke AI agent powered by Lenovo for all teams at the 2026 World Cup to help level the playing field amid growing disparities in access to advanced data analytics. This AI tool aims to provide teams, regardless of their resources, with sophisticated data analysis capabilities that have become integral to modern soccer strategy and player evaluation. The tournament will feature unprecedented data collection, including 150 million data points per match and sensors inside the ball tracking its motion in detail. While larger teams often have extensive analytics departments, smaller nations have also leveraged technology innovatively, such as Curaçao using data for diaspora tracking to build their squad. However, the cost and expertise required to utilize AI tools remain challenges, raising questions about whether FIFA's provision will fully bridge the gap between wealthier and less-resourced teams. The use of AI in soccer is transforming how teams prepare and compete, from tactical analysis to player scouting and penalty shootout strategies. Yet, the abundance of data also demands skilled analysts to distill actionable insights, highlighting that technology alone may not determine future winners but rather how effectively teams integrate these tools into their decision-making processes.",
-      "date_published": "2026-06-25T11:00:00Z"
-    },
-    {
-      "id": "sty_6bccf7abaa14b5b6",
-      "url": "https://www.infoq.com/news/2026/06/cloudflare-one-stack-agents/",
-      "title": "Cloudflare releases Cloudflare One stack, an open-source library of AI agent skills for Zero Trust deployment and automated migration from Zscaler and Palo Alto Networks [ * ] [ ◼ ]",
-      "content_text": "Cloudflare has launched the Cloudflare One stack, an open-source library of AI agent skills designed to assist in planning, deploying, managing, and migrating Zero Trust environments. This library includes automated migration capabilities specifically for transitioning from Zscaler and Palo Alto Networks, using the same logic as Cloudflare's Descaler program, which has enabled rapid enterprise migrations. The stack provides structured knowledge and decision trees that help AI agents handle tasks such as VPN replacement, user and network security, and connectivity management. It supports a review-before-apply workflow to ensure security teams maintain control over configuration changes. Available on GitHub, the Cloudflare One stack aims to streamline Zero Trust deployments and reduce manual effort for both customers and partners, with ongoing development of additional migration and troubleshooting skills.",
-      "date_published": "2026-06-25T09:27:00Z"
     }
   ]
 }
