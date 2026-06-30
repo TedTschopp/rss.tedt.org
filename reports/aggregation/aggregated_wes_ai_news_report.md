@@ -1,6 +1,6 @@
 # Aggregated Feed Health Report: aggregated_wes_ai_news.xml
 
-Generated: 2026-06-29T18:03:11.357075+00:00 UTC
+Generated: 2026-06-30T02:28:50.721260+00:00 UTC
 
 - Total sources: 1
 - Attempted: 1  Skipped: 0  Failures: 0  With Items: 1  Recovered: 0
