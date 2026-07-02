@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-07-02T10:42:55.670566+00:00",
+  "timestamp": "2026-07-02T17:39:52.463969+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Thu, 02 Jul 2026 10:28:33 +0000",
-      "size_bytes": 41109,
+      "last_updated": "Thu, 02 Jul 2026 17:26:47 +0000",
+      "size_bytes": 41418,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
@@ -23,8 +23,8 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 30,
-      "last_updated": "Thu, 02 Jul 2026 10:28:38 +0000",
-      "size_bytes": 16388,
+      "last_updated": "Thu, 02 Jul 2026 17:26:52 +0000",
+      "size_bytes": 16360,
       "errors": []
     },
     "aggregated_wes_ai_news_archive.xml": {
@@ -41,7 +41,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 11,
-      "last_updated": "Thu, 02 Jul 2026 10:29:02 +0000",
+      "last_updated": "Thu, 02 Jul 2026 17:27:23 +0000",
       "size_bytes": 12175,
       "errors": []
     },
@@ -49,7 +49,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 125,
-      "last_updated": "Thu, 02 Jul 2026 10:29:02 +0000",
+      "last_updated": "Thu, 02 Jul 2026 17:27:23 +0000",
       "size_bytes": 161042,
       "errors": []
     },
@@ -57,15 +57,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Thu, 02 Jul 2026 10:30:45 +0000",
-      "size_bytes": 220342,
+      "last_updated": "Thu, 02 Jul 2026 17:28:38 +0000",
+      "size_bytes": 227077,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 649,
-      "last_updated": "Thu, 02 Jul 2026 10:30:45 +0000",
+      "last_updated": "Thu, 02 Jul 2026 17:28:38 +0000",
       "size_bytes": 335211,
       "errors": []
     }
@@ -92,28 +92,21 @@
     },
     "aggregated_broad_ai_news.xml": {
       "total_sources": 21,
-      "attempted": 15,
-      "skipped": 6,
+      "attempted": 14,
+      "skipped": 7,
       "with_items": 9,
-      "failures": 1,
+      "failures": 0,
       "recovered": 0,
-      "failure_rate": 6.67
+      "failure_rate": 0.0
     }
   },
   "pruning_suggestions": [
     {
       "feed": "aggregated_ea.xml",
       "url": "https://eapj.org/feed",
-      "consecutive_failures": 3,
-      "last_status": 304,
-      "last_error_excerpt": ""
-    },
-    {
-      "feed": "aggregated_broad_ai_news.xml",
-      "url": "https://www.marktechpost.com/feed",
-      "consecutive_failures": 5,
+      "consecutive_failures": 4,
       "last_status": "exception",
-      "last_error_excerpt": "not well-formed (invalid token): line 1, column 116"
+      "last_error_excerpt": "http 403"
     }
   ],
   "pipeline_health": {
@@ -124,8 +117,8 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 1729,
-      "clusters": 1724
+      "stories": 1787,
+      "clusters": 1782
     },
     "llm_status": {
       "status": "ok",
