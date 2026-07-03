@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-07-02T17:39:52.463969+00:00",
+  "timestamp": "2026-07-03T02:14:57.924186+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Thu, 02 Jul 2026 17:26:47 +0000",
+      "last_updated": "Fri, 03 Jul 2026 01:59:31 +0000",
       "size_bytes": 41418,
       "errors": []
     },
@@ -22,10 +22,12 @@
     "aggregated_wes_ai_news.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 30,
-      "last_updated": "Thu, 02 Jul 2026 17:26:52 +0000",
-      "size_bytes": 16360,
-      "errors": []
+      "entry_count": 0,
+      "last_updated": "Fri, 03 Jul 2026 01:59:39 +0000",
+      "size_bytes": 582,
+      "errors": [
+        "No entries in RSS feed"
+      ]
     },
     "aggregated_wes_ai_news_archive.xml": {
       "exists": false,
@@ -41,7 +43,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 11,
-      "last_updated": "Thu, 02 Jul 2026 17:27:23 +0000",
+      "last_updated": "Fri, 03 Jul 2026 02:00:01 +0000",
       "size_bytes": 12175,
       "errors": []
     },
@@ -49,7 +51,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 125,
-      "last_updated": "Thu, 02 Jul 2026 17:27:23 +0000",
+      "last_updated": "Fri, 03 Jul 2026 02:00:01 +0000",
       "size_bytes": 161042,
       "errors": []
     },
@@ -57,15 +59,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Thu, 02 Jul 2026 17:28:38 +0000",
-      "size_bytes": 227077,
+      "last_updated": "Fri, 03 Jul 2026 02:01:30 +0000",
+      "size_bytes": 221641,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 649,
-      "last_updated": "Thu, 02 Jul 2026 17:28:38 +0000",
+      "last_updated": "Fri, 03 Jul 2026 02:01:30 +0000",
       "size_bytes": 335211,
       "errors": []
     }
@@ -76,10 +78,10 @@
       "total_sources": 1,
       "attempted": 1,
       "skipped": 0,
-      "with_items": 1,
-      "failures": 0,
+      "with_items": 0,
+      "failures": 1,
       "recovered": 0,
-      "failure_rate": 0.0
+      "failure_rate": 100.0
     },
     "aggregated_ea.xml": {
       "total_sources": 7,
@@ -105,8 +107,8 @@
       "feed": "aggregated_ea.xml",
       "url": "https://eapj.org/feed",
       "consecutive_failures": 4,
-      "last_status": "exception",
-      "last_error_excerpt": "http 403"
+      "last_status": 304,
+      "last_error_excerpt": ""
     }
   ],
   "pipeline_health": {
@@ -117,8 +119,8 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 1787,
-      "clusters": 1782
+      "stories": 2291,
+      "clusters": 2286
     },
     "llm_status": {
       "status": "ok",
