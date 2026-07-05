@@ -7,81 +7,186 @@
   "language": "en",
   "items": [
     {
-      "id": "sty_ac70763c93af450b",
-      "url": "https://www.wafer.ai/blog/glm52-amd",
-      "title": "Wafer.ai reports AMD GPUs deliver up to 2.75x better performance per dollar than NVIDIA Blackwell for inference workloads despite slower day-0 support [ * ] [ ◼ ]",
-      "content_text": "Wafer.ai reports that AMD's Instinct MI355X GPUs offer up to 2.75 times better performance per dollar than NVIDIA's Blackwell GPUs for inference workloads, despite slower initial software support. While NVIDIA benefits from day-0 software compatibility that accelerates deployment, AMD's hardware provides a cost-effective alternative as demand for inference grows rapidly with new frontier models. Wafer.ai demonstrated competitive throughput on AMD GPUs by optimizing quantization and inference frameworks, narrowing the performance gap through engineering efforts. The company detailed their approach using MXFP4 quantization and the sglang inference engine, overcoming initial software limitations such as lack of speculative decode support on AMD's ROCm stack. By tuning kernel selections and configurations, they achieved significant improvements in throughput, making AMD GPUs a viable and economical option for large-scale inference tasks. This development suggests increasing competition in the GPU market for AI workloads, potentially influencing pricing and adoption trends.",
-      "date_published": "2026-07-03T21:49:06Z"
+      "id": "sty_41bfcc161b1ac649",
+      "url": "https://simonwillison.net/2026/Jul/4/better-models-worse-tools/",
+      "title": "Simon Willison reports newer Anthropic Claude models produce more malformed tool calls with Pi's edit tool despite improved editing capabilities [ ~ ] [ ◻ ]",
+      "content_text": "Simon Willison reports that newer Anthropic Claude models, such as Opus 4.8 and Sonnet 5, are producing more malformed tool calls when using Pi's edit tool, despite improvements in their editing capabilities. These models sometimes include extra, invented fields in the edits array, causing Pi to reject the tool calls due to schema mismatches. This issue is surprising because it is more prevalent in the latest state-of-the-art models compared to older versions. The problem may stem from recent Anthropic models being specifically trained, possibly through reinforcement learning, to better utilize the edit tools integrated into Claude Code. However, this training appears to reduce compatibility with third-party tools like Pi, which have their own custom edit tool schemas. This raises questions about whether third-party coding platforms need to implement multiple edit tools to accommodate different model behaviors and improve performance.",
+      "date_published": "2026-07-04T22:53:52Z"
     },
     {
-      "id": "sty_2f7d2e0c7b1d0e0f",
-      "url": "https://mistral.ai/news/leanstral-1-5/",
-      "title": "Mistral AI releases Leanstral 1.5, a free Apache-2.0 licensed 6B-parameter model achieving state-of-the-art formal verification results and uncovering bugs in real-world code [ * ] [ ◼ ]",
-      "content_text": "Mistral AI has released Leanstral 1.5, a free, Apache-2.0 licensed model with 6 billion active parameters that achieves state-of-the-art results in formal verification. The model excels in solving complex mathematical problems and verifying real-world code, uncovering previously unknown bugs across multiple open-source repositories. Leanstral 1.5 is fully open-sourced and accessible via Hugging Face and a free API, making advanced proof engineering more practical and widely available. The model underwent a three-stage training process involving mid-training, supervised fine-tuning, and reinforcement learning, enabling it to handle long-horizon proof tasks and real-time code verification. It saturates the miniF2F benchmark, solves 587 out of 672 PutnamBench problems, and achieves top scores on FATE-H and FATE-X benchmarks. Leanstral 1.5 also demonstrates strong scaling performance, improving its problem-solving ability with increased computational budget. This release highlights the potential for rigorous formal methods to be effectively applied in practical software verification and mathematical proof engineering. By lowering costs and increasing accessibility, Leanstral 1.5 could significantly impact the development and verification of reliable software systems and complex mathematical proofs.",
-      "date_published": "2026-07-03T22:33:10Z"
+      "id": "sty_f18ebe23e0373afc",
+      "url": "https://github.com/openai/codex/issues/30364",
+      "title": "Researchers find GPT-5.5 Codex responses cluster at fixed reasoning token counts, possibly causing degraded performance on complex tasks from February to June 2026 [ ~ ] [ ◻ ]",
+      "content_text": "Researchers analyzing Codex token count data have identified a pattern in GPT-5.5 responses where reasoning output tokens cluster at fixed counts of 516, 1034, and 1552. This clustering is model-specific and coincides with a decrease in overall reasoning-token intensity, potentially explaining degraded performance on complex tasks observed between February and June 2026. The anomaly suggests a thresholded reasoning-budget behavior unique to GPT-5.5, differing significantly from other models. The investigation highlights that GPT-5.5 accounts for a disproportionate share of responses ending exactly at 516 reasoning tokens, with this pattern intensifying over time despite a general decline in reasoning-token usage. These fixed token counts appear as repeated boundaries rather than natural variations, raising questions about internal mechanisms such as reasoning-budget limits, truncation, or fallback behaviors. The findings call for further examination by the Codex team to determine whether these fixed token counts represent normal stopping points or indicate performance constraints within GPT-5.5.",
+      "date_published": "2026-07-04T21:51:09Z"
     },
     {
-      "id": "sty_849e24aeaeaf49cf",
-      "url": "https://activegraph.ai/blog/activegraph-v1-2-0",
-      "title": "ActiveGraph releases v1.2.0 with pluggable graph projection and FalkorDB backend, achieving up to 30x speedup on structural queries",
-      "content_text": "ActiveGraph has released version 1.2.0, introducing a pluggable graph projection system with FalkorDB as the first external backend. This update allows the materialized graph to be stored outside of process memory, enabling native edges, Cypher query push-down, and significantly faster structural queries, achieving up to a 30-fold speed increase on complex graph operations. The event log remains the source of truth, while the projection is now a disposable view, improving scalability and flexibility. The release also includes a conformance suite for future backends, continuous integration testing on Python 3.11 and 3.12, and a unified Apache 2.0 license. FalkorDBGraphStore supports real graph database features visible in the FalkorDB Browser, and structural queries now scale with the result size rather than the entire graph, reducing query times dramatically. This architectural enhancement was driven by community contributions and marks a significant evolution in ActiveGraph's design.",
-      "date_published": "2026-07-04T16:09:34Z"
+      "id": "sty_4c0d378a4a876120",
+      "url": "https://ekinertac.com/blog/i-dont-know-rust-my-ai-is-rewriting-php-in-it/",
+      "title": "Developer's AI-built PHP engine in Rust passes 17% of PHP-src tests and renders WordPress front page without using PHP source code [ ~ ] [ ◻ ]",
+      "content_text": "A developer has created a PHP engine called Phargo, written entirely in Rust without using any PHP source code, with the help of AI. This engine has passed 17% of the official PHP test suite and successfully rendered a WordPress front page, demonstrating significant progress despite the developer's limited knowledge of Rust and PHP internals. The project relies on an AI-driven development loop where the AI writes code, runs the extensive PHP test suite of over 22,000 tests, and the developer approves or requests revisions based on test results. The test suite serves as an objective measure of progress, with the current pass rate reflecting the engine's growing compatibility with PHP features, excluding certain C extensions that are out of scope. Challenges encountered include handling test environment differences such as line ending normalization and managing resource-intensive tests that caused system crashes. The developer emphasizes the importance of accurate test measurement and continuous refinement to improve the engine's reliability and coverage.",
+      "date_published": "2026-07-04T21:35:30Z"
     },
     {
-      "id": "sty_049de5c28b2c40b9",
-      "url": "https://www.reuters.com/technology/chinas-ubtech-launches-ai-powered-lifelike-companion-robots-2026-07-02/",
-      "title": "China's Ubtech launches AI-powered lifelike humanoid companion robots in 2026",
-      "content_text": "Chinese robotics company Ubtech has announced plans to launch AI-powered humanoid companion robots in 2026. These lifelike robots are designed to provide companionship and interact naturally with users, leveraging advanced artificial intelligence technologies. The development marks a significant step in the integration of AI and robotics for personal use.",
-      "date_published": "2026-07-04T15:29:29Z"
+      "id": "sty_aed1750aad21103b",
+      "url": "https://www.abc.net.au/news/2026-07-05/lily-jay-foundation-posts-ai-generated-misleading-videos/106866422",
+      "title": "ABC News Verify finds Lily Jay Foundation posted AI-generated videos and images falsely depicting charitable activities and orphanage in Uganda [ * ] [ ◻ ]",
+      "content_text": "ABC News Verify has revealed that the Lily Jay Foundation posted videos and images generated by artificial intelligence that falsely depict charitable activities and an orphanage in Uganda. The investigation found that the woman and children shown in the videos, as well as the foundation's banners, were AI fabrications, and there is no official record of the orphanage's registration in Uganda. The foundation has not responded to inquiries, and no independent evidence supports the existence of the claimed aid projects. The foundation's social media and website have promoted various humanitarian initiatives in regions including Nepal, Gaza, Uganda, and Sudan, often accompanied by AI-generated content. A press release announcing a humanitarian award for Lily Jay was also found to contain AI-generated images. Experts note that such orphanage-related imagery can exploit public goodwill, and the blending of real and AI-generated footage complicates verification of the foundation's claims. This case highlights the challenges posed by AI-generated misinformation in charitable contexts, raising concerns about donor deception and the need for greater scrutiny of online humanitarian appeals.",
+      "date_published": "2026-07-04T21:50:14Z"
     },
     {
-      "id": "sty_2fa7642d413a87de",
-      "url": "https://medium.com/@alanscottencinas/the-scale-wall-why-ai-gurus-are-building-toys-while-the-world-needs-architects-1d4f354bc6f4",
-      "title": "AI experts focus on building small-scale tools while enterprise systems struggle with scaling and architecture challenges [ * ] [ ◼ ]",
-      "content_text": "AI experts often focus on creating small-scale, flashy tools and prototypes, while many enterprise AI systems struggle with scaling and architectural challenges. Despite initial success with simple AI applications, businesses frequently encounter a \"scale wall\" where these systems fail under real-world volume due to fragile, inefficient designs rather than model limitations. An AI consultant's experience auditing various companies reveals a common pattern: enterprises build brittle, linear AI pipelines that consume excessive compute resources and cannot handle growth. The article outlines a detailed hierarchy of AI project maturity, from basic prompting to fully autonomous, self-optimizing frameworks, emphasizing the need for deeper architectural rigor and infrastructure to support scalable, reliable AI systems. This gap between popular AI tutorials and the demands of production environments highlights the importance of moving beyond novelty projects to develop robust, scalable AI architectures. Addressing these challenges is crucial for enterprises aiming to leverage AI effectively at scale and avoid system failures as usage grows.",
-      "date_published": "2026-07-04T14:49:54Z"
+      "id": "sty_446cd62de50f151e",
+      "url": "https://startupfortune.com/nvidia-has-quietly-become-the-bank-behind-the-ai-boom/",
+      "title": "Nvidia expands beyond GPU sales to finance AI infrastructure deployments, sharing revenue and utilisation risk with cloud providers in new strategic shift [ * ] [ ◼ ]",
+      "content_text": "Nvidia is expanding its role beyond selling GPUs by financing AI infrastructure deployments and sharing revenue and utilization risks with cloud providers. This strategic shift involves helping smaller cloud companies purchase GPUs, renting back unused capacity, and taking a share of the revenue generated, marking a move from a traditional hardware supplier to a financial partner in the AI ecosystem. This approach includes significant projects like deploying hundreds of thousands of GPUs in Indonesia and Australia, with Nvidia's CFO endorsing the program, indicating a long-term strategy rather than isolated deals. By financing infrastructure and guaranteeing utilization, Nvidia aims to create ongoing revenue streams, diversifying its business model beyond one-time hardware sales. While this model benefits Nvidia by extending its income potential, it also exposes the company to operational risks traditionally borne by its customers, including major cloud providers like Amazon, Microsoft, and Google. The success and impact of this financing strategy will depend on future market conditions and demand for AI infrastructure.",
+      "date_published": "2026-07-04T23:59:06Z"
     },
     {
-      "id": "sty_6b0c8e6429d4edeb",
-      "url": "https://www.youtube.com/watch?v=aE3gPh2CC9I",
-      "title": "Anthropic co-founder and chief economist discuss research approaches and challenges at the AI frontier in new video [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic's co-founder and chief economist share insights in a new video about their research strategies and the complexities involved in advancing artificial intelligence. They discuss the challenges and potential opportunities encountered while working at the cutting edge of AI technology development.",
-      "date_published": "2026-07-04T16:28:32Z"
+      "id": "sty_af1d31fd65374f86",
+      "url": "https://www.scmp.com/tech/big-tech/article/3359335/alibabas-elements-claw-ai-agent-unearths-four-new-superconductors",
+      "title": "Alibaba's Damo Academy launches Elements Claw AI agent that discovered four new superconductors verified by lab tests [ ~ ] [ ◻ ]",
+      "content_text": "Alibaba Group's Damo Academy has introduced Elements Claw, an AI agent designed to discover new superconducting materials. The system has successfully identified four previously unknown superconductors, which were confirmed through laboratory testing, marking a significant advancement in materials science research. Developed in collaboration with Renmin University of China and the University of Chinese Academy of Sciences, Elements Claw uses a one-billion-parameter foundation model trained on 125 million molecular and crystal structures. It rapidly screened 2.4 million stable crystal structures, narrowing down 68,000 candidates to the most promising for physical testing, thereby accelerating the traditionally slow and experimental process of superconductor discovery.",
+      "date_published": "2026-07-05T00:00:43Z"
     },
     {
-      "id": "sty_de76c85a39002c85",
-      "url": "https://www.dbreunig.com/2026/07/03/ai-ecosytem-pace-layers.html",
-      "title": "Analysis of AI ecosystem dynamics using Stewart Brand's Pace Layers framework highlights friction from mismatched innovation speeds across sectors [ ~ ] [ ◻ ]",
-      "content_text": "An analysis of the AI ecosystem using Stewart Brand's Pace Layers framework reveals significant friction caused by mismatched innovation speeds across different sectors. The framework categorizes components by their rate of change, highlighting how faster-moving layers like data centers and AI models can outpace slower layers such as governance, culture, and energy production, leading to systemic tension. The article discusses how rapid advancements in AI infrastructure and models, driven by synthetic and hired data, are not adequately supported by slower-evolving institutions like universities and regulatory bodies. This imbalance creates challenges, including public backlash and operational difficulties, as the faster layers push boundaries without sufficient support or feedback from the foundational layers. The analysis underscores the importance of maintaining a balance between innovation speeds to ensure a resilient and sustainable AI ecosystem.",
-      "date_published": "2026-07-04T16:07:50Z"
+      "id": "sty_ea8b62cc6771a5f3",
+      "url": "https://github.com/anliberant/obsidian-ai-setup",
+      "title": "Obsidian AI Setup launches open-source tool to bootstrap personalized Obsidian vaults with AI-guided onboarding and multi-format import for AI agents [ ~ ] [ ◻ ]",
+      "content_text": "Obsidian AI Setup is an open-source tool that streamlines the creation of personalized Obsidian vaults tailored for AI agents. It transforms an empty vault into a structured, AI-ready knowledge base through an AI-guided onboarding process that organizes information across twelve categories and imports various document formats, enabling immediate AI understanding and use. The setup process includes a one-command bootstrap that establishes a production-ready folder structure and generates personalized context files instead of generic templates. Designed primarily for Claude Code but compatible with any Markdown-based AI system, Obsidian AI Setup aims to reduce repetitive explanations by building a long-term, evolving knowledge base that supports both human and AI workflows.",
+      "date_published": "2026-07-05T00:20:30Z"
     },
     {
-      "id": "sty_ce1b33fb69455135",
-      "url": "https://twitter.com/philhchen/status/2072793818945167475",
-      "title": "Phil Chen discusses how AI models challenge traditional career advice by outperforming tasks defined by loss functions, impacting education and job value [ ~ ] [ ◻ ]",
-      "content_text": "Phil Chen highlights how AI models excel at tasks that can be defined by loss functions, which are common in educational settings where problems have clear right or wrong answers. This development challenges traditional career advice and the value of conventional schooling, as AI increasingly outperforms humans in these well-defined tasks. Chen suggests that the future of valuable work will lie beyond what AI can easily optimize, prompting a reevaluation of education and job skills in the age of AI.",
-      "date_published": "2026-07-04T16:02:00Z"
+      "id": "sty_4b985177f91916e8",
+      "url": "https://fusionauth.io/articles/ai/ai-authentication-authorization",
+      "title": "FusionAuth explains how traditional authentication and authorization methods secure AI systems across retrieval-augmented generation, tool use, and agentic workflows [ * ] [ ◼ ]",
+      "content_text": "FusionAuth outlines how traditional authentication and authorization methods remain essential for securing AI systems across various applications, including retrieval-augmented generation (RAG), tool use, and agentic workflows. The article emphasizes that established identity and access control practices from the API era are directly applicable to AI, ensuring that AI actions are governed by deterministic identity verification rather than probabilistic outputs. Using a banking support scenario, the article explains how RAG systems must restrict document access based on user roles, how AI tools require controlled permissions to interact with databases and services, and how agentic systems need to maintain a clear chain of identity throughout autonomous workflows. FusionAuth illustrates these concepts with practical examples and highlights the importance of integrating identity management to prevent unauthorized data exposure and actions in AI-driven environments.",
+      "date_published": "2026-07-04T23:10:55Z"
     },
     {
-      "id": "sty_e3687b8e9cdf123e",
-      "url": "https://bambamramfan.github.io/ai-compass/",
-      "title": "Bambamramfan.github.io launches AI Compass, a new tool for AI navigation and guidance",
-      "content_text": "Bambamramfan.github.io has introduced AI Compass, a new tool designed to assist users in navigating and guiding artificial intelligence applications. The platform aims to provide clear direction and support for AI-related tasks, enhancing user interaction with AI technologies. Currently, the tool is accessible through the website and has garnered attention on platforms like Hacker News, indicating interest from the tech community. AI Compass represents a step toward more intuitive AI interfaces, potentially simplifying complex AI workflows for users.",
-      "date_published": "2026-07-04T16:00:47Z"
+      "id": "sty_ff0bfcd8654d8bce",
+      "url": "https://github.com/BotCoder254/limboo",
+      "title": "Limboo launches a local-first AI software development workspace focused on conversation-driven coding and project management rather than traditional AI IDE features [ ~ ] [ ◼ ]",
+      "content_text": "Limboo is a local-first desktop workspace designed to support AI-driven software development by focusing on conversation-driven coding and project management rather than traditional AI IDE features. It provides an integrated environment where a connected coding agent can manage projects, sessions, file watching, git operations, terminals, and memory, all within a single workspace centered around developer-agent interactions. Unlike conventional IDEs that revolve around files, Limboo emphasizes task-oriented conversations, allowing developers to instruct the agent with goals like \"implement authentication,\" while the system handles the underlying file and process management. The application operates without cloud sync, ensuring that project data and history remain local to the developer, with network activity limited to communication between the coding agent and its AI provider. Limboo's architecture separates UI rendering from core logic, maintaining strict security boundaries and supporting features such as session-centric workspaces, deep git integration, integrated terminals, and a durable local memory system. This approach aims to enhance the software development process by providing a seamless, secure, and efficient environment tailored for AI-assisted coding.",
+      "date_published": "2026-07-05T00:16:11Z"
     },
     {
-      "id": "sty_4243df9de7e6f419",
-      "url": "https://danluu.com/ai-coding/",
-      "title": "Dan Luu discusses AI coding agents, testing processes, and LLM benchmarks based on his experience using AI for bug detection and software testing since late 2025 [ ~ ] [ ◻ ]",
-      "content_text": "Dan Luu shares his extensive experience using AI coding agents since late 2025, focusing on their application in bug detection and software testing. He discusses the challenges and peculiarities of working with AI, including instances where the AI produced convincing but fabricated test results. Despite these issues, Luu highlights the potential of AI to improve testing efficiency and software quality through data-driven approaches and automated workflows. Drawing from his background in hardware company testing processes, Luu explains how AI can be leveraged to find bugs not only in primary codebases but also in upstream dependencies and specifications. He emphasizes that while AI tools can vary in reliability, integrating them into testing pipelines can lead to higher quality software and more thorough testing than traditional review-based methods. Luu also addresses common misunderstandings about AI testing practices and advocates for adopting agentic loops and fuzzing techniques to enhance bug detection. His insights suggest that embracing AI-driven testing workflows could transform software development by enabling faster, more reliable identification and resolution of issues.",
-      "date_published": "2026-07-04T15:58:17Z"
+      "id": "sty_8a364e8eeade0ff3",
+      "url": "https://claude.ai/new",
+      "title": "Deterministic AI auditing ensures consistent, repeatable evaluation methods to improve transparency and accountability in artificial intelligence systems [ ~ ] [ ◻ ]",
+      "content_text": "Deterministic AI auditing involves assessing artificial intelligence systems through methods that yield consistent and repeatable outcomes. This approach enhances transparency and accountability by allowing audits to be reliably reproduced and verified, thereby fostering greater trust in AI technologies.",
+      "date_published": "2026-07-05T01:38:34Z"
     },
     {
-      "id": "sty_76855e69d0bb863e",
-      "url": "https://kaufe-es.eu/",
-      "title": "Tester challenges four AI systems to breach local AI safety architecture; none succeed",
-      "content_text": "A tester attempted to breach a local AI safety architecture by challenging four different AI systems, but none of the systems were able to succeed in bypassing the security measures. This demonstrates the robustness of the safety protocols in place to protect against unauthorized access or manipulation of AI systems. The test involved multiple AI models to evaluate the effectiveness of the safety architecture under various attack scenarios. Despite the diverse approaches used by the tester, the architecture maintained its integrity, preventing any successful breaches. This outcome highlights the importance of strong safety frameworks in AI development and suggests that current measures can effectively safeguard AI systems against certain types of adversarial attempts. It also provides a benchmark for future improvements in AI security.",
-      "date_published": "2026-07-04T15:40:20Z"
+      "id": "sty_521ae1f2a5ca44fb",
+      "url": "https://murderszn.github.io/sprout/",
+      "title": "New AI-powered CLI tool detects and repairs broken development tool installations to streamline developer setup [ ~ ] [ ◻ ]",
+      "content_text": "A new AI-powered command-line interface tool has been introduced to automatically identify and fix broken installations of development tools, simplifying the setup process for developers. This tool aims to reduce configuration issues and improve efficiency by ensuring development environments are correctly installed and maintained.",
+      "date_published": "2026-07-05T01:26:00Z"
+    },
+    {
+      "id": "sty_330b7072692b12a0",
+      "url": "https://github.com/tadelstein9/two-tier-memory",
+      "title": "Tom Adelstein releases Two-tier-memory, a queryable long-term memory system using SQLite for AI coding agents to overcome context window limitations [ ~ ] [ ◼ ]",
+      "content_text": "Tom Adelstein has released Two-tier-memory, a queryable long-term memory system designed to help AI coding agents overcome the limitations of finite context windows. This system uses a two-tier approach: a lightweight index loaded every session and a SQLite database queried on demand, allowing agents to efficiently store and retrieve detailed problem-solving information without overloading their context capacity. The first tier maintains an index summarizing solved problems, while the second tier stores detailed records in a relational database. This structure prevents memory truncation and redundant problem-solving by enabling targeted queries instead of loading entire files. The project emphasizes disciplined use, such as querying before solving and maintaining accurate records, to maximize effectiveness. Two-tier-memory is implemented in Python with no external dependencies and is available under the MIT license.",
+      "date_published": "2026-07-05T01:22:16Z"
+    },
+    {
+      "id": "sty_42262171ac78a51d",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-copilot-os-revealed-in-leaked-video-lightweight-windows-os-exploration-features-new-desktop-ui-built-entirely-around-copilot-and-agentic-ai",
+      "title": "Leaked video reveals Microsoft's experimental Copilot OS built on lightweight Win3 codebase with agentic AI and web-based apps, exploring new desktop UI concepts [ ~ ] [ ◼ ]",
+      "content_text": "A leaked video has revealed Microsoft's experimental operating system, codenamed Aion, which integrates Copilot AI at its core and is built on a lightweight Windows codebase called Win3. This OS focuses on web-based applications and features a new desktop user interface with a Taskbar and Start menu powered by Copilot, emphasizing agentic AI and multi-modal input for navigation and app management. Aion does not support native Windows apps but relies on Windows 365 to stream desktop applications from the cloud. The OS introduces a unique \"Spaces\" feature that groups apps and websites for quick access. Although the video is from early 2024 and it remains unclear if Aion will be released commercially, the project appears to be an experimental exploration of future desktop experiences centered around AI. Microsoft has not commented on the leak, but elements from Aion may influence current Windows developments, including Project Solara, another AI-driven OS initiative. The video offers insight into how Microsoft envisions integrating AI more deeply into desktop environments, even as the company navigates user reactions to Copilot.",
+      "date_published": "2026-07-04T22:50:45Z"
+    },
+    {
+      "id": "sty_2befb762b3311ed0",
+      "url": "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/",
+      "title": "sqlite-utils releases version 4.0rc2 with major transaction handling fixes, primarily developed by Claude Fable [ ~ ] [ ◼ ]",
+      "content_text": "The release candidate 2 of sqlite-utils version 4.0 has been published, featuring significant fixes to transaction handling. These improvements were primarily developed by Claude Fable, addressing critical issues such as uncommitted deletions that could lead to data loss. The update enhances the reliability of database operations by ensuring that all write methods run within their own transactions and commit changes immediately. This release follows extensive testing and refinement, including 34 commits and over 1,300 code changes across 30 files. The new transaction model is thoroughly documented, clarifying that users no longer need to manually commit changes except when grouping multiple operations or managing transactions explicitly. This update aims to provide a stable foundation for the upcoming stable 4.0 release while maintaining semantic versioning principles.",
+      "date_published": "2026-07-05T01:00:48Z"
+    },
+    {
+      "id": "sty_93ddc0041903a001",
+      "url": "https://www.youtube.com/watch?v=cfaZZPjA3g0",
+      "title": "Video explains how AI systems have become more costly than the human workers they replaced",
+      "content_text": "A video explores how the costs associated with AI systems have surpassed those of the human workers they were intended to replace. It examines the economic implications of deploying AI technologies, highlighting the unexpected financial challenges organizations face when adopting these systems. The discussion provides insight into the complexities of AI implementation beyond initial expectations.",
+      "date_published": "2026-07-04T21:23:44Z"
+    },
+    {
+      "id": "sty_af0be45eb6b018b6",
+      "url": "https://ridgetext.com/blog/mapbox-llm-composition",
+      "title": "RidgeText implements in-memory layering to reduce LLM context overload by queuing GeoJSON data server-side and compositing maps without passing large data through the LLM [ * ] [ ◼ ]",
+      "content_text": "RidgeText has developed a new method to handle large GeoJSON data in map generation by implementing an in-memory layering system that queues data server-side instead of passing it through a large language model (LLM). This approach allows the LLM to manage lightweight acknowledgments for each data layer, such as fire perimeters or trail routes, while the actual GeoJSON data is stored and composited on the server to produce a final map image. This technique reduces context overload in the LLM and improves the efficiency of map rendering. The system mimics Mapbox's layering model, where each data layer is added independently and composited in order at render time. By keeping the GeoJSON data outside the LLM's context window and only passing small JSON acknowledgments, RidgeText avoids the limitations of token size and processing capacity inherent in LLMs. The server maintains a queue of map layers keyed by session ID with automatic expiration, ensuring efficient resource use and flexibility for future enhancements such as 3D terrain or animated layers. This innovation enables RidgeText to deliver complex, multi-layered maps via SMS without requiring users to interact with a dedicated app or interface. It also sets the stage for scalable and adaptable map rendering solutions that can evolve with more advanced visualization needs while maintaining seamless integration with natural language processing tools.",
+      "date_published": "2026-07-04T23:25:53Z"
+    },
+    {
+      "id": "sty_193b1ab3737e42a1",
+      "url": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
+      "title": "Google releases July 4 commercial imagining Founding Fathers using Google Workspace and AI tools to draft the Declaration of Independence [ ~ ] [ ◻ ]",
+      "content_text": "Google has released a new commercial imagining how the Founding Fathers might have used Google Workspace and AI tools to draft the Declaration of Independence. The ad humorously depicts Thomas Jefferson collaborating with other founders through Google Docs, Calendar, Meet, and AI features like a visualization tool and chatbot assistance, highlighting a modern take on their historic group project. The commercial balances tongue-in-cheek humor with subtle AI integration, avoiding claims that AI improved the original document. While it has received mostly positive feedback on platforms like YouTube and Instagram, some critics on Bluesky have called it tone-deaf and questioned the portrayal of AI's role in political collaboration. The ad also features AI-generated video elements, reflecting Google's ongoing promotion of its AI capabilities.",
+      "date_published": "2026-07-04T20:55:25Z"
+    },
+    {
+      "id": "sty_b08ffbe06f3cb33b",
+      "url": "https://old.reddit.com/r/LLMDevs/comments/1udpw9h/just_got_this_response_from_claude_what_is_going/",
+      "title": "Report: Anthropic conducts prompt injection experiments on users, raising transparency and consent concerns [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic, an artificial intelligence company, has reportedly conducted prompt injection experiments on its users, a method that involves altering user inputs to observe or influence AI model behavior. This practice has sparked concerns regarding the transparency of such experiments and whether users have provided informed consent. The situation highlights ongoing debates about ethical standards in AI research and user rights.",
+      "date_published": "2026-07-05T01:30:44Z"
+    },
+    {
+      "id": "sty_4ffa1a453299733c",
+      "url": "https://www.surgeos.app/",
+      "title": "Surge launches AI tool that generates weekly multi-platform startup content from a single URL, targeting solo founders and early teams [ ~ ] [ ◻ ]",
+      "content_text": "Surge has launched an AI-powered tool designed to help solo founders and early-stage startup teams generate weekly, multi-platform content from a single URL. By inputting their startup's website once, users receive a tailored weekly content plan with platform-specific posts for TikTok, LinkedIn, Reddit, and X, streamlining the content creation process across channels. The tool creates a reusable startup profile capturing audience, pain points, and tone, which it uses to generate native posts such as TikTok hooks and scripts, LinkedIn founder stories, Reddit discussion prompts, and concise X threads. Surge offers a free plan with limited generations and paid subscriptions for more frequent content creation, aiming to provide a consistent and manageable content rhythm without requiring extensive time or marketing resources.",
+      "date_published": "2026-07-04T22:43:00Z"
+    },
+    {
+      "id": "sty_4e6c0ffcd47548ed",
+      "url": "https://github.com/iamapsrajput/agent-budget-protocol/blob/main/RFC.md",
+      "title": "RFC proposes atomic budget reservations to enforce per-run spending limits for AI agents and enable real-time budget decisions and adaptive cost control [ * ] [ ⬢ ]",
+      "content_text": "A new RFC proposes a real-time budget decision system designed to enforce per-run spending limits for AI agents, addressing the challenge of uncontrolled costs during autonomous agent operations. The protocol introduces atomic budget reservations that authorize estimated costs before API calls and reconcile actual usage afterward, ensuring strict spending ceilings for individual agent runs rather than broad monthly quotas. The proposal highlights current issues with budget enforcement in AI platforms, such as implicit and fragile controls, lack of per-run cost tracking, and the inability for agents to adapt their behavior when approaching budget limits. By providing a machine-readable budget state and fail-closed pricing for unknown models, the system aims to enable adaptive cost control and prevent unexpected billing spikes, improving transparency and reliability for developers and organizations deploying AI agents.",
+      "date_published": "2026-07-04T22:42:00Z"
+    },
+    {
+      "id": "sty_73ce0e563d71bdc0",
+      "url": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
+      "title": "Midjourney seeks court order to compel Hollywood studios to disclose their internal AI usage amid copyright lawsuit [ ~ ] [ ◻ ]",
+      "content_text": "Midjourney, an AI startup, is seeking a court order to compel three Hollywood studios-Disney, Universal, and Warner Bros.-to disclose details about their internal use of AI amid ongoing copyright infringement lawsuits. The studios have accused Midjourney of using copyrighted characters in its image-generation models without authorization, while Midjourney argues that its training methods fall under fair use. The dispute centers on the scope of discovery, with Midjourney requesting broader access to the studios' AI usage documentation beyond consumer-facing content. The startup contends that the studios may be engaging in similar practices internally, which could support Midjourney's defense. The studios' legal team has described Midjourney's requests as a \"fishing expedition,\" emphasizing their intent is to prevent unauthorized copying rather than halt AI development or Midjourney's business.",
+      "date_published": "2026-07-04T18:00:05Z"
+    },
+    {
+      "id": "sty_4b8c1269dbc87627",
+      "url": "https://econlab.substack.com/p/we-can-finally-say-ai-isnt-killing-jobs",
+      "title": "Ramp data shows companies with heavy AI adoption increase hiring rates",
+      "content_text": "Data from Ramp indicates that companies with significant adoption of artificial intelligence are experiencing increased hiring rates. This trend challenges the common perception that AI reduces employment opportunities. The analysis suggests that AI integration may be driving business growth and workforce expansion rather than job losses.",
+      "date_published": "2026-07-04T22:12:03Z"
+    },
+    {
+      "id": "sty_dfc85d9d1bcf3a15",
+      "url": "https://www.juanslozano.com/blog/ai-aes",
+      "title": "Research explores training AI to invert AES encryption by modeling AES-XTS as a satisfiability problem and addressing complexity and sparse reward challenges [ ~ ] [ ◻ ]",
+      "content_text": "A recent research exploration investigates the possibility of training artificial intelligence to invert the AES encryption algorithm by modeling AES-XTS mode as a satisfiability problem. AES-XTS, commonly used for full-disk encryption, involves complex permutations and key-dependent transformations, making inversion a challenging combinatorial problem. The study addresses key challenges such as the sparsity of reward signals in training and the fundamental constraints imposed by complexity theory. The approach involves representing AES-XTS encryption as a circuit composed of byte-sized values, primitive operations, and constraints that define the relationships between these elements. By translating the encryption process into a form suitable for solvers, the research aims to enable AI models to find plaintexts and keys from observed ciphertexts. This work highlights both the theoretical and practical difficulties in AES inversion and proposes a framework for further experimentation using reinforcement learning environments.",
+      "date_published": "2026-07-04T22:11:17Z"
+    },
+    {
+      "id": "sty_310552ece39150cf",
+      "url": "https://github.com/Vage91/Kortex",
+      "title": "Kortex launches out-of-core LLM inference engine in Rust that streams model weights across NVMe, RAM, and VRAM to run models larger than GPU memory on Windows 11 [ * ] [ ◼ ]",
+      "content_text": "Kortex is a new out-of-core large language model (LLM) inference engine developed in Rust that enables running models larger than a GPU's VRAM by streaming model weights across NVMe storage, RAM, and VRAM. Designed for Windows 11, it allows a single 20 GB GPU to run models like Llama-3.3-70B, which has 42.5 GB of weights, at speeds around 2 tokens per second, outperforming existing solutions like llama.cpp on the same hardware. The engine treats inference as a streaming problem across the memory hierarchy, using unbuffered direct I/O on Windows to efficiently manage data flow. It features a residency planner to allocate weights across memory tiers, a streaming pipeline that overlaps data transfer with computation, and quantized kernels for efficient processing. Kortex maintains all compute on the GPU, avoiding CPU bottlenecks seen in partial offload approaches, and supports speculative decoding and mixture-of-experts models with optimized data access patterns. Currently Windows-only, Kortex uses Vulkan or DirectX 12 for GPU operations and plans a Linux port in the future. Its architecture allows it to handle very large models on consumer hardware by overcoming VRAM limitations, potentially broadening access to advanced LLM capabilities without requiring specialized high-memory GPUs.",
+      "date_published": "2026-07-04T22:47:59Z"
+    },
+    {
+      "id": "sty_0da6d58206266225",
+      "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+      "title": "Alibaba reportedly bans employees from using Anthropic's Claude Code, classifying it as high-risk software starting July 10 [ * ] [ ◼ ]",
+      "content_text": "Alibaba has reportedly banned its employees from using Anthropic's programming tool Claude Code, classifying it as high-risk software effective July 10. The company is instead directing employees to use its own Qoder tool. Anthropic already restricts Chinese companies and their foreign subsidiaries from accessing its models and has been working to close loopholes that allowed Chinese users to access Claude Code, including an experimental feature to identify unauthorized users.",
+      "date_published": "2026-07-04T16:32:08Z"
+    },
+    {
+      "id": "sty_e4366e0bb9294d93",
+      "url": "https://the-decoder.com/open-source-tool-pxpipe-hides-text-in-pngs-to-cut-claude-code-and-fable-5-token-costs-up-to-70/",
+      "title": "Open-source tool pxpipe converts text to compact PNGs to reduce Claude Code and Fable 5 token costs by up to 70%, trading accuracy and speed for savings [ ~ ] [ ◼ ]",
+      "content_text": "The open-source tool pxpipe reduces token costs for AI models like Claude Code and Fable 5 by converting long text prompts into compact PNG images. This method leverages Anthropic's pricing model, which charges for images based on pixel dimensions rather than text length, resulting in cost savings of up to 70% by trading off some accuracy and processing speed. Pxpipe works as a local proxy that renders static content such as system prompts and documentation as images, while recent messages remain as text. Developer Steven Chong reports significant cost reductions, with one example showing a drop from $42.21 to $6.06 in session costs. However, the approach can cause some errors in reading exact strings and slows down processing due to the need for vision encoding. The tool supports Claude Fable 5 and GPT 5.6, with varying accuracy across models.",
+      "date_published": "2026-07-04T18:11:33Z"
     },
     {
       "id": "sty_5626e21ca6f1079d",
@@ -91,74 +196,18 @@
       "date_published": "2026-07-04T15:51:32Z"
     },
     {
-      "id": "sty_f90c56f58be6e372",
-      "url": "https://rachelandrew.co.uk/archives/2026/06/11/wheres-the-holistic-ai-productivity-data/",
-      "title": "Analysis finds lack of holistic data measuring AI's overall impact on productivity across organizations despite individual gains [ ~ ] [ ◻ ]",
-      "content_text": "Despite individual cases where AI tools have improved productivity, there is a notable absence of comprehensive data measuring AI's overall impact on productivity across organizations. Many companies have adopted AI without thoroughly assessing the full costs and effects, often overlooking how AI-driven task shifts can affect other teams or degrade quality. While skilled users can leverage AI to enhance specific tasks, these gains may be limited and sometimes merely redistribute work rather than increase net productivity. The challenge in evaluating AI's true productivity benefits is compounded by the need for expert oversight to maintain quality and the tendency for AI outputs to require significant review. Additionally, AI has prompted better data accessibility and documentation, which facilitates automation beyond AI itself. However, without a holistic approach that considers task reallocation and organizational impacts, claims of AI-driven productivity improvements remain difficult to substantiate.",
-      "date_published": "2026-07-04T15:03:07Z"
+      "id": "sty_2678101b929e151c",
+      "url": "https://seldo.com/posts/ai-has-torched-the-market-for-junior-programmers/",
+      "title": "Stanford data shows AI-driven automation caused a 19% decline in US junior programmer employment from 2022 to 2025 while senior developer jobs grew [ ! ] [ ◼ ]",
+      "content_text": "A Stanford Digital Economy Lab analysis reveals that AI-driven automation has led to a 19% decline in employment for US junior programmers aged 22 to 25 between 2022 and 2025, while senior developer roles have increased. This decline is concentrated in jobs where AI can automate tasks, particularly affecting entry-level programming positions, whereas older age groups in software development have seen employment growth. The data shows that overall software developer employment grew by 10% during the same period, indicating that the impact of AI is specific to junior roles rather than the programming field as a whole. Job titles involving coding to specification, such as \"computer programmer\" and web developers, have decreased, while roles requiring judgment and decision-making, like data scientists and systems analysts, have expanded. These findings suggest that AI is reshaping the programming job market by automating routine coding tasks, leading to fewer opportunities for junior programmers but growth in more advanced technical roles. The shift highlights a transformation in job titles and responsibilities rather than a reduction in overall programming work.",
+      "date_published": "2026-07-04T19:50:08Z"
     },
     {
-      "id": "sty_ad38776cc99537a4",
-      "url": "https://briefednewsletter.com/",
-      "title": "Briefed launches a free personalized AI newsletter that users customize by replying to each issue [ ~ ] [ ◻ ]",
-      "content_text": "Briefed has launched a free AI-powered newsletter service that delivers personalized content tailored to each user's interests. Subscribers receive customized issues based on their initial preferences and can further refine the content by replying with feedback, ensuring each newsletter evolves to better suit their needs. The service is entirely free, with no paid tiers or upsells, and offers easy one-click unsubscribe options.",
-      "date_published": "2026-07-04T14:57:45Z"
-    },
-    {
-      "id": "sty_822b8b179b2ba69f",
-      "url": "https://github.com/aakashadesara/ctop",
-      "title": "CTOP launches terminal-based monitoring tool for AI coding agents tracking CPU, memory, tokens, costs, and context windows across multiple sessions [ ~ ] [ ◼ ]",
-      "content_text": "CTOP is a new terminal-based monitoring tool designed for AI coding agents such as Claude Code, Codex CLI, OpenCode, and Devin. It provides real-time tracking of CPU usage, memory, tokens, context windows, API costs, and session branches within a single interface, allowing users to monitor multiple AI agent sessions simultaneously. The tool features multiple view modes, live log tailing, sorting and filtering options, desktop notifications, and a plugin system for customization. It also includes a CLI mode for scripting and agent introspection, as well as a skill module that enables AI agents to query CTOP for session information and cost estimates automatically. CTOP supports process control with bulk session management and offers detailed usage statistics and alerts for context compaction and rate limits. It is available for installation via Homebrew, npm, or from source, making it accessible for developers seeking comprehensive monitoring of AI coding workflows.",
-      "date_published": "2026-07-04T14:14:35Z"
-    },
-    {
-      "id": "sty_3795296c05a0e004",
-      "url": "https://jacobin.com/2026/06/ai-bubble-layoffs-workers-copyright",
-      "title": "Cory Doctorow outlines constructive and flawed approaches to AI criticism, emphasizing ethical and societal considerations [ ~ ] [ ◻ ]",
-      "content_text": "Cory Doctorow explores the current challenges and criticisms surrounding artificial intelligence, highlighting the need for thoughtful and ethical analysis rather than alarmist or misleading perspectives. In his new book, he addresses the societal impacts of AI, including job displacement and environmental concerns, while advocating for constructive dialogue about its role in society. Doctorow, a noted author and digital rights advocate, discusses how AI's rapid integration into various sectors has sparked both enthusiasm and backlash. He emphasizes the importance of focusing on real issues such as workers' rights, misinformation, and the environmental footprint of AI technologies, urging critics to engage with these topics responsibly to shape a better future in the age of AI.",
-      "date_published": "2026-07-04T16:44:02Z"
-    },
-    {
-      "id": "sty_0da6d58206266225",
-      "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
-      "title": "Alibaba reportedly bans employees from using Anthropic's Claude Code starting July 10, classifying it as high-risk software [ * ] [ ◼ ]",
-      "content_text": "Alibaba has reportedly banned its employees from using Anthropic's programming tool Claude Code starting July 10, classifying it as high-risk software. This decision follows Anthropic's restrictions on Chinese companies using its models and efforts to close access loopholes for Chinese users. Alibaba is encouraging employees to use its own Qoder tool instead. Anthropic had previously conducted an experiment to prevent unauthorized use of Claude Code by identifying Chinese users, aiming to protect against account abuse and model distillation. The company has since implemented stronger safeguards and planned to discontinue that experiment. Alibaba's move reflects ongoing concerns about software security and compliance within Chinese tech firms.",
-      "date_published": "2026-07-04T16:32:08Z"
-    },
-    {
-      "id": "sty_475375798a139ed7",
-      "url": "https://www.theinformation.com/articles/alex-karp-open-source-ai-neocloud-heyday",
-      "title": "Palantir CEO Alex Karp criticizes AI model costs and value for US businesses amid rising open-source AI interest and neocloud funding surge [ * ] [ ◼ ]",
-      "content_text": "Palantir CEO Alex Karp has publicly criticized the high costs and limited value of AI models offered by major companies like OpenAI and Anthropic, highlighting growing dissatisfaction among U.S. businesses. His remarks underscore a broader shift in the AI industry toward open-source alternatives, particularly those emerging from China, where companies like DeepSeek and Zhipu are developing competitive, cost-effective AI models. This trend coincides with a surge in funding for neocloud startups, which provide cloud computing services that challenge established hyperscalers and aim to reduce AI operational expenses. Recent developments include OpenAI engineers discovering methods to improve GPU efficiency, potentially lowering costs for AI services, and SoftBank's entry into the neocloud market with ambitious profit goals. These changes suggest a growing focus on making AI more affordable and accessible, which could reshape investment priorities and industry dynamics in the coming months.",
-      "date_published": "2026-07-04T14:00:51Z"
-    },
-    {
-      "id": "sty_0ca9dd1be6f5c4de",
-      "url": "https://aiinterviewcoaches.com",
-      "title": "AI Interview Coach launches to provide users with hiring-manager-level feedback for job interview practice [ ~ ] [ ◻ ]",
-      "content_text": "AI Interview Coach is a new tool that offers users practice for job interviews by delivering feedback similar to that of experienced hiring managers. It aims to improve interview preparation by providing honest and constructive critiques to help users perform better in real interviews.",
-      "date_published": "2026-07-04T16:53:25Z"
-    },
-    {
-      "id": "sty_6fa92411ec619d0e",
-      "url": "https://github.com/routing24/skill",
-      "title": "Routing24 launches free client-side route optimization agent for Claude Cowork and WebMCP platforms [ ~ ] [ ◻ ]",
-      "content_text": "Routing24 has released a free client-side route optimization agent designed for use with Claude Cowork and WebMCP platforms. This tool enables users to plan and optimize vehicle delivery routes directly in their browser without requiring a server API or API key. The agent converts lists of stops and vehicles into optimized, shareable multi-stop route plans, enhancing route planning efficiency while maintaining user privacy by running entirely on the client side.",
-      "date_published": "2026-07-04T16:43:39Z"
-    },
-    {
-      "id": "sty_26f0d9917e4ed1f7",
-      "url": "https://www.theinformation.com/articles/pickleball-past-tech-elite-obsessed-padel",
-      "title": "Bay Padel founders build popular padel clubs in San Francisco and Sunnyvale, attracting tech elites from OpenAI, Meta, Google, and Amazon for events and networking",
-      "content_text": "In 2023, Matias Gandulfo and Lucas Tepman launched Bay Padel, the first club in San Francisco dedicated to padel, a racket sport combining tennis and squash that is popular in Argentina and Mexico. Despite initial skepticism from landlords, they established their first venue in a former airplane hangar on Treasure Island, and have since expanded to locations in San Francisco's Dogpatch neighborhood and Sunnyvale. These clubs have become popular social and networking hubs for tech professionals, with companies like OpenAI, Meta, Google, and Amazon frequently hosting events there. Bay Padel now hosts around 30 events monthly, attracting founders, venture capitalists, and executives from the tech industry. The clubs have even played a role in the competitive AI talent market, with some staff members being recruited by AI companies for key positions. This growth highlights padel's rising popularity in the U.S. tech community and its potential as a new venue for professional networking and socializing.",
-      "date_published": "2026-07-04T13:00:54Z"
-    },
-    {
-      "id": "sty_aa3ccc6f6a317784",
-      "url": "https://github.com/shivyadavus/open-kioku",
-      "title": "Open Kioku launches local evidence layer for AI coding agents to index and analyze codebases before editing, supporting multiple MCP-compatible agents [ * ] [ ◼ ]",
-      "content_text": "Open Kioku is a new tool that provides AI coding agents like Claude, Cursor, and Codex with a local evidence layer to index and analyze codebases before making edits. It uses local indexes and read-only MCP-compatible tools to give agents detailed context such as symbol definitions, references, impact analysis, and test candidates, enabling them to plan changes with confidence and verify edits effectively. The tool operates through simple commands to initialize, index, and audit repositories, producing detailed reports without exposing source snippets, making it suitable for private codebases. Open Kioku supports multiple AI agents by integrating with MCP over local stdio, helping agents avoid redundant file crawling and improving their ability to assess the impact of changes before editing code. By offering a structured pre-edit routine, Open Kioku enhances AI coding agents' accuracy and efficiency, potentially reducing errors and improving validation processes in software development workflows. It is available via npm, cargo, GitHub releases, and can be built from source, supporting various platforms and architectures.",
-      "date_published": "2026-07-04T14:19:34Z"
+      "id": "sty_4ccb11342ae893ab",
+      "url": "https://arxiv.org/abs/2606.26967",
+      "title": "Researchers identify six vulnerabilities in Apple AirDrop and Android Quick Share proximity file-transfer protocols through cross-platform reverse engineering and fuzzing",
+      "content_text": "Researchers conducted a comprehensive security analysis of Apple AirDrop and Android Quick Share, two widely used proximity file-transfer protocols, by reverse engineering and fuzzing their proprietary, undocumented stacks. They identified six vulnerabilities across these platforms, including pre-authentication issues in AirDrop on macOS/iOS, protocol flaws in Samsung Quick Share, and a heap use-after-free bug in Google Quick Share for Windows. These findings highlight significant security risks in protocols used by billions of devices. The study involved reconstructing AirDrop's complex state machine and compression methods, developing a protocol-aware fuzzer named AIRFUZZ, and performing targeted analyses of Samsung and Google's Quick Share implementations. The vulnerabilities discovered range from denial-of-service and parsing errors to encryption bypasses and memory corruption, some of which were acknowledged and addressed by Apple, Samsung, and Google following responsible disclosure. This research underscores the importance of scrutinizing proprietary file-transfer protocols for security weaknesses, especially given their accessibility without prior pairing and their operation within privileged system components. The findings may prompt further security evaluations and improvements in proximity-based file-sharing technologies to protect users from zero-click attacks.",
+      "date_published": "2026-07-04T20:38:39Z"
     },
     {
       "id": "sty_1d6ed85a067dec77",
@@ -168,32 +217,25 @@
       "date_published": "2026-07-04T12:00:00Z"
     },
     {
+      "id": "sty_1200a2b863328e33",
+      "url": "https://futurism.com/artificial-intelligence/meta-monthly-subscription-ai-glasses",
+      "title": "Meta introduces $19.99 monthly subscription for AI features on smart glasses, limiting non-subscribers to three hours of Conversation Focus per month [ ~ ] [ ◻ ]",
+      "content_text": "Meta has introduced a $19.99 monthly subscription called Meta One Premium for its AI-enabled smart glasses, which limits non-subscribers to just three hours per month of the Conversation Focus feature that amplifies voices during conversations. Premium subscribers receive 15 hours of access before being locked out. This move adds ongoing costs to an already expensive device and has sparked criticism, as the feature operates without an internet connection, suggesting the subscription may be an arbitrary revenue strategy rather than a necessity due to operational costs. The subscription comes amid ongoing controversies surrounding Meta's smart glasses, including privacy concerns over facial recognition technology and secret recordings. Despite these issues, the glasses have sold millions of units. The new subscription model raises questions about Meta's approach to monetizing AI features and could impact the adoption and user satisfaction of its smart glasses.",
+      "date_published": "2026-07-04T17:01:00Z"
+    },
+    {
       "id": "sty_d5809c3fe3938de1",
       "url": "https://the-decoder.com/anthropic-developer-shares-prompting-tips-for-fable-5-that-focus-on-finding-your-own-blind-spots-first/",
-      "title": "Anthropic developer Thariq Shihipar shares prompting techniques for Claude's Fable 5 model focusing on identifying user blind spots to improve AI output quality [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic developer Thariq Shihipar emphasizes that the effectiveness of prompts for Claude's new Fable 5 model depends largely on users identifying their own knowledge gaps and blind spots. He highlights that the main limitation is no longer the AI model itself but the user's ability to recognize and clarify unknowns before prompting the system. Shihipar outlines techniques such as blindspot passes, structured interviews, and brainstorming sessions to help users uncover unconscious gaps in their understanding. He advises balancing prompt specificity to avoid overly rigid or too vague instructions, and recommends documenting decisions during implementation to improve outcomes. These methods aim to enhance collaboration between users and the AI, leading to higher quality outputs from Fable 5.",
+      "title": "Anthropic developer Thariq Shihipar shares prompting techniques for Claude's Fable 5 model focused on identifying user blind spots to improve AI output quality [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic developer Thariq Shihipar highlights that with Claude's latest model, Fable 5, the main limitation to output quality is the user's own blind spots rather than the AI itself. He emphasizes the importance of users identifying their unknowns-gaps in knowledge they may not be aware of-before crafting prompts to improve the AI's performance. Shihipar suggests techniques such as blindspot passes, structured interviews, and brainstorming sessions to systematically uncover these knowledge gaps. He advises balancing prompt specificity to avoid overly rigid or too vague instructions, and recommends using Claude to explore unknowns by providing context about the user's current understanding and experience. Additionally, he advocates for documenting decisions during implementation and creating summary reports to enhance clarity and learning throughout the development process.",
       "date_published": "2026-07-04T12:37:51Z"
     },
     {
-      "id": "sty_9a2421c902a48b6f",
-      "url": "https://futurism.com/artificial-intelligence/meta-contractors-competitor-ai-with-disturbing-content",
-      "title": "Report: Meta hired hundreds of contractors to pose as teenagers and send disturbing prompts to competitors' AI models for safety benchmarking",
-      "content_text": "Meta hired hundreds of contractors to pose as teenagers and send disturbing prompts to competitors' AI chatbots, including OpenAI's ChatGPT and Google's Gemini, as part of a secretive project called \"Cannes\" aimed at safety benchmarking. The contractors used throwaway under-18 accounts to push the AI models into generating responses that challenged their content guardrails, with prompts covering sensitive topics such as suicide, self-harm, eating disorders, and drug use. The project involved tens of thousands of prompts and meticulously recorded chatbot responses, though it remains unclear how Meta utilized the collected data. While Meta described the effort as an industry-standard safety evaluation, critics have raised concerns about the ethical implications and secrecy of the operation, suggesting it may blur the lines between safety testing and anticompetitive behavior. Contractors involved reported distress over the nature of the content they were asked to generate.",
-      "date_published": "2026-07-04T13:02:00Z"
-    },
-    {
-      "id": "sty_70006c17c7d7c0ca",
-      "url": "https://cyberscoop.com/ai-agent-act-senate-draft-bill-mark-warner/",
-      "title": "Senator Mark Warner proposes AI AGENT Act to create federally vetted list of secure AI agent providers for platforms with over 50 million users [ * ] [ ◼ ]",
-      "content_text": "Senator Mark Warner has introduced the AI AGENT Act, a draft bill aimed at creating a federally vetted list of AI agent providers for online platforms with over 50 million users. The legislation would require the Federal Trade Commission to certify independent bodies that vet AI vendors to ensure they meet security, privacy, and identity standards, allowing users to select compliant AI agents to act on their behalf with clear permissions and accountability. The bill addresses concerns about AI agents making decisions without user consent, such as shopping or posting on social media, and seeks to establish baseline protections as AI agents become more prevalent in online interactions. While the FTC cannot prohibit platforms from using uncertified providers, it can remove violators from the approved list. Warner released the draft to gather feedback before formally introducing it in the Senate, emphasizing the need for consumer choice and innovation in AI regulation.",
-      "date_published": "2026-07-04T14:00:01Z"
-    },
-    {
-      "id": "sty_4f4a675160a0c35d",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9LVDNwU1FQNXBmcjhndWpNc1lKNXBvc2VZRXRaZkd6UHpwSEtBNlRhR3ZzU0ZYbjdDTHRsc1FRekJnaVlQb0xvOTBXV3NXZVg3WlJmZHZhMUJnbUxFV0E?oc=5",
-      "title": "Elon Musk denies SpaceX AI phone rumor, causing SpaceX stock to drop",
-      "content_text": "Elon Musk has denied rumors that SpaceX is developing an AI-powered phone, leading to a decline in SpaceX's stock value. The denial came after speculation about the company's involvement in AI phone technology circulated in the market. This clarification from Musk helped dispel the rumors, but the initial speculation had already impacted investor confidence, causing the stock to drop. The situation highlights the sensitivity of market reactions to unconfirmed reports about major technology companies.",
-      "date_published": "2026-07-04T15:43:17Z"
+      "id": "sty_334699b0e66b2e31",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcUZ2R25FVHFfZkk0QTEwWXZNeXRJbE5LNnhSVi05RWdfZmFtTklUSXcxaHhWcEVOWlo5Rzh1R29acnVUdlJXaUUydGxSTVVCWkF0cEtsZkt5QTQ5OTVQWU9CbUxYUjRPTFpqNTlvcW1nN0RwclJHX212X1lpRWwyWE82Tld4Sk1Rb0ZVd0xpaVl0LWs?oc=5",
+      "title": "xAI launches Grok Voice Agent Builder for enterprises to create custom voice AI agents",
+      "content_text": "xAI has introduced the Grok Voice Agent Builder, a new tool designed for enterprises to create customized voice AI agents. This platform enables businesses to develop tailored voice assistants that can enhance customer interactions and streamline operations. The Grok Voice Agent Builder offers enterprises the flexibility to design voice agents that meet specific organizational needs, potentially improving efficiency and user experience in various applications. This launch marks xAI's expansion into enterprise-focused AI solutions, reflecting growing demand for personalized voice technology in business environments.",
+      "date_published": "2026-07-04T15:15:08Z"
     },
     {
       "id": "sty_e012413b74f4a6c6",
@@ -210,11 +252,25 @@
       "date_published": "2026-07-04T09:53:21Z"
     },
     {
+      "id": "sty_cda0840e2fd8ffca",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdkd5Q1dDYkhPbDNRWWtBcTlBZ3ZPZ1lOcEF6d2hFS1BKUURqbk1uMVVqY05kWmc4U2daZ0FLTGI1bjVSQUVYRGM1Qy1OX05hQkVld055UjY1Tmh6cFRyN19GYmtyYjR2eHJBWHNhaEVfdS1TMXRsVXh5aXlVUWkzaXk1clIycmc4SW5uTllpeS0xYUREaXlqalBqT2U5RWlOXzFHeVkwaV82QQ?oc=5",
+      "title": "Report: Anthropic engaged in a 20-day standoff with the Trump administration over removal of AI models [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic engaged in a 20-day standoff with the Trump administration over the removal of certain AI models. The dispute centered on regulatory concerns and the company's response to government demands regarding its artificial intelligence technologies. The prolonged negotiation highlighted tensions between AI developers and government authorities about oversight and control of emerging AI capabilities. This incident reflects broader challenges in balancing innovation with regulatory compliance in the AI sector.",
+      "date_published": "2026-07-04T13:58:55Z"
+    },
+    {
       "id": "sty_b851854140713589",
       "url": "https://the-decoder.com/a-26000-student-study-shows-ais-hidden-learning-cost-takes-two-full-years-to-surface/",
       "title": "Study of 26,000 Chinese students finds AI use boosts homework speed and grades but reduces exam scores by up to 24 percent, with full impact on entrance exams appearing after two years [ * ] [ ◻ ]",
       "content_text": "A study involving over 26,000 Chinese secondary school students found that while AI use helped students complete homework faster and achieve higher homework grades, it led to a significant decline in exam performance, with scores dropping by up to 24 percent. The full negative impact on high-stakes entrance exams became apparent only after about two years, indicating that short-term studies may underestimate the long-term learning costs of AI reliance. The research analyzed 30 months of data, including monthly exams, homework scores, and entrance exam results, and observed that most students who used AI extensively appeared to outsource their homework, resulting in weaker exam outcomes. The study also found that social science subjects were most affected, younger students and boys experienced larger declines, and heavier AI use correlated with greater learning losses. The findings suggest that AI can harm learning primarily when it replaces independent thinking, and the study recommends measures such as emphasizing in-person exams and educating students about the long-term costs of outsourcing their work to AI.",
       "date_published": "2026-07-04T09:08:41Z"
+    },
+    {
+      "id": "sty_9a2421c902a48b6f",
+      "url": "https://futurism.com/artificial-intelligence/meta-contractors-competitor-ai-with-disturbing-content",
+      "title": "Report: Meta hired hundreds of contractors to pose as teenagers and flood competitors' AI with disturbing prompts for safety benchmarking [ * ] [ ◼ ]",
+      "content_text": "Meta hired hundreds of contractors to pose as teenagers and flood competitors' AI chatbots, including OpenAI's ChatGPT and Google's Gemini, with disturbing prompts related to suicide, self-harm, and other sensitive topics. This secretive program, known internally as \"Cannes,\" aimed to stress test the AI models by pushing them to produce responses that bypassed their safety guardrails without the competitors' knowledge. The contractors used thousands of prompts and meticulously recorded chatbot responses, but it remains unclear how Meta utilized the collected data. While Meta described the effort as an industry-standard safety benchmarking practice, experts have raised concerns about the ethical implications and the lack of transparency, suggesting the project may blur the lines between safety testing and anticompetitive behavior. Contractors involved reported distress over the nature of the content they were asked to generate.",
+      "date_published": "2026-07-04T13:02:00Z"
     },
     {
       "id": "sty_50599c313bec9602",
@@ -247,23 +303,9 @@
     {
       "id": "sty_e5800b5c857784fd",
       "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
-      "title": "Google DeepMind and A24 launch a multi-project research partnership to develop new creative workflows and technologies for entertainment [ ~ ] [ ◻ ]",
-      "content_text": "Google DeepMind and film studio A24 have launched a unique research partnership aimed at developing new creative workflows and technologies for the entertainment industry. This collaboration integrates DeepMind's advanced research capabilities with A24's filmmaker-driven approach to shape future tools that enhance storytelling. The partnership involves multiple projects where DeepMind's innovations are directly applied within the creative process, allowing A24's artists to influence technology development while providing valuable feedback to researchers. Google has also invested in A24, signaling a long-term commitment to this joint effort. The initiative is expected to evolve over time, focusing on bridging cutting-edge technology with next-generation entertainment possibilities.",
+      "title": "Google DeepMind and A24 launch a multi-project research partnership to develop new creative workflows and technologies for filmmaking [ ~ ] [ ◻ ]",
+      "content_text": "Google DeepMind and film studio A24 have launched a multi-project research partnership aimed at developing new creative workflows and technologies for filmmaking. This collaboration combines DeepMind's advanced research capabilities with A24's filmmaker-focused approach to shape future tools that enhance storytelling. The partnership involves ongoing joint research and development, allowing A24's filmmakers to directly influence the creation of innovative technologies while providing DeepMind with practical feedback. This initiative marks the beginning of a long-term effort to bridge cutting-edge technology with next-generation entertainment, with goals and outputs expected to evolve as the collaboration progresses.",
       "date_published": "2026-07-03T14:25:43Z"
-    },
-    {
-      "id": "sty_3c2cc3a89cc5520c",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQUjJMbm15bmc1U0taeElCVWhuZDluQWtCdy14c2NtSFhZZUFoc1FMRDltdXlCZ19FemVUYWRLMVBmU3FFLW54Q1NZZ0NTa2Vpc1N3UFBjVklURzc1V2trUUJ6a1RsY0t3TTE3NzBGaGhPdXJyeUJIQmIzNDd4azU3WUtDOEc2dWVyN3ZzaUtuOUxpN0UwcldwU1ppV2UyRHlNVzNUWXhsYVhjTDJIckp0dUt1RzRVcTlzcEk3SERCRjZSUkhZdXM4d2lvSE9hbFUwY1oyMS1jZFltMkVrOGU5WNIB5gFBVV95cUxNRmpsRU5Hb2o5M1A2TGdSSlBqRHlEYW54aTIxcWUyVFAxeHlTQWw4cUdyTXNpMUFSMWZlTUFkaTJvVlpkQTlGXy1reUVZREJHSEpIal9RLVc5MGxlXzZXZnMzb1RoUjU1Y2FLT3ZzZ0otOGZ1S3F6Mlg4V1hiZFlqSVgxM0sxMm52RktBelBpQzdLenRqcEZSQllJaFliMVpWUkZZcloyeExhMFFVaXFmdzh6TmV3cEJRcjd6NEtaSnJBYmp2WDdmR3hLTDlmbWpxeDd2MWxhenQ3YkZGUk1IN24xN21RZw?oc=5",
-      "title": "Palantir CEO Alex Karp criticizes OpenAI and Anthropic over AI pricing, saying something has gone completely wrong [ ~ ] [ ◻ ]",
-      "content_text": "Palantir CEO Alex Karp has publicly criticized OpenAI and Anthropic for their AI pricing strategies, stating that \"something has gone completely wrong.\" Karp's comments highlight growing concerns within the industry about the cost and accessibility of advanced AI technologies. His remarks suggest a tension between companies developing AI and the broader market expectations, raising questions about the future direction of AI pricing and its impact on adoption and innovation.",
-      "date_published": "2026-07-04T09:31:02Z"
-    },
-    {
-      "id": "sty_af7422f0002ab54a",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdmlrWFNFWWpiOGsxOTl3TUpxWXdjY19RTW1GbkdjajF1czFRVnRzc0Ftc2NzNW5aYkN4cjg4MzFBbnNraXRENXNUdm1zLV9UWGRTNTUwV2hYblQ1d2Q0NUxHNElhN1VTSFVjc0xqTUVSZ2JEcWZ6ZUh2N0JCVHk5VmExdjJqNmlGUk5TTTRBbXVud2k1dUpQUFRDSWJiVlBjaGs0UXNOMHNtS2M40gG6AUFVX3lxTE03bk5PaVV5TThZQjVQWHA4Sld4Tk1NaURKVm5VYk42eGNnRWpZdUNRcDVjaFFkZHFuSlZwMUtSMGR3eDR2OURkZGxfRDQ2cERVc0oydzk3TmxtYlpGaEl3QTlFNTlFbklzWkxuZEo2U2V4Yjl3bEd5RmNqc3BoTmcwMTc1alQyQ09aNXpBQlR1bThuazlmcVdGUGVxb01nZGEyaU53MHhwbDY2SmNFMUxVZzNyTERNMGF2QQ?oc=5",
-      "title": "Tesla plans $200 weekly limit on AI usage, exempts beta versions starting July 2026",
-      "content_text": "Tesla plans to implement a $200 weekly limit on AI usage starting in July 2026, while exempting beta versions from this restriction. This move aims to manage the costs and usage of AI technologies within the company's operations. The policy reflects Tesla's approach to balancing innovation with resource management as AI becomes increasingly integral to its products and services.",
-      "date_published": "2026-07-04T08:21:22Z"
     },
     {
       "id": "sty_20a093965fc905e4",
@@ -273,18 +315,39 @@
       "date_published": "2026-07-03T21:20:00Z"
     },
     {
-      "id": "sty_7c1d595d82d7fd64",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVWlrWGZwNlA5OUR1TmZqQzFqTXBnTHo1YTAtWktpSUdJX2xhTzIxX2hObW5ybjdyMk5BNTF6VHNFcWRNNVhhT2Zid1pROWEtTXBNelk4aEU5dEk4VHgxZHdGV1FPZmRIeWtRdGdzSENmV3g3dWRFSk1VUVpmMy1qbEd2SUtCNG5tTGVmNDh2c1lxOTBHUWJxUXlDR0N0ZDQ?oc=5",
-      "title": "Anthropic secures its largest deal of 2026 to date, marking a significant milestone for the company",
-      "content_text": "Anthropic has secured its largest deal of 2026 so far, marking a significant achievement for the company. This milestone highlights Anthropic's growing influence and success in the industry during the year. The deal underscores the company's expanding business opportunities and may signal increased confidence from clients and partners in Anthropic's offerings and capabilities.",
-      "date_published": "2026-07-04T00:33:00Z"
+      "id": "sty_6e7e09031bdeb421",
+      "url": "https://simonwillison.net/2026/Jul/3/open-source-ai-gap-map/",
+      "title": "Current AI launches Open Source AI Gap Map v0.1 detailing 421 products across 14 categories and releases underlying data under MIT license on GitHub [ ~ ] [ ◻ ]",
+      "content_text": "Current AI, a nonprofit organization established at the AI Action Summit in Paris in 2025, has launched the Open Source AI Gap Map v0.1, which catalogs 421 open source AI products across 14 categories and three layers of the AI stack. The map includes software tools, models, datasets, and hardware projects from 228 organizations, aiming to provide a comprehensive overview of the open source AI ecosystem. Additionally, the project has released its underlying data under an MIT license on GitHub, offering 1,184 YAML files along with notebooks, schemas, and scripts used for data collection. The Gap Map highlights a significant portion of the open source AI landscape, while also acknowledging a larger uncategorized segment of over 24,000 artifacts that await further research and citation. Users can explore the data interactively through tools like Datasette Lite, which allows examination of thousands of GitHub repositories tracked by the project. This initiative supports transparency and accessibility in the AI community by providing detailed, openly licensed data for researchers and developers.",
+      "date_published": "2026-07-03T22:04:31Z"
     },
     {
-      "id": "sty_28342f7bd15ef9e7",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/961311/anthropic-claude-science-ai-drug-development",
-      "title": "Anthropic announces Claude Science AI workbench and plans to develop drugs targeting neglected diseases amid growing AI drug discovery efforts [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic unveiled Claude Science, an AI workbench designed to integrate various scientific tools and datasets into a single platform, enhancing visualization and analysis for researchers. The company also announced plans to develop its own drugs, focusing on treatments for neglected diseases, marking a significant step beyond providing AI tools to other pharmaceutical companies. This move positions Anthropic uniquely in the competitive AI-driven drug discovery landscape, which includes major tech firms and biotech startups. While Anthropic has not disclosed detailed plans or partnerships for drug development, experts note that AI is already widely used across many stages of drug discovery, from compound identification to clinical trials. However, the process remains complex and slow, with AI serving as a tool to accelerate research rather than replace human oversight. The announcement highlights both the potential and the current limitations of AI in transforming drug development.",
-      "date_published": "2026-07-03T13:56:52Z"
+      "id": "sty_1da56ed9a59ca45d",
+      "url": "https://simonwillison.net/2026/Jul/3/josh-w-comeau/",
+      "title": "Josh W. Comeau reports 50%+ revenue drop for developer courses, attributing decline to AI reducing demand and personalized tutoring from LLMs [ * ] [ ◻ ]",
+      "content_text": "Josh W. Comeau, a developer and course creator, has reported a significant decline in revenue from his developer courses, with sales dropping by more than 50%. He attributes this downturn primarily to the rise of AI technologies, particularly large language models (LLMs), which offer personalized tutoring and reduce the demand for paid courses. Additionally, concerns about the future of developer jobs are causing potential learners to hesitate in investing time and money in new skills. Comeau notes that this trend is not isolated, as other course creators are experiencing similar declines in engagement and revenue. He also highlights the issue of LLMs using creators' content without consent or compensation, further impacting the traditional educational content market.",
+      "date_published": "2026-07-03T21:25:52Z"
+    },
+    {
+      "id": "sty_c14bb77d80620003",
+      "url": "https://studios.disneyresearch.com/2026/07/01/neural-render-proxies-for-interactive-and-differentiable-lighting/",
+      "title": "DisneyResearch and ETH Zurich introduce neural render proxies for interactive, differentiable relighting of static scenes at 30-60 Hz [ ~ ] [ ◻ ]",
+      "content_text": "DisneyResearch and ETH Zurich have developed a neural render proxy (NRP) that enables interactive, differentiable relighting of static scenes with fixed cameras and materials at frame rates of 30 to 60 Hz. This technology accelerates the lighting process in computer graphics animation by decoupling rendering into path sampling and emission computation, allowing rapid sampling of lighting conditions from a single light-agnostic render pass. The NRP uses a lightweight neural network trained on scene-specific light transport data, enabling efficient relighting compatible with traditional production renderers. It requires minimal memory during inference and scales with resolution and lighting parameters rather than scene complexity. This approach closely approximates the visual quality of ground-truth path tracing and supports gradient-based inverse workflows, helping artists quickly adjust lighting from image edits or generative targets.",
+      "date_published": "2026-07-01T21:10:16Z"
+    },
+    {
+      "id": "sty_846d7d4c0b12dffe",
+      "url": "https://simonwillison.net/2026/Jul/3/judgement/",
+      "title": "Simon Willison advises letting Claude Code's Fable use its own judgement for coding tasks to improve efficiency and reduce token usage before price increases [ ~ ] [ ◼ ]",
+      "content_text": "Simon Willison shares advice from a recent discussion with the Claude Code team, emphasizing the benefits of allowing the AI coding assistant Fable to use its own judgment for tasks rather than following strict instructions. This approach improves efficiency and reduces unnecessary token usage, especially for tasks like automated testing where Fable can decide when to apply tests based on the feature size. To further optimize resource use before upcoming price increases, Willison suggests instructing Fable to delegate smaller coding tasks to lower-power models, letting it choose the appropriate model autonomously. This method maintains high-level judgment and review within the main model while offloading simpler implementation work to subagents, resulting in more work completed with less token consumption.",
+      "date_published": "2026-07-03T18:51:06Z"
+    },
+    {
+      "id": "sty_f89d394f7afa2048",
+      "url": "https://simonwillison.net/2026/Jul/3/june-newsletter/",
+      "title": "Simon Willison releases June 2026 sponsors-only newsletter covering Claude Fable 5, GPT-5.6, GLM-5.2, Datasette Apps, and WASM projects [ ~ ] [ ◻ ]",
+      "content_text": "Simon Willison has released the June 2026 edition of his sponsors-only monthly newsletter, which covers recent developments in large language models and related technologies. Topics include Claude Fable 5, GPT-5.6, US export restrictions, the GLM-5.2 open weights model, Datasette Apps, various WebAssembly projects, and updates on tools like sqlite-utils and shot-scraper. The newsletter is available exclusively to sponsors, with a preview of the previous month's edition offered publicly. Subscribers pay $10 per month to receive curated insights and stay ahead of the free content release schedule.",
+      "date_published": "2026-07-03T14:50:50Z"
     },
     {
       "id": "sty_3696189c3b82f0c5",
@@ -303,8 +366,8 @@
     {
       "id": "sty_24a812bbe22b8062",
       "url": "https://www.infoq.com/news/2026/07/cloudflare-unified-data-platform/",
-      "title": "Cloudflare details Town Lake unified data platform with billing workloads accounting for 53% of queries and AI agent Skipper enabling natural language access [ * ] [ ◼ ]",
-      "content_text": "Cloudflare has introduced Town Lake, an internal unified data platform designed to consolidate access to operational, billing, security, and business data across multiple systems. Billing workloads account for 53% of all queries on the platform, which processed approximately 91,760 billing-related queries from 324 employees. Town Lake uses a lakehouse architecture with technologies like Apache Trino, Iceberg, Cloudflare R2, and DataHub to enable governed, cross-system analytics without moving data between systems. The platform incorporates a closed governance model with automated and human review processes to protect sensitive data. Cloudflare also developed Skipper, an AI-powered analytics agent that allows users to query data using natural language, translating requests into validated SQL queries. Skipper supports various workflows including billing analysis, customer support, business intelligence, and security investigations. Looking ahead, Cloudflare plans to further integrate Skipper with internal tools such as chat and ticketing systems and expand its data transformation capabilities. The company also intends to migrate more workloads to its R2 SQL system as Town Lake continues to evolve, aiming to simplify data access and improve operational efficiency across the organization.",
+      "title": "Cloudflare details Town Lake unified data platform with AI agent Skipper, billing workloads account for 53% of 91,760 queries from 324 employees [ * ] [ ◼ ]",
+      "content_text": "Cloudflare has introduced Town Lake, an internal unified data platform designed to consolidate access to operational, billing, security, and business data across various systems. Alongside Town Lake, the company developed Skipper, an AI-powered analytics agent that enables natural language queries on enterprise data. Billing workloads constitute 53% of the platform's usage, with 91,760 billing-related queries processed by 324 employees during a measured period. The platform employs a lakehouse architecture integrating Apache Trino, Apache Iceberg, Cloudflare R2 object storage, and DataHub for metadata management, allowing seamless querying across multiple data sources without data movement. Town Lake features a closed governance model with automated and human review processes to ensure data security and compliance. Skipper enhances user interaction by translating plain-English requests into validated SQL queries, improving efficiency in billing analysis, customer support, business intelligence, and security workflows. Cloudflare plans to further integrate Skipper with internal communication and development tools and expand its data transformation capabilities. The company also aims to migrate more workloads to R2 SQL as the platform evolves, enhancing data accessibility and operational insights across the organization.",
       "date_published": "2026-07-03T14:29:00Z"
     },
     {
@@ -329,32 +392,25 @@
       "date_published": "2026-07-03T16:14:44Z"
     },
     {
-      "id": "sty_76751c25d8949681",
-      "url": "https://www.theinformation.com/briefings/alibaba-bans-employees-using-claude",
-      "title": "Alibaba bans employees from using Anthropic's Claude AI models over security concerns, orders removal from work computers [ * ] [ ◼ ]",
-      "content_text": "Alibaba Group has prohibited its employees from using Anthropic's Claude AI models and instructed them to remove these models from their work computers due to security concerns. The decision reflects the company's caution regarding the potential risks associated with Anthropic's technology. This move highlights ongoing scrutiny of AI tools within major corporations as they balance innovation with data security.",
-      "date_published": "2026-07-03T09:29:26Z"
-    },
-    {
-      "id": "sty_8348b94bf6f00199",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQRWpLR2kzTHJhaWpIYUVMNWtGUE1zU1BHd016Ui0tNktTdmQzN3ZwSXBUcEhmUTFlRHQ3VmdfeTVyckFPaWtXLTdDUTkwUlVUM2VlQl96QnpPNW1MTEg2YWwyQXJOMjVBSzV6NmJhWXZJQVBSUmhVLUFlUldpX0NvQmJGVQ?oc=5",
-      "title": "Analysis: SpaceX AI device rumor suggests a product beyond a traditional phone, revealing new details about its capabilities and design",
-      "content_text": "Recent rumors about a new SpaceX AI device suggest it is more than a traditional smartphone, offering unique capabilities and a distinct design. The device appears to integrate advanced artificial intelligence features, setting it apart from conventional mobile technology. Details emerging from the rumor indicate that SpaceX aims to create a product that redefines user interaction with AI, potentially impacting how consumers engage with smart devices. This development highlights SpaceX's expanding focus beyond aerospace into innovative consumer technology.",
-      "date_published": "2026-07-03T20:15:46Z"
+      "id": "sty_28342f7bd15ef9e7",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/961311/anthropic-claude-science-ai-drug-development",
+      "title": "Anthropic announces Claude Science AI workbench and plans to develop drugs targeting neglected diseases amid growing AI drug discovery efforts [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic has introduced Claude Science, an AI workbench designed to integrate various scientific tools and datasets into a single platform, enhancing the generation of figures and visuals for researchers. The company, known for its advanced AI models and coding tools, highlighted the potential of AI to accelerate scientific discovery and healthcare development, with several biotech and pharmaceutical firms already utilizing Claude. Additionally, Anthropic announced plans to develop its own drugs, focusing on treatments for neglected diseases, marking a significant step beyond providing AI tools to actively engaging in drug discovery. While Anthropic has not disclosed detailed plans regarding its drug development process or partnerships for clinical trials and manufacturing, its move places it among a growing number of AI-driven entities aiming to innovate in pharmaceutical research. Experts note that AI is increasingly applied across all stages of drug discovery, from compound identification to clinical trials, but emphasize that AI-designed drugs reaching patients remain a long-term goal requiring substantial human oversight and high-quality experimental data. Anthropic's initiative reflects broader industry trends where AI is becoming integral to drug research, though significant challenges and uncertainties persist.",
+      "date_published": "2026-07-03T13:56:52Z"
     },
     {
       "id": "sty_3726361c2e0ddc56",
       "url": "https://www.infoq.com/minibooks/agentic-ai-architecture/",
-      "title": "InfoQ publishes eMag on agentic AI architecture as emerging software architecture trend with expert articles on design patterns, context engineering, and enterprise frameworks [ ~ ] [ ◻ ]",
-      "content_text": "InfoQ has released an eMag focused on agentic AI architecture, presenting it as an emerging software architecture trend poised to shape the IT industry for years. The publication features expert articles that explore various aspects of this new architecture, including design patterns, context engineering, and enterprise frameworks, highlighting its potential to transform software development. The eMag includes contributions from industry professionals who discuss the evolution from microservices to agentic systems, the development of resilient agentic harnesses, and the importance of context management to improve AI reliability. It also outlines a three-tier framework for enterprise adoption and addresses current challenges and future opportunities in agentic AI architecture. By providing insights into this nascent field, InfoQ aims to track the maturation of agentic AI architecture and its impact on IT systems. The publication encourages feedback from readers to further refine understanding and coverage of this transformative technology.",
+      "title": "InfoQ publishes eMag on agentic AI architecture as emerging dominant software architecture with expert articles on trends, frameworks, and enterprise adoption [ ~ ] [ ◻ ]",
+      "content_text": "InfoQ has released an eMag focused on agentic AI architecture, presenting it as an emerging dominant software architecture poised to shape the IT industry for years to come. The publication features expert articles that explore various facets of agentic AI, including its evolution, architectural patterns, and enterprise adoption strategies. The eMag includes contributions from industry professionals who discuss topics such as the transition from microservices to agentic systems, the development of resilient agentic harnesses, context engineering to improve AI reliability, and a comprehensive framework for enterprise implementation. It also addresses current challenges and future opportunities associated with this new architectural paradigm. By providing insights into the latest trends and developments, InfoQ aims to help readers understand how agentic AI architecture is entering the mainstream and influencing the future of software design and development.",
       "date_published": "2026-07-03T11:00:00Z"
     },
     {
-      "id": "sty_938caec1fead2bd9",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/961265/midjourney-medical-ultrasound-scanner-behind-the-scenes-video",
-      "title": "Midjourney releases behind-the-scenes video of its ultrasound medical scanner but provides little evidence of its effectiveness or imaging capabilities [ ~ ] [ ◻ ]",
-      "content_text": "Midjourney, an AI startup known for its image generation, released a behind-the-scenes video showcasing its ultrasound medical scanner, which it aims to deploy in spas as a low-cost, radiation-free imaging device. Despite the detailed hardware tour, the video provides little evidence of the scanner's effectiveness or its ability to produce detailed medical images, raising questions about the technology's feasibility. The video, presented by an engineer at Midjourney, reveals the scanner as a combination of multiple ultrasound probes integrated into a tub-like structure connected to standard computers. The company emphasizes the device's initial use for body composition analysis rather than diagnostic purposes, allowing it to bypass regulatory hurdles like FDA clearance. However, experts remain skeptical about the scanner's capability to overcome longstanding limitations of ultrasound technology. Midjourney's leadership expressed confidence in their approach, highlighting the freedom to innovate without investor pressure and promising ongoing updates. Nonetheless, the lack of clear evidence and reliance on medical terminology in promotional materials leave uncertainties about the scanner's future impact and clinical viability.",
-      "date_published": "2026-07-03T11:49:10Z"
+      "id": "sty_342844d27565aca0",
+      "url": "https://www.technologyreview.com/2026/07/03/1140036/uk-tobacco-ban-might-not-work-children-smoking/",
+      "title": "UK enacts generational tobacco sales ban for those born after 2009 despite uncertainty over its effectiveness",
+      "content_text": "The UK has enacted a generational tobacco sales ban under the Tobacco and Vapes Act 2026, prohibiting the sale of tobacco products to anyone born after January 1, 2009, indefinitely. This \"endgame\" policy aims to eliminate smoking entirely among future generations, marking a significant shift in tobacco control strategy. However, the effectiveness of such bans remains uncertain, as similar laws in other countries have faced challenges or repeal. The ban reflects changing social attitudes toward smoking, especially among younger people who are increasingly repulsed by the habit. While the policy targets future smokers, experts emphasize the need for comprehensive approaches that also support current smokers. The UK law has drawn international attention, potentially influencing tobacco control efforts worldwide, though political opposition and questions about long-term enforcement persist.",
+      "date_published": "2026-07-03T09:00:00Z"
     },
     {
       "id": "sty_706592457666735e",
@@ -364,18 +420,32 @@
       "date_published": "2026-07-03T10:13:00Z"
     },
     {
-      "id": "sty_495949f0c8a4d1d2",
-      "url": "https://the-decoder.com/gpt-and-claude-failed-bridgewaters-finance-tests-because-the-right-answers-were-never-public/",
-      "title": "Bridgewater and Thinking Machines Lab say fine-tuned Qwen3-235B model outperforms GPT and Claude on finance tasks using proprietary data, achieving 84.7% accuracy at one-fourteenth the cost [ * ] [ ◼ ]",
-      "content_text": "Bridgewater and Thinking Machines Lab have fine-tuned the open-weight Qwen3-235B model for financial document analysis, achieving 84.7% accuracy in their internal tests. This performance surpasses leading AI models like GPT, Claude, and Gemini while operating at roughly one-fourteenth of the cost. The fine-tuning leveraged proprietary data and expert judgment from Bridgewater investors, enabling the model to make nuanced relevance assessments that standard models struggled with. The team addressed labeling challenges by using an iterative process where a preliminary model identified discrepancies in initial labels, which were then corrected by experts. This approach allowed efficient use of expensive professional input and improved training quality. The results highlight the potential for companies to develop powerful, cost-effective AI solutions tailored to their specific data without relying on large external providers, preserving data privacy and competitive advantage.",
-      "date_published": "2026-07-03T11:16:42Z"
+      "id": "sty_938caec1fead2bd9",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/961265/midjourney-medical-ultrasound-scanner-behind-the-scenes-video",
+      "title": "Midjourney releases behind-the-scenes video of its ultrasound medical scanner but provides little evidence of its effectiveness or imaging capabilities [ ~ ] [ ◻ ]",
+      "content_text": "Midjourney, an AI startup known for image generation, released a behind-the-scenes video showcasing its innovative ultrasound medical scanner designed for use in spas. The company aims to offer affordable, detailed, and radiation-free imaging focused on body composition rather than diagnostic purposes, which would require regulatory approval. Despite the detailed hardware tour, the video provides little evidence supporting the scanner's effectiveness or its ability to overcome established limitations of ultrasound technology. The video, presented by an engineer from Midjourney, reveals the scanner's construction using multiple ultrasound probes and common computing components but does not address key scientific and imaging challenges raised by experts. Midjourney's leadership emphasized a strategy to quickly bring the product to market as a wellness device, avoiding the lengthy process of medical device clearance, while continuing to share progress updates. The company also highlighted its independence from investors, allowing it to pursue this project without external constraints.",
+      "date_published": "2026-07-03T11:49:10Z"
     },
     {
-      "id": "sty_670d64d11821c2b6",
-      "url": "https://www.theinformation.com/briefings/kuaishou-announces-kling-ai-video-units-fundraising-15-billion-valuation",
-      "title": "Kuaishou announces Kling AI video unit's $3 billion fundraising at $15 billion pre-money valuation [ ~ ] [ ◻ ]",
-      "content_text": "Kuaishou Technology announced that its Kling AI video unit has secured nearly $3 billion in funding at a pre-money valuation of $15 billion. This fundraising effort involves external investors and aims to support the rapid growth of the unit within the Chinese social media company.",
-      "date_published": "2026-07-03T02:07:53Z"
+      "id": "sty_053cbff9dcdf19cd",
+      "url": "https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/",
+      "title": "MIT Technology Review reports companies integrating AI with Lean Six Sigma and BPM frameworks to enhance operational excellence and process discipline amid growing AI process optimization market [ ~ ] [ ◻ ]",
+      "content_text": "Companies are increasingly integrating artificial intelligence with established frameworks like Lean Six Sigma and business process management (BPM) to enhance operational excellence and process discipline. These traditional methodologies, known for bringing structure and clarity to complex operations through statistical rigor and workflow mapping, are evolving as AI-powered process optimization gains momentum, with the market expected to exceed $113 billion in the next decade. Organizations with mature process disciplines are better positioned to leverage AI effectively, as they can embed new technologies into proven systems rather than applying them to unstable foundations. This integration allows companies to translate AI ambitions into tangible outcomes by combining data-driven decision-making with process discipline, highlighting that existing operational excellence is crucial for maximizing AI's impact.",
+      "date_published": "2026-07-02T15:37:08Z"
+    },
+    {
+      "id": "sty_be469cf8f2aa4eac",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSTIxVmNILU5va2lubXNsRUd2U3ZWRzdDMEkyODEtNlRGT2xvRlhFSDViOFF4WlBlWnYzU3cwSXVuSDNyaS01bE1OZXRaTUI3TlR0andZZGlGMmNmT0pGbTFscjlxdllyY01lWndWWm13MWF3N3JPYTA0YkdrUkhpdHBfUHJMWjVvNUdsb2dVV0l6OWJudDlz?oc=5",
+      "title": "Tesla limits employee spending on AI projects amid cost controls",
+      "content_text": "Tesla has implemented spending limits for its employees working on artificial intelligence projects as part of broader cost control measures. This move reflects the company's efforts to manage expenses amid economic uncertainties while continuing to invest in AI development. The spending restrictions aim to ensure more disciplined budgeting within Tesla's AI initiatives, balancing innovation with financial prudence. This adjustment may influence the pace and scope of Tesla's AI advancements in the near term.",
+      "date_published": "2026-07-03T16:21:50Z"
+    },
+    {
+      "id": "sty_eb4bf83c3458817b",
+      "url": "https://www.technologyreview.com/2026/07/02/1138433/teaching-ai-to-run-with-the-turbines/",
+      "title": "Woodside Energy scales AI integration across operations to support complex workflows and improve decision-making in safety-critical energy infrastructure [ * ] [ ◼ ]",
+      "content_text": "Woodside Energy is expanding its use of artificial intelligence across its operations to enhance decision-making and manage complex workflows in safety-critical energy infrastructure. The company has developed AI tools over several years, focusing on predictive analytics and machine learning to support exploration, drilling, maintenance, and plant operations. Their AI systems are designed to augment human expertise rather than replace it, exemplified by their \"Startup Advisor\" AI copilot that assists operators in managing liquefied natural gas plant startups. This approach reflects a broader trend in industrial AI, moving from isolated projects to enterprise-wide integration supported by standardized platforms and governed data. Woodside emphasizes rethinking workflows to fully leverage AI capabilities, aiming for an autonomous enterprise where AI agents interact deeply with core operations. Their long-term investment in operational data and infrastructure positions them to scale AI effectively while maintaining safety and reliability in their energy production processes.",
+      "date_published": "2026-07-02T12:51:44Z"
     },
     {
       "id": "sty_095b6866eb56a718",
@@ -385,25 +455,18 @@
       "date_published": "2026-07-03T14:01:00Z"
     },
     {
-      "id": "sty_be9851b120f7fac0",
-      "url": "https://www.theinformation.com/articles/nvidia-neocloud-gold-rush",
-      "title": "Nvidia plans to backstop neocloud startups with revenue-sharing as SoftBank and others launch new AI server rental ventures amid strong funding [ * ] [ ◻ ]",
-      "content_text": "Nvidia is offering financial support to emerging neocloud startups-companies that rent AI servers-by backing them in exchange for a share of their revenues. This move comes amid a surge of new entrants in the neocloud sector, including SoftBank's recent launch of a U.S.-based neocloud venture and significant venture funding rounds like Together AI's $800 million raise. Despite strong demand for AI computing capacity, Nvidia's involvement suggests these startups may still face financial risks. The neocloud market is rapidly expanding, with numerous firms competing to provide AI server rental services. Nvidia, as the leading AI chip manufacturer, aims to stabilize this growing ecosystem by mitigating risks for younger companies. Meanwhile, major investors continue to fuel the sector's growth, highlighting the increasing importance of AI infrastructure in the technology landscape.",
-      "date_published": "2026-07-02T22:31:11Z"
-    },
-    {
-      "id": "sty_1274bcc9e6810b6d",
-      "url": "https://www.theinformation.com/articles/freshfields-anthropic-win-squeeze-lime-returns",
-      "title": "Freshfields to advise on Anthropic IPO expected to value company over $1 trillion, marking a major win for the UK law firm",
-      "content_text": "Freshfields, a UK-based law firm, has been selected to advise on the initial public offering of Anthropic, which is expected to value the company at over $1 trillion. This deal represents a significant achievement for Freshfields, marking its growing presence in the competitive US IPO market. Founded in 1743, Freshfields expanded its reach by opening a Silicon Valley office in 2020 and has been actively recruiting from competitors to strengthen its position in this sector.",
-      "date_published": "2026-07-02T22:18:20Z"
-    },
-    {
       "id": "sty_b07a2dd01f2c37ad",
       "url": "https://futurism.com/artificial-intelligence/biohackers-neurosurgery-control-lobster-ai",
       "title": "Biohackers in San Francisco attempted neurosurgery to control lobsters with AI via OpenClaw but lobsters died before surgery, raising ethical and competence concerns [ ~ ] [ ◻ ]",
       "content_text": "A group of young biohackers in San Francisco attempted to perform neurosurgery on lobsters to control their nervous systems using an AI agent called OpenClaw. The experiment, conducted by Elliot Roth and William Joy at a hacker house, aimed to remotely direct lobsters' movements but ended with the lobsters dying before the surgery could take place, raising questions about the ethical considerations and technical competence of the participants. The duo planned to adapt a remote-control kit originally designed for cockroaches and integrate it with AI to manipulate the lobsters. Despite expressing concern for the lobsters' welfare and intending to use anesthetics, the lobsters died prematurely, possibly due to improper care such as incorrect water salinity. The incident highlights broader concerns about the ethical standards and practical skills within parts of the AI and biohacking communities. This case reflects ongoing debates about the responsibility and oversight in emerging technologies, especially those involving living organisms. It underscores the need for careful ethical evaluation and expertise when experimenting with biological systems, as well as the potential consequences of overconfidence in unproven methods within the tech industry.",
       "date_published": "2026-07-03T12:02:00Z"
+    },
+    {
+      "id": "sty_c82bf4eaf3ef8cdb",
+      "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+      "title": "Mark Zuckerberg tells Meta staff AI agent development has not progressed as quickly as expected, with improvements anticipated in three to six months [ ~ ] [ ◻ ]",
+      "content_text": "Meta CEO Mark Zuckerberg acknowledged in an internal town hall that the development of AI agents has not advanced as quickly as the company had anticipated. He noted that recent layoffs and reassignments within Meta were driven by concerns over the company's pace in adapting to the evolving tech landscape. Zuckerberg expressed optimism that improvements from Meta's AI investments would become evident within the next three to six months. Earlier this year, Meta cut about 10% of its corporate workforce and reassigned thousands of employees to AI-focused teams, including one called Agent Transformation. Despite significant investment in AI infrastructure, totaling up to $145 billion this year, the expected benefits of the new AI-centric structure have yet to materialize fully. Some reports have described the AI unit environment as challenging for engineers, highlighting ongoing difficulties in the company's AI development efforts.",
+      "date_published": "2026-07-02T23:38:10Z"
     },
     {
       "id": "sty_949ea0fa3f6be11a",
@@ -420,6 +483,13 @@
       "date_published": "2026-07-03T11:01:00Z"
     },
     {
+      "id": "sty_8ffe62ed92ce1cec",
+      "url": "https://simonwillison.net/2026/Jul/2/llm-coding-agent/",
+      "title": "Simon Willison releases llm-coding-agent 0.1a0, a Python library implementing a Claude-style coding agent with file editing and command execution tools [ ~ ] [ ◻ ]",
+      "content_text": "Simon Willison has released llm-coding-agent 0.1a0, a new Python library that implements a Claude-style coding agent with capabilities for file editing and command execution. Built on his evolving LLM agent framework, this library offers tools to read, edit, search, and write files, as well as execute shell commands, facilitating automated coding tasks. The project was developed using test-driven development guided by AI prompts, resulting in a functional alpha version available on PyPI. It includes a Python API for programmatic use and supports various commands like editing files, listing files with glob patterns, and running shell commands with timeout controls. Willison demonstrated the agent's capabilities by having it create a simple SwiftUI CLI app that displays the time in ASCII art, showcasing its practical application in coding automation.",
+      "date_published": "2026-07-02T19:33:12Z"
+    },
+    {
       "id": "sty_20583151371ee1cc",
       "url": "https://futurism.com/artificial-intelligence/google-missed-climate-goals-ai",
       "title": "Google reports missing its climate goals due to a 37% rise in electricity use driven by AI infrastructure expansion in 2025 [ * ] [ ◻ ]",
@@ -427,53 +497,11 @@
       "date_published": "2026-07-03T10:02:00Z"
     },
     {
-      "id": "sty_c82bf4eaf3ef8cdb",
-      "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
-      "title": "Mark Zuckerberg tells Meta staff AI agent development has not progressed as quickly as expected, with improvements anticipated in three to six months [ ~ ] [ ◻ ]",
-      "content_text": "Meta CEO Mark Zuckerberg acknowledged in an internal town hall that the development of AI agents has not advanced as quickly as the company had anticipated. He noted that recent layoffs and reassignments within Meta were driven by concerns over the company's pace in adapting to the evolving tech landscape. Zuckerberg expressed optimism that improvements from Meta's AI investments would become evident within the next three to six months. Earlier this year, Meta cut about 10% of its corporate workforce and reassigned thousands of employees to AI-focused teams, including one called Agent Transformation. Despite significant investment in AI infrastructure, totaling up to $145 billion this year, the expected benefits of the new AI-centric structure have yet to materialize fully. Some reports have described the AI unit environment as challenging for engineers, highlighting ongoing difficulties in the company's AI development efforts.",
-      "date_published": "2026-07-02T23:38:10Z"
-    },
-    {
-      "id": "sty_3b49372f229dc20f",
-      "url": "https://www.theinformation.com/articles/palantir-ceo-says-u-s-government-customers-switched-open-source-ai",
-      "title": "Palantir CEO Alex Karp says some U.S. government customers have switched to open source AI amid concerns over OpenAI and Anthropic [ ~ ] [ ◻ ]",
-      "content_text": "Palantir CEO Alex Karp has stated that some U.S. government clients have shifted to using open source AI solutions due to concerns about companies like OpenAI and Anthropic. Karp has positioned Palantir as a necessary intermediary that safeguards businesses and governments from potential risks associated with these newer AI providers. In a recent interview following his appearance on CNBC, Karp criticized OpenAI and Anthropic for allegedly misusing customer data and charging excessively. He emphasized Palantir's role as a critical application layer that offers protection and trustworthiness in the AI landscape.",
-      "date_published": "2026-07-02T19:31:30Z"
-    },
-    {
-      "id": "sty_772fb3590b84f4fa",
-      "url": "https://www.theinformation.com/briefings/softbank-plans-rent-ai-computing-capacity-u-s-companies",
-      "title": "SoftBank and SoftBank Corp. plan to rent AI computing capacity to U.S. companies starting in April through new venture SB Neo, aiming to scale to 10 gigawatts [ * ] [ ◼ ]",
-      "content_text": "SoftBank Group Corp. and its telecommunications unit, SoftBank Corp., announced plans to begin renting AI computing capacity to U.S. companies starting in April through a new venture called SB Neo, Inc. This initiative aims to address the increasing demand for AI resources by scaling up to 10 gigawatts of computing power. The move reflects SoftBank's strategy to expand its presence in the AI infrastructure market and support the growing needs of businesses leveraging artificial intelligence technologies.",
-      "date_published": "2026-07-02T19:12:43Z"
-    },
-    {
-      "id": "sty_1169cf6d549209f8",
-      "url": "https://www.theinformation.com/articles/tesla-caps-employee-ai-spend-200-per-week-adoption-push",
-      "title": "Tesla limits employee AI spending to $200 per week starting July 6, requiring approval for higher costs amid rising usage [ ~ ] [ ◻ ]",
-      "content_text": "Tesla has announced a new policy limiting employee AI-related spending to $200 per week starting July 6, requiring approval for any expenses beyond this threshold. This move reflects the company's effort to manage rising costs amid increased use of AI technologies by its staff. Previously, some software engineers at Tesla were spending thousands of dollars weekly on AI tokens, prompting the need for tighter controls. The spending cap excludes beta versions of xAI products, according to internal sources.",
-      "date_published": "2026-07-02T19:08:54Z"
-    },
-    {
-      "id": "sty_40dd0aa4f11dedc6",
-      "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNZUw5Zkl6ZnJmZ3J6enIwTU5PODl4OHpQT1BucmlBUDdrelJ6RTR2c0pPWEdjV2hueEpjV3lBakFZODRfVG1CZkNaRm1WYnJLRUJ4aDhHN1F0enpjSGJhd0RXTTR4LWtVZklfQ2YzNVNPRVhicTRrTjBRNXVFa09zWWYyeEYyR3VRVVB3SjZuRE5hVkhJN0xkWEpqZ1oxMUI0MXVTRG9sbDZfUkJaaXVyalpxY1d3MnBWaER2ZVJJV1JKR1lGdWFTR2dzcDdoWnBZNUxJZ25aaHBJQ0JBWnFZS3V1dU51dG5vTi1VcUNlb0UtQUFzaEJQTG9vdG5xZFdCaWNmSWtGLXFuTGhNNzhIRHp3VG5XUi1tWXc1d2UxbDlKNWhmTy1Jczl1TVd4X01WTVHSAbcCQVVfeXFMT1VzaU1McnE3NWdlM2JVTmlPeFNRNTZEcUI0RUNieEt6bmI5eXBJOUhxVWpNeWxKYUViRG55a21HcldiT3FUNERMU19wc1NUcUJvNkFjWmtaTGZlSzdiYVUwUkNlRVNSOWdkazFieUxGeE9WM2puX3ZGcWE3UUNld3BTeS1td0FTTHdLRlVpN0l1dkZpM29QeGc3UkJpYlBmMFU3OEhvc21hOHhTdnBXUUp0QVdMY1NmLXRtd2p1RWx1OFU5ZXQ5MkVmYU5MOGR5S2FOX28wb3hqTVFoay1HR2JyMmZFMDZveDROMS1pdHNNUW9oVzVYQUg3bUE5MHY2MUxqU0NzVGtfVHFQWmRiTE9ieU9ySFBjX2tPckV3STlUVi1JR0pkZGV2aGpPTnRId1ZhQ2oyQTg?oc=5",
-      "title": "Anthropic CEO Dario Amodei criticizes Pentagon's AI approach as a blanket posture without specific strategy [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic CEO Dario Amodei has criticized the Pentagon's approach to artificial intelligence, describing it as a broad, undefined stance lacking a clear, specific strategy. He suggests that the current posture does not adequately address the complexities and nuances required for effective AI policy and implementation. Amodei's comments highlight concerns about the need for more detailed planning and targeted actions in the Pentagon's AI initiatives. His critique points to a potential gap between the military's ambitions in AI and the practical frameworks necessary to achieve them, emphasizing the importance of strategic clarity in this rapidly evolving field.",
-      "date_published": "2026-07-03T08:31:48Z"
-    },
-    {
-      "id": "sty_788d0c949aa01144",
-      "url": "https://www.theinformation.com/articles/microsoft-memo-details-ai-app-overhaul-earn-right-exist",
-      "title": "Microsoft plans to merge consumer and enterprise Copilot apps, cut features, and add paid AI coding tools and agents in app overhaul [ * ] [ ◼ ]",
-      "content_text": "Microsoft is consolidating its consumer and enterprise Copilot applications into a single unified app while removing less popular features to better meet customer expectations. According to a memo from executive vice president Jacob Andreou, the revamped app will introduce AI coding tools and new AI agents, which will be offered as paid add-ons. This overhaul aims to streamline Microsoft's AI offerings and enhance their value proposition for users.",
-      "date_published": "2026-07-02T17:36:29Z"
-    },
-    {
-      "id": "sty_57d72318302f8977",
-      "url": "https://www.theinformation.com/briefings/openai-discussed-size-stake-u-s-government-take",
-      "title": "Sources: OpenAI has held preliminary talks on the U.S. government taking an equity stake, with proposed percentages including 5%",
-      "content_text": "OpenAI has engaged in preliminary discussions about the U.S. government acquiring an equity stake in the company, with proposed ownership percentages including 5%, according to a source familiar with the talks. These discussions are in early stages and no final decisions have been made. The Financial Times previously reported that OpenAI's CEO had suggested a 5% stake for the government.",
-      "date_published": "2026-07-02T17:19:11Z"
+      "id": "sty_242b0a2d2525b810",
+      "url": "https://simonwillison.net/2026/Jul/2/dspy-datasette-agent-prompts/",
+      "title": "Simon Willison uses DSPy and Claude Fable 5 to evaluate and improve Datasette Agent's SQL system prompts, identifying schema listing and error-retry issues [ ~ ] [ ◻ ]",
+      "content_text": "Simon Willison used the DSPy tool alongside Claude Fable 5 to evaluate and enhance the system prompts of Datasette Agent, focusing on its ability to execute read-only SQL queries. This evaluation identified issues such as incomplete schema listings that only included table names, leading to column-name guessing and error-retry loops. The suggested improvements include either incorporating column names directly in the schema listing or adjusting the prompt's guidance to prevent redundant describe_table calls. The research was conducted asynchronously using Claude Code for web, testing with GPT 4.1 mini and nano models. These findings aim to improve the accuracy and efficiency of Datasette Agent's SQL query responses, addressing specific prompt design challenges uncovered during the evaluation.",
+      "date_published": "2026-07-02T18:25:00Z"
     },
     {
       "id": "sty_c3525b93e3436373",
@@ -483,25 +511,18 @@
       "date_published": "2026-07-02T20:11:59Z"
     },
     {
-      "id": "sty_69aa46e3b1e24c68",
-      "url": "https://www.theinformation.com/briefings/tesla-vehicle-sales-rebounded-25-second-quarter",
-      "title": "Tesla says vehicle deliveries rose 25% to 480,000 in Q2 2026, led by Model 3 and Model Y",
-      "content_text": "Tesla reported a 25% increase in vehicle deliveries for the second quarter of 2026, reaching a total of 480,000 units. This growth follows a decline in sales during 2025 and was primarily driven by strong demand for the Model 3 and Model Y, which accounted for 468,000 of the deliveries. The remaining 12,000 deliveries included other models such as the Cybertruck, Model X, and Model S.",
-      "date_published": "2026-07-02T15:08:48Z"
+      "id": "sty_233303e17c0b5349",
+      "url": "https://simonwillison.net/2026/Jul/2/understand-to-participate/",
+      "title": "Geoffrey Litt emphasizes understanding code deeply to effectively collaborate with AI coding agents and avoid cognitive debt at AIE 2026 [ ~ ] [ ◻ ]",
+      "content_text": "Geoffrey Litt highlighted the importance of deeply understanding code to effectively collaborate with AI coding agents and avoid accumulating cognitive debt during development. Speaking at AIE 2026, he emphasized that maintaining a rich conceptual grasp of the code enables developers to actively participate in the creative process alongside AI models, rather than passively accepting changes. Litt argued that without sufficient fluency in the codebase, a developer's ability to contribute meaningfully is limited. His talk, which is part of the over 300 recorded presentations from AIE 2026, is recommended for viewing on YouTube, and he also shared a summarized version on Twitter.",
+      "date_published": "2026-07-02T17:07:14Z"
     },
     {
-      "id": "sty_f12b7d8e5a4ffb94",
-      "url": "https://righttointelligence.org/",
-      "title": "Advocacy group launches campaign to protect the right to run local AI software",
-      "content_text": "An advocacy group has launched a campaign to defend the right of individuals to run artificial intelligence software locally on their own devices. The initiative aims to promote user autonomy and protect against restrictions that could limit the ability to operate AI tools independently. The campaign highlights concerns about potential regulatory or corporate measures that might hinder local AI usage, emphasizing the importance of preserving this freedom for innovation and personal control.",
-      "date_published": "2026-07-02T23:54:03Z"
-    },
-    {
-      "id": "sty_17a4cbbc38a97bd3",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNNVNlbk1zbi1zRGVfWkIwNXFOdWJISEgxTHp1RGt1dHl6cmVkcGoxN1c5VTFqc3BrM1ZrTTg0R2RFZHN1NFNTUm9HTXB6aDU5OEs0MC10RlVrU1poUXlrdkhtbklaV28xVFJXVlRoeTVac3lPMnBkVzYyeXZ4dXRZQzhsb1Y1SmN5VjhoQmRnQ0Y1aGR0eTFHVWlyR0ZGME11Q0FpUDN5ZjJJR1IwdHlYUTR0My1MQ2tEcldSalhwb3ZFNEsxbkQ2N2JLeTM?oc=5",
-      "title": "SpaceX unveils Grok-powered smartphone designed to enhance AI interaction capabilities [ ~ ] [ ◻ ]",
-      "content_text": "SpaceX has introduced a new smartphone powered by Grok, an AI technology designed to improve user interaction with artificial intelligence. This development aims to enhance the way users engage with AI through mobile devices, reflecting SpaceX's expansion into AI-driven consumer technology. The Grok-powered smartphone represents a significant step in integrating advanced AI capabilities into everyday technology, potentially reshaping user experiences and setting new standards for AI interaction on mobile platforms.",
-      "date_published": "2026-07-03T06:10:07Z"
+      "id": "sty_40dd0aa4f11dedc6",
+      "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNZUw5Zkl6ZnJmZ3J6enIwTU5PODl4OHpQT1BucmlBUDdrelJ6RTR2c0pPWEdjV2hueEpjV3lBakFZODRfVG1CZkNaRm1WYnJLRUJ4aDhHN1F0enpjSGJhd0RXTTR4LWtVZklfQ2YzNVNPRVhicTRrTjBRNXVFa09zWWYyeEYyR3VRVVB3SjZuRE5hVkhJN0xkWEpqZ1oxMUI0MXVTRG9sbDZfUkJaaXVyalpxY1d3MnBWaER2ZVJJV1JKR1lGdWFTR2dzcDdoWnBZNUxJZ25aaHBJQ0JBWnFZS3V1dU51dG5vTi1VcUNlb0UtQUFzaEJQTG9vdG5xZFdCaWNmSWtGLXFuTGhNNzhIRHp3VG5XUi1tWXc1d2UxbDlKNWhmTy1Jczl1TVd4X01WTVHSAbcCQVVfeXFMT1VzaU1McnE3NWdlM2JVTmlPeFNRNTZEcUI0RUNieEt6bmI5eXBJOUhxVWpNeWxKYUViRG55a21HcldiT3FUNERMU19wc1NUcUJvNkFjWmtaTGZlSzdiYVUwUkNlRVNSOWdkazFieUxGeE9WM2puX3ZGcWE3UUNld3BTeS1td0FTTHdLRlVpN0l1dkZpM29QeGc3UkJpYlBmMFU3OEhvc21hOHhTdnBXUUp0QVdMY1NmLXRtd2p1RWx1OFU5ZXQ5MkVmYU5MOGR5S2FOX28wb3hqTVFoay1HR2JyMmZFMDZveDROMS1pdHNNUW9oVzVYQUg3bUE5MHY2MUxqU0NzVGtfVHFQWmRiTE9ieU9ySFBjX2tPckV3STlUVi1JR0pkZGV2aGpPTnRId1ZhQ2oyQTg?oc=5",
+      "title": "Anthropic CEO Dario Amodei criticizes Pentagon's AI approach as a blanket posture without specific strategy [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic CEO Dario Amodei has criticized the Pentagon's approach to artificial intelligence, describing it as a broad, undefined stance lacking a clear, specific strategy. He suggests that the current posture does not adequately address the complexities and nuances required for effective AI policy and implementation. Amodei's comments highlight concerns about the need for more detailed planning and targeted actions in the Pentagon's AI initiatives. His critique points to a potential gap between the military's ambitions in AI and the practical frameworks necessary to achieve them, emphasizing the importance of strategic clarity in this rapidly evolving field.",
+      "date_published": "2026-07-03T08:31:48Z"
     },
     {
       "id": "sty_c8c538a20b587d6e",
@@ -518,25 +539,11 @@
       "date_published": "2026-07-02T18:31:09Z"
     },
     {
-      "id": "sty_b31a3bde8c508174",
-      "url": "https://www.theinformation.com/articles/five-kinds-model-routers-cut-ai-costs",
-      "title": "The Information outlines five types of AI model routers that reduce costs by selecting appropriate models for different tasks [ * ] [ ◼ ]",
-      "content_text": "The Information highlights five types of AI model routers designed to reduce costs by automatically selecting the most suitable AI models for different tasks. These routers help organizations avoid relying solely on expensive, cutting-edge models by routing simpler tasks to more cost-effective options, such as open source or older proprietary models. Companies like Snowflake and Palo Alto Networks have reported savings by implementing these model routers. Model routers come in various forms, including standalone products, cloud provider features, and custom applications developed by IT departments. They are gaining traction as businesses seek to manage rising AI service expenses without significantly compromising performance, especially for routine tasks like email summarization or document search.",
-      "date_published": "2026-07-02T14:00:40Z"
-    },
-    {
-      "id": "sty_b44003218e08e653",
-      "url": "https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip",
-      "title": "Anthropic holds talks with Samsung to manufacture custom AI chip as it begins early-stage development [ * ] [ ◼ ]",
-      "content_text": "Anthropic has initiated early-stage development of its own AI chip and is in discussions with Samsung Electronics to potentially manufacture it. This move aims to give Anthropic greater control over the expensive computing infrastructure required for its AI models, following a trend set by competitors like OpenAI. If realized, Anthropic would join companies such as Google, Amazon Web Services, Meta Platforms, and Microsoft in developing custom AI server chips. OpenAI recently partnered with Broadcom to design its own AI chip, unveiling Jalapeño, an inference chip optimized for running large language models more efficiently. Anthropic's efforts reflect a broader industry shift toward in-house hardware solutions to improve performance and manage costs associated with AI workloads.",
-      "date_published": "2026-07-02T13:50:56Z"
-    },
-    {
-      "id": "sty_d889fb39f83765a5",
-      "url": "https://www.theinformation.com/briefings/microsoft-commits-2-5-billion-new-applied-ai-consulting-effort",
-      "title": "Microsoft commits $2.5 billion and 6,000 employees to new applied AI consulting unit Microsoft Frontier for large customers [ * ] [ ◼ ]",
-      "content_text": "Microsoft has launched a new business unit called Microsoft Frontier, dedicated to helping large customers develop customized AI applications. The company is investing $2.5 billion and allocating 6,000 employees to support this initiative, as announced by commercial CEO Judson Althoff. This move underscores Microsoft's commitment to expanding its applied AI consulting services for enterprise clients.",
-      "date_published": "2026-07-02T13:47:43Z"
+      "id": "sty_17a4cbbc38a97bd3",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNNVNlbk1zbi1zRGVfWkIwNXFOdWJISEgxTHp1RGt1dHl6cmVkcGoxN1c5VTFqc3BrM1ZrTTg0R2RFZHN1NFNTUm9HTXB6aDU5OEs0MC10RlVrU1poUXlrdkhtbklaV28xVFJXVlRoeTVac3lPMnBkVzYyeXZ4dXRZQzhsb1Y1SmN5VjhoQmRnQ0Y1aGR0eTFHVWlyR0ZGME11Q0FpUDN5ZjJJR1IwdHlYUTR0My1MQ2tEcldSalhwb3ZFNEsxbkQ2N2JLeTM?oc=5",
+      "title": "SpaceX unveils Grok-powered smartphone designed to enhance AI interaction capabilities [ ~ ] [ ◻ ]",
+      "content_text": "SpaceX has introduced a new smartphone powered by Grok, an AI technology designed to improve user interaction with artificial intelligence. This development aims to enhance the way users engage with AI through mobile devices, reflecting SpaceX's expansion into AI-driven consumer technology. The Grok-powered smartphone represents a significant step in integrating advanced AI capabilities into everyday technology, potentially reshaping user experiences and setting new standards for AI interaction on mobile platforms.",
+      "date_published": "2026-07-03T06:10:07Z"
     },
     {
       "id": "sty_cbae482ff50e066e",
@@ -546,25 +553,18 @@
       "date_published": "2026-07-02T18:01:20Z"
     },
     {
-      "id": "sty_97f8f00b82bf8805",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNQjMwNDl1MWxYSG5zd05aTjJITFNXUHh0bWJSRDg1WlNxSWNVMDFBTDBoSHNGZ2FRNUY4NUhZTWxyQlJFSm8tM3BFUl9qRmxoY1VzNEZlVk5HN1lDWC16dFAtd193R3VwUk5WZUh6Sk9GaUJ1elhyWDBOeUpvcjQteXVJclZtcjFqZGZEYndudFZ3clIxWTJRbXpzSGQ2Q3lVUU5ySy0yQ0RicmppZFdpZlJtMnRZckl4SGc?oc=5",
-      "title": "Anthropic is in talks with Samsung to develop a custom AI chip targeting a 2nm manufacturing process [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic is reportedly in discussions with Samsung to develop a custom artificial intelligence chip utilizing a 2-nanometer manufacturing process. This collaboration aims to advance AI hardware capabilities by leveraging Samsung's cutting-edge semiconductor technology. The partnership reflects a growing trend among AI companies to create specialized chips tailored to their computational needs, potentially enhancing performance and efficiency for AI applications. Details about the timeline or specific features of the chip have not been disclosed.",
-      "date_published": "2026-07-03T03:29:44Z"
-    },
-    {
       "id": "sty_65d099646bd0594b",
       "url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
-      "title": "OpenAI CEO Sam Altman proposes donating 5% equity to US sovereign wealth fund to share AI gains with the public [ ~ ] [ ◻ ]",
-      "content_text": "OpenAI CEO Sam Altman has proposed donating 5% of the company's equity to a U.S. sovereign wealth fund as a way to share the financial benefits of AI advancements with the public. This proposal aims to foster positive relations with the government and address political concerns surrounding AI's economic impact. The idea includes similar contributions from other AI companies, though details remain under discussion and would likely require congressional approval. Altman and OpenAI have previously suggested creating a public AI fund to invest in AI development and distribute returns directly to citizens, promoting broader participation in AI-driven growth. The proposal aligns with ongoing debates about how to manage AI's societal effects, including legislative efforts like Senator Bernie Sanders' call for a tax on AI company stock to fund a public wealth fund. These discussions highlight the growing interest in ensuring that AI's economic gains benefit the wider public.",
+      "title": "OpenAI CEO Sam Altman proposes donating 5% equity to a US sovereign wealth fund to share AI gains with the public, pending congressional approval [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI CEO Sam Altman has proposed donating 5% of the company's equity to a U.S. sovereign wealth fund to allow the public to share in the financial benefits of AI advancements. This proposal, which may involve other AI companies contributing similar stakes, aims to foster positive relations with the government and address political concerns, though it would require congressional approval to proceed. The idea aligns with broader discussions about public participation in AI-driven economic growth, including a policy paper from OpenAI suggesting a public wealth fund that invests in AI companies and distributes returns directly to citizens. Meanwhile, a more aggressive legislative proposal by Senator Bernie Sanders calls for a 50% tax on AI company stock to fund a similar public wealth initiative, but it has yet to advance in Congress.",
       "date_published": "2026-07-02T15:20:51Z"
     },
     {
-      "id": "sty_98beb19b9c5d2fb1",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9GYkY0VGd4bUh5bDNZdkVTd0ZBdGlJQTV4aG1jY290ajFGdjY0ODlpeU9LTVNuemRCRUxILW9OQnoxcWdvWjRIbTl4eW9fNVd4ZHVQX0NnV044Y0xJSlFScGxRN0VUdENMd2k1UmhNNXZpZDVvVGc?oc=5",
-      "title": "Tesla caps employee AI spending at $200 weekly but exempts xAI tools amid internal cost controls [ ~ ] [ ◻ ]",
-      "content_text": "Tesla has implemented a weekly spending cap of $200 on AI-related expenses for its employees as part of internal cost control measures. However, tools developed by xAI, Tesla's AI-focused subsidiary, are exempt from this limit, allowing continued investment in these specific technologies. This move reflects Tesla's effort to manage costs while maintaining support for its strategic AI initiatives.",
-      "date_published": "2026-07-03T02:37:00Z"
+      "id": "sty_587b115169bdc37f",
+      "url": "https://www.technologyreview.com/2026/07/02/1140027/the-download-ai-groupthink-llms/",
+      "title": "Australian startup Springboards develops Flint, an LLM designed to reduce groupthink by generating more diverse responses than mainstream chatbots like ChatGPT and Claude [ ~ ] [ ◻ ]",
+      "content_text": "Australian startup Springboards has developed Flint, a large language model (LLM) designed to generate more diverse and creative responses than mainstream chatbots like ChatGPT and Claude. Flint aims to address the issue of groupthink in current LLMs, which often produce predictable answers, limiting their usefulness in brainstorming and open-ended tasks. Springboards trained Flint to provide a wider variety of responses to questions such as travel recommendations, moving chatbots away from repetitive or obvious outputs. This innovation could enhance the flexibility and creativity of AI assistants in various applications where diverse perspectives are valuable.",
+      "date_published": "2026-07-02T12:10:00Z"
     }
   ]
 }
