@@ -1,6 +1,8 @@
 from pathlib import Path
 import unittest
 
+import yaml
+
 from scripts import config
 from scripts.validate_workflow import validate as validate_workflow
 
@@ -37,6 +39,38 @@ class PathContractTests(unittest.TestCase):
 
     def test_workflow_contract_validator_passes(self):
         self.assertEqual(validate_workflow(verbose=False), [])
+
+    def test_site_metadata_contract(self):
+        site_config = yaml.safe_load(Path("_config.yml").read_text(encoding="utf-8"))
+        self.assertEqual(site_config["url"], "https://rss.tedt.org")
+        self.assertEqual(site_config["source_url"], "https://github.com/TedTschopp/rss.tedt.org")
+        self.assertEqual(site_config["github_url"], "https://github.com/TedTschopp/rss.tedt.org")
+        self.assertEqual(site_config["logo"], "assets/images/logo.png")
+        self.assertEqual(site_config["favicon"], "assets/images/favicon.svg")
+        self.assertEqual(site_config["image"], "assets/images/social-card.png")
+        default_image = site_config["defaults"][0]["values"]["image"]
+        self.assertEqual(default_image["path"], "/assets/images/social-card.png")
+        self.assertEqual(default_image["width"], 1731)
+        self.assertEqual(default_image["height"], 909)
+        self.assertNotIn("yourusername", Path("_config.yml").read_text(encoding="utf-8"))
+
+    def test_site_templates_do_not_advertise_disabled_feeds(self):
+        sitemap_template = Path("sitemap.xml").read_text(encoding="utf-8")
+        about_template = Path("about.md").read_text(encoding="utf-8")
+        index_template = Path("index.html").read_text(encoding="utf-8")
+        feeds_template = Path("feeds.html").read_text(encoding="utf-8")
+        self.assertIn("{% if feed.enabled != false %}", sitemap_template)
+        self.assertIn("{% if feed.enabled != false %}", about_template)
+        self.assertIn("site.feeds | where_exp", index_template)
+        self.assertIn("site.feeds | where_exp", feeds_template)
+        self.assertNotIn("const allFeeds = {{ site.feeds | jsonify }}", index_template)
+        self.assertNotIn("const allFeeds = {{ site.feeds | jsonify }}", feeds_template)
+
+    def test_default_layout_delegates_core_metadata_to_seo_tag(self):
+        layout = Path("_layouts/default.html").read_text(encoding="utf-8")
+        self.assertIn("{% seo %}", layout)
+        self.assertNotIn("<title>{% if page.title %}", layout)
+        self.assertNotIn("<meta name=\"description\" content=\"{% if page.description %}", layout)
 
 
 if __name__ == "__main__":

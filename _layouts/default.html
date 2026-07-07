@@ -3,14 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     
     <!-- SEO -->
     {% seo %}
     
     <!-- Favicon -->
-    <!-- <link rel="icon" href="{{ site.baseurl }}/assets/images/favicon.png"> -->
+    <link rel="icon" href="{{ site.baseurl }}/{{ site.favicon }}" type="image/svg+xml">
+    <link rel="alternate icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+    <meta name="theme-color" content="#00446f">
+    <meta name="color-scheme" content="light">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -219,7 +222,6 @@
     </style>
     
     <!-- RSS Feeds -->
-    {% feed_meta %}
     {% for feed in site.feeds %}
     {% if feed.enabled != false %}
     <link rel="alternate" type="application/rss+xml" title="{{ feed.name }} (RSS 2.0)" href="{{ site.url }}{{ feed.url }}">
@@ -240,7 +242,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ site.baseurl }}/">
                 {% if site.logo %}
-                <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.title }}" height="32" class="me-2">
+                <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.title }}" height="32" class="me-2" onerror="this.remove()">
                 {% endif %}
                 {{ site.name }}
             </a>
@@ -262,7 +264,7 @@
                     </li>
                     {% if site.github_url %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ site.github_url }}" target="_blank">
+                        <a class="nav-link" href="{{ site.github_url }}" target="_blank" rel="noopener">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </li>
@@ -303,7 +305,7 @@
                 </div>
                 <div class="col-md-6 text-md-end">
                     {% if site.github_url %}
-                    <a href="{{ site.github_url }}" class="text-white-50 me-3" target="_blank">
+                    <a href="{{ site.github_url }}" class="text-white-50 me-3" target="_blank" rel="noopener">
                         <i class="fab fa-github"></i>
                     </a>
                     {% endif %}

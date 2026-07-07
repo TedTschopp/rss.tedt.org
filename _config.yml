@@ -1,22 +1,45 @@
 # Site settings
 title: RSS Feed Hub
+tagline: Curated AI and technology feeds
 description: > # this means to ignore newlines until "baseurl:"
-  Curated RSS feeds for AI Insights and Technology News
+  Curated AI, enterprise architecture, and technology RSS feeds from Ted Tschopp.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rss.tedt.org" # the base hostname & protocol for your site
+lang: en_US
 
 # Jasper theme settings
 name: 'RSS Feed Hub'
-logo: # 'assets/images/logo.png' # Uncomment when logo is added
-favicon: # 'assets/images/favicon.png' # Uncomment when favicon is added
+logo: assets/images/logo.png
+favicon: assets/images/favicon.svg
+image: assets/images/social-card.png
 production_url: https://rss.tedt.org
-source_url: https://github.com/yourusername/GitHub-Action-To-Read-Table-and-Convert-to-RSS
+source_url: https://github.com/TedTschopp/rss.tedt.org
 
 # Social URLs
 facebook_url:
 twitter_url:
 instagram_url:
-github_url: https://github.com/yourusername/GitHub-Action-To-Read-Table-and-Convert-to-RSS
+github_url: https://github.com/TedTschopp/rss.tedt.org
+
+author:
+  name: Ted Tschopp
+  url: https://rss.tedt.org/about.html
+
+social:
+  name: Ted Tschopp
+  links:
+  - https://rss.tedt.org
+  - https://github.com/TedTschopp/rss.tedt.org
+
+defaults:
+- scope:
+    path: ""
+  values:
+    image:
+      path: /assets/images/social-card.png
+      height: 909
+      width: 1731
+      alt: RSS Feed Hub - curated AI, enterprise architecture, and technology feeds
 
 # Mailchimp newsletter
 mailchimp_url:

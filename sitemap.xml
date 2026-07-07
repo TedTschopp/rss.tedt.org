@@ -27,11 +27,13 @@ sitemap:
   </url>
   
   {% for feed in site.feeds %}
+  {% if feed.enabled != false %}
   <url>
     <loc>{{ site.url }}{{ feed.url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
+  {% endif %}
   {% endfor %}
 </urlset>

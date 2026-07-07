@@ -149,9 +149,8 @@ function copyFeedUrl(url, feedIndex = null) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const allFeeds = {{ site.feeds | jsonify }};
-    // Filter to only enabled feeds
-    const rssFeeds = allFeeds.filter(f => f.enabled !== false);
+    {% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
+    const rssFeeds = {{ enabled_feeds | jsonify }};
 
     function isExternalFeedUrl(url) {
         try {

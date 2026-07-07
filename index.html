@@ -89,9 +89,8 @@ class: home-template
         document.addEventListener('DOMContentLoaded', arguments.callee, {once:true});
         return;
     }
-    const allFeeds = {{ site.feeds | jsonify }};
-    // Filter to only enabled feeds (skip feeds with enabled: false)
-    const feeds = allFeeds.filter(f => f.enabled !== false);
+    {% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
+    const feeds = {{ enabled_feeds | jsonify }};
     function isExternalFeedUrl(url){
         try {
             return new URL(url, window.location.origin).origin !== window.location.origin;

@@ -4,14 +4,14 @@ This project scrapes a dynamic table (GAI Insights) and also aggregates multiple
 
 ## Features (Current)
 
-- ⏱️ Scheduled (every 8 hours) + manual dispatch
-- 🧮 Table scraping (Playwright) for `newsTable` (GAI Insights)
-- � Primary AI feed: `ai_rss_feed.xml`
-- 🗂️ Automatic 60-day retention + `ai_rss_feed_archive.xml`
-- 🌐 Multi-source external aggregation: `aggregated_external.xml`
-- 🗄️ Aggregated archive: `aggregated_external_archive.xml`
-- � Change detection with JSON snapshot
-- 🛡️ Robust error handling & retries
+- Scheduled every 8 hours + manual dispatch
+- Table scraping (Playwright) for `newsTable` (GAI Insights)
+- Primary AI feed: `ai_rss_feed.xml`
+- Automatic 60-day retention + `ai_rss_feed_archive.xml`
+- Multi-source aggregation for enabled feeds in `_config.yml`
+- Aggregated archives for feeds once retention produces older items
+- Change detection with JSON snapshot
+- Robust error handling & retries
 - Health monitoring (`scripts/monitor.py`) writing `api/rss_status.json`
 
 ## Setup
@@ -24,7 +24,7 @@ This project scrapes a dynamic table (GAI Insights) and also aggregates multiple
    - `scripts/config.py` (constants & defaults)
    - `_config.yml` (Jekyll + aggregation settings)
    - `ai_rss_feed.xml` / `ai_rss_feed_archive.xml`
-   - `aggregated_external.xml` / `aggregated_external_archive.xml`
+   - `aggregated_*.xml` / `aggregated_*_archive.xml`
    - `derived/previous_data.json` (change tracking)
    - `reports/aggregation/` (repo-only aggregation health and report artifacts)
 
@@ -92,14 +92,14 @@ aggregated_feeds:
 
 The action runs:
 
-- **Automatically**: Every hour at minute 0 (configurable in the workflow file)
+- **Automatically**: Light aggregation every 8 hours, plus one daily heavy enrichment run
 - **Manually**: Via the "Actions" tab in your GitHub repository
 
 ## Generated RSS Feeds
 
 Primary AI Feed: `/ai_rss_feed.xml` (+ archive `/ai_rss_feed_archive.xml`)
 
-Aggregated External Feed: `/aggregated_external.xml` (+ archive `/aggregated_external_archive.xml`)
+Enabled aggregated feeds: `/aggregated_wes_ai_news.xml`, `/aggregated_ea.xml`, and `/aggregated_broad_ai_news.xml` (+ archives where retention has produced them)
 
 ## Troubleshooting
 

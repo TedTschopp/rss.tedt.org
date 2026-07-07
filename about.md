@@ -14,6 +14,7 @@ title: "About RSS Feed Hub"
         <h2>Available Feeds</h2>
         
     {% for feed in site.feeds %}
+    {% if feed.enabled != false %}
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">
@@ -25,6 +26,7 @@ title: "About RSS Feed Hub"
                 <p class="card-text">{{ feed.description }}</p>
             </div>
         </div>
+    {% endif %}
         {% endfor %}
         
         <h2>How It Works</h2>
@@ -60,15 +62,15 @@ title: "About RSS Feed Hub"
         
         <h2>Smart Preview Display</h2>
         
-        <p>The homepage RSS previews use intelligent filtering to show the most relevant content:</p>
+        <p>The homepage RSS previews load each enabled feed directly and sort visible entries newest first:</p>
         
         <ul>
-            <li><strong>Recent Content Priority:</strong> Always shows items from the last 7 days when available</li>
-            <li><strong>Minimum Guarantee:</strong> Ensures at least the configured preview limit (default: 5 items) are shown</li>
-            <li><strong>Adaptive Display:</strong> Shows whichever is larger - recent items (7 days) or the preview limit</li>
+            <li><strong>Priority Badges:</strong> Converts business and technical impact tags into visual labels</li>
+            <li><strong>Newest First:</strong> Sorts feed items by publication date when dates are available</li>
+            <li><strong>External Feed Handling:</strong> Links out when browser fetch access is not available</li>
         </ul>
         
-        <p>This ensures you see fresh, timely content while maintaining a minimum number of items for context.</p>
+        <p>This keeps the public page aligned with the current generated feeds and avoids advertising disabled feeds.</p>
         
         <h2>Feed Status Monitoring</h2>
         
@@ -86,7 +88,7 @@ title: "About RSS Feed Hub"
         <p>This RSS hub is powered by:</p>
         
         <ul>
-            <li><strong>Python:</strong> Web scraping with Beautiful Soup and Selenium</li>
+            <li><strong>Python:</strong> Web scraping and feed aggregation with Playwright, Beautiful Soup, and Feedgen</li>
             <li><strong>GitHub Actions:</strong> Automated workflow execution</li>
             <li><strong>Jekyll:</strong> Static site generation</li>
             <li><strong>RSS:</strong> Standard syndication format</li>
@@ -117,11 +119,13 @@ title: "About RSS Feed Hub"
             <div class="card-body">
                 <ul class="list-unstyled">
                     {% if site.github_url %}
-                    <li><a href="{{ site.github_url }}" target="_blank"><i class="fab fa-github"></i> Source Code</a></li>
+                    <li><a href="{{ site.github_url }}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a></li>
                     {% endif %}
                     <li><a href="{{ site.baseurl }}/api/rss_status.json"><i class="fas fa-file-code"></i> Status JSON</a></li>
                     {% for feed in site.feeds %}
+                    {% if feed.enabled != false %}
                     <li><a href="{{ feed.url }}"><i class="fas fa-rss"></i> {{ feed.name }}</a></li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
