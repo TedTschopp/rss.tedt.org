@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pipeline.run_all import _apply_env_overrides, _write_report
+from pipeline.run_all import _apply_env_overrides, _combine_llm_status, _write_report
 
 
 class RunAllConfigTests(unittest.TestCase):
@@ -93,6 +93,25 @@ class RunAllConfigTests(unittest.TestCase):
 
 
 class RunAllReportTests(unittest.TestCase):
+    def test_combine_llm_status_sums_enrichment_and_publish_calls(self):
+        combined = _combine_llm_status(
+            {"status": "ok", "calls": 11, "ok": 11, "errors": 0, "skipped": 0},
+            {
+                "status": "ok",
+                "calls": 229,
+                "ok": 229,
+                "errors": 0,
+                "skipped": 0,
+                "by_kind": {"output_cleanup": 80, "ai_relevance": 38, "importance": 31},
+            },
+        )
+
+        self.assertEqual(combined["calls"], 240)
+        self.assertEqual(combined["ok"], 240)
+        self.assertEqual(combined["stages"]["enrichment"]["calls"], 11)
+        self.assertEqual(combined["stages"]["publish"]["calls"], 229)
+        self.assertEqual(combined["by_kind"]["output_cleanup"], 80)
+
     def test_write_report_includes_stage_timing_section(self):
         report = {
             "timestamp": "2026-05-22T12:00:00Z",
@@ -117,6 +136,36 @@ class RunAllReportTests(unittest.TestCase):
             self.assertIn("## Stage Timings (seconds)", md)
             self.assertIn("- ingestion: 1.23", md)
             self.assertIn("- publish: 2.00", md)
+
+    def test_write_report_includes_llm_stage_breakdown_when_present(self):
+        report = {
+            "timestamp": "2026-05-22T12:00:00Z",
+            "sources_configured": 1,
+            "raw_items": 2,
+            "stories": 2,
+            "clusters": 1,
+            "llm_status": {
+                "status": "ok",
+                "calls": 240,
+                "stages": {
+                    "enrichment": {"calls": 11},
+                    "publish": {"calls": 229},
+                },
+            },
+            "stage_timings_sec": {},
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            base = Path(temp_dir)
+            json_path = base / "report.json"
+            md_path = base / "report.md"
+            _write_report(str(json_path), str(md_path), report)
+
+            md = md_path.read_text(encoding="utf-8")
+            self.assertIn("## LLM Calls", md)
+            self.assertIn("- Total: 240", md)
+            self.assertIn("- Enrichment: 11", md)
+            self.assertIn("- Publish: 229", md)
 
 
 if __name__ == "__main__":

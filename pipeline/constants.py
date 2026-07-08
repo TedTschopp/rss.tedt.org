@@ -60,7 +60,7 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "ai_relevance_model": "openai/gpt-4.1-mini",
     "importance_model": "openai/gpt-4.1-mini",
     "output_cleanup_enabled": True,
-    "output_cleanup_top_n": 200,
+    "output_cleanup_top_n": 50,
     "output_cleanup_model": "openai/gpt-4.1-mini",
     "user_agent": "rss.tedt.org-pipeline/1.0 (+https://rss.tedt.org)",
     "reddit_user_agent": "rss.tedt.org-bot/1.0 by TedTschopp",

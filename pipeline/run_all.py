@@ -28,6 +28,45 @@ from .score import score_stories
 from .source_registry import load_pipeline_settings, load_sources
 
 
+def _combine_llm_status(enrichment_meta: dict, publish_meta: dict) -> dict:
+    enrichment = dict(enrichment_meta or {})
+    publish = dict(publish_meta or {})
+    total_calls = int(enrichment.get("calls") or 0) + int(publish.get("calls") or 0)
+    total_ok = int(enrichment.get("ok") or 0) + int(publish.get("ok") or 0)
+    total_errors = int(enrichment.get("errors") or 0) + int(publish.get("errors") or 0)
+    total_skipped = int(enrichment.get("skipped") or 0) + int(publish.get("skipped") or 0)
+
+    by_kind: dict[str, int] = {}
+    for source in [enrichment.get("by_kind"), publish.get("by_kind")]:
+        if not isinstance(source, dict):
+            continue
+        for key, value in source.items():
+            try:
+                by_kind[str(key)] = by_kind.get(str(key), 0) + int(value or 0)
+            except Exception:
+                continue
+
+    if total_errors:
+        status = "degraded" if total_ok else "error"
+    elif total_skipped and not total_ok:
+        status = "skipped"
+    else:
+        status = "ok"
+
+    return {
+        "status": status,
+        "calls": total_calls,
+        "ok": total_ok,
+        "errors": total_errors,
+        "skipped": total_skipped,
+        "by_kind": by_kind,
+        "stages": {
+            "enrichment": enrichment,
+            "publish": publish,
+        },
+    }
+
+
 def _write_report(report_path_json: str, report_path_md: str, report: dict) -> None:
     write_json(report_path_json, report)
 
@@ -41,6 +80,20 @@ def _write_report(report_path_json: str, report_path_md: str, report: dict) -> N
         f"- Clusters: {report['clusters']}",
         f"- LLM: {report['llm_status']}",
     ]
+    llm_status = report.get("llm_status")
+    if isinstance(llm_status, dict) and isinstance(llm_status.get("stages"), dict):
+        stages = llm_status.get("stages", {})
+        enrichment = stages.get("enrichment", {}) if isinstance(stages, dict) else {}
+        publish = stages.get("publish", {}) if isinstance(stages, dict) else {}
+        lines.extend(
+            [
+                "",
+                "## LLM Calls",
+                f"- Total: {int(llm_status.get('calls') or 0)}",
+                f"- Enrichment: {int(enrichment.get('calls') or 0) if isinstance(enrichment, dict) else 0}",
+                f"- Publish: {int(publish.get('calls') or 0) if isinstance(publish, dict) else 0}",
+            ]
+        )
     stage_timings = report.get("stage_timings_sec")
     if isinstance(stage_timings, dict) and stage_timings:
         lines.extend(["", "## Stage Timings (seconds)"])
@@ -210,12 +263,14 @@ def main():
     stage_timings_sec["write_intermediate_outputs"] = round(time.perf_counter() - started, 4)
 
     started = time.perf_counter()
+    publish_llm_meta: dict = {}
     api_payload, llm_cache = publish_outputs(
         ranked,
         f"{API_DIR}/feed.json",
         f"{FEEDS_DIR}/top",
         llm_cache=llm_cache,
         llm_call_log_path=LLM_CALL_LOG_FILE,
+        llm_status=publish_llm_meta,
         config=pipeline_config,
     )
     stage_timings_sec["publish"] = round(time.perf_counter() - started, 4)
@@ -234,7 +289,9 @@ def main():
         "stories": len(ranked),
         "clusters": len(clusters),
         "api_items": api_payload.get("count", 0),
-        "llm_status": llm_meta,
+        "llm_status": _combine_llm_status(llm_meta, publish_llm_meta),
+        "llm_enrichment_status": llm_meta,
+        "llm_publish_status": publish_llm_meta,
         "stage_timings_sec": stage_timings_sec,
     }
 

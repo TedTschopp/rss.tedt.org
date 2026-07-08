@@ -88,7 +88,7 @@ jobs:
         PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP: '0'
         PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH: 'true'
         PIPELINE_OUTPUT_CLEANUP_ENABLED: 'true'
-        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
+        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
         PIPELINE_IMPORTANCE_BACKFILL_DAYS: '60'
         PIPELINE_LLM_RETRY_MAX_ATTEMPTS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '4' }}
         PIPELINE_LLM_RETRY_BASE_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '1.0' || '1.5' }}

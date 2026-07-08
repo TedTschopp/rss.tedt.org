@@ -366,6 +366,7 @@ def publish_outputs(
     base_feed_path: str,
     llm_cache: dict[str, dict[str, Any]] | None = None,
     llm_call_log_path: str | None = None,
+    llm_status: dict[str, Any] | None = None,
     config: dict[str, Any] | None = None,
 )-> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     cfg: dict[str, Any] = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
@@ -463,6 +464,33 @@ def publish_outputs(
             }
         )
         return action
+
+    def _publish_llm_status() -> dict[str, Any]:
+        ok_count = sum(1 for row in call_rows if row.get("status") == "ok")
+        error_count = sum(1 for row in call_rows if row.get("status") == "error")
+        skipped_count = sum(1 for row in call_rows if row.get("status") == "skipped")
+        by_kind: dict[str, int] = {}
+        by_model: dict[str, int] = {}
+        for row in call_rows:
+            kind = str(row.get("kind") or "unknown")
+            model = str(row.get("model") or "unknown")
+            by_kind[kind] = by_kind.get(kind, 0) + 1
+            by_model[model] = by_model.get(model, 0) + 1
+        if error_count:
+            status = "degraded" if ok_count else "error"
+        elif skipped_count and not ok_count:
+            status = "skipped"
+        else:
+            status = "ok"
+        return {
+            "status": status,
+            "calls": len(call_rows),
+            "ok": ok_count,
+            "errors": error_count,
+            "skipped": skipped_count,
+            "by_kind": by_kind,
+            "by_model": by_model,
+        }
 
     article_cache = _load_article_cache(article_cache_path) if article_cache_enabled else {}
     article_cache_updated = False
@@ -720,41 +748,23 @@ def publish_outputs(
             continue
 
         try:
-            title_result, title_retry_meta = _model_call(
+            cleanup_result, cleanup_retry_meta = _model_call(
                 output_cleanup_model,
-                lambda: client.rewrite_output_title(title_text, summary_text, source_context, model=output_cleanup_model),
+                lambda: client.rewrite_output_cleanup(title_text, summary_text, source_context, model=output_cleanup_model),
             )
-            rewritten_title = str(title_result.get("title") or title_text).strip() or title_text
+            rewritten_title = str(cleanup_result.get("title") or title_text).strip() or title_text
+            rewritten_description = str(cleanup_result.get("description") or summary_text).strip() or summary_text
             call_rows.append(
                 {
                     "ts": to_iso(datetime.now(timezone.utc)),
-                    "kind": "output_title_rewrite",
+                    "kind": "output_cleanup",
                     "story_id": story_id,
-                    "model": title_result.get("model"),
-                    "latency_ms": title_result.get("latency_ms"),
-                    "usage": title_result.get("usage", {}),
-                    "input_hash": title_result.get("input_hash"),
+                    "model": cleanup_result.get("model"),
+                    "latency_ms": cleanup_result.get("latency_ms"),
+                    "usage": cleanup_result.get("usage", {}),
+                    "input_hash": cleanup_result.get("input_hash"),
                     "status": "ok",
-                    "retries": title_retry_meta.get("retries", 0),
-                }
-            )
-
-            description_result, description_retry_meta = _model_call(
-                output_cleanup_model,
-                lambda: client.rewrite_output_description(rewritten_title, summary_text, source_context, model=output_cleanup_model),
-            )
-            rewritten_description = str(description_result.get("description") or summary_text).strip() or summary_text
-            call_rows.append(
-                {
-                    "ts": to_iso(datetime.now(timezone.utc)),
-                    "kind": "output_description_rewrite",
-                    "story_id": story_id,
-                    "model": description_result.get("model"),
-                    "latency_ms": description_result.get("latency_ms"),
-                    "usage": description_result.get("usage", {}),
-                    "input_hash": description_result.get("input_hash"),
-                    "status": "ok",
-                    "retries": description_retry_meta.get("retries", 0),
+                    "retries": cleanup_retry_meta.get("retries", 0),
                 }
             )
 
@@ -764,8 +774,9 @@ def publish_outputs(
                 "context_hash": cleanup_context_hash,
                 "prompt_hash": output_cleanup_prompt_hash,
                 "model": output_cleanup_model,
-                "title_input_hash": title_result.get("input_hash"),
-                "description_input_hash": description_result.get("input_hash"),
+                "input_hash": cleanup_result.get("input_hash"),
+                "title_input_hash": cleanup_result.get("input_hash"),
+                "description_input_hash": cleanup_result.get("input_hash"),
                 "rewritten_at": to_iso(datetime.now(timezone.utc)),
             }
             cache_entry = llm_cache.setdefault(story_id, cache_entry)
@@ -776,6 +787,9 @@ def publish_outputs(
 
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)
+
+    if llm_status is not None:
+        llm_status.update(_publish_llm_status())
 
     if article_cache_enabled and article_cache_updated:
         write_json(article_cache_path, article_cache)

@@ -43,6 +43,11 @@ DESCRIPTION_OUTPUT_CONTRACT = (
     "The description value must contain only the final formatted description, with no labels, alternatives, explanations, scoring, Markdown, HTML, or XML. "
     "When multiple paragraphs are warranted, preserve blank lines between paragraphs inside the description value."
 )
+OUTPUT_CLEANUP_OUTPUT_CONTRACT = (
+    "Application output contract: Use the headline instructions for the title and the article summary instructions for the description. "
+    "Return JSON matching the provided schema with exactly two fields: title and description. "
+    "Do not include alternatives, explanations, scoring, Markdown, HTML, or XML."
+)
 
 OPENAI_TOKEN_EXCHANGE_URL = "https://auth.openai.com/oauth/token"
 OPENAI_TOKEN_EXCHANGE_GRANT_TYPE = "urn:ietf:params:oauth:grant-type:token-exchange"
@@ -284,6 +289,30 @@ class GitHubModelsClient:
             ]
         )
 
+    def _load_output_cleanup_system_prompt(self) -> str:
+        title_prompt = self._load_text_prompt(
+            "output_cleanup/title_system.txt",
+            "Rewrite the news title in neutral language.",
+        )
+        description_prompt = self._load_text_prompt(
+            "output_cleanup/description_system.txt",
+            "Rewrite the news description in neutral language.",
+        )
+        headline_instructions = self._load_text_file(self.headline_instructions_path)
+        article_summary_instructions = self._load_text_file(self.article_summary_instructions_path)
+        parts = [
+            part
+            for part in [
+                headline_instructions,
+                article_summary_instructions,
+                OUTPUT_CLEANUP_OUTPUT_CONTRACT,
+                title_prompt,
+                description_prompt,
+            ]
+            if part
+        ]
+        return "\n\n".join(parts) or "Rewrite the news title and description. Return only JSON matching the schema."
+
     @staticmethod
     def input_hash(payload: dict[str, Any]) -> str:
         raw = json.dumps(payload, sort_keys=True, ensure_ascii=False)
@@ -465,6 +494,68 @@ class GitHubModelsClient:
         content = str(message_map.get("content", "{}") or "{}").strip()
         parsed: dict[str, Any] = json.loads(content)
         return {
+            "description": str(parsed.get("description") or summary).strip(),
+            "usage": data.get("usage", {}),
+            "latency_ms": latency_ms,
+            "model": model,
+            "input_hash": self.input_hash(payload),
+        }
+
+    def rewrite_output_cleanup(
+        self,
+        title: str,
+        summary: str,
+        source_context: str,
+        model: str = "openai/gpt-4.1-mini",
+    ) -> dict[str, Any]:
+        default_schema: dict[str, Any] = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "output_cleanup_rewrite",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "title": {"type": "string"},
+                        "description": {"type": "string"},
+                    },
+                    "required": ["title", "description"],
+                    "additionalProperties": False,
+                },
+            },
+        }
+        schema = self._load_json_prompt("output_cleanup/combined_schema.json", default_schema)
+        system_prompt = self._load_output_cleanup_system_prompt()
+        user_template = self._load_text_prompt(
+            "output_cleanup/combined_user.txt",
+            "Original Title: {title}\n\nCurrent Description: {summary}\n\nSource Context:\n{source_context}",
+        )
+        user_prompt = user_template.format(title=title, summary=summary, source_context=source_context)
+
+        payload: dict[str, Any] = {
+            "model": self._request_model_name(model),
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.1,
+            "response_format": schema,
+        }
+
+        started = time.perf_counter()
+        response = self._post("chat/completions", payload)
+        latency_ms = int((time.perf_counter() - started) * 1000)
+        response.raise_for_status()
+        data: dict[str, Any] = response.json()
+        choices = data.get("choices")
+        first_choice: dict[str, Any] = {}
+        if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+            first_choice = cast(dict[str, Any], choices[0])
+        message = first_choice.get("message", {})
+        message_map: dict[str, Any] = cast(dict[str, Any], message) if isinstance(message, dict) else {}
+        content = str(message_map.get("content", "{}") or "{}").strip()
+        parsed: dict[str, Any] = json.loads(content)
+        return {
+            "title": str(parsed.get("title") or title).strip(),
             "description": str(parsed.get("description") or summary).strip(),
             "usage": data.get("usage", {}),
             "latency_ms": latency_ms,

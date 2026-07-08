@@ -46,21 +46,29 @@ class FakeSession:
 class FakeOutputCleanupClient:
     seen_title_model = None
     seen_description_model = None
+    seen_cleanup_model = None
     seen_title_source_context = None
     seen_description_source_context = None
+    seen_cleanup_source_context = None
     seen_description_summary = None
+    seen_cleanup_summary = None
     title_calls = 0
     description_calls = 0
+    cleanup_calls = 0
 
     @classmethod
     def reset(cls):
         cls.seen_title_model = None
         cls.seen_description_model = None
+        cls.seen_cleanup_model = None
         cls.seen_title_source_context = None
         cls.seen_description_source_context = None
+        cls.seen_cleanup_source_context = None
         cls.seen_description_summary = None
+        cls.seen_cleanup_summary = None
         cls.title_calls = 0
         cls.description_calls = 0
+        cls.cleanup_calls = 0
 
     def __init__(self, token, timeout_sec):
         self.token = token
@@ -91,8 +99,25 @@ class FakeOutputCleanupClient:
             "input_hash": "description-input-hash",
         }
 
+    def rewrite_output_cleanup(self, title, summary, source_context, model):
+        FakeOutputCleanupClient.cleanup_calls += 1
+        FakeOutputCleanupClient.seen_cleanup_model = model
+        FakeOutputCleanupClient.seen_cleanup_summary = summary
+        FakeOutputCleanupClient.seen_cleanup_source_context = source_context
+        return {
+            "title": "OpenAI Adds Enterprise Data Controls",
+            "description": "OpenAI introduced enterprise data controls for governed AI deployments.",
+            "usage": {"total_tokens": 25},
+            "latency_ms": 1,
+            "model": model,
+            "input_hash": "cleanup-input-hash",
+        }
+
 
 class OutputCleanupTests(unittest.TestCase):
+    def setUp(self):
+        FakeOutputCleanupClient.reset()
+
     def test_title_rewrite_includes_standard_headline_instructions(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -262,6 +287,36 @@ class OutputCleanupTests(unittest.TestCase):
             self.assertIn("Source context", client.session.payloads[0]["messages"][1]["content"])
             self.assertEqual(client.session.payloads[1]["messages"][0]["content"], "Rewrite description system prompt.")
 
+    def test_combined_output_cleanup_rewrites_title_and_description_in_one_call(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            prompts_dir = Path(temp_dir)
+            cleanup_dir = prompts_dir / "output_cleanup"
+            cleanup_dir.mkdir()
+
+            client = GitHubModelsClient(token="test-token")
+            client.prompts_dir = prompts_dir
+            client.headline_instructions_path = prompts_dir / "missing-headline-instructions.md"
+            client.article_summary_instructions_path = prompts_dir / "missing-article-summary-instructions.md"
+            client.session = FakeSession(
+                [
+                    json.dumps(
+                        {
+                            "title": "Clean output title",
+                            "description": "Clean output description.",
+                        }
+                    )
+                ]
+            )
+
+            result = client.rewrite_output_cleanup("Raw Title", "Raw summary", "Source context", model="test-model")
+
+            self.assertEqual(result["title"], "Clean output title")
+            self.assertEqual(result["description"], "Clean output description.")
+            self.assertEqual(len(client.session.payloads), 1)
+            self.assertIn("Source context", client.session.payloads[0]["messages"][1]["content"])
+            schema = client.session.payloads[0]["response_format"]["json_schema"]["schema"]
+            self.assertEqual(schema["required"], ["title", "description"])
+
     def test_publish_outputs_uses_rewritten_title_and_description(self):
         old_env = dict(os.environ)
         story = {
@@ -314,8 +369,10 @@ class OutputCleanupTests(unittest.TestCase):
             )
             self.assertEqual(payload["items"][0]["originalTitle"], "Raw OpenAI data controls headline")
             self.assertEqual(payload["items"][0]["originalSummary"], "Raw summary with uneven wording.")
-            self.assertEqual(FakeOutputCleanupClient.seen_title_model, "test-cleanup-model")
-            self.assertEqual(FakeOutputCleanupClient.seen_description_model, "test-cleanup-model")
+            self.assertEqual(FakeOutputCleanupClient.cleanup_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.title_calls, 0)
+            self.assertEqual(FakeOutputCleanupClient.description_calls, 0)
+            self.assertEqual(FakeOutputCleanupClient.seen_cleanup_model, "test-cleanup-model")
             self.assertEqual(cache["story-1"]["output_cleanup"]["title"], "OpenAI Adds Enterprise Data Controls")
 
             xml_text = (base_feed_path.with_suffix(".xml")).read_text(encoding="utf-8")
@@ -384,8 +441,9 @@ class OutputCleanupTests(unittest.TestCase):
                 os.environ.clear()
                 os.environ.update(old_env)
 
-            self.assertEqual(FakeOutputCleanupClient.title_calls, 1)
-            self.assertEqual(FakeOutputCleanupClient.description_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.cleanup_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.title_calls, 0)
+            self.assertEqual(FakeOutputCleanupClient.description_calls, 0)
             self.assertEqual(first_payload["items"][0]["summary"], second_payload["items"][0]["summary"])
             self.assertEqual(second_payload["items"][0]["title"], "OpenAI Adds Enterprise Data Controls")
 
@@ -457,8 +515,9 @@ class OutputCleanupTests(unittest.TestCase):
                 os.environ.clear()
                 os.environ.update(old_env)
 
-            self.assertEqual(FakeOutputCleanupClient.title_calls, 1)
-            self.assertEqual(FakeOutputCleanupClient.description_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.cleanup_calls, 1)
+            self.assertEqual(FakeOutputCleanupClient.title_calls, 0)
+            self.assertEqual(FakeOutputCleanupClient.description_calls, 0)
             self.assertEqual(second_payload["items"][0]["title"], "OpenAI Adds Enterprise Data Controls")
             self.assertEqual(
                 second_payload["items"][0]["summary"],
@@ -518,11 +577,11 @@ class OutputCleanupTests(unittest.TestCase):
                 os.environ.clear()
                 os.environ.update(old_env)
 
-            self.assertEqual(FakeOutputCleanupClient.seen_description_summary, "Comments")
-            assert FakeOutputCleanupClient.seen_description_source_context is not None
+            self.assertEqual(FakeOutputCleanupClient.seen_cleanup_summary, "Comments")
+            assert FakeOutputCleanupClient.seen_cleanup_source_context is not None
             self.assertIn(
                 "one million swipe dataset",
-                FakeOutputCleanupClient.seen_description_source_context,
+                FakeOutputCleanupClient.seen_cleanup_source_context,
             )
             self.assertEqual(
                 payload["items"][0]["summary"],

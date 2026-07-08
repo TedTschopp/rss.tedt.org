@@ -78,6 +78,11 @@ class PathContractTests(unittest.TestCase):
     def test_workflow_contract_validator_passes(self):
         self.assertEqual(validate_workflow(verbose=False), [])
 
+    def test_workflow_limits_openai_output_cleanup_volume(self):
+        workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
+        self.assertIn("PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}", workflow)
+        self.assertNotIn("PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}", workflow)
+
     def test_site_metadata_contract(self):
         site_config = yaml.safe_load(Path("_config.yml").read_text(encoding="utf-8"))
         self.assertEqual(site_config["url"], "https://rss.tedt.org")

@@ -1,4 +1,6 @@
 from datetime import datetime, timezone
+import hashlib
+import json
 import os
 from typing import Any, cast
 
@@ -51,6 +53,23 @@ def _resolve_llm_client(cfg: dict[str, Any]):
 
 def _as_story_text(story: dict[str, Any], key: str) -> str:
     return str(story.get(key, "") or "")
+
+
+def _embedding_context_hash(text: str, model: str) -> str:
+    raw = json.dumps({"text": text, "model": model}, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
+def _apply_cached_embedding(story: dict[str, Any], cache_entry: dict[str, Any], context_hash: str) -> bool:
+    embedding = cache_entry.get("embedding")
+    if not isinstance(embedding, list):
+        return False
+    if cache_entry.get("embedding_context_hash") != context_hash:
+        return False
+    story_llm = story.setdefault("llm", {})
+    if isinstance(story_llm, dict):
+        story_llm["embedding_dim"] = len(embedding)
+    return True
 
 
 def enrich_stories(
@@ -122,7 +141,17 @@ def enrich_stories(
         return stories, llm_cache, meta
 
     target_stories = stories[:top_n]
-    embed_inputs = [f"{_as_story_text(story, 'title')}\n\n{_as_story_text(story, 'summary')}".strip() for story in target_stories]
+    embedding_requests: list[tuple[dict[str, Any], str, str]] = []
+    for story in target_stories:
+        story_id = str(story["story_id"])
+        embed_text = f"{_as_story_text(story, 'title')}\n\n{_as_story_text(story, 'summary')}".strip()
+        context_hash = _embedding_context_hash(embed_text, embed_model)
+        cache_entry = llm_cache.setdefault(story_id, {})
+        if _apply_cached_embedding(story, cache_entry, context_hash):
+            continue
+        embedding_requests.append((story, embed_text, context_hash))
+
+    embed_inputs = [request[1] for request in embedding_requests]
     if embed_inputs:
         try:
             embed_result, retry_meta = _model_call(
@@ -130,14 +159,16 @@ def enrich_stories(
                 lambda: client.embed(embed_inputs, model=embed_model),
             )
             vectors = cast(list[Any], embed_result.get("vectors", []))
-            for index, story in enumerate(target_stories):
+            for index, (story, _embed_text, context_hash) in enumerate(embedding_requests):
                 story_id = str(story["story_id"])
                 vector: list[Any] = []
                 if index < len(vectors):
                     maybe_vector = vectors[index]
                     if isinstance(maybe_vector, list):
                         vector = cast(list[Any], maybe_vector)
-                llm_cache.setdefault(story_id, {})["embedding"] = vector
+                cache_entry = llm_cache.setdefault(story_id, {})
+                cache_entry["embedding"] = vector
+                cache_entry["embedding_context_hash"] = context_hash
                 story_llm = story.setdefault("llm", {})
                 if isinstance(story_llm, dict):
                     story_llm["embedding_dim"] = len(vector)
