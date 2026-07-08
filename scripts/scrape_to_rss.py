@@ -506,8 +506,9 @@ def generate_rss_feed(table_data, feed_title="AI News", feed_description="The La
             print("Atom feed generated: ai_rss_feed.atom")
             
             # JSON Feed
-            with open('ai_rss_feed.json', 'w', encoding='utf-8') as f:
-                f.write(multi_gen.generate_json_feed())
+            json_file = 'ai_rss_feed.json'
+            with open(json_file, 'w', encoding='utf-8') as f:
+                f.write(multi_gen.generate_json_feed(json_file))
             print("JSON Feed generated: ai_rss_feed.json")
             
         except Exception as e:

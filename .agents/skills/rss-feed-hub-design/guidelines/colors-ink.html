@@ -1,0 +1,23 @@
+<!-- @dsCard group="Colors" viewport="700x160" name="Paper & Ink" subtitle="Warm paper, near-black ink, hairline neutrals" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; gap: 12px; }
+  .sw { flex: 1; height: 120px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px; border: 1px solid var(--border); }
+  .name { font-family: var(--font-sans); font-weight: 700; font-size: 13px; }
+  .hex { font-family: var(--font-mono); font-size: 11px; opacity: 0.75; }
+</style>
+</head>
+<body>
+  <div class="sw" style="background: var(--ink-900); color: #fff;"><span class="name">ink-900</span><span class="hex">#1F2126 text</span></div>
+  <div class="sw" style="background: var(--ink-500); color: #fff;"><span class="name">ink-500</span><span class="hex">#676869 muted</span></div>
+  <div class="sw" style="background: var(--ink-400); color: #fff;"><span class="name">ink-400</span><span class="hex">#9B9A94 faint</span></div>
+  <div class="sw" style="background: var(--ink-200); color: var(--ink-900);"><span class="name">ink-200</span><span class="hex">#C8C7C3 border</span></div>
+  <div class="sw" style="background: var(--ink-100); color: var(--ink-900);"><span class="name">ink-100</span><span class="hex">#E5E3DC fill</span></div>
+  <div class="sw" style="background: var(--paper); color: var(--ink-900);"><span class="name">paper</span><span class="hex">#F8F6F0 page</span></div>
+  <div class="sw" style="background: #fff; color: var(--ink-900);"><span class="name">surface</span><span class="hex">#FFFFFF card</span></div>
+</body>
+</html>

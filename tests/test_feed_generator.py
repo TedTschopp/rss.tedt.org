@@ -50,6 +50,28 @@ class FeedGeneratorDescriptionTests(unittest.TestCase):
         json_feed = json.loads(generator.generate_json_feed())
         self.assertEqual(json_feed["items"][0]["content_text"], "Encoded and raw markup")
 
+    def test_json_feed_self_url_uses_matching_json_output(self):
+        generator = MultiFeedGenerator(
+            title="Test Feed",
+            link="https://example.com/feeds/top.xml",
+            description="A test feed",
+        )
+
+        json_feed = json.loads(generator.generate_json_feed("feeds/top.json"))
+        self.assertEqual(json_feed["home_page_url"], "https://example.com/feeds/top.xml")
+        self.assertEqual(json_feed["feed_url"], "https://example.com/feeds/top.json")
+
+    def test_json_feed_self_url_supports_root_feed_with_home_link(self):
+        generator = MultiFeedGenerator(
+            title="Test Feed",
+            link="https://example.com/",
+            description="A test feed",
+        )
+
+        json_feed = json.loads(generator.generate_json_feed("ai_rss_feed.json"))
+        self.assertEqual(json_feed["home_page_url"], "https://example.com/")
+        self.assertEqual(json_feed["feed_url"], "https://example.com/ai_rss_feed.json")
+
     def test_atom_generation_does_not_namespace_later_rss2_output(self):
         generator = MultiFeedGenerator(
             title="Test Feed",

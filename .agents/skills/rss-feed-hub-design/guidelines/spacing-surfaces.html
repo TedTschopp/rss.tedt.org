@@ -1,0 +1,32 @@
+<!-- @dsCard group="Spacing" viewport="700x190" name="Surfaces & Radii" subtitle="Square, bordered, flat — shadow reserved for overlays" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; gap: 16px; align-items: stretch; }
+  .card { background: var(--surface); border: 1px solid var(--border); padding: 14px; flex: 1; }
+  .m { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); display: block; margin-top: 8px; }
+  .ttl { font-weight: 700; font-size: 14px; color: var(--text-heading); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="ttl">Card · r-0</span>
+    <span class="m">1px #C8C7C3 · no shadow · white on paper</span>
+  </div>
+  <div class="card" style="border-color: var(--border-strong);">
+    <span class="ttl">Card hover</span>
+    <span class="m">border strengthens to ink · no lift</span>
+  </div>
+  <div class="card" style="border: 0; box-shadow: var(--shadow-overlay);">
+    <span class="ttl">Overlay</span>
+    <span class="m">menus/modals only · 0 .5rem 1rem 15%</span>
+  </div>
+  <div style="flex: 0 0 120px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
+    <span style="align-self: flex-start; font-size: 0.6rem; letter-spacing: .5px; text-transform: uppercase; font-weight: 600; color: #fff; background: var(--navy-500); padding: 2px 5px; border-radius: 3px;">Badge · r-1</span>
+    <span class="m">3px — the only radius</span>
+  </div>
+</body>
+</html>

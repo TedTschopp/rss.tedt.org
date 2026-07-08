@@ -1,0 +1,33 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Priority & Tech Badges" subtitle="Business priority and technical impact — colors verbatim from index.html" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px 20px 16px; display: flex; flex-direction: column; gap: 14px; }
+  .row { display: flex; align-items: center; gap: 10px; }
+  .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); width: 130px; flex: none; }
+  .b { font-family: var(--font-sans); font-size: 0.60rem; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; font-weight: 600; color: #fff; }
+  .sym { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="lbl">BUSINESS PRIORITY</span>
+    <span class="b" style="background: var(--pri-essential);">Essential</span><span class="sym">[ ! ]</span>
+    <span class="b" style="background: var(--pri-important); color: var(--pri-important-ink);">Important</span><span class="sym">[ * ]</span>
+    <span class="b" style="background: var(--pri-optional);">Optional</span><span class="sym">[ ~ ]</span>
+  </div>
+  <div class="row">
+    <span class="lbl">TECHNICAL IMPACT</span>
+    <span class="b" style="background: var(--tech-transformational);">Tech: Transformational</span><span class="sym">[ ⬢ ]</span>
+    <span class="b" style="background: var(--tech-important);">Tech: Important</span><span class="sym">[ ◼ ]</span>
+    <span class="b" style="background: var(--tech-informational);">Tech: Informational</span><span class="sym">[ ◻ ]</span>
+  </div>
+  <div class="row">
+    <span class="lbl">ROW HIGHLIGHT</span>
+    <div style="flex: 1; background: rgba(220,53,69,.08); border-left: 3px solid rgba(220,53,69,.6); padding: 4px 6px; font-size: 13px;">Essential rows get a 3px left bar + 8% tint</div>
+  </div>
+</body>
+</html>

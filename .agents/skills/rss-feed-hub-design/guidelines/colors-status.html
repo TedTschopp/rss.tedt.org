@@ -1,0 +1,20 @@
+<!-- @dsCard group="Colors" viewport="700x140" name="Status" subtitle="Feed health + link blue, verbatim from the live theme" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; gap: 12px; }
+  .sw { flex: 1; height: 100px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px; color: #fff; }
+  .name { font-family: var(--font-sans); font-weight: 700; font-size: 13px; }
+  .hex { font-family: var(--font-mono); font-size: 11px; opacity: 0.85; }
+</style>
+</head>
+<body>
+  <div class="sw" style="background: var(--success);"><span class="name">success</span><span class="hex">#00B339 healthy</span></div>
+  <div class="sw" style="background: var(--warning); color: var(--warning-ink);"><span class="name">warning</span><span class="hex">#F2BC57 degraded</span></div>
+  <div class="sw" style="background: var(--danger);"><span class="name">danger</span><span class="hex">#F90041 failing</span></div>
+  <div class="sw" style="background: var(--link-blue);"><span class="name">link-blue</span><span class="hex">#007BFF legacy links</span></div>
+</body>
+</html>

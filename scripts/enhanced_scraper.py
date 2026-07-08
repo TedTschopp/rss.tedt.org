@@ -493,8 +493,9 @@ class RSSGenerator:
                     f.write(multi_gen.generate_atom())
                 logger.info(f"GAI Atom feed written: {base_name}.atom")
                 
-                with open(f'{base_name}.json', 'w', encoding='utf-8') as f:
-                    f.write(multi_gen.generate_json_feed())
+                json_file = f'{base_name}.json'
+                with open(json_file, 'w', encoding='utf-8') as f:
+                    f.write(multi_gen.generate_json_feed(json_file))
                 logger.info(f"GAI JSON Feed written: {base_name}.json")
                 
             except Exception as e:
@@ -1606,8 +1607,9 @@ def aggregate_external_feeds(cfg):
             f.write(multi_gen.generate_rss1())
         with open(f'{base_name}.atom', 'w', encoding='utf-8') as f:
             f.write(multi_gen.generate_atom())
-        with open(f'{base_name}.json', 'w', encoding='utf-8') as f:
-            f.write(multi_gen.generate_json_feed())
+        json_file = f'{base_name}.json'
+        with open(json_file, 'w', encoding='utf-8') as f:
+            f.write(multi_gen.generate_json_feed(json_file))
         logger.info(f"Aggregated alternate formats written: {base_name}_rss1.xml, {base_name}.atom, {base_name}.json")
     except Exception as e:
         logger.warning(f"Could not generate additional formats for aggregated feed {output_file}: {e}")

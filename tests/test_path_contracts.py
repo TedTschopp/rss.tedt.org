@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import unittest
 
 import yaml
@@ -36,6 +37,35 @@ class PathContractTests(unittest.TestCase):
             "feeds/top.xml",
         ]:
             self.assertTrue(Path(path_text).is_file(), path_text)
+
+        for deleted_path in [
+            "aggregated_osr_ttrpg.xml",
+            "aggregated_osr_ttrpg_archive.xml",
+            "reports/aggregation/aggregated_osr_ttrpg_health.json",
+            "Docs/reference/osr-rss-feeds.md",
+        ]:
+            self.assertFalse(Path(deleted_path).exists(), deleted_path)
+
+    def test_config_uses_unified_feed_list_only(self):
+        site_config_text = Path("_config.yml").read_text(encoding="utf-8")
+        site_config = yaml.safe_load(site_config_text)
+        self.assertNotIn("aggregated_feeds", site_config)
+        self.assertNotIn("aggregated_osr_ttrpg", site_config_text)
+        self.assertNotIn("OSR & TTRPG", site_config_text)
+
+    def test_public_json_feed_self_urls_match_file_paths(self):
+        for path in [
+            Path("ai_rss_feed.json"),
+            Path("aggregated_wes_ai_news.json"),
+            Path("aggregated_external.json"),
+            Path("aggregated_ea.json"),
+            Path("aggregated_broad_ai_news.json"),
+            Path("feeds/top.json"),
+        ]:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            expected = f"https://rss.tedt.org/{path.as_posix()}"
+            self.assertEqual(payload.get("feed_url"), expected)
+            self.assertNotIn(".xml/feed.json", payload.get("feed_url", ""))
 
     def test_workflow_contract_validator_passes(self):
         self.assertEqual(validate_workflow(verbose=False), [])

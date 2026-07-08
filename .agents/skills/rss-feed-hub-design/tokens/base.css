@@ -1,0 +1,133 @@
+/* ============================================================
+   RSS Feed Hub — Base element styles + semantic type classes
+   ============================================================ */
+
+html, body {
+  background: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+/* ---------- Headings (Swiss: heavy grotesque, tight) ---------- */
+.display {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-black);
+  font-size: var(--fs-88);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  color: var(--text-heading);
+  text-transform: uppercase;
+}
+
+.h1, h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-black);
+  font-size: var(--fs-48);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-display);
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.h2, h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-36);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.h3, h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-28);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.h4, h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-21);
+  line-height: var(--lh-snug);
+  color: var(--text-heading);
+  margin: 0;
+}
+
+/* ---------- Body ---------- */
+p, .p {
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  margin: 0;
+}
+
+.lead {
+  font-size: var(--fs-18);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+.small {
+  font-size: var(--fs-14);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ---------- Data voice (mono) ---------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--text-muted);
+}
+
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--ink-100);
+  padding: 0.1em 0.4em;
+  color: var(--text-heading);
+}
+
+/* ---------- Links ---------- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+  transition: color var(--dur-1) var(--ease);
+}
+a:hover  { color: var(--link-hover); text-decoration-thickness: 2px; }
+a:active { color: var(--accent-hover); }
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: var(--bw-hairline) solid var(--border);
+  margin: var(--sp-8) 0;
+}
+
+::selection { background: var(--navy-100); }

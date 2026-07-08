@@ -1,0 +1,47 @@
+/* ============================================================
+   RSS Feed Hub — Typography tokens
+   Swiss register: one grotesque family at many weights + one
+   mono for data. SUBSTITUTION: the site ships Google's Inter;
+   this system moves display duty to Archivo (Google Fonts
+   stand-in for Helvetica/Univers). Drop licensed webfonts in
+   /fonts/ and swap the @import if available.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---------- Families ---------- */
+  --font-sans: "Archivo", "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* ---------- Scale (16 base, big Swiss jumps) ---------- */
+  --fs-11: 0.6875rem;  /* 11 — badge labels */
+  --fs-12: 0.75rem;    /* 12 — meta, eyebrows */
+  --fs-14: 0.875rem;   /* 14 — small UI, captions */
+  --fs-16: 1rem;       /* 16 — body */
+  --fs-18: 1.125rem;   /* 18 — lead */
+  --fs-21: 1.3125rem;  /* 21 — h4 / card titles */
+  --fs-28: 1.75rem;    /* 28 — h3 */
+  --fs-36: 2.25rem;    /* 36 — h2 */
+  --fs-48: 3rem;       /* 48 — h1 */
+  --fs-64: 4rem;       /* 64 — display */
+  --fs-88: 5.5rem;     /* 88 — poster display */
+
+  /* ---------- Weights ---------- */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium:  500;   /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-bold:    700;   /* @kind font */
+  --fw-black:   900;   /* @kind font */   /* display / masthead */
+
+  /* ---------- Line heights ---------- */
+  --lh-display: 0.95;  /* @kind font */  /* poster type, set solid */
+  --lh-tight:   1.1;   /* @kind font */
+  --lh-snug:    1.25;  /* @kind font */
+  --lh-body:    1.6;   /* @kind font */  /* matches live site body */
+
+  /* ---------- Tracking ---------- */
+  --tr-display: -0.02em;
+  --tr-tight:   -0.01em;
+  --tr-eyebrow: 0.08em;  /* uppercase mono eyebrows */
+  --tr-badge:   0.5px;   /* from live .pri-badge */
+}

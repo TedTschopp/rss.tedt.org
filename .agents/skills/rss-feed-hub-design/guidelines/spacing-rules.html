@@ -1,0 +1,26 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Rules & Bars" subtitle="Hairline divides, 2px ink announces, 3px color marks priority" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+  .m { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="m">1px hairline #C8C7C3 — ambient dividers</div>
+    <hr style="margin: 0;">
+  </div>
+  <div>
+    <div class="m">2px ink rule — section headers</div>
+    <div style="border-top: 2px solid var(--border-strong); padding-top: 6px; font-weight: 700; font-size: 15px; color: var(--text-heading);">Available Feeds</div>
+  </div>
+  <div>
+    <div class="m">3px left bar — priority rows</div>
+    <div style="border-left: 3px solid var(--orange-500); padding: 2px 8px; font-size: 14px;">Marked rows carry a flat color bar, never a rounded pill container</div>
+  </div>
+</body>
+</html>

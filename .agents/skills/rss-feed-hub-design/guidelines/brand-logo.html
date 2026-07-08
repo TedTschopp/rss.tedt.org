@@ -1,0 +1,27 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Logo" subtitle="Hub-and-spoke mark — use as shipped, never redraw" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; gap: 16px; }
+  .cell { flex: 1; display: flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid var(--border); padding: 20px; }
+  .wordmark { font-family: var(--font-sans); font-weight: 900; font-size: 22px; letter-spacing: -0.01em; line-height: 1; }
+</style>
+</head>
+<body>
+  <div class="cell" style="background: var(--paper);">
+    <img src="../assets/logo.png" alt="RSS Feed Hub logo" width="56" height="56">
+    <span class="wordmark" style="color: var(--navy-500);">RSS<br>FEED HUB</span>
+  </div>
+  <div class="cell" style="background: var(--navy-500);">
+    <img src="../assets/logo.png" alt="RSS Feed Hub logo on navy" width="56" height="56">
+    <span class="wordmark" style="color: #fff;">RSS<br>FEED HUB</span>
+  </div>
+  <div class="cell" style="flex: 0 0 130px; flex-direction: column; gap: 8px;">
+    <img src="../assets/favicon.svg" alt="favicon" width="32" height="32">
+    <span class="meta" style="font-size: 10px;">favicon.svg · 32</span>
+  </div>
+</body>
+</html>

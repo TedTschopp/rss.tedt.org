@@ -11,6 +11,7 @@ import unicodedata
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from typing import Any
+from urllib.parse import urlparse, urlunparse
 from xml.etree import ElementTree as ET
 from xml.dom import minidom
 
@@ -381,16 +382,39 @@ class MultiFeedGenerator:
         lines.append(xml_body)
         return '\n'.join(lines)
     
-    def generate_json_feed(self) -> str:
+    def _absolute_output_url(self, output_file: str | None) -> str | None:
+        if not output_file:
+            return None
+        parsed_output = urlparse(output_file)
+        if parsed_output.scheme and parsed_output.netloc:
+            return output_file
+
+        parsed_link = urlparse(self.link)
+        if not (parsed_link.scheme and parsed_link.netloc):
+            return output_file
+
+        output_path = output_file.replace('\\', '/')
+        if not output_path.startswith('/'):
+            output_path = f'/{output_path}'
+        return urlunparse((parsed_link.scheme, parsed_link.netloc, output_path, '', '', ''))
+
+    def _default_json_feed_url(self) -> str:
+        parsed_link = urlparse(self.link)
+        if parsed_link.path.endswith('.xml'):
+            return urlunparse(parsed_link._replace(path=f'{parsed_link.path[:-4]}.json'))
+        return self.link.rstrip('/') + '/feed.json'
+
+    def generate_json_feed(self, feed_url: str | None = None) -> str:
         """
         Generate JSON Feed 1.1.
         https://jsonfeed.org/version/1.1
         """
+        resolved_feed_url = self._absolute_output_url(feed_url) or self._default_json_feed_url()
         feed: dict[str, Any] = {
             'version': 'https://jsonfeed.org/version/1.1',
             'title': self.title,
             'home_page_url': self.link,
-            'feed_url': self.link.rstrip('/') + '/feed.json',
+            'feed_url': resolved_feed_url,
             'description': self.description,
             'language': self.language,
             'items': []
@@ -447,7 +471,7 @@ class MultiFeedGenerator:
         # JSON Feed
         json_file = f'{base_filename}.json'
         with open(json_file, 'w', encoding='utf-8') as f:
-            f.write(self.generate_json_feed())
+            f.write(self.generate_json_feed(json_file))
         files_written['json'] = json_file
         
         return files_written

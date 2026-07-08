@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x160" name="Brand Triad" subtitle="Navy structures, orange signals, cyan informs — the logo's palette" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; gap: 12px; }
+  .sw { flex: 1; height: 120px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px; }
+  .name { font-family: var(--font-sans); font-weight: 700; font-size: 14px; }
+  .hex { font-family: var(--font-mono); font-size: 11px; opacity: 0.8; }
+</style>
+</head>
+<body>
+  <div class="sw" style="background: var(--navy-500); color: #fff; flex: 2;">
+    <span class="name">Navy · brand</span><span class="hex">#00446F · nav, footer, primary</span>
+  </div>
+  <div class="sw" style="background: var(--orange-500); color: #fff;">
+    <span class="name">Orange · accent</span><span class="hex">#E86027</span>
+  </div>
+  <div class="sw" style="background: var(--cyan-500); color: #fff;">
+    <span class="name">Cyan · info</span><span class="hex">#00A9E0</span>
+  </div>
+  <div class="sw" style="background: var(--navy-700); color: #fff; flex: 0 0 90px;">
+    <span class="name">Hover</span><span class="hex">#003354</span>
+  </div>
+  <div class="sw" style="background: var(--orange-600); color: #fff; flex: 0 0 90px;">
+    <span class="name">Hover</span><span class="hex">#C94D1A</span>
+  </div>
+</body>
+</html>
