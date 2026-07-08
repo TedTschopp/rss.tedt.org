@@ -1,20 +1,20 @@
 # Pipeline Report
 
-- Timestamp: 2026-07-07T18:08:34.189060Z
+- Timestamp: 2026-07-08T01:58:15.885401Z
 - Sources configured: 43
-- Raw items: 2114
-- Stories: 2060
-- Clusters: 2058
+- Raw items: 5119
+- Stories: 3248
+- Clusters: 3243
 - LLM: {'status': 'ok', 'calls': 11, 'ok': 11, 'errors': 0, 'skipped': 0}
 
 ## Stage Timings (seconds)
 - load_sources_and_state: 0.02
-- ingestion: 2.37
-- normalize: 0.07
-- dedupe: 0.05
-- llm_enrich: 19.18
-- cluster: 1.78
-- score: 0.01
-- write_intermediate_outputs: 0.24
-- publish: 883.90
-- persist_llm_cache: 2.43
+- ingestion: 2.43
+- normalize: 0.31
+- dedupe: 0.15
+- llm_enrich: 18.34
+- cluster: 3.79
+- score: 0.02
+- write_intermediate_outputs: 0.57
+- publish: 524.35
+- persist_llm_cache: 2.82
