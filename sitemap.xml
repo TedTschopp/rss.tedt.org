@@ -25,6 +25,13 @@ sitemap:
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/status/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   {% for feed in site.feeds %}
   {% if feed.enabled != false %}

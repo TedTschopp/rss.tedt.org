@@ -1,0 +1,14 @@
+{% assign feed = include.feed %}
+{% assign rss2_url = feed.formats.rss2 | default: feed.url %}
+<div class="format-group" role="group" aria-label="Feed formats">
+    <a href="{{ rss2_url }}" class="format-button format-button--rss2" title="RSS 2.0" target="feed_{{ feed.name | slugify }}_rss2" rel="noopener"><i class="fas fa-rss" aria-hidden="true"></i> RSS 2.0</a>
+    {% if feed.formats and feed.formats.rss1 %}
+    <a href="{{ feed.formats.rss1 }}" class="format-button format-button--rss1" title="RSS 1.0" target="feed_{{ feed.name | slugify }}_rss1" rel="noopener"><i class="fas fa-rss" aria-hidden="true"></i> RSS 1.0</a>
+    {% endif %}
+    {% if feed.formats and feed.formats.atom %}
+    <a href="{{ feed.formats.atom }}" class="format-button format-button--atom" title="Atom" target="feed_{{ feed.name | slugify }}_atom" rel="noopener"><i class="fas fa-atom" aria-hidden="true"></i> Atom</a>
+    {% endif %}
+    {% if feed.formats and feed.formats.json %}
+    <a href="{{ feed.formats.json }}" class="format-button format-button--json" title="JSON Feed" target="feed_{{ feed.name | slugify }}_json" rel="noopener"><svg aria-hidden="true" viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor"><path d="M213.333333 128h85.333334v85.333333H213.333333v213.333334a85.333333 85.333333 0 0 1-85.333333 85.333333 85.333333 85.333333 0 0 1 85.333333 85.333333v213.333334h85.333334v85.333333H213.333333c-45.653333-11.52-85.333333-38.4-85.333333-85.333333v-170.666667a85.333333 85.333333 0 0 0-85.333333-85.333333H0v-85.333334h42.666667a85.333333 85.333333 0 0 0 85.333333-85.333333V213.333333a85.333333 85.333333 0 0 1 85.333333-85.333333m597.333334 0a85.333333 85.333333 0 0 1 85.333333 85.333333v170.666667a85.333333 85.333333 0 0 0 85.333333 85.333333h42.666667v85.333334h-42.666667a85.333333 85.333333 0 0 0-85.333333 85.333333v170.666667a85.333333 85.333333 0 0 1-85.333333 85.333333h-85.333334v-85.333333h85.333334v-213.333334a85.333333 85.333333 0 0 1 85.333333-85.333333 85.333333 85.333333 0 0 1-85.333333-85.333333V213.333333h-85.333334V128h85.333334m-298.666667 512a42.666667 42.666667 0 0 1 42.666667 42.666667 42.666667 42.666667 0 0 1-42.666667 42.666666 42.666667 42.666667 0 0 1-42.666667-42.666666 42.666667 42.666667 0 0 1 42.666667-42.666667m-170.666667 0a42.666667 42.666667 0 0 1 42.666667 42.666667 42.666667 42.666667 0 0 1-42.666667 42.666666 42.666667 42.666667 0 0 1-42.666666-42.666666 42.666667 42.666667 0 0 1 42.666666-42.666667m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667 42.666667 42.666667 0 0 1-42.666666 42.666666 42.666667 42.666667 0 0 1-42.666667-42.666666 42.666667 42.666667 0 0 1 42.666667-42.666667z"/></svg> JSON</a>
+    {% endif %}
+</div>

@@ -1,0 +1,79 @@
+/* ============================================================
+   RSS Feed Hub — Color tokens
+   All hex values lifted from the live site code
+   (_layouts/default.html + index.html) unless marked (derived).
+   ============================================================ */
+
+:root {
+  /* ---------- Neutrals (paper + ink) ---------- */
+  --paper:      #f8f6f0;  /* page background (--bs-body-bg) */
+  --paper-elev: #ffffff;  /* card surface */
+  --ink-900:    #1f2126;  /* body/headline ink (--bs-body-color) */
+  --ink-800:    #292929;  /* JSON-format black */
+  --ink-600:    #555555;  /* badge neutral base */
+  --ink-500:    #676869;  /* muted text (--bs-gray) */
+  --ink-400:    #9b9a94;  /* faint text (derived from #c8c7c3 ↔ #676869) */
+  --ink-200:    #c8c7c3;  /* hairlines, borders */
+  --ink-100:    #e5e3dc;  /* subtle fill (derived: paper darkened one step) */
+
+  /* ---------- Brand ---------- */
+  --navy-700:   #003354;  /* navy hover/press (derived) */
+  --navy-500:   #00446f;  /* primary — deep navy (--bs-primary, logo field) */
+  --navy-100:   #d7e2ea;  /* navy tint (derived) */
+  --orange-600: #c94d1a;  /* orange hover/press (derived) */
+  --orange-500: #e86027;  /* accent — orange (--bs-secondary, logo nodes) */
+  --orange-100: #fae0d2;  /* orange tint (derived) */
+  --cyan-500:   #00a9e0;  /* info — cyan (--bs-info, logo nodes) */
+
+  /* ---------- Semantic status ---------- */
+  --success:    #00b339;  /* --bs-success */
+  --warning:    #f2bc57;  /* --bs-warning */
+  --warning-ink:#614b23;  /* text on warning-outline (from .btn-outline-warning) */
+  --danger:     #f90041;  /* --bs-danger */
+  --link-blue:  #007bff;  /* --bs-link-color */
+  --link-blue-hover: #0062cc;
+
+  /* ---------- Feed-format brand colors (verbatim) ---------- */
+  --format-rss2:     #FF6600;  /* RSS 2.0 — Mozilla RSS orange */
+  --format-rss1:     #F88920;  /* RSS 1.0 — lighter orange */
+  --format-atom:     #8b5cf6;  /* Atom — purple */
+  --format-json:     #292929;  /* JSON Feed — dark */
+  --format-json-gold:#f5a623;  /* JSON hover accent */
+
+  /* ---------- Priority badges (business) ---------- */
+  --pri-essential:   #dc3545;  /* [ ! ] */
+  --pri-important:   #ffc107;  /* [ * ] — dark text #222 */
+  --pri-important-ink: #222222;
+  --pri-optional:    #6c757d;  /* [ ~ ] */
+
+  /* ---------- Technical-impact badges ---------- */
+  --tech-informational:   #676869;  /* [ ◻ ] */
+  --tech-important:       #00446f;  /* [ ◼ ] */
+  --tech-transformational:#00a9e0;  /* [ ⬢ ] */
+
+  /* ---------- Semantic aliases ---------- */
+  --bg:            var(--paper);
+  --surface:       var(--paper-elev);
+  --surface-inverse: var(--navy-500);
+
+  --text-heading:  var(--ink-900);
+  --text-body:     var(--ink-900);
+  --text-muted:    var(--ink-500);
+  --text-faint:    var(--ink-400);
+  --text-on-dark:  #ffffff;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.55);
+
+  --border:        var(--ink-200);
+  --border-strong: var(--ink-900);
+
+  --brand:         var(--navy-500);
+  --brand-hover:   var(--navy-700);
+  --accent:        var(--orange-500);
+  --accent-hover:  var(--orange-600);
+  --info:          var(--cyan-500);
+
+  --link:          var(--navy-500);
+  --link-hover:    var(--orange-500);
+
+  --focus-ring:    var(--orange-500);
+}

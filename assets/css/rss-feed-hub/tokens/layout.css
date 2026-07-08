@@ -1,0 +1,50 @@
+/* ============================================================
+   RSS Feed Hub — Spacing, grid, borders, radii, shadow, motion
+   Swiss register: 8px modular spacing, exposed grid, hairline
+   rules, square corners, flat surfaces.
+   ============================================================ */
+
+:root {
+  /* ---------- Spacing (4px base) ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+
+  /* ---------- Radii (Swiss: square) ---------- */
+  --r-0: 0px;    /* default — cards, buttons, inputs */
+  --r-1: 3px;    /* badges only (from live .pri-badge) */
+
+  /* ---------- Borders ---------- */
+  --bw-hairline: 1px;
+  --bw-rule:     2px;   /* section rules, emphasis */
+  --bw-bar:      3px;   /* priority left-bars (from live .rss-items) */
+
+  /* ---------- Shadows (flat by default) ---------- */
+  --shadow-0: none;
+  --shadow-overlay: 0 0.5rem 1rem rgba(7, 9, 15, 0.15); /* menus/modals only */
+
+  /* ---------- Layout ---------- */
+  --w-page:  1200px;
+  --w-prose: 680px;
+  --grid-gutter: 24px;
+  --grid-margin: 48px;
+
+  /* ---------- Motion (fast, no bounce) ---------- */
+  --ease:  cubic-bezier(0.2, 0, 0, 1);  /* @kind other */
+  --dur-1: 120ms;  /* @kind other */
+  --dur-2: 200ms;  /* @kind other */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0ms;  /* @kind other */
+    --dur-2: 0ms;  /* @kind other */
+  }
+}

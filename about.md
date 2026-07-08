@@ -3,183 +3,168 @@ layout: default
 title: "About RSS Feed Hub"
 ---
 
-<!-- markdownlint-disable -->
+{% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
 
-<div class="row">
-    <div class="col-md-8">
-        <h1>About RSS Feed Hub</h1>
-        
-        <p>Welcome to RSS Feed Hub, your centralized source for curated AI and technology news feeds. This site automatically aggregates and monitors RSS feeds from various sources to keep you updated with the latest developments in artificial intelligence and technology.</p>
-        
-        <h2>Available Feeds</h2>
-        
-    {% for feed in site.feeds %}
-    {% if feed.enabled != false %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <a href="{{ feed.url }}">{{ feed.name }}</a>
-                    <a href="{{ feed.url }}" class="btn btn-sm btn-outline-success ms-2">
-                        <i class="fas fa-rss"></i> RSS
-                    </a>
-                </h5>
-                <p class="card-text">{{ feed.description }}</p>
-            </div>
-        </div>
-    {% endif %}
-        {% endfor %}
-        
-        <h2>How It Works</h2>
-        
-        <p>Our system uses automated web scraping and monitoring to:</p>
-        
-        <ul>
-            <li><strong>Scrape Content:</strong> Automatically extract articles and news from target websites</li>
-            <li><strong>Generate RSS:</strong> Convert scraped content into standard RSS feed format</li>
-            <li><strong>Monitor Health:</strong> Continuously check feed status and entry counts</li>
-            <li><strong>Update Regularly:</strong> Refresh content on a scheduled basis via GitHub Actions</li>
-        </ul>
-        
-        <h2>Priority Badges</h2>
-        
-        <p>RSS feed entries can include priority indicators in their titles, which are automatically converted to visual badges:</p>
-        
-        <ul>
-            <li><strong>[ ! ]</strong> → <span class="badge bg-danger">Essential</span> - Critical or urgent content</li>
-            <li><strong>[ * ]</strong> → <span class="badge bg-warning text-dark">Important</span> - High-priority content</li>
-            <li><strong>[ ~ ]</strong> → <span class="badge bg-secondary">Optional</span> - Supplementary or nice-to-know content</li>
-        </ul>
+<div class="page-shell">
+    <h1>About RSS Feed Hub</h1>
+    <div class="about-grid about-grid--offset">
+        <div class="prose-shell">
+            <p class="lead">RSS Feed Hub is a centralized source for curated AI, enterprise architecture, and technology news feeds. The site automatically aggregates, monitors, and republishes feed content in standard subscription formats.</p>
 
-        <p>Some feeds also include a separate <strong>technical impact</strong> indicator:</p>
-
-        <ul>
-            <li><strong>[ ⬢ ]</strong> → <span class="badge bg-info text-dark">Tech: Transformational</span> - Forces rethinking architecture/governance patterns</li>
-            <li><strong>[ ◼ ]</strong> → <span class="badge bg-primary">Tech: Important</span> - Likely to change how teams build/run AI systems</li>
-            <li><strong>[ ◻ ]</strong> → <span class="badge bg-secondary">Tech: Informational</span> - Awareness-level technical signal</li>
-        </ul>
-        
-        <p>These badges help you quickly identify the importance level of each RSS entry on the homepage.</p>
-        
-        <h2>Smart Preview Display</h2>
-        
-        <p>The homepage RSS previews load each enabled feed directly and sort visible entries newest first:</p>
-        
-        <ul>
-            <li><strong>Priority Badges:</strong> Converts business and technical impact tags into visual labels</li>
-            <li><strong>Newest First:</strong> Sorts feed items by publication date when dates are available</li>
-            <li><strong>External Feed Handling:</strong> Links out when browser fetch access is not available</li>
-        </ul>
-        
-        <p>This keeps the public page aligned with the current generated feeds and avoids advertising disabled feeds.</p>
-        
-        <h2>Feed Status Monitoring</h2>
-        
-        <p>Each feed is continuously monitored for:</p>
-        
-        <ul>
-            <li>Entry count and freshness</li>
-            <li>Last update timestamp</li>
-            <li>Error detection and reporting</li>
-            <li>Feed validity and accessibility</li>
-        </ul>
-        
-        <h2>Technical Details</h2>
-        
-        <p>This RSS hub is powered by:</p>
-        
-        <ul>
-            <li><strong>Python:</strong> Web scraping and feed aggregation with Playwright, Beautiful Soup, and Feedgen</li>
-            <li><strong>GitHub Actions:</strong> Automated workflow execution</li>
-            <li><strong>Jekyll:</strong> Static site generation</li>
-            <li><strong>RSS:</strong> Standard syndication format</li>
-        </ul>
-        
-        <div class="alert alert-info mt-4">
-            <h5><i class="fas fa-info-circle"></i> Note</h5>
-            <p class="mb-0">RSS feeds are updated automatically. If you notice any issues with feed content or availability, please check the <a href="{{ site.baseurl }}/">main page</a> for current status information.</p>
-        </div>
-    </div>
-    
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                <h5><i class="fas fa-chart-line"></i> Quick Stats</h5>
-            </div>
-            <div class="card-body">
-                <div id="quick-stats">
-                    Loading stats...
+            <section class="content-section">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Model</div>
+                        <h2 class="section-header__title">Operating Model</h2>
+                    </div>
+                </header>
+                <div class="content-grid">
+                    <div class="info-panel"><div class="info-row__index">01</div><h4>Collect</h4><p class="small">Configured sources are fetched by scheduled GitHub Actions workflows.</p></div>
+                    <div class="info-panel"><div class="info-row__index">02</div><h4>Normalize</h4><p class="small">Items are cleaned, deduplicated, scored, and prepared for feed publication.</p></div>
+                    <div class="info-panel"><div class="info-row__index">03</div><h4>Publish</h4><p class="small">Public feed files, status data, and site pages are committed and deployed through GitHub Pages.</p></div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="card mt-4">
-            <div class="card-header">
-                <h5><i class="fas fa-link"></i> Useful Links</h5>
-            </div>
-            <div class="card-body">
-                <ul class="list-unstyled">
-                    {% if site.github_url %}
-                    <li><a href="{{ site.github_url }}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a></li>
-                    {% endif %}
-                    <li><a href="{{ site.baseurl }}/api/rss_status.json"><i class="fas fa-file-code"></i> Status JSON</a></li>
-                    {% for feed in site.feeds %}
-                    {% if feed.enabled != false %}
-                    <li><a href="{{ feed.url }}"><i class="fas fa-rss"></i> {{ feed.name }}</a></li>
-                    {% endif %}
+            </section>
+
+            <section class="content-section--large">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Use</div>
+                        <h2 class="section-header__title">Source Attribution</h2>
+                    </div>
+                </header>
+                <p class="section-copy">Feed entries are pointers back to source material. Aggregated feeds preserve source links and may include source attribution in titles or metadata depending on the feed configuration.</p>
+            </section>
+
+            <section class="content-section--large">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Limits</div>
+                        <h2 class="section-header__title">Limits</h2>
+                    </div>
+                </header>
+                <div class="info-panel info-panel--offset">
+                    <div class="info-row"><span class="info-row__index">API</span><span>Source feeds can be rate-limited, unavailable, empty, or temporarily malformed.</span></div>
+                    <div class="info-row"><span class="info-row__index">LLM</span><span>LLM enrichment is optional and can run in degraded mode when model access is unavailable.</span></div>
+                    <div class="info-row"><span class="info-row__index">TIME</span><span>Archive files appear only after retention rules produce older items.</span></div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Directory</div>
+                        <h2 class="section-header__title">Available Feeds</h2>
+                    </div>
+                    <span class="section-header__meta">{{ enabled_feeds.size }} PUBLIC FEEDS</span>
+                </header>
+                <div class="feed-stack">
+                    {% for feed in enabled_feeds %}
+                        {% include feed-card.html feed=feed index=forloop.index %}
                     {% endfor %}
-                </ul>
-            </div>
+                </div>
+            </section>
+
+            <section class="content-section--large">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Process</div>
+                        <h2 class="section-header__title">How It Works</h2>
+                    </div>
+                </header>
+                <div class="help-grid">
+                    <div class="info-panel"><div class="info-row__index">01</div><h4>Scrape Content</h4><p class="small">Automatically extract articles and news from target websites.</p></div>
+                    <div class="info-panel"><div class="info-row__index">02</div><h4>Generate RSS</h4><p class="small">Convert scraped content into standard RSS, Atom, and JSON Feed formats.</p></div>
+                    <div class="info-panel"><div class="info-row__index">03</div><h4>Monitor Health</h4><p class="small">Continuously check feed status, validity, freshness, and entry counts.</p></div>
+                    <div class="info-panel"><div class="info-row__index">04</div><h4>Update Regularly</h4><p class="small">Refresh content on a scheduled basis via GitHub Actions.</p></div>
+                </div>
+            </section>
+
+            <section class="content-section--large">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Badges</div>
+                        <h2 class="section-header__title">Priority Badges</h2>
+                    </div>
+                </header>
+                <p class="section-copy">Feed entries can include priority indicators in their titles. The site converts those markers to badges in feed previews.</p>
+                <div class="info-panel info-panel--offset">
+                    <div class="info-row"><span class="info-row__index">[ ! ]</span><span><span class="pri-badge essential">Essential</span> Critical or urgent content</span></div>
+                    <div class="info-row"><span class="info-row__index">[ * ]</span><span><span class="pri-badge important">Important</span> High-priority content</span></div>
+                    <div class="info-row"><span class="info-row__index">[ ~ ]</span><span><span class="pri-badge optional">Optional</span> Supplementary or nice-to-know content</span></div>
+                    <div class="info-row"><span class="info-row__index">[ ◻ ]</span><span><span class="tech-badge informational">Tech: Informational</span> Awareness-level technical signal</span></div>
+                    <div class="info-row"><span class="info-row__index">[ ◼ ]</span><span><span class="tech-badge tech-important">Tech: Important</span> Likely to change how teams build or run AI systems</span></div>
+                    <div class="info-row"><span class="info-row__index">[ ⬢ ]</span><span><span class="tech-badge transformational">Tech: Transformational</span> Forces rethinking architecture or governance patterns</span></div>
+                </div>
+            </section>
+
+            <section class="content-section--large">
+                <header class="section-header">
+                    <div>
+                        <div class="section-header__eyebrow">Stack</div>
+                        <h2 class="section-header__title">Technical Details</h2>
+                    </div>
+                </header>
+                <div class="info-panel info-panel--offset">
+                    <div class="info-row"><span class="info-row__index">PY</span><span><strong>Python</strong> Web scraping and feed aggregation with Playwright, Beautiful Soup, and Feedgen</span></div>
+                    <div class="info-row"><span class="info-row__index">GA</span><span><strong>GitHub Actions</strong> Scheduled workflow execution and generated artifact commits</span></div>
+                    <div class="info-row"><span class="info-row__index">JK</span><span><strong>Jekyll</strong> Static site generation for GitHub Pages</span></div>
+                    <div class="info-row"><span class="info-row__index">RSS</span><span><strong>RSS / Atom / JSON</strong> Standard syndication formats for subscribers</span></div>
+                </div>
+            </section>
         </div>
+
+        <aside>
+            <div class="info-panel info-panel--navy">
+                <div class="card-kicker card-kicker--inverse">Quick Stats</div>
+                <div class="metric-grid" id="quick-stats">
+                    <div class="metric"><div class="metric__value">--</div><div class="metric__label">feed files</div></div>
+                    <div class="metric"><div class="metric__value metric__value--accent">--</div><div class="metric__label">healthy</div></div>
+                    <div class="metric metric--wide"><div class="metric__value">--</div><div class="metric__label">total entries</div></div>
+                </div>
+                <div class="data-line metric-updated" id="quick-stats-updated">Last updated: unknown</div>
+            </div>
+
+            <div class="info-panel info-panel--sidebar-offset">
+                <div class="card-kicker">Useful Links</div>
+                {% if site.github_url %}
+                <a class="side-link" href="{{ site.github_url }}" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                {% endif %}
+                <a class="side-link" href="{{ site.baseurl }}/api/rss_status.json"><i class="fas fa-file-code" aria-hidden="true"></i> Status JSON</a>
+                {% for feed in enabled_feeds %}
+                <a class="side-link" href="{{ feed.url }}"><i class="fas fa-rss" aria-hidden="true"></i> {{ feed.name }}</a>
+                {% endfor %}
+            </div>
+        </aside>
     </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Load quick stats
     fetch('/api/rss_status.json')
-        .then(response => response.json())
-        .then(data => {
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
             let totalEntries = 0;
             let healthyFeeds = 0;
             let totalFeeds = 0;
-            
+
             if (data.feeds) {
-                Object.values(data.feeds).forEach(feed => {
-                    totalFeeds++;
-                    if (feed.status === 'healthy') {
-                        healthyFeeds++;
-                    }
+                Object.values(data.feeds).forEach(function(feed) {
+                    totalFeeds += 1;
+                    if (feed.exists && feed.valid_xml) healthyFeeds += 1;
                     totalEntries += feed.entry_count || 0;
                 });
             }
-            
-            const statsHtml = `
-                <div class="row text-center">
-                    <div class="col-6">
-                        <h3 class="text-primary">${totalFeeds}</h3>
-                        <small>Total Feeds</small>
-                    </div>
-                    <div class="col-6">
-                        <h3 class="text-success">${healthyFeeds}</h3>
-                        <small>Healthy Feeds</small>
-                    </div>
-                    <div class="col-12 mt-3">
-                        <h3 class="text-info">${totalEntries}</h3>
-                        <small>Total Entries</small>
-                    </div>
-                </div>
-                <hr>
-                <small class="text-muted">
-                    Last updated: ${data.timestamp ? new Date(data.timestamp).toLocaleString() : 'Unknown'}
-                </small>
+
+            document.getElementById('quick-stats').innerHTML = `
+                <div class="metric"><div class="metric__value">${totalFeeds}</div><div class="metric__label">feed files</div></div>
+                <div class="metric"><div class="metric__value metric__value--accent">${healthyFeeds}</div><div class="metric__label">healthy</div></div>
+                <div class="metric metric--wide"><div class="metric__value">${totalEntries}</div><div class="metric__label">total entries</div></div>
             `;
-            
-            document.getElementById('quick-stats').innerHTML = statsHtml;
+            document.getElementById('quick-stats-updated').textContent = 'Last updated: ' + (data.timestamp ? new Date(data.timestamp).toLocaleString() : 'unknown');
         })
-        .catch(error => {
+        .catch(function(error) {
             console.error('Error loading stats:', error);
-            document.getElementById('quick-stats').innerHTML = 
-                '<div class="text-muted">Unable to load statistics</div>';
+            document.getElementById('quick-stats').innerHTML = '<div class="small">Unable to load statistics</div>';
         });
 });
 </script>

@@ -1,0 +1,34 @@
+{% assign feed = include.feed %}
+<article class="feed-card">
+    <div class="feed-card__head">
+        <div>
+            {% if include.index %}
+            <div class="feed-card__index">{{ include.index | prepend: '0' | slice: -2, 2 }}</div>
+            {% endif %}
+            <h3 class="feed-card__title"><a href="{{ feed.url }}">{{ feed.name }}</a></h3>
+            <p class="feed-card__description">{{ feed.description }}</p>
+        </div>
+        {% include feed-format-buttons.html feed=feed %}
+    </div>
+
+    {% if include.display_url %}
+    <div>
+        <label class="card-kicker" for="feed-url-{{ include.uid }}">Feed URL</label>
+        <div class="feed-url">
+            <input id="feed-url-{{ include.uid }}" type="text" value="{{ include.display_url }}" readonly>
+            <button class="btn btn--ink" type="button" data-copy-target="feed-url-{{ include.uid }}"><i class="fas fa-copy" aria-hidden="true"></i> Copy</button>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if include.status_id %}
+    <div id="{{ include.status_id }}" class="feed-status status-line"><span class="status-badge status-badge--unknown">Unknown</span></div>
+    {% endif %}
+
+    {% if include.preview_id %}
+    <div>
+        <div class="feed-preview__label">{{ include.preview_label | default: 'Recent Entries' }}</div>
+        <div id="{{ include.preview_id }}" class="feed-preview" data-feed-index="{{ include.feed_index | default: include.index }}">Loading latest entries...</div>
+    </div>
+    {% endif %}
+</article>

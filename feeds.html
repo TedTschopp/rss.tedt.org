@@ -4,153 +4,124 @@ title: "RSS Feeds"
 permalink: /feeds/
 ---
 
-<div class="row">
-    <div class="col-md-12">
-        <h1>RSS Feeds</h1>
-        <p class="lead">Subscribe to our curated RSS feeds to stay updated with the latest AI and technology news.</p>
-        <div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2">
+{% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
+
+<div class="page-shell">
+    <h1>RSS Feeds</h1>
+    <p class="lead prose-shell">Subscribe to curated RSS feeds for AI, enterprise architecture, and technology news. Each feed is available in the formats supported by the generator.</p>
+
+    <div class="callout">
+        <p><strong>Managing Top Stories inputs?</strong> Use the Top Stories Manager to edit included feeds and adjust ranking weights.</p>
+        <a class="btn btn--ink" href="{{ site.baseurl }}/top-stories-manager/">Open Top Stories Manager</a>
+    </div>
+
+    <div class="feed-grid">
+        {% for feed in enabled_feeds %}
+            {% assign feed_display_url = feed.url %}
+            {% unless feed.url contains '://' %}
+            {% assign feed_display_url = site.url | append: feed.url %}
+            {% endunless %}
+            {% assign status_id = 'feed-status-' | append: forloop.index0 %}
+            {% assign entries_id = 'feed-entries-' | append: forloop.index0 %}
+            {% assign uid = 'directory-' | append: forloop.index %}
+            {% include feed-card.html feed=feed index=forloop.index uid=uid display_url=feed_display_url status_id=status_id preview_id=entries_id feed_index=forloop.index0 preview_label='Recent Entries' %}
+        {% endfor %}
+    </div>
+
+    <section class="page-section">
+        <header class="section-header">
             <div>
-                <strong>Managing Top Stories inputs?</strong>
-                Use the Top Stories Manager to edit included feeds and adjust ranking weights.
+                <div class="section-header__eyebrow">Help</div>
+                <h2 class="section-header__title">How to Use RSS Feeds</h2>
             </div>
-            <a class="btn btn-sm btn-outline-primary" href="/top-stories-manager/">Open Top Stories Manager</a>
+        </header>
+        <div class="help-grid">
+            <div class="info-panel">
+                <h4>Popular RSS Readers</h4>
+                <div class="info-list">
+                    <div class="info-row"><span class="info-row__index">01</span><span><strong>Feedly</strong> Web-based RSS reader</span></div>
+                    <div class="info-row"><span class="info-row__index">02</span><span><strong>Inoreader</strong> Feature-rich RSS service</span></div>
+                    <div class="info-row"><span class="info-row__index">03</span><span><strong>NewsBlur</strong> Social RSS reader</span></div>
+                    <div class="info-row"><span class="info-row__index">04</span><span><strong>RSS Guard</strong> Desktop RSS client</span></div>
+                    <div class="info-row"><span class="info-row__index">05</span><span><strong>NetNewsWire</strong> macOS and iOS RSS reader</span></div>
+                </div>
+            </div>
+            <div class="info-panel">
+                <h4>How to Subscribe</h4>
+                <div class="info-list">
+                    <div class="info-row"><span class="info-row__index">01</span><span>Copy the RSS feed URL from the card above</span></div>
+                    <div class="info-row"><span class="info-row__index">02</span><span>Open your preferred RSS reader</span></div>
+                    <div class="info-row"><span class="info-row__index">03</span><span>Add a new feed or subscription</span></div>
+                    <div class="info-row"><span class="info-row__index">04</span><span>Paste the RSS URL</span></div>
+                    <div class="info-row"><span class="info-row__index">05</span><span>Save and let the reader handle updates</span></div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<div class="row">
-    {% for feed in site.feeds %}
-    {% if feed.enabled != false %}
-    {% assign feed_display_url = feed.url %}
-    {% unless feed.url contains '://' %}
-    {% assign feed_display_url = site.url | append: feed.url %}
-    {% endunless %}
-    <div class="col-md-6 mb-4">
-        <div class="card h-100 border-0 box-shadow">
-            <div class="card-header bg-transparent">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h3 class="card-title mb-0">{{ feed.name }}</h3>
-                    <div class="btn-group" role="group" aria-label="Feed formats">
-                        <a href="{{ feed.url }}" class="btn btn-outline-rss btn-sm" target="feed_{{ feed.name | slugify }}_rss2" rel="noopener" title="RSS 2.0">
-                            <i class="fas fa-rss"></i> RSS 2.0
-                        </a>
-                        {% if feed.formats and feed.formats.rss1 %}
-                        <a href="{{ feed.formats.rss1 }}" class="btn btn-outline-rss1 btn-sm" target="feed_{{ feed.name | slugify }}_rss1" rel="noopener" title="RSS 1.0 (RDF)">
-                            <i class="fas fa-rss"></i> RSS 1.0
-                        </a>
-                        {% endif %}
-                        {% if feed.formats and feed.formats.atom %}
-                        <a href="{{ feed.formats.atom }}" class="btn btn-outline-atom btn-sm" target="feed_{{ feed.name | slugify }}_atom" rel="noopener" title="Atom 1.0">
-                            <i class="fas fa-atom"></i> Atom
-                        </a>
-                        {% endif %}
-                        {% if feed.formats and feed.formats.json %}
-                        <a href="{{ feed.formats.json }}" class="btn btn-outline-json btn-sm" target="feed_{{ feed.name | slugify }}_json" rel="noopener" title="JSON Feed">
-                            <svg class="svg-icon" style="width: 1em; height: 1em; vertical-align: middle; fill: currentColor; overflow: hidden;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M213.333333 128h85.333334v85.333333H213.333333v213.333334a85.333333 85.333333 0 0 1-85.333333 85.333333 85.333333 85.333333 0 0 1 85.333333 85.333333v213.333334h85.333334v85.333333H213.333333c-45.653333-11.52-85.333333-38.4-85.333333-85.333333v-170.666667a85.333333 85.333333 0 0 0-85.333333-85.333333H0v-85.333334h42.666667a85.333333 85.333333 0 0 0 85.333333-85.333333V213.333333a85.333333 85.333333 0 0 1 85.333333-85.333333m597.333334 0a85.333333 85.333333 0 0 1 85.333333 85.333333v170.666667a85.333333 85.333333 0 0 0 85.333333 85.333333h42.666667v85.333334h-42.666667a85.333333 85.333333 0 0 0-85.333333 85.333333v170.666667a85.333333 85.333333 0 0 1-85.333333 85.333333h-85.333334v-85.333333h85.333334v-213.333334a85.333333 85.333333 0 0 1 85.333333-85.333333 85.333333 85.333333 0 0 1-85.333333-85.333333V213.333333h-85.333334V128h85.333334m-298.666667 512a42.666667 42.666667 0 0 1 42.666667 42.666667 42.666667 42.666667 0 0 1-42.666667 42.666666 42.666667 42.666667 0 0 1-42.666667-42.666666 42.666667 42.666667 0 0 1 42.666667-42.666667m-170.666667 0a42.666667 42.666667 0 0 1 42.666667 42.666667 42.666667 42.666667 0 0 1-42.666667 42.666666 42.666667 42.666667 0 0 1-42.666666-42.666666 42.666667 42.666667 0 0 1 42.666666-42.666667m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667 42.666667 42.666667 0 0 1-42.666666 42.666666 42.666667 42.666667 0 0 1-42.666667-42.666666 42.666667 42.666667 0 0 1 42.666667-42.666667z"/></svg> JSON
-                        </a>
-                        {% endif %}
-                        <button class="btn btn-outline-secondary btn-sm" onclick="copyFeedUrl('{{ feed_display_url }}')">
-                            <i class="fas fa-copy"></i> Copy
-                        </button>
-                    </div>
-                </div>
+    <section class="page-section">
+        <header class="section-header">
+            <div>
+                <div class="section-header__eyebrow">Formats</div>
+                <h2 class="section-header__title">Format Guide</h2>
             </div>
-            <div class="card-body">
-                <p class="card-text">{{ feed.description }}</p>
-                
-                <div class="mb-3">
-                    <strong>Feed URL:</strong>
-                    <div class="input-group">
-                        <input type="text" class="form-control form-control-sm" 
-                               value="{{ feed_display_url }}" 
-                               id="feed-url-{{ forloop.index }}" readonly>
-                        <button class="btn btn-outline-secondary btn-sm" type="button" 
-                                onclick="copyFeedUrl('{{ feed_display_url }}', {{ forloop.index }})">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="{{ feed.name | slugify }}-status" class="feed-status">
-                    <small class="text-muted">Loading status...</small>
-                </div>
-                
-                <hr>
-                
-                <h5>Recent Entries</h5>
-                <div id="{{ feed.name | slugify }}-entries" class="feed-entries">
-                    <small class="text-muted">Loading entries...</small>
-                </div>
-            </div>
+        </header>
+        <div class="content-grid">
+            <div class="info-panel"><div class="info-row__index">RSS</div><h4>RSS 2.0</h4><p class="small">The default subscription format for most feed readers and automation tools.</p></div>
+            <div class="info-panel"><div class="info-row__index">RDF</div><h4>RSS 1.0</h4><p class="small">RDF-style feed output for older or metadata-oriented consumers.</p></div>
+            <div class="info-panel"><div class="info-row__index">ATOM</div><h4>Atom</h4><p class="small">A structured XML alternative with explicit entry metadata.</p></div>
+            <div class="info-panel"><div class="info-row__index">JSON</div><h4>JSON</h4><p class="small">JSON Feed output for applications that prefer structured JSON over XML.</p></div>
         </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-</div>
+    </section>
 
-<!-- Usage Instructions -->
-<div class="row mt-5">
-    <div class="col-md-12">
-        <div class="card border-0 box-shadow">
-            <div class="card-header">
-                <h4><i class="fas fa-question-circle"></i> How to Use RSS Feeds</h4>
+    <section class="page-section">
+        <header class="section-header">
+            <div>
+                <div class="section-header__eyebrow">Notes</div>
+                <h2 class="section-header__title">Subscription Notes</h2>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Popular RSS Readers</h5>
-                        <ul>
-                            <li><strong>Feedly</strong> - Web-based RSS reader</li>
-                            <li><strong>Inoreader</strong> - Feature-rich RSS service</li>
-                            <li><strong>NewsBlur</strong> - Social RSS reader</li>
-                            <li><strong>RSS Guard</strong> - Desktop RSS client</li>
-                            <li><strong>NetNewsWire</strong> - macOS/iOS RSS reader</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h5>How to Subscribe</h5>
-                        <ol>
-                            <li>Copy the RSS feed URL from above</li>
-                            <li>Open your preferred RSS reader</li>
-                            <li>Add a new feed/subscription</li>
-                            <li>Paste the RSS URL</li>
-                            <li>Save and enjoy automatic updates!</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+        </header>
+        <div class="content-grid">
+            <div class="info-panel"><div class="info-row__index">URL</div><h4>Use Stable URLs</h4><p class="small">Root feed paths and `/feeds/top.*` are public contracts. Subscribe to those URLs directly.</p></div>
+            <div class="info-panel"><div class="info-row__index">SRC</div><h4>Source Links</h4><p class="small">Entries link back to source material. This site republishes summaries and feed metadata.</p></div>
+            <div class="info-panel"><div class="info-row__index">OPS</div><h4>Operational Status</h4><p class="small">If a feed looks stale, check the status page for validity, entry counts, and current warnings.</p></div>
         </div>
-    </div>
+    </section>
 </div>
 
 <script>
-// Copy feed URL to clipboard
-function copyFeedUrl(url, feedIndex = null) {
-    navigator.clipboard.writeText(url).then(function() {
-        // Show success message
-        const btn = feedIndex ? 
-            document.querySelector(`#feed-url-${feedIndex}`).nextElementSibling :
-            event.target;
-        
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        btn.classList.remove('btn-outline-secondary');
-        btn.classList.add('btn-success');
-        
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.classList.remove('btn-success');
-            btn.classList.add('btn-outline-secondary');
+function copyFeedUrl(inputId, button) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    navigator.clipboard.writeText(input.value).then(function() {
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied';
+        button.classList.add('btn-success');
+        setTimeout(function() {
+            button.innerHTML = originalText;
+            button.classList.remove('btn-success');
         }, 2000);
     }).catch(function(err) {
         console.error('Could not copy text: ', err);
-        alert('Failed to copy URL. Please copy manually.');
+        input.select();
     });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     {% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
     const rssFeeds = {{ enabled_feeds | jsonify }};
+
+    document.querySelectorAll('[data-copy-target]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            copyFeedUrl(button.getAttribute('data-copy-target'), button);
+        });
+    });
+
+    function esc(value) {
+        return (value || '').replace(/[&<>"']/g, function(char) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char] || char;
+        });
+    }
 
     function isExternalFeedUrl(url) {
         try {
@@ -160,166 +131,75 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function feedDisplayUrl(feed) {
-        return isExternalFeedUrl(feed.url) ? feed.url : (window.location.origin + feed.url);
+    function setHTML(element, html) {
+        if (element) element.innerHTML = html;
     }
 
-    function jekyllSlugify(str) {
-        if (!str) return '';
-        return str
-            .toString()
-            .trim().toLowerCase()
-            // remove apostrophes
-            .replace(/['’`]/g, '')
-            // replace non alphanumeric (excluding space & hyphen) with space
-            .replace(/[^a-z0-9\s-]/g, ' ')
-            // collapse whitespace/hyphens to single space
-            .replace(/[\s_-]+/g, ' ')
-            // convert spaces to hyphens
-            .replace(/\s+/g, '-')
-            // trim hyphens
-            .replace(/^-+|-+$/g, '');
-    }
-
-    // Generate alternate slug variants to match potential Jekyll behavior with apostrophes
-    function slugVariants(name) {
-        const lower = (name || '').toString().trim().toLowerCase();
-        const variants = new Set();
-        // Our current algorithm
-        variants.add(jekyllSlugify(lower));
-        // Variant: replace apostrophes with hyphen BEFORE cleanup (yields tschopp-s)
-        variants.add(lower
-            .replace(/['’`]/g, '-')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/-{2,}/g, '-')
-            .replace(/^-+|-+$/g, '')
-        );
-        // Variant: simply drop apostrophes without extra collapsing
-        variants.add(lower
-            .replace(/['’`]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/-{2,}/g, '-')
-            .replace(/^-+|-+$/g, '')
-        );
-        // Variant: replace spaces first then strip apostrophes
-        variants.add(lower
-            .replace(/\s+/g, '-')
-            .replace(/['’`]/g, '')
-            .replace(/[^a-z0-9-]/g, '-')
-            .replace(/-{2,}/g, '-')
-            .replace(/^-+|-+$/g, '')
-        );
-        // Remove empty
-        return Array.from(variants).filter(v => v);
-    }
-
-    const resolvedSlugCache = new Map();
-    function resolveElementForFeed(feedName, suffix) {
-        if (resolvedSlugCache.has(feedName)) {
-            const cached = resolvedSlugCache.get(feedName);
-            const el = document.getElementById(cached + '-' + suffix);
-            if (el) return { element: el, slug: cached };
-        }
-        const candidates = slugVariants(feedName);
-        for (const cand of candidates) {
-            const id = cand + '-' + suffix;
-            const el = document.getElementById(id);
-            if (el) {
-                resolvedSlugCache.set(feedName, cand);
-                if (window && window.console) console.debug('Resolved slug for', feedName, '=>', cand);
-                return { element: el, slug: cand };
-            }
-        }
-        console.warn('Unable to resolve element for feed', feedName, 'suffix', suffix, 'tried', candidates);
-        return { element: null, slug: null };
-    }
-
-    // Helper to safely set innerHTML
-    function setHTML(el, html) { if (el) el.innerHTML = html; }
-
-    // Load RSS status using feed.url key mapping found in api/rss_status.json
     fetch('/api/rss_status.json')
-        .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
-        .then(data => {
-            rssFeeds.forEach(feed => {
-                const { element: statusElement, slug } = resolveElementForFeed(feed.name, 'status');
-                if (!statusElement) return; // Already warned in resolver
+        .then(function(response) { return response.ok ? response.json() : Promise.reject(new Error('HTTP ' + response.status)); })
+        .then(function(data) {
+            rssFeeds.forEach(function(feed, index) {
+                const statusElement = document.getElementById('feed-status-' + index);
+                if (!statusElement) return;
 
                 if (feed.external || isExternalFeedUrl(feed.url)) {
-                    setHTML(statusElement, `
-                        <span class="badge bg-info text-dark">
-                            <i class="fas fa-up-right-from-square"></i> External
-                        </span>
-                        <small class="text-muted ms-2">Hosted on the source site.</small>
-                    `);
+                    setHTML(statusElement, '<span class="status-badge status-badge--external"><i class="fas fa-up-right-from-square" aria-hidden="true"></i> External</span><span class="data-line">Hosted on the source site</span>');
                     return;
                 }
 
-                const statusKey = (feed.url || '').replace(/^\//,''); // e.g. ai_rss_feed.xml
+                const statusKey = (feed.url || '').replace(/^\//,'');
                 const feedData = data.feeds ? data.feeds[statusKey] : null;
                 if (feedData) {
-                    // Derive status (healthy if exists && valid_xml && entry_count >0)
-                    const health = (feedData.exists && feedData.valid_xml) ? 'healthy' : 'warning';
-                    const statusClass = health === 'healthy' ? 'success' : 'warning';
-                    const statusIcon = health === 'healthy' ? 'check-circle' : 'exclamation-triangle';
-                    setHTML(statusElement, `
-                        <span class="badge bg-${statusClass}">
-                            <i class="fas fa-${statusIcon}"></i> ${health}
-                        </span>
-                        <small class="text-muted ms-2">
-                            ${(feedData.entry_count || 0)} entries |
-                            Updated: ${feedData.last_updated ? new Date(feedData.last_updated).toLocaleDateString() : 'Unknown'}
-                        </small>
-                    `);
+                    const healthy = feedData.exists && feedData.valid_xml;
+                    const badge = healthy
+                        ? '<span class="status-badge status-badge--healthy"><i class="fas fa-check-circle" aria-hidden="true"></i> Healthy</span>'
+                        : '<span class="status-badge status-badge--warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Warning</span>';
+                    const updated = feedData.last_updated ? new Date(feedData.last_updated).toLocaleDateString() : 'Unknown';
+                    setHTML(statusElement, badge + '<span class="data-line">' + (feedData.entry_count || 0) + ' entries | Updated: ' + esc(updated) + '</span>');
                 } else {
-                    setHTML(statusElement, '<span class="badge bg-secondary">Unknown</span>');
+                    setHTML(statusElement, '<span class="status-badge status-badge--unknown">Unknown</span>');
                 }
             });
         })
-        .catch(err => console.error('Error loading RSS status:', err));
+        .catch(function(err) { console.error('Error loading RSS status:', err); });
 
-    // Load feed entries
-    rssFeeds.forEach(feed => {
-        const { element: entriesElement } = resolveElementForFeed(feed.name, 'entries');
-        if (!entriesElement) return; // warning already issued
+    rssFeeds.forEach(function(feed, index) {
+        const entriesElement = document.getElementById('feed-entries-' + index);
+        if (!entriesElement) return;
 
         if (feed.external || isExternalFeedUrl(feed.url)) {
-            setHTML(entriesElement, `<small class="text-muted">Preview is not embedded for this external feed. <a href="${feedDisplayUrl(feed)}" target="_blank" rel="noopener">Open the feed source</a>.</small>`);
+            setHTML(entriesElement, '<small class="small">Preview is not embedded for this external feed.</small>');
             return;
         }
 
         fetch(feed.url)
-            .then(r => r.ok ? r.text() : Promise.reject(new Error('HTTP '+r.status)))
-            .then(xmlText => {
+            .then(function(response) { return response.ok ? response.text() : Promise.reject(new Error('HTTP ' + response.status)); })
+            .then(function(xmlText) {
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
                 const items = Array.from(xmlDoc.querySelectorAll('item'));
                 if (!items.length) {
-                    setHTML(entriesElement, '<small class="text-muted">No entries found</small>');
+                    setHTML(entriesElement, '<small class="small">No entries found</small>');
                     return;
                 }
-                let html = '<ul class="list-unstyled">';
-                items.slice(0,3).forEach(item => {
-                    const title = (item.querySelector('title')?.textContent || 'No title').trim();
-                    const link = (item.querySelector('link')?.textContent || '#').trim();
+                let html = '<ul class="rss-items">';
+                items.slice(0, 3).forEach(function(item) {
+                    const title = esc((item.querySelector('title')?.textContent || 'No title').trim());
+                    const link = esc((item.querySelector('link')?.textContent || '#').trim());
                     const pubDate = item.querySelector('pubDate')?.textContent;
                     let formattedDate = '';
                     if (pubDate) {
-                        const d = new Date(pubDate);
-                        if (!isNaN(d)) formattedDate = d.toLocaleDateString();
+                        const date = new Date(pubDate);
+                        if (!isNaN(date)) formattedDate = date.toISOString().slice(0, 10);
                     }
-                    html += `
-                        <li class="mb-2">
-                            <a href="${link}" target="_blank" rel="noopener" class="text-decoration-none">${title}</a>
-                            ${formattedDate ? `<br><small class='text-muted'>${formattedDate}</small>` : ''}
-                        </li>`;
+                    html += '<li><a href="' + link + '" target="_blank" rel="noopener"><strong>' + title + '</strong></a>' + (formattedDate ? ' <span class="pubdate">(' + formattedDate + ')</span>' : '') + '</li>';
                 });
                 html += '</ul>';
                 setHTML(entriesElement, html);
             })
-            .catch(err => {
+            .catch(function(err) {
                 console.error('Error loading RSS feed', feed.url, err);
-                setHTML(entriesElement, '<small class="text-danger">Unable to load entries</small>');
+                setHTML(entriesElement, '<small class="small text-danger">Unable to load entries</small>');
             });
     });
 });

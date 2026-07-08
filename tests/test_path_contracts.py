@@ -13,6 +13,7 @@ class PathContractTests(unittest.TestCase):
         self.assertEqual(config.STATUS_REPORT_FILE, "api/rss_status.json")
         self.assertIn("/api/rss_status.json", Path("feeds.html").read_text(encoding="utf-8"))
         self.assertIn("/api/rss_status.json", Path("about.md").read_text(encoding="utf-8"))
+        self.assertIn("/api/rss_status.json", Path("status.html").read_text(encoding="utf-8"))
 
     def test_internal_artifact_paths_are_not_root_level(self):
         self.assertEqual(config.PREVIOUS_DATA_FILE, "derived/previous_data.json")
@@ -43,6 +44,12 @@ class PathContractTests(unittest.TestCase):
             "aggregated_osr_ttrpg_archive.xml",
             "reports/aggregation/aggregated_osr_ttrpg_health.json",
             "Docs/reference/osr-rss-feeds.md",
+            "aggregated_wes_ai_news.xml",
+            "aggregated_wes_ai_news.atom",
+            "aggregated_wes_ai_news.json",
+            "aggregated_wes_ai_news_rss1.xml",
+            "reports/aggregation/aggregated_wes_ai_news_health.json",
+            "reports/aggregation/aggregated_wes_ai_news_report.md",
         ]:
             self.assertFalse(Path(deleted_path).exists(), deleted_path)
 
@@ -52,11 +59,12 @@ class PathContractTests(unittest.TestCase):
         self.assertNotIn("aggregated_feeds", site_config)
         self.assertNotIn("aggregated_osr_ttrpg", site_config_text)
         self.assertNotIn("OSR & TTRPG", site_config_text)
+        self.assertNotIn("aggregated_wes_ai_news", site_config_text)
+        self.assertNotIn("Wes's AI News", site_config_text)
 
     def test_public_json_feed_self_urls_match_file_paths(self):
         for path in [
             Path("ai_rss_feed.json"),
-            Path("aggregated_wes_ai_news.json"),
             Path("aggregated_external.json"),
             Path("aggregated_ea.json"),
             Path("aggregated_broad_ai_news.json"),
@@ -90,7 +98,7 @@ class PathContractTests(unittest.TestCase):
         index_template = Path("index.html").read_text(encoding="utf-8")
         feeds_template = Path("feeds.html").read_text(encoding="utf-8")
         self.assertIn("{% if feed.enabled != false %}", sitemap_template)
-        self.assertIn("{% if feed.enabled != false %}", about_template)
+        self.assertIn("site.feeds | where_exp", about_template)
         self.assertIn("site.feeds | where_exp", index_template)
         self.assertIn("site.feeds | where_exp", feeds_template)
         self.assertNotIn("const allFeeds = {{ site.feeds | jsonify }}", index_template)
@@ -101,6 +109,43 @@ class PathContractTests(unittest.TestCase):
         self.assertIn("{% seo %}", layout)
         self.assertNotIn("<title>{% if page.title %}", layout)
         self.assertNotIn("<meta name=\"description\" content=\"{% if page.description %}", layout)
+
+    def test_site_uses_rss_feed_hub_design_system(self):
+        layout = Path("_layouts/default.html").read_text(encoding="utf-8")
+        self.assertIn("/assets/css/rss-feed-hub.css", layout)
+        self.assertIn("class=\"site-nav\"", layout)
+        self.assertIn("/status/", layout)
+        self.assertNotIn("bootstrap@", layout.lower())
+        self.assertNotIn("Inter:wght", layout)
+
+        css_path = Path("assets/css/rss-feed-hub.css")
+        self.assertTrue(css_path.is_file())
+        css = css_path.read_text(encoding="utf-8")
+        self.assertIn("tokens/colors.css", css)
+        self.assertIn("--format-rss2", css)
+        self.assertIn("font-family: var(--font-mono)", css)
+
+        for page_path in ["index.html", "feeds.html", "about.md"]:
+            page = Path(page_path).read_text(encoding="utf-8")
+            self.assertIn("feed-card", page, page_path)
+            self.assertNotIn("box-shadow", page, page_path)
+
+    def test_site_has_production_content_pages(self):
+        self.assertTrue(Path("status.html").is_file())
+        sitemap = Path("sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn("/status/", sitemap)
+
+        production_terms = {
+            "index.html": ["What This Site Publishes", "Update Cadence", "Operational Status"],
+            "feeds.html": ["Format Guide", "Subscription Notes", "Operational Status"],
+            "about.md": ["Operating Model", "Source Attribution", "Limits"],
+            "status.html": ["Feed Status", "Pipeline Status", "Operational Notes"],
+            "404.html": ["Page Not Found", "Available Routes", "feed-card"],
+        }
+        for path_text, terms in production_terms.items():
+            text = Path(path_text).read_text(encoding="utf-8")
+            for term in terms:
+                self.assertIn(term, text, f"{term} missing from {path_text}")
 
 
 if __name__ == "__main__":

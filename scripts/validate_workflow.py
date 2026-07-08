@@ -48,7 +48,7 @@ REQUIRED_STAGE_PATTERNS = {
     "reports/aggregation/*.json",
     "reports/aggregation/*.md",
 }
-SITE_STATUS_CONSUMERS = {"about.md", "feeds.html"}
+SITE_STATUS_CONSUMERS = {"about.md", "feeds.html", "status.html"}
 
 
 def _flatten_run_commands(workflow: dict) -> list[str]:

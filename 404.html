@@ -4,49 +4,56 @@ title: "Page Not Found"
 permalink: /404.html
 ---
 
-<div class="text-center">
-    <div class="error-template">
-        <h1 class="display-1 text-muted">404</h1>
-        <h2>Oops! Page Not Found</h2>
-        <div class="error-details mb-4">
-            Sorry, the page you are looking for does not exist.
-        </div>
-        <div class="error-actions">
-            <a href="{{ site.baseurl }}/" class="btn btn-primary btn-lg">
-                <i class="fas fa-home"></i> Take Me Home
-            </a>
-            <a href="{{ site.baseurl }}/about.html" class="btn btn-outline-secondary btn-lg">
-                <i class="fas fa-info-circle"></i> Learn More
-            </a>
-        </div>
-    </div>
-    
-    <div class="mt-5">
-        <h4>Available RSS Feeds</h4>
-        <div class="row justify-content-center">
-            {% for feed in site.feeds %}
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ feed.name }}</h5>
-                        <p class="card-text">{{ feed.description }}</p>
-                        <a href="{{ feed.url }}" class="btn btn-success">
-                            <i class="fas fa-rss"></i> RSS Feed
-                        </a>
-                    </div>
-                </div>
+{% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
+
+<div class="page-shell">
+    <div class="masthead__eyebrow">404</div>
+    <h1>Page Not Found</h1>
+    <p class="lead prose-shell">The requested URL is not part of the public RSS Feed Hub surface. Use one of the stable site routes below, or subscribe directly to a public feed.</p>
+
+    <section class="page-section">
+        <header class="section-header">
+            <div>
+                <div class="section-header__eyebrow">Routes</div>
+                <h2 class="section-header__title">Available Routes</h2>
             </div>
+        </header>
+        <div class="route-grid">
+            <article class="feed-card">
+                <div class="feed-card__index">01</div>
+                <h3 class="feed-card__title"><a href="{{ site.baseurl }}/">Home</a></h3>
+                <p class="feed-card__description">Feed previews, current public feeds, and subscription entry points.</p>
+            </article>
+            <article class="feed-card">
+                <div class="feed-card__index">02</div>
+                <h3 class="feed-card__title"><a href="{{ site.baseurl }}/feeds/">RSS Feeds</a></h3>
+                <p class="feed-card__description">Copy-ready feed URLs and status lines for each public feed.</p>
+            </article>
+            <article class="feed-card">
+                <div class="feed-card__index">03</div>
+                <h3 class="feed-card__title"><a href="{{ site.baseurl }}/status/">Status</a></h3>
+                <p class="feed-card__description">Generated feed health, source warnings, and pipeline status.</p>
+            </article>
+            <article class="feed-card">
+                <div class="feed-card__index">04</div>
+                <h3 class="feed-card__title"><a href="{{ site.baseurl }}/about.html">About</a></h3>
+                <p class="feed-card__description">Operating model, attribution, limits, and technical details.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <header class="section-header">
+            <div>
+                <div class="section-header__eyebrow">Feeds</div>
+                <h2 class="section-header__title">Public Feeds</h2>
+            </div>
+            <span class="section-header__meta">{{ enabled_feeds.size }} PUBLIC FEEDS</span>
+        </header>
+        <div class="feed-grid">
+            {% for feed in enabled_feeds %}
+            {% include feed-card.html feed=feed index=forloop.index %}
             {% endfor %}
         </div>
-    </div>
+    </section>
 </div>
-
-<style>
-.error-template {
-    padding: 40px 15px;
-}
-.error-template h1 {
-    font-size: 10rem;
-    font-weight: 300;
-}
-</style>

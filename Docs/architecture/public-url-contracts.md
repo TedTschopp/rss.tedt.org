@@ -16,7 +16,7 @@ Do not move, rename, or repurpose public URLs without an explicit compatibility 
 | Top Stories feeds | `/feeds/top.xml`, `/feeds/top.atom`, `/feeds/top.json`, `/feeds/top_rss1.xml` | Site/API consumers and subscribers | Keep stable. |
 | Site status API | `/api/rss_status.json` | `feeds.html`, `about.md`, operators | Keep producer and consumers aligned. |
 | Top Stories API | `/api/feed.json` | Browser/API consumers | Version before making breaking shape changes. |
-| Site pages | `/`, `/feeds/`, `/about/`, `/404.html`, `/top-stories-manager.html` | Browser users | Preserve or redirect. |
+| Site pages | `/`, `/feeds/`, `/status/`, `/about/`, `/404.html`, `/top-stories-manager.html` | Browser users | Preserve or redirect. |
 | Feed stylesheet | `/feed-style.xsl` | XML feed rendering | Keep stable while feeds reference it. |
 | SEO/discovery | `/robots.txt`, `/sitemap.xml`, `CNAME` | Crawlers, GitHub Pages, DNS | Keep stable. |
 

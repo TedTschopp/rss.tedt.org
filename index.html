@@ -3,86 +3,76 @@ layout: default
 class: home-template
 ---
 
-<!-- Start Featured Posts -->
-<div class="featured-posts">
-    <div class="section-title">
-        <h2><span>RSS Feeds</span></h2>
+{% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
+
+<header class="masthead">
+    <div class="masthead__inner">
+        <div class="masthead__eyebrow">rss.tedt.org</div>
+        <h1 class="masthead__title">RSS Feed<br>Hub<span class="masthead__dot">.</span></h1>
+        <div class="masthead__summary">
+            <p>{{ site.description }} Aggregated, ranked, and monitored automatically. Subscribe in the format your reader speaks.</p>
+            <span class="masthead__meta">{{ enabled_feeds.size }} FEEDS · RSS 2.0 / RSS 1.0 / ATOM / JSON</span>
+        </div>
     </div>
-        <div class="row">
-    {% assign enabled_feed_idx = 0 %}
-    {% for feed in site.feeds %}
-        {% if feed.enabled != false %}
-            <div class="col-md-12">
-                <div class="card border-0 mb-4 box-shadow">
-                    <div class="card-header d-flex justify-content-between align-items-start flex-wrap">
-                        <div>
-                            <h2 class="card-title mb-1"><a href="{{ feed.url }}">{{ feed.name }}</a></h2>
-                            <small class="text-muted">{{ feed.description }}</small>
-                        </div>
-                        <div class="btn-group" role="group" aria-label="Feed formats">
-                            <a href="{{ feed.url }}" class="btn btn-sm btn-outline-rss" title="RSS 2.0" target="feed_{{ feed.name | slugify }}_rss2" rel="noopener"><i class="fas fa-rss"></i> RSS 2.0</a>
-                            {% if feed.formats %}
-                            {% if feed.formats.atom %}
-                            <a href="{{ feed.formats.atom }}" class="btn btn-sm btn-outline-atom" title="Atom 1.0" target="feed_{{ feed.name | slugify }}_atom" rel="noopener"><i class="fas fa-atom"></i> Atom</a>
-                            {% endif %}
-                            {% if feed.formats.json %}
-                            <a href="{{ feed.formats.json }}" class="btn btn-sm btn-outline-json" title="JSON Feed" target="feed_{{ feed.name | slugify }}_json" rel="noopener"><svg class="svg-icon" style="width: 1em; height: 1em; vertical-align: middle; fill: currentColor; overflow: hidden;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M213.333333 128h85.333334v85.333333H213.333333v213.333334a85.333333 85.333333 0 0 1-85.333333 85.333333 85.333333 85.333333 0 0 1 85.333333 85.333333v213.333334h85.333334v85.333333H213.333333c-45.653333-11.52-85.333333-38.4-85.333333-85.333333v-170.666667a85.333333 85.333333 0 0 0-85.333333-85.333333H0v-85.333334h42.666667a85.333333 85.333333 0 0 0 85.333333-85.333333V213.333333a85.333333 85.333333 0 0 1 85.333333-85.333333m597.333334 0a85.333333 85.333333 0 0 1 85.333333 85.333333v170.666667a85.333333 85.333333 0 0 0 85.333333 85.333333h42.666667v85.333334h-42.666667a85.333333 85.333333 0 0 0-85.333333 85.333333v170.666667a85.333333 85.333333 0 0 1-85.333333 85.333333h-85.333334v-85.333333h85.333334v-213.333334a85.333333 85.333333 0 0 1 85.333333-85.333333 85.333333 85.333333 0 0 1-85.333333-85.333333V213.333333h-85.333334V128h85.333334m-298.666667 512a42.666667 42.666667 0 0 1 42.666667 42.666667 42.666667 42.666667 0 0 1-42.666667 42.666666 42.666667 42.666667 0 0 1-42.666667-42.666666 42.666667 42.666667 0 0 1 42.666667-42.666667m-170.666667 0a42.666667 42.666667 0 0 1 42.666667 42.666667 42.666667 42.666667 0 0 1-42.666667 42.666666 42.666667 42.666667 0 0 1-42.666666-42.666666 42.666667 42.666667 0 0 1 42.666666-42.666667m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667 42.666667 42.666667 0 0 1-42.666666 42.666666 42.666667 42.666667 0 0 1-42.666667-42.666666 42.666667 42.666667 0 0 1 42.666667-42.666667z"/></svg> JSON</a>
-                            {% endif %}
-                            {% if feed.formats.rss1 %}
-                            <a href="{{ feed.formats.rss1 }}" class="btn btn-sm btn-outline-rss1" title="RSS 1.0 (RDF)" target="feed_{{ feed.name | slugify }}_rss1" rel="noopener"><i class="fas fa-rss"></i> RSS 1.0</a>
-                            {% endif %}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div id="feed-preview-{{ enabled_feed_idx }}" class="rss-preview" data-feed-index="{{ enabled_feed_idx }}">Loading latest entries...</div>
-                    </div>
-                </div>
-            </div>
+</header>
+
+<div class="page-shell">
+    <header class="section-header">
+        <div>
+            <div class="section-header__eyebrow">Feeds</div>
+            <h2 class="section-header__title">RSS Feeds</h2>
+        </div>
+        <span class="section-header__meta">{{ enabled_feeds.size }} PUBLIC FEEDS</span>
+    </header>
+
+    <div class="feed-stack">
+        {% assign enabled_feed_idx = 0 %}
+        {% for feed in enabled_feeds %}
+            {% assign preview_id = 'feed-preview-' | append: enabled_feed_idx %}
+            {% include feed-card.html feed=feed index=forloop.index preview_id=preview_id feed_index=enabled_feed_idx preview_label='Latest Entries' %}
             {% assign enabled_feed_idx = enabled_feed_idx | plus: 1 %}
-        {% endif %}
         {% endfor %}
-        </div>
-</div>
-
-<!-- RSS Status -->
-<div class="rss-status mt-5" style="display: none;">
-    <div class="section-title">
-        <h2><span>Feed Status</span></h2>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card border-0 box-shadow">
-                <div class="card-body">
-                    <div id="rss-status-content">
-                        Loading feed status...
-                    </div>
-                </div>
+
+    <div class="callout">
+        <p>Need copy-ready URLs, health details, or subscription help? The feeds page lists every format and status line.</p>
+        <a class="btn btn--ink" href="{{ site.baseurl }}/feeds/">All feeds and formats</a>
+    </div>
+
+    <section class="page-section">
+        <header class="section-header">
+            <div>
+                <div class="section-header__eyebrow">Scope</div>
+                <h2 class="section-header__title">What This Site Publishes</h2>
             </div>
+        </header>
+        <div class="content-grid">
+            <div class="info-panel"><div class="info-row__index">01</div><h4>Curated Feeds</h4><p class="small">Subscriber-facing RSS, Atom, and JSON feeds for AI, enterprise architecture, and cross-source top stories.</p></div>
+            <div class="info-panel"><div class="info-row__index">02</div><h4>Ranked Signals</h4><p class="small">Top Stories combines configured sources with scoring, deduplication, and optional LLM enrichment.</p></div>
+            <div class="info-panel"><div class="info-row__index">03</div><h4>Health Data</h4><p class="small">The status API reports feed validity, entry counts, source health, and pipeline artifact health.</p></div>
         </div>
+    </section>
+
+    <section class="page-section">
+        <header class="section-header">
+            <div>
+                <div class="section-header__eyebrow">Operations</div>
+                <h2 class="section-header__title">Update Cadence</h2>
+            </div>
+        </header>
+        <div class="content-grid">
+            <div class="info-panel"><div class="info-row__index">8H</div><h4>Light Runs</h4><p class="small">GitHub Actions refreshes feeds every eight hours for normal aggregation and publication.</p></div>
+            <div class="info-panel"><div class="info-row__index">24H</div><h4>Heavy Run</h4><p class="small">One daily run performs deeper enrichment, cleanup, and broader output publication.</p></div>
+            <div class="info-panel"><div class="info-row__index">60D</div><h4>Retention</h4><p class="small">Archive feeds are produced when retained content ages beyond configured retention windows.</p></div>
+        </div>
+    </section>
+
+    <div class="callout">
+        <p><strong>Operational Status</strong> shows current feed health, pipeline counts, and warnings from the generated status payload.</p>
+        <a class="btn btn--ink" href="{{ site.baseurl }}/status/">View status</a>
     </div>
 </div>
 
-<style>
-    /* Priority styling restored */
-    .rss-items { list-style: none; padding-left: 0; margin: 0; }
-    .rss-items li { margin: 0 0 4px 0; line-height: 1.25; }
-    .rss-items li.priority-essential { background: rgba(220,53,69,.08); border-left: 3px solid rgba(220,53,69,.6); padding:4px 6px; }
-    .rss-items li.priority-important { background: rgba(255,193,7,.12); border-left: 3px solid rgba(255,193,7,.7); padding:4px 6px; }
-    .rss-items li.priority-optional { background: rgba(108,117,125,.10); border-left: 3px solid rgba(108,117,125,.55); padding:4px 6px; }
-    .rss-items li a { text-decoration: none; color: inherit; }
-    .pri-badge { font-size: .60rem; letter-spacing:.5px; text-transform:uppercase; margin-right:6px; padding:2px 5px; border-radius:3px; font-weight:600; background:#555; color:#fff; position:relative; top:-1px; }
-    .pri-badge.essential { background:#dc3545; }
-    .pri-badge.important { background:#ffc107; color:#222; }
-    .pri-badge.optional { background:#6c757d; }
-    .tech-badge { font-size: .60rem; letter-spacing:.5px; text-transform:uppercase; margin-right:6px; padding:2px 5px; border-radius:3px; font-weight:600; color:#fff; position:relative; top:-1px; }
-    .tech-badge.informational { background: var(--bs-gray); }
-    .tech-badge.tech-important { background: var(--bs-primary); }
-    .tech-badge.transformational { background: var(--bs-info); }
-    .pubdate { font-size:.65rem; color:#666; }
-</style>
-
-<!-- JavaScript for RSS preview -->
 <script>
 (function(){
     if(document.readyState==='loading'){
@@ -98,8 +88,7 @@ class: home-template
             return false;
         }
     }
-    // Showing all items (preview limit removed as per request)
-    function esc(s){return (s||'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]||c));}
+    function esc(s){return (s||'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]||c));}
     function parseItems(xml){
         const doc = new DOMParser().parseFromString(xml,'application/xml');
         if(doc.querySelector('parsererror')) return [];
@@ -107,7 +96,7 @@ class: home-template
             const rawTitle = it.querySelector('title')?.textContent || 'Untitled';
             const linkNode = it.querySelector('link');
             const linkVal = linkNode ? linkNode.textContent : '#';
-            const dRaw = it.querySelector('pubDate')?.textContent; 
+            const dRaw = it.querySelector('pubDate')?.textContent;
             let pubDateISO=''; let pubTime=0;
             if(dRaw){
                 const dt = new Date(dRaw);
@@ -118,7 +107,6 @@ class: home-template
             let techBadge='';
             let cleanedTitle=rawTitle;
 
-            // Supports: "Title [ ! ]" and "Title [ ! ] [ ⬢ ]" (business then technical)
             const tagMatch = rawTitle.match(/\s*\[\s*([!~*])\s*\]\s*(?:\[\s*(◻|◼|⬢)\s*\])?\s*$/);
             if(tagMatch){
                 const businessSymbol = tagMatch[1];
@@ -145,28 +133,27 @@ class: home-template
 
                 cleanedTitle = rawTitle.replace(/\s*\[\s*[!~*]\s*\]\s*(?:\[\s*(?:◻|◼|⬢)\s*\])?\s*$/,'').trim();
             }
-            const t = esc(cleanedTitle);
-            const l = esc(linkVal||'#');
-            return { html: `<li class="${priorityClass}"><a href="${l}" rel="noopener noreferrer">${businessBadge}${techBadge}<strong>${t}</strong></a>${pubDateISO?` <span class=\"pubdate\">(${pubDateISO})</span>`:''}</li>`, time: pubTime, idx };
+            const title = esc(cleanedTitle);
+            const link = esc(linkVal||'#');
+            return { html: `<li class="${priorityClass}"><a href="${link}" rel="noopener noreferrer">${businessBadge}${techBadge}<strong>${title}</strong></a>${pubDateISO?` <span class="pubdate">(${pubDateISO})</span>`:''}</li>`, time: pubTime, idx };
         });
-        // Sort newest first; stable by original index for identical timestamps
         items.sort((a,b)=> b.time - a.time || a.idx - b.idx);
         return items.map(o=>o.html);
     }
-    feeds.forEach((f,i)=>{
-        const el = document.getElementById('feed-preview-'+i);
-        if(!el) return;
-        if (f.external || isExternalFeedUrl(f.url)) {
-            const externalUrl = esc(f.url);
-            el.innerHTML = `<div class="text-muted"><small>External RSS feed. Preview is not embedded here because the source does not expose browser fetch access. <a href="${externalUrl}" target="_blank" rel="noopener">Open the feed</a>.</small></div>`;
+    feeds.forEach((feed,index)=>{
+        const element = document.getElementById('feed-preview-'+index);
+        if(!element) return;
+        if (feed.external || isExternalFeedUrl(feed.url)) {
+            const externalUrl = esc(feed.url);
+            element.innerHTML = `<div class="small">External feed. <a href="${externalUrl}" target="_blank" rel="noopener">Open the feed</a>.</div>`;
             return;
         }
-        fetch(f.url).then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
-            .then(txt=>{
-                const items = parseItems(txt);
-                el.innerHTML = items.length ? `<ul class="rss-items">${items.join('')}</ul>` : '<div class="text-muted"><small>No recent items.</small></div>';
+        fetch(feed.url).then(response=>{ if(!response.ok) throw new Error('HTTP '+response.status); return response.text(); })
+            .then(text=>{
+                const items = parseItems(text);
+                element.innerHTML = items.length ? `<ul class="rss-items">${items.join('')}</ul>` : '<div class="small">No recent items.</div>';
             })
-            .catch(err=>{ el.innerHTML = '<div class="rss-error"><small>Preview error: '+esc(err.message)+'</small></div>'; });
+            .catch(err=>{ element.innerHTML = '<div class="small text-danger">Preview error: '+esc(err.message)+'</div>'; });
     });
 })();
 </script>

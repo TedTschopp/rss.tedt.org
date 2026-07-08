@@ -99,7 +99,7 @@ The action runs:
 
 Primary AI Feed: `/ai_rss_feed.xml` (+ archive `/ai_rss_feed_archive.xml`)
 
-Enabled aggregated feeds: `/aggregated_wes_ai_news.xml`, `/aggregated_ea.xml`, and `/aggregated_broad_ai_news.xml` (+ archives where retention has produced them)
+Enabled aggregated feeds: `/aggregated_ea.xml` and `/aggregated_broad_ai_news.xml` (+ archives where retention has produced them)
 
 ## Troubleshooting
 
