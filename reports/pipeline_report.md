@@ -1,25 +1,25 @@
 # Pipeline Report
 
-- Timestamp: 2026-07-08T17:27:58.978854Z
+- Timestamp: 2026-07-09T02:11:29.669813Z
 - Sources configured: 43
-- Raw items: 1849
-- Stories: 1798
-- Clusters: 1795
-- LLM: {'status': 'degraded', 'calls': 121, 'ok': 120, 'errors': 1, 'skipped': 0, 'by_kind': {'ai_relevance': 50, 'importance': 41, 'output_cleanup': 20}, 'stages': {'enrichment': {'status': 'ok', 'calls': 10, 'ok': 10, 'errors': 0, 'skipped': 0}, 'publish': {'status': 'degraded', 'calls': 111, 'ok': 110, 'errors': 1, 'skipped': 0, 'by_kind': {'ai_relevance': 50, 'importance': 41, 'output_cleanup': 20}, 'by_model': {'openai/gpt-4.1-mini': 111}}}}
+- Raw items: 3047
+- Stories: 2372
+- Clusters: 2368
+- LLM: {'status': 'degraded', 'calls': 110, 'ok': 109, 'errors': 1, 'skipped': 0, 'by_kind': {'ai_relevance': 42, 'importance': 38, 'output_cleanup': 20}, 'stages': {'enrichment': {'status': 'ok', 'calls': 10, 'ok': 10, 'errors': 0, 'skipped': 0}, 'publish': {'status': 'degraded', 'calls': 100, 'ok': 99, 'errors': 1, 'skipped': 0, 'by_kind': {'ai_relevance': 42, 'importance': 38, 'output_cleanup': 20}, 'by_model': {'openai/gpt-4.1-mini': 100}}}}
 
 ## LLM Calls
-- Total: 121
+- Total: 110
 - Enrichment: 10
-- Publish: 111
+- Publish: 100
 
 ## Stage Timings (seconds)
-- load_sources_and_state: 0.01
-- ingestion: 2.19
-- normalize: 0.05
-- dedupe: 0.04
-- llm_enrich: 17.11
-- cluster: 1.68
+- load_sources_and_state: 0.02
+- ingestion: 2.75
+- normalize: 0.17
+- dedupe: 0.08
+- llm_enrich: 27.70
+- cluster: 3.53
 - score: 0.01
-- write_intermediate_outputs: 0.18
-- publish: 381.98
-- persist_llm_cache: 2.54
+- write_intermediate_outputs: 0.36
+- publish: 575.91
+- persist_llm_cache: 3.01
