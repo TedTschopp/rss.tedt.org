@@ -28,7 +28,7 @@ This document explains which generated artifacts are public, which are internal,
 | `derived/items.json` | `pipeline.run_all` | No | Yes | Normalized intermediate items. |
 | `derived/source_state.json` | `pipeline.run_all` | No | Yes | Fetch continuity state. |
 | `derived/fetch_log.jsonl` | `pipeline.run_all` | No | Yes | Fetch telemetry. |
-| `derived/llm_cache.json` | `pipeline.run_all` | No | Yes | LLM enrichment cache. |
+| `derived/llm_cache.json` | `pipeline.run_all` | No | Yes | LLM enrichment cache, retained for active ranked stories up to 75 MiB. |
 | `derived/llm_call_log.jsonl` | `pipeline.run_all` | No | Yes | LLM call telemetry. |
 | `reports/pipeline_report.json` | `pipeline.run_all` | No | Yes | Machine-readable pipeline report. |
 | `reports/pipeline_report.md` | `pipeline.run_all` | No | Yes | Human-readable pipeline report. |

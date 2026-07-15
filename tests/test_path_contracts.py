@@ -83,6 +83,12 @@ class PathContractTests(unittest.TestCase):
         self.assertIn("PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}", workflow)
         self.assertNotIn("PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}", workflow)
 
+    def test_workflow_rejects_oversized_staged_blobs_before_commit(self):
+        workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
+        self.assertIn("MAX_STAGED_BLOB_BYTES=90000000", workflow)
+        self.assertIn("git diff --staged --name-only --diff-filter=ACM -z", workflow)
+        self.assertIn("exceeds the 90 MB workflow limit", workflow)
+
     def test_site_metadata_contract(self):
         site_config = yaml.safe_load(Path("_config.yml").read_text(encoding="utf-8"))
         self.assertEqual(site_config["url"], "https://rss.tedt.org")

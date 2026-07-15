@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import json
 import os
 import time
 from datetime import datetime, timezone
@@ -13,6 +14,7 @@ from .constants import (
     FETCH_LOG_FILE,
     FEEDS_DIR,
     LLM_CACHE_FILE,
+    LLM_CACHE_MAX_BYTES,
     LLM_CALL_LOG_FILE,
     RAW_DIR,
     REPORTS_DIR,
@@ -105,6 +107,38 @@ def _write_report(report_path_json: str, report_path_md: str, report: dict) -> N
             lines.append(f"- {stage_name}: {value:.2f}")
     with open(report_path_md, "w", encoding="utf-8") as handle:
         handle.write("\n".join(lines))
+
+
+def _prune_llm_cache(
+    llm_cache: dict[str, dict],
+    prioritized_story_ids: list[str],
+    *,
+    max_bytes: int,
+) -> dict[str, dict]:
+    retained_ids: set[str] = set()
+    estimated_bytes = len("{}".encode("utf-8"))
+
+    for story_id in dict.fromkeys(prioritized_story_ids):
+        cache_entry = llm_cache.get(story_id)
+        if not isinstance(cache_entry, dict):
+            continue
+        entry_bytes = len(
+            json.dumps(
+                {story_id: cache_entry},
+                indent=2,
+                ensure_ascii=False,
+            ).encode("utf-8")
+        )
+        if estimated_bytes + entry_bytes > max_bytes:
+            continue
+        retained_ids.add(story_id)
+        estimated_bytes += entry_bytes
+
+    return {
+        story_id: cache_entry
+        for story_id, cache_entry in llm_cache.items()
+        if story_id in retained_ids
+    }
 
 
 def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None = None) -> dict:
@@ -244,7 +278,6 @@ def main():
     started = time.perf_counter()
     llm_cache = read_json(LLM_CACHE_FILE, {})
     stories, llm_cache, llm_meta = enrich_stories(stories, llm_cache, LLM_CALL_LOG_FILE, pipeline_config)
-    write_json(LLM_CACHE_FILE, llm_cache)
     stage_timings_sec["llm_enrich"] = round(time.perf_counter() - started, 4)
 
     started = time.perf_counter()
@@ -276,6 +309,11 @@ def main():
     stage_timings_sec["publish"] = round(time.perf_counter() - started, 4)
 
     started = time.perf_counter()
+    llm_cache = _prune_llm_cache(
+        llm_cache,
+        [str(story.get("story_id", "")) for story in ranked],
+        max_bytes=LLM_CACHE_MAX_BYTES,
+    )
     write_json(LLM_CACHE_FILE, llm_cache)
     stage_timings_sec["persist_llm_cache"] = round(time.perf_counter() - started, 4)
 

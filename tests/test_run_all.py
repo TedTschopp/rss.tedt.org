@@ -1,11 +1,49 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
 
-from pipeline.run_all import _apply_env_overrides, _combine_llm_status, _write_report
+from pipeline.run_all import _apply_env_overrides, _combine_llm_status, _prune_llm_cache, _write_report
 
 
 class RunAllConfigTests(unittest.TestCase):
+    def test_prune_llm_cache_removes_stale_entries(self):
+        cache = {
+            "active": {"summary": "Current"},
+            "stale": {"summary": "Expired"},
+        }
+
+        result = _prune_llm_cache(cache, ["active"], max_bytes=10_000)
+
+        self.assertEqual(result, {"active": cache["active"]})
+
+    def test_prune_llm_cache_prioritizes_active_entries_within_byte_budget(self):
+        cache = {
+            "lower-priority": {"embedding": ["x" * 80]},
+            "highest-priority": {"embedding": ["y" * 80]},
+            "stale": {"embedding": ["z"]},
+        }
+        highest_priority_size = len(
+            json.dumps(
+                {"highest-priority": cache["highest-priority"]},
+                indent=2,
+                ensure_ascii=False,
+            ).encode("utf-8")
+        )
+        max_bytes = highest_priority_size + 2
+
+        result = _prune_llm_cache(
+            cache,
+            ["highest-priority", "lower-priority"],
+            max_bytes=max_bytes,
+        )
+
+        self.assertEqual(result, {"highest-priority": cache["highest-priority"]})
+        self.assertLessEqual(
+            len(json.dumps(result, indent=2, ensure_ascii=False).encode("utf-8")),
+            max_bytes,
+        )
+
     def test_apply_env_overrides_supports_runtime_cost_controls(self):
         config = {}
         env = {

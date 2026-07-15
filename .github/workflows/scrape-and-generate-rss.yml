@@ -147,6 +147,22 @@ jobs:
         )
         git add "${files[@]}"
 
+        MAX_STAGED_BLOB_BYTES=90000000
+        oversized_blob=false
+        while IFS= read -r -d '' staged_file; do
+          if [[ ! -f "$staged_file" ]]; then
+            continue
+          fi
+          staged_size=$(wc -c < "$staged_file")
+          if (( staged_size > MAX_STAGED_BLOB_BYTES )); then
+            echo "::error file=$staged_file::$staged_file is $staged_size bytes and exceeds the 90 MB workflow limit"
+            oversized_blob=true
+          fi
+        done < <(git diff --staged --name-only --diff-filter=ACM -z)
+        if [[ "$oversized_blob" == true ]]; then
+          exit 1
+        fi
+
         if git diff --staged --quiet; then
           echo "No changes to commit"
           echo "changes-detected=false" >> $GITHUB_OUTPUT

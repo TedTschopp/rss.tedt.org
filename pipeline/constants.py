@@ -12,6 +12,7 @@ SOURCE_STATE_FILE = f"{DERIVED_DIR}/source_state.json"
 FETCH_LOG_FILE = f"{DERIVED_DIR}/fetch_log.jsonl"
 LLM_CACHE_FILE = f"{DERIVED_DIR}/llm_cache.json"
 LLM_CALL_LOG_FILE = f"{DERIVED_DIR}/llm_call_log.jsonl"
+LLM_CACHE_MAX_BYTES = 75 * 1024 * 1024
 
 DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "schema_version": "1.0.0",
