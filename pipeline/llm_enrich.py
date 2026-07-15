@@ -1,7 +1,9 @@
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
 import json
 import os
+from threading import Lock
 from typing import Any, cast
 
 from .constants import DEFAULT_PIPELINE_CONFIG
@@ -88,6 +90,7 @@ def enrich_stories(
     embedding_batch_size = max(1, int(cfg.get("llm_embedding_batch_size", 100)))
     embedding_max_stories = max(0, int(cfg.get("llm_embedding_max_stories", 0)))
     chat_max_calls = max(0, int(cfg.get("llm_chat_max_calls", 25)))
+    llm_workers = max(1, int(cfg.get("llm_workers", 1)))
     retry_max_attempts = int(cfg.get("llm_retry_max_attempts", 4))
     retry_base_delay_sec = float(cfg.get("llm_retry_base_delay_sec", 1.5))
     retry_max_delay_sec = float(cfg.get("llm_retry_max_delay_sec", 20.0))
@@ -105,6 +108,7 @@ def enrich_stories(
     global_daily_rate_limit_state = (
         seed_global_daily_state_from_call_log(llm_call_log_path) if global_daily_max_calls > 0 else None
     )
+    model_call_lock = Lock()
     target_stories = stories[:top_n]
 
     def _embedding_pending(story: dict[str, Any]) -> bool:
@@ -143,6 +147,7 @@ def enrich_stories(
             request_daily_max_calls=limits.requests_per_day,
             global_daily_max_calls=global_daily_max_calls,
             global_daily_rate_limit_state=global_daily_rate_limit_state,
+            request_lock=model_call_lock,
         )
 
     def _append_and_return(status: str, reason: str | None = None) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]], dict[str, Any]]:
@@ -253,7 +258,7 @@ def enrich_stories(
             continue
         summary_requests.append(story)
 
-    for story in summary_requests[:chat_max_calls]:
+    def _summarize_story(story: dict[str, Any]) -> tuple[dict[str, Any], Exception | None]:
         story_id = str(story["story_id"])
         cache_entry = llm_cache.setdefault(story_id, {})
         try:
@@ -277,32 +282,39 @@ def enrich_stories(
                 "entities": cache_entry.get("entities", []),
                 **existing_llm,
             }
-            call_rows.append(
-                {
-                    "ts": to_iso(datetime.now(timezone.utc)),
-                    "kind": "chat",
-                    "story_id": story_id,
-                    "model": result.get("model"),
-                    "latency_ms": result.get("latency_ms"),
-                    "usage": result.get("usage", {}),
-                    "input_hash": result.get("input_hash"),
-                    "status": "ok",
-                    "retries": retry_meta.get("retries", 0),
-                }
-            )
+            return {
+                "ts": to_iso(datetime.now(timezone.utc)),
+                "kind": "chat",
+                "story_id": story_id,
+                "model": result.get("model"),
+                "latency_ms": result.get("latency_ms"),
+                "usage": result.get("usage", {}),
+                "input_hash": result.get("input_hash"),
+                "status": "ok",
+                "retries": retry_meta.get("retries", 0),
+            }, None
         except Exception as exc:
             status = "skipped" if isinstance(exc, RateLimitBudgetExceeded) else "error"
-            call_rows.append(
-                {
-                    "ts": to_iso(datetime.now(timezone.utc)),
-                    "kind": "chat",
-                    "story_id": story_id,
-                    "model": summary_model,
-                    "status": status,
-                    "error": str(exc),
-                    "status_code": _status_code_from_exception(exc),
-                }
-            )
+            return {
+                "ts": to_iso(datetime.now(timezone.utc)),
+                "kind": "chat",
+                "story_id": story_id,
+                "model": summary_model,
+                "status": status,
+                "error": str(exc),
+                "status_code": _status_code_from_exception(exc),
+            }, exc
+
+    summary_work = summary_requests[:chat_max_calls]
+    if llm_workers > 1 and len(summary_work) > 1:
+        with ThreadPoolExecutor(max_workers=min(llm_workers, len(summary_work))) as executor:
+            summary_results = list(executor.map(_summarize_story, summary_work))
+    else:
+        summary_results = [_summarize_story(story) for story in summary_work]
+
+    for call_row, exc in summary_results:
+        call_rows.append(call_row)
+        if exc is not None:
             if isinstance(exc, RateLimitBudgetExceeded):
                 return _append_and_return("deferred", f"{provider_label.lower()} daily request budget exhausted")
             if fail_fast_auth and _is_auth_or_permission_exception(exc):

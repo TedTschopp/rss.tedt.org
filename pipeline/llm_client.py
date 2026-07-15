@@ -3,6 +3,7 @@ import json
 import os
 import time
 from pathlib import Path
+from threading import get_ident, local, Lock
 from typing import Any, cast
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
@@ -103,6 +104,7 @@ class OpenAIWorkloadIdentityTokenProvider:
         self.clock = clock or time.time
         self._access_token = ""
         self._expires_at = 0.0
+        self._refresh_lock = Lock()
 
     @classmethod
     def from_env(
@@ -188,11 +190,15 @@ class OpenAIWorkloadIdentityTokenProvider:
         now = float(self.clock())
         if self._access_token and now < self._expires_at - self.refresh_buffer_sec:
             return self._access_token
-        subject_token = self._request_subject_token()
-        access_token, expires_in = self._exchange_subject_token(subject_token)
-        self._access_token = access_token
-        self._expires_at = now + expires_in
-        return self._access_token
+        with self._refresh_lock:
+            now = float(self.clock())
+            if self._access_token and now < self._expires_at - self.refresh_buffer_sec:
+                return self._access_token
+            subject_token = self._request_subject_token()
+            access_token, expires_in = self._exchange_subject_token(subject_token)
+            self._access_token = access_token
+            self._expires_at = now + expires_in
+            return self._access_token
 
 
 def _string_list(value: Any) -> list[str]:
@@ -220,6 +226,8 @@ class GitHubModelsClient:
                 "Accept": "application/json",
             }
         )
+        self._session_owner = get_ident()
+        self._thread_sessions = local()
         self.prompts_dir = Path("prompts")
         self.headline_instructions_path = HEADLINE_INSTRUCTIONS_PATH
         self.article_summary_instructions_path = ARTICLE_SUMMARY_INSTRUCTIONS_PATH
@@ -227,8 +235,22 @@ class GitHubModelsClient:
     def _request_model_name(self, model: str) -> str:
         return model
 
+    def _request_session(self):
+        if get_ident() == self._session_owner:
+            return self.session
+        session = getattr(self._thread_sessions, "session", None)
+        if session is None:
+            session = requests.Session()
+            session.headers.update(dict(self.session.headers))
+            self._thread_sessions.session = session
+        return session
+
     def _post(self, path: str, payload: dict[str, Any]):
-        return self.session.post(f"{self.endpoint}/{path.lstrip('/')}", json=payload, timeout=self.timeout_sec)
+        return self._request_session().post(
+            f"{self.endpoint}/{path.lstrip('/')}",
+            json=payload,
+            timeout=self.timeout_sec,
+        )
 
     def _load_text_prompt(self, filename: str, fallback: str) -> str:
         path = self.prompts_dir / filename
@@ -828,11 +850,13 @@ class OpenAIAPIClient(GitHubModelsClient):
         return self.token_provider.get_token()
 
     def _post(self, path: str, payload: dict[str, Any]):
-        self.session.headers.update(
-            {
+        return self._request_session().post(
+            f"{self.endpoint}/{path.lstrip('/')}",
+            json=payload,
+            headers={
                 "Authorization": f"Bearer {self._access_token()}",
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-            }
+            },
+            timeout=self.timeout_sec,
         )
-        return self.session.post(f"{self.endpoint}/{path.lstrip('/')}", json=payload, timeout=self.timeout_sec)

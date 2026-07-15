@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from threading import Barrier, Lock
 from unittest.mock import patch
 
 from pipeline.llm_enrich import enrich_stories
@@ -43,6 +44,31 @@ class FakeEmbeddingClient:
             "model": model,
             "input_hash": f"summary-{title}",
         }
+
+
+class ConcurrentSummaryClient(FakeEmbeddingClient):
+    active_calls = 0
+    max_active_calls = 0
+    barrier = Barrier(2, timeout=1.0)
+    lock = Lock()
+
+    @classmethod
+    def reset(cls):
+        super().reset()
+        cls.active_calls = 0
+        cls.max_active_calls = 0
+        cls.barrier = Barrier(2, timeout=1.0)
+
+    def summarize(self, title, summary, model="openai/gpt-4.1-mini"):
+        with self.lock:
+            type(self).active_calls += 1
+            type(self).max_active_calls = max(type(self).max_active_calls, type(self).active_calls)
+        try:
+            self.barrier.wait()
+            return super().summarize(title, summary, model=model)
+        finally:
+            with self.lock:
+                type(self).active_calls -= 1
 
 
 class LLMEnrichTests(unittest.TestCase):
@@ -175,6 +201,36 @@ class LLMEnrichTests(unittest.TestCase):
         self.assertIn("summary", updated_cache["story-2"])
         self.assertNotIn("summary", updated_cache["story-3"])
         self.assertEqual(meta["backlog"]["summaries"], {"before": 2, "remaining": 1})
+
+    def test_summary_workers_run_model_calls_concurrently(self):
+        stories = [
+            self._story("story-1", "First title"),
+            self._story("story-2", "Second title"),
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            log_path = str(Path(temp_dir) / "llm_call_log.jsonl")
+            ConcurrentSummaryClient.reset()
+            client = ConcurrentSummaryClient("token", 25)
+            with patch("pipeline.llm_enrich._resolve_llm_client", return_value=(client, None, "OpenAI")):
+                _stories, updated_cache, meta = enrich_stories(
+                    stories,
+                    {},
+                    log_path,
+                    {
+                        "llm_provider": "openai",
+                        "llm_top_n": 2,
+                        "llm_chat_max_calls": 2,
+                        "llm_workers": 2,
+                        "openai_rate_limit_requests_per_minute": 60000,
+                        "llm_rate_limit_min_interval_sec": 0.0,
+                    },
+                )
+
+        self.assertEqual(ConcurrentSummaryClient.max_active_calls, 2)
+        self.assertIn("summary", updated_cache["story-1"])
+        self.assertIn("summary", updated_cache["story-2"])
+        self.assertEqual(meta["backlog"]["summaries"], {"before": 2, "remaining": 0})
 
     def test_uncached_embeddings_are_split_into_bounded_batches(self):
         stories = [self._story(f"story-{index}") for index in range(5)]

@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import re
+from threading import Lock
 from typing import Any, cast
 
 from scripts.feed_generator import MultiFeedGenerator
@@ -376,6 +377,7 @@ def publish_outputs(
 )-> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     cfg: dict[str, Any] = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
     publish_top_n = int(cfg.get("publish_top_n", 200))
+    llm_workers = max(1, int(cfg.get("llm_workers", 1)))
     raw_ai_keywords = cfg.get("ai_keywords", [])
     ai_keyword_values = cast(list[Any], raw_ai_keywords) if isinstance(raw_ai_keywords, list) else []
     ai_keywords = [str(keyword).lower() for keyword in ai_keyword_values]
@@ -429,6 +431,40 @@ def publish_outputs(
     ai_relevance_attempts = 0
     importance_attempts = 0
     output_cleanup_attempts = 0
+    model_call_lock = Lock()
+    state_lock = Lock()
+
+    def _append_call_row(row: dict[str, Any]) -> None:
+        with state_lock:
+            call_rows.append(row)
+
+    def _model_calls_stopped() -> bool:
+        with state_lock:
+            return models_auth_failed or model_budget_exhausted
+
+    def _claim_relevance_attempt() -> bool:
+        nonlocal ai_relevance_attempts
+        with state_lock:
+            if ai_relevance_max_calls and ai_relevance_attempts >= ai_relevance_max_calls:
+                return False
+            ai_relevance_attempts += 1
+            return True
+
+    def _claim_importance_attempt() -> bool:
+        nonlocal importance_attempts
+        with state_lock:
+            if importance_max_calls and importance_attempts >= importance_max_calls:
+                return False
+            importance_attempts += 1
+            return True
+
+    def _claim_cleanup_attempt() -> bool:
+        nonlocal output_cleanup_attempts
+        with state_lock:
+            if output_cleanup_max_calls and output_cleanup_attempts >= output_cleanup_max_calls:
+                return False
+            output_cleanup_attempts += 1
+            return True
 
     def _model_call(model: str, call) -> tuple[dict[str, Any], dict[str, Any]]:
         limits = llm_call_limits(cfg, model)
@@ -449,32 +485,34 @@ def publish_outputs(
             request_daily_max_calls=limits.requests_per_day,
             global_daily_max_calls=global_daily_max_calls,
             global_daily_rate_limit_state=global_daily_rate_limit_state,
+            request_lock=model_call_lock,
         )
 
     def _record_model_exception(kind: str, story_id: str, model: str, exc: Exception) -> str:
         nonlocal models_auth_failed, model_budget_exhausted
-        if isinstance(exc, RateLimitBudgetExceeded):
-            model_budget_exhausted = True
-            status = "skipped"
-            action = "budget"
-        elif fail_fast_auth and _is_auth_or_permission_exception(exc):
-            models_auth_failed = True
-            status = "error"
-            action = "auth"
-        else:
-            status = "error"
-            action = "error"
-        call_rows.append(
-            {
-                "ts": to_iso(datetime.now(timezone.utc)),
-                "kind": kind,
-                "story_id": story_id,
-                "model": model,
-                "status": status,
-                "error": str(exc),
-                "status_code": _status_code_from_exception(exc),
-            }
-        )
+        with state_lock:
+            if isinstance(exc, RateLimitBudgetExceeded):
+                model_budget_exhausted = True
+                status = "skipped"
+                action = "budget"
+            elif fail_fast_auth and _is_auth_or_permission_exception(exc):
+                models_auth_failed = True
+                status = "error"
+                action = "auth"
+            else:
+                status = "error"
+                action = "error"
+            call_rows.append(
+                {
+                    "ts": to_iso(datetime.now(timezone.utc)),
+                    "kind": kind,
+                    "story_id": story_id,
+                    "model": model,
+                    "status": status,
+                    "error": str(exc),
+                    "status_code": _status_code_from_exception(exc),
+                }
+            )
         return action
 
     def _publish_llm_status() -> dict[str, Any]:
@@ -650,10 +688,10 @@ def publish_outputs(
 
     backlog_before = _backlog_counts()
 
-    for story in top_stories:
+    def _grade_story(story: dict[str, Any]) -> None:
         story_id = str(story.get("story_id") or "").strip()
         if not story_id:
-            continue
+            return
         cache_entry = llm_cache.get(story_id, {})
         existing_importance_raw = cache_entry.get("importance")
         existing_importance = _normalize_importance_payload(
@@ -667,33 +705,33 @@ def publish_outputs(
         existing_relevance = cast(dict[str, Any], existing_relevance_raw) if isinstance(existing_relevance_raw, dict) else None
 
         if not rubric_markdown or not rubric_hash:
-            continue
+            return
 
         if not ai_relevance_rubric or not ai_relevance_rubric_hash:
-            continue
+            return
 
         if not _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days):
-            continue
+            return
 
         if client is None:
             if isinstance(existing_relevance, dict):
                 story["ai_relevance"] = existing_relevance
             if isinstance(existing_importance, dict):
                 story["importance"] = existing_importance
-            continue
-        if models_auth_failed or model_budget_exhausted:
+            return
+        if _model_calls_stopped():
             if isinstance(existing_relevance, dict):
                 story["ai_relevance"] = existing_relevance
             if isinstance(existing_importance, dict):
                 story["importance"] = existing_importance
-            continue
+            return
         importance_client = client
 
         title_text = str(story.get("title") or "")
         context_text = _story_base_summary(story)
         article_url = str(story.get("canonical_url") or story.get("url") or "")
         if bool(cfg.get("backfill_mode")) and article_url in deferred_article_urls:
-            continue
+            return
         article_markdown = article_markdown_by_url.get(article_url, "")
         relevance_context_hash = _ai_relevance_context_hash(
             title_text,
@@ -704,9 +742,8 @@ def publish_outputs(
         )
         relevance_payload: dict[str, Any] | None = existing_relevance
         if not isinstance(relevance_payload, dict) or str(relevance_payload.get("context_hash") or "") != relevance_context_hash:
-            if ai_relevance_max_calls and ai_relevance_attempts >= ai_relevance_max_calls:
-                continue
-            ai_relevance_attempts += 1
+            if not _claim_relevance_attempt():
+                return
             try:
                 relevance_result, relevance_retry_meta = _model_call(
                     ai_relevance_model,
@@ -733,7 +770,7 @@ def publish_outputs(
                 }
                 cache_entry = llm_cache.setdefault(story_id, cache_entry)
                 cache_entry["ai_relevance"] = relevance_payload
-                call_rows.append(
+                _append_call_row(
                     {
                         "ts": to_iso(datetime.now(timezone.utc)),
                         "kind": "ai_relevance",
@@ -748,12 +785,12 @@ def publish_outputs(
                 )
             except Exception as exc:
                 _record_model_exception("ai_relevance", story_id, ai_relevance_model, exc)
-                continue
+                return
 
         story["ai_relevance"] = relevance_payload
         if not _ai_relevance_allows_grading(relevance_payload):
             story.pop("importance", None)
-            continue
+            return
 
         if isinstance(existing_importance, dict):
             story["importance"] = existing_importance
@@ -766,11 +803,10 @@ def publish_outputs(
                 should_grade = True
 
         if not should_grade:
-            continue
+            return
 
-        if importance_max_calls and importance_attempts >= importance_max_calls:
-            continue
-        importance_attempts += 1
+        if not _claim_importance_attempt():
+            return
         try:
             result, retry_meta = _model_call(
                 importance_model,
@@ -810,7 +846,7 @@ def publish_outputs(
             cache_entry["importance"] = normalized_importance_payload
             story["importance"] = normalized_importance_payload
 
-            call_rows.append(
+            _append_call_row(
                 {
                     "ts": to_iso(datetime.now(timezone.utc)),
                     "kind": "importance",
@@ -826,16 +862,23 @@ def publish_outputs(
         except Exception as exc:
             _record_model_exception("importance", story_id, importance_model, exc)
 
-    for story in top_stories[:output_cleanup_top_n]:
+    if llm_workers > 1 and len(top_stories) > 1:
+        with ThreadPoolExecutor(max_workers=min(llm_workers, len(top_stories))) as executor:
+            list(executor.map(_grade_story, top_stories))
+    else:
+        for story in top_stories:
+            _grade_story(story)
+
+    def _cleanup_story(story: dict[str, Any]) -> None:
         story_id = str(story.get("story_id") or "").strip()
         if not story_id:
-            continue
+            return
         cache_entry = llm_cache.get(story_id, {})
         title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
         summary_text = _story_base_summary(story)
         article_url = str(story.get("canonical_url") or story.get("url") or "")
         if bool(cfg.get("backfill_mode")) and article_url in deferred_article_urls:
-            continue
+            return
         article_markdown = _article_excerpt(
             article_markdown_by_url.get(article_url, ""),
             output_cleanup_article_max_chars,
@@ -852,14 +895,13 @@ def publish_outputs(
         cached_cleanup = _cached_output_cleanup(cache_entry, cleanup_context_hash)
         if cached_cleanup is not None:
             _apply_output_cleanup(story, cached_cleanup)
-            continue
+            return
 
-        if not output_cleanup_enabled or client is None or models_auth_failed or model_budget_exhausted:
-            continue
+        if not output_cleanup_enabled or client is None or _model_calls_stopped():
+            return
 
-        if output_cleanup_max_calls and output_cleanup_attempts >= output_cleanup_max_calls:
-            continue
-        output_cleanup_attempts += 1
+        if not _claim_cleanup_attempt():
+            return
         try:
             cleanup_result, cleanup_retry_meta = _model_call(
                 output_cleanup_model,
@@ -867,7 +909,7 @@ def publish_outputs(
             )
             rewritten_title = str(cleanup_result.get("title") or title_text).strip() or title_text
             rewritten_description = str(cleanup_result.get("description") or summary_text).strip() or summary_text
-            call_rows.append(
+            _append_call_row(
                 {
                     "ts": to_iso(datetime.now(timezone.utc)),
                     "kind": "output_cleanup",
@@ -897,6 +939,14 @@ def publish_outputs(
             _apply_output_cleanup(story, cleanup_payload)
         except Exception as exc:
             _record_model_exception("output_cleanup", story_id, output_cleanup_model, exc)
+
+    cleanup_work = top_stories[:output_cleanup_top_n]
+    if llm_workers > 1 and len(cleanup_work) > 1:
+        with ThreadPoolExecutor(max_workers=min(llm_workers, len(cleanup_work))) as executor:
+            list(executor.map(_cleanup_story, cleanup_work))
+    else:
+        for story in cleanup_work:
+            _cleanup_story(story)
 
     if llm_call_log_path and call_rows:
         append_jsonl(llm_call_log_path, call_rows)

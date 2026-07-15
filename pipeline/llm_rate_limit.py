@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from contextlib import nullcontext
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 import random
@@ -249,6 +250,7 @@ def call_with_retry(
     daily_rate_limit_state: dict[str, Any] | None = None,
     global_daily_max_calls: int = 0,
     global_daily_rate_limit_state: dict[str, Any] | None = None,
+    request_lock: Any | None = None,
     sleep: Callable[[float], None] | None = None,
     clock: Callable[[], float] | None = None,
 ) -> tuple[Any, dict[str, Any]]:
@@ -263,42 +265,47 @@ def call_with_retry(
     sleep_fn = sleep or time.sleep
     clock_fn = clock or time.time
 
+    def _request_guard():
+        return request_lock if request_lock is not None else nullcontext()
+
     for attempt in range(1, max_attempts + 1):
         try:
-            if global_daily_state is not None:
-                _wait_for_daily_budget(
-                    global_daily_state,
-                    request_daily_max_calls=global_daily_max_calls,
-                    clock=clock_fn,
-                )
+            with _request_guard():
+                if global_daily_state is not None:
+                    _wait_for_daily_budget(
+                        global_daily_state,
+                        request_daily_max_calls=global_daily_max_calls,
+                        clock=clock_fn,
+                    )
 
-            if daily_state is not None:
-                _wait_for_daily_budget(
-                    daily_state,
-                    request_daily_max_calls=request_daily_max_calls,
-                    clock=clock_fn,
-                )
+                if daily_state is not None:
+                    _wait_for_daily_budget(
+                        daily_state,
+                        request_daily_max_calls=request_daily_max_calls,
+                        clock=clock_fn,
+                    )
 
-            if state is not None:
-                total_rate_limit_sleep += _wait_for_request_budget(
-                    state,
-                    request_rate_limit_window_sec=request_rate_limit_window_sec,
-                    request_rate_limit_max_calls=request_rate_limit_max_calls,
-                    request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
-                    sleep=sleep_fn,
-                    clock=clock_fn,
-                )
-                _note_request_attempt(state, clock_fn)
+                if state is not None:
+                    total_rate_limit_sleep += _wait_for_request_budget(
+                        state,
+                        request_rate_limit_window_sec=request_rate_limit_window_sec,
+                        request_rate_limit_max_calls=request_rate_limit_max_calls,
+                        request_rate_limit_min_interval_sec=request_rate_limit_min_interval_sec,
+                        sleep=sleep_fn,
+                        clock=clock_fn,
+                    )
+                    _note_request_attempt(state, clock_fn)
 
-            if daily_state is not None:
-                _note_daily_request_attempt(daily_state, request_daily_max_calls)
-            if global_daily_state is not None:
-                _note_daily_request_attempt(global_daily_state, global_daily_max_calls)
+                if daily_state is not None:
+                    _note_daily_request_attempt(daily_state, request_daily_max_calls)
+                if global_daily_state is not None:
+                    _note_daily_request_attempt(global_daily_state, global_daily_max_calls)
 
             result = call()
             if state is not None:
-                state["recent_429"] = []
-                state["cooldown_strikes"] = 0
+                with _request_guard():
+                    state["recent_429"] = []
+                    state["cooldown_strikes"] = 0
             return result, {
                 "attempt": attempt,
                 "retries": retries,
@@ -318,15 +325,16 @@ def call_with_retry(
             status_code = status_code_from_exception(exc)
             retry_after = retry_after_seconds(exc, clock_fn)
             if state is not None and status_code == 429:
-                _note_429(
-                    state,
-                    window_sec=rate_limit_window_sec,
-                    threshold=rate_limit_threshold,
-                    cooldown_base_sec=rate_limit_cooldown_base_sec,
-                    cooldown_max_sec=rate_limit_cooldown_max_sec,
-                    retry_after_sec=retry_after,
-                    clock=clock_fn,
-                )
+                with _request_guard():
+                    _note_429(
+                        state,
+                        window_sec=rate_limit_window_sec,
+                        threshold=rate_limit_threshold,
+                        cooldown_base_sec=rate_limit_cooldown_base_sec,
+                        cooldown_max_sec=rate_limit_cooldown_max_sec,
+                        retry_after_sec=retry_after,
+                        clock=clock_fn,
+                    )
 
             if retry_after is not None:
                 delay = min(rate_limit_cooldown_max_sec, max(0.0, retry_after))
@@ -344,7 +352,8 @@ def call_with_retry(
                 delay = min(max_delay_sec, base_delay_sec * (2 ** (attempt - 1)) + jitter)
 
             if state is not None:
-                cooldown_until = float(state.get("cooldown_until", 0.0) or 0.0)
+                with _request_guard():
+                    cooldown_until = float(state.get("cooldown_until", 0.0) or 0.0)
                 cooldown_remaining = max(0.0, cooldown_until - clock_fn())
                 delay = max(float(delay), cooldown_remaining)
 

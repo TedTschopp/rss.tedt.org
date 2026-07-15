@@ -60,6 +60,7 @@ class RunAllConfigTests(unittest.TestCase):
             "PIPELINE_LLM_EMBEDDING_BATCH_SIZE": "100",
             "PIPELINE_LLM_EMBEDDING_MAX_STORIES": "500",
             "PIPELINE_LLM_CHAT_MAX_CALLS": "10",
+            "PIPELINE_LLM_WORKERS": "8",
             "PIPELINE_PUBLISH_TOP_N": "80",
             "PIPELINE_LLM_RATE_LIMIT_REQUESTS_PER_WINDOW": "12",
             "PIPELINE_LLM_RATE_LIMIT_WINDOW_SEC": "30",
@@ -106,6 +107,7 @@ class RunAllConfigTests(unittest.TestCase):
         self.assertEqual(result["llm_embedding_batch_size"], 100)
         self.assertEqual(result["llm_embedding_max_stories"], 500)
         self.assertEqual(result["llm_chat_max_calls"], 10)
+        self.assertEqual(result["llm_workers"], 8)
         self.assertEqual(result["publish_top_n"], 80)
         self.assertEqual(result["llm_rate_limit_requests_per_window"], 12)
         self.assertEqual(result["llm_rate_limit_window_sec"], 30.0)

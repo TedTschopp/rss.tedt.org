@@ -28,11 +28,15 @@ Use a backfill run only when the committed enrichment cache has accumulated miss
 1. Run `RSS Feed Hub - Scrape and Deploy` manually on `main`.
 2. Enable `backfill`.
 3. Choose a per-stage batch size. Use `250` by default; use `500` only after observed model latency confirms it fits the 180-minute checkpoint boundary.
-4. Wait for the workflow to commit its generated artifacts before starting another batch.
+4. Enable `continue_backfill` to queue successive batches automatically, and set `backfill_runs_remaining` to a bounded run budget.
 5. Review `llm_status.backlog` and `llm_status.backlog_remaining` in `reports/pipeline_report.json`.
-6. Repeat until `backlog_remaining` is `0`.
+6. Confirm the chain stopped because `backlog_remaining` reached `0`.
 
 The LLM cache is the resume checkpoint. Completed context hashes do not consume later batch slots. Each backfill batch independently caps embeddings, summaries, article fetches, AI relevance checks, importance grades, and output cleanup calls. Backfill reuses stale article-cache content when available; uncached article work resumes in later batches.
+
+Backfill model calls use a bounded worker pool while sharing one thread-safe 60 RPM reservation budget. Normal and scheduled runs retain one-worker execution.
+
+Automatic continuation dispatches at most one successor after the generated checkpoint is pushed. It stops when backlog reaches zero, a batch makes no measurable progress, the report is invalid, or the explicit run budget is exhausted.
 
 Embeddings are persisted as compact base64 float32 values. Clustering accepts both compact values and legacy numeric arrays, so migration happens automatically when the pipeline next writes the cache.
 

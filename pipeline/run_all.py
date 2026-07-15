@@ -254,6 +254,8 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
     # Additional controls for runtime/cost tuning
     if "PIPELINE_LLM_CHAT_MAX_CALLS" in env:
         pipeline_config["llm_chat_max_calls"] = int(env["PIPELINE_LLM_CHAT_MAX_CALLS"])
+    if "PIPELINE_LLM_WORKERS" in env:
+        pipeline_config["llm_workers"] = int(env["PIPELINE_LLM_WORKERS"])
     if "PIPELINE_SUMMARY_MODEL" in env:
         pipeline_config["summary_model"] = str(env["PIPELINE_SUMMARY_MODEL"])
     if "PIPELINE_AI_RELEVANCE_MODEL" in env:

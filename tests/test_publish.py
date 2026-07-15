@@ -3,6 +3,7 @@ import tempfile
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
+from threading import Barrier, Lock
 from unittest.mock import patch
 
 from pipeline.io_utils import write_json
@@ -67,6 +68,34 @@ class FakeClient:
             "latency_ms": 1,
             "usage": {},
         }
+
+
+class ConcurrentPublishClient(FakeClient):
+    active_relevance_calls = 0
+    max_active_relevance_calls = 0
+    relevance_barrier = Barrier(2, timeout=1.0)
+    lock = Lock()
+
+    @classmethod
+    def reset(cls):
+        super().reset()
+        cls.active_relevance_calls = 0
+        cls.max_active_relevance_calls = 0
+        cls.relevance_barrier = Barrier(2, timeout=1.0)
+
+    def check_ai_relevance(self, title, summary, rubric, model=None, article=""):
+        with self.lock:
+            type(self).active_relevance_calls += 1
+            type(self).max_active_relevance_calls = max(
+                type(self).max_active_relevance_calls,
+                type(self).active_relevance_calls,
+            )
+        try:
+            self.relevance_barrier.wait()
+            return super().check_ai_relevance(title, summary, rubric, model=model, article=article)
+        finally:
+            with self.lock:
+                type(self).active_relevance_calls -= 1
 
 
 class FakeFeedGenerator:
@@ -300,6 +329,43 @@ class PublishTests(unittest.TestCase):
         self.assertNotIn("importance", updated_cache.get("s3", {}))
         self.assertEqual(llm_status["backlog"]["ai_relevance"], {"before": 2, "remaining": 1})
         self.assertEqual(llm_status["backlog"]["importance"], {"before": 0, "remaining": 0})
+
+    def test_publish_workers_run_relevance_calls_concurrently(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            stories = [
+                self._story("s1", "https://example.com/1"),
+                self._story("s2", "https://example.com/2"),
+            ]
+            client = ConcurrentPublishClient()
+            ConcurrentPublishClient.reset()
+            with patch("pipeline.publish._resolve_llm_client", return_value=(client, None, "OpenAI")):
+                with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                    with patch(
+                        "pipeline.publish._fetch_article_with_url",
+                        side_effect=lambda url, _timeout, _max_chars: (url, "Article markdown"),
+                    ):
+                        _payload, cache = publish_outputs(
+                            stories,
+                            str(Path(temp_dir) / "api" / "feed.json"),
+                            str(Path(temp_dir) / "feeds" / "top"),
+                            llm_cache={},
+                            config={
+                                "llm_provider": "openai",
+                                "llm_workers": 2,
+                                "openai_rate_limit_requests_per_minute": 60000,
+                                "publish_top_n": 2,
+                                "article_cache_enabled": False,
+                                "output_cleanup_enabled": False,
+                                "ai_relevance_max_calls": 2,
+                                "importance_max_calls": 2,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "ai_keywords": ["ai"],
+                            },
+                        )
+
+        self.assertEqual(ConcurrentPublishClient.max_active_relevance_calls, 2)
+        self.assertIn("importance", cache["s1"])
+        self.assertIn("importance", cache["s2"])
 
     def test_output_cleanup_does_not_recreate_relevance_backlog(self):
         with tempfile.TemporaryDirectory() as temp_dir:

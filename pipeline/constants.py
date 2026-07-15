@@ -21,6 +21,7 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "llm_top_n": 50,
     "llm_embedding_batch_size": 100,
     "llm_embedding_max_stories": 0,
+    "llm_workers": 1,
     "score_weight_authority": 100.0,
     "score_weight_freshness": 120.0,
     "score_weight_engagement": 80.0,

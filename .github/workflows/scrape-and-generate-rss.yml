@@ -21,6 +21,16 @@ on:
         options:
           - '250'
           - '500'
+      continue_backfill:
+        description: Queue another batch while the reported backlog is shrinking
+        required: false
+        default: false
+        type: boolean
+      backfill_runs_remaining:
+        description: Maximum chained runs including this run
+        required: false
+        default: '16'
+        type: string
   push:
     branches: [ main ]
 
@@ -35,6 +45,7 @@ jobs:
       cancel-in-progress: false
     
     permissions:
+      actions: write
       contents: write
       pages: write
       id-token: write
@@ -96,6 +107,7 @@ jobs:
         PIPELINE_LLM_EMBEDDING_BATCH_SIZE: '100'
         PIPELINE_LLM_EMBEDDING_MAX_STORIES: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || '0' }}
         PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || (github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25') }}
+        PIPELINE_LLM_WORKERS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && '8' || '1' }}
         PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && '10000' || (github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200') }}
         PIPELINE_IMPORTANCE_MODEL: 'openai/gpt-4.1-mini'
         PIPELINE_GITHUB_MODELS_COPILOT_PLAN: 'copilot_enterprise'
@@ -198,6 +210,31 @@ jobs:
           echo "- Generated artifacts committed and pushed to repository" >> $GITHUB_STEP_SUMMARY
           echo "- Jekyll site will be rebuilt and deployed" >> $GITHUB_STEP_SUMMARY
         fi
+
+    - name: Evaluate backfill continuation
+      id: backfill-continuation
+      if: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.continue_backfill }}
+      env:
+        BACKFILL_RUNS_REMAINING: ${{ inputs.backfill_runs_remaining }}
+      run: |
+        python -m scripts.backfill_continuation \
+          reports/pipeline_report.json \
+          --runs-remaining "$BACKFILL_RUNS_REMAINING" \
+          --github-output "$GITHUB_OUTPUT"
+
+    - name: Queue next backfill batch
+      if: ${{ steps.backfill-continuation.outputs.should_continue == 'true' }}
+      env:
+        GH_TOKEN: ${{ github.token }}
+        BACKFILL_BATCH_SIZE: ${{ inputs.backfill_batch_size }}
+        NEXT_RUNS_REMAINING: ${{ steps.backfill-continuation.outputs.next_runs_remaining }}
+      run: |
+        gh workflow run scrape-and-generate-rss.yml \
+          --ref main \
+          -f backfill=true \
+          -f backfill_batch_size="$BACKFILL_BATCH_SIZE" \
+          -f continue_backfill=true \
+          -f backfill_runs_remaining="$NEXT_RUNS_REMAINING"
 
   # Deploy on any push to main (deploy-only, no scraping)
   deploy-on-push:

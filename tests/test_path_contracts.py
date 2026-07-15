@@ -90,6 +90,7 @@ class PathContractTests(unittest.TestCase):
         self.assertIn("backfill_batch_size:", workflow)
         self.assertIn("PIPELINE_BACKFILL_MODE:", workflow)
         self.assertIn("PIPELINE_LLM_EMBEDDING_MAX_STORIES:", workflow)
+        self.assertIn("PIPELINE_LLM_WORKERS:", workflow)
         self.assertIn("PIPELINE_AI_RELEVANCE_MAX_CALLS:", workflow)
         self.assertIn("PIPELINE_IMPORTANCE_MAX_CALLS:", workflow)
         self.assertIn("PIPELINE_OUTPUT_CLEANUP_MAX_CALLS:", workflow)
@@ -101,6 +102,16 @@ class PathContractTests(unittest.TestCase):
         self.assertIn("default: '250'", backfill_input)
         self.assertIn("- '500'", backfill_input)
         self.assertNotIn("- '1000'", backfill_input)
+
+    def test_backfill_continuation_is_opt_in_and_bounded(self):
+        workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
+        self.assertIn("continue_backfill:", workflow)
+        self.assertIn("backfill_runs_remaining:", workflow)
+        self.assertIn("actions: write", workflow)
+        self.assertIn("python -m scripts.backfill_continuation", workflow)
+        self.assertIn("gh workflow run scrape-and-generate-rss.yml", workflow)
+        self.assertIn("-f continue_backfill=true", workflow)
+        self.assertIn("-f backfill_runs_remaining=", workflow)
 
     def test_scrape_concurrency_does_not_cancel_active_backfill(self):
         workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))

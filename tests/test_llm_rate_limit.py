@@ -1,3 +1,5 @@
+from concurrent.futures import ThreadPoolExecutor
+from threading import Barrier, Lock
 import unittest
 
 from pipeline.llm_rate_limit import RateLimitBudgetExceeded, call_with_retry, status_code_from_exception
@@ -16,6 +18,33 @@ class FakeHTTPError(Exception):
 
 
 class LLMRateLimitTests(unittest.TestCase):
+    def test_request_lock_protects_shared_state_without_serializing_calls(self):
+        barrier = Barrier(2, timeout=1.0)
+        request_lock = Lock()
+        state = {}
+
+        def invoke():
+            def call():
+                barrier.wait()
+                return {"ok": True}
+
+            return call_with_retry(
+                call,
+                max_attempts=1,
+                base_delay_sec=0.0,
+                max_delay_sec=0.0,
+                rate_limit_state=state,
+                request_rate_limit_max_calls=0,
+                request_rate_limit_min_interval_sec=0.0,
+                request_lock=request_lock,
+            )
+
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            results = list(executor.map(lambda _index: invoke(), range(2)))
+
+        self.assertEqual([result[0] for result in results], [{"ok": True}, {"ok": True}])
+        self.assertEqual(len(state["request_timestamps"]), 2)
+
     def test_call_with_retry_enforces_fixed_window_limit(self):
         current_time = [100.0]
         sleep_durations = []
