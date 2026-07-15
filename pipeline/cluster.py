@@ -2,15 +2,21 @@ from collections import defaultdict
 from math import sqrt
 from typing import Any, cast
 
+try:
+    import numpy as np
+except ImportError:
+    np = None
+
+from .embedding_codec import decode_embedding
 from .text_utils import normalize_text, stable_id
 
 
 def _cosine(a: list[float], b: list[float]) -> float:
     if not a or not b or len(a) != len(b):
         return 0.0
-    dot = sum(x * y for x, y in zip(a, b))
-    norm_a = sqrt(sum(x * x for x in a))
-    norm_b = sqrt(sum(y * y for y in b))
+    dot = sum(left * right for left, right in zip(a, b))
+    norm_a = sqrt(sum(value * value for value in a))
+    norm_b = sqrt(sum(value * value for value in b))
     if norm_a == 0 or norm_b == 0:
         return 0.0
     return dot / (norm_a * norm_b)
@@ -32,6 +38,45 @@ def _union(parents: dict[str, str], left: str, right: str) -> None:
     right_root = _find(parents, right)
     if left_root != right_root:
         parents[right_root] = left_root
+
+
+def _union_similar_embeddings(
+    parents: dict[str, str],
+    vectors: dict[str, list[float]],
+    similarity_threshold: float,
+    block_size: int = 256,
+) -> None:
+    if np is None:
+        embedded_ids = list(vectors)
+        for index, left_id in enumerate(embedded_ids):
+            for right_id in embedded_ids[index + 1 :]:
+                if _cosine(vectors[left_id], vectors[right_id]) >= similarity_threshold:
+                    _union(parents, left_id, right_id)
+        return
+
+    ids_by_dimension: dict[int, list[str]] = defaultdict(list)
+    for story_id, vector in vectors.items():
+        if vector:
+            ids_by_dimension[len(vector)].append(story_id)
+
+    for dimension, story_ids in ids_by_dimension.items():
+        if dimension <= 0 or len(story_ids) < 2:
+            continue
+        matrix = np.asarray([vectors[story_id] for story_id in story_ids], dtype=np.float32)
+        norms = np.linalg.norm(matrix, axis=1)
+        valid = norms > 0
+        matrix[valid] /= norms[valid, np.newaxis]
+        matrix[~valid] = 0
+
+        for start in range(0, len(story_ids), block_size):
+            end = min(start + block_size, len(story_ids))
+            with np.errstate(divide="ignore", invalid="ignore", over="ignore"):
+                similarities = matrix[start:end] @ matrix.T
+            left_offsets, right_indexes = np.nonzero(similarities >= similarity_threshold)
+            for left_offset, right_index in zip(left_offsets.tolist(), right_indexes.tolist()):
+                left_index = start + left_offset
+                if right_index > left_index:
+                    _union(parents, story_ids[left_index], story_ids[right_index])
 
 
 def build_clusters(
@@ -62,8 +107,8 @@ def build_clusters(
         if isinstance(cache_entry, dict):
             typed_entry = cast(dict[str, Any], cache_entry)
             cache_map = {str(key): value for key, value in typed_entry.items()}
-        embedding = cache_map.get("embedding", [])
-        if isinstance(embedding, list) and embedding:
+        embedding = decode_embedding(cache_map.get("embedding"))
+        if embedding:
             vectors[story_id] = embedding
 
     # hard links by canonical URL
@@ -75,13 +120,7 @@ def build_clusters(
             _union(parents, anchor, candidate_id)
 
     # embedding-first links across all embedded stories
-    embedded_ids = list(vectors.keys())
-    for index, left_id in enumerate(embedded_ids):
-        left_vec = vectors[left_id]
-        for right_id in embedded_ids[index + 1 :]:
-            right_vec = vectors[right_id]
-            if _cosine(left_vec, right_vec) >= similarity_threshold:
-                _union(parents, left_id, right_id)
+    _union_similar_embeddings(parents, vectors, similarity_threshold)
 
     # fallback: exact-title links only for stories without embeddings
     for ids in by_title.values():

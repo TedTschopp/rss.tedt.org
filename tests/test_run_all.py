@@ -3,6 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from pipeline.embedding_codec import decode_embedding
 from pipeline.run_all import _apply_env_overrides, _combine_llm_status, _prune_llm_cache, _write_report
 
 
@@ -16,6 +17,14 @@ class RunAllConfigTests(unittest.TestCase):
         result = _prune_llm_cache(cache, ["active"], max_bytes=10_000)
 
         self.assertEqual(result, {"active": cache["active"]})
+
+    def test_prune_llm_cache_compacts_numeric_embeddings(self):
+        cache = {"active": {"embedding": [0.1, 0.2, 0.3]}}
+
+        result = _prune_llm_cache(cache, ["active"], max_bytes=10_000)
+
+        self.assertIsInstance(result["active"]["embedding"], str)
+        self.assertEqual(len(decode_embedding(result["active"]["embedding"])), 3)
 
     def test_prune_llm_cache_prioritizes_active_entries_within_byte_budget(self):
         cache = {
@@ -48,6 +57,8 @@ class RunAllConfigTests(unittest.TestCase):
         config = {}
         env = {
             "PIPELINE_LLM_TOP_N": "20",
+            "PIPELINE_LLM_EMBEDDING_BATCH_SIZE": "100",
+            "PIPELINE_LLM_EMBEDDING_MAX_STORIES": "500",
             "PIPELINE_LLM_CHAT_MAX_CALLS": "10",
             "PIPELINE_PUBLISH_TOP_N": "80",
             "PIPELINE_LLM_RATE_LIMIT_REQUESTS_PER_WINDOW": "12",
@@ -76,9 +87,14 @@ class RunAllConfigTests(unittest.TestCase):
             "PIPELINE_IMPORTANCE_MODEL": "openai/gpt-5",
             "PIPELINE_OUTPUT_CLEANUP_MODEL": "openai/gpt-4.1-mini",
             "PIPELINE_OUTPUT_CLEANUP_TOP_N": "0",
+            "PIPELINE_AI_RELEVANCE_MAX_CALLS": "500",
+            "PIPELINE_IMPORTANCE_MAX_CALLS": "500",
+            "PIPELINE_OUTPUT_CLEANUP_MAX_CALLS": "500",
             "PIPELINE_IMPORTANCE_BACKFILL_DAYS": "2",
+            "PIPELINE_BACKFILL_MODE": "true",
             "PIPELINE_OUTPUT_CLEANUP_ENABLED": "false",
             "PIPELINE_ARTICLE_FETCH_WORKERS": "4",
+            "PIPELINE_ARTICLE_FETCH_MAX_URLS": "500",
             "PIPELINE_ARTICLE_CACHE_ENABLED": "true",
             "PIPELINE_ARTICLE_CACHE_TTL_HOURS": "24",
             "PIPELINE_ARTICLE_CACHE_PATH": "derived/article_cache.json",
@@ -87,6 +103,8 @@ class RunAllConfigTests(unittest.TestCase):
         result = _apply_env_overrides(config, env)
 
         self.assertEqual(result["llm_top_n"], 20)
+        self.assertEqual(result["llm_embedding_batch_size"], 100)
+        self.assertEqual(result["llm_embedding_max_stories"], 500)
         self.assertEqual(result["llm_chat_max_calls"], 10)
         self.assertEqual(result["publish_top_n"], 80)
         self.assertEqual(result["llm_rate_limit_requests_per_window"], 12)
@@ -115,9 +133,14 @@ class RunAllConfigTests(unittest.TestCase):
         self.assertEqual(result["importance_model"], "openai/gpt-5")
         self.assertEqual(result["output_cleanup_model"], "openai/gpt-4.1-mini")
         self.assertEqual(result["output_cleanup_top_n"], 0)
+        self.assertEqual(result["ai_relevance_max_calls"], 500)
+        self.assertEqual(result["importance_max_calls"], 500)
+        self.assertEqual(result["output_cleanup_max_calls"], 500)
         self.assertEqual(result["importance_backfill_days"], 2)
+        self.assertTrue(result["backfill_mode"])
         self.assertFalse(result["output_cleanup_enabled"])
         self.assertEqual(result["article_fetch_workers"], 4)
+        self.assertEqual(result["article_fetch_max_urls"], 500)
         self.assertTrue(result["article_cache_enabled"])
         self.assertEqual(result["article_cache_ttl_hours"], 24)
         self.assertEqual(result["article_cache_path"], "derived/article_cache.json")
@@ -133,7 +156,17 @@ class RunAllConfigTests(unittest.TestCase):
 class RunAllReportTests(unittest.TestCase):
     def test_combine_llm_status_sums_enrichment_and_publish_calls(self):
         combined = _combine_llm_status(
-            {"status": "ok", "calls": 11, "ok": 11, "errors": 0, "skipped": 0},
+            {
+                "status": "ok",
+                "calls": 11,
+                "ok": 11,
+                "errors": 0,
+                "skipped": 0,
+                "backlog": {
+                    "embeddings": {"before": 20, "remaining": 10},
+                    "summaries": {"before": 15, "remaining": 5},
+                },
+            },
             {
                 "status": "ok",
                 "calls": 229,
@@ -141,6 +174,11 @@ class RunAllReportTests(unittest.TestCase):
                 "errors": 0,
                 "skipped": 0,
                 "by_kind": {"output_cleanup": 80, "ai_relevance": 38, "importance": 31},
+                "backlog": {
+                    "ai_relevance": {"before": 12, "remaining": 4},
+                    "importance": {"before": 3, "remaining": 2},
+                    "output_cleanup": {"before": 8, "remaining": 1},
+                },
             },
         )
 
@@ -149,6 +187,9 @@ class RunAllReportTests(unittest.TestCase):
         self.assertEqual(combined["stages"]["enrichment"]["calls"], 11)
         self.assertEqual(combined["stages"]["publish"]["calls"], 229)
         self.assertEqual(combined["by_kind"]["output_cleanup"], 80)
+        self.assertEqual(combined["backlog_remaining"], 22)
+        self.assertEqual(combined["backlog"]["summaries"]["remaining"], 5)
+        self.assertEqual(combined["backlog"]["output_cleanup"]["remaining"], 1)
 
     def test_write_report_includes_stage_timing_section(self):
         report = {
@@ -189,6 +230,14 @@ class RunAllReportTests(unittest.TestCase):
                     "enrichment": {"calls": 11},
                     "publish": {"calls": 229},
                 },
+                "backlog_remaining": 22,
+                "backlog": {
+                    "embeddings": {"before": 20, "remaining": 10},
+                    "summaries": {"before": 15, "remaining": 5},
+                    "ai_relevance": {"before": 12, "remaining": 4},
+                    "importance": {"before": 3, "remaining": 2},
+                    "output_cleanup": {"before": 8, "remaining": 1},
+                },
             },
             "stage_timings_sec": {},
         }
@@ -204,6 +253,9 @@ class RunAllReportTests(unittest.TestCase):
             self.assertIn("- Total: 240", md)
             self.assertIn("- Enrichment: 11", md)
             self.assertIn("- Publish: 229", md)
+            self.assertIn("## Enrichment Backlog", md)
+            self.assertIn("- Remaining: 22", md)
+            self.assertIn("- summaries: 5", md)
 
 
 if __name__ == "__main__":

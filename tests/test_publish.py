@@ -10,7 +10,16 @@ from pipeline.publish import publish_outputs
 
 
 class FakeClient:
+    relevance_calls = 0
+    importance_calls = 0
+
+    @classmethod
+    def reset(cls):
+        cls.relevance_calls = 0
+        cls.importance_calls = 0
+
     def check_ai_relevance(self, title, summary, rubric, model=None, article=""):
+        FakeClient.relevance_calls += 1
         return {
             "is_ai_related": True,
             "decision": "proceed",
@@ -25,6 +34,7 @@ class FakeClient:
         }
 
     def grade_importance(self, title, summary, rubric, model=None, article=""):
+        FakeClient.importance_calls += 1
         return {
             "business_level": 2,
             "technical_level": 2,
@@ -44,6 +54,16 @@ class FakeClient:
             "technical_rationale": "tech",
             "model": model or "fake-model",
             "input_hash": "importance-hash",
+            "latency_ms": 1,
+            "usage": {},
+        }
+
+    def rewrite_output_cleanup(self, title, summary, source_context, model=None):
+        return {
+            "title": "Clean AI story",
+            "description": "Clean AI summary",
+            "model": model or "fake-model",
+            "input_hash": "cleanup-hash",
             "latency_ms": 1,
             "usage": {},
         }
@@ -145,6 +165,171 @@ class PublishTests(unittest.TestCase):
                             )
 
             self.assertEqual(fetch_mock.call_count, 1)
+
+    def test_backfill_bounds_uncached_article_fetches_and_model_work(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            stories = [
+                self._story(f"s{index}", f"https://example.com/{index}")
+                for index in range(1, 4)
+            ]
+            FakeClient.reset()
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
+                    with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                        with patch(
+                            "pipeline.publish._fetch_article_with_url",
+                            side_effect=lambda url, _timeout, _max_chars: (url, "Article markdown"),
+                        ) as fetch_mock:
+                            publish_outputs(
+                                stories,
+                                str(Path(temp_dir) / "api" / "feed.json"),
+                                str(Path(temp_dir) / "feeds" / "top"),
+                                llm_cache={},
+                                config={
+                                    "backfill_mode": True,
+                                    "publish_top_n": 3,
+                                    "article_cache_enabled": False,
+                                    "article_fetch_max_urls": 1,
+                                    "output_cleanup_enabled": False,
+                                    "llm_rate_limit_requests_per_window": 0,
+                                    "llm_rate_limit_min_interval_sec": 0.0,
+                                    "ai_keywords": ["ai"],
+                                },
+                            )
+
+        self.assertEqual(fetch_mock.call_count, 1)
+        self.assertEqual(FakeClient.relevance_calls, 1)
+
+    def test_backfill_failed_fetch_does_not_starve_next_url(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            article_cache_path = str(Path(temp_dir) / "article-cache.json")
+            stories = [
+                self._story(f"s{index}", f"https://example.com/{index}")
+                for index in range(1, 3)
+            ]
+            config = {
+                "backfill_mode": True,
+                "publish_top_n": 2,
+                "article_cache_enabled": True,
+                "article_cache_path": article_cache_path,
+                "article_fetch_max_urls": 1,
+                "output_cleanup_enabled": False,
+                "llm_rate_limit_requests_per_window": 0,
+                "llm_rate_limit_min_interval_sec": 0.0,
+                "ai_keywords": ["ai"],
+            }
+
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
+                    with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                        with patch(
+                            "pipeline.publish._fetch_article_with_url",
+                            side_effect=RuntimeError("unavailable"),
+                        ):
+                            _payload, cache = publish_outputs(
+                                stories,
+                                str(Path(temp_dir) / "api" / "feed.json"),
+                                str(Path(temp_dir) / "feeds" / "top"),
+                                llm_cache={},
+                                config=config,
+                            )
+                        fetched_urls = []
+                        with patch(
+                            "pipeline.publish._fetch_article_with_url",
+                            side_effect=lambda url, _timeout, _max_chars: fetched_urls.append(url) or (url, "Article"),
+                        ):
+                            publish_outputs(
+                                stories,
+                                str(Path(temp_dir) / "api" / "feed.json"),
+                                str(Path(temp_dir) / "feeds" / "top"),
+                                llm_cache=cache,
+                                config=config,
+                            )
+
+        self.assertEqual(fetched_urls, ["https://example.com/2"])
+
+    def test_grading_call_caps_count_only_cache_misses(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            api_path = str(Path(temp_dir) / "api" / "feed.json")
+            base_feed_path = str(Path(temp_dir) / "feeds" / "top")
+            stories = [
+                self._story(f"s{index}", f"https://example.com/{index}")
+                for index in range(1, 4)
+            ]
+            config = {
+                "publish_top_n": 3,
+                "output_cleanup_enabled": False,
+                "article_cache_enabled": False,
+                "ai_relevance_max_calls": 1,
+                "importance_max_calls": 1,
+                "llm_rate_limit_requests_per_window": 0,
+                "llm_rate_limit_min_interval_sec": 0.0,
+                "ai_keywords": ["ai"],
+            }
+
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
+                    with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                        with patch(
+                            "pipeline.publish._fetch_article_with_url",
+                            side_effect=lambda url, _timeout, _max_chars: (url, "Article markdown"),
+                        ):
+                            _payload, cache = publish_outputs(
+                                [stories[0]],
+                                api_path,
+                                base_feed_path,
+                                llm_cache={},
+                                config=config,
+                            )
+                            FakeClient.reset()
+                            llm_status = {}
+                            _payload, updated_cache = publish_outputs(
+                                stories,
+                                api_path,
+                                base_feed_path,
+                                llm_cache=cache,
+                                llm_status=llm_status,
+                                config=config,
+                            )
+
+        self.assertEqual(FakeClient.relevance_calls, 1)
+        self.assertEqual(FakeClient.importance_calls, 1)
+        self.assertIn("ai_relevance", updated_cache["s2"])
+        self.assertIn("importance", updated_cache["s2"])
+        self.assertNotIn("ai_relevance", updated_cache.get("s3", {}))
+        self.assertNotIn("importance", updated_cache.get("s3", {}))
+        self.assertEqual(llm_status["backlog"]["ai_relevance"], {"before": 2, "remaining": 1})
+        self.assertEqual(llm_status["backlog"]["importance"], {"before": 0, "remaining": 0})
+
+    def test_output_cleanup_does_not_recreate_relevance_backlog(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            llm_status = {}
+            story = self._story("s1", "https://example.com/1")
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", return_value=FakeClient()):
+                    with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                        with patch(
+                            "pipeline.publish._fetch_article_with_url",
+                            return_value=(story["canonical_url"], "Article markdown"),
+                        ):
+                            publish_outputs(
+                                [story],
+                                str(Path(temp_dir) / "api" / "feed.json"),
+                                str(Path(temp_dir) / "feeds" / "top"),
+                                llm_cache={},
+                                llm_status=llm_status,
+                                config={
+                                    "publish_top_n": 1,
+                                    "output_cleanup_top_n": 1,
+                                    "article_cache_enabled": False,
+                                    "llm_rate_limit_requests_per_window": 0,
+                                    "llm_rate_limit_min_interval_sec": 0.0,
+                                    "ai_keywords": ["ai"],
+                                },
+                            )
+
+        self.assertEqual(llm_status["backlog_remaining"], 0)
+        self.assertEqual(llm_status["backlog"]["ai_relevance"]["remaining"], 0)
 
 if __name__ == "__main__":
     unittest.main()

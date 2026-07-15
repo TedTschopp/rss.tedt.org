@@ -21,6 +21,7 @@ from .constants import (
     SOURCE_STATE_FILE,
 )
 from .dedupe import dedupe_to_stories
+from .embedding_codec import encode_embedding
 from .ingest import run_ingestion
 from .io_utils import append_jsonl, ensure_dirs, read_json, write_json
 from .llm_enrich import enrich_stories
@@ -48,6 +49,18 @@ def _combine_llm_status(enrichment_meta: dict, publish_meta: dict) -> dict:
             except Exception:
                 continue
 
+    backlog: dict[str, dict[str, int]] = {}
+    for source in [enrichment.get("backlog"), publish.get("backlog")]:
+        if not isinstance(source, dict):
+            continue
+        for stage, raw_counts in source.items():
+            if not isinstance(raw_counts, dict):
+                continue
+            backlog[str(stage)] = {
+                "before": int(raw_counts.get("before") or 0),
+                "remaining": int(raw_counts.get("remaining") or 0),
+            }
+
     if total_errors:
         status = "degraded" if total_ok else "error"
     elif total_skipped and not total_ok:
@@ -55,7 +68,7 @@ def _combine_llm_status(enrichment_meta: dict, publish_meta: dict) -> dict:
     else:
         status = "ok"
 
-    return {
+    combined = {
         "status": status,
         "calls": total_calls,
         "ok": total_ok,
@@ -67,6 +80,10 @@ def _combine_llm_status(enrichment_meta: dict, publish_meta: dict) -> dict:
             "publish": publish,
         },
     }
+    if backlog:
+        combined["backlog"] = backlog
+        combined["backlog_remaining"] = sum(counts["remaining"] for counts in backlog.values())
+    return combined
 
 
 def _write_report(report_path_json: str, report_path_md: str, report: dict) -> None:
@@ -96,6 +113,18 @@ def _write_report(report_path_json: str, report_path_md: str, report: dict) -> N
                 f"- Publish: {int(publish.get('calls') or 0) if isinstance(publish, dict) else 0}",
             ]
         )
+    backlog = llm_status.get("backlog") if isinstance(llm_status, dict) else None
+    if isinstance(backlog, dict) and backlog:
+        lines.extend(
+            [
+                "",
+                "## Enrichment Backlog",
+                f"- Remaining: {int(llm_status.get('backlog_remaining') or 0)}",
+            ]
+        )
+        for stage, counts in backlog.items():
+            if isinstance(counts, dict):
+                lines.append(f"- {stage}: {int(counts.get('remaining') or 0)}")
     stage_timings = report.get("stage_timings_sec")
     if isinstance(stage_timings, dict) and stage_timings:
         lines.extend(["", "## Stage Timings (seconds)"])
@@ -116,15 +145,23 @@ def _prune_llm_cache(
     max_bytes: int,
 ) -> dict[str, dict]:
     retained_ids: set[str] = set()
+    retained_entries: dict[str, dict] = {}
     estimated_bytes = len("{}".encode("utf-8"))
 
     for story_id in dict.fromkeys(prioritized_story_ids):
         cache_entry = llm_cache.get(story_id)
         if not isinstance(cache_entry, dict):
             continue
+        retained_entry = dict(cache_entry)
+        embedding = retained_entry.get("embedding")
+        if isinstance(embedding, list) and embedding:
+            try:
+                retained_entry["embedding"] = encode_embedding(embedding)
+            except (TypeError, ValueError):
+                pass
         entry_bytes = len(
             json.dumps(
-                {story_id: cache_entry},
+                {story_id: retained_entry},
                 indent=2,
                 ensure_ascii=False,
             ).encode("utf-8")
@@ -132,11 +169,12 @@ def _prune_llm_cache(
         if estimated_bytes + entry_bytes > max_bytes:
             continue
         retained_ids.add(story_id)
+        retained_entries[story_id] = retained_entry
         estimated_bytes += entry_bytes
 
     return {
-        story_id: cache_entry
-        for story_id, cache_entry in llm_cache.items()
+        story_id: retained_entries[story_id]
+        for story_id in llm_cache
         if story_id in retained_ids
     }
 
@@ -145,8 +183,19 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
     env = environ or os.environ
 
     # Existing controls
+    if "PIPELINE_BACKFILL_MODE" in env:
+        pipeline_config["backfill_mode"] = str(env["PIPELINE_BACKFILL_MODE"]).strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
     if "PIPELINE_LLM_TOP_N" in env:
         pipeline_config["llm_top_n"] = int(env["PIPELINE_LLM_TOP_N"])
+    if "PIPELINE_LLM_EMBEDDING_BATCH_SIZE" in env:
+        pipeline_config["llm_embedding_batch_size"] = int(env["PIPELINE_LLM_EMBEDDING_BATCH_SIZE"])
+    if "PIPELINE_LLM_EMBEDDING_MAX_STORIES" in env:
+        pipeline_config["llm_embedding_max_stories"] = int(env["PIPELINE_LLM_EMBEDDING_MAX_STORIES"])
     if "PIPELINE_PUBLISH_TOP_N" in env:
         pipeline_config["publish_top_n"] = int(env["PIPELINE_PUBLISH_TOP_N"])
     if "PIPELINE_LLM_RATE_LIMIT_REQUESTS_PER_WINDOW" in env:
@@ -215,6 +264,12 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
         pipeline_config["output_cleanup_model"] = str(env["PIPELINE_OUTPUT_CLEANUP_MODEL"])
     if "PIPELINE_OUTPUT_CLEANUP_TOP_N" in env:
         pipeline_config["output_cleanup_top_n"] = int(env["PIPELINE_OUTPUT_CLEANUP_TOP_N"])
+    if "PIPELINE_AI_RELEVANCE_MAX_CALLS" in env:
+        pipeline_config["ai_relevance_max_calls"] = int(env["PIPELINE_AI_RELEVANCE_MAX_CALLS"])
+    if "PIPELINE_IMPORTANCE_MAX_CALLS" in env:
+        pipeline_config["importance_max_calls"] = int(env["PIPELINE_IMPORTANCE_MAX_CALLS"])
+    if "PIPELINE_OUTPUT_CLEANUP_MAX_CALLS" in env:
+        pipeline_config["output_cleanup_max_calls"] = int(env["PIPELINE_OUTPUT_CLEANUP_MAX_CALLS"])
     if "PIPELINE_IMPORTANCE_BACKFILL_DAYS" in env:
         pipeline_config["importance_backfill_days"] = int(env["PIPELINE_IMPORTANCE_BACKFILL_DAYS"])
     if "PIPELINE_OUTPUT_CLEANUP_ENABLED" in env:
@@ -226,6 +281,8 @@ def _apply_env_overrides(pipeline_config: dict, environ: dict[str, str] | None =
         }
     if "PIPELINE_ARTICLE_FETCH_WORKERS" in env:
         pipeline_config["article_fetch_workers"] = int(env["PIPELINE_ARTICLE_FETCH_WORKERS"])
+    if "PIPELINE_ARTICLE_FETCH_MAX_URLS" in env:
+        pipeline_config["article_fetch_max_urls"] = int(env["PIPELINE_ARTICLE_FETCH_MAX_URLS"])
     if "PIPELINE_ARTICLE_CACHE_ENABLED" in env:
         pipeline_config["article_cache_enabled"] = str(env["PIPELINE_ARTICLE_CACHE_ENABLED"]).strip().lower() in {
             "1",
@@ -327,6 +384,7 @@ def main():
         "stories": len(ranked),
         "clusters": len(clusters),
         "api_items": api_payload.get("count", 0),
+        "backfill_mode": bool(pipeline_config.get("backfill_mode", False)),
         "llm_status": _combine_llm_status(llm_meta, publish_llm_meta),
         "llm_enrichment_status": llm_meta,
         "llm_publish_status": publish_llm_meta,

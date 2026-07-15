@@ -118,6 +118,24 @@ class OutputCleanupTests(unittest.TestCase):
     def setUp(self):
         FakeOutputCleanupClient.reset()
 
+    def _story(self, story_id: str) -> dict:
+        return {
+            "story_id": story_id,
+            "title": f"Raw OpenAI headline {story_id}",
+            "summary": "Raw OpenAI summary.",
+            "canonical_url": f"https://example.com/{story_id}",
+            "url": f"https://example.com/{story_id}",
+            "source_name": "Example Source",
+            "source_type": "rss",
+            "source_category": "rss",
+            "published": "2020-01-01T00:00:00Z",
+            "score": 100,
+            "mentions": [],
+            "sources": [],
+            "alternate_links": [],
+            "cluster_id": f"cluster-{story_id}",
+        }
+
     def test_title_rewrite_includes_standard_headline_instructions(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -446,6 +464,58 @@ class OutputCleanupTests(unittest.TestCase):
             self.assertEqual(FakeOutputCleanupClient.description_calls, 0)
             self.assertEqual(first_payload["items"][0]["summary"], second_payload["items"][0]["summary"])
             self.assertEqual(second_payload["items"][0]["title"], "OpenAI Adds Enterprise Data Controls")
+
+    def test_output_cleanup_call_cap_counts_only_cache_misses(self):
+        stories = [self._story(f"story-{index}") for index in range(1, 4)]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            api_path = Path(temp_dir) / "feed.json"
+            base_feed_path = Path(temp_dir) / "top"
+            with patch.dict(os.environ, {"GH_MODELS_TOKEN": "test-token"}):
+                with patch("pipeline.publish.GitHubModelsClient", FakeOutputCleanupClient):
+                    with patch(
+                        "pipeline.publish._fetch_article_with_url",
+                        side_effect=lambda url, _timeout, _max_chars: (url, "Article markdown"),
+                    ):
+                        _payload, cache = publish_outputs(
+                            [stories[0]],
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache={},
+                            config={
+                                "publish_top_n": 1,
+                                "output_cleanup_top_n": 1,
+                                "importance_backfill_days": 0,
+                                "article_cache_enabled": False,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "ai_keywords": ["openai"],
+                            },
+                        )
+                        FakeOutputCleanupClient.reset()
+                        llm_status = {}
+                        _payload, updated_cache = publish_outputs(
+                            stories,
+                            str(api_path),
+                            str(base_feed_path),
+                            llm_cache=cache,
+                            llm_status=llm_status,
+                            config={
+                                "publish_top_n": 3,
+                                "output_cleanup_top_n": 3,
+                                "output_cleanup_max_calls": 1,
+                                "importance_backfill_days": 0,
+                                "article_cache_enabled": False,
+                                "llm_rate_limit_requests_per_window": 0,
+                                "llm_rate_limit_min_interval_sec": 0.0,
+                                "ai_keywords": ["openai"],
+                            },
+                        )
+
+        self.assertEqual(FakeOutputCleanupClient.cleanup_calls, 1)
+        self.assertIn("output_cleanup", updated_cache["story-2"])
+        self.assertNotIn("output_cleanup", updated_cache.get("story-3", {}))
+        self.assertEqual(llm_status["backlog"]["output_cleanup"], {"before": 2, "remaining": 1})
 
     def test_publish_outputs_applies_cached_cleanup_when_new_cleanup_calls_disabled(self):
         old_env = dict(os.environ)

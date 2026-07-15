@@ -18,7 +18,23 @@ Human pushes to `main` skip scraping and deploy the site only.
 2. Go to Actions.
 3. Select `RSS Feed Hub - Scrape and Deploy`.
 4. Choose `Run workflow` on `main`.
-5. Watch the `scrape-and-generate-rss` job first, then `deploy-after-scrape`.
+5. Leave `backfill` disabled for a normal feed recovery run.
+6. Watch the `scrape-and-generate-rss` job first, then `deploy-after-scrape`.
+
+## Full Enrichment Backfill
+
+Use a backfill run only when the committed enrichment cache has accumulated missing work across the active story corpus. It can make substantially more paid model calls than a normal run.
+
+1. Run `RSS Feed Hub - Scrape and Deploy` manually on `main`.
+2. Enable `backfill`.
+3. Choose a per-stage batch size. Start with `500`; use `1000` only when the 180-minute workflow budget has sufficient headroom.
+4. Wait for the workflow to commit its generated artifacts before starting another batch.
+5. Review `llm_status.backlog` and `llm_status.backlog_remaining` in `reports/pipeline_report.json`.
+6. Repeat until `backlog_remaining` is `0`.
+
+The LLM cache is the resume checkpoint. Completed context hashes do not consume later batch slots. Each backfill batch independently caps embeddings, summaries, article fetches, AI relevance checks, importance grades, and output cleanup calls. Backfill reuses stale article-cache content when available; uncached article work resumes in later batches.
+
+Embeddings are persisted as compact base64 float32 values. Clustering accepts both compact values and legacy numeric arrays, so migration happens automatically when the pipeline next writes the cache.
 
 ## Local Preflight
 
@@ -44,6 +60,7 @@ bundle exec jekyll build --destination /tmp/rss-tedt-runbook-build
 | Site says status unavailable | Monitor or fetch path | `api/rss_status.json`, `feeds.html`, `about.md`. |
 | Pages deploy fails | Jekyll or Pages | `bundle exec jekyll build` logs and `_config.yml`. |
 | Workflow loops or duplicate deploys | Trigger logic | Actor conditions and deploy job `if` clauses. |
+| Generated commit exceeds GitHub blob limit | Unbounded generated state | Staged-blob guard output and cache retention settings. |
 
 ## Recovery Patterns
 

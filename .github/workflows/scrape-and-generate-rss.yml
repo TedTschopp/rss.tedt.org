@@ -7,7 +7,21 @@ on:
     # Heavy run once daily for deeper enrichment/cleanup
     - cron: '30 3 * * *'
   workflow_dispatch:
-    # Allow manual triggering
+    inputs:
+      backfill:
+        description: Process cached enrichment misses across the full active corpus
+        required: false
+        default: false
+        type: boolean
+      backfill_batch_size:
+        description: Maximum model calls per enrichment stage
+        required: false
+        default: '500'
+        type: choice
+        options:
+          - '250'
+          - '500'
+          - '1000'
   push:
     branches: [ main ]
 
@@ -19,7 +33,7 @@ jobs:
 
     concurrency:
       group: "scrape-${{ github.workflow }}"
-      cancel-in-progress: ${{ github.event_name == 'schedule' }}
+      cancel-in-progress: false
     
     permissions:
       contents: write
@@ -78,9 +92,12 @@ jobs:
         PIPELINE_OPENAI_GLOBAL_DAILY_REQUEST_CAP: '0'
         # Light mode trims feed size/retries, but still performs missing LLM
         # transformations. Cached LLM outputs are reused by story/context hash.
-        PIPELINE_LLM_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
-        PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25' }}
-        PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}
+        PIPELINE_BACKFILL_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && 'true' || 'false' }}
+        PIPELINE_LLM_TOP_N: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && '10000' || (github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50') }}
+        PIPELINE_LLM_EMBEDDING_BATCH_SIZE: '100'
+        PIPELINE_LLM_EMBEDDING_MAX_STORIES: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || '0' }}
+        PIPELINE_LLM_CHAT_MAX_CALLS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || (github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10' || '25') }}
+        PIPELINE_PUBLISH_TOP_N: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && '10000' || (github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200') }}
         PIPELINE_IMPORTANCE_MODEL: 'openai/gpt-4.1-mini'
         PIPELINE_GITHUB_MODELS_COPILOT_PLAN: 'copilot_enterprise'
         PIPELINE_GITHUB_MODELS_DAILY_BUDGET_ENABLED: 'true'
@@ -88,8 +105,11 @@ jobs:
         PIPELINE_GITHUB_MODELS_GLOBAL_DAILY_REQUEST_CAP: '0'
         PIPELINE_GITHUB_MODELS_FAIL_FAST_AUTH: 'true'
         PIPELINE_OUTPUT_CLEANUP_ENABLED: 'true'
-        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}
-        PIPELINE_IMPORTANCE_BACKFILL_DAYS: '60'
+        PIPELINE_AI_RELEVANCE_MAX_CALLS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || '0' }}
+        PIPELINE_IMPORTANCE_MAX_CALLS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || '0' }}
+        PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && '10000' || (github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50') }}
+        PIPELINE_OUTPUT_CLEANUP_MAX_CALLS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || '0' }}
+        PIPELINE_IMPORTANCE_BACKFILL_DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && '36500' || '60' }}
         PIPELINE_LLM_RETRY_MAX_ATTEMPTS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '2' || '4' }}
         PIPELINE_LLM_RETRY_BASE_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '1.0' || '1.5' }}
         PIPELINE_LLM_RETRY_MAX_DELAY_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '8.0' || '20.0' }}
@@ -99,6 +119,7 @@ jobs:
         PIPELINE_LLM_429_COOLDOWN_BASE_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '10.0' || '45.0' }}
         PIPELINE_LLM_429_COOLDOWN_MAX_SEC: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '60.0' || '300.0' }}
         PIPELINE_ARTICLE_FETCH_WORKERS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '3' || '6' }}
+        PIPELINE_ARTICLE_FETCH_MAX_URLS: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill && inputs.backfill_batch_size || '0' }}
         PIPELINE_ARTICLE_CACHE_ENABLED: 'true'
         PIPELINE_ARTICLE_CACHE_TTL_HOURS: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '24' || '48' }}
         PIPELINE_ARTICLE_CACHE_PATH: derived/article_cache.json

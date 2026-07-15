@@ -9,11 +9,13 @@ from pipeline.llm_enrich import enrich_stories
 class FakeEmbeddingClient:
     embed_calls = 0
     embed_inputs = []
+    summary_titles = []
 
     @classmethod
     def reset(cls):
         cls.embed_calls = 0
         cls.embed_inputs = []
+        cls.summary_titles = []
 
     def __init__(self, token, timeout_sec):
         self.token = token
@@ -31,7 +33,16 @@ class FakeEmbeddingClient:
         }
 
     def summarize(self, title, summary, model="openai/gpt-4.1-mini"):
-        raise AssertionError("summary should not be called in these tests")
+        FakeEmbeddingClient.summary_titles.append(title)
+        return {
+            "summary": f"Summary for {title}",
+            "topics": ["AI"],
+            "entities": [],
+            "usage": {},
+            "latency_ms": 1,
+            "model": model,
+            "input_hash": f"summary-{title}",
+        }
 
 
 class LLMEnrichTests(unittest.TestCase):
@@ -129,6 +140,91 @@ class LLMEnrichTests(unittest.TestCase):
         self.assertEqual(enriched[1]["llm"]["embedding_dim"], 2)
         self.assertIn("embedding_context_hash", updated_cache["story-1"])
         self.assertIn("embedding_context_hash", updated_cache["story-2"])
+
+    def test_cached_summaries_do_not_consume_call_limit(self):
+        stories = [
+            self._story("story-1", "Cached title"),
+            self._story("story-2", "First missing title"),
+            self._story("story-3", "Second missing title"),
+        ]
+        cache = {
+            "story-1": {
+                "summary": "Cached summary",
+                "topics": ["AI"],
+            }
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            log_path = str(Path(temp_dir) / "llm_call_log.jsonl")
+            FakeEmbeddingClient.reset()
+            with patch("pipeline.llm_enrich.GitHubModelsClient", FakeEmbeddingClient):
+                with patch.dict("os.environ", {"GH_MODELS_TOKEN": "token"}):
+                    _stories, updated_cache, meta = enrich_stories(
+                        stories,
+                        cache,
+                        log_path,
+                        {
+                            "llm_top_n": 3,
+                            "llm_chat_max_calls": 1,
+                            "llm_rate_limit_requests_per_window": 0,
+                            "llm_rate_limit_min_interval_sec": 0.0,
+                        },
+                    )
+
+        self.assertEqual(FakeEmbeddingClient.summary_titles, ["First missing title"])
+        self.assertIn("summary", updated_cache["story-2"])
+        self.assertNotIn("summary", updated_cache["story-3"])
+        self.assertEqual(meta["backlog"]["summaries"], {"before": 2, "remaining": 1})
+
+    def test_uncached_embeddings_are_split_into_bounded_batches(self):
+        stories = [self._story(f"story-{index}") for index in range(5)]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            log_path = str(Path(temp_dir) / "llm_call_log.jsonl")
+            FakeEmbeddingClient.reset()
+            with patch("pipeline.llm_enrich.GitHubModelsClient", FakeEmbeddingClient):
+                with patch.dict("os.environ", {"GH_MODELS_TOKEN": "token"}):
+                    _stories, _cache, meta = enrich_stories(
+                        stories,
+                        {},
+                        log_path,
+                        {
+                            "llm_top_n": 5,
+                            "llm_chat_max_calls": 0,
+                            "llm_embedding_batch_size": 2,
+                            "llm_rate_limit_requests_per_window": 0,
+                            "llm_rate_limit_min_interval_sec": 0.0,
+                        },
+                    )
+
+        self.assertEqual([len(batch) for batch in FakeEmbeddingClient.embed_inputs], [2, 2, 1])
+        self.assertEqual(meta["calls"], 3)
+        self.assertEqual(meta["backlog"]["embeddings"], {"before": 5, "remaining": 0})
+
+    def test_embedding_story_cap_leaves_remaining_work_for_next_run(self):
+        stories = [self._story(f"story-{index}") for index in range(5)]
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            log_path = str(Path(temp_dir) / "llm_call_log.jsonl")
+            FakeEmbeddingClient.reset()
+            with patch("pipeline.llm_enrich.GitHubModelsClient", FakeEmbeddingClient):
+                with patch.dict("os.environ", {"GH_MODELS_TOKEN": "token"}):
+                    _stories, _cache, meta = enrich_stories(
+                        stories,
+                        {},
+                        log_path,
+                        {
+                            "llm_top_n": 5,
+                            "llm_chat_max_calls": 0,
+                            "llm_embedding_batch_size": 2,
+                            "llm_embedding_max_stories": 3,
+                            "llm_rate_limit_requests_per_window": 0,
+                            "llm_rate_limit_min_interval_sec": 0.0,
+                        },
+                    )
+
+        self.assertEqual([len(batch) for batch in FakeEmbeddingClient.embed_inputs], [2, 1])
+        self.assertEqual(meta["backlog"]["embeddings"], {"before": 5, "remaining": 2})
 
 
 if __name__ == "__main__":

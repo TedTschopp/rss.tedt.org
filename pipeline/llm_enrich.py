@@ -5,6 +5,7 @@ import os
 from typing import Any, cast
 
 from .constants import DEFAULT_PIPELINE_CONFIG
+from .embedding_codec import decode_embedding
 from .github_models_limits import (
     llm_call_limits,
     llm_global_daily_request_cap,
@@ -61,10 +62,10 @@ def _embedding_context_hash(text: str, model: str) -> str:
 
 
 def _apply_cached_embedding(story: dict[str, Any], cache_entry: dict[str, Any], context_hash: str) -> bool:
-    embedding = cache_entry.get("embedding")
-    if not isinstance(embedding, list):
-        return False
     if cache_entry.get("embedding_context_hash") != context_hash:
+        return False
+    embedding = decode_embedding(cache_entry.get("embedding"))
+    if not embedding:
         return False
     story_llm = story.setdefault("llm", {})
     if isinstance(story_llm, dict):
@@ -84,7 +85,9 @@ def enrich_stories(
         return stories, llm_cache, {"status": "skipped", "reason": client_error or "missing LLM credentials", "provider": provider_label, "calls": 0}
 
     top_n = int(cfg.get("llm_top_n", 50))
-    chat_max_calls = int(cfg.get("llm_chat_max_calls", 25))
+    embedding_batch_size = max(1, int(cfg.get("llm_embedding_batch_size", 100)))
+    embedding_max_stories = max(0, int(cfg.get("llm_embedding_max_stories", 0)))
+    chat_max_calls = max(0, int(cfg.get("llm_chat_max_calls", 25)))
     retry_max_attempts = int(cfg.get("llm_retry_max_attempts", 4))
     retry_base_delay_sec = float(cfg.get("llm_retry_base_delay_sec", 1.5))
     retry_max_delay_sec = float(cfg.get("llm_retry_max_delay_sec", 20.0))
@@ -102,6 +105,24 @@ def enrich_stories(
     global_daily_rate_limit_state = (
         seed_global_daily_state_from_call_log(llm_call_log_path) if global_daily_max_calls > 0 else None
     )
+    target_stories = stories[:top_n]
+
+    def _embedding_pending(story: dict[str, Any]) -> bool:
+        story_id = str(story["story_id"])
+        embed_text = f"{_as_story_text(story, 'title')}\n\n{_as_story_text(story, 'summary')}".strip()
+        context_hash = _embedding_context_hash(embed_text, embed_model)
+        cache_entry = llm_cache.get(story_id, {})
+        return not (
+            decode_embedding(cache_entry.get("embedding"))
+            and cache_entry.get("embedding_context_hash") == context_hash
+        )
+
+    def _summary_pending(story: dict[str, Any]) -> bool:
+        cache_entry = llm_cache.get(str(story["story_id"]), {})
+        return not bool(cache_entry.get("summary") and cache_entry.get("topics"))
+
+    embedding_backlog_before = sum(1 for story in target_stories if _embedding_pending(story))
+    summary_backlog_before = sum(1 for story in target_stories if _summary_pending(story))
 
     def _model_call(model: str, call) -> tuple[dict[str, Any], dict[str, Any]]:
         limits = llm_call_limits(cfg, model)
@@ -135,12 +156,21 @@ def enrich_stories(
             "ok": ok_count,
             "errors": error_count,
             "skipped": skipped_count,
+            "backlog": {
+                "embeddings": {
+                    "before": embedding_backlog_before,
+                    "remaining": sum(1 for story in target_stories if _embedding_pending(story)),
+                },
+                "summaries": {
+                    "before": summary_backlog_before,
+                    "remaining": sum(1 for story in target_stories if _summary_pending(story)),
+                },
+            },
         }
         if reason:
             meta["reason"] = reason
         return stories, llm_cache, meta
 
-    target_stories = stories[:top_n]
     embedding_requests: list[tuple[dict[str, Any], str, str]] = []
     for story in target_stories:
         story_id = str(story["story_id"])
@@ -151,15 +181,19 @@ def enrich_stories(
             continue
         embedding_requests.append((story, embed_text, context_hash))
 
-    embed_inputs = [request[1] for request in embedding_requests]
-    if embed_inputs:
+    if embedding_max_stories:
+        embedding_requests = embedding_requests[:embedding_max_stories]
+
+    for batch_start in range(0, len(embedding_requests), embedding_batch_size):
+        batch_requests = embedding_requests[batch_start : batch_start + embedding_batch_size]
+        embed_inputs = [request[1] for request in batch_requests]
         try:
             embed_result, retry_meta = _model_call(
                 embed_model,
                 lambda: client.embed(embed_inputs, model=embed_model),
             )
             vectors = cast(list[Any], embed_result.get("vectors", []))
-            for index, (story, _embed_text, context_hash) in enumerate(embedding_requests):
+            for index, (story, _embed_text, context_hash) in enumerate(batch_requests):
                 story_id = str(story["story_id"])
                 vector: list[Any] = []
                 if index < len(vectors):
@@ -202,7 +236,8 @@ def enrich_stories(
             if fail_fast_auth and _is_auth_or_permission_exception(exc):
                 return _append_and_return("error", f"{provider_label.lower()} authentication or permission failure")
 
-    for story in target_stories[:chat_max_calls]:
+    summary_requests: list[dict[str, Any]] = []
+    for story in target_stories:
         story_id = str(story["story_id"])
         cache_entry = llm_cache.setdefault(story_id, {})
         if cache_entry.get("summary") and cache_entry.get("topics"):
@@ -216,7 +251,11 @@ def enrich_stories(
                 **existing_llm,
             }
             continue
+        summary_requests.append(story)
 
+    for story in summary_requests[:chat_max_calls]:
+        story_id = str(story["story_id"])
+        cache_entry = llm_cache.setdefault(story_id, {})
         try:
             result, retry_meta = _model_call(
                 summary_model,

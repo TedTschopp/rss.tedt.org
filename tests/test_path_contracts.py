@@ -80,8 +80,25 @@ class PathContractTests(unittest.TestCase):
 
     def test_workflow_limits_openai_output_cleanup_volume(self):
         workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
-        self.assertIn("PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '20' || '50' }}", workflow)
+        self.assertIn("inputs.backfill && '10000'", workflow)
+        self.assertIn("github.event.schedule != '30 3 * * *' && '20' || '50'", workflow)
         self.assertNotIn("PIPELINE_OUTPUT_CLEANUP_TOP_N: ${{ github.event_name == 'schedule' && github.event.schedule != '30 3 * * *' && '80' || '200' }}", workflow)
+
+    def test_workflow_exposes_bounded_backfill_dispatch(self):
+        workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
+        self.assertIn("backfill:", workflow)
+        self.assertIn("backfill_batch_size:", workflow)
+        self.assertIn("PIPELINE_BACKFILL_MODE:", workflow)
+        self.assertIn("PIPELINE_LLM_EMBEDDING_MAX_STORIES:", workflow)
+        self.assertIn("PIPELINE_AI_RELEVANCE_MAX_CALLS:", workflow)
+        self.assertIn("PIPELINE_IMPORTANCE_MAX_CALLS:", workflow)
+        self.assertIn("PIPELINE_OUTPUT_CLEANUP_MAX_CALLS:", workflow)
+        self.assertIn("PIPELINE_ARTICLE_FETCH_MAX_URLS:", workflow)
+
+    def test_scrape_concurrency_does_not_cancel_active_backfill(self):
+        workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
+        concurrency = workflow["jobs"]["scrape-and-generate-rss"]["concurrency"]
+        self.assertFalse(concurrency["cancel-in-progress"])
 
     def test_workflow_rejects_oversized_staged_blobs_before_commit(self):
         workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")

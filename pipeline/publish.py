@@ -337,9 +337,14 @@ def _load_article_cache(path: str) -> dict[str, dict[str, Any]]:
         value_map = cast(dict[str, Any], value)
         markdown = str(value_map.get("markdown") or "")
         fetched_at = str(value_map.get("fetched_at") or "")
-        if not markdown or not fetched_at:
+        fetch_failed = bool(value_map.get("fetch_failed"))
+        if not fetched_at or (not markdown and not fetch_failed):
             continue
-        cache[key] = {"markdown": markdown, "fetched_at": fetched_at}
+        cache[key] = {
+            "markdown": markdown,
+            "fetched_at": fetched_at,
+            "fetch_failed": fetch_failed,
+        }
     return cache
 
 
@@ -379,15 +384,19 @@ def publish_outputs(
 
     importance_backfill_days = int(cfg.get("importance_backfill_days", 60))
     ai_relevance_model = str(cfg.get("ai_relevance_model", "openai/gpt-4.1-mini"))
+    ai_relevance_max_calls = max(0, int(cfg.get("ai_relevance_max_calls", 0)))
     importance_model = str(cfg.get("importance_model", "openai/gpt-4.1-mini"))
+    importance_max_calls = max(0, int(cfg.get("importance_max_calls", 0)))
     output_cleanup_enabled = str(cfg.get("output_cleanup_enabled", True)).lower() not in {"0", "false", "no"}
     output_cleanup_top_n = max(0, int(cfg.get("output_cleanup_top_n", publish_top_n)))
+    output_cleanup_max_calls = max(0, int(cfg.get("output_cleanup_max_calls", 0)))
     output_cleanup_model = str(cfg.get("output_cleanup_model", "openai/gpt-4.1-mini"))
     output_cleanup_article_max_chars = int(cfg.get("output_cleanup_article_max_chars", 5000))
     output_cleanup_prompt_hash = _prompt_bundle_hash(OUTPUT_CLEANUP_PROMPT_PATHS)
     article_fetch_timeout_sec = int(cfg.get("article_fetch_timeout_sec", cfg.get("request_timeout_sec", 25)))
     article_max_chars = int(cfg.get("article_max_chars", 12000))
     article_fetch_workers = max(1, int(cfg.get("article_fetch_workers", 5)))
+    article_fetch_max_urls = max(0, int(cfg.get("article_fetch_max_urls", 0)))
     article_cache_enabled = str(cfg.get("article_cache_enabled", True)).lower() not in {"0", "false", "no"}
     article_cache_path = str(cfg.get("article_cache_path", "derived/article_cache.json"))
     article_cache_ttl_hours = int(cfg.get("article_cache_ttl_hours", 48))
@@ -417,6 +426,9 @@ def publish_outputs(
     )
     models_auth_failed = False
     model_budget_exhausted = False
+    ai_relevance_attempts = 0
+    importance_attempts = 0
+    output_cleanup_attempts = 0
 
     def _model_call(model: str, call) -> tuple[dict[str, Any], dict[str, Any]]:
         limits = llm_call_limits(cfg, model)
@@ -516,19 +528,29 @@ def publish_outputs(
         stories_needing_article.append(story)
         seen_article_story_ids.add(story_id)
 
-    unique_urls: set[str] = set()
+    unique_urls: list[str] = []
+    seen_urls: set[str] = set()
     for story in stories_needing_article:
         article_url = str(story.get("canonical_url") or story.get("url") or "").strip()
-        if article_url:
-            unique_urls.add(article_url)
+        if article_url and article_url not in seen_urls:
+            unique_urls.append(article_url)
+            seen_urls.add(article_url)
 
     urls_to_fetch: list[str] = []
     for url in unique_urls:
         cached_entry = article_cache.get(url)
-        if cached_entry and _article_cache_fresh(cached_entry, article_cache_ttl_hours):
+        if cached_entry and (
+            bool(cfg.get("backfill_mode"))
+            or _article_cache_fresh(cached_entry, article_cache_ttl_hours)
+        ):
             article_markdown_by_url[url] = str(cached_entry.get("markdown") or "")
         else:
             urls_to_fetch.append(url)
+
+    deferred_article_urls: set[str] = set()
+    if article_fetch_max_urls and len(urls_to_fetch) > article_fetch_max_urls:
+        deferred_article_urls = set(urls_to_fetch[article_fetch_max_urls:])
+        urls_to_fetch = urls_to_fetch[:article_fetch_max_urls]
 
     if urls_to_fetch:
         with ThreadPoolExecutor(max_workers=min(article_fetch_workers, len(urls_to_fetch))) as executor:
@@ -549,6 +571,84 @@ def publish_outputs(
                         article_cache_updated = True
                 except Exception:
                     article_markdown_by_url[url] = ""
+                    if article_cache_enabled and bool(cfg.get("backfill_mode")):
+                        article_cache[url] = {
+                            "markdown": "",
+                            "fetched_at": to_iso(datetime.now(timezone.utc)),
+                            "fetch_failed": True,
+                        }
+                        article_cache_updated = True
+
+    grading_candidates = [
+        story
+        for story in top_stories
+        if rubric_markdown
+        and rubric_hash
+        and ai_relevance_rubric
+        and ai_relevance_rubric_hash
+        and _eligible_for_importance_backfill(str(story.get("published") or ""), importance_backfill_days)
+    ]
+    cleanup_candidates = top_stories[:output_cleanup_top_n] if output_cleanup_enabled else []
+
+    def _current_relevance(story: dict[str, Any]) -> dict[str, Any] | None:
+        story_id = str(story.get("story_id") or "")
+        cache_entry = llm_cache.get(story_id, {})
+        relevance = cache_entry.get("ai_relevance")
+        if not isinstance(relevance, dict):
+            return None
+        article_url = str(story.get("canonical_url") or story.get("url") or "")
+        context_hash = _ai_relevance_context_hash(
+            str(story.get("title") or ""),
+            _story_base_summary(story),
+            article_markdown_by_url.get(article_url, ""),
+            ai_relevance_rubric_hash,
+            ai_relevance_model,
+        )
+        return relevance if str(relevance.get("context_hash") or "") == context_hash else None
+
+    def _current_cleanup(story: dict[str, Any]) -> dict[str, Any] | None:
+        story_id = str(story.get("story_id") or "")
+        article_url = str(story.get("canonical_url") or story.get("url") or "")
+        article_markdown = _article_excerpt(
+            article_markdown_by_url.get(article_url, ""),
+            output_cleanup_article_max_chars,
+        )
+        title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
+        summary_text = _story_base_summary(story)
+        context_hash = _output_cleanup_context_hash(
+            title_text,
+            summary_text,
+            _source_context(story, article_markdown),
+            output_cleanup_prompt_hash,
+            output_cleanup_model,
+        )
+        return _cached_output_cleanup(llm_cache.get(story_id, {}), context_hash)
+
+    def _backlog_counts() -> dict[str, int]:
+        relevance_pending = 0
+        importance_pending = 0
+        for story in grading_candidates:
+            relevance = _current_relevance(story)
+            if relevance is None:
+                relevance_pending += 1
+                continue
+            if not _ai_relevance_allows_grading(relevance):
+                continue
+            cache_entry = llm_cache.get(str(story.get("story_id") or ""), {})
+            importance_raw = cache_entry.get("importance")
+            importance = _normalize_importance_payload(
+                cast(dict[str, Any], importance_raw) if isinstance(importance_raw, dict) else None
+            )
+            if not isinstance(importance, dict) or str(importance.get("rubric_hash") or "") != rubric_hash:
+                importance_pending += 1
+
+        return {
+            "ai_relevance": relevance_pending,
+            "importance": importance_pending,
+            "output_cleanup": sum(1 for story in cleanup_candidates if _current_cleanup(story) is None),
+        }
+
+    backlog_before = _backlog_counts()
 
     for story in top_stories:
         story_id = str(story.get("story_id") or "").strip()
@@ -590,8 +690,10 @@ def publish_outputs(
         importance_client = client
 
         title_text = str(story.get("title") or "")
-        context_text = _story_summary(story)
+        context_text = _story_base_summary(story)
         article_url = str(story.get("canonical_url") or story.get("url") or "")
+        if bool(cfg.get("backfill_mode")) and article_url in deferred_article_urls:
+            continue
         article_markdown = article_markdown_by_url.get(article_url, "")
         relevance_context_hash = _ai_relevance_context_hash(
             title_text,
@@ -602,6 +704,9 @@ def publish_outputs(
         )
         relevance_payload: dict[str, Any] | None = existing_relevance
         if not isinstance(relevance_payload, dict) or str(relevance_payload.get("context_hash") or "") != relevance_context_hash:
+            if ai_relevance_max_calls and ai_relevance_attempts >= ai_relevance_max_calls:
+                continue
+            ai_relevance_attempts += 1
             try:
                 relevance_result, relevance_retry_meta = _model_call(
                     ai_relevance_model,
@@ -663,6 +768,9 @@ def publish_outputs(
         if not should_grade:
             continue
 
+        if importance_max_calls and importance_attempts >= importance_max_calls:
+            continue
+        importance_attempts += 1
         try:
             result, retry_meta = _model_call(
                 importance_model,
@@ -726,6 +834,8 @@ def publish_outputs(
         title_text = _strip_trailing_importance_tags(str(story.get("title") or ""))
         summary_text = _story_base_summary(story)
         article_url = str(story.get("canonical_url") or story.get("url") or "")
+        if bool(cfg.get("backfill_mode")) and article_url in deferred_article_urls:
+            continue
         article_markdown = _article_excerpt(
             article_markdown_by_url.get(article_url, ""),
             output_cleanup_article_max_chars,
@@ -747,6 +857,9 @@ def publish_outputs(
         if not output_cleanup_enabled or client is None or models_auth_failed or model_budget_exhausted:
             continue
 
+        if output_cleanup_max_calls and output_cleanup_attempts >= output_cleanup_max_calls:
+            continue
+        output_cleanup_attempts += 1
         try:
             cleanup_result, cleanup_retry_meta = _model_call(
                 output_cleanup_model,
@@ -789,7 +902,17 @@ def publish_outputs(
         append_jsonl(llm_call_log_path, call_rows)
 
     if llm_status is not None:
-        llm_status.update(_publish_llm_status())
+        publish_status = _publish_llm_status()
+        backlog_after = _backlog_counts()
+        publish_status["backlog"] = {
+            stage: {
+                "before": backlog_before[stage],
+                "remaining": backlog_after[stage],
+            }
+            for stage in backlog_before
+        }
+        publish_status["backlog_remaining"] = sum(backlog_after.values())
+        llm_status.update(publish_status)
 
     if article_cache_enabled and article_cache_updated:
         write_json(article_cache_path, article_cache)
