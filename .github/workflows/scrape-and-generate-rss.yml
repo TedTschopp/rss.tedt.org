@@ -16,12 +16,11 @@ on:
       backfill_batch_size:
         description: Maximum model calls per enrichment stage
         required: false
-        default: '500'
+        default: '250'
         type: choice
         options:
           - '250'
           - '500'
-          - '1000'
   push:
     branches: [ main ]
 

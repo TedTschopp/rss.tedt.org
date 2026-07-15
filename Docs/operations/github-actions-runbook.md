@@ -27,7 +27,7 @@ Use a backfill run only when the committed enrichment cache has accumulated miss
 
 1. Run `RSS Feed Hub - Scrape and Deploy` manually on `main`.
 2. Enable `backfill`.
-3. Choose a per-stage batch size. Start with `500`; use `1000` only when the 180-minute workflow budget has sufficient headroom.
+3. Choose a per-stage batch size. Use `250` by default; use `500` only after observed model latency confirms it fits the 180-minute checkpoint boundary.
 4. Wait for the workflow to commit its generated artifacts before starting another batch.
 5. Review `llm_status.backlog` and `llm_status.backlog_remaining` in `reports/pipeline_report.json`.
 6. Repeat until `backlog_remaining` is `0`.

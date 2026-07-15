@@ -95,6 +95,13 @@ class PathContractTests(unittest.TestCase):
         self.assertIn("PIPELINE_OUTPUT_CLEANUP_MAX_CALLS:", workflow)
         self.assertIn("PIPELINE_ARTICLE_FETCH_MAX_URLS:", workflow)
 
+    def test_backfill_batch_choices_fit_the_workflow_timeout(self):
+        workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
+        backfill_input = workflow.split("backfill_batch_size:", 1)[1].split("push:", 1)[0]
+        self.assertIn("default: '250'", backfill_input)
+        self.assertIn("- '500'", backfill_input)
+        self.assertNotIn("- '1000'", backfill_input)
+
     def test_scrape_concurrency_does_not_cancel_active_backfill(self):
         workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
         concurrency = workflow["jobs"]["scrape-and-generate-rss"]["concurrency"]
