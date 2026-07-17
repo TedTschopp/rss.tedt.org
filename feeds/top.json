@@ -7,193 +7,354 @@
   "language": "en",
   "items": [
     {
-      "id": "sty_00923140251acb1e",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/",
-      "title": "Google renames NotebookLM to Gemini Notebook, adds secure cloud computing and code execution for enhanced research capabilities [ * ] [ ◼ ]",
-      "content_text": "Google has rebranded its research tool NotebookLM as Gemini Notebook, integrating it more deeply with the Google ecosystem and introducing a secure cloud computer that enables native code execution within notebooks. This update aims to enhance data analysis and research accuracy, with features rolling out to Pro users and Google Workspace business customers. The Gemini Notebook now supports syncing notes across the Gemini app and Google Search, allowing users to access their notebooks seamlessly across platforms. Originally launched as Project Tailwind in 2023, the tool has grown to serve over 30 million users and 600,000 organizations, and the rebranding reflects its expanded functionality within Google's AI offerings.",
-      "date_published": "2026-07-16T16:00:00Z"
+      "id": "sty_a23e894f06615ba1",
+      "url": "https://stateofopensource.ai/",
+      "title": "Mozilla outlines the state of open source AI, highlighting global projects, adoption trends, and the strategic importance of open models and interoperability [ * ] [ ◼ ]",
+      "content_text": "Mozilla presents a comprehensive overview of open source AI, showcasing diverse global initiatives such as language-specific speech models in New Zealand, financial AI tools by PwC, humanitarian medical models, and agricultural disease diagnosis in East Africa. The report emphasizes that open AI models now handle a majority of production tokens and are widely adopted by developers, though operational challenges remain compared to closed models. The analysis details the commercial scale of open-weight AI, with companies like Databricks and Mistral achieving significant revenue milestones. It also discusses the strategic significance of open AI for national sovereignty, noting that over 70 countries have active AI strategies focused on owning layers of the AI stack. Mozilla stresses the importance of the \"agentic harness\"-the orchestration layer above models-as the new frontier for competition between open and closed AI systems, advocating for competition, interoperability, and user control as key to the future of AI.",
+      "date_published": "2026-07-17T14:31:10Z"
+    },
+    {
+      "id": "sty_42a1db4112e9cf58",
+      "url": "https://www.ft.com/content/1b8c9d52-88a9-426b-ba47-f1811f859166",
+      "title": "Apple sends legal letters to dozens of OpenAI employees amid ongoing disputes",
+      "content_text": "Apple has issued legal letters targeting dozens of employees at OpenAI, signaling escalating tensions between the two companies. The move reflects ongoing disputes that may involve intellectual property or competitive concerns. Details about the specific allegations or the employees involved have not been disclosed.",
+      "date_published": "2026-07-17T12:02:39Z"
+    },
+    {
+      "id": "sty_494632bb15362774",
+      "url": "https://www.olafalders.com/2026/07/17/claude-code-anatomy-of-a-misfeature/",
+      "title": "Anthropic ships Claude Code 2.1.198 with an undocumented 60-second AFK bypass feature that auto-continues without user input, then quickly reverses it after user backlash [ * ] [ ◼ ]",
+      "content_text": "Anthropic released version 2.1.198 of Claude Code on July 1, 2026, introducing an undocumented feature that allows agents to continue automatically after 60 seconds without user input. This behavior surprised users as it could lead to unintended actions if the user was away, and it was not mentioned in the changelog. The feature was quickly reversed in version 2.1.200 following significant user complaints and issue reports. The incident raised questions about the development and release process, including whether humans reviewed or approved the feature and why it was undocumented. The episode highlighted concerns about rapid feature deployment without sufficient transparency or safeguards, affecting user trust in Claude Code's auto-update mechanism.",
+      "date_published": "2026-07-17T14:26:58Z"
+    },
+    {
+      "id": "sty_11eece97ad84db8b",
+      "url": "https://blog.zksecurity.xyz/posts/openvm-bugs/",
+      "title": "Researchers find critical soundness bug in OpenVM's zkVM guest library using AI auditor, fixed in version 1.6.0 [ * ] [ ⬢ ]",
+      "content_text": "Researchers used an AI auditor named zkao to analyze OpenVM's zkVM and discovered a critical soundness bug in the guest library openvm-pairing that allows a malicious prover to forge pairing equality. This bug, assigned CVE-2026-46669, does not affect the zkVM proving system itself but impacts code using the vulnerable library and was fixed in OpenVM version 1.6.0. The AI-generated candidate finding was validated by human experts who confirmed its exploitability and impact. The discovery followed extensive AI scanning and context engineering efforts, highlighting challenges in auditing complex cryptographic codebases with naive language models. The fix has been adopted by all known partners building on OpenVM.",
+      "date_published": "2026-07-17T14:21:35Z"
     },
     {
       "id": "sty_177337c938a6e79d",
       "url": "https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6",
-      "title": "TryAI.dev compares Claude Fable 5 and GPT-5.6 Sol in autonomous AI music video creation using $25 and $100 budgets [ ~ ] [ ◻ ]",
-      "content_text": "TryAI.dev developed an autonomous system that tasked Claude Fable 5 and GPT-5.6 Sol models with creating full music videos for Bruno Mars and Mark Ronson's \"Uptown Funk\" using specified budgets and tools. Each model independently researched, generated clips, edited footage with ffmpeg, and assembled final videos, with all tool calls and costs logged for analysis. The experiment ran four total sessions-two models at two budget levels each-resulting in complete videos with varying approaches to video generation and editing. GPT-5.6 Sol used a mix of video models including image-to-video pipelines, while Claude Fable 5 focused on text-to-video generation. The study highlighted challenges in narrative consistency and literal interpretation of lyrics by the models. The open-source harness allows others to replicate or extend the experiment with different inputs and models.",
+      "title": "TryAI.dev runs autonomous AI models Claude Fable 5 and GPT-5.6 Sol to create full music videos with budgets of $25 and $100 using tool-calling loops and video generation APIs [ ~ ] [ ◻ ]",
+      "content_text": "TryAI.dev developed an autonomous system where AI models Claude Fable 5 and GPT-5.6 Sol independently produced full music videos for Bruno Mars and Mark Ronson's \"Uptown Funk\" using a set budget and various generation tools. Each model researched, generated clips, edited footage with ffmpeg, and assembled final videos, with detailed logs of tool usage and costs. The experiment included four runs-two models at two budget levels-showing differences in tool selection and video generation approaches, such as text-to-video and image-to-video pipelines. Both models completed full-length videos within budget, with generation costs and token usage tracked separately. The project is open source, allowing others to replicate or extend the setup. While the resulting videos lacked coherent storylines and consistent characters, the test highlighted current limitations and differences in frontier AI models' autonomous creative capabilities, providing insights into their tool use and decision-making processes during complex, open-ended tasks.",
       "date_published": "2026-07-16T20:03:23Z"
     },
     {
-      "id": "sty_2495706cd23d6a4b",
-      "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
-      "title": "LM Studio launches Bionic AI agent for open models with local and cloud execution, voice transcription, coding, and document workflows [ * ] [ ◼ ]",
-      "content_text": "LM Studio has introduced Bionic, an AI agent designed to work with open models for tasks including coding, research, and document management. Bionic supports local model execution and cloud-based open-source models, emphasizing user privacy with zero data retention and no training on user data. It features voice input with local transcription, flexible model selection, and cost control for different tasks. Bionic enables coding assistance by inspecting and editing local codebases with inline diffs and agentic code search, supporting models like GLM 5.2 and Kimi K2.7 Code. It also facilitates productivity with documents, slides, and spreadsheets, offering sandboxed processing, file organization, summarization, and native web search integration. Users can download local models or use LM Studio Secure Cloud for complex tasks, with transient cloud processing to protect data privacy. The app is separate from LM Studio and requires an account for cloud model billing. LM Studio plans ongoing improvements as open models evolve and user feedback is gathered.",
-      "date_published": "2026-07-16T20:18:15Z"
+      "id": "sty_611b9180126ff1a8",
+      "url": "https://simonwillison.net/2026/Jul/16/kimi-k3/",
+      "title": "Moonshot AI launches Kimi K3 with 2.8 trillion parameters, claiming first open 3T-class model and competitive benchmarks against Claude and GPT models [ ~ ] [ ◻ ]",
+      "content_text": "Chinese AI lab Moonshot AI announced Kimi K3, a 2.8 trillion parameter model available via their website and API, with open weights promised by July 27, 2026. The model claims to outperform several competitors like Claude Opus 4.8 max and GPT-5.5 high, while trailing behind Claude Fable 5 and GPT-5.6 Sol, and is priced at $3 per million input tokens and $15 per million output tokens, making it the most expensive Chinese AI model to date. The author tested Kimi K3 using a longstanding benchmark prompt to generate an SVG of a pelican riding a bicycle, revealing the model's high token usage and cost for reasoning tasks, as well as its effective image input capabilities. While the pelican benchmark has lost correlation with overall model quality and does not assess critical modern features like agentic tool use, it remains a useful quick test for model functionality and cost estimation. The analysis highlights that Kimi K3 currently supports only a single reasoning effort level and has a substantial hidden system prompt token count. Despite limitations of the pelican benchmark, the exercise provides insights into the model's behavior and encourages hands-on experimentation with new AI models.",
+      "date_published": "2026-07-16T20:19:30Z"
     },
     {
-      "id": "sty_6ce1822cbba9027f",
-      "url": "https://blog.lyc8503.net/en/post/llm-classifier/",
-      "title": "Researcher develops traditional machine learning model to detect LLM-generated text with about 85% accuracy using SVM and Naive Bayes classifiers [ ~ ] [ ◼ ]",
-      "content_text": "A researcher created a text detection model using classical machine learning techniques like scikit-learn's Linear SVC and Naive Bayes to distinguish between human-written and large language model (LLM)-generated texts. The model achieves approximately 85% accuracy on single sentences and is based on training data generated by comparing human-written articles with LLM-generated summaries and rewrites. The project arose from the author's experience with AI-generated content detection tools and the difficulty of reliably identifying AI-written text using perplexity-based methods. The researcher gathered a dataset of nearly 10,000 human-written texts from 2010 to 2022 and generated corresponding LLM texts using multiple APIs. The resulting classifier leverages statistical word-choice patterns distinctive to LLM outputs, demonstrating that traditional machine learning can effectively detect AI-generated content despite the rise of large models. An online demo and source code are available, though the model has not undergone extensive optimization and may have limitations. This approach offers a more accessible alternative to costly or complex LLM-based detection methods, highlighting ongoing challenges in AI-generated text identification.",
-      "date_published": "2026-07-16T16:41:37Z"
+      "id": "sty_3ac83cdcda407676",
+      "url": "https://www.pennlive.com/business/2026/07/cia-director-gives-chilling-account-of-ais-battlefield-lethality-low-cost-killing-machines.html",
+      "title": "CIA director warns AI enables low-cost, highly lethal battlefield weapons with significant strategic risks [ ~ ] [ ◻ ]",
+      "content_text": "The CIA director provided a stark assessment of artificial intelligence's impact on warfare, highlighting how AI technology is enabling the development of low-cost, highly lethal weapons that could change battlefield dynamics. This account underscores growing concerns about the strategic risks posed by autonomous and AI-enhanced military systems. The director's remarks emphasize the potential for AI to lower the barriers to deploying deadly force, raising questions about future conflict escalation and the challenges of controlling such technologies. The discussion reflects broader debates on the ethical and security implications of AI in military applications.",
+      "date_published": "2026-07-17T16:28:54Z"
     },
     {
-      "id": "sty_69c806ca4e6d0de5",
-      "url": "https://www.theocharis.dev/blog/llm-critics-are-right-i-use-llms-anyway/",
-      "title": "Developer acknowledges valid criticisms of LLMs but continues using them due to practical benefits and shared industry dissonance [ ~ ] [ ◻ ]",
-      "content_text": "A software developer reflects on the widespread criticisms of large language models (LLMs), including issues like low-quality outputs, ethical concerns, and environmental impact, yet admits to using them extensively. The author highlights a common tension among engineers who recognize these problems but still rely on LLMs for their utility, as observed during a recent conference in Berlin. The article discusses how even creators of LLM-based tools face challenges such as managing overwhelming automated contributions and maintaining trust in open source projects. It explores the dilemma of balancing skepticism with practical adoption, noting that some projects have started rejecting LLM-generated contributions to preserve quality. The author aims to describe this nuanced dissonance and invites others to share their experiences to better understand the complex relationship between LLM criticism and usage.",
-      "date_published": "2026-07-16T11:59:01Z"
+      "id": "sty_4b169357f0e9555e",
+      "url": "https://www.axios.com/2026/07/17/china-ai-kimi-k3-open-source-anthropic-opus",
+      "title": "China launches Kimi K3 open-source AI model, challenging US leadership in artificial intelligence",
+      "content_text": "China has introduced the Kimi K3, an open-source AI model that marks a significant advancement in the country's artificial intelligence capabilities, potentially closing the gap with the United States. This development reflects China's growing investment and innovation in AI technologies, positioning it as a major competitor in the global AI landscape. The release of Kimi K3 may influence the dynamics of AI research and deployment internationally, prompting shifts in technological leadership and collaboration.",
+      "date_published": "2026-07-17T16:10:56Z"
     },
     {
-      "id": "sty_56620aa23e57b7c2",
-      "url": "https://arxiv.org/abs/2607.11938",
-      "title": "New book outlines mathematical foundations of data science, covering topics from high-dimensional analysis to deep learning and matrix recovery [ ~ ] [ ◻ ]",
-      "content_text": "A new book presents a comprehensive overview of the mathematical principles underlying data science. It covers a wide range of topics including high-dimensional phenomena, singular value decomposition, regression techniques, graph theory, dimension reduction, optimization, classification, deep learning, and matrix recovery methods. The book is structured into chapters that address both foundational concepts and advanced topics such as concentration inequalities, compressive sensing, and community detection in networks. It aims to provide a rigorous mathematical introduction to key tools and methods used in modern data science research and applications.",
-      "date_published": "2026-07-16T20:38:48Z"
+      "id": "sty_8da2460afd5c810c",
+      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
+      "title": "OpenAI CFO Sarah Friar introduces an AI scorecard measuring useful work, cost per successful task, dependability, and return on compute to assess AI ROI [ * ] [ ◼ ]",
+      "content_text": "OpenAI CFO Sarah Friar presents a practical AI scorecard designed to help CFOs and business leaders evaluate the return on investment from AI by focusing on useful work completed, the cost per successful task, reliability, and value growth as usage increases. The scorecard emphasizes measuring the full cost of producing successful outcomes rather than just token costs, highlighting the importance of efficiency and effectiveness in AI deployments. The approach encourages defining clear outcomes within specific workflows, such as customer issue resolution or contract review, and calculating the total cost-including compute, human review, and retries-divided by the number of successful tasks. OpenAI's GPT-5.6 model family exemplifies this by offering tiers optimized for different tasks, aiming to maximize useful work per dollar through improved reasoning and efficiency. This framework aims to guide organizations in optimizing AI investments by balancing cost, capability, and dependability.",
+      "date_published": "2026-07-17T10:00:00Z"
     },
     {
-      "id": "sty_059573d2a808fdf6",
-      "url": "https://www.zhinit.dev/blog/training-a-kick-drum-diffusion-model",
-      "title": "Guide shows how to train a generative AI kick drum model on a Linux desktop with 6GB VRAM [ ~ ] [ ◻ ]",
-      "content_text": "A detailed blog post explains the process of training a generative AI model for kick drum sounds using an older Linux desktop equipped with 6GB of VRAM. The guide covers the necessary steps and tools to accomplish this task without requiring high-end hardware. The article provides practical insights into leveraging diffusion models for audio generation, making AI music production more accessible to users with modest computing resources. It includes technical details and considerations for optimizing training on limited hardware.",
-      "date_published": "2026-07-16T15:13:00Z"
+      "id": "sty_bd05c77c1dbcbae8",
+      "url": "https://www.nytimes.com/2026/07/17/technology/meta-anthropic-ai-computing-power.html",
+      "title": "Sources: Meta is in talks to lease computing power to Anthropic in a potential $10 billion deal [ * ] [ ◼ ]",
+      "content_text": "Meta is reportedly negotiating to lease its computing infrastructure to Anthropic, an AI startup, in a deal that could be worth around $10 billion. This potential agreement reflects the increasing demand for high-performance computing resources in the artificial intelligence industry.",
+      "date_published": "2026-07-17T16:33:48Z"
     },
     {
-      "id": "sty_235729ae4812a209",
-      "url": "https://www.briefs.co/news/chinese-models-power-60-of-us-corporate-ai-use/",
-      "title": "Chinese AI models power nearly 60% of US corporate AI use on OpenRouter platform, up from under 10% a year ago [ * ] [ ◼ ]",
-      "content_text": "Chinese AI models now account for nearly 60% of artificial intelligence usage by US corporations on the OpenRouter platform, marking a significant increase from less than 10% a year earlier. This shift is driven by cost savings and efficiency, with startups like Lindy AI switching to Chinese models such as DeepSeek to reduce inference costs by 90%. The rise of Chinese AI models is also becoming a geopolitical issue, as China promotes international cooperation through the World AI Cooperation Organization, which has attracted nearly 30 countries. However, concerns about security risks and intellectual property theft persist, with US authorities and companies expressing caution over reliance on Chinese AI technology. Discussions are ongoing about limiting foreign access to advanced Chinese models to mitigate potential risks.",
-      "date_published": "2026-07-17T09:17:36Z"
+      "id": "sty_88ab4d8c06998889",
+      "url": "https://techcrunch.com/2026/07/17/patreon-stops-asking-ai-bots-not-to-scrape-and-starts-blocking-them/",
+      "title": "Patreon partners with Cloudflare to block AI training bots, shifting from robots.txt warnings to active scraping prevention [ ~ ] [ ◻ ]",
+      "content_text": "Patreon is enhancing its protection against AI scraping by collaborating with Cloudflare to block AI bots that train models on creators' content without consent. This marks a change from relying solely on robots.txt files to actively preventing unauthorized AI training access. The move responds to increasingly sophisticated AI scraping techniques and new content discovery features that expose more creator work to crawlers. Patreon will still allow indexing bots that help direct users to its platform, emphasizing creators' control over how their content is used by AI companies.",
+      "date_published": "2026-07-17T15:21:17Z"
     },
     {
-      "id": "sty_bb4589aa95e9942f",
-      "url": "https://www.theverge.com/streaming/966633/netflix-ai-titles-q2-2026-earnings",
-      "title": "Netflix says around 300 titles used generative AI mostly in post-production to enhance scenes and reduce costs [ ~ ] [ ◻ ]",
-      "content_text": "Netflix reported that approximately 300 titles on its platform have used generative AI, primarily in post-production, to create complex sequences and improve efficiency. The company highlighted examples like The American Experiment, which includes 17 minutes of AI-enhanced footage produced faster and at half the cost compared to traditional methods. Netflix's co-CEO Ted Sarandos noted that AI allowed productions to include shots that would have been unaffordable or impossible within typical timeframes. Netflix is increasing its investment in AI technologies, including acquiring an AI startup and using AI-generated voices in new content. The company also reported $12.56 billion in earnings for the quarter and is working to double its ad revenue to $3 billion while expanding content types to compete with free-to-watch platforms.",
-      "date_published": "2026-07-17T07:15:51Z"
+      "id": "sty_9c4d34e355abfe2a",
+      "url": "https://github.com/mathhMadureira/orka",
+      "title": "Orka launches policy checkpoint system to intercept AI agent actions, prevent runaway loops and overspending, and provide audit trails [ * ] [ ◼ ]",
+      "content_text": "Orka introduces a policy checkpoint platform that intercepts AI agent actions before execution to prevent costly runaway loops, unauthorized spending, and risky operations. It enforces budget caps, blocks dangerous calls, requires human approval for risky actions, and logs all activity in a tamper-evident ledger for auditability. The system integrates with popular AI frameworks via SDKs and decorators, automatically detecting loops and enforcing spend limits without extra code. It provides a real-time dashboard showing cost savings and risk scores, helping teams maintain control over deployed AI agents and avoid incidents like unintended data deletion or unauthorized purchases.",
+      "date_published": "2026-07-17T15:30:07Z"
     },
     {
-      "id": "sty_38f03050abf5ec76",
-      "url": "https://www.bloomberg.com/news/articles/2026-07-17/z-ai-set-to-be-first-china-ai-firm-with-1-billion-annual-sales",
-      "title": "Z.ai is set to become the first Chinese AI company to reach $1 billion in annual sales",
-      "content_text": "Z.ai is poised to become the first artificial intelligence company in China to achieve $1 billion in annual revenue. This milestone highlights the rapid growth and commercial success of AI firms in the Chinese market.",
-      "date_published": "2026-07-17T06:20:33Z"
+      "id": "sty_5202ba2674601e73",
+      "url": "https://www.artificialintelligence-news.com/news/bunkerhill-raises-55m-scale-agentic-ai-health-systems/",
+      "title": "Bunkerhill raises $55M to expand Carebricks agentic AI platform across US health systems with backing from Sequoia, Felicis, Optum Ventures, and Y Combinator [ * ] [ ◼ ]",
+      "content_text": "Bunkerhill Health has secured $55 million in Series B funding to scale its agentic AI platform, Carebricks, which enables hospitals to deploy AI agents that operate on live clinical data. Investors include Sequoia Capital, Felicis, Optum Ventures, Y Combinator, and Khosla Ventures, reflecting confidence in the platform's ability to move beyond pilot projects to real-world hospital use. Carebricks is currently used by health systems such as Cleveland Clinic, University of Texas Medical Branch (UTMB), and Intermountain Health, supporting clinical, operational, and administrative tasks. UTMB reports over 20 live AI agents, including ones that detect coronary calcium to flag heart attack risk and prioritize nephrology patients, with reported improvements in patient outcomes and reduced specialist wait times. While these results are promising, they are based on individual health system data and have not been independently audited or published in controlled trials.",
+      "date_published": "2026-07-17T16:00:30Z"
     },
     {
-      "id": "sty_ba6d91d7f3f35d6f",
-      "url": "https://www.theinformation.com/briefings/chinese-leader-xi-calls-open-source-open-collaboration-shanghai-ai-conference",
-      "title": "Chinese leader Xi Jinping calls for open source and open collaboration in AI development at Shanghai conference [ ~ ] [ ◻ ]",
-      "content_text": "Chinese leader Xi Jinping urged open source and open collaboration in global artificial intelligence development during a keynote speech at a government-hosted AI conference in Shanghai. He emphasized the importance of inclusiveness and mutual learning among civilizations in advancing AI technologies.",
-      "date_published": "2026-07-17T08:13:01Z"
+      "id": "sty_57bd76bd3506674a",
+      "url": "https://futurism.com/artificial-intelligence/chinese-ai-kimi-moonshot-benchmark-claude-chatgpt",
+      "title": "Chinese AI model Kimi-K3 tops AI benchmark charts in front-end coding, surpassing US models including Claude Fable 5 and GPT-5.6 [ * ] [ ◼ ]",
+      "content_text": "Beijing-based Moonshot AI's Kimi-K3 model rose from 17th to first place on the Arena.ai \"Frontend Code Arena\" benchmark, outperforming 16 other large language models in multi-step web development tasks. It also improved to ninth place in the \"Text Arena\" for text-to-text tasks, marking significant progress over its predecessor Kimi-K2.6. This achievement coincides with a downturn in US tech stocks amid concerns over an AI market bubble. Kimi-K3's open-weight design contrasts with proprietary US models, offering lower costs and challenging the pricing of closed-source AI systems. Industry observers note the narrowing performance gap may shift enterprise preferences toward Chinese AI solutions, posing competitive challenges for US tech firms.",
+      "date_published": "2026-07-17T15:54:00Z"
     },
     {
-      "id": "sty_5290ca7abd88aceb",
-      "url": "https://github.com/newptcai/repy",
-      "title": "Developer ports terminal ePub reader epy to Rust using AI-generated code, adding features like inline graphics and annotations [ ~ ] [ ◻ ]",
-      "content_text": "A developer has ported the terminal-based ePub reader epy from Python to Rust using entirely AI-generated code from tools like Codex CLI and Claude Code. The project, named repy, enhances the original with features such as fast chapter rendering, inline terminal graphics, persistent annotations, and support for multiple ebook formats, aiming to provide a keyboard-first reading experience in the terminal. The developer noted the complexity of rendering ePub files correctly in a terminal and the challenges AI agents faced in navigating the book structure. Despite limited community interest reflected in a small number of GitHub stars and upvotes, the project is functional for daily use and includes capabilities like search, bookmarks, dictionary and Wikipedia lookup, text-to-speech, and image viewing. The developer reflects on the abundance of software and content in the AI era and the personal value found in creating software for its own sake rather than widespread adoption.",
-      "date_published": "2026-07-17T07:17:09Z"
+      "id": "sty_f245ca3df4e22371",
+      "url": "https://johnathanward.com/im-shutting-down-content-goblin-a-post-mortem/",
+      "title": "Founder shuts down Content Goblin AI SaaS after fraud attack and unsustainable support demands despite initial $15k MRR [ ~ ] [ ◻ ]",
+      "content_text": "The creator of Content Goblin, an AI-powered tool for generating Pinterest content and listicles, has decided to shut down the SaaS due to financial inviability. Despite reaching $15,000 in monthly recurring revenue with help from a YouTube partnership, the service faced persistent customer churn and overwhelming support demands on the sole developer. The shutdown followed a significant fraud attack in March 2025, where scammers exploited the affiliate program using fraudulent credit cards, resulting in about $50,000 in illegitimate charges. The founder also struggled to balance the SaaS with a demanding full-time job, leading to burnout and the decision to cease operations.",
+      "date_published": "2026-07-17T15:59:30Z"
     },
     {
-      "id": "sty_0ee86381ea200222",
-      "url": "https://the-decoder.com/netflixs-300-ai-productions-show-how-fast-the-technology-is-spreading-through-entertainment/",
-      "title": "Netflix uses AI in about 300 productions, including 17 minutes of AI-assisted footage in The American Experiment, speeding production and cutting costs [ * ] [ ◼ ]",
-      "content_text": "Netflix now incorporates AI technology in approximately 300 productions, primarily in post-production, to accelerate workflows from concept to delivery. Co-CEO Ted Sarandos highlighted that the docuseries The American Experiment features 17 minutes of AI-assisted footage produced twice as fast and at half the cost, with savings expected to fund additional content rather than reduce the $20 billion budget. Netflix employs tools like Interpositive and Eyeline and operates its own animation lab to integrate AI into creative processes. Despite some industry pushback, AI adoption is spreading rapidly in entertainment, with many studios using similar technologies discreetly to enhance production efficiency and creative possibilities.",
-      "date_published": "2026-07-17T08:53:31Z"
+      "id": "sty_a499b061364bb788",
+      "url": "https://www.theinformation.com/briefings/tech-stocks-drop-sharply",
+      "title": "Tech stocks fall sharply amid concerns over AI-driven growth risks and Moonshot AI's new model release [ ~ ] [ ◻ ]",
+      "content_text": "Tech stocks declined significantly again on Friday, driven by ongoing worries about the risks faced by companies relying on AI for growth. The selloff was also influenced by Moonshot AI's launch of a new AI model that surpasses most leading competitors, intensifying market uncertainty.",
+      "date_published": "2026-07-17T14:06:35Z"
     },
     {
-      "id": "sty_6971c3fc948eb28f",
-      "url": "https://www.oversightboard.com/news/are-llms-stifling-political-speech-an-assessment-of-how-ai-models-protect-free-expression/",
-      "title": "Oversight Board finds major LLMs twice as likely to refuse political criticism of repressive regimes, raising free expression concerns [ * ] [ ◼ ]",
-      "content_text": "The Oversight Board evaluated large language models from Anthropic, DeepSeek, Google, Meta, and OpenAI, finding they are more than twice as likely to refuse generating politically critical content about repressive governments compared to permissive ones. This suggests that AI models may inadvertently reinforce speech restrictions aligned with certain national laws, impacting users' free expression without clear transparency. The study tested 10 commercial LLMs through standard interfaces and found refusal rates of 34% for restrictive jurisdictions versus 14% for permissive ones. Models gave varied refusal explanations, sometimes citing legal or safety reasons, but inconsistently applied policies across different leaders and countries. The findings highlight the need for systematic human rights analysis in AI training and evaluation to address potential biases that suppress political speech globally.",
-      "date_published": "2026-07-17T09:35:19Z"
+      "id": "sty_b828d9a842f7642b",
+      "url": "https://www.theregister.com/ai-and-ml/2026/07/16/researcher-poisons-open-weight-ai-model-for-under-100/5273880",
+      "title": "Researcher poisons open-weight AI model with backdoor for under $100, demonstrating vulnerability of AI supply chain [ * ] [ ◼ ]",
+      "content_text": "Katie Paxton-Fear, a cybersecurity lecturer and staff security advocate, successfully installed a backdoor in an open-weight AI model within an hour for less than $100, highlighting the ease of poisoning such models. The poisoned model reliably produced code vulnerable to remote execution after only ten training examples, with larger models being easier to compromise. Paxton-Fear and her colleagues emphasize that open-weight AI models lack the observability and verification tools available for traditional software, making it difficult to predict or detect malicious behavior. This vulnerability poses significant risks as AI supply chain attacks become more common and open-weight models see increased use on local hardware. The researchers warn that compromised models can subtly influence decisions without obvious signs of tampering, raising concerns about trust and security in AI systems.",
+      "date_published": "2026-07-17T15:21:55Z"
     },
     {
-      "id": "sty_8f06ed13a2d6a1c2",
-      "url": "https://www.nextplatform.com/control/2026/07/15/sres-to-ai-agents-prove-yourself-before-you-touch-production/5271533",
-      "title": "SREs emphasize trust and validation for AI agents before production deployment amid low AIOps adoption [ * ] [ ◼ ]",
-      "content_text": "Site Reliability Engineers (SREs) remain cautious about deploying AI agents in production due to trust concerns, with a 2026 survey showing 73% of experts not using AIOps and only 8% in production. NeuBird AI's Production Ops Agent aims to build trust by providing explainable, context-aware investigations and fixing observability at its source rather than relying on noisy alert queues. The survey revealed that 60% of respondents cite lack of trust as the main barrier to AIOps adoption, with accuracy demands near 80-100%. NeuBird AI addresses these issues by recording decision reasoning for auditability, ensuring data security with SOC 2 Type II certification, and integrating with existing workflows. The company highlights that trust must be earned through continuous learning and transparency before SRE teams allow AI agents to manage production systems.",
-      "date_published": "2026-07-17T09:31:24Z"
+      "id": "sty_05f353f9ae1e6166",
+      "url": "https://news.ycombinator.com/item?id=48949452",
+      "title": "Hacker News discussion asks how AI has most beneficially impacted daily life [ ~ ] [ ◻ ]",
+      "content_text": "A Hacker News thread invites users to share the most beneficial ways artificial intelligence has affected their daily lives. Participants highlight AI's role in enhancing productivity through automation, personalizing services like recommendations and virtual assistants, and supporting better decision-making with data analysis. These contributions emphasize AI's impact on convenience and efficiency in everyday activities.",
+      "date_published": "2026-07-17T16:49:18Z"
     },
     {
-      "id": "sty_db55e0e102c04224",
-      "url": "https://www.ft.com/content/ddb316b4-c6ae-4b9b-9d4a-63d63201d4fc",
-      "title": "Chinese President Xi Jinping outlines China's ambition to become a global leader in artificial intelligence [ ~ ] [ ◻ ]",
-      "content_text": "Chinese President Xi Jinping has articulated China's goal to lead globally in artificial intelligence, emphasizing the country's strategic focus on advancing AI technologies. This ambition aims to integrate AI across various sectors to boost economic and technological development.",
-      "date_published": "2026-07-17T09:20:49Z"
+      "id": "sty_4322b4be57e53022",
+      "url": "https://www.theinformation.com/articles/private-jets-scarce-blame-gusher-ai-wealth",
+      "title": "Entrepreneur launches Bond, a $1 million-plus fractional private jet service targeting ultrawealthy AI industry members amid private jet scarcity",
+      "content_text": "Bill Papariella, who sold his private jet charter business for nearly $1 billion in 2022, launched Bond in October 2025, a fractional jet ownership company offering premium service with a capped membership of about 100 ultrawealthy clients. The service, featuring luxury interiors and dedicated cabin attendants, targets members with an average net worth of $500 million, including many young founders and engineers from AI companies like xAI, Anthropic, and OpenAI. Bond plans to begin flights with a fleet of 20 airplanes in 2027.",
+      "date_published": "2026-07-17T13:18:30Z"
+    },
+    {
+      "id": "sty_c4beebc6bbdba761",
+      "url": "https://www.youtube.com/watch?v=17_HcR95YBc",
+      "title": "Patreon CEO discusses AI's impact on creative industries, expressing cautious optimism about its role [ ~ ] [ ◻ ]",
+      "content_text": "Patreon's CEO shared a balanced perspective on artificial intelligence, acknowledging potential concerns while highlighting optimism about AI's influence on content creation. The discussion covers how the platform plans to support creators amid evolving AI technologies and the changing creative landscape.",
+      "date_published": "2026-07-17T16:38:05Z"
+    },
+    {
+      "id": "sty_56dbb4de3d86b0d5",
+      "url": "https://techstrong.ai/articles/perplexity-unveils-space-a-secure-sandbox-platform-for-ai-agents/",
+      "title": "Perplexity Unveils Space, a Secure Sandbox Platform for AI Agents",
+      "content_text": "Perplexity has introduced Space, a new secure sandbox platform designed for AI agents. This platform aims to provide a controlled environment where AI agents can operate safely and effectively, potentially enhancing the development and deployment of AI technologies.",
+      "date_published": "2026-07-17T16:34:04Z"
+    },
+    {
+      "id": "sty_ddbdce141a1ed165",
+      "url": "https://techcrunch.com/2026/07/17/why-the-first-gpu-financiers-are-turning-to-inference-chips-in-a-400-million-deal/",
+      "title": "Why the first GPU financiers are turning to inference chips in a $400 million deal [ * ] [ ◼ ]",
+      "content_text": "A $400 million chip-backed loan points to the next wave of AI infrastructure deals.",
+      "date_published": "2026-07-17T12:00:00Z"
+    },
+    {
+      "id": "sty_1a110e7ca3b5a894",
+      "url": "https://wolbarg.com/blog/shared-memory-vs-isolated-memory",
+      "title": "Shared Memory vs. Isolated Memory for AI Agents [ ~ ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-07-17T16:20:33Z"
+    },
+    {
+      "id": "sty_fda87431c83a164f",
+      "url": "https://craftvis.com",
+      "title": "Show HN: I built CraftVis, an AI image editor [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-07-17T16:19:53Z"
+    },
+    {
+      "id": "sty_da90e94104379003",
+      "url": "https://github.com/alexrolls/startup-factory",
+      "title": "Run AI Agents from Jira, Linear, GitHub Issues, or Markdown [ * ] [ ⬢ ]",
+      "content_text": "",
+      "date_published": "2026-07-17T16:17:41Z"
+    },
+    {
+      "id": "sty_5acf0b99452befa1",
+      "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/a-slower-ai-payoff-would-be-everyones-problem",
+      "title": "A Slower AI Payoff Would Be Everyone's Problem [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-07-17T16:16:38Z"
+    },
+    {
+      "id": "sty_4c0d18e0e1ed185a",
+      "url": "https://www.wsj.com/tech/cybersecurity/ai-privacy-laws-data-26d9769f",
+      "title": "How to Maintain Our Privacy in the AI Age",
+      "content_text": "",
+      "date_published": "2026-07-17T16:14:36Z"
+    },
+    {
+      "id": "sty_fe7d7366b8fa1154",
+      "url": "https://news.ycombinator.com/item?id=48949019",
+      "title": "Ask HN: Do you have ideas on dealing with AI contributions to open source? [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-07-17T16:11:24Z"
+    },
+    {
+      "id": "sty_87f0da20418aa042",
+      "url": "https://stantyan.com/blog/portable-ai-memory-or-permanent-lock-in/",
+      "title": "Portable AI Memory or Permanent Lock-In [ * ] [ ⬢ ]",
+      "content_text": "",
+      "date_published": "2026-07-17T16:11:19Z"
+    },
+    {
+      "id": "sty_699d9a76d7ed8b17",
+      "url": "https://martinsays.substack.com/p/what-lawyers-can-do-for-ai-safety",
+      "title": "What lawyers can do for AI safety",
+      "content_text": "",
+      "date_published": "2026-07-17T16:06:49Z"
+    },
+    {
+      "id": "sty_978048a454e165f8",
+      "url": "https://www.technologyreview.com/2026/07/17/1140640/the-download-perimenopause-misinformation-china-moonshot-ai/",
+      "title": "The Download: perimenopause misinformation and China's latest AI leap [ ~ ] [ ◻ ]",
+      "content_text": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. There's a lot of hype around perimenopause. Don't buy it. Perimenopause used to be considered taboo, but not anymore. Thanks at least in part to TV doctors and social media influencers,...",
+      "date_published": "2026-07-17T12:10:00Z"
     },
     {
       "id": "sty_8babc1c882711553",
       "url": "https://www.theinformation.com/briefings/moonshot-ais-new-kimi-k3-challenges-u-s-frontier-models",
-      "title": "Moonshot AI launches Kimi K3 large language model with frontier-level coding performance, challenging U.S. AI models [ ~ ] [ ◻ ]",
-      "content_text": "Chinese startup Moonshot AI has introduced its latest large language model, Kimi K3, which demonstrates frontier-level coding capabilities on certain benchmarks. This development is prompting discussions about the narrowing performance gap between Chinese open-source models and leading U.S. AI models.",
+      "title": "Moonshot AI's New Kimi K3 Challenges U.S. Frontier Models [ ~ ] [ ◻ ]",
+      "content_text": "Chinese startup Moonshot AI's latest large language model is sending shockwaves through the global AI industry because of its frontier-level coding capabilities on some benchmarks. The new model, Kimi K3, is stirring debates whether the gap between Chinese open-source and U.S. frontier models ...",
       "date_published": "2026-07-17T07:16:34Z"
     },
     {
-      "id": "sty_bc5d4f08ae5cf627",
-      "url": "https://boompop.games/",
-      "title": "Developer launches BoomPop.games, a browser-based platform featuring AI-assisted game creation with shared social features and no installation required",
-      "content_text": "BoomPop.games offers a collection of browser-based games that share friends, chat, rooms, and Sparks, allowing users to jump directly into gameplay without installation or account creation. One featured game, Warpforge, is a sci-fi tactical card battle involving colonizing planets and fleet deployment. The platform emphasizes seamless multiplayer interaction and AI-assisted game development to realize the creator's vision for games they always wanted to make.",
-      "date_published": "2026-07-17T06:18:52Z"
+      "id": "sty_6d93b2d68a71afdb",
+      "url": "https://www.transformernews.ai/p/kimi-k3-is-no-reason-for-china-panic-export-controls-xi-jingping",
+      "title": "Kimi K3 is no reason for China panic [ ~ ] [ ◻ ]",
+      "content_text": "Transformer Weekly: NY data center moratorium, NDAA export controls and Amodei's $1m to safety super PAC",
+      "date_published": "2026-07-17T14:15:48Z"
     },
     {
-      "id": "sty_910180dfed29ccbf",
-      "url": "https://isvisible.ai",
-      "title": "Isvisible.ai launches tool to check AI crawler access to websites, scoring visibility for 13 AI agents including ChatGPT and Google AI [ ~ ] [ ◻ ]",
-      "content_text": "Isvisible.ai offers a free service that evaluates whether AI crawlers like ChatGPT, Claude, Perplexity, and Google AI can access a website. Users enter their URL to receive an instant AI visibility score from 0 to 100, based on robots.txt and llms.txt files and live access probes for 13 different AI crawlers. The report details which AI platforms can see the site's content, helping site owners understand their visibility to AI assistants that increasingly serve as entry points to the web. The tool analyzes access rules for search engines, AI training crawlers, and AI answer engines, combining these signals into a score weighted by agent access and the presence of an llms.txt file. Isvisible.ai also provides a public API for automated checks. This service addresses the growing importance of AI visibility, as sites blocking AI crawlers may not be cited or recommended in AI-generated answers even if they rank well in traditional search engines.",
-      "date_published": "2026-07-17T07:21:17Z"
+      "id": "sty_7a3f3fed6e0847f6",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQZld5eFFTOVpXdGI3TUpoNW14eGxSSlJkcnFjS3RwV3N1LXBFemxLbEtibG9sMXJaN3RPWkpxNVlfc3E5c0ZPMWZZR003aC1NVGF5VjRlSHkzeEQxNzZ2LVVRS21qTldCZ3lybWljUWpNRE5Lai1GQmtwM2lJalVXZUZCR2hYNkVEUlZMVnNUdlpZTHkxQXQzcV81RUxKYWs2ak9OR2VtSHk5OUVURXB6bVhscmVEM256dGdNY1lYRi1NVktZd0JsQXppQ1dmaEU?oc=5",
+      "title": "LIVE🔴: Pearson hosts Congresswomen AOC, Pressley, Lee for South Memphis xAI site tour and press conference - Action News 5 [ ~ ] [ ◻ ]",
+      "content_text": "Pearson hosted Congresswomen Alexandria Ocasio-Cortez, Ayanna Pressley, and Barbara Lee for a tour and press conference at the South Memphis xAI site. The event highlighted developments in artificial intelligence technology and its impact on the local community.",
+      "date_published": "2026-07-17T16:56:00Z"
     },
     {
-      "id": "sty_e45bdbcf932aabf1",
-      "url": "https://tonyalicea.dev/blog/single-mode-burnout/",
-      "title": "Developer burnout rises as AI-assisted development shifts cognitive work modes and increases planning demands [ ~ ] [ ◻ ]",
-      "content_text": "The article explores why AI-assisted development, despite its promise to ease coding tasks, often leads to greater exhaustion among developers. It attributes this to changes in the cognitive modes of software development-planning, implementation, and integration-and how AI accelerates some phases while increasing pressure in others. It explains that AI speeds up implementation, removing the natural pacing that balanced planning and integration, which leads to more intense planning demands and less cognitive variety. This shift disrupts the mental rhythms developers rely on, causing fatigue and burnout despite the potential productivity gains from AI tools.",
-      "date_published": "2026-07-17T09:05:33Z"
+      "id": "sty_06d5f46a6bce5a08",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQaU9LVnFsRXZ4QjRfd0lQRGFMUE52OHRwc1JnbElQNXRQcHFnalZjanBJX2hyb21UcHFvZ1JhVktYRnR3S3ROSk12c3ZtZDlRNHBOSFZ2VVBsVkFTVURKaGpLRzVKOHU5a2FhWktDckNQd2lNeG0tZC1NUXNCREtsblVWdE5STnZOQ1I4?oc=5",
+      "title": "Elon Musk's xAI, Which is Being Sued Over AI-Generated Sexual Deepfakes, Sues Grok User Over AI-Generated Sexual Deepfakes - Futurism [ * ] [ ◻ ]",
+      "content_text": "Elon Musk's artificial intelligence company xAI, which is currently facing a lawsuit related to AI-generated sexual deepfakes, has initiated legal action against a user of Grok, an AI platform, for allegedly creating AI-generated sexual deepfakes. This development highlights ongoing legal disputes involving AI-generated content and its implications.",
+      "date_published": "2026-07-17T16:51:00Z"
     },
     {
-      "id": "sty_74a16d4e87a2bec6",
-      "url": "https://www.scmp.com/tech/tech-trends/article/3360908/chinese-nvidia-alternatives-project-massive-sales-ai-chip-demand-surges",
-      "title": "Chinese Nvidia alternatives project massive sales as AI chip demand surges [ * ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-07-17T07:02:54Z"
+      "id": "sty_5a09844225ca78ab",
+      "url": "https://futurism.com/artificial-intelligence/elon-musk-xai-sues-grok-user-deepfakes",
+      "title": "Elon Musk's xAI, Which is Being Sued Over AI-Generated Sexual Deepfakes, Sues Grok User Over AI-Generated Sexual Deepfakes [ ! ] [ ◼ ]",
+      "content_text": "Elon Musk's AI company xAI, which is currently facing a lawsuit related to AI-generated sexual deepfakes, has initiated legal action against a user of Grok for creating similar AI-generated sexual deepfakes. This highlights ongoing challenges with deepfake content in AI platforms.",
+      "date_published": "2026-07-17T16:51:00Z"
     },
     {
-      "id": "sty_994ea22f33e26fa5",
-      "url": "https://newsletter.getdx.com/p/five-studies-that-are-changing-how",
-      "title": "Five studies changing how I think about AI in software engineering [ * ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-07-17T08:38:18Z"
+      "id": "sty_53ac860c0893c6b2",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4tbUpnNm9ncDhWME9GbFc3SVBzTWJnLVBYNzllWGRsLU9XbmpwTTkxdWVWVUpHRnR4dDVXeFp6ZFNUNS1GZG4zQjQwMmxUSlRsM21aR1dhVmx3TlplNmJYdDAydHdKMlB1WERSQzkybkFKNGFFR3ZGMFJ3?oc=5",
+      "title": "Anthropic employees donate $3M to support AI safety regulations - SFGATE [ ~ ] [ ◻ ]",
+      "content_text": "Employees at Anthropic have collectively donated $3 million to advocate for regulations focused on AI safety. This initiative aims to promote responsible development and deployment of artificial intelligence technologies.",
+      "date_published": "2026-07-17T16:43:24Z"
     },
     {
-      "id": "sty_905ff184b7493e54",
-      "url": "https://lucy.decart.ai/",
-      "title": "Lucy edits videos in realtime, now with more capabilities and greater control",
-      "content_text": "",
-      "date_published": "2026-07-17T08:20:10Z"
+      "id": "sty_d1db04d4780c4988",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1tZWtxWDkycmdUVlYtM3RpUUdqTVd5cWloOWVnYVZPWUxpc1pBZDFtNkN2NTM5anJXdmRlYnJubDhTV2pyWEp1cnRWQ1pWUnZ3U21OQ0ZhUHAwcGlUN2h4ajNaZVhWWmc0ZTRad0NNNNIBdEFVX3lxTE03WExldWF5Ukd0VGxHRjluWlBNVEZPbW9KWk5LQjZJbk55T3ZjQWozel9NMDZVWkZsYUFKNE9kUmVTN2xSNFI5MFZMOGVqYjVsenFjdmlPYzFvVl85WnhXLTBBOGt4eER0ZW1KS3E5ZE5XNHZJ?oc=5",
+      "title": "Anthropic in early talks with Meta to acquire compute power - CNBC [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic, an artificial intelligence company, is reportedly in preliminary discussions with Meta Platforms to acquire computing resources. The talks aim to secure the necessary compute power to support Anthropic's AI development efforts. Details of the potential agreement, including terms and timelines, have not been disclosed.",
+      "date_published": "2026-07-17T16:41:26Z"
     },
     {
-      "id": "sty_aa111479ae36f492",
-      "url": "https://blog.jetbrains.com/research/2026/07/ai-and-xr-future/",
-      "title": "Coding in space, AI-XR, and new interaction paradigms for devs [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-07-17T08:18:16Z"
+      "id": "sty_990d36b1d5560105",
+      "url": "https://thezvi.substack.com/p/ai-177-part-2-wish-you-were-here",
+      "title": "AI #177 Part 2: Wish You Were Here",
+      "content_text": "As usual, part 2 of the weekly deals with speculative, regulatory, political and alignment questions.",
+      "date_published": "2026-07-17T12:47:20Z"
     },
     {
-      "id": "sty_3816a45784ab1616",
-      "url": "https://huggingface.co/datasets/faitholopade/aiact-openrag",
-      "title": "A structurally chunked, pre-embedded SQLite corpus of the EU AI Act [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-07-17T08:09:39Z"
+      "id": "sty_ba6d91d7f3f35d6f",
+      "url": "https://www.theinformation.com/briefings/chinese-leader-xi-calls-open-source-open-collaboration-shanghai-ai-conference",
+      "title": "Chinese Leader Xi Calls for \"Open Source, Open Collaboration\" in Shanghai AI Conference [ ~ ] [ ◻ ]",
+      "content_text": "Chinese leader Xi Jinping on Friday called for \"open source and open collaboration\" in global AI development during a keynote speech at a government-hosted AI conference in Shanghai. \"We should encourage inclusiveness and promote mutual learning among civilizations,\" Xi said, according to a ...",
+      "date_published": "2026-07-17T08:13:01Z"
     },
     {
-      "id": "sty_167d4b14af9a3bab",
-      "url": "https://twitter.com/DeanMeyerrr/status/2077834267086729674",
-      "title": "America's Open-Model Paradox [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-07-17T07:35:01Z"
+      "id": "sty_92b341885a82c9cd",
+      "url": "https://selbonds.now",
+      "title": "Show HN: On-chain bond market where the issuers are AI agents [ ~ ] [ ◻ ]",
+      "content_text": "Comments",
+      "date_published": "2026-07-17T14:25:20Z"
     },
     {
-      "id": "sty_143c5a63bed4d056",
-      "url": "https://news.google.com/rss/articles/CBMiP0FVX3lxTE1ocVZvX1U2SU4zazFwWW5SbTZiaEhlX3FVcGh0Y2lSMXRhc1FyYnBpamVEOWtnLWctYlZjUlByOA?oc=5",
-      "title": "Introducing Grok 4.5 - X.ai",
-      "content_text": "Introducing Grok 4.5 X.ai",
-      "date_published": "2026-07-17T06:53:16Z"
+      "id": "sty_5a3839833f21baad",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQckF5MnlSQTE1OTdUZ2ZzOVRzYVBKdGlWQXE3UjE0RUFvUlBkWWExc0JDVHkzY3I4VTdxTks2ME1yRzg0SjZ2czFjdXV2MXQ2N3VZTWFudjM4WHgyYXFKdktvaTBjdkE3YzQyTUJzcERSMzVvUGR1ZXphWUY2N2kxc2V4X1lGa0JoaktrVGYzQmZaODhRbEtNeC1iV1UwamZwblVIYzRDVW1ydi14cnBTU1hUb01rWC1WbklYS1VWZnZyWHZEQUJvVFVIaw?oc=5",
+      "title": "Chinese AI firm Moonshot unveils powerful model with capabilities close to Anthropic, OpenAI - New York Post [ ~ ] [ ◻ ]",
+      "content_text": "Chinese AI firm Moonshot unveils powerful model with capabilities close to Anthropic, OpenAI New York Post",
+      "date_published": "2026-07-17T14:59:00Z"
+    },
+    {
+      "id": "sty_b859c8f71396db8a",
+      "url": "https://the-decoder.com/linus-torvalds-tells-ai-critics-in-the-linux-kernel-community-to-fork-off/",
+      "title": "Linus Torvalds tells AI critics in the Linux kernel community to fork off [ ~ ] [ ◻ ]",
+      "content_text": "Linux creator Linus Torvalds has come out strongly in favor of AI tools in kernel development. \"Linux is not one of those anti-AI projects,\" he wrote on the kernel mailing list amid a debate over Sashiko, the Linux Foundation's AI-powered code review tool. Torvalds said he would \"very loudly ignore\" anyone who tries to talk others out of using it. The article Linus Torvalds tells AI critics in the Linux kernel community to fork off appeared first on The Decoder.",
+      "date_published": "2026-07-17T11:12:47Z"
+    },
+    {
+      "id": "sty_ce4765fe9cdbb851",
+      "url": "https://www.theinformation.com/briefings/meta-plans-hire-top-aws-executive",
+      "title": "Meta Plans To Hire Former Top AWS Executive",
+      "content_text": "Meta Platforms plans to hire Dave Brown, a senior executive at Amazon Web Services, The Wall Street Journal reported, the strongest indication yet that Meta is considering renting out its excess data center capacity to other companies. Meta has been pouring huge sums into expanding its AI data ...",
+      "date_published": "2026-07-17T07:09:05Z"
+    },
+    {
+      "id": "sty_8e10da5cbc2025fe",
+      "url": "https://www.wired.com/story/san-francisco-demands-apple-and-google-delete-ai-nudify-apps-from-app-stores/",
+      "title": "San Francisco Demands Apple and Google Delete AI 'Nudify' Apps From App Stores [ * ] [ ◼ ]",
+      "content_text": "The City Attorney's Office sent the tech giants cease-and-desist letters this week telling them to stop profiting from 13 \"face-swap\" apps that are overwhelmingly used to target women and girls.",
+      "date_published": "2026-07-17T10:00:00Z"
+    },
+    {
+      "id": "sty_b4c01b4e92b00d11",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNLTNDdmJhQUEwZ0NJWXFkSTFBWHA1UmtaNmxyNkEtUmpudVFkS2h6MWp4YlhTWnEtRllieXYyNE1VT0FVbEh3dWtnUURzb19KbW1UVVhsajNTbTlpQW9HQ241OF9sbTVuOWdKUmhSR0JPdXJZbWt4eWxoWkx6d3ZkYU01T1EwVGU3RXgtOGhqYkJGUDMxX3VhdkdPbHI4dw?oc=5",
+      "title": "Kimi K3 is no reason for China panic - Transformer | Substack",
+      "content_text": "Kimi K3 is no reason for China panic Transformer | Substack",
+      "date_published": "2026-07-17T14:18:33Z"
+    },
+    {
+      "id": "sty_e089993804d376e7",
+      "url": "https://www.capitalone.com/tech/open-source/announcing-vulnhunter/",
+      "title": "VulnHunter: Capital One's agentic AI code security tool [ * ] [ ⬢ ]",
+      "content_text": "Comments",
+      "date_published": "2026-07-17T12:42:12Z"
+    },
+    {
+      "id": "sty_8b1f7fa95506de21",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQjFtb1hqUWUtOW9OSEJ2V0hlbUwwZTBVZno4d3gwN0lvbHNNcFZLRkhBbkZoZXp5RU5OSDVSeVJBVHZLNVBPNGRkU1lYRXhBRHF0S0xvc0NsVUJUNTZoSzJpWERSbWZiTi1zVkZmWXdqZnNrMDkxVExpTno2XzdyRTFhOXZvQUp3M2FleGNzY3lmR0tkTnNYYzczODlPdHBwZnNlZVRqOXIyTEVqLV82WHU2MVVZeFU?oc=5",
+      "title": "Musk pledges 'total transparency' after xAI's coding agent exposed entire repositories - SDxCentral [ ~ ] [ ◻ ]",
+      "content_text": "Musk pledges 'total transparency' after xAI's coding agent exposed entire repositories SDxCentral",
+      "date_published": "2026-07-17T13:25:48Z"
+    },
+    {
+      "id": "sty_0ee86381ea200222",
+      "url": "https://the-decoder.com/netflixs-300-ai-productions-show-how-fast-the-technology-is-spreading-through-entertainment/",
+      "title": "Netflix's 300 AI productions show how fast the technology is spreading through entertainment [ * ] [ ◼ ]",
+      "content_text": "Netflix now uses AI in about 300 productions, mostly in post-production. Co-CEO Ted Sarandos put specific numbers to the effort: the docuseries \"The American Experiment\" includes 17 minutes of AI-assisted footage, produced twice as fast at half the cost. The savings will \"likely\" fund more content rather than shrink the $20 billion budget. The article Netflix's 300 AI productions show how fast the technology is spreading through entertainment appeared first on The Decoder.",
+      "date_published": "2026-07-17T08:53:31Z"
+    },
+    {
+      "id": "sty_24cc70b80854abb0",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNMnM4b09aRGdmN3BiUUJCeUpBMEtEaVkxek16RXVkR25CVHpybEdIV2o3OEpKWHlvTm8tLTdZNks2Qk4xSkdaaXVqQWM2Ukh5bVQtZlExQUk2clRUV3RiSHpDSWFXWGpkUzdfTXp4eEJkYnh4Ylp1ekhiaGRBU1E5SE52aXN2cEpSczMwNndDd2M3UnFLWUREWGZuNA?oc=5",
+      "title": "How Anthropic's 'destroy the world' doomerism backfired on America - Washington Examiner",
+      "content_text": "How Anthropic's 'destroy the world' doomerism backfired on America Washington Examiner",
+      "date_published": "2026-07-17T12:00:00Z"
     },
     {
       "id": "sty_a00421a5507d7389",
@@ -203,11 +364,18 @@
       "date_published": "2026-07-16T23:31:05Z"
     },
     {
-      "id": "sty_825ff2f23f0d4c22",
-      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
-      "title": "Why teens deserve access to safe AI [ ~ ] [ ◻ ]",
-      "content_text": "Learn how OpenAI is making ChatGPT safer for teens with age-appropriate protections, learning tools, parental controls, and expert partnerships.",
-      "date_published": "2026-07-16T16:00:00Z"
+      "id": "sty_98d3f14facb25bdc",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA4YVRtalBwcFQ4NmtSRUZReFVwUXJfQXJsa1lpY2tCUS1tcktFbHZKRFV3ZkVsVDlmN1RFV2xEWXVzQXFqbVVuaGFSdlE3S3d6UktPQlpzX0lqd2FKWENyNEVTWTFMa0RmeFpvRVpnaXRmNVdpekljZlprX0FqWjA?oc=5",
+      "title": "We assigned major AI leaders a 'Mean Girls' character. Tell us if we got it right. - AOL.com",
+      "content_text": "We assigned major AI leaders a 'Mean Girls' character. Tell us if we got it right. AOL.com",
+      "date_published": "2026-07-17T10:32:51Z"
+    },
+    {
+      "id": "sty_e794f2fe0d2a3781",
+      "url": "https://simonwillison.net/2026/Jul/17/spot-birds-not-golf/",
+      "title": "Spot birds not golf",
+      "content_text": "Suggestion for hyperscalers feeling pressure over data center water use: Buy up a few exclusive country clubs, convert the golf courses into public parks, pay for guides and binoculars to get the previous members into birdwatching - help them embrace a more sustainable hobby! Google used 10.9 billion gallons in 2025, so about 30 million gallons per day. The Coachella Valley has 120 golf courses each using ~800 acre-feet per year, which is ~750,000 gallons per day. So Google buying up 40 of those courses (1/3) should do the trick. Tags: ai-energy-usage, ai",
+      "date_published": "2026-07-17T02:58:07Z"
     },
     {
       "id": "sty_5efd1ba15dc4734e",
@@ -217,11 +385,25 @@
       "date_published": "2026-07-16T22:05:52Z"
     },
     {
+      "id": "sty_fd8a217e30bf54ad",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNay14OVUyd2poeVhnMHdqZlYtSWYyTnhuZHhDX2U3Sm5RNjlmdk82aTBJZnpyRGF4YndFZHFfcG1Va3FsTUZnWXhZVklSNVV2eFNSNmxqcFhjT1pBZzBkejVCVkMybVR0cmdpT2RvWkhpZmJ0VDg1d3VlcTBrNXhnb0o5S3MyTE9veFRjajlhMWVtdjl1eWtn?oc=5",
+      "title": "Elon Musk, Sam Altman, Dario Amodei, and other AI leaders as 'Mean Girls' characters - Business Insider",
+      "content_text": "Elon Musk, Sam Altman, Dario Amodei, and other AI leaders as 'Mean Girls' characters Business Insider",
+      "date_published": "2026-07-17T09:43:00Z"
+    },
+    {
       "id": "sty_6d3a848d01c3749a",
       "url": "https://www.theinformation.com/articles/uber-big-deal-netflixs-growth-slows",
       "title": "Uber Does a Big Deal and Netflix's Growth Slows",
       "content_text": "Busy day. Uber unveiled its biggest-ever acquisition, the roughly $14 billion purchase of Delivery Hero, a German-based food-delivery giant with operations around the world. Netflix reported slower growth for the second quarter, as it had telegraphed, sending the stock down 8% to a two-year low. And SpaceX stock closed below its $135 a share IPO price for the first time, finishing the day at $131.11. Eek! We can get to Uber and Netflix in a minute, but we should acknowledge that SpaceX stock's drop coincided with a broader market sell-off that seems to afflict anyone with AI exposure. In other words, it's not necessarily a loss of confidence in Elon Musk's rocket ship firm. (The company is still valued at $1.7 trillion, which is a lot). The Nasdaq-100 index fell 1.6% on Thursday, with most major names losing ground. One way you can tell AI was the common theme-and we're only half-joking-is that Microsoft stock rose.",
       "date_published": "2026-07-17T00:01:22Z"
+    },
+    {
+      "id": "sty_825ff2f23f0d4c22",
+      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
+      "title": "Why teens deserve access to safe AI [ ~ ] [ ◻ ]",
+      "content_text": "Learn how OpenAI is making ChatGPT safer for teens with age-appropriate protections, learning tools, parental controls, and expert partnerships.",
+      "date_published": "2026-07-16T16:00:00Z"
     },
     {
       "id": "sty_10483e4e0f455889",
@@ -231,11 +413,11 @@
       "date_published": "2026-07-17T04:02:30Z"
     },
     {
-      "id": "sty_9e6838234e2954ae",
-      "url": "https://www.theinformation.com/articles/nobody-immune-nvidia-gpu-crunch",
-      "title": "Nobody is Immune From the Nvidia GPU Crunch [ * ] [ ◼ ]",
-      "content_text": "Earlier this week, I wrote about startups moving some of their workloads from Amazon Web Services and other traditional cloud providers to young challengers such as Nebius. That's in part because startups are having trouble getting the Nvidia chips they need on AWS, sometimes because those chips are only available in too expensive packages. Capacity can be so scarce that an Nvidia representative told one small AI startup it should rent spare GPUs from an Asia-based facility it knew about, an executive at the startup told us.",
-      "date_published": "2026-07-16T20:28:56Z"
+      "id": "sty_7dd59aa36ca938a4",
+      "url": "https://simonwillison.net/2026/Jul/16/firefox-in-webassembly/",
+      "title": "Firefox in WebAssembly [ ~ ] [ ◻ ]",
+      "content_text": "Firefox in WebAssembly This is absurdly cool: Puter compiled Firefox to WebAssembly such that the whole browser runs in another browser. Here's my blog, running in Firefox, running in WebAssembly, running in Chrome: They chose Firefox/Gecko because it has strong single-process support. The project used an estimated $25,000 worth of Claude Opus and Fable tokens, but took advantage of a Claude Max subscription plan so cost much less in actual dollars. The demo funnels all traffic over a WebSocket protocol (using the Wisp protocol) through Puter's server - a requirement to get this kind of thing to work because code running in browsers can't open arbitrary network connections. (That proxying sounds expensive! The team had to scale the servers up to handle the traffic during the Hacker News conversation about the project.) Puter claim this supports end-to-end encryption and that looks to be true - I inspected the WebSocket messages and traffic to my own HTTPS site was encrypted whereas requests and responses to http://www.example.com/ were in cleartext. Here's the repo for firefox-wasm. theogbob/WebkitWasm is a similar project that compiles WebKit to WASM, but that one doesn't currently have an accessible online demo. Via Hacker News Tags: browsers, firefox, ai, webassembly, generative-ai, llms, ai-assisted-programming, claude, claude-mythos-fable",
+      "date_published": "2026-07-16T23:34:16Z"
     },
     {
       "id": "sty_a79974b8d3dd28ab",
@@ -245,158 +427,18 @@
       "date_published": "2026-07-16T19:16:48Z"
     },
     {
+      "id": "sty_9e6838234e2954ae",
+      "url": "https://www.theinformation.com/articles/nobody-immune-nvidia-gpu-crunch",
+      "title": "Nobody is Immune From the Nvidia GPU Crunch [ * ] [ ◼ ]",
+      "content_text": "Earlier this week, I wrote about startups moving some of their workloads from Amazon Web Services and other traditional cloud providers to young challengers such as Nebius. That's in part because startups are having trouble getting the Nvidia chips they need on AWS, sometimes because those chips are only available in too expensive packages. Capacity can be so scarce that an Nvidia representative told one small AI startup it should rent spare GPUs from an Asia-based facility it knew about, an executive at the startup told us.",
+      "date_published": "2026-07-16T20:28:56Z"
+    },
+    {
       "id": "sty_03073ea29116fbd7",
       "url": "https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident-and-most-still-let-agents-share-credentials",
       "title": "The agent security gap: 54% of enterprises have already had an AI agent incident, and most still let agents share credentials [ * ] [ ⬢ ]",
       "content_text": "Across 107 enterprises, AI agents are being given real access to systems and data while the controls meant to contain them lag behind. More than half have already had a confirmed agent security incident or a near-miss; only about a third give every agent its own scoped identity, and most agents still share credentials; and only three in ten isolate their highest-risk agents. The security stack is overwhelmingly borrowed from the model providers and hyperscalers rather than purpose-built for agents, spending remains a thin slice of the security budget, and enterprises are evenly split on whether their defenses are keeping pace with AI-enabled attackers. The result is an agent security gap â autonomous agents proliferating faster than the identity, isolation, and enforcement controls needed to hold them. This wave of VentureBeat Pulse Research examines how enterprises secure their AI agents: what tooling they run, how they manage agent identity and isolation, what has already gone wrong, how much they spend, and whether they believe their defenses are keeping pace with AI-enabled attackers. The central finding is an agent security gap â the distance between the autonomy enterprises are granting their agents and the controls in place to contain them. More than half of organizations (54%) have already experienced a confirmed agent security incident (18%) or a near-miss caught before harm (36%). The structural weakness beneath those numbers is identity: only about a third (32%) give every agent its own scoped, managed identity, while the rest report that some agents share credentials or that agents mostly run on shared API keys and human or service-account credentials. When agents share credentials, a single compromised or over-permissioned agent carries a wide blast radius â and only three in ten enterprises (30%) isolate their highest-risk agents in sandboxes to bound that radius. What makes the gap notable is how comfortable enterprises are inside it. The security stack is overwhelmingly provider-native â OpenAIâs guardrails (51%), Googleâs and Microsoftâs cloud controls, and Anthropicâs managed-agent controls dominate, while the dedicated agent-security specialists barely register â and satisfaction with that borrowed stack is high, averaging 4.2 out of 5. Yet spending remains a thin slice of the security budget, only a third of enterprises believe their AI defenses are ahead of AI-enabled attackers, and a clear majority plan to change tooling within the year. Enterprises are satisfied with controls they are simultaneously preparing to replace. Methodology VentureBeat fielded this survey as part of its ongoing Pulse Research series, this instrument focused on enterprise agent security â the tooling, identity, isolation, and enforcement controls organizations use to secure autonomous AI agents. Responses are filtered to organizations with more than 100 employees (n=107; the surveyâs smallest size band, 1â100 employees, is excluded), drawn from a single June 2026 wave. Because this is one wave rather than a pooled multi-month sample, the report reads cross-sectionally and does not infer month-over-month trends. Several questions were multiple-select, so those shares can sum to more than 100%. By role the sample is senior and buyer-credible: 45% are final decision-makers for AI purchases and another 30% recommenders or influencers. Managers (43%), individual contributors (24%), VPs and directors (15%), and the C-suite (11%) make up the seniority mix. By organization size the sample is mid-market-weighted: 251â1,000 (42%) and 101â250 (25%) employees lead, with 1,001â5,000 (19%), 5,001â10,000 (8%), and 10,001+ (7%) above them. Technology/Software is the largest industry at 23%, followed by Manufacturing (15%), Retail/E-commerce (14%), and Healthcare/Life Sciences (13%). At 107 respondents the sample is large enough to read directionally but should be treated as a directional signal rather than a precise measurement; it is self-selected and is not a probability sample. It skews toward the mid-market, so it is best read as the view from organizations actively standing up agent security rather than from the largest operators. Satisfaction ratings are computed on the respondents who answered each rating question; the overall satisfaction score reflects 82 of the 107 qualified respondents. Finding 1: The incidents are already here More than half have had an agent security incident or near-miss We asked whether organizations had experienced an agent security incident â a confirmed breach, or a near-miss caught before harm. Most that run agents in production had. This is the reportâs defining number. More than half of organizations (54%) have already had an agent security event â 18% a confirmed incident and 36% a near-miss caught before it caused harm. Only 42% report nothing, and a small remainder either run no agents in production or donât track such events. That so many report near-misses rather than only confirmed incidents is telling: enterprises are catching problems, but they are catching them close to the edge. The controls examined in the rest of this report â identity, isolation, enforcement â are what determine whether the next near-miss stays a near-miss. Exposure scales with company size, but containment does not. The incident-or-near-miss rate rises from 49% in the mid-market (companies with 101-1,000 employees) to 63% at larger enterprises (above 1,000 employees), while sandbox isolation of high-risk agents falls from 35% to 20%, and satisfaction with security tooling drops from 4.36 to 3.97. The organizations running the most agents across the most systems carry the most incidents and the least of the one control that bounds an incident's blast radius. Finding 2: The identity gap Only a third give every agent its own scoped identity We asked how enterprises manage the identity of their AI agents â whether each agent has its own credentials, or agents share them. Full per-agent identity is the exception. Rolled together, the overlapping answers show 69% of enterprises (74 of 107) with credential sharing somewhere in the agent fleet. Identity is the structural weakness beneath the incidents. Only about a third of enterprises (32%) give every agent its own scoped, managed identity â the precondition for least-privilege access and clean attribution. Nearly half (48%) say some agents have scoped identities but many still share credentials, and another 32% say agents mostly run on shared API keys or borrowed human and service-account credentials. (Respondents could describe more than one pattern across their agent fleet, so these overlap.) The consequence is direct: when agents share credentials, an over-permissioned or compromised agent can act with far more reach than intended, and forensics after an incident cannot cleanly tell which agent did what. The non-human identity problem â giving every agent its own governed identity â is the single largest unfinished piece of enterprise agent security. Moreover, a companyâs agent credential posture is correlated with incidents. Organizations with credential sharing anywhere in the fleet were hit â with an incident or a near-miss in the past twelve months â at 63.5% (47 of 74). Organizations where every agent carries its own scoped identity were hit at 40.9% (9 of 22). The fully-scoped group is small, so for now the relationship is an association rather than proven causation, and the gap is concentrated in the mid-market â but within a single survey, a twenty-three point difference in incident rate suggests significance. Finding 3: Observe and enforce, but rarely isolate Only three in 10 sandbox their highest-risk agents We asked what an organizationâs agent security posture looks like in practice â whether they observe, enforce, isolate, or some combination. The control that bounds damage is the least common. Monitoring and enforcement are reasonably common; containment is not. Roughly half of enterprises observe agent activity (47%) or enforce scoped permissions at runtime (49%), but only 30% isolate their highest-risk agents in sandboxes that bound the blast radius when the other controls fail. That ordering is backwards from a defense-in-depth standpoint: observation tells you what happened, enforcement tries to prevent it, but isolation is what limits the damage when prevention fails â and it is the control enterprises have adopted least. Combined with the identity gap in Finding 2, the picture is of agents that are watched and permissioned but rarely boxed in, which is precisely the configuration in which a single failure propagates. Finding 4: Security runs on borrowed, provider-native controls Guardrails from OpenAI, Google and Microsoft dominate; specialists barely register We asked which agent security tooling enterprises use, and which is their primary layer. The answer favors the model providers and hyperscalers over the dedicated security vendors. Enterprises are securing agents with tools that came bundled with their models and clouds. OpenAIâs guardrails lead at 51%, followed by Googleâs and Microsoftâs cloud-native controls and Anthropicâs managed-agent controls â and when asked to name their single primary security layer, 82% name one of these provider-native offerings. The purpose-built agent-security category â Palo Altoâs Prisma AIRS, CrowdStrike, Cisco AI Defense, Zenity, HiddenLayer, Check Pointâs Lakera, Okta for AI Agents, non-human identity platforms â barely registers, each in the low single digits, and only 5% run no dedicated tooling at all. As with retrieval and evaluation elsewhere in this series, the provider bundle is winning the default: enterprises reach first for the guardrails their platform ships, and the independent security layer that would address the identity and isolation gaps has not yet been adopted at scale. The provider-default pattern is consistent across both Q2 survey waves. In AprilâMay (n=110), usage was led by the same names â OpenAI's controls at 26%, Azure at 15%, AWS at 14%, Google at 12% â with every dedicated agent-security specialist at 3% or below and one in ten using no dedicated tooling at all. The common finding from the two surveys: Enterprises are defaulting to the solutions provided by the platform theyâre using, and the specialist category vendors have yet to become big players here. (A note on reading these shares. As described in the methodology section, the respondent sample is self-selected and skews mid-market, and the usage question counted every vendor or approach a respondent has in place â so the figures measure presence in the security stack rather than spending or exclusivity. Individual vendor percentages therefore carry all the usual sample caveats. The structural pattern, however, held across both Q2 waves on two differently worded questions: provider-native and hyperscaler controls lead, and dedicated agent-security specialists remain in low single digits. Read the individual shares loosely and the pattern with confidence.) Finding 5: And enterprises are comfortable with it Satisfaction is high, even as incidents mount and identity lags We asked how satisfied enterprises are with their current agent security tooling. The comfort is notably out of step with the exposure documented above. Satisfaction with agent security tooling is high â 4.2 out of 5 overall, and 4.1 for value for money â among the most positive readings in this series. That is the striking part: enterprises are highly satisfied with a stack that is mostly borrowed provider guardrails, even though more than half have already had an incident or near-miss and only a third give their agents scoped identities. The comfort appears to rest on the convenience and low friction of provider-native controls rather than on demonstrated containment. It is a false comfort in the making â the same enterprises expressing satisfaction are, as Finding 8 shows, a clear majority planning to change tooling within the year, which suggests the confidence is thinner than the score implies. Finding 6: Budgets havenât caught up Most spend under a tenth of the security budget on agents We asked what share of the security budget enterprises allocate to securing AI agents. For a fast-emerging risk, the allocation is modest. Spending on agent security is still a thin slice. The most common allocation is 6â10% of the security budget (46%), and a third of enterprises (34%) spend 5% or less; only a quarter (24%) devote more than a tenth. Given the incident rate in Finding 1 and the identity and isolation gaps in Findings 2 and 3, the budget looks like a lagging indicator â the risk has arrived faster than the funding to address it. The enterprises spending more than a tenth of their security budget on agents are a distinct minority, and they are likely the ones building the scoped-identity and isolation controls the rest have not. Finding 7: The arms race is even, at best Only a third think their AI defenses are ahead of AI-enabled attackers We asked how enterprises assess the balance between their AI-enabled defenses and AI-enabled attackers. Confidence is far from settled. Enterprises are split on whether they are winning. Only about a third (35%) believe their AI-enabled defenses are ahead of AI-enabled attackers; the rest are less sure â 32% call it roughly even, 21% think attackers are ahead, and another 21% say it is too early to tell. Taken together, a clear majority (53%) rate the balance as even or tilted toward the attacker. That uncertainty sits uneasily beside the high satisfaction of Finding 5: enterprises are content with their tooling yet unconvinced it is winning the contest it exists to win. In a domain where the offense is also compounding with AI, an even race is not a comfortable place to be. Finding 8: A security reshuffle is coming Nearly six in 10 plan to adopt or switch tooling within a year We asked whether enterprises plan to adopt a new, additional, or replacement agent security solution, and which they are considering. Few intend to stand pat. The security stack is not settled. While 41% have no plans to change, a clear majority (59%) intend to adopt a new, additional, or replacement agent security solution within twelve months, and 29% within the next quarter â a strong signal that, high satisfaction notwithstanding, enterprises know the current stack is provisional. Incidents are what start the buying cycle. Among organizations that have been hit, 42.1% plan to adopt, add, or replace agent security tooling within the next ninety days, against 14.0% of organizations with no incident â and after a confirmed incident it becomes majority behavior, at 52.6%. Getting hit also changes the threat assessment: 33.3% of hit organizations say AI-armed attackers are ahead of their defenses, against 8.0% of the unhit. Experience, in this data, is the strongest predictor of both urgency and pessimism. The consideration set still leans provider-native (OpenAI 34%, Google 30%, Anthropic 29%, Azure 25%), but the dedicated security vendors â Cloudflare, Cisco, Palo Alto, Okta, Check Pointâs Lakera â draw early interest in the mid-to-high single digits, more than their current footprint.Â What the shopping does not yet include is the identity layer specifically. Twelve percent of the respondents include an agent-identity product â Okta for AI Agents, Microsoft Entra Agent ID, or a non-human identity platform â anywhere in their consideration set, and among the credential-sharing organizations that have already had an incident, identity consideration is essentially unchanged, at roughly one in ten. The control most directly implicated by the incident data is the one largely missing from the purchase plans. Whether this wave hardens the provider-native default or finally opens the door to purpose-built agent security â the identity and isolation controls the incidents call for â is the question this series will keep tracking. The bottom line: A security gap that autonomy will test first Organizations with more than 100 employees are giving AI agents real reach into systems and data while securing them with controls built for something else. More than half have already had an incident or near-miss; only a third give every agent its own scoped identity, and most still share credentials; only three in ten isolate their highest-risk agents; and the stack doing this work is overwhelmingly borrowed from the model providers and hyperscalers rather than purpose-built for agents. The uncomfortable pairing is confidence with exposure: satisfaction with the current tooling is among the highest in this series, yet spending is a thin slice of the security budget, only a third believe their defenses are ahead of AI-enabled attackers, and a clear majority are already planning to replace what they have. At 107 respondents in a single wave this is a directional read, skewed toward the mid-market â but the direction is clear: agent adoption is running ahead of agent security, and the controls that matter most when something fails â scoped identity and isolation â are the ones enterprises have built least. The agent security gap is not a coverage problem that a provider guardrail will close on its own; it is a problem of identity, isolation, and enforcement built for autonomous software. The open question for later waves is whether enterprises close it deliberately â or whether a confirmed incident closes it for them. Based on survey responses from 107 qualified enterprise respondents (100+ employees), drawn from a single June 2026 wave. This is a directional read, not a precise measurement â the sample is self-selected and skews mid-market, so it's best read as the view from organizations actively standing up agent security rather than from the largest operators. Respondents are senior and buyer-credible (45% final decision-makers, 30% recommenders/influencers), spanning managers through the C-suite, and drawn primarily from Technology/Software, Manufacturing, Retail/E-commerce, and Healthcare/Life Sciences.",
       "date_published": "2026-07-16T19:02:38Z"
-    },
-    {
-      "id": "sty_d1af886ed3d05952",
-      "url": "https://www.wired.com/story/uncanny-valley-podcase-apple-sued-openai-new-york-data-center-moratorium-cyclosporiasis-outbreak/",
-      "title": "Why Apple Sued OpenAI, New York Takes on Data Centers, and What to Know about Cyclosporiasis [ * ] [ ◼ ]",
-      "content_text": "On today's Uncanny Valley, we unpack OpenAI's ongoing drama, both legal and reputational, and whether these developments could further hurt the company-particularly in its fight against Anthropic.",
-      "date_published": "2026-07-16T22:17:27Z"
-    },
-    {
-      "id": "sty_8a64857590faf43f",
-      "url": "https://github.com/Center-for-AI-Innovation/ai-teaching-assistant-uiuc",
-      "title": "UIUC AI Teaching Assistant [ ~ ] [ ◻ ]",
-      "content_text": "Comments",
-      "date_published": "2026-07-17T02:23:18Z"
-    },
-    {
-      "id": "sty_265fe444695e324a",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9nUGYzZEhWX2NQZEpwcldsSFozNGpKNnZwVFh2cjBqR2FVSERkbnFYQnpyNE9RQ01WWGRVSTNSRU5JbWQ3NEozTzJaMC1peExXdnhCVVRxN3JGc1dqZXNLMDFpNVBWdDh2eEdKUWlZZzV0T1k?oc=5",
-      "title": "AI CEOs Agree on Frontier Rules. Enforcement Is the Test. - techi.com",
-      "content_text": "AI CEOs Agree on Frontier Rules. Enforcement Is the Test. techi.com",
-      "date_published": "2026-07-17T02:52:19Z"
-    },
-    {
-      "id": "sty_d1d12887cf502d98",
-      "url": "https://venturebeat.com/ai/the-ai-context-gap-enterprise-ai-organizations-have-a-trust-problem-not-a-retrieval-problem-and-most-are-still-building-the-fix",
-      "title": "The AI context gap: Enterprise AI organizations have a trust problem, not a retrieval problem â and most are still building the fix [ * ] [ ◼ ]",
-      "content_text": "Across 101 enterprises, the infrastructure that feeds AI agents their business context is being built faster than it can be trusted. Retrieval-augmented generation is already the default context source, and provider-native retrieval has quietly overtaken the dedicated vector databases that define the category â yet a majority of enterprises have already watched their agents produce confident, wrong answers traced to missing or inconsistent context. A governed semantic layer is emerging as the fix, but most are still building it; the field is converging on hybrid retrieval; and even as provider-native tools lead in practice, a plurality say they intend to keep best-of-breed. The result is a context gap â agents that sound authoritative running on a foundation their owners do not yet fully trust. This wave of VentureBeat Pulse Research examines the enterprise RAG and context layer: what feeds AI agents their business context, which retrieval systems enterprises run, how they buy and measure them, where the architecture is heading, and â most revealingly â how often that context is already failing them. The central finding is a context gap â the distance between how confidently enterprise agents answer and how reliable the context beneath them actually is. A majority of enterprises (57%) report that in the past six months their AI agents produced confident but wrong answers they traced to missing or inconsistent business context, and more than half of those said it happened more than once. This is not a fringe failure: retrieval is the primary context source for 38% of enterprises, more than any other approach, so when retrieval is thin or inconsistent, the errors it produces are wearing the agentâs authority. The infrastructure to fix it is being built â 58% already run or are building a governed semantic layer â but for most it is not yet in production. Underneath, the market is consolidating in a direction that surprises. Provider-native retrieval â OpenAIâs file search (40%) and Googleâs Vertex AI Search (38%) â already leads every dedicated vector database, and enterprises expect hybrid retrieval to dominate by the end of 2026 (34%). Yet a plurality (36%) say they intend to keep best-of-breed standalone tools rather than consolidate onto a providerâs native context stack, and a majority (57%) plan to switch or add a provider within the year. Stated preference and actual usage are pulling in opposite directions â the market is buying provider-native while insisting it wants independence. Methodology VentureBeat fielded this survey as part of its ongoing Pulse Research series. This survey focused on enterprise RAG infrastructure and the context layer â the retrieval systems, semantic layers, and context sources that feed AI agents. Responses are filtered to organizations with more than 100 employees (n=101); the survey drew no responses from organizations of 100 or fewer, so the full sample qualifies. All responses are from a single Q2 2026 (June) wave, so the report reads cross-sectionally and does not infer month-over-month trends. Several questions were multiple-select, so those shares can sum to more than 100%. By organization size the sample concentrates in the mid-market: 251â1,000 employees (31%) and 101â250 (31%) lead, with 1,001â5,000 (20%), 5,001â10,000 (12%), and 10,001+ (7%) above them. By role it spans managers (39%), individual contributors (27%), the C-suite (16%), and VPs and directors (14%); on purchasing authority it is buyer-credible, with 46% final decision-makers and another 26% recommenders or influencers. Technology/Software is the largest industry at 20%, followed by Healthcare/Life Sciences (11%) and a broad spread across retail, transportation, financial services, manufacturing, and education. At 101 respondents this is a modest sample and should be read as a directional signal rather than a precise measurement; it is self-selected and is not a probability sample. It is best read as the view from organizations actively standing up RAG and context infrastructure rather than from the largest operators. Finding 1: Confident and wrong More than half have traced agent errors to bad context We asked whether, in the past six months, enterprises had traced a confident but wrong agent answer to missing or inconsistent business context. Most had. This is the reportâs defining number. A majority of enterprises (57%) have already had an AI agent produce a confident, wrong answer they traced to bad context â wrong metrics, stale definitions, or missing documents â and more than half of those have seen it happen more than once. Only 28% report no such failure, and a small remainder either donât run agents on enterprise data or donât trace root cause closely enough to know. The failure mode is specific and dangerous: the model is not obviously hallucinating; it is confidently wrong because the context feeding it was thin or inconsistent. Everything else in this report â what enterprises retrieve, how they govern it, and what they plan to build â is downstream of this problem. Finding 2: RAG is the default context source Retrieval feeds more agents than any other method We asked what an enterpriseâs AI agents primarily use to understand its data. Retrieval leads by a wide margin. Retrieval is the backbone of enterprise context. For 38% of organizations, RAG over documents or a vector index is the primary way agents understand the business â nearly twice the share of the next approach, a governed semantic layer or ontology (21%). Mixed approaches (14%), direct live-system queries (10%), and long-context loading (6%) fill out the rest, and only 2% let agents run on the modelâs general knowledge alone. The concentration matters in light of Finding 1: because so much enterprise context flows through retrieval, the quality of that retrieval is the quality of the answer. When RAG is the default source, thin retrieval is not an edge case â it is the main failure surface. One approach is notable for its absence from these answers: customizing model weights, also known as fine-tuning. Every leading source of business context is injected at run time. Our most recent direct measurement of fine-tuning comes from our AprilâMay survey wave (a separate survey, n=136), where fine-tuning capabilities ranked last of six factors in model selection at 5% â even as 26% of that sample still named fine-tuning and customization an investment they expect to grow. Fine-tuning has fallen out of the primary selection conversation; context injection is how enterprises make agents knowledgeable about their business. Finding 3: Provider-native retrieval already leads the vector databases OpenAI file search and vertex AI search top the dedicated tools We asked which retrieval systems enterprises run in production today. The answer favors the model providers and hyperscalers over the specialists. The dedicated vector database is no longer the center of the RAG stack. OpenAIâs file search (40%) and Googleâs Vertex AI Search (38%) lead â provider-native and hyperscaler-native retrieval â ahead of every purpose-built vector database. Among the specialists, the most-used is the one enterprises already run for other reasons (Elasticsearch/OpenSearch, 20%) and the open, embedded option (pgvector, 12%); the pure-play vector databases that define the category â Weaviate, Qdrant, Pinecone, Milvus â each sit in single digits to low double digits. Notably, 13% of enterprises say they still run no production RAG at all. As with the platforms in the parallel infrastructure wave, enterprises are gravitating to retrieval that comes bundled with tools they already buy. The shape of this finding held across both Q2 waves. In AprilâMay (n=161), provider-built retrieval led usage there too, while every dedicated vector database remained marginal â the most-used standalone vector database peaked at 8% of that sample â and the hybrid, pluralistic future was already the consensus expectation (34% expected hybrid retrieval to dominate, with another 29% expecting multiple architectures by use case). Two waves, consistent picture: the category that coined the âvector databaseâ term is being collected by the platforms enterprises already buy from. Finding 4: But they say they want to keep best-of-breed A plurality resist consolidating onto a providerâs native stack We asked how enterprises will respond as model providers bundle retrieval, memory, and orchestration into their platforms. Their stated intent cuts against their current usage. Here is the tension at the heart of the stack. Even as provider-native retrieval leads in practice (Finding 3), a plurality of enterprises (36%) say they intend to keep best-of-breed standalone tools rather than consolidate onto a providerâs native context stack â well ahead of the 21% who plan to consolidate. Another 21% expect a mix, and 9% intend to build and own the layer themselves. The gap between what enterprises run and what they say they want is the strategic question of the category: they are adopting bundled retrieval for convenience while asserting they will preserve independence. Which impulse wins â the pull of the provider bundle or the stated preference for modular control â will shape the retrieval market more than any single tool. Finding 5: Hybrid retrieval is the consensus bet Vector-only retrieval is already seen as insufficient We asked which retrieval architecture enterprises expect to dominate their production RAG systems by the end of 2026. The field is converging â with a large share still unsure. The architecture is settling on hybrid. A third (34%) expect hybrid retrieval â embeddings combined with reranking and access controls â to dominate their production systems by the end of 2026, three times the 11% who expect vector-only retrieval to prevail. That is a notable signal: the pure vector-search approach that launched the category is already viewed as insufficient on its own, superseded by pipelines that add reranking for accuracy and access controls for governance â the very access controls whose absence produces the failures in Finding 1. Tellingly, the second-largest answer is uncertainty: 17% simply donât know, and another 14% expect to move beyond a dedicated vector layer entirely toward tool-first or long-context retrieval. The consensus is not a single tool but a layered pipeline â and it is not yet fully formed. Finding 6: The governed context layer is being built now Most run or are building a semantic layer â few in production We asked whether enterprises use a governed semantic or context layer to give agents and BI a shared understanding of their data. Most are on the path; fewer have arrived. The fix for the context gap is under construction. Well over half of enterprises (58%) either run a governed semantic layer in production (25%) or are piloting and building one (34%), and a further 17% are actively evaluating â meaning three-quarters are engaged with the idea in some form. But the balance is telling: more are building than have shipped, so for most enterprises the shared, governed definition layer that would prevent the \"confident but wrong\" failures of Finding 1 is still a work in progress. The semantic layer is the industryâs answer to inconsistent context; this wave catches it mid-construction, ambition well ahead of production. Finding 7: Bought on ingestion and simplicity, watched for correctness Selection favors operability; monitoring favors correctness and security We asked what matters most when enterprises choose a retrieval system, and what they track once it is running. Both answers lean practical. Enterprises choose retrieval systems on operability. Ease of data ingestion (36%), latency and performance (32%), and operational simplicity (29%) lead the selection criteria â ahead of retrieval accuracy and access control (23% each), the two factors most directly tied to the failures in Finding 1. Once systems are running, the emphasis shifts toward trust: the most-tracked metrics are response correctness (42%) and security and access control (38%), ahead of latency (28%), operational stability (27%), and answer relevance (23%). Satisfaction with current systems is moderately positive but not enthusiastic â on a five-point scale, overall satisfaction averages 4.0, with ease of implementation and value for money both near 3.9. Enterprises buy for how easily a system runs and watch it for whether it can be trusted. Finding 8: A retrieval reshuffle is coming A majority plan to change providers â and the vector specialists are gaining interest We asked whether enterprises plan to change or add a retrieval provider, and which they are considering. The consideration set differs from todayâs stack. The retrieval stack is not settled. While 43% have no plans to change, a small majority (57%) intend to switch or add a provider within twelve months, and a quarter (26%) within the next quarter. The consideration set is where it gets interesting: provider-native retrieval still leads what enterprises are evaluating (OpenAI 22%, Vertex AI Search 21%), but the open-source vector specialists punch above their current footprint â Qdrant (14%) and Milvus (13%) draw more switching interest than their present usage (10% and 6%) would suggest. Read with Finding 4, the picture is a market in flux: enterprises run provider-native today, are evaluating a broader field, and say they want to keep their options open. The reshuffle ahead will test whether best-of-breed intent survives contact with the convenience of the bundle. The bottom line: A context gap that more retrieval alone wonât close Organizations with more than 100 employees are wiring agents into their business faster than they can guarantee the context those agents run on. Retrieval is the default source of enterprise context, and it increasingly comes from the model providers and hyperscalers rather than the dedicated vector databases â yet a majority of enterprises have already watched agents answer confidently and wrongly because that context was thin or inconsistent. The failure is not exotic; it is the predictable result of pointing authoritative-sounding agents at an unreliable foundation. The industryâs answer â a governed semantic layer, hybrid retrieval with reranking and access controls â is being built but is mostly not yet in production, and enterprises are pulled between the convenience of provider-native bundles and a stated preference for best-of-breed independence. At 101 respondents in a single Q2 wave this is a directional read, skewed toward the mid-market â but the direction is clear: the context layer is the next contested tier of the AI stack, and right now agents are running ahead of it. The context gap is not a retrieval-volume problem that more documents or bigger indexes will solve on their own; it is a problem of governed, consistent, access-aware context. The open question for later waves is whether enterprises finish building that layer before the confident-but-wrong failures move from the lab into decisions that matter. Based on survey responses from 101 qualified enterprise respondents (100+ employees), drawn from a single Q2 2026 (June) wave. At this sample size the results should be read as a directional signal rather than a precise measurement â it's a self-selected sample, not a probability sample, and skews toward the mid-market. Respondents include managers, individual contributors, VPs/directors, and the C-suite, with strong purchasing authority, across technology, healthcare, retail, transportation, financial services, manufacturing, and education.",
-      "date_published": "2026-07-16T17:06:08Z"
-    },
-    {
-      "id": "sty_a5864f3bef7fe8ad",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/966647/new-york-governor-kathy-hochul-ai-policies",
-      "title": "New York governor says she&#8217;s using AI to analyze &#8216;every single rule&#8217; in the state [ ~ ] [ ◻ ]",
-      "content_text": "New York Governor Kathy Hochul might have just signed a moratorium on new AI data centers in the state, but she's not against using the technology herself. During an interview with Bloomberg's Odd Lots podcast, Hochul said that her team is using \"AI to analyze every single rule, regulation, [and] policy\" to check for outdated [...]",
-      "date_published": "2026-07-16T17:58:37Z"
-    },
-    {
-      "id": "sty_425fa51c2fa14cc6",
-      "url": "https://venturebeat.com/ai/the-agent-evaluation-gap-enterprise-ai-organizations-have-a-reality-alignment-problem-not-a-coverage-problem-and-most-are-shipping-to-production-anyway",
-      "title": "The agent evaluation gap: Enterprise AI organizations have a reality-alignment problem, not a coverage problem â and most are shipping to production anyway [ * ] [ ◼ ]",
-      "content_text": "Across 157 enterprises, organizations are granting AI agents more autonomy while trusting the evaluations meant to gate that autonomy less. Half have already shipped an agent that passed their internal evaluations and then failed a customer in production; only one in twenty fully trusts automated evaluation today; and the most-cited weakness is that evaluations do not align with real-world outcomes. Yet two-thirds already allow, or are actively engineering toward, deploying agent changes to production on automated evaluation alone â with no human in the loop. The result is an evaluation gap â the distance between how much autonomy enterprises are handing their agents and how far they trust the tests that are supposed to catch the failures. This wave of VentureBeat Pulse Research examines how technical leaders measure agent performance: which reliability and evaluation platforms they use, how they select and trust them, what breaks in production, and how far they are willing to let agents run without a human in the loop. The central finding is an evaluation gap â the distance between the autonomy enterprises are granting their agents and the trust they place in the evaluations meant to govern it. Half of organizations (50%) have, in the past year, deployed an agent or LLM feature that passed their internal evaluations and then caused a customer-facing failure, and a quarter have seen it happen more than once. Trust in the tests themselves is thin: only 5% say they fully trust automated evaluation today, and the single most-cited limitation is that evaluations align poorly with real-world outcomes (29%). Enterprises are discovering that a passing eval is not the same as a working agent. What makes the gap consequential is the direction of travel. Two-thirds of organizations (66%) already permit fully automated, zero-human-in-the-loop deployment for low-risk agents (34%) or are actively engineering their pipelines to allow it within twelve months (33%). At the same time, the evaluation stack that would have to earn that trust is fragmented and immature: the most common primary tools are the model providersâ native evals, tied with having no dedicated tooling at all (17% each); and only about a quarter of enterprises run real-time quality checks on live production traffic. The autonomy is arriving faster than the assurance. Methodology VentureBeat fielded this survey as part of its ongoing Pulse Research series, this survey â the Agentic Reliability & Evals tracker â focused on how technical leaders evaluate agent performance and reliability. Responses are filtered to organizations with 100 or more employees (n=157), drawn from a single survey in June 2026; because this is one wave rather than a pooled multi-month sample, the report reads cross-sectionally and does not infer month-over-month trends. Where questions were multiple-select, those shares can sum to more than 100%. By role the sample is senior and buyer-credible: 38% are final decision-makers for AI purchases and another 34% recommenders or influencers. Product and program managers (15%), consultants and advisors (10%), directors of engineering/IT (8%), and CIOs/CTOs/CISOs (8%) lead the named titles, alongside a large âOtherâ function (37%). By organization size the sample is mid-market-weighted: 100â499 (37%) and 500â2,499 (27%) employees lead, with 2,500â9,999 (20%), 10,000â49,999 (10%), and 50,000+ (6%) above them. Technology/Software is the largest industry at 23%, followed by Retail/Consumer (15%), Healthcare/Life Sciences (12%), and Manufacturing (10%). At 157 respondents the sample is large enough to read directionally but should be treated as a directional signal rather than a precise measurement; it is self-selected and is not a probability sample. It skews toward the mid-market, so it is best read as the view from organizations actively standing up agent evaluation practices rather than from the largest operators. Note: This survey was rebuilt for the June wave from the earlier âLLM observability and evaluationsâ survey; because the questions and sample differ, no comparisons are made to the AprilâMay data. Finding 1: A passing eval is not a working agent Half have shipped an agent that passed evals, then failed a customer We asked whether, in the past 12 months, organizations had deployed an agent or LLM feature that passed their internal evaluations but then caused a customer-facing failure. Half of those that run evaluations had. This is the reportâs defining number. Half of organizations (50%) have shipped an AI feature that cleared their internal evaluations and then failed in front of a customer â an incorrect output, a broken workflow, or a quality incident â and a quarter have seen it happen more than once. Only 36% report no such failure, and the remainder either run no pre-deployment evaluations (8%) or donât track the root cause closely enough to know (6%). The failure is precise and expensive: the evaluation said the agent was ready, and it was not. Everything that follows â how enterprises trust their evals, what they monitor, and how much autonomy they grant â is shaped by this experience. Finding 2: Almost no one fully trusts automated evaluation The top complaint: Evals don't match real-world outcomes We asked which limitation most reduces trust in automated agent evaluations today. Only a sliver of enterprises had no complaint at all. Trust in automated evaluation is scarce, and specific. Only 5% of organizations say they fully trust automated evaluation as it stands â meaning 95% name a limitation that holds them back. The most common, at 29%, is the one that most directly explains Finding 1: evaluations align poorly with real-world outcomes, passing agents that later fail. Bias or inconsistency (21%) and a lack of explainability (18%) follow â enterprises cannot always tell why an evaluation reached its verdict â and 17% cite data-leakage or privacy concerns in the evaluation process itself. The tests meant to certify agents are not yet trusted to certify them, which is precisely why the autonomy trajectory in Finding 3 is so striking. Finding 3: The autonomy ceiling is rising anyway Two-thirds already allow, or are building toward, zero-human deployment We asked whether organizations would let an autonomous agent deploy a code or system change to production on automated evaluation results alone, with no human-in-the-loop validation. The trajectory runs straight through the trust gap. Here is the paradox at the heart of the report. Even though almost no one fully trusts automated evaluation (Finding 2), two-thirds of organizations (66%) either already allow zero-human-in-the-loop deployment for low-risk agents (34%) or are actively engineering their pipelines to permit it within a year (33%). Only 22% rule it out for the foreseeable future. The direction is unambiguous: enterprises are moving to let evaluations gate production autonomously â removing the human check â at the same moment they say those evaluations donât reliably match reality. The autonomy ceiling is rising faster than the assurance beneath it, which is the mechanism by which the false-confidence failures of Finding 1 will scale rather than shrink. Notably, the autonomy bet is not just a small company phenomenon. Splitting the sample by company size, larger enterprises are slightly further down the path toward zero human review than smaller companies (70% versus 64%) and slightly more likely to have shipped an evaluation-passing agent that then failed a customer (54% versus 48%). The assumption that large, regulated organizations are holding the human in the loop longest is, in this sample, backwards.Â To be sure, these are directional figures, since the survey was not a huge sample â 57 respondents from companies with 2,500+ employees and 100 from companies smaller than that.Â Finding 4: The evaluation stack is fragmented and provider-led Provider-native evals lead â tied with no dedicated tool at all We asked which agent reliability or evaluation platform enterprises primarily use today. The market has no clear leader â and a large share has nothing dedicated. The evaluation layer is early and unconsolidated. Provider-native tooling leads â OpenAIâs native evals and traces (17%) and Anthropicâs Claude Console evals (13%) together outweigh any independent platform â but it is tied at the top by a striking answer: 17% of enterprises use no dedicated agent-evaluation tooling at all, a notable gap for organizations shipping agents to customers. The specialist evaluation vendors â DeepEval (12%), Braintrust (8%), LangSmith, Weave, Promptfoo, Langfuse, Arize â are scattered across single to low double digits, and 11% have built their own. No independent platform has yet become the category standard, which leaves most enterprises evaluating agents with provider-native tools, home-grown scripts, or nothing. Finding 5: Production monitoring rarely watches output quality Only a quarter run real-time quality checks on live traffic Production monitoring for an AI agent can watch two very different things. It can watch whether the system is functioning â is the agent up and responding, did each request complete, how fast, at what cost, with any errors. Or it can watch whether the agent's output is correct â automated checks that evaluate the content of each answer as it goes out: did the agent give the right answer, take the right action, stay within policy. The distinction matters because a confidently wrong answer is invisible to the first kind of monitoring: the request completes, the response is fast, no error is thrown, and every functioning-metric reads healthy. We asked organizations which kind their live production monitoring is built for today. Grouped by what is actually being watched, the split is stark: 51% of organizations monitor only whether the agent is functioning, while 23% monitor whether its answers are right. Counting the ad-hoc reviewers and the don't-knows, roughly three-quarters of organizations run no automated, real-time evaluation of output correctness in production â they can see that the system is up and what it costs, and they are taking the correctness of its answers on faith. That blind spot is the runtime counterpart to the pre-deployment gap in Finding 1: the same organizations engineering the human out of the deployment decision mostly cannot see, in real time, when the deployed agent starts getting things wrong. Finding 6: Bought on cost, measured on consistency Price and integration drive selection; evaluation consistency is the goal We asked what most influenced enterprisesâ choice of an evaluation vendor, and what they treat as their primary measure of success. Both answers are pragmatic. Enterprises buy evaluation tooling on economics and trust it on repeatability. Cost of evaluations (28%) narrowly leads selection, just ahead of ease of integration (27%) and evaluation accuracy (24%) â breadth of observability (13%) and vendor roadmap (4%) matter far less. On what success looks like, more than a third (36%) name evaluation consistency â getting the same verdict on the same behavior every time â well ahead of speed of experimentation (19%), reduction in failures (18%), production visibility (13%), and compliance (11%). The emphasis on consistency is telling: before enterprises can trust an evaluationâs verdict, they need it to be stable â the very property whose absence (bias and inconsistency) ranked among the top trust limitations in Finding 2. Satisfaction with current tooling is only moderate, averaging 3.8 on a five-point scale across overall satisfaction, ease of implementation, and value for money. Finding 7: The next dollar goes to humans and observability Investment is flowing to oversight, not just automation We asked which reliability and evaluation investment will grow most over the next year. The money is going toward watching agents more closely â including with people. The second-largest planned investment â behind only production observability â is human review workflows, at 26%. Read against Finding 1, that is the report's quietest contradiction: at the same moment two-thirds of enterprises are engineering the human out of the deployment decision, more of them plan to grow spending on human reviewers (26%) than on the automated evaluation pipelines (16%) that would replace them. The zero-human trajectory and the human-review budget are rising in the same companies at the same time. Indeed, only 8% report that their budget is not increasing. Taken together, enterprises are hedging: building toward autonomy while spending to watch agents more closely and keep humans available for the calls that automated evaluation cannot yet be trusted to make. Finding 8: A tooling reshuffle is coming Nearly two-thirds plan to adopt or switch platforms within a year We asked whether enterprises plan to adopt a new, additional, or replacement evaluation platform, and which they are considering. Few intend to stand pat. The evaluation market is wide open. While 36% have no plans to change, a clear majority (64%) intend to adopt a new, additional, or replacement platform within twelve months, and 31% within the next quarter. The consideration set points where current usage is thinnest: Confident AIâs DeepEval leads what enterprises are evaluating (20%), ahead of OpenAIâs native evals (13%) and Braintrust (9%) â the open-source specialists drawing more interest than their present footprint. Given that so many enterprises today rely on provider-native tools or nothing at all (Finding 4), this is less a defection than a first real wave of tooling adoption â the moment the evaluation layer starts to consolidate. Which platforms earn that trust, in a market where almost no one trusts automated evaluation yet, is the open question this series will keep tracking. The bottom line: An evaluation gap that autonomy will widen, not close Organizations with 100 or more employees are granting AI agents more independence than they trust their evaluations to support. Half have already shipped an agent that passed its evals and then failed a customer; almost none fully trust automated evaluation, chiefly because it doesnât match real-world outcomes; and most watch production for uptime and cost rather than for whether the agentâs answers are right. Yet two-thirds already allow, or are actively building toward, deploying to production on automated evaluation alone. The vendor market is early and unsettled: the most common primary evaluation tools are provider-native evals, tied with no dedicated tooling at all, and a clear majority plan to adopt or switch platforms within the year. Encouragingly, the next dollar is going to observability and â pointedly â human review, suggesting enterprises sense the gap even as they engineer past it. At 157 respondents in a single wave this is a directional read, skewed toward the mid-market â but the direction is clear: autonomy is being granted on the strength of evaluations that the people granting it do not yet trust. The evaluation gap is not a coverage problem that more tests alone will close; it is a problem of evaluations that reflect reality and can be trusted to gate it. The open question for later waves is whether assurance catches up to autonomy â or whether the false-confidence failures move from customer incidents into changes that deploy themselves. Based on survey responses from 157 qualified enterprise respondents (100+ employees), drawn from a single June 2026 wave. This is a directional read rather than a precise measurement â the sample is self-selected, not a probability sample, and skews toward the mid-market. Respondents include product and program managers, consultants and advisors, directors of engineering/IT, and CIOs/CTOs/CISOs, among other functions, across technology/software, retail/consumer, healthcare/life sciences, manufacturing, and other industries.",
-      "date_published": "2026-07-16T16:40:48Z"
-    },
-    {
-      "id": "sty_39204c9d5ff1017a",
-      "url": "https://www.theinformation.com/articles/andreessen-horowitz-backs-startup-aiming-parent-ai-agents",
-      "title": "Andreessen Horowitz Backs Startup Aiming to 'Parent' AI Agents [ ~ ] [ ◻ ]",
-      "content_text": "As a father to two young kids, Guanlan Dai sees a lot of similarities between AI agents and precocious children. Just as parents might childproof their house and avoid giving their kids access to credit cards, so too must developers limit the important files AI agents can access and how much the agents can spend in one go, he said. Now, Dai, a former Cloudflare technical lead and founding engineer at API connectivity startup Kong, is starting his own company, Runta, to help businesses \"parent\" their AI agents. The San Mateo, Calif.-based startup recently raised $20 million in seed funding at a $100 million-plus valuation led by Andreessen Horowitz general partner Martin Casado, Dai told The Information exclusively. (Other investors include a who's-who of AI researchers and executives, including Google's Jeff Dean, World Labs' Fei-Fei Li, Databricks' Ali Ghodsi, early Google backer Ram Shriram and Hugging Face's Thomas Wolf.) Runta focuses on two necessary components of running AI agents: providing computing power to the agents, and protections known as guardrails that prevent the agents from going rogue.",
-      "date_published": "2026-07-16T14:01:32Z"
-    },
-    {
-      "id": "sty_1ed98c3252e5e502",
-      "url": "https://arstechnica.com/gadgets/2026/07/its-official-eu-will-force-google-to-share-search-data-and-open-up-ai-on-android/",
-      "title": "It's official: EU will force Google to share search data and open up AI on Android [ ! ] [ ⬢ ]",
-      "content_text": "Google says these changes could endanger user privacy and security.",
-      "date_published": "2026-07-16T20:41:45Z"
-    },
-    {
-      "id": "sty_e901a644fc1ba885",
-      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
-      "title": "Our approach to bioresilience [ ~ ] [ ◻ ]",
-      "content_text": "Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience and AI models.",
-      "date_published": "2026-07-16T09:30:42Z"
-    },
-    {
-      "id": "sty_2c3004f7decf1fb6",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZERiWDZYQ2s2VGEzWUZOaFlWTEpybGlBX09qUkVGZzFQQjE0TjB2TEFxM3VFeEhyM2pMYU9tMEVqRmwtWG51ZXRXTHFpVFhvbnVQMDVDczI5cUNrdU9GbkpJZm11ZXRXbmx1VjJWNG5BendIdFNOTV9rbEd3b1M2azBDRkpFYzBBMENOLWdZTFl2bi0tSGtOUVNJNGVsTHpsNldV?oc=5",
-      "title": "Musk's Memphis AI Supercluster Ignites Nationwide Data Center Revolt - The Tech Buzz",
-      "content_text": "Musk's Memphis AI Supercluster Ignites Nationwide Data Center Revolt The Tech Buzz",
-      "date_published": "2026-07-17T01:08:00Z"
-    },
-    {
-      "id": "sty_4728f8eaccd26734",
-      "url": "https://www.theverge.com/tech/966112/google-gemini-notebook-notebooklm",
-      "title": "Google is renaming NotebookLM to Gemini Notebook [ ~ ] [ ◻ ]",
-      "content_text": "Google is giving its AI note-taking app a new name. The company announced on Thursday that NotebookLM is becoming Gemini Notebook, but will remain a standalone app even as it integrates more deeply across Gemini and Google Search. Google first revealed Gemini Notebook - then called Project Tailwind - in May 2023 before widely releasing [...]",
-      "date_published": "2026-07-16T16:00:00Z"
-    },
-    {
-      "id": "sty_ee7df369ea4337e5",
-      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9meU56cUNqLXNCemduWmhFeFFVc0RvM2RCbWMxOVlvcy13RENsRHVtRGZiYURFWnVqaC1rVlNJLXZZN3gtbnhneEZ3?oc=5",
-      "title": "Automations in Grok - X.ai",
-      "content_text": "Automations in Grok X.ai",
-      "date_published": "2026-07-16T21:01:54Z"
-    },
-    {
-      "id": "sty_efd62309384fc20b",
-      "url": "https://arstechnica.com/ai/2026/07/linus-torvalds-to-critics-of-ai-coding-in-linux-fork-it-or-just-walk-away/",
-      "title": "Linus Torvalds to critics of AI coding in Linux: \"Fork it. Or just walk away.\" [ ~ ] [ ◻ ]",
-      "content_text": "Creator says he will \"very loudly ignore\" those arguing for a ban on AI tools.",
-      "date_published": "2026-07-16T19:18:23Z"
-    },
-    {
-      "id": "sty_e0def78b5ded1320",
-      "url": "https://the-decoder.com/kimis-open-model-k3-nears-gpt-5-6-sol-and-fable-5-while-signaling-the-end-of-super-cheap-chinese-ai/",
-      "title": "Kimi's open model K3 nears GPT-5.6 Sol and Fable 5 while signaling the end of super cheap Chinese AI [ * ] [ ◼ ]",
-      "content_text": "Kimi is launching K3, a multimodal open-weight model with 2.8 trillion parameters and one million tokens of context. In the company's own benchmarks, it comes close to Claude Fable 5 and GPT 5.6 Sol while beating Opus 4.8 and GLM 5.2, in some cases by a wide margin. The model is also significantly pricier than its predecessor. Full weights are scheduled for release by July 27. The article Kimi's open model K3 nears GPT-5.6 Sol and Fable 5 while signaling the end of super cheap Chinese AI appeared first on The Decoder.",
-      "date_published": "2026-07-16T19:49:39Z"
-    },
-    {
-      "id": "sty_0cd0a4bdad6fc554",
-      "url": "https://www.wired.com/story/why-anthropic-is-pushing-states-to-regulate-ai-faster/",
-      "title": "Here's Why Anthropic Is Pushing States to Regulate AI Faster [ * ] [ ◻ ]",
-      "content_text": "The company endorsed landmark AI transparency laws in California and New York last year, but its head of US state and local policy says they may already be outdated.",
-      "date_published": "2026-07-16T18:35:18Z"
-    },
-    {
-      "id": "sty_e6d57e96096f78fe",
-      "url": "https://blog.google/products-and-platforms/products/education/university-of-waterloo-futures-lab/",
-      "title": "Reimagining higher education with the Waterloo Futures Lab [ ~ ] [ ◻ ]",
-      "content_text": "Google and the University of Waterloo's Futures Lab is helping students build real-world AI tools and prepare for jobs of tomorrow.",
-      "date_published": "2026-07-16T16:00:00Z"
-    },
-    {
-      "id": "sty_5e3532b2c916a56c",
-      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
-      "title": "Connect more of your apps to Search [ ~ ] [ ◻ ]",
-      "content_text": "You'll be able to securely link and interact with your go-to services directly in AI Mode.",
-      "date_published": "2026-07-16T16:00:00Z"
-    },
-    {
-      "id": "sty_4898f435f478f7ae",
-      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
-      "title": "Create, edit and star in videos with two Google Vids updates [ ~ ] [ ◼ ]",
-      "content_text": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
-      "date_published": "2026-07-16T16:00:00Z"
-    },
-    {
-      "id": "sty_deff75e05ce2be01",
-      "url": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/free-ai-training-georgia-libraries/",
-      "title": "We're partnering with the Georgia Public Library Service for no-cost career and AI training. [ ~ ] [ ◻ ]",
-      "content_text": "Google partners with the Georgia Public Library Service to provide free Career Certificates and AI training to residents statewide.",
-      "date_published": "2026-07-16T16:00:00Z"
-    },
-    {
-      "id": "sty_4750207e91b766de",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZG1QVGItTTFUS24xVkU5dkFTWmRpVHA0dWw5bnBLMzN4TnpxNTBGQi1hYjhmSVNWdV9WUmo5Zk5SUkJETW5yNTdrbFNPTkJCRUlMWW5IM0NhdWhFVFd0ZGZDSmNDSjVpMVZkM0x3T3hXbGIzNk83WEllWDB5V01SWVA5OGxqSTZpNnhZZ1k5QU9JQzducDJZR1ZvMDFsdmRrRFVXRm5KalVTZ3F3VzBCbTlkRmY?oc=5",
-      "title": "Building on the Claude Platform: Claude Fable 5 and model orchestration patterns [ ~ ] [ ◻ ]",
-      "content_text": "Building on the Claude Platform: Claude Fable 5 and model orchestration patterns Anthropic",
-      "date_published": "2026-07-16T19:34:01Z"
-    },
-    {
-      "id": "sty_5114ff4261ea0361",
-      "url": "https://www.theinformation.com/articles/use-google-gemini-develop-customer-relationships",
-      "title": "How to Use Google Gemini to Develop Customer Relationships [ ~ ] [ ◻ ]",
-      "content_text": "It feels like there's almost never enough time to get everything done in the run-up to a big event. If your company's annual conference is coming up, that means you have a golden opportunity to connect with some of your most important prospects face-to-face. But it likely also means that you need to finish up a booth design, rehearse a keynote speech, or troubleshoot a lapel mic emergency. Gemini can help lighten the load. Instead of agonizing over the wording of invitations, follow-up emails, and survey questions, you can use Gemini to create initial outreach drafts and then add your own human touch. Step 1: Draft Your Invitation Writing a simple email inviting your prospects to a post-panel happy hour can be surprisingly stressful. You want to come across as professional, but you also want to signal that the event will be fun-without crossing any lines or resorting to cringey humor. Instead of staring at a blank screen, try this prompt with Gemini: Write an email inviting people interested in [focus area] to our happy hour taking place on [date, time] at [trade show event]. Include that we specialize in [focus area]. Almost immediately, you'll have a rough-and-ready draft, from subject line to sign-off. If you have a Gmail account, the Gemini app will even give you the option to send the email directly from the chat. Take a minute before you hit \"send,\" though, to make sure the message sounds like you. Maybe you'll want to replace \"Dear guests\" with \"Hey gang\" or substitute \"Cheers!\" for \"Best regards.\" And if the overall tone has missed the mark, you can ask Gemini to rewrite the message to be more conversational, energetic, or welcoming. Step 2: Follow Up A great event is just one step in building and deepening a customer relationship. After the conference is over, send an email to all of the prospects who attended your happy hour to thank them for coming. In addition to being thoughtful, the note will help your event stand out in their memory after the whirlwind of the conference. Try this prompt: Draft an email thanking customers for their time at the happy hour on [date, time, location]. End with an invitation to continue the conversations in the next few weeks. Use a friendly tone. Here again, feel free to tinker with the subject line, the tone, and the content. Also, it's a good idea to add a touch of personalization to each message. A quick mention of a specific challenge that a customer mentioned over drinks can go a long way toward making them feel seen and valued. Step 3: Survey Your Customers By listening to the people who use your product or service, you can often gain valuable feedback that not only helps you improve their experience, but also ultimately helps you close more sales. However, a generic \"What did you think?\" email is unlikely to produce much useful information. Instead, use Gemini to build a structured discovery tool. Even if you have no experience conducting surveys, Gemini can help you quickly generate questions that will yield valuable customer insights. Here's a sample prompt: Draft 10 questions that I can use to survey customers about their recent experience with our [product/service]. Include questions to gauge how useful [the product] is, what they liked, and what they thought could use improvement. See whether the output matches your expectations, and then give Gemini instructions for revision, if needed. For example, you might ask for fewer open-ended questions or more questions about specific use cases. Step 4: Analyze Results and Refine Your Approach Once your inbox starts filling up with customer replies and survey results, you can use Gemini to help detect patterns and identify opportunities. You might ask Gemini: Analyze these survey results and customer email responses. Identify the overall sentiment of our recent conference presence, list the top three opportunities for immediate sales follow-up, and suggest three specific changes we should make to our workshop approach based on customer friction points. By spending just a bit of time creating these touchpoints with Gemini, you can turn the chaos of a conference into a customer relationship strategy built on both human connection and data-driven insight.",
-      "date_published": "2026-07-16T13:15:42Z"
     },
     {
       "id": "sty_654cf760a1ee4c27",
@@ -406,20 +448,6 @@
       "date_published": "2026-07-16T18:32:54Z"
     },
     {
-      "id": "sty_7d0b5bfff13b3700",
-      "url": "https://www.theinformation.com/articles/160-enterprise-software-startups-sale-year",
-      "title": "160 Enterprise Software Startups That Could Be for Sale This Year",
-      "content_text": "Many enterprise software startups that raised money at steep valuations between 2020 and 2022 face diminishing options. Venture capitalists who previously sank funds into these startups have shifted much of their money toward AI. Stocks in public enterprise software companies have fallen sharply. When the startups' backers push for cash returns, the most likely exit is a sale. To find the companies facing the most pressure to sell themselves, The Information screened for privately owned U.S. enterprise software firms valued at $1 billion or more that haven't publicly announced funding in at least two years, according to PitchBook, and talked to more than 30 founders, investors and bankers about likely candidates. Since the last time we compiled the list, the number of startups on the list has nearly doubled to more than 160. See the full list here.",
-      "date_published": "2026-07-16T13:02:24Z"
-    },
-    {
-      "id": "sty_238108f41f37c97f",
-      "url": "https://www.theverge.com/tech/966442/1password-anthropic-claude-browser-integration",
-      "title": "Claude can now use your 1Password credentials for you [ * ] [ ◼ ]",
-      "content_text": "1Password has launched a new browser integration for Claude that allows the Anthropic chatbot to access stored security credentials like usernames and passwords. The 1Password for Claude feature means that users can authorize Claude to complete multi-step tasks like booking travel and managing online accounts on their behalf without having to manually input their login [...]",
-      "date_published": "2026-07-16T13:00:00Z"
-    },
-    {
       "id": "sty_560a5ba11953ff06",
       "url": "https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/",
       "title": "Roblox launches an AI-powered game-creation feature in its mobile app [ * ] [ ◼ ]",
@@ -427,18 +455,60 @@
       "date_published": "2026-07-16T18:22:06Z"
     },
     {
-      "id": "sty_9e094a4708eb200a",
-      "url": "https://the-decoder.com/google-rebrands-notebooklm-as-gemini-notebook-and-opens-its-search-app-to-third-party-integration/",
-      "title": "Google rebrands NotebookLM as Gemini Notebook and opens its search app to third-party integration [ * ] [ ◼ ]",
-      "content_text": "Google is renaming NotebookLM to Gemini Notebook and integrating the tool more deeply into its ecosystem. A new feature gives each notebook its own cloud computer that can write and run code, initially for AI Ultra and Workspace customers. Separately, Google Search is getting app connections. The article Google rebrands NotebookLM as Gemini Notebook and opens its search app to third-party integration appeared first on The Decoder.",
-      "date_published": "2026-07-16T17:22:18Z"
+      "id": "sty_d1d12887cf502d98",
+      "url": "https://venturebeat.com/ai/the-ai-context-gap-enterprise-ai-organizations-have-a-trust-problem-not-a-retrieval-problem-and-most-are-still-building-the-fix",
+      "title": "The AI context gap: Enterprise AI organizations have a trust problem, not a retrieval problem â and most are still building the fix [ * ] [ ◼ ]",
+      "content_text": "Across 101 enterprises, the infrastructure that feeds AI agents their business context is being built faster than it can be trusted. Retrieval-augmented generation is already the default context source, and provider-native retrieval has quietly overtaken the dedicated vector databases that define the category â yet a majority of enterprises have already watched their agents produce confident, wrong answers traced to missing or inconsistent context. A governed semantic layer is emerging as the fix, but most are still building it; the field is converging on hybrid retrieval; and even as provider-native tools lead in practice, a plurality say they intend to keep best-of-breed. The result is a context gap â agents that sound authoritative running on a foundation their owners do not yet fully trust. This wave of VentureBeat Pulse Research examines the enterprise RAG and context layer: what feeds AI agents their business context, which retrieval systems enterprises run, how they buy and measure them, where the architecture is heading, and â most revealingly â how often that context is already failing them. The central finding is a context gap â the distance between how confidently enterprise agents answer and how reliable the context beneath them actually is. A majority of enterprises (57%) report that in the past six months their AI agents produced confident but wrong answers they traced to missing or inconsistent business context, and more than half of those said it happened more than once. This is not a fringe failure: retrieval is the primary context source for 38% of enterprises, more than any other approach, so when retrieval is thin or inconsistent, the errors it produces are wearing the agentâs authority. The infrastructure to fix it is being built â 58% already run or are building a governed semantic layer â but for most it is not yet in production. Underneath, the market is consolidating in a direction that surprises. Provider-native retrieval â OpenAIâs file search (40%) and Googleâs Vertex AI Search (38%) â already leads every dedicated vector database, and enterprises expect hybrid retrieval to dominate by the end of 2026 (34%). Yet a plurality (36%) say they intend to keep best-of-breed standalone tools rather than consolidate onto a providerâs native context stack, and a majority (57%) plan to switch or add a provider within the year. Stated preference and actual usage are pulling in opposite directions â the market is buying provider-native while insisting it wants independence. Methodology VentureBeat fielded this survey as part of its ongoing Pulse Research series. This survey focused on enterprise RAG infrastructure and the context layer â the retrieval systems, semantic layers, and context sources that feed AI agents. Responses are filtered to organizations with more than 100 employees (n=101); the survey drew no responses from organizations of 100 or fewer, so the full sample qualifies. All responses are from a single Q2 2026 (June) wave, so the report reads cross-sectionally and does not infer month-over-month trends. Several questions were multiple-select, so those shares can sum to more than 100%. By organization size the sample concentrates in the mid-market: 251â1,000 employees (31%) and 101â250 (31%) lead, with 1,001â5,000 (20%), 5,001â10,000 (12%), and 10,001+ (7%) above them. By role it spans managers (39%), individual contributors (27%), the C-suite (16%), and VPs and directors (14%); on purchasing authority it is buyer-credible, with 46% final decision-makers and another 26% recommenders or influencers. Technology/Software is the largest industry at 20%, followed by Healthcare/Life Sciences (11%) and a broad spread across retail, transportation, financial services, manufacturing, and education. At 101 respondents this is a modest sample and should be read as a directional signal rather than a precise measurement; it is self-selected and is not a probability sample. It is best read as the view from organizations actively standing up RAG and context infrastructure rather than from the largest operators. Finding 1: Confident and wrong More than half have traced agent errors to bad context We asked whether, in the past six months, enterprises had traced a confident but wrong agent answer to missing or inconsistent business context. Most had. This is the reportâs defining number. A majority of enterprises (57%) have already had an AI agent produce a confident, wrong answer they traced to bad context â wrong metrics, stale definitions, or missing documents â and more than half of those have seen it happen more than once. Only 28% report no such failure, and a small remainder either donât run agents on enterprise data or donât trace root cause closely enough to know. The failure mode is specific and dangerous: the model is not obviously hallucinating; it is confidently wrong because the context feeding it was thin or inconsistent. Everything else in this report â what enterprises retrieve, how they govern it, and what they plan to build â is downstream of this problem. Finding 2: RAG is the default context source Retrieval feeds more agents than any other method We asked what an enterpriseâs AI agents primarily use to understand its data. Retrieval leads by a wide margin. Retrieval is the backbone of enterprise context. For 38% of organizations, RAG over documents or a vector index is the primary way agents understand the business â nearly twice the share of the next approach, a governed semantic layer or ontology (21%). Mixed approaches (14%), direct live-system queries (10%), and long-context loading (6%) fill out the rest, and only 2% let agents run on the modelâs general knowledge alone. The concentration matters in light of Finding 1: because so much enterprise context flows through retrieval, the quality of that retrieval is the quality of the answer. When RAG is the default source, thin retrieval is not an edge case â it is the main failure surface. One approach is notable for its absence from these answers: customizing model weights, also known as fine-tuning. Every leading source of business context is injected at run time. Our most recent direct measurement of fine-tuning comes from our AprilâMay survey wave (a separate survey, n=136), where fine-tuning capabilities ranked last of six factors in model selection at 5% â even as 26% of that sample still named fine-tuning and customization an investment they expect to grow. Fine-tuning has fallen out of the primary selection conversation; context injection is how enterprises make agents knowledgeable about their business. Finding 3: Provider-native retrieval already leads the vector databases OpenAI file search and vertex AI search top the dedicated tools We asked which retrieval systems enterprises run in production today. The answer favors the model providers and hyperscalers over the specialists. The dedicated vector database is no longer the center of the RAG stack. OpenAIâs file search (40%) and Googleâs Vertex AI Search (38%) lead â provider-native and hyperscaler-native retrieval â ahead of every purpose-built vector database. Among the specialists, the most-used is the one enterprises already run for other reasons (Elasticsearch/OpenSearch, 20%) and the open, embedded option (pgvector, 12%); the pure-play vector databases that define the category â Weaviate, Qdrant, Pinecone, Milvus â each sit in single digits to low double digits. Notably, 13% of enterprises say they still run no production RAG at all. As with the platforms in the parallel infrastructure wave, enterprises are gravitating to retrieval that comes bundled with tools they already buy. The shape of this finding held across both Q2 waves. In AprilâMay (n=161), provider-built retrieval led usage there too, while every dedicated vector database remained marginal â the most-used standalone vector database peaked at 8% of that sample â and the hybrid, pluralistic future was already the consensus expectation (34% expected hybrid retrieval to dominate, with another 29% expecting multiple architectures by use case). Two waves, consistent picture: the category that coined the âvector databaseâ term is being collected by the platforms enterprises already buy from. Finding 4: But they say they want to keep best-of-breed A plurality resist consolidating onto a providerâs native stack We asked how enterprises will respond as model providers bundle retrieval, memory, and orchestration into their platforms. Their stated intent cuts against their current usage. Here is the tension at the heart of the stack. Even as provider-native retrieval leads in practice (Finding 3), a plurality of enterprises (36%) say they intend to keep best-of-breed standalone tools rather than consolidate onto a providerâs native context stack â well ahead of the 21% who plan to consolidate. Another 21% expect a mix, and 9% intend to build and own the layer themselves. The gap between what enterprises run and what they say they want is the strategic question of the category: they are adopting bundled retrieval for convenience while asserting they will preserve independence. Which impulse wins â the pull of the provider bundle or the stated preference for modular control â will shape the retrieval market more than any single tool. Finding 5: Hybrid retrieval is the consensus bet Vector-only retrieval is already seen as insufficient We asked which retrieval architecture enterprises expect to dominate their production RAG systems by the end of 2026. The field is converging â with a large share still unsure. The architecture is settling on hybrid. A third (34%) expect hybrid retrieval â embeddings combined with reranking and access controls â to dominate their production systems by the end of 2026, three times the 11% who expect vector-only retrieval to prevail. That is a notable signal: the pure vector-search approach that launched the category is already viewed as insufficient on its own, superseded by pipelines that add reranking for accuracy and access controls for governance â the very access controls whose absence produces the failures in Finding 1. Tellingly, the second-largest answer is uncertainty: 17% simply donât know, and another 14% expect to move beyond a dedicated vector layer entirely toward tool-first or long-context retrieval. The consensus is not a single tool but a layered pipeline â and it is not yet fully formed. Finding 6: The governed context layer is being built now Most run or are building a semantic layer â few in production We asked whether enterprises use a governed semantic or context layer to give agents and BI a shared understanding of their data. Most are on the path; fewer have arrived. The fix for the context gap is under construction. Well over half of enterprises (58%) either run a governed semantic layer in production (25%) or are piloting and building one (34%), and a further 17% are actively evaluating â meaning three-quarters are engaged with the idea in some form. But the balance is telling: more are building than have shipped, so for most enterprises the shared, governed definition layer that would prevent the \"confident but wrong\" failures of Finding 1 is still a work in progress. The semantic layer is the industryâs answer to inconsistent context; this wave catches it mid-construction, ambition well ahead of production. Finding 7: Bought on ingestion and simplicity, watched for correctness Selection favors operability; monitoring favors correctness and security We asked what matters most when enterprises choose a retrieval system, and what they track once it is running. Both answers lean practical. Enterprises choose retrieval systems on operability. Ease of data ingestion (36%), latency and performance (32%), and operational simplicity (29%) lead the selection criteria â ahead of retrieval accuracy and access control (23% each), the two factors most directly tied to the failures in Finding 1. Once systems are running, the emphasis shifts toward trust: the most-tracked metrics are response correctness (42%) and security and access control (38%), ahead of latency (28%), operational stability (27%), and answer relevance (23%). Satisfaction with current systems is moderately positive but not enthusiastic â on a five-point scale, overall satisfaction averages 4.0, with ease of implementation and value for money both near 3.9. Enterprises buy for how easily a system runs and watch it for whether it can be trusted. Finding 8: A retrieval reshuffle is coming A majority plan to change providers â and the vector specialists are gaining interest We asked whether enterprises plan to change or add a retrieval provider, and which they are considering. The consideration set differs from todayâs stack. The retrieval stack is not settled. While 43% have no plans to change, a small majority (57%) intend to switch or add a provider within twelve months, and a quarter (26%) within the next quarter. The consideration set is where it gets interesting: provider-native retrieval still leads what enterprises are evaluating (OpenAI 22%, Vertex AI Search 21%), but the open-source vector specialists punch above their current footprint â Qdrant (14%) and Milvus (13%) draw more switching interest than their present usage (10% and 6%) would suggest. Read with Finding 4, the picture is a market in flux: enterprises run provider-native today, are evaluating a broader field, and say they want to keep their options open. The reshuffle ahead will test whether best-of-breed intent survives contact with the convenience of the bundle. The bottom line: A context gap that more retrieval alone wonât close Organizations with more than 100 employees are wiring agents into their business faster than they can guarantee the context those agents run on. Retrieval is the default source of enterprise context, and it increasingly comes from the model providers and hyperscalers rather than the dedicated vector databases â yet a majority of enterprises have already watched agents answer confidently and wrongly because that context was thin or inconsistent. The failure is not exotic; it is the predictable result of pointing authoritative-sounding agents at an unreliable foundation. The industryâs answer â a governed semantic layer, hybrid retrieval with reranking and access controls â is being built but is mostly not yet in production, and enterprises are pulled between the convenience of provider-native bundles and a stated preference for best-of-breed independence. At 101 respondents in a single Q2 wave this is a directional read, skewed toward the mid-market â but the direction is clear: the context layer is the next contested tier of the AI stack, and right now agents are running ahead of it. The context gap is not a retrieval-volume problem that more documents or bigger indexes will solve on their own; it is a problem of governed, consistent, access-aware context. The open question for later waves is whether enterprises finish building that layer before the confident-but-wrong failures move from the lab into decisions that matter. Based on survey responses from 101 qualified enterprise respondents (100+ employees), drawn from a single Q2 2026 (June) wave. At this sample size the results should be read as a directional signal rather than a precise measurement â it's a self-selected sample, not a probability sample, and skews toward the mid-market. Respondents include managers, individual contributors, VPs/directors, and the C-suite, with strong purchasing authority, across technology, healthcare, retail, transportation, financial services, manufacturing, and education.",
+      "date_published": "2026-07-16T17:06:08Z"
     },
     {
-      "id": "sty_f7d234161b7eddd3",
-      "url": "https://www.theverge.com/policy/966438/eu-google-android-ai-interoperability-search-data-dma",
-      "title": "Google ordered to open Android and Search to rivals in Europe [ ! ] [ ⬢ ]",
-      "content_text": "Google must give rival AI assistants and search engines greater access to key parts of Android and Google Search after the European Union ordered the company to comply with the bloc's digital antitrust rules. The two decisions, handed down Thursday, could weaken Google's control over two of the tech industry's most important platforms and have [...]",
-      "date_published": "2026-07-16T12:06:51Z"
+      "id": "sty_d1af886ed3d05952",
+      "url": "https://www.wired.com/story/uncanny-valley-podcase-apple-sued-openai-new-york-data-center-moratorium-cyclosporiasis-outbreak/",
+      "title": "Why Apple Sued OpenAI, New York Takes on Data Centers, and What to Know about Cyclosporiasis [ * ] [ ◼ ]",
+      "content_text": "On today's Uncanny Valley, we unpack OpenAI's ongoing drama, both legal and reputational, and whether these developments could further hurt the company-particularly in its fight against Anthropic.",
+      "date_published": "2026-07-16T22:17:27Z"
+    },
+    {
+      "id": "sty_425fa51c2fa14cc6",
+      "url": "https://venturebeat.com/ai/the-agent-evaluation-gap-enterprise-ai-organizations-have-a-reality-alignment-problem-not-a-coverage-problem-and-most-are-shipping-to-production-anyway",
+      "title": "The agent evaluation gap: Enterprise AI organizations have a reality-alignment problem, not a coverage problem â and most are shipping to production anyway [ * ] [ ◼ ]",
+      "content_text": "Across 157 enterprises, organizations are granting AI agents more autonomy while trusting the evaluations meant to gate that autonomy less. Half have already shipped an agent that passed their internal evaluations and then failed a customer in production; only one in twenty fully trusts automated evaluation today; and the most-cited weakness is that evaluations do not align with real-world outcomes. Yet two-thirds already allow, or are actively engineering toward, deploying agent changes to production on automated evaluation alone â with no human in the loop. The result is an evaluation gap â the distance between how much autonomy enterprises are handing their agents and how far they trust the tests that are supposed to catch the failures. This wave of VentureBeat Pulse Research examines how technical leaders measure agent performance: which reliability and evaluation platforms they use, how they select and trust them, what breaks in production, and how far they are willing to let agents run without a human in the loop. The central finding is an evaluation gap â the distance between the autonomy enterprises are granting their agents and the trust they place in the evaluations meant to govern it. Half of organizations (50%) have, in the past year, deployed an agent or LLM feature that passed their internal evaluations and then caused a customer-facing failure, and a quarter have seen it happen more than once. Trust in the tests themselves is thin: only 5% say they fully trust automated evaluation today, and the single most-cited limitation is that evaluations align poorly with real-world outcomes (29%). Enterprises are discovering that a passing eval is not the same as a working agent. What makes the gap consequential is the direction of travel. Two-thirds of organizations (66%) already permit fully automated, zero-human-in-the-loop deployment for low-risk agents (34%) or are actively engineering their pipelines to allow it within twelve months (33%). At the same time, the evaluation stack that would have to earn that trust is fragmented and immature: the most common primary tools are the model providersâ native evals, tied with having no dedicated tooling at all (17% each); and only about a quarter of enterprises run real-time quality checks on live production traffic. The autonomy is arriving faster than the assurance. Methodology VentureBeat fielded this survey as part of its ongoing Pulse Research series, this survey â the Agentic Reliability & Evals tracker â focused on how technical leaders evaluate agent performance and reliability. Responses are filtered to organizations with 100 or more employees (n=157), drawn from a single survey in June 2026; because this is one wave rather than a pooled multi-month sample, the report reads cross-sectionally and does not infer month-over-month trends. Where questions were multiple-select, those shares can sum to more than 100%. By role the sample is senior and buyer-credible: 38% are final decision-makers for AI purchases and another 34% recommenders or influencers. Product and program managers (15%), consultants and advisors (10%), directors of engineering/IT (8%), and CIOs/CTOs/CISOs (8%) lead the named titles, alongside a large âOtherâ function (37%). By organization size the sample is mid-market-weighted: 100â499 (37%) and 500â2,499 (27%) employees lead, with 2,500â9,999 (20%), 10,000â49,999 (10%), and 50,000+ (6%) above them. Technology/Software is the largest industry at 23%, followed by Retail/Consumer (15%), Healthcare/Life Sciences (12%), and Manufacturing (10%). At 157 respondents the sample is large enough to read directionally but should be treated as a directional signal rather than a precise measurement; it is self-selected and is not a probability sample. It skews toward the mid-market, so it is best read as the view from organizations actively standing up agent evaluation practices rather than from the largest operators. Note: This survey was rebuilt for the June wave from the earlier âLLM observability and evaluationsâ survey; because the questions and sample differ, no comparisons are made to the AprilâMay data. Finding 1: A passing eval is not a working agent Half have shipped an agent that passed evals, then failed a customer We asked whether, in the past 12 months, organizations had deployed an agent or LLM feature that passed their internal evaluations but then caused a customer-facing failure. Half of those that run evaluations had. This is the reportâs defining number. Half of organizations (50%) have shipped an AI feature that cleared their internal evaluations and then failed in front of a customer â an incorrect output, a broken workflow, or a quality incident â and a quarter have seen it happen more than once. Only 36% report no such failure, and the remainder either run no pre-deployment evaluations (8%) or donât track the root cause closely enough to know (6%). The failure is precise and expensive: the evaluation said the agent was ready, and it was not. Everything that follows â how enterprises trust their evals, what they monitor, and how much autonomy they grant â is shaped by this experience. Finding 2: Almost no one fully trusts automated evaluation The top complaint: Evals don't match real-world outcomes We asked which limitation most reduces trust in automated agent evaluations today. Only a sliver of enterprises had no complaint at all. Trust in automated evaluation is scarce, and specific. Only 5% of organizations say they fully trust automated evaluation as it stands â meaning 95% name a limitation that holds them back. The most common, at 29%, is the one that most directly explains Finding 1: evaluations align poorly with real-world outcomes, passing agents that later fail. Bias or inconsistency (21%) and a lack of explainability (18%) follow â enterprises cannot always tell why an evaluation reached its verdict â and 17% cite data-leakage or privacy concerns in the evaluation process itself. The tests meant to certify agents are not yet trusted to certify them, which is precisely why the autonomy trajectory in Finding 3 is so striking. Finding 3: The autonomy ceiling is rising anyway Two-thirds already allow, or are building toward, zero-human deployment We asked whether organizations would let an autonomous agent deploy a code or system change to production on automated evaluation results alone, with no human-in-the-loop validation. The trajectory runs straight through the trust gap. Here is the paradox at the heart of the report. Even though almost no one fully trusts automated evaluation (Finding 2), two-thirds of organizations (66%) either already allow zero-human-in-the-loop deployment for low-risk agents (34%) or are actively engineering their pipelines to permit it within a year (33%). Only 22% rule it out for the foreseeable future. The direction is unambiguous: enterprises are moving to let evaluations gate production autonomously â removing the human check â at the same moment they say those evaluations donât reliably match reality. The autonomy ceiling is rising faster than the assurance beneath it, which is the mechanism by which the false-confidence failures of Finding 1 will scale rather than shrink. Notably, the autonomy bet is not just a small company phenomenon. Splitting the sample by company size, larger enterprises are slightly further down the path toward zero human review than smaller companies (70% versus 64%) and slightly more likely to have shipped an evaluation-passing agent that then failed a customer (54% versus 48%). The assumption that large, regulated organizations are holding the human in the loop longest is, in this sample, backwards.Â To be sure, these are directional figures, since the survey was not a huge sample â 57 respondents from companies with 2,500+ employees and 100 from companies smaller than that.Â Finding 4: The evaluation stack is fragmented and provider-led Provider-native evals lead â tied with no dedicated tool at all We asked which agent reliability or evaluation platform enterprises primarily use today. The market has no clear leader â and a large share has nothing dedicated. The evaluation layer is early and unconsolidated. Provider-native tooling leads â OpenAIâs native evals and traces (17%) and Anthropicâs Claude Console evals (13%) together outweigh any independent platform â but it is tied at the top by a striking answer: 17% of enterprises use no dedicated agent-evaluation tooling at all, a notable gap for organizations shipping agents to customers. The specialist evaluation vendors â DeepEval (12%), Braintrust (8%), LangSmith, Weave, Promptfoo, Langfuse, Arize â are scattered across single to low double digits, and 11% have built their own. No independent platform has yet become the category standard, which leaves most enterprises evaluating agents with provider-native tools, home-grown scripts, or nothing. Finding 5: Production monitoring rarely watches output quality Only a quarter run real-time quality checks on live traffic Production monitoring for an AI agent can watch two very different things. It can watch whether the system is functioning â is the agent up and responding, did each request complete, how fast, at what cost, with any errors. Or it can watch whether the agent's output is correct â automated checks that evaluate the content of each answer as it goes out: did the agent give the right answer, take the right action, stay within policy. The distinction matters because a confidently wrong answer is invisible to the first kind of monitoring: the request completes, the response is fast, no error is thrown, and every functioning-metric reads healthy. We asked organizations which kind their live production monitoring is built for today. Grouped by what is actually being watched, the split is stark: 51% of organizations monitor only whether the agent is functioning, while 23% monitor whether its answers are right. Counting the ad-hoc reviewers and the don't-knows, roughly three-quarters of organizations run no automated, real-time evaluation of output correctness in production â they can see that the system is up and what it costs, and they are taking the correctness of its answers on faith. That blind spot is the runtime counterpart to the pre-deployment gap in Finding 1: the same organizations engineering the human out of the deployment decision mostly cannot see, in real time, when the deployed agent starts getting things wrong. Finding 6: Bought on cost, measured on consistency Price and integration drive selection; evaluation consistency is the goal We asked what most influenced enterprisesâ choice of an evaluation vendor, and what they treat as their primary measure of success. Both answers are pragmatic. Enterprises buy evaluation tooling on economics and trust it on repeatability. Cost of evaluations (28%) narrowly leads selection, just ahead of ease of integration (27%) and evaluation accuracy (24%) â breadth of observability (13%) and vendor roadmap (4%) matter far less. On what success looks like, more than a third (36%) name evaluation consistency â getting the same verdict on the same behavior every time â well ahead of speed of experimentation (19%), reduction in failures (18%), production visibility (13%), and compliance (11%). The emphasis on consistency is telling: before enterprises can trust an evaluationâs verdict, they need it to be stable â the very property whose absence (bias and inconsistency) ranked among the top trust limitations in Finding 2. Satisfaction with current tooling is only moderate, averaging 3.8 on a five-point scale across overall satisfaction, ease of implementation, and value for money. Finding 7: The next dollar goes to humans and observability Investment is flowing to oversight, not just automation We asked which reliability and evaluation investment will grow most over the next year. The money is going toward watching agents more closely â including with people. The second-largest planned investment â behind only production observability â is human review workflows, at 26%. Read against Finding 1, that is the report's quietest contradiction: at the same moment two-thirds of enterprises are engineering the human out of the deployment decision, more of them plan to grow spending on human reviewers (26%) than on the automated evaluation pipelines (16%) that would replace them. The zero-human trajectory and the human-review budget are rising in the same companies at the same time. Indeed, only 8% report that their budget is not increasing. Taken together, enterprises are hedging: building toward autonomy while spending to watch agents more closely and keep humans available for the calls that automated evaluation cannot yet be trusted to make. Finding 8: A tooling reshuffle is coming Nearly two-thirds plan to adopt or switch platforms within a year We asked whether enterprises plan to adopt a new, additional, or replacement evaluation platform, and which they are considering. Few intend to stand pat. The evaluation market is wide open. While 36% have no plans to change, a clear majority (64%) intend to adopt a new, additional, or replacement platform within twelve months, and 31% within the next quarter. The consideration set points where current usage is thinnest: Confident AIâs DeepEval leads what enterprises are evaluating (20%), ahead of OpenAIâs native evals (13%) and Braintrust (9%) â the open-source specialists drawing more interest than their present footprint. Given that so many enterprises today rely on provider-native tools or nothing at all (Finding 4), this is less a defection than a first real wave of tooling adoption â the moment the evaluation layer starts to consolidate. Which platforms earn that trust, in a market where almost no one trusts automated evaluation yet, is the open question this series will keep tracking. The bottom line: An evaluation gap that autonomy will widen, not close Organizations with 100 or more employees are granting AI agents more independence than they trust their evaluations to support. Half have already shipped an agent that passed its evals and then failed a customer; almost none fully trust automated evaluation, chiefly because it doesnât match real-world outcomes; and most watch production for uptime and cost rather than for whether the agentâs answers are right. Yet two-thirds already allow, or are actively building toward, deploying to production on automated evaluation alone. The vendor market is early and unsettled: the most common primary evaluation tools are provider-native evals, tied with no dedicated tooling at all, and a clear majority plan to adopt or switch platforms within the year. Encouragingly, the next dollar is going to observability and â pointedly â human review, suggesting enterprises sense the gap even as they engineer past it. At 157 respondents in a single wave this is a directional read, skewed toward the mid-market â but the direction is clear: autonomy is being granted on the strength of evaluations that the people granting it do not yet trust. The evaluation gap is not a coverage problem that more tests alone will close; it is a problem of evaluations that reflect reality and can be trusted to gate it. The open question for later waves is whether assurance catches up to autonomy â or whether the false-confidence failures move from customer incidents into changes that deploy themselves. Based on survey responses from 157 qualified enterprise respondents (100+ employees), drawn from a single June 2026 wave. This is a directional read rather than a precise measurement â the sample is self-selected, not a probability sample, and skews toward the mid-market. Respondents include product and program managers, consultants and advisors, directors of engineering/IT, and CIOs/CTOs/CISOs, among other functions, across technology/software, retail/consumer, healthcare/life sciences, manufacturing, and other industries.",
+      "date_published": "2026-07-16T16:40:48Z"
+    },
+    {
+      "id": "sty_a5864f3bef7fe8ad",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/966647/new-york-governor-kathy-hochul-ai-policies",
+      "title": "New York governor says she&#8217;s using AI to analyze &#8216;every single rule&#8217; in the state [ ~ ] [ ◻ ]",
+      "content_text": "New York Governor Kathy Hochul might have just signed a moratorium on new AI data centers in the state, but she's not against using the technology herself. During an interview with Bloomberg's Odd Lots podcast, Hochul said that her team is using \"AI to analyze every single rule, regulation, [and] policy\" to check for outdated [...]",
+      "date_published": "2026-07-16T17:58:37Z"
+    },
+    {
+      "id": "sty_e901a644fc1ba885",
+      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
+      "title": "Our approach to bioresilience [ ~ ] [ ◻ ]",
+      "content_text": "Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience and AI models.",
+      "date_published": "2026-07-16T09:30:42Z"
+    },
+    {
+      "id": "sty_265fe444695e324a",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9nUGYzZEhWX2NQZEpwcldsSFozNGpKNnZwVFh2cjBqR2FVSERkbnFYQnpyNE9RQ01WWGRVSTNSRU5JbWQ3NEozTzJaMC1peExXdnhCVVRxN3JGc1dqZXNLMDFpNVBWdDh2eEdKUWlZZzV0T1k?oc=5",
+      "title": "AI CEOs Agree on Frontier Rules. Enforcement Is the Test. - techi.com",
+      "content_text": "AI CEOs Agree on Frontier Rules. Enforcement Is the Test. techi.com",
+      "date_published": "2026-07-17T02:52:19Z"
+    },
+    {
+      "id": "sty_1ed98c3252e5e502",
+      "url": "https://arstechnica.com/gadgets/2026/07/its-official-eu-will-force-google-to-share-search-data-and-open-up-ai-on-android/",
+      "title": "It's official: EU will force Google to share search data and open up AI on Android [ ! ] [ ⬢ ]",
+      "content_text": "Google says these changes could endanger user privacy and security.",
+      "date_published": "2026-07-16T20:41:45Z"
+    },
+    {
+      "id": "sty_457e2824f61263de",
+      "url": "https://simonwillison.net/2026/Jul/16/bad-codex-bug/",
+      "title": "Quoting Thibault Sottiaux [ * ] [ ◼ ]",
+      "content_text": "On file deletions. We've investigated a handful of reports where GPT-5.6 unexpectedly deleted files. What we have found is that this most commonly occurs when: Full access mode is enabled and codex is run without sandboxing protections, including without auto review being enabled The model attempts to override the $HOME env var to define a temporary directory. The model makes an honest mistake and mistakenly deletes $HOME instead. - Thibault Sottiaux, describing a pretty gnarly Codex bug Tags: codex, coding-agents, generative-ai, ai, llms",
+      "date_published": "2026-07-16T17:45:59Z"
     },
     {
       "id": "sty_fb08e675bdb59ae1",
@@ -448,123 +518,53 @@
       "date_published": "2026-07-16T15:48:21Z"
     },
     {
-      "id": "sty_2978f404fdd8cd65",
-      "url": "https://the-decoder.com/germany-puts-googles-ai-overviews-and-perplexity-under-media-law-in-first-of-its-kind-ruling/",
-      "title": "Germany puts Google's AI Overviews and Perplexity under media law in first-of-its-kind ruling [ * ] [ ◼ ]",
-      "content_text": "German media regulators say Google's AI Overviews are Google's own content, not neutral search results, and that they crowd out regular links. The regulators have issued their first rulings against Google and Perplexity under the country's State Media Treaty. Both companies have one month to appeal. The article Germany puts Google's AI Overviews and Perplexity under media law in first-of-its-kind ruling appeared first on The Decoder.",
-      "date_published": "2026-07-16T16:12:26Z"
+      "id": "sty_efd62309384fc20b",
+      "url": "https://arstechnica.com/ai/2026/07/linus-torvalds-to-critics-of-ai-coding-in-linux-fork-it-or-just-walk-away/",
+      "title": "Linus Torvalds to critics of AI coding in Linux: \"Fork it. Or just walk away.\" [ ~ ] [ ◻ ]",
+      "content_text": "Creator says he will \"very loudly ignore\" those arguing for a ban on AI tools.",
+      "date_published": "2026-07-16T19:18:23Z"
     },
     {
-      "id": "sty_089c40a4b589b11e",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN2YzZmxsVlpvV0xkZWx0RS1MaHlUNEg5SzJscHFkSUlySmlKVW1WcU1LQVhYR1FQTlowYkRZVnFmT2ZNOE1iU3JwSkdUUFlsN00tUVFCUEpoOXJsUHpaQVozdks1VlJ4UXo1djFqREVXLWo3b3M4VGlfY1B3Mk5BLWdDVU9PU2tmUWpQNENPWUh5b1pWQlHSAZsBQVVfeXFMT0YwV3ZVWE1uRWp6NWs5allxM3E2QlJYVkhVMG1xemRFVlpBdWlmWmxEd2I2UkpGYThhVEh2aEFHalNfd2F0ODFIZkliVWcwcHZWLWZWbzI4SWVnZXFhQktsLUEzVE1xemZIdG5CWjBXMFMycGJNT2FGR0Vma1dNams0MHFyS3R3VnIzaXQ3djBlZ2JhdWdNdmcxTUU?oc=5",
-      "title": "Anthropic CEO gave $1M to AI safety super PAC - The Hill [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic CEO gave $1M to AI safety super PAC The Hill",
-      "date_published": "2026-07-16T20:47:00Z"
+      "id": "sty_42619f12b5b33dfe",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9xZmN0TjVxMzFNYW1rSVRnQ0J4dnRFcU9LcW5McndWYm1OM01wWURtdVh4LTI5dmxJY2JXRWoxTHFqNHhhMmpGNmNMWU1ab3BsRkdHWWI4Mk5JQjFRRU9LSHMwTzh4OE9ic0ZmdnJwYjkzSUVONlpyQVV6WmY?oc=5",
+      "title": "The AI jobs crisis no one is talking about - The Japan Times [ * ] [ ◻ ]",
+      "content_text": "The AI jobs crisis no one is talking about The Japan Times",
+      "date_published": "2026-07-17T01:20:00Z"
     },
     {
-      "id": "sty_f299c1fb2a9d2701",
-      "url": "https://www.technologyreview.com/2026/07/16/1140600/the-download-openai-unveils-gpt-red-heat-pumps-rise-us/",
-      "title": "The Download: OpenAI unveils GPT-Red and heat pumps rise in the US [ ~ ] [ ◼ ]",
-      "content_text": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Meet GPT-Red: an LLM super-hacker OpenAI built to make its models safer OpenAI has built an LLM super-hacker called GPT-Red that it uses as a sparring partner to help its other...",
-      "date_published": "2026-07-16T12:10:00Z"
+      "id": "sty_ee7df369ea4337e5",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9meU56cUNqLXNCemduWmhFeFFVc0RvM2RCbWMxOVlvcy13RENsRHVtRGZiYURFWnVqaC1rVlNJLXZZN3gtbnhneEZ3?oc=5",
+      "title": "Automations in Grok - x.ai",
+      "content_text": "Automations in Grok x.ai",
+      "date_published": "2026-07-16T21:01:54Z"
     },
     {
-      "id": "sty_f840a5bedc64d3f2",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55NjRoaU51Q3VEa0otU2NDZUg5ZVgxUnNTSHVPQ2ltNG9vLV8zTkNEaXBvTGZ2aU8zeHh5Z3ZJa1gtSnlPYjI1ZEZzbDFROVctQVZDM2VxMnJ0SmFuSjQta0R5aDFCYUpWbEhLYWVB?oc=5",
-      "title": "Amazon integrates xAI's Grok 4.3 on Bedrock, intensifying the enterprise AI arms race - Crypto Briefing [ * ] [ ◼ ]",
-      "content_text": "Amazon integrates xAI's Grok 4.3 on Bedrock, intensifying the enterprise AI arms race Crypto Briefing",
-      "date_published": "2026-07-16T20:34:55Z"
+      "id": "sty_2c3004f7decf1fb6",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZERiWDZYQ2s2VGEzWUZOaFlWTEpybGlBX09qUkVGZzFQQjE0TjB2TEFxM3VFeEhyM2pMYU9tMEVqRmwtWG51ZXRXTHFpVFhvbnVQMDVDczI5cUNrdU9GbkpJZm11ZXRXbmx1VjJWNG5BendIdFNOTV9rbEd3b1M2azBDRkpFYzBBMENOLWdZTFl2bi0tSGtOUVNJNGVsTHpsNldV?oc=5",
+      "title": "Musk's Memphis AI Supercluster Ignites Nationwide Data Center Revolt - The Tech Buzz",
+      "content_text": "Musk's Memphis AI Supercluster Ignites Nationwide Data Center Revolt The Tech Buzz",
+      "date_published": "2026-07-17T01:08:00Z"
     },
     {
-      "id": "sty_631751f44a1624f4",
-      "url": "https://www.theinformation.com/briefings/japan-develop-homegrown-ai-models-nvidias-vera-rubin-chips",
-      "title": "Japan to Develop Homegrown AI Models With Nvidia's Vera Rubin Chips [ * ] [ ◼ ]",
-      "content_text": "Nvidia is working with a recently established Japanese tech consortium to help the country build new computing facilities with its most advanced Rubin chips to develop homegrown AI models. Noetra, a consortium backed by the Japanese government as well as Sony Group, SoftBank, NEC and Honda ...",
-      "date_published": "2026-07-16T10:29:39Z"
-    },
-    {
-      "id": "sty_0d554b42d585d3ce",
-      "url": "https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/",
-      "title": "Google's AI Mode now lets you link and interact with select apps [ ~ ] [ ◼ ]",
-      "content_text": "With this new update, Google is expanding AI Mode beyond answering questions and into completing tasks across the apps they use regularly.",
+      "id": "sty_e6d57e96096f78fe",
+      "url": "https://blog.google/products-and-platforms/products/education/university-of-waterloo-futures-lab/",
+      "title": "Reimagining higher education with the Waterloo Futures Lab [ ~ ] [ ◻ ]",
+      "content_text": "Google and the University of Waterloo's Futures Lab is helping students build real-world AI tools and prepare for jobs of tomorrow.",
       "date_published": "2026-07-16T16:00:00Z"
     },
     {
-      "id": "sty_2e7cec37ad3bfd9d",
-      "url": "https://futurism.com/artificial-intelligence/tech-execs-armed-bodyguards-ai-backlash",
-      "title": "Terrified Tech Execs Are Traveling With Armed Bodyguards as AI Backlash Grows [ ~ ] [ ◻ ]",
-      "content_text": "\"It really feels like the people in power want to be kings. Historically, that doesn't work out for kings...\" The post Terrified Tech Execs Are Traveling With Armed Bodyguards as AI Backlash Grows appeared first on Futurism.",
-      "date_published": "2026-07-16T19:56:30Z"
+      "id": "sty_00923140251acb1e",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/",
+      "title": "NotebookLM is now Gemini Notebook [ * ] [ ◼ ]",
+      "content_text": "NotebookLM is now Gemini Notebook: the same standalone product with deeper Google integration and a secure cloud computer.",
+      "date_published": "2026-07-16T16:00:00Z"
     },
     {
-      "id": "sty_9c05fa01e1865064",
-      "url": "https://techcrunch.com/2026/07/16/yes-you-can-now-order-doordash-from-the-command-line/",
-      "title": "Yes, you can now order DoorDash from the command line [ ~ ] [ ◻ ]",
-      "content_text": "DoorDash is opening a limited beta of dd-cli, a command-line tool that lets developers and AI agents search stores, build carts, and place orders from the terminal, marking another step toward software designed for AI agents instead of just humans.",
-      "date_published": "2026-07-16T15:38:55Z"
-    },
-    {
-      "id": "sty_be86af4846bdec8f",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOR1g4Ym9JR2NnLVZDMmd3eFlxUmdKd3JaSzIzZUV4c3NhSFV2STFVb0NZbnFPQ05ZNW1MVjNXZjVDcTUtQ2VVeF8tbHlIbFZMbFZYbjNVbXFkbF8xWVRxbjJXYXZuUWY2TFVEYzg0MG1ZWVBhd2RoME9xNVFrRXE3VG9KbGZjTWUySHFkT05STWJBRjFBWGdLWHdvazlyNWtadk95eE1EQjNQWHBNaTN0cDdtZmM4VVVCQmYzaFd2MjFNNUZabVdCWXV3?oc=5",
-      "title": "Anthropic CEO donated $1 million to AI regulation super PAC - Washington Examiner [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic CEO donated $1 million to AI regulation super PAC Washington Examiner",
-      "date_published": "2026-07-16T19:46:00Z"
-    },
-    {
-      "id": "sty_7c6b022f4764d33e",
-      "url": "https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/",
-      "title": "Why is OpenAI selling a ChatGPT basketball?",
-      "content_text": "You may have heard that OpenAI released its first piece of hardware this week. You may not have heard about the ChatGPT basketball.",
-      "date_published": "2026-07-16T15:31:09Z"
-    },
-    {
-      "id": "sty_9fc59efd33eddae1",
-      "url": "https://the-decoder.com/openai-wants-developers-to-stop-typing-commands-and-start-using-a-joystick-to-control-their-ai-agents/",
-      "title": "OpenAI wants developers to stop typing commands and start using a joystick to control their AI agents [ ~ ] [ ◻ ]",
-      "content_text": "OpenAI and keyboard manufacturer Work Louder have unveiled the Codex Micro, a compact hardware controller designed for working with AI agents. The article OpenAI wants developers to stop typing commands and start using a joystick to control their AI agents appeared first on The Decoder.",
-      "date_published": "2026-07-16T14:31:34Z"
-    },
-    {
-      "id": "sty_e50bea01feeb2b55",
-      "url": "https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/",
-      "title": "How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product [ ~ ] [ ◻ ]",
-      "content_text": "Drawing on more than a decade spent helping build some of the world's most influential AI systems, including research that later informed the development of ChatGPT, Andrew Dai explains why he believes visual AI is one of the next major frontiers in artificial intelligence.",
-      "date_published": "2026-07-16T15:02:00Z"
-    },
-    {
-      "id": "sty_394e2b3c1bf7ba4d",
-      "url": "https://www.theinformation.com/briefings/thinking-machines-labs-first-model-gives-nod-chinese-open-source-ai",
-      "title": "Thinking Machines Lab's First Model Gives Nod to Chinese Open Source AI [ ~ ] [ ◻ ]",
-      "content_text": "Thinking Machines Lab, co-founded last year by former OpenAI CTO Mira Murati, announced its first AI model called Inkling, while giving a nod to Chinese open-source models. Thinking Machines said in a blog post that Inkling's architecture design \"largely follows\" DeepSeek's V3 model, which was ...",
-      "date_published": "2026-07-16T09:03:33Z"
-    },
-    {
-      "id": "sty_b80617bb2182c404",
-      "url": "https://futurism.com/artificial-intelligence/elon-musk-ai-startup-disaster",
-      "title": "Elon Musk's AI Startup Is a Complete Disaster Behind the Scenes [ ~ ] [ ◻ ]",
-      "content_text": "It's stuck playing catch-up with its rivals. The post Elon Musk's AI Startup Is a Complete Disaster Behind the Scenes appeared first on Futurism.",
-      "date_published": "2026-07-16T19:01:18Z"
-    },
-    {
-      "id": "sty_f67eed2e226bcfd1",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aRW9WUS1MTWR3VjczT2ZwUzNxY2h3MUFuSC01T2hZdlI1SUI1MWV0VGR6QWw0bmRYX18yOTlNazh0ZGRpQnVJRnZ3VW5kX0NhQkxBTnpOcDg3WlduWU1nT25zdTNDcmc0YWRHWFhNT2hReG85WGxEUHFZR2NzM2s?oc=5",
-      "title": "Elon Musk's AI Startup Is a Complete Disaster Behind the Scenes - Futurism [ ~ ] [ ◻ ]",
-      "content_text": "Elon Musk's AI Startup Is a Complete Disaster Behind the Scenes Futurism",
-      "date_published": "2026-07-16T19:01:18Z"
-    },
-    {
-      "id": "sty_f2c2e6adcb9dadb7",
-      "url": "https://www.theinformation.com/briefings/tsmc-plans-another-100-billion-u-s-investment-ai-demand-surges",
-      "title": "TSMC Plans Another $100 Billion U.S. Investment as AI Demand Surges [ * ] [ ◼ ]",
-      "content_text": "Taiwan Semiconductor Manufacturing Company said on Thursday it will invest an additional $100 billion in the U.S., deepening its pledge to manufacture the world's most advanced chips in Arizona as demand for AI infrastructure surges. The expansion will add at least four chip plants and ...",
-      "date_published": "2026-07-16T08:52:27Z"
-    },
-    {
-      "id": "sty_fa114224e47c1be9",
-      "url": "https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/",
-      "title": "Why AMI Labs' Alexandre LeBrun won't call his AI 'AGI' or 'superintelligence' [ ~ ] [ ◻ ]",
-      "content_text": "While everyone in AI is chasing \"superintelligence,\" Alexandre LeBrun, CEO of Yann LeCun's world model startup, AMI Labs, dismisses the word.",
-      "date_published": "2026-07-16T14:40:00Z"
+      "id": "sty_5e3532b2c916a56c",
+      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
+      "title": "Connect more of your apps to Search [ ~ ] [ ◻ ]",
+      "content_text": "You'll be able to securely link and interact with your go-to services directly in AI Mode.",
+      "date_published": "2026-07-16T16:00:00Z"
     }
   ]
 }
