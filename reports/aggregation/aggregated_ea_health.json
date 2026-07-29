@@ -5,18 +5,8 @@
   "with_items": 3,
   "failures": 1,
   "recovered": 0,
-  "timestamp": "2026-07-29T00:20:48.427182+00:00",
+  "timestamp": "2026-07-29T04:36:35.927764+00:00",
   "details": [
-    {
-      "url": "https://eapj.org/feed",
-      "category": null,
-      "status": "failed",
-      "items": 0,
-      "consecutive_failures": 1,
-      "last_error": "HTTP 403",
-      "last_status": "exception",
-      "classification": "other_failure"
-    },
     {
       "url": "https://www.leanix.net/en/blog/rss.xml",
       "category": null,
@@ -36,6 +26,16 @@
       "last_error": "not well-formed (invalid token): line 3, column 42",
       "last_status": "exception",
       "classification": "skipped"
+    },
+    {
+      "url": "https://www.forrester.com/blogs/category/enterprise-architecture/feed/",
+      "category": null,
+      "status": "ok",
+      "items": 10,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
     },
     {
       "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
@@ -58,14 +58,14 @@
       "classification": "not_modified"
     },
     {
-      "url": "https://www.forrester.com/blogs/category/enterprise-architecture/feed/",
+      "url": "https://eapj.org/feed",
       "category": null,
-      "status": "ok",
-      "items": 10,
-      "consecutive_failures": 0,
+      "status": "failed",
+      "items": 0,
+      "consecutive_failures": 1,
       "last_error": null,
-      "last_status": 200,
-      "classification": "success"
+      "last_status": 304,
+      "classification": "not_modified"
     },
     {
       "url": "https://feed.infoq.com/enterprise-architecture",
