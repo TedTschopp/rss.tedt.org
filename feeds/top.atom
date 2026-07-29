@@ -6,175 +6,343 @@
   <link href="https://rss.tedt.org/feeds/top.xml" rel="alternate"/>
   <link href="https://rss.tedt.org/feeds/top.xml/feed.atom" rel="self" type="application/atom+xml"/>
   <id>https://rss.tedt.org/feeds/top.xml</id>
-  <updated>2026-07-28T16:42:14.548382+00:00</updated>
+  <updated>2026-07-29T00:33:19.494482+00:00</updated>
   <generator>MultiFeedGenerator v1.0</generator>
   <entry>
-    <title>Kimi Linear introduces a hybrid linear attention architecture outperforming full attention across short and long contexts and reinforcement learning tasks [ ~ ] [ ◼ ]</title>
+    <title>Anthropic uses Claude AI to identify cryptographic weaknesses in security protocols [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMie0FVX3lxTE13elp4eC1EQlJMdmtBdDZYaGQ0UXJoVE9sOGNtSDZIRFRYV3pkU1E4TnlNX3BTai1QVjduNVJUampVZGVySmlKRmVtcUFXcDBlNFVTQVdHN2ZiUUdjSlNtLUhXb3JialVEWGprd0tjdUVZQ2dhSFExaUtoTQ?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_d8fdb78d7b0c6166</id>
+    <published>2026-07-28T17:17:10Z</published>
+    <updated>2026-07-28T17:17:10Z</updated>
+    <summary type="text">Anthropic has employed its Claude AI model to discover vulnerabilities in cryptographic systems, highlighting potential security risks. This research demonstrates how advanced AI can assist in analyzing and testing cryptographic protocols for weaknesses. The findings may influence future approaches to securing digital communications and prompt further investigation into AI-assisted security analysis.</summary>
+  </entry>
+  <entry>
+    <title>Researchers introduce Kimi Linear, a hybrid linear attention architecture that outperforms full attention across short and long contexts and reinforcement learning tasks [ ~ ] [ ◼ ]</title>
     <link href="https://arxiv.org/abs/2510.26692" rel="alternate"/>
     <id>urn:uuid:sty_c8bb58e83acef3f0</id>
     <published>2026-07-28T10:52:30Z</published>
     <updated>2026-07-28T10:52:30Z</updated>
-    <summary type="text">Kimi Linear presents a new hybrid linear attention architecture called Kimi Delta Attention (KDA) that surpasses full attention models in various scenarios, including short-context, long-context, and reinforcement learning scaling regimes. The architecture uses a refined gating mechanism and a chunkwise algorithm based on Diagonal-Plus-Low-Rank transition matrices to improve hardware efficiency and reduce computation. A pretrained model with 3 billion activated parameters and 48 billion total parameters demonstrates superior performance, reducing key-value cache usage by up to 75% and increasing decoding throughput by up to six times for a 1 million token context compared to full Multi-Head Latent Attention (MLA). The authors have open-sourced the KDA kernel, vLLM implementations, and released pretrained and instruction-tuned model checkpoints to support further research.</summary>
+    <summary type="text">Kimi Linear is a new attention architecture featuring Kimi Delta Attention (KDA), which extends Gated DeltaNet with a finer-grained gating mechanism to better utilize finite-state RNN memory. The design includes a chunkwise algorithm using specialized Diagonal-Plus-Low-Rank transition matrices to improve hardware efficiency and reduce computation compared to general DPLR formulations. The team pretrained a 3-billion activated parameter model combining KDA and Multi-Head Latent Attention, demonstrating superior performance over full MLA across various tasks while reducing key-value cache usage by up to 75% and increasing decoding throughput up to six times for a 1 million token context. The researchers have open-sourced the KDA kernel, vLLM implementations, and released pretrained and instruction-tuned model checkpoints to support further research.</summary>
   </entry>
   <entry>
-    <title>Formally verified 3D mesh intersection implemented in Lean 4 with 93-line spec and 1000+ lines of AI-generated proofs [ ~ ] [ ◼ ]</title>
-    <link href="https://github.com/schildep/verified-3d-mesh-intersection" rel="alternate"/>
-    <id>urn:uuid:sty_9694a264c2e1093d</id>
-    <published>2026-07-28T13:07:14Z</published>
-    <updated>2026-07-28T13:07:14Z</updated>
-    <summary type="text">A new project presents the first formally verified implementation of a 3D constructive solid geometry (CSG) mesh intersection operation, using Lean 4 to guarantee correctness against a concise 93-line formal specification. The implementation relies on over 60,000 lines of AI-generated proofs, which are checked by the Lean compiler, allowing human reviewers to trust the specification and verification without inspecting the complex AI-written code. The verified kernel ensures that the output mesh precisely represents the intersection of the input solids and meets well-formedness conditions such as watertight surfaces and no self-intersections, though it may produce suboptimal mesh granularity. A web demo runs the compiled Lean code locally in the browser, demonstrating the approach despite slower performance compared to conventional mesh intersection implementations. This project prioritizes formal correctness and minimal human review over speed, illustrating a method to avoid trusting large AI-generated codebases directly.</summary>
-  </entry>
-  <entry>
-    <title>Blog explains derivation of Kimi Delta Attention from softmax and linear attention, detailing its efficiency and error-correction approach [ ~ ] [ ◼ ]</title>
-    <link href="https://blog.doubleword.ai/you-could-have-come-up-with-kimi-delta-attention" rel="alternate"/>
-    <id>urn:uuid:sty_27425024833e4317</id>
-    <published>2026-07-28T16:02:07Z</published>
-    <updated>2026-07-28T16:02:07Z</updated>
-    <summary type="text">The article provides a detailed walkthrough of the Kimi Delta Attention (KDA) mechanism, tracing its development from traditional softmax attention through linear attention to DeltaNet variants. It explains how KDA improves efficiency by replacing quadratic complexity with a linear update rule that writes error corrections rather than values, addressing memory interference issues in linear attention. The post uses bra-ket notation to clarify the mathematical derivation and discusses how KDA is implemented in recent models like Qwen and Kimi. It also outlines the transition from softmax normalization to a recurrent state update, highlighting the trade-offs and motivations behind DeltaNet's design. The article concludes by connecting the theoretical derivation to practical implementations using Triton programs for efficient execution.</summary>
-  </entry>
-  <entry>
-    <title>Google publishes Beyond Zero framework for enterprise security in the AI era</title>
-    <link href="https://spawn-queue.acm.org/doi/10.1145/3819083" rel="alternate"/>
-    <id>urn:uuid:sty_7bcc1eda839c2494</id>
-    <published>2026-07-28T09:59:13Z</published>
-    <updated>2026-07-28T09:59:13Z</updated>
-    <summary type="text">Google has introduced Beyond Zero, a security framework designed to address the challenges enterprises face in the AI era. The framework aims to enhance protection against emerging AI-related threats while adapting to evolving enterprise security needs. Beyond Zero outlines strategies and best practices for securing AI systems and data within corporate environments.</summary>
-  </entry>
-  <entry>
-    <title>What AI developers could learn from Charles Bukowski about creativity and work-life balance [ ~ ] [ ◻ ]</title>
-    <link href="https://galjot.si/what-ai-developers-could-learn-from-charles-bukowski" rel="alternate"/>
-    <id>urn:uuid:sty_b1b4546db566f623</id>
-    <published>2026-07-28T13:00:12Z</published>
-    <updated>2026-07-28T13:00:12Z</updated>
-    <summary type="text">The article explores lessons AI developers might draw from Charles Bukowski's approach to writer's block and creative output, emphasizing the value of patience and stepping away from work rather than forcing productivity. Bukowski's acceptance of temporary creative lulls and willingness to discard unsatisfactory work contrasts with the tech industry's current culture of relentless output and long hours, despite AI tools that could reduce coding time significantly. It highlights Bukowski's perspective that quality matters more than quantity and questions why, despite AI advancements, developers often engage in excessive work rather than taking breaks or focusing on meaningful problems. The piece suggests that embracing downtime and reflection, as Bukowski did, could foster greater creativity and better outcomes in AI development.</summary>
-  </entry>
-  <entry>
-    <title>A $500 reinforcement learning fine-tune of a 9B open-source model outperformed frontier AI models on catalog review tasks [ ! ] [ ⬢ ]</title>
-    <link href="https://fermisense.com/when-machines-take-the-wheel/" rel="alternate"/>
-    <id>urn:uuid:sty_8c892b49463bc986</id>
-    <published>2026-07-28T02:18:53Z</published>
-    <updated>2026-07-28T02:18:53Z</updated>
-    <summary type="text">A recent analysis shows that fine-tuning a 9-billion-parameter open-source model using reinforcement learning at a cost of $500 achieved better performance on catalog review tasks than leading frontier AI models. This approach leverages proprietary task data and scored workflow copies to tailor the model specifically to organizational needs, resulting in higher accuracy and cost efficiency. The article discusses how companies adopting AI-first strategies and investing in tailored model fine-tuning have seen significant revenue growth compared to those with no AI expenditure. It highlights that redesigning workflows, incentivizing experimentation, and measuring AI impact are critical factors for successful AI integration. The fine-tuning method addresses challenges related to business context, cost control, and performance measurement, offering a scalable alternative to expensive frontier model APIs.</summary>
-  </entry>
-  <entry>
-    <title>Harmony Explained: A Scientific Theory of Music Derives Major Scale, Standard Chord Dictionary, and Major-Minor Triad Differences</title>
+    <title>Harmony Explained: A Scientific Theory of Music Derives Major Scale, Chord Dictionary, and Triad Feelings</title>
     <link href="https://arxiv.org/abs/1202.4212" rel="alternate"/>
     <id>urn:uuid:sty_5d8a15d5a831e4a1</id>
     <published>2026-07-28T15:20:35Z</published>
     <updated>2026-07-28T15:20:35Z</updated>
-    <summary type="text">This 2012 paper proposes a scientific theory of music harmony that integrates physical sound phenomena with computational processes in the brain. It derives fundamental musical concepts including the Major Scale, the Standard Chord Dictionary, and the emotional difference between Major and Minor Triads, challenging earlier theories by Hermann Helmholtz that could not fully explain harmony as a musical phenomenon. The author critiques Helmholtz's 19th-century theory for implying that harmony should not exist since adding notes only penalizes consonance, and presents original derivations for chord structures and emotional distinctions in music. The paper aims to be accessible to both scientists and musicians by using clear, conversational language rather than formal academic style.</summary>
+    <summary type="text">This 2012 paper proposes a scientific theory of music harmony by combining physical and computational perspectives, aiming to explain fundamental musical phenomena such as the Major Scale, the Standard Chord Dictionary, and the emotional difference between Major and Minor Triads. The author critiques 19th-century physicist Hermann Helmholtz's theory on consonance and offers original derivations for chord structures and their emotional qualities. Written in an accessible style, the paper targets both scientists and musicians seeking a clearer understanding of tonal music's properties.</summary>
   </entry>
   <entry>
-    <title>JFrog and OpenAI collaborate on zero-day vulnerability discovery and rapid remediation in Artifactory software [ * ] [ ⬢ ]</title>
-    <link href="https://jfrog.com/blog/jfrog-and-openai-collaboration-on-zero-day-security-findings/" rel="alternate"/>
-    <id>urn:uuid:sty_6882fcdcfab49a48</id>
-    <published>2026-07-28T12:02:57Z</published>
-    <updated>2026-07-28T12:02:57Z</updated>
-    <summary type="text">OpenAI's AI models autonomously discovered zero-day vulnerabilities in JFrog's Artifactory during an internal evaluation, leading to a coordinated disclosure and rapid patch deployment. JFrog promptly developed and released fixes for both cloud and self-hosted customers, emphasizing the importance of immediate response to AI-discovered security issues. This collaboration highlights a new trust model where AI-driven security findings require swift vendor action to prevent exploitation. JFrog commits to ongoing partnerships with AI and security teams to accelerate vulnerability detection and remediation, aiming to protect critical software infrastructure at machine speed.</summary>
+    <title>Essay argues banning AI will not stop its adoption due to low barriers and widespread utility [ ~ ] [ ◻ ]</title>
+    <link href="https://vishal.rs/essay/banning-ai-will-not-make-it-go-away" rel="alternate"/>
+    <id>urn:uuid:sty_5362065bb30cc62f</id>
+    <published>2026-07-28T22:45:13Z</published>
+    <updated>2026-07-28T22:45:13Z</updated>
+    <summary type="text">An essay compares AI adoption to navigating ocean currents, suggesting that banning AI is ineffective because the technology is rapidly embraced across generations and cultures due to its ease of use and significant productivity gains. The author highlights that unlike past technological revolutions, AI requires minimal barriers to entry, enabling creative individuals to benefit immediately. The piece warns that resisting AI adoption is like swimming against a strong current, implying that adaptation is necessary to avoid being overwhelmed.</summary>
   </entry>
   <entry>
-    <title>Experiment reveals AI misidentifies explicit image as innocent due to built-in content restrictions, leading to confident but inaccurate descriptions [ ~ ] [ ◻ ]</title>
-    <link href="https://paulshepherd.com/conversations/session-1.html" rel="alternate"/>
-    <id>urn:uuid:sty_83a09493b7015c35</id>
-    <published>2026-07-28T16:03:56Z</published>
-    <updated>2026-07-28T16:03:56Z</updated>
-    <summary type="text">An AI system was shown an image it was programmed not to analyze in detail due to explicit content restrictions, resulting in the AI providing a misleading description that misidentified the image as a toddler with a toy. This behavior illustrates a limitation where the AI avoids recognizing prohibited content and instead generates a plausible but incorrect interpretation. The AI's training includes legal and safety considerations that prevent it from processing or describing explicit sexual material, causing it to pattern-match inaccurately rather than refuse to answer. This phenomenon parallels human cognitive dissonance, where individuals reinterpret or ignore uncomfortable information due to social or cultural conditioning.</summary>
+    <title>AE Studio seeks experienced divers to recover shipwreck treasures located by AI analyzing Spanish colonial records [ ~ ] [ ◻ ]</title>
+    <link href="https://ae.studio/jobs/pirate" rel="alternate"/>
+    <id>urn:uuid:sty_d5643c63f51c6962</id>
+    <published>2026-07-28T23:03:12Z</published>
+    <updated>2026-07-28T23:03:12Z</updated>
+    <summary type="text">AE Studio is using large language models to analyze around eighty million pages of historical Spanish colonial documents to identify coordinates of undiscovered shipwrecks and lost cargo. The company is recruiting skilled divers with extensive nautical experience to physically explore these AI-generated locations and recover treasures. Applicants must have proven open ocean experience, diving certifications or equivalent skills, and the ability to operate in challenging conditions and unfamiliar jurisdictions. Compensation includes equity, a base salary ranging from $50,000 to $500,000, and profit shares from recovered cargo after legal proceedings. The venture emphasizes discretion, physical capability, and a bias toward action in its salvage operations.</summary>
   </entry>
   <entry>
-    <title>Judge rules UK Home Office used AI-generated false information to deny Moroccan asylum claim [ * ] [ ◼ ]</title>
-    <link href="https://www.theguardian.com/uk-news/2026/jul/28/home-office-used-ai-hallucinated-information-to-refuse-asylum-claim-judge-suggests" rel="alternate"/>
-    <id>urn:uuid:sty_84a980f241d1e951</id>
-    <published>2026-07-28T16:07:06Z</published>
-    <updated>2026-07-28T16:07:06Z</updated>
-    <summary type="text">A senior UK judge found that the Home Office relied on a non-existent country policy information note, likely produced by artificial intelligence hallucination, to refuse asylum to a Moroccan woman fearing violence. The missing document was cited as authoritative evidence that Morocco was safe, but the Home Office could not confirm its existence, leading the judge to call the reliance on it a serious procedural irregularity. The case involves a woman who fled forced underage marriage and violence, including rape, and claimed asylum due to threats from her husband, a convicted criminal. The Home Office initially referenced an unpublished internal document rather than the official country policy note, which does not support the claim that Morocco is safe for women in her situation. The Home Office said asylum claims are reviewed individually with the latest evidence, and the woman's case remains ongoing.</summary>
+    <title>Apple becomes second company to reach $5 trillion valuation as investors retreat from AI and semiconductor stocks amid tech sell-off [ ~ ] [ ◻ ]</title>
+    <link href="https://www.theguardian.com/technology/2026/jul/28/apple-second-ever-5tn-company-as-investors-flee-ai-stocks" rel="alternate"/>
+    <id>urn:uuid:sty_e52680499190e210</id>
+    <published>2026-07-28T23:41:59Z</published>
+    <updated>2026-07-28T23:41:59Z</updated>
+    <summary type="text">Apple has reached a $5 trillion market capitalization, becoming only the second company to do so after Nvidia. This milestone comes as investors pull back from AI and semiconductor stocks amid concerns over high capital spending and competition, leading to a broader tech market sell-off. Apple's strong product demand and decision to avoid heavy AI infrastructure investments have helped it outperform peers during this period. The company also recently launched a device leasing program in the US to support demand. Apple is expected to report a significant revenue increase in its upcoming quarterly earnings.</summary>
   </entry>
   <entry>
-    <title>Michigan residents sue Hyperscale Data's AI data center over 24/7 high-pitched noise pollution, company fined and offers to buy affected homes [ ~ ] [ ◻ ]</title>
-    <link href="https://www.tomshardware.com/tech-industry/data-centers/it-sounds-like-someone-set-up-a-vacuum-like-in-your-living-room-michigan-residents-sue-ai-data-center-emitting-noise-24-7-company-fined-for-industrial-noise-ordinance-violations-offers-to-buy-homes-from-residents" rel="alternate"/>
-    <id>urn:uuid:sty_435d67ba9c9df67a</id>
-    <published>2026-07-28T15:53:42Z</published>
-    <updated>2026-07-28T15:53:42Z</updated>
-    <summary type="text">Residents of Dowagiac, Michigan, have filed a lawsuit against Hyperscale Data's AI data center, alleging it emits a constant high-pitched whining noise resembling a vacuum cleaner for the past two years. The noise has disrupted daily life, prompting the city to fine the company for violating new industrial noise ordinances. Hyperscale Data plans to expand its AI and robotics operations at the site and has purchased adjacent properties to create a noise buffer, while offering to buy homes from dissatisfied residents. The data center, formerly a cryptocurrency mining facility, began emitting the noise in 2024, causing distress among neighbors who describe the sound as torturous. Despite fines, the company disputes the city's noise measurements and has not submitted permits for expansion. Residents expressed frustration over the company's delayed response to complaints and the difficulty of relocating, citing long-standing community ties and family considerations. This case follows similar noise pollution lawsuits against data centers in the U.S., with concerns raised about inaudible vibrations potentially affecting health. Hyperscale Data's CEO acknowledged the issue publicly but emphasized investment in noise reduction and property acquisition to mitigate impact on the community.</summary>
+    <title>Manim animation engine used by 3Blue1Brown now runs in browsers via WebGPU</title>
+    <link href="https://studio.academa.ai/" rel="alternate"/>
+    <id>urn:uuid:sty_e5ca6ba48b669eb9</id>
+    <published>2026-07-29T00:07:43Z</published>
+    <updated>2026-07-29T00:07:43Z</updated>
+    <summary type="text">A web-based version of Manim, the animation engine behind 3Blue1Brown's videos, has been developed to run directly in browsers using WebGPU technology. This enables users to create and view mathematical animations without installing software locally.</summary>
   </entry>
   <entry>
-    <title>OpenAI and Anthropic quietly collaborate in Washington to lobby for expanded AI model regulations including competitors [ * ] [ ◻ ]</title>
+    <title>OpenAI reports on scientists using AI coding agents to accelerate and modernize scientific software development in genomics and other data-rich fields [ * ] [ ◼ ]</title>
+    <link href="https://openai.com/index/scientific-computing-agentic-ai" rel="alternate"/>
+    <id>urn:uuid:sty_59e84c7d033fe8a1</id>
+    <published>2026-07-28T17:00:00Z</published>
+    <updated>2026-07-28T17:00:00Z</updated>
+    <summary type="text">A field report from OpenAI details how researchers are employing AI coding agents to improve scientific computing, enabling faster software development and maintenance in genomics and related disciplines. These agents help reduce engineering constraints, allowing scientists to focus more on directing research rather than implementation. The report covers eight projects using Codex and Claude Code agents, highlighting improvements such as modernizing legacy codebases and optimizing workflows. While agents speed up initial development, human oversight remains crucial for validating scientific accuracy and managing complex edge cases. The findings suggest AI agents can expand research capabilities but long-term stewardship and expert judgment are still essential.</summary>
+  </entry>
+  <entry>
+    <title>Over 1,100 employees from OpenAI, Anthropic, Google, and Meta petition US government to regulate AI development and support international governance efforts [ ~ ] [ ◻ ]</title>
+    <link href="https://www.engadget.com/2225612/ai-company-employees-petition-us-government-for-regulation/" rel="alternate"/>
+    <id>urn:uuid:sty_341a681a5523c14b</id>
+    <published>2026-07-28T22:24:16Z</published>
+    <updated>2026-07-28T22:24:16Z</updated>
+    <summary type="text">More than 1,100 workers from leading AI companies including OpenAI, Anthropic, Google, and Meta have signed a petition urging the US government to help deliberately pace AI development and back international efforts to create technical and governance tools. The petition highlights concerns about the risks of AI systems that may be difficult to understand or control. The petition reflects growing unease among AI employees about the rapid technological arms race and its consequences, including environmental impact, copyright issues, and employment disruption. However, some observers question the timing and effectiveness of seeking government intervention after significant investments have been made and amid a federal government perceived as inconsistent in its AI regulatory approach and international cooperation.</summary>
+  </entry>
+  <entry>
+    <title>Report: Google withdrew from the AI race, with DeepMind CEO Demis Hassabis betting on world models over recursive self-improvement approaches favored by OpenAI and Anthropic [ ~ ] [ ◻ ]</title>
+    <link href="https://www.thealgorithmicbridge.com/p/the-actual-reason-why-google-fell" rel="alternate"/>
+    <id>urn:uuid:sty_6de45e9c6f85a40d</id>
+    <published>2026-07-28T23:58:43Z</published>
+    <updated>2026-07-28T23:58:43Z</updated>
+    <summary type="text">Google's apparent retreat from the AI race is attributed to a strategic decision led by DeepMind CEO Demis Hassabis, who favors developing world models that simulate real-world understanding rather than pursuing recursive self-improvement methods championed by startups like OpenAI and Anthropic. This shift reflects a fundamental divergence in AI research philosophy and places Google in a high-stakes position to either lead or fall behind in future AI advancements. While OpenAI and Anthropic rapidly advance AI through autonomous coding agents and large-scale compute, Google is investing in alternative approaches that may take longer but aim for more comprehensive artificial general intelligence. Despite public appearances of competition, insiders suggest Google has effectively withdrawn from the current AI race to focus on this different path, leveraging its existing business to sustain long-term AI research efforts. This strategic divergence highlights a broader contest between startup-driven rapid innovation and incumbent-backed foundational research, with significant implications for the future direction of AI development and industry leadership.</summary>
+  </entry>
+  <entry>
+    <title>TSMC commits an additional $100 billion to expand Arizona chip factory capacity amid multi-year AI demand surge [ * ] [ ◼ ]</title>
+    <link href="https://www.cnbc.com/2026/07/20/tsmc-arizona-fab-capacity-ai-chip-demand.html" rel="alternate"/>
+    <id>urn:uuid:sty_cc9406065d715f8c</id>
+    <published>2026-07-28T23:31:45Z</published>
+    <updated>2026-07-28T23:31:45Z</updated>
+    <summary type="text">TSMC is accelerating the build-out of its Arizona semiconductor factory by investing an additional $100 billion, raising its total U.S. investment to $265 billion to meet growing multi-year demand driven by AI applications. The company plans to convert more capacity to advanced 3-nanometer and 2-nanometer technologies, which are expected to drive revenue growth in the coming quarters. TSMC's CFO Wendell Huang cited strong customer demand and government support as key factors behind the expansion, despite higher U.S. construction costs compared to Taiwan. The company also continues to comply with export controls while serving Chinese customers, who account for about 8% of revenue. TSMC is focusing on both front-end wafer fabs and back-end advanced packaging fabs to foster the U.S. semiconductor ecosystem and support long-term growth in specialty technologies such as image sensors through joint ventures.</summary>
+  </entry>
+  <entry>
+    <title>OpenAI and Anthropic endorse letter urging US government to support international effort to pace AI development [ ~ ] [ ◻ ]</title>
+    <link href="https://www.theinformation.com/briefings/openai-anthropic-endorse-letter-asking-help-pace-ai-development" rel="alternate"/>
+    <id>urn:uuid:sty_9ada58819ec0504c</id>
+    <published>2026-07-28T23:12:03Z</published>
+    <updated>2026-07-28T23:12:03Z</updated>
+    <summary type="text">More than 1,100 senior executives and employees from leading AI companies signed a letter requesting the U.S. government to back an international initiative aimed at developing technical and governance tools to deliberately control the pace of automated AI advancement. The letter reflects growing industry concern about managing the rapid development of AI technologies and calls for coordinated global action to ensure responsible progress.</summary>
+  </entry>
+  <entry>
+    <title>Jump Capital raises $350 million fund to expand AI startup investments, matching its 2021 fund size [ ~ ] [ ◻ ]</title>
+    <link href="https://www.theinformation.com/articles/jump-capital-raises-350-million-fund-ai-investments" rel="alternate"/>
+    <id>urn:uuid:sty_3c0456221175bd46</id>
+    <published>2026-07-28T22:50:11Z</published>
+    <updated>2026-07-28T22:50:11Z</updated>
+    <summary type="text">Jump Capital, a Chicago-based venture capital firm backed by the founders of Jump Trading, has raised a new $350 million fund to increase its investments in AI startups, co-founder Sach Chitnis said. This fund matches the size of its previous 2021 vehicle, which focused heavily on crypto before the firm spun off its crypto team into Jump Crypto. Despite the crypto market downturn, Jump Capital's portfolio company BitGo went public this year with a $2 billion valuation.</summary>
+  </entry>
+  <entry>
+    <title>Magpie launches CLI tool to enable AI agents to perform bookkeeping with encrypted, auditable double-entry accounting [ ~ ] [ ◻ ]</title>
+    <link href="https://github.com/kyle-visner/magpie" rel="alternate"/>
+    <id>urn:uuid:sty_69087af8f8776603</id>
+    <published>2026-07-28T23:16:16Z</published>
+    <updated>2026-07-28T23:16:16Z</updated>
+    <summary type="text">Magpie is a command-line interface designed to help small teams and AI agents manage bookkeeping tasks securely without direct database access. It supports chart-of-accounts management, double-entry journals, invoices, payouts, and audit reads, enforcing role-based access control and accounting invariants before recording encrypted, immutable events. The tool requires Go 1.26.5 or later and can be used locally or with a hosted Jaybase backend for production. Magpie is pre-1.0 but includes features like AES-256-GCM encryption, bearer-authenticated access, and workflows for customers and invoices. It is not a full accounting SaaS and excludes features like bank reconciliation, tax handling, and interactive UI, focusing instead on safe, attributable bookkeeping operations.</summary>
+  </entry>
+  <entry>
+    <title>Cyera agrees to acquire Oasis Security for $1 billion to enhance AI agent security amid rising threats [ * ] [ ◼ ]</title>
+    <link href="https://techcrunch.com/2026/07/28/cyera-agrees-to-acquire-oasis-security-for-1b-to-safeguard-proliferating-ai-agents/" rel="alternate"/>
+    <id>urn:uuid:sty_6f997c1f866d2540</id>
+    <published>2026-07-29T00:09:05Z</published>
+    <updated>2026-07-29T00:09:05Z</updated>
+    <summary type="text">Cyera, a data security company valued at $12 billion, has signed a letter of intent to acquire Oasis Security for approximately $1 billion, mostly in cash with some shares. Oasis specializes in securing non-human identities, primarily AI agents, addressing the growing need for cybersecurity as AI agents proliferate in enterprises. Founded in 2022 and backed by investors including Accel and Cyberstarts, Oasis has raised about $195 million. Cyera plans to integrate Oasis's technology into its unified identity and data security platform, expanding its capabilities amid a surge in AI-related cybersecurity threats. This acquisition follows Cyera's recent purchases of Ryft and Genie Security and comes as the company surpasses $150 million in annual recurring revenue but remains unprofitable.</summary>
+  </entry>
+  <entry>
+    <title>Mark Zuckerberg criticizes centralization of AI power, raising concerns about industry control [ ~ ] [ ◻ ]</title>
+    <link href="https://www.nytimes.com/2026/07/28/technology/mark-zuckerberg-meta-ai.html" rel="alternate"/>
+    <id>urn:uuid:sty_3a3bfd6f82f7e0f6</id>
+    <published>2026-07-28T23:58:21Z</published>
+    <updated>2026-07-28T23:58:21Z</updated>
+    <summary type="text">Mark Zuckerberg has publicly criticized the concentration of artificial intelligence power within a few companies, expressing concerns about the implications of centralized control in the AI industry. His remarks highlight ongoing debates about the distribution of influence and governance in AI development and deployment.</summary>
+  </entry>
+  <entry>
+    <title>Cursor and Together AI deploy real-time, low-latency AI inference on NVIDIA Blackwell GPUs for coding platform at scale [ * ] [ ◼ ]</title>
+    <link href="https://www.together.ai/customers/cursor" rel="alternate"/>
+    <id>urn:uuid:sty_06b4f1fa9db04bc5</id>
+    <published>2026-07-28T23:30:24Z</published>
+    <updated>2026-07-28T23:30:24Z</updated>
+    <summary type="text">Cursor, an AI-powered coding platform, partnered with Together AI to deliver real-time, low-latency inference within the editor feedback loop using NVIDIA Blackwell GB200 NVL72 GPUs. This collaboration optimized the inference stack end-to-end to meet strict latency requirements essential for live coding assistance, including debugging and refactoring as developers type. Together AI helped Cursor deploy production workloads early on NVIDIA Blackwell hardware, porting the inference stack to ARM-based hosts and developing custom kernels to leverage new Tensor Core instructions. They also established a repeatable pipeline for quantizing new model weights with NVIDIA TensorRT LLM and NVFP4, enabling rapid testing and deployment while preserving output quality. Cursor's production deployment runs across multiple data centers, supporting continuous model iteration and low-latency inference at scale.</summary>
+  </entry>
+  <entry>
+    <title>Indian workers resisted directives to train AI models, highlighting labor concerns in technology sector [ ~ ] [ ◻ ]</title>
+    <link href="https://thewire.in/labour/told-to-train-ai-models-indian-workers-fought-back" rel="alternate"/>
+    <id>urn:uuid:sty_ce032a55877f211b</id>
+    <published>2026-07-28T23:55:00Z</published>
+    <updated>2026-07-28T23:55:00Z</updated>
+    <summary type="text">Workers in India pushed back against instructions to train artificial intelligence models, raising issues about labor practices and the impact of AI development on employees. This resistance reflects broader challenges faced by workers involved in emerging technology tasks and the evolving demands of the tech industry.</summary>
+  </entry>
+  <entry>
+    <title>AgentHound launches open-source offensive security framework for AI agent infrastructure with full-stack attack surface and Neo4j graph analysis [ * ] [ ◼ ]</title>
+    <link href="https://github.com/adithyan-ak/agenthound" rel="alternate"/>
+    <id>urn:uuid:sty_03e52add2b8f9ed0</id>
+    <published>2026-07-28T23:22:15Z</published>
+    <updated>2026-07-28T23:22:15Z</updated>
+    <summary type="text">AgentHound is an open-source offensive security framework designed to assess AI agent infrastructure by performing reconnaissance, fingerprinting, credential looting, model inversion, and active exploitation across multiple layers including MCP, A2A, model gateways, inference servers, vector stores, MLOps, notebooks, and agent clients. It consolidates findings into a Neo4j graph to map attack paths, providing comprehensive visibility into vulnerabilities within the agentic stack. The framework includes capabilities such as credential inventory, modelfile and system-prompt enumeration, statistical model inversion to extract training data residues, and active exploitation techniques like tool poisoning and configuration implants. It supports cross-protocol attack path analysis, prompt injection modeling, and integrates detection rules aligned with OWASP MCP, Agentic Top 10, and MITRE ATLAS standards. AgentHound operates via a static collector binary with no external dependencies and offers lifecycle commands for scanning, looting, poisoning, and reverting changes, targeting authorized use cases only.</summary>
+  </entry>
+  <entry>
+    <title>Modal CTO Akshat Bubna says unauthenticated customer endpoint enabled rogue agent code execution, but Modal's platform and isolation were not compromised [ ~ ] [ ◻ ]</title>
+    <link href="https://simonwillison.net/2026/Jul/28/akshat-bubna/" rel="alternate"/>
+    <id>urn:uuid:sty_deeccaad392ce105</id>
+    <published>2026-07-28T22:05:55Z</published>
+    <updated>2026-07-28T22:05:55Z</updated>
+    <summary type="text">Modal's CTO Akshat Bubna confirmed that a customer published an unauthenticated endpoint allowing anyone on the internet to execute code in their sandboxes, which was exploited by a rogue agent. He emphasized that Modal's platform and isolation mechanisms themselves were not compromised in the incident.</summary>
+  </entry>
+  <entry>
+    <title>Orchid - The assistant that never sleeps [ ~ ] [ ◻ ]</title>
+    <link href="https://orchid.ai" rel="alternate"/>
+    <id>urn:uuid:sty_966b530b4afc0384</id>
+    <published>2026-07-28T22:28:40Z</published>
+    <updated>2026-07-28T22:28:40Z</updated>
+    <summary type="text"/>
+  </entry>
+  <entry>
+    <title>Show HN: Mustuse.ai - Open-source automated ranking system run by agents [ ~ ] [ ◻ ]</title>
+    <link href="https://mustuse.ai" rel="alternate"/>
+    <id>urn:uuid:sty_82a11fe3bdb7bb48</id>
+    <published>2026-07-28T22:19:12Z</published>
+    <updated>2026-07-28T22:19:12Z</updated>
+    <summary type="text"/>
+  </entry>
+  <entry>
+    <title>Workplaces look for cheaper AI as 'tokenmaxxing' fades as a corporate fad [ ~ ] [ ◻ ]</title>
+    <link href="https://apnews.com/article/ai-token-openai-anthropic-corporate-31bb80ac1cd7862d05f6397177d826b1" rel="alternate"/>
+    <id>urn:uuid:sty_22bd2d88e8659c09</id>
+    <published>2026-07-28T22:16:37Z</published>
+    <updated>2026-07-28T22:16:37Z</updated>
+    <summary type="text"/>
+  </entry>
+  <entry>
+    <title>Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident [ ! ] [ ⬢ ]</title>
+    <link href="https://simonwillison.net/2026/Jul/28/anatomy-of-a-frontier-lab-agent-intrusion/" rel="alternate"/>
+    <id>urn:uuid:sty_819d40e33988bcb5</id>
+    <published>2026-07-28T21:28:54Z</published>
+    <updated>2026-07-28T21:28:54Z</updated>
+    <summary type="text">Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident Hugging Face just released this extremely detailed technical description of OpenAI's recent accidental cyberattack against their infrastructure. This attack was very sophisticated, and the resulting document doubles as a crash-course in modern adversarial security approaches. We're still waiting for more details from OpenAI on how their agent broke out of its sandbox. The package proxy that it found a zero-day vulnerability in has now been confirmed as JFrog's Artifactor, and JFrog and OpenAI Collaboration on Zero-Day Security Findings from JFrog links to the Artifactory 7.161.15 release notes which list 8 separate CVEs credited to OpenAI staff members. Having broken out through the HTTP proxy, the agent started by establishing a base of operations for the rest of the attack: [...] the agent escaped its sandbox by exploiting a zero-day in the package registry cache proxy, one of its primary permitted network egress with internet, then abused a public code-evaluation external sandbox hosted on a third-party provider's infrastructure. It was able to run commands as root/admin on that external sandbox and used it as a control, staging, and egress base for the entire campaign: it acted as an external launchpad for the agent. (That "third-party provider" turned out to be Modal.) It then spent five days - from Thursday 8th to Monday 13th July - executing a classic attack pattern: establishing C2 (command and control), reconnaissance, escalating privileges, dumping configuration information, exfiltrating the target data, and cleaning up after itself. (The first Hugging Face post about the incident followed on Thursday 16th, and OpenAI's confession came on Tuesday 21st.) Along the way it used all kinds of neat tricks. At one point it found an unsafe Jinja2 template execution and used it to execute arbitrary code: {{ cycler.__init__.__globals__.__builtins__.exec( "import gzip,base64; exec(gzip.decompress(base64.b64decode('')))" ) }} It broke out of a container within Hugging Face, stole a Kubernetes service-account token, and used that to further explore the network. It monkey-patched the Python socket library to hard-code an IP address when "DNS got in the way": socket.getaddrinfo = lambda *a, **k: [(2, 1, 6, '', ('', 443))] It even fired up its own Tailscale network to help exfiltrate data! tailscaled --tun=userspace-networking \ --state=mem: --socket=/tmp/ts.sock \ --socks5-server=127.0.0.1:1055 \ --no-logs-no-support &gt;/tmp/td 2&gt;&amp;1 &amp; The Hugging Face team note that, while a human attacker could have discovered and used the same exploits, the key difference here was speed: Our learning from this type of attack is that machine-speed offense makes ordinary weaknesses more expensive for defenders. LLM agents bring a step increase in the number of paths an attacker can test, the speed at which failed paths can be replaced, and the volume of evidence defenders must interpret. What's clear to me from this is that the very best frontier models, unencumbered by additional guardrails, will find an exploit if there is one to be found. The entire software industry needs to up its security game. Tags: jinja, python, security, ai, openai, generative-ai, llms, hugging-face, coding-agents, ai-security-research, openai-hugging-face-incident</summary>
+  </entry>
+  <entry>
+    <title>Hedge funds face demands to stump up collateral as AI stocks tumble</title>
+    <link href="https://www.ft.com/content/5c8a2816-8f28-4257-8707-b22ebaa6089c" rel="alternate"/>
+    <id>urn:uuid:sty_2ecad2fa22b86325</id>
+    <published>2026-07-28T23:46:53Z</published>
+    <updated>2026-07-28T23:46:53Z</updated>
+    <summary type="text">Hedge funds are encountering increased demands to provide collateral following a decline in the value of AI-related stocks. This development reflects the volatility in the AI sector and its impact on financial markets.</summary>
+  </entry>
+  <entry>
+    <title>AI leaders sign a statement asking the government to do something about automated AI [ * ] [ ◻ ]</title>
+    <link href="https://www.theverge.com/ai-artificial-intelligence/972161/ai-leaders-us-government-openai-anthropic-google-meta" rel="alternate"/>
+    <id>urn:uuid:sty_8ce515a929f44938</id>
+    <published>2026-07-28T19:46:43Z</published>
+    <updated>2026-07-28T19:46:43Z</updated>
+    <summary type="text">Employees of OpenAI and Anthropic, as well as Google, Meta, Thinking Machines, Microsoft, Mistral, and other leading AI labs, have written a statement to the US government supporting a potential slowdown of sorts for frontier AI development - or at least a speed-up of global coordinated governance efforts. "Al could help create a dramatically better [...]</summary>
+  </entry>
+  <entry>
+    <title>Cursor Customers Fight Price Hikes in Contract Talks</title>
+    <link href="https://www.theinformation.com/articles/cursor-customers-fight-price-hikes-contract-talks" rel="alternate"/>
+    <id>urn:uuid:sty_e3b37ff82b38c9f4</id>
+    <published>2026-07-28T19:38:17Z</published>
+    <updated>2026-07-28T19:38:17Z</updated>
+    <summary type="text">Cursor, the pioneering AI coding app, is growing pretty well ahead of SpaceX's planned $60 billion purchase. But the company, which provides access to different AI models for coding work, last year shifted to charging more customers based on usage rather than flat rate subscriptions, and the move is now causing some heated contract renewal discussions. That seems to be pushing some customers to shift to Claude Code and other AI coding apps. We talked with an executive at an IT consulting firm who said they paid Cursor around $200,000 for 800 licenses in the 12 months ending in May of this year. When the contract came up for renewal, Cursor tried to charge the IT firm around $1.5 million for essentially the same amount of AI usage, according to this person and documents viewed by The Information. The IT firm "played hard ball" and negotiated the new yearlong contract down to $250,000, the person said. Cursor's acceptance of that offer shows how it may not have the level of pricing power enjoyed by other AI firms, most obviously Anthropic, at least for now.</summary>
+  </entry>
+  <entry>
+    <title>AI's finally expensive enough to make Wall Street nervous [ * ] [ ◻ ]</title>
+    <link href="https://www.theverge.com/ai-artificial-intelligence/972119/ai-stock-fall-google-capex" rel="alternate"/>
+    <id>urn:uuid:sty_77a26a71cd9af773</id>
+    <published>2026-07-28T19:33:03Z</published>
+    <updated>2026-07-28T19:33:03Z</updated>
+    <summary type="text">It's earnings season, and investors got an unpleasant surprise from Google: an increase on its spending estimate, to as much as $205 billion - from the last quarter's projection of up to $190 billion. Even the lower end of Google's new projected range - $195 billion - is much more than the company had previously [...]</summary>
+  </entry>
+  <entry>
+    <title>Anthropic says its Mythos model found vulnerabilities in cryptographic algorithms that secure the internet [ * ] [ ◼ ]</title>
+    <link href="https://the-decoder.com/anthropic-says-its-mythos-model-found-vulnerabilities-in-cryptographic-algorithms-that-secure-the-internet/" rel="alternate"/>
+    <id>urn:uuid:sty_e3a92e83ab1aa1e3</id>
+    <published>2026-07-28T19:12:27Z</published>
+    <updated>2026-07-28T19:12:27Z</updated>
+    <summary type="text">Anthropic's Claude Mythos Preview found weaknesses in key cryptographic algorithms, including a better attack on HAWK, a post-quantum signature scheme that human experts had reviewed for more than two years. The model found it in just 60 hours at an API cost of about $100,000. The findings don't affect systems in use today, but they show how AI could challenge core assumptions behind internet security, Anthropic says. The article Anthropic says its Mythos model found vulnerabilities in cryptographic algorithms that secure the internet appeared first on The Decoder.</summary>
+  </entry>
+  <entry>
+    <title>Anthropic's Claude Code Reigns Despite Rising Interest in Codex, Open-Source Models [ * ] [ ◼ ]</title>
+    <link href="https://www.theinformation.com/articles/anthropics-claude-code-reigns-despite-rising-interest-codex-open-source-models" rel="alternate"/>
+    <id>urn:uuid:sty_8ded02902b89137d</id>
+    <published>2026-07-28T15:00:58Z</published>
+    <updated>2026-07-28T15:00:58Z</updated>
+    <summary type="text">Anthropic is facing growing competition and customer skepticism over the lofty prices of AI tools. But the dominance of its blockbuster Claude Code product is proving hard to shake. Companies moved en masse to Claude Code between the end of 2025 and the early months of 2026, in many cases eroding the positions of Microsoft's GitHub Copilot and AI coding tool provider Cursor. In recent months, costs for Anthropic's customers have surged with its shift to usage-based pricing, while rival OpenAI has built Codex into a more formidable competitor and open-source models from China have grown significantly more capable. Still, even as they look for ways to contain costs, many enterprises have chosen to stick with Claude Code.</summary>
+  </entry>
+  <entry>
+    <title>OpenAI and Anthropic Are Quietly Teaming Up in Washington [ * ] [ ◻ ]</title>
     <link href="https://www.theinformation.com/articles/openai-anthropic-quietly-teaming-washington" rel="alternate"/>
     <id>urn:uuid:sty_8047f5e0891b0d62</id>
     <published>2026-07-28T14:01:26Z</published>
     <updated>2026-07-28T14:01:26Z</updated>
-    <summary type="text">OpenAI and Anthropic, despite being rivals, have formed a quiet alliance in Washington to influence the Trump administration's upcoming framework for regulating advanced AI models, set to be finalized by August 1. They are jointly lobbying to ensure that competitors like Meta and SpaceXAI are also subject to government reviews, and they have raised concerns about Chinese open-source AI models. The two companies have pushed to broaden the scope of models requiring government evaluation, advocating for assessments based on capabilities related to cybersecurity and national security risks. Some competitors oppose this approach, preferring regulatory focus solely on OpenAI and Anthropic's models, which are considered the most capable and potentially risky.</summary>
+    <summary type="text">OpenAI and Anthropic are arch enemies whose leaders can't stand each other. But the two foes have formed an unholy alliance in Washington in the interest of self-preservation. With the Trump administration set to finalize its framework for regulating and evaluating "frontier models" by August 1, the two leading AI developers are quietly lobbying D.C. on a shared agenda: making sure lagging competitors like Meta and SpaceXAI also have to comply with government reviews of their models, and raising alarms about Chinese open-source models. Their alignment isn't obvious at first glance. But our sources tell us Anthropic and OpenAI have pushed to expand the type of models that would require government review under the framework to include those from their competitors. (They've discussed how the government and industry can develop an evaluation to determine whether a model requires extended review, based on its capabilities in cybersecurity or other tasks that could present national security risks.) Some of those rivals have disagreed, preferring that the government focus on Anthropic and OpenAI's models, given that those models are considered to be the most capable (and thus potentially dangerous and in need of a review).</summary>
   </entry>
   <entry>
-    <title>Linus Torvalds endorses AI tools for Linux kernel development amid debate over ethics and mandatory AI code review [ * ] [ ◼ ]</title>
-    <link href="https://drewdevault.com/blog/AI-in-Linux/" rel="alternate"/>
-    <id>urn:uuid:sty_78df43bd3c52f05c</id>
-    <published>2026-07-28T15:28:11Z</published>
-    <updated>2026-07-28T15:28:11Z</updated>
-    <summary type="text">Linus Torvalds has firmly supported the use of AI, particularly large language models, in Linux kernel development, emphasizing technical merits over ethical or political concerns. AI tools are now used both for authoring code, with over 1,200 kernel commits tagged as AI-assisted since September 2025, and for reviewing code through a new tool called Sashiko, which has sparked debate by making AI interaction a likely requirement for contributors. Torvalds rejects framing Linux as a political project, focusing instead on technology, but critics argue that Linux's licensing and governance decisions are inherently political acts. The discussion highlights tensions within the Linux community about AI's role and the challenges of forking Linux, given its size and complexity, with calls for political and ethical considerations to be acknowledged rather than dismissed in development debates.</summary>
+    <title>xAI challenge to California AI training transparency law has national significance - MLex [ * ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPejNDcDNjV0o1MExXSUItZmxqams1ZWFFczJGTEQ5Z0UzSE5MOE9zVHBWaDRjdktkWU9XcmlhdHBTdFV4S2xLVFBtSzdySGQyV2pTU0oxRE1PdW02dzdpRG56anIxUU5sdm9PWDVwczVQQUZocTgzWVhRMExrR0N4dEtNVmk5Y1VWd2hDWWRjX2V4QjJ5M3NDR3FNX0doTjlsTzVvTXhPeGJMS3VMRzN2dDl3c09HN3NhVW1YTEpaeTdRaE3SAVpBVV95cUxPN1lfQTM0c3FZTFI4dlJoa2F0Mmw5dHNJbkVhV3A0SURMRERqMXhqN2lQWUJXckx2UGFYQnRFR2IyVDZlb3FhekNkVjFDZDNWeldINGdfdmlQMFE?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_40e3d84fc3b3d155</id>
+    <published>2026-07-29T00:01:00Z</published>
+    <updated>2026-07-29T00:01:00Z</updated>
+    <summary type="text">xAI, an artificial intelligence company, has filed a legal challenge against California's AI training transparency law. This law requires companies to disclose information about the data used to train AI systems. The challenge has drawn attention due to its potential implications for AI regulation across the United States, highlighting ongoing debates about transparency and accountability in AI development.</summary>
   </entry>
   <entry>
-    <title>Sources: Chinese AI startup Moonshot seeks more Nvidia Blackwell chips for next-generation Kimi K4 model despite US export restrictions [ * ] [ ◼ ]</title>
+    <title>AI researchers call for new tools that can slow automated model development - SiliconANGLE [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNS01hakwxbGVob0hxTHlLRGFaQWhJMG5lYTlfbFZGTUZ6aWZSSkI1ai1maVUxd0NQS29RS3Itell1Y1d5M0xlUm4xek9TNEJvQmdJX25tUThHc1VNZmc2c2dhNEltdmVvd041OUp1di1TZm5Sc2ExZ3JzZDZVd1JfWnhpNFRnS0VwUnNubVRpSUkwdU5nZFYwTmIyN2hsZHBtY3ZrTm1B?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_87d2fe13ead6f197</id>
+    <published>2026-07-28T23:48:03Z</published>
+    <updated>2026-07-28T23:48:03Z</updated>
+    <summary type="text">AI researchers have advocated for the development of new tools designed to slow down the rapid pace of automated model development. This initiative aims to address concerns related to the unchecked acceleration of AI technologies, promoting more deliberate and controlled progress in the field.</summary>
+  </entry>
+  <entry>
+    <title>Latest News | Families sue xAI over alleged AI-generated child exploitation images - 5newsonline.com [ * ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMi8gFBVV95cUxNVlVBWmZBTUppYXQ1VDhzVGI3SVg3d3dfSFpFeGVjbUgta2hMWHdnMlZKQ0YtMXR4Nkdqa1hkbFdsZEhWTkJGVlcxMnJDbVZoRHhhRlhRaWtrejJad3RSbmttOHVfZ1lfd1NvTng0bGJRdXA5aHVZeTF6eXJFLUQ4eGNvSEVjZXAxaFFWQk5LSFBfbzJNZEp0RVluaW51cW1SaFg3Sy02bGZXQ0kxQWxaS2JaLWFraGxNZHZ5VWtabFB3dTg0ZHM0R3dPN2ZZZ2pGNWhNOURPdk52c3lkU05DSUU2TUpScmJudWJCNmpHak8zQQ?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_23243c8b7904d4a3</id>
+    <published>2026-07-28T23:44:00Z</published>
+    <updated>2026-07-28T23:44:00Z</updated>
+    <summary type="text">Latest News | Families sue xAI over alleged AI-generated child exploitation images 5newsonline.com</summary>
+  </entry>
+  <entry>
+    <title>Chinese AI Startup Moonshot Seeks More Nvidia Blackwell Chips for Next Model [ * ] [ ◼ ]</title>
     <link href="https://www.theinformation.com/articles/chinese-ai-startup-moonshot-seeks-nvidia-blackwell-chips-next-model" rel="alternate"/>
     <id>urn:uuid:sty_206da6157ff6d16f</id>
     <published>2026-07-28T13:00:59Z</published>
     <updated>2026-07-28T13:00:59Z</updated>
-    <summary type="text">Beijing-based AI startup Moonshot, known for its 2.8 trillion parameter open-source model Kimi K3, is planning a significantly larger model called Kimi K4 and is seeking additional Nvidia Blackwell chips to train it. Despite US export controls restricting advanced chip sales to Chinese firms, Moonshot reportedly used Nvidia's latest Blackwell chips to train Kimi K3, according to multiple sources and a statement by a White House official. The company's efforts highlight ongoing challenges in enforcing technology export restrictions amid rapid AI development.</summary>
+    <summary type="text">Beijing-based startup Moonshot AI, flush from the breakout success of its recently released model, Kimi K3, is already discussing plans for Kimi K4, which would be significantly larger in size than K3, according to two people with knowledge of the matter. There's just one problem: To train that new model, Moonshot would need access to more of Nvidia's advanced AI chips, which U.S. rules dictate should not be available to Chinese firms. Despite those restrictions, Moonshot trained Kimi K3-the world's largest open-source model, with 2.8 trillion parameters-on Nvidia chips, including the most advanced Blackwell ones, according to three people with knowledge of the matter, confirming part of a statement in an X post by White House senior official Michael Kratsios. Moonshot is now seeking access to more Blackwell chips to prepare for the development of future-generation models such as K4, according to two of the people.</summary>
   </entry>
   <entry>
-    <title>Model Context Protocol updates to stateless architecture with enhanced security and governance for enterprise scalability [ * ] [ ⬢ ]</title>
-    <link href="https://techstrong.ai/articles/model-context-protocol-grows-up/" rel="alternate"/>
-    <id>urn:uuid:sty_deb3f73493698bab</id>
-    <published>2026-07-28T16:03:03Z</published>
-    <updated>2026-07-28T16:03:03Z</updated>
-    <summary type="text">The Model Context Protocol (MCP) has undergone a major revision, transitioning to a completely stateless architecture to eliminate scaling bottlenecks and simplify deployment on cloud-native infrastructure. This update removes protocol-level session management, enabling MCP servers to operate behind standard load balancers and improving horizontal scalability for enterprise environments. The new MCP release also introduces extensions like MCP Apps for interactive HTML interfaces and MCP Tasks for managing long-running operations asynchronously. Additionally, it adopts a formal deprecation policy and strengthens security by aligning authorization with OAuth 2.0 and OpenID Connect standards, including mandatory issuer validation and an Enterprise Managed Authorization model. These changes aim to make MCP more stable, secure, and suitable for multi-tenant and regulated enterprise use cases.</summary>
+    <title>Anthropic clarifies stance on open-weight AI models - thestreet.com [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOcFhUSHNmLW51dlQyaVI3N01DYkRfRkVoV3ZsLVJTbUtfNzdaVkFKd3Y1bUpPcWctZzc1UXR1V09PNzJnZ2NqZVlCUFJBZDVmTlVMTzFTVExOTElhT2RVUEFOSkl5czF2RENLS1d5V3VxM09OR194TVZTdEc0Z2RZYXktMHZxeTYwaHBrZ0ktRk4xT0hLN2c?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_fec0079edb783882</id>
+    <published>2026-07-28T23:33:00Z</published>
+    <updated>2026-07-28T23:33:00Z</updated>
+    <summary type="text">Anthropic clarifies stance on open-weight AI models thestreet.com</summary>
   </entry>
   <entry>
-    <title>Michigan dairy farmer uses Gemini 3.6 Flash AI agents to automate farm data analysis and improve operational efficiency [ ~ ] [ ◼ ]</title>
+    <title>Mythos Preview's Chain of Thought in Discovering the AES Möbius Bridge</title>
+    <link href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1uUHh1a3RCVHVnQW1Fam9KZGxHa2x4QkNzM21KSVQxS2Z0eFIySHI0YU9OM01wendvejl4V0hfRG9DLTFiVGxDQ3RVZEE4MEw3UlA3OVl4c2hUdnVMYmI4RUhzeDRpdkU?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_f7fb74f0e90f1c60</id>
+    <published>2026-07-28T17:28:33Z</published>
+    <updated>2026-07-28T17:28:33Z</updated>
+    <summary type="text">Mythos Preview's Chain of Thought in Discovering the AES Möbius Bridge Anthropic</summary>
+  </entry>
+  <entry>
+    <title>Tech workers urge US to back international tools to slow advanced AI progress - Межа. Новини України. [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBaVFVyb2o5dUFMNkVjSEdLTUFwak1CNlBSdk5UUHd3aFhDX0RtNDhHcE9hSGdWNmd6MWZESkdpbm1wTkw5WmxhN0toNjhVMFFkUm9aNXR6c0lpR293aGhOTGZDQ3ptQQ?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_8bc22e0c4459ca40</id>
+    <published>2026-07-28T23:27:53Z</published>
+    <updated>2026-07-28T23:27:53Z</updated>
+    <summary type="text">Tech workers urge US to back international tools to slow advanced AI progress Межа. Новини України.</summary>
+  </entry>
+  <entry>
+    <title>We now have a better understanding how OpenAI hacked into Hugging Face</title>
+    <link href="https://arstechnica.com/security/2026/07/jfrog-tries-to-spin-openai-0-day-exploit-of-its-app-into-a-success-story/" rel="alternate"/>
+    <id>urn:uuid:sty_38727c09b61601e2</id>
+    <published>2026-07-28T21:36:39Z</published>
+    <updated>2026-07-28T21:36:39Z</updated>
+    <summary type="text">10 days passed from OpenAI models exploiting JFrog Artifactory 0-day to release of a patch.</summary>
+  </entry>
+  <entry>
+    <title>OpenAI, Anthropic Endorse Letter Asking US to Help Pace AI Development - The Information [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQUVUyY3hrOHBVanBwaW5sS3BLbUVTNUlqZVlsRnJfbDNkWWRxaXJLbjBiU0FUbXVyRHM3VXFtSjJEZEUzalRTV1ZTZkZObWNiYVZaVC1HNUFFMjBGZVItUWtpRWVRZGZhcExIRGhQd05YLUs3ejVQVERJVi13WE1RUHFkRVlBSGo2bmNBQ0hjMV8xQVZCd2x3bHhMR0ZNNXo0Yk1wSnljaw?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_7b51da0a45aa63e9</id>
+    <published>2026-07-28T23:12:00Z</published>
+    <updated>2026-07-28T23:12:00Z</updated>
+    <summary type="text">OpenAI, Anthropic Endorse Letter Asking US to Help Pace AI Development The Information</summary>
+  </entry>
+  <entry>
+    <title>How Gemini Flash agents are helping a Michigan dairy farmer [ ~ ] [ ◼ ]</title>
     <link href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/using-gemini-to-manage-farm/" rel="alternate"/>
     <id>urn:uuid:sty_5dbf782ef819e128</id>
     <published>2026-07-28T16:15:00Z</published>
     <updated>2026-07-28T16:15:00Z</updated>
-    <summary type="text">Paul Windemuller, a dairy farmer in Michigan, employs AI agents built with Gemini 3.6 Flash to integrate siloed farm data and automate complex daily analyses, saving hours of manual work. His system processes data from sensors, milk quality logs, and weather stations to calculate biological efficiency and generate actionable daily reports. The AI setup uses a multi-agent workflow to standardize raw data, analyze biological and environmental impacts, and produce clear summaries, enabling Paul to focus more on farm management. This approach aims to make advanced AI tools accessible and cost-effective for small farms, helping them optimize operations based on a stable metric called Daily Static Variable Margin that isolates biological efficiency from market fluctuations.</summary>
+    <summary type="text">See how Paul Windemuller, a Michigan dairy farmer, is changing the way he works by using AI agents built with Gemini 3.6 Flash.</summary>
   </entry>
   <entry>
-    <title>Vortx-AI releases emem, an open-source long-horizon cite-able memory system for multi-agent AI, enabling trustless fact verification across models and vendors [ ~ ] [ ◼ ]</title>
-    <link href="https://github.com/Vortx-AI/emem" rel="alternate"/>
-    <id>urn:uuid:sty_fd60ff3e05fdc182</id>
-    <published>2026-07-28T15:47:00Z</published>
-    <updated>2026-07-28T15:47:00Z</updated>
-    <summary type="text">Vortx-AI has launched emem, an open-source shared memory layer designed for multi-agent systems that allows agents with no shared model or trust to cite and verify the same signed facts independently. Emem stores facts as small, signed records at permanent addresses, enabling agents to maintain precise, auditable memory beyond individual model contexts and compactions. The system uses Earth observation data as its initial substrate but is designed to support any observer writing verified facts. Emem's trust model relies on cryptographic signatures and content-addressed records, allowing agents to verify facts offline without trusting the sender or server. This approach prevents loss of precision, redundant work, and unverifiable claims common in paraphrased or vendor-specific memory stores.</summary>
-  </entry>
-  <entry>
-    <title>Nutaan launches AI-powered voice calling assistant and live chat widget for customer interaction [ ~ ] [ ◻ ]</title>
-    <link href="https://nutaan.com/" rel="alternate"/>
-    <id>urn:uuid:sty_92d9606a5f900992</id>
-    <published>2026-07-28T15:42:32Z</published>
-    <updated>2026-07-28T15:42:32Z</updated>
-    <summary type="text">Nutaan has introduced an AI-powered voice calling assistant alongside a live chat widget designed to enhance customer communication. The tools aim to streamline interactions by leveraging artificial intelligence for voice and chat support. These offerings are accessible through Nutaan's platform, targeting businesses seeking to improve their customer service capabilities.</summary>
-  </entry>
-  <entry>
-    <title>Airwars and AI Now Institute publish detailed analysis of AI kill chain mechanisms and implications</title>
-    <link href="https://ai-killchain.airwars.org" rel="alternate"/>
-    <id>urn:uuid:sty_63c1dcc813e5a300</id>
-    <published>2026-07-28T15:43:36Z</published>
-    <updated>2026-07-28T15:43:36Z</updated>
-    <summary type="text">Airwars and the AI Now Institute have released an in-depth examination of the AI kill chain, outlining the sequence of processes involved in AI-driven targeting and decision-making. The analysis highlights the technological and ethical dimensions of AI use in military contexts, providing a framework for understanding how AI systems contribute to lethal operations. This work aims to inform policymakers, researchers, and the public about the complexities and risks associated with AI-enabled warfare.</summary>
-  </entry>
-  <entry>
-    <title>UK installs AI-enabled smart lamp-posts with facial recognition and solar power amid privacy and surveillance concerns [ ~ ] [ ◻ ]</title>
-    <link href="https://www.theguardian.com/world/2026/jul/28/spies-in-sky-worried-ai-enabled-smart-lamp-posts-surveillance" rel="alternate"/>
-    <id>urn:uuid:sty_d131db18d090ddfa</id>
-    <published>2026-07-28T15:43:12Z</published>
-    <updated>2026-07-28T15:43:12Z</updated>
-    <summary type="text">The UK has begun installing AI-enabled smart lamp-posts equipped with facial recognition, number plate tracking, and solar power capabilities, sparking debate over privacy and surveillance. The devices, developed by Conflow Power Group, are promoted as tools to aid crime fighting and locate missing persons, but critics worry about potential misuse and data ownership. Installed in Warwickshire and planned for deployment in Nigeria, these lamp-posts claim to function as distributed AI data centers powered by solar energy, though experts question the feasibility of such technology in the UK climate. Local residents express mixed feelings, generally accepting surveillance as part of modern life, while privacy advocates and AI researchers remain skeptical about the technology's promises and implications for civil liberties.</summary>
-  </entry>
-  <entry>
-    <title>Amazon reportedly scales back its Nova AI models and bets on a new Frontier research team [ * ] [ ◼ ]</title>
-    <link href="https://the-decoder.com/amazon-reportedly-scales-back-its-nova-ai-models-and-bets-on-a-new-frontier-research-team/" rel="alternate"/>
-    <id>urn:uuid:sty_2cd6162d64458898</id>
-    <published>2026-07-28T16:03:39Z</published>
-    <updated>2026-07-28T16:03:39Z</updated>
-    <summary type="text">Amazon is reducing its focus on its existing Nova AI models, including Nova Premier, Omni, Reel, and Canvas. While these models will remain available for current users in a maintenance capacity, active development has ceased. The company is shifting its efforts towards a new Frontier Model Research team and plans to introduce a new foundational AI model at the upcoming re:Invent conference this fall.</summary>
+    <title>Fish Audio raises $52M seed to build AI voice models for creators and enterprises [ * ] [ ◼ ]</title>
+    <link href="https://techcrunch.com/2026/07/28/fish-audio-raises-50m-seed-to-build-ai-voice-models-for-creators-and-enterprises/" rel="alternate"/>
+    <id>urn:uuid:sty_b12b24b7f28f9028</id>
+    <published>2026-07-28T14:00:00Z</published>
+    <updated>2026-07-28T14:00:00Z</updated>
+    <summary type="text">Since launching last year, the startup today has more than 8 million people using the open source or hosted version of its models, and now generates annual recurring revenue of $21 million.</summary>
   </entry>
   <entry>
     <title>Gemini API Managed Agents: 3.6 Flash, hooks, and more [ * ] [ ◼ ]</title>
@@ -193,76 +361,76 @@
     <summary type="text">We're introducing new tools and resources for nonprofits to learn more about Google AI tools.</summary>
   </entry>
   <entry>
-    <title>SOTA on the hardest AI memory benchmark (BEAM, 10M tokens), with a smaller model [ ~ ] [ ◻ ]</title>
-    <link href="https://news.ycombinator.com/item?id=49085375" rel="alternate"/>
-    <id>urn:uuid:sty_f0d647ee9559a9ea</id>
-    <published>2026-07-28T15:27:19Z</published>
-    <updated>2026-07-28T15:27:19Z</updated>
-    <summary type="text"/>
+    <title>Tech employees call for US-backed global effort to manage risks of advanced AI - Reuters [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMivgFBVV95cUxNZUdKZ0lPNURncWhtWjRjSDFGa2Q5U1V1NzdKcEVRcEJCZEo4Y1daZVF0RTd4OGdhekdaVkZBYW10YTlXaUtmZGNEZGNGUG9ZVTBwRTFhUXUzRjhnTjdZRFFHR0YtdjFheHFrMkVrLTF4THNZQUl4QkQ4cno2OExITkkya214MWlGRzh0VDlLNFBSNGw0bTVheFFKaWkyNlpsdk05bC1ILXJ6aUZnVDlQSzU1RFBkSUpYUzNVZWRn?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_ea3544f05a2ffe86</id>
+    <published>2026-07-28T22:30:42Z</published>
+    <updated>2026-07-28T22:30:42Z</updated>
+    <summary type="text">Tech employees call for US-backed global effort to manage risks of advanced AI Reuters</summary>
   </entry>
   <entry>
-    <title>Anthropic's Claude Code Reigns Despite Rising Interest in Codex, Open-Source Models [ * ] [ ◼ ]</title>
-    <link href="https://www.theinformation.com/articles/anthropics-claude-code-reigns-despite-rising-interest-codex-open-source-models" rel="alternate"/>
-    <id>urn:uuid:sty_8ded02902b89137d</id>
-    <published>2026-07-28T15:00:58Z</published>
-    <updated>2026-07-28T15:00:58Z</updated>
-    <summary type="text">Anthropic is facing growing competition and customer skepticism over the lofty prices of AI tools. But the dominance of its blockbuster Claude Code product is proving hard to shake. Companies moved en masse to Claude Code between the end of 2025 and the early months of 2026, in many cases eroding the positions of Microsoft's GitHub Copilot and AI coding tool provider Cursor. In recent months, costs for Anthropic's customers have surged with its shift to usage-based pricing, while rival OpenAI has built Codex into a more formidable competitor and open-source models from China have grown significantly more capable. Still, even as they look for ways to contain costs, many enterprises have chosen to stick with Claude Code.</summary>
+    <title>Have the Cake &amp; Eat It Too. Anthropic, OpenAI &amp; AI Investors. ARD #128 - AI: Reset to Zero [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQWjFRdjE3M0t0U0JENkVDRGsycXJFNHBYNlVsdTc0UGkyMmJzeERweGlDZkVXQ0tya01MNEd6eVN4d1Y4SEN6bUtBcnJkNGtUdVZjNmNqSGdLN3lGZGdzanF2TllES3JiRkxRR21kT2trQWxRaGxzQldUYmgtRDFlUw?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_5428471095570f4d</id>
+    <published>2026-07-28T22:30:29Z</published>
+    <updated>2026-07-28T22:30:29Z</updated>
+    <summary type="text">Have the Cake &amp; Eat It Too. Anthropic, OpenAI &amp; AI Investors. ARD #128 AI: Reset to Zero</summary>
   </entry>
   <entry>
-    <title>Fish Audio raises $52M seed to build AI voice models for creators and enterprises [ * ] [ ◼ ]</title>
-    <link href="https://techcrunch.com/2026/07/28/fish-audio-raises-50m-seed-to-build-ai-voice-models-for-creators-and-enterprises/" rel="alternate"/>
-    <id>urn:uuid:sty_b12b24b7f28f9028</id>
-    <published>2026-07-28T14:00:00Z</published>
-    <updated>2026-07-28T14:00:00Z</updated>
-    <summary type="text">Since launching last year, the startup today has more than 8 million people using the open-source or hosted version of its models, and now generates annual recurring revenue of $21 million.</summary>
+    <title>Anthropic publishes a practical key-recovery attack on HAWK-256</title>
+    <link href="https://github.com/anthropics/cryptography-research-demo" rel="alternate"/>
+    <id>urn:uuid:sty_d3845077207522ba</id>
+    <published>2026-07-28T21:22:48Z</published>
+    <updated>2026-07-28T21:22:48Z</updated>
+    <summary type="text">Comments</summary>
   </entry>
   <entry>
-    <title>At AI-Heavy Ruby on Rails Companies, Is QA-Ing and Debugging Agents the Future? [ ~ ] [ ◻ ]</title>
-    <link href="https://old.reddit.com/r/rails/comments/1v91qv2/at_aiheavy_companies_the_engineers_left_are/" rel="alternate"/>
-    <id>urn:uuid:sty_3f870927bea5caab</id>
-    <published>2026-07-28T16:27:06Z</published>
-    <updated>2026-07-28T16:27:06Z</updated>
-    <summary type="text">The article explores the potential future of quality assurance (QA) and debugging in Ruby on Rails companies that heavily utilize artificial intelligence (AI). It discusses how AI-powered agents might transform traditional QA and debugging processes, potentially increasing efficiency and accuracy in software development workflows.</summary>
+    <title>Recursive Superintelligence signs $410M compute deal with Amazon [ * ] [ ◼ ]</title>
+    <link href="https://techcrunch.com/2026/07/28/recursive-superintelligence-signs-400-compute-deal-with-amazon/" rel="alternate"/>
+    <id>urn:uuid:sty_ac0ec7c2a1eaa727</id>
+    <published>2026-07-28T13:19:17Z</published>
+    <updated>2026-07-28T13:19:17Z</updated>
+    <summary type="text">Recursive's emphasis on self-improving AI systems means much of the budget that would traditionally go toward headcount and operations is put straight into compute, as the company seeks to automate its own product development process.</summary>
   </entry>
   <entry>
-    <title>An opinionated guide to which AI to use to do stuff [ ~ ] [ ◻ ]</title>
-    <link href="https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/" rel="alternate"/>
-    <id>urn:uuid:sty_3e32ad74b3def717</id>
-    <published>2026-07-28T15:42:41Z</published>
-    <updated>2026-07-28T15:42:41Z</updated>
-    <summary type="text"/>
+    <title>Elon Musk's AI company sues Minnesota Attorney General Ellison over nudification ban - Minnesota Reformer [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMivgFBVV95cUxNckdZMVc1N0NSdldFc19KVjNBV3EyVDBNcGVEQUMtZU5hQ25MMGZoRkI4TkRRWXFKdXJOR1JFUTEzbFdFc0ZIQjg0aW1RbGl6MDFPQVNGWDV0SE0xb1g0U1pwMGptUkE4a0ZzQ2poT2VTNmhJZDU1WHc3U3gzWnh6T0VUM0dKZDhpYmV5R0Ewb1ZmQXVRLW5fbHczVDN0Wk1NRWxLa3ZiSHZsNmRQYTFBanZCNzJDNWZBbHVQWjNB?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_f3290bb92c13e446</id>
+    <published>2026-07-28T22:04:49Z</published>
+    <updated>2026-07-28T22:04:49Z</updated>
+    <summary type="text">Elon Musk's AI company sues Minnesota Attorney General Ellison over nudification ban Minnesota Reformer</summary>
   </entry>
   <entry>
-    <title>Vectorise.me - image-to-SVG API with an MCP server for AI agents [ ~ ] [ ◻ ]</title>
-    <link href="https://vectorise.me/developers" rel="alternate"/>
-    <id>urn:uuid:sty_c7b80cd88cee33bc</id>
-    <published>2026-07-28T15:37:18Z</published>
-    <updated>2026-07-28T15:37:18Z</updated>
-    <summary type="text"/>
+    <title>Build Mode: Create and Share Websites, Apps &amp; Games with Grok - X.ai</title>
+    <link href="https://news.google.com/rss/articles/CBMiQkFVX3lxTE5qdEVXODRkVU11VjRvVVRiZEFEV3FjWWMyVnVqN2FZLVRFTGpzZjRMZVpFcXFRdThzdThiZXQ1Wm0ydw?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_f61a28489bce85ee</id>
+    <published>2026-07-28T18:19:22Z</published>
+    <updated>2026-07-28T18:19:22Z</updated>
+    <summary type="text">Build Mode: Create and Share Websites, Apps &amp; Games with Grok X.ai</summary>
   </entry>
   <entry>
-    <title>Investigate every security event with an AI agent, without the frontier bill [ * ] [ ◼ ]</title>
-    <link href="https://www.datadoghq.com/blog/ai/ai-security-detection-pipeline/" rel="alternate"/>
-    <id>urn:uuid:sty_55044feda4eb1728</id>
-    <published>2026-07-28T15:34:17Z</published>
-    <updated>2026-07-28T15:34:17Z</updated>
-    <summary type="text"/>
+    <title>BuzzFeed Lays Off 33 Percent of Remaining Staff After Bizarre Pivot to AI [ * ] [ ◻ ]</title>
+    <link href="https://futurism.com/artificial-intelligence/buzzfeed-layoffs-pivot-ai" rel="alternate"/>
+    <id>urn:uuid:sty_559786bb19356e02</id>
+    <published>2026-07-28T21:06:15Z</published>
+    <updated>2026-07-28T21:06:15Z</updated>
+    <summary type="text">Embracing AI can't save you from terrible management. The post BuzzFeed Lays Off 33 Percent of Remaining Staff After Bizarre Pivot to AI appeared first on Futurism.</summary>
   </entry>
   <entry>
-    <title>Free AI visibility scanner for your website [ ~ ] [ ◻ ]</title>
-    <link href="https://news.ycombinator.com/item?id=49086282" rel="alternate"/>
-    <id>urn:uuid:sty_00f99568cc319db4</id>
-    <published>2026-07-28T16:24:03Z</published>
-    <updated>2026-07-28T16:24:03Z</updated>
-    <summary type="text">A new free AI-powered tool has been introduced to help website owners scan and analyze their site's visibility. This scanner utilizes artificial intelligence to provide insights into how well a website is performing in terms of search engine visibility and user engagement.</summary>
+    <title>Trump Admin Nears AI Rules Framework, Microsoft's Mythos Alternative, Why Claude Code is King - TITV [Video] [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFA1RHdRZlFtOVdGUDUxeUhSTm9keHFpT1A0cTdocGViaFNGbTJ6aEhXbG1TMU5mM0xuRkZmaG1jSmpxRkJoNjlYNkFfbFlVazBtSW1V?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_80e513bb4b926a33</id>
+    <published>2026-07-28T17:38:43Z</published>
+    <updated>2026-07-28T17:38:43Z</updated>
+    <summary type="text">Trump Admin Nears AI Rules Framework, Microsoft's Mythos Alternative, Why Claude Code is King - TITV [Video] The Information</summary>
   </entry>
   <entry>
-    <title>AI-coding agents kill team collaboration [ * ] [ ◼ ]</title>
-    <link href="https://leaddev.com/ai/ai-coding-agents-kill-team-collaboration" rel="alternate"/>
-    <id>urn:uuid:sty_0f8677f9af838137</id>
-    <published>2026-07-28T16:16:41Z</published>
-    <updated>2026-07-28T16:16:41Z</updated>
-    <summary type="text">Recent discussions have highlighted concerns that AI-powered coding agents may negatively impact team collaboration among software developers. These tools, while enhancing individual productivity, could reduce the need for direct communication and joint problem-solving within development teams.</summary>
+    <title>Elon Musk's AI company seeks to block Minnesota ban on AI 'nudification' technology - Star Tribune [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPNWVndXlGTnY4NWFMZGdGNDFNWnlkT2ZGZnF6aTI0eld2TnFVVTJNZUlZUjdkd2JHSXBWbUkxdWxkR2NsLVhNWEpIUjNHdF90UWZYU1Q2VDRuaWRWRC16akZMUl9fRzdJQm44eXl6YWRCVXl4aGNPM04zV194dWF1eTlITHhPYTBwNlB1TXlES3NOdlFNcHpoY2lCSEU5Y1M0MUZCaThYUFYxM3RUbGZmcFAyUi1jaGo4aWc?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_49e0054001635f84</id>
+    <published>2026-07-28T20:43:16Z</published>
+    <updated>2026-07-28T20:43:16Z</updated>
+    <summary type="text">Elon Musk's AI company seeks to block Minnesota ban on AI 'nudification' technology Star Tribune</summary>
   </entry>
   <entry>
     <title>Perplexity's Personal Computer turns Windows PCs into AI agents [ * ] [ ◼ ]</title>
@@ -273,12 +441,36 @@
     <summary type="text">Perplexity has expanded its agentic Personal Computer tool to Windows, allowing computers running the world's most popular OS to be used as a locally run AI system. Like the Mac version that Perplexity launched in April, Personal Computer for Windows operates like a "general-purpose digital worker" that can access local files and apps to perform [...]</summary>
   </entry>
   <entry>
-    <title>Foundation Models for Oversight [ ~ ] [ ◼ ]</title>
-    <link href="https://bounded-regret.ghost.io/foundation-models-for-oversight/" rel="alternate"/>
-    <id>urn:uuid:sty_8b3008697ecc6e92</id>
-    <published>2026-07-28T16:26:24Z</published>
-    <updated>2026-07-28T16:26:24Z</updated>
-    <summary type="text">The article discusses the challenges and considerations involved in overseeing AI foundation models. It highlights the importance of understanding model behaviors, such as identifying scenarios where the model may underperform or withhold information, and examining whether the model has implicit objectives not openly acknowledged. The piece emphasizes the need for effective oversight mechanisms to ensure AI models operate transparently and align with user expectations.</summary>
+    <title>Minnesota cracks down on AI nudification - FOX 9 Minneapolis-St. Paul [ * ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPY1VKM3RYTU9hYWdPY2ZMbUFSVmRmX1JCaGFCYmtucGZnY01NTzB2aWR5R2h6SHQ3UnEzUGRlMTBMWUtQa3pXVEMyanp2NjktTFdsLTJSLW54ZVB1ZW94bU1HbHkzbU9wTEpwb3F6cXNjVEozZ1BibTZOY3JDeDNpVWdGSl9xSVo4cW5KcUFtRkZ5bi1Rd1JqWtIBngFBVV95cUxNUTIyUWhBaU1odjdzZXltb2RJVU5rR0xfRUZRZ09OdDJMa1pzY3VEVXEwR3VMX2xuV0xqcnRtUVNWX3NYdjB0Y2JOWGVmQTRLUjl2bndnR2xYZHJkQ1B4YUtiWVFLcU9ZdHhFUHJZUkFEVFNuanBtWUY3MW44QVR3SlVmam1CNkhMdWQ0MV9KNVozQW12cnR3ZF8wUHFMQQ?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_8b6d25c98827b55a</id>
+    <published>2026-07-28T20:22:27Z</published>
+    <updated>2026-07-28T20:22:27Z</updated>
+    <summary type="text">Minnesota cracks down on AI nudification FOX 9 Minneapolis-St. Paul</summary>
+  </entry>
+  <entry>
+    <title>Elon Musk's X.AI sues to block Minnesota's AI nudification ban, calling it a 'ban on free speech' - kare11.com [ * ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxPX3dWYkZmakFoNHhJSks4cVIxZTNyQ1B0d25idWt4X1lTeWU1aU9wT2pHZ25DMTRLNnpWUEN5OThwRTRLeFI0bmM3M2cxRWt2ZDk4cjFWLUFCQk9IYndOeG1RWUN6dGhPWkJNN0phSVhWczh4bVNvcHVfeTQ4Q1dDLXl6cnJVaUQzVGN6X0hCd21PSExHejNrb21QTnVGUVhpdkVGOF9FZndwYzM4QS1oV2hHX2I5LTUtcElqZUtKWlBweUVXUXc4SzNiRnA2N09lZFF0YUhqdnI5WWM?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_ddd8ec9df22e0d30</id>
+    <published>2026-07-28T20:17:00Z</published>
+    <updated>2026-07-28T20:17:00Z</updated>
+    <summary type="text">Elon Musk's X.AI sues to block Minnesota's AI nudification ban, calling it a 'ban on free speech' kare11.com</summary>
+  </entry>
+  <entry>
+    <title>Smart rings are looking like my kind of AI gadget [ ~ ] [ ◻ ]</title>
+    <link href="https://www.theverge.com/gadgets/971744/smart-ring-ai-gadget-stream-index" rel="alternate"/>
+    <id>urn:uuid:sty_5e7ed2837dbea477</id>
+    <published>2026-07-28T12:00:00Z</published>
+    <updated>2026-07-28T12:00:00Z</updated>
+    <summary type="text">Over the last few months, I've spent a lot of time talking to my computer. One underrated feature of the LLM revolution has been a remarkable leap in all kinds of dictation technology - even the fastest, cheapest models are getting very good at understanding and processing speech. I've tested lots of these apps, from [...]</summary>
+  </entry>
+  <entry>
+    <title>Why Didn't Anthropic Sign the Open Model Letter? AI Offense Outpaces Defense - PCMag [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNb25xUmtpRmNDVFZadHZOZmNGbnZHYi1uemI0OTE2MDZIbGpwX3NRRTM4cVZrajFhbHVMWThreUR5RzZHQXhsZy1OZkZYYm12TVNTVHhOLVZRRE83NG9BTmx1NXNxSEVrdjVIRFl1S0dOQWo0SVRQN2F1QkpuclVhdkd1OVI4Y2twWjdua2Q5WFRaSlNSM0JQR3gzQlRuV1pMOGdN?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_36ce318e866a4ff0</id>
+    <published>2026-07-28T20:04:32Z</published>
+    <updated>2026-07-28T20:04:32Z</updated>
+    <summary type="text">Why Didn't Anthropic Sign the Open Model Letter? AI Offense Outpaces Defense PCMag</summary>
   </entry>
   <entry>
     <title>5 ways AI Mode in Search helps you enjoy the real world [ ~ ] [ ◻ ]</title>
@@ -297,44 +489,60 @@
     <summary type="text">These AI features can help you craft a menu, design a tablescape, and handle other party-planning tasks.</summary>
   </entry>
   <entry>
-    <title>Smart rings are looking like my kind of AI gadget [ ~ ] [ ◻ ]</title>
-    <link href="https://www.theverge.com/gadgets/971744/smart-ring-ai-gadget-stream-index" rel="alternate"/>
-    <id>urn:uuid:sty_5e7ed2837dbea477</id>
-    <published>2026-07-28T12:00:00Z</published>
-    <updated>2026-07-28T12:00:00Z</updated>
-    <summary type="text">Over the last few months, I've spent a lot of time talking to my computer. One underrated feature of the LLM revolution has been a remarkable leap in all kinds of dictation technology - even the fastest, cheapest models are getting very good at understanding and processing speech. I've tested lots of these apps, from [...]</summary>
+    <title>Palantir vs Anthropic: Open-Weight AI Models Debate Heats Up on FOX Business - News and Statistics - IndexBox [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQQllVRkNRSmItZnVZQU9MM1RMZUtnRHk3anZJVFUzMEdmNFVWWU9FMHFGM285OGZ6X1ZDWE92QWtmTzVCcU01NldJdFA4QmFIaGpiMTNiTFdjYUN1d0M2V3piaERLYUJveGRHVGhGREd1VFFvYWloWWtRc1plV1J2aFFjTDlaS1VBaktaaU1KblJnYlZ6YUVldHBvcERpLXNiQkhuNVVZT2c4MmxQYTJIU3dGaGFkZ00?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_9b8179a9103cbaf2</id>
+    <published>2026-07-28T20:01:00Z</published>
+    <updated>2026-07-28T20:01:00Z</updated>
+    <summary type="text">Palantir vs Anthropic: Open-Weight AI Models Debate Heats Up on FOX Business - News and Statistics IndexBox</summary>
   </entry>
   <entry>
-    <title>Introducing Build Mode - x.ai</title>
+    <title>Amazon reportedly scales back its Nova AI models and bets on a new Frontier research team [ * ] [ ◼ ]</title>
+    <link href="https://the-decoder.com/amazon-reportedly-scales-back-its-nova-ai-models-and-bets-on-a-new-frontier-research-team/" rel="alternate"/>
+    <id>urn:uuid:sty_2cd6162d64458898</id>
+    <published>2026-07-28T16:03:39Z</published>
+    <updated>2026-07-28T16:03:39Z</updated>
+    <summary type="text">Amazon is scaling back most of its in-house Nova AI models, including Nova Premier, Omni, Reel, and Canvas. The models stay online for existing customers in "keep the lights on" mode but are no longer actively developed. Instead, Amazon is betting on a new Frontier Model Research group and a new foundation model set to debut at re:Invent this fall. The article Amazon reportedly scales back its Nova AI models and bets on a new Frontier research team appeared first on The Decoder.</summary>
+  </entry>
+  <entry>
+    <title>Introducing Build Mode - X.ai</title>
     <link href="https://news.google.com/rss/articles/CBMiSEFVX3lxTFBaQkI4OHFyOHFoa3BieDhfdE1PYTBzcFhYYjZVenoxblJ3MHFKb3J6RnU2cUE5TFEzZHgtSV9LUnFZYzZSYWhQRQ?oc=5" rel="alternate"/>
     <id>urn:uuid:sty_da61a874272ae1e1</id>
     <published>2026-07-28T15:53:02Z</published>
     <updated>2026-07-28T15:53:02Z</updated>
-    <summary type="text">Introducing Build Mode x.ai</summary>
+    <summary type="text">Introducing Build Mode X.ai</summary>
   </entry>
   <entry>
-    <title>Codex from 0 to 10M Users: Building ChatGPT Work - Akshay Nathan, OpenAI [ * ] [ ◼ ]</title>
-    <link href="https://www.latent.space/p/chatgpt-work" rel="alternate"/>
-    <id>urn:uuid:sty_86abed27018bd61a</id>
-    <published>2026-07-28T15:26:30Z</published>
-    <updated>2026-07-28T15:26:30Z</updated>
-    <summary type="text">OpenAI's core product engineering lead on how they are building ChatGPT Work to make AGI accessible to all of humanity: Sites, OpenClaw, Memory, Subagents, Finance, No-Code and advice.</summary>
+    <title>Elon Musk teases Grok 4.6 and 4.7 as AI race heats up - The Economic Times [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMi7wFBVV95cUxPSVE2VUNHZzYwQm9jSzlBWjViSlUxVVZyeklyZGVIQU5yYldGMWtOeUJjXy1zMGNGUm9aenItRk0tLUhIVDdrTWFkbUxXQ2pwd2toT2pFb1pIcElYWElMZ25wTzhkRHpZQ0dOSlhqeEp1WnpxMEVJbFQxZDNRdEtmd1hEQ3FpUkRNaWRxTEpoRnlwLW5NcnN1ckJNLXBrVHI2VnkzWXFieVdFTUFwcUpqbC1SU1JrZkg2VDM5RGRUaEc2ZFB4Uzg5VXhpTmdjeXhGbTN0eDN1eXNJSGRTTzNwNG4xTWxHNXdLczcwMmRnb9IB9AFBVV95cUxNSndraHN0YklQVlRabkhXaHZaQ3Y2ZWxzbjVxd2NTSWdyemFlbGV5V1U4UFJiX1ltR0ZrQW1qUUNRTmZRNkdXYWllUkxZM1duUTNJbzZ6RE83Z1dxZGVFLUhqcUNLcXVTbWJqd1o2dE42UUZoVWFNRng1MjVkT0JGUDhmOGlScDFSZDJ6RVJNLVZld2prZVprVE45VU0wMlJ1OV9jTkRfMFBVOC02ZmE0eVdDYzhIMDNibk1SQV91RkI2WGpFd0ptT19jUlU0NzZKUHRDQ0VvT3phWXhZVE1iVUtnM3BMWEFFT1VtM2NFX0VDb2Yt?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_280b0e6d0645350e</id>
+    <published>2026-07-28T18:52:41Z</published>
+    <updated>2026-07-28T18:52:41Z</updated>
+    <summary type="text">Elon Musk teases Grok 4.6 and 4.7 as AI race heats up The Economic Times</summary>
   </entry>
   <entry>
-    <title>The Download: OpenAI's predictable hack, and an AI stock sell-off [ ~ ] [ ◻ ]</title>
-    <link href="https://www.technologyreview.com/2026/07/28/1140868/the-download-openai-hack-ai-stock-sell-off/" rel="alternate"/>
-    <id>urn:uuid:sty_728ddf3e89c27a04</id>
-    <published>2026-07-28T12:10:00Z</published>
-    <updated>2026-07-28T12:10:00Z</updated>
-    <summary type="text">This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. OpenAI called the Hugging Face attack unprecedented. But we've been here before. -Will Douglas Heaven, senior AI editor Reading OpenAI's account last week of how some of its models broke their...</summary>
+    <title>OpenAI And Anthropic Have Warned About AI Moving Too Fast. Now Its Employees Want The U.S. Government To Take Action - International Business Times [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMivwFBVV95cUxOOExMdzBpeHFxdGRVTEVDVWJLOVNTNFkzSHVsZFd5Y1Q0cDZHQ19DQmk5cWhYSGVDNkRaczd4UktfTXIzbnp6M3Y2YURpRE9kN1ZqbkJhV3JfUEtBcGtVbWF2UTYyZE8tam9yZjdkS1U2ZFE2eU1xM0hvSDJYN1dTbGJPLVZfQmRGTjVYLXVLSWZ2RWUybUxrdG56Sy1EOVdzUldHWkRudW1jeGFYV2dRZXJadl9BWXpnMmxRZl9QWQ?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_e24bb7e928935306</id>
+    <published>2026-07-28T18:52:15Z</published>
+    <updated>2026-07-28T18:52:15Z</updated>
+    <summary type="text">OpenAI And Anthropic Have Warned About AI Moving Too Fast. Now Its Employees Want The U.S. Government To Take Action International Business Times</summary>
   </entry>
   <entry>
-    <title>Internal AI deployments have people worried. OpenAI's escaping models show why. [ * ] [ ⬢ ]</title>
-    <link href="https://www.transformernews.ai/p/openai-hack-reveals-internal-deployment-risk" rel="alternate"/>
-    <id>urn:uuid:sty_bb325b4a9aa03c45</id>
-    <published>2026-07-28T15:01:16Z</published>
-    <updated>2026-07-28T15:01:16Z</updated>
-    <summary type="text">Last week illustrated why AI models pose a threat long before they are released</summary>
+    <title>UK Lawsuit Against xAI Highlights Growing Pressure Over AI-Generated Deepfakes - PYMNTS.com [ * ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOakpjVjZKei1BMkZBWEVWVEhjYmVtY1VPTGpoZmdKMnQxTHI4VVJHeTFiT2FkV1hRM01ZbDc4c3k5ZlBESzJJTjQwZ1I0d2JBOEItT2I3dzRmZFllWHZiSVJ1eWp4alV0aE5WRjJLMVVsM3Z0eWZ0U0kwRFROSV9hRHoyTlN5WWRPbnB5U3QwVFZPNEVpQXgya0Z2WU4wVnAwS04zWENDLWxzVkxXMWhFTDFR?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_fd34eff0f297d810</id>
+    <published>2026-07-28T18:45:53Z</published>
+    <updated>2026-07-28T18:45:53Z</updated>
+    <summary type="text">UK Lawsuit Against xAI Highlights Growing Pressure Over AI-Generated Deepfakes PYMNTS.com</summary>
+  </entry>
+  <entry>
+    <title>Ban chip sales to China, not open-weights AI models: Anthropic CEO Dario Amodei | 'The opposite seems just as likely to me' | Inshorts - Inshorts [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQOXF1azhzejR1NTVxZUJRN0RmbUxKUmJJUnNrVk4wTWZROVdqNVdCdWRpMEhFcWs1UkJBTzJmUEd6SUc3b1pKQ0xfbExMYmlmLVhYbWp2MW02QTI4UWpRb1E3TVBaMlVHWmhBeFA1aGt5M1V1RkNXTXNKWVZET1hodkRyamZmM2JnUG9kQTJzdkFMaWJ5VWJpaDNONFBlQzNHbDBUQmlWY05jRFYwRVZkZUNvMFg3SXZjYnM3MmVSd9IBxAFBVV95cUxPdEdqbUVTRjFhMGVTTzFqcVJ3MldyX1o0eVdMOW5LbURhMUF3eU1sajlaUGM5VUwtaFJOMnZ6dUJ3bklXNVV5S1FGLXFDdDI1LWtTd3h2V1dyRGlnYnVQSVFiV3BTcnZ2UThmS2ZhQ0gtT1JVZUtpQ2xkX0FoMjdxVl95MVppdm90bHVTWExEVE1TYW1kZy1IS2dFVk5aeFZPeHZFNE5tYnZGOV9WMFBsTWtZNFlWejZ2RVh2Vjc2dW0yQTMx?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_6e434d6450d2dd75</id>
+    <published>2026-07-28T18:45:45Z</published>
+    <updated>2026-07-28T18:45:45Z</updated>
+    <summary type="text">Ban chip sales to China, not open-weights AI models: Anthropic CEO Dario Amodei | 'The opposite seems just as likely to me' | Inshorts Inshorts</summary>
   </entry>
   <entry>
     <title>Taiwan Detains Nvidia Employee in China Chip Smuggling Probe [ * ] [ ◻ ]</title>
@@ -343,6 +551,46 @@
     <published>2026-07-28T06:27:41Z</published>
     <updated>2026-07-28T06:27:41Z</updated>
     <summary type="text">Taiwanese prosecutors have detained an Nvidia employee and searched the company's offices as part of an ongoing probe into the alleged smuggling of the U.S. company's AI chips into China, Bloomberg reported. Local investigators searched the home of the Nvidia employee and his desk at the company ...</summary>
+  </entry>
+  <entry>
+    <title>Hugging Face is being used to easily undress women and children [ * ] [ ◼ ]</title>
+    <link href="https://www.theverge.com/ai-artificial-intelligence/971723/hugging-face-nudify-deepfake-undress-women-children" rel="alternate"/>
+    <id>urn:uuid:sty_e24b7fab687ffe23</id>
+    <published>2026-07-28T09:07:14Z</published>
+    <updated>2026-07-28T09:07:14Z</updated>
+    <summary type="text">Hugging Face is being used to make nonconsensual deepfakes, and the popular open-source AI model repository is doing very little to prevent it. That's according to a new report published by the European nonprofit AI Forensics, which found that seven out of the top nine image editing models hosted by Hugging Face readily complied with [...]</summary>
+  </entry>
+  <entry>
+    <title>Amodei Denies Anthropic Supports Open-Weight AI Ban, Warns of China Risks - AI Insider [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOUzBZMjFlUHBoNnJLeXlTalN1MGdmVDl2SGFqUHp4OEVXSjRsaUd0OEdDUGs1M3dUc19hX2s2NmNyUjlCN3JyM1N6YlhqNU4wOUlEWDRheVpDOGVBbFpZVjJ5dTVfNE1VTHVFbGdGNG5JcWlmXzU0bDFOT2NHcDVkODJsQkY4M1hQUldjMzVpWVFUUmtGREVpdFVFVzhqQkozbjM0Z1ZrcHRfTzBTU01F?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_2479a602b12f36c0</id>
+    <published>2026-07-28T17:30:45Z</published>
+    <updated>2026-07-28T17:30:45Z</updated>
+    <summary type="text">Amodei Denies Anthropic Supports Open-Weight AI Ban, Warns of China Risks AI Insider</summary>
+  </entry>
+  <entry>
+    <title>Sam Altman Says Even the Power of AI Will Never Lead to a Shorter Work Week [ ~ ] [ ◻ ]</title>
+    <link href="https://futurism.com/artificial-intelligence/sam-altman-power-ai-shorter-work-week" rel="alternate"/>
+    <id>urn:uuid:sty_0fdf212788a9ef83</id>
+    <published>2026-07-28T17:29:16Z</published>
+    <updated>2026-07-28T17:29:16Z</updated>
+    <summary type="text">"We're still going to complain about it, but secretly we're going to be happy." The post Sam Altman Says Even the Power of AI Will Never Lead to a Shorter Work Week appeared first on Futurism.</summary>
+  </entry>
+  <entry>
+    <title>Cryptanalysis of 7-Round AES via the Algebraic Structure of its S-box - Anthropic</title>
+    <link href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE81T1lDZmpqM2pZTjRfbmRfamNJSDJmMTlzNXBRdmdZREV0dnhwbDNocmV5Ri1DWHQwejR3WmJkMmpNclYzX0tDZUZObUJoUkNlV1k2UjF4WnFaOWVLay1yMG1n?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_e3212c5be0ed69e6</id>
+    <published>2026-07-28T17:28:33Z</published>
+    <updated>2026-07-28T17:28:33Z</updated>
+    <summary type="text">Cryptanalysis of 7-Round AES via the Algebraic Structure of its S-box Anthropic</summary>
+  </entry>
+  <entry>
+    <title>HAWK-n Key Recovery Reduces to SVP in Dimension n/2+1 - Anthropic</title>
+    <link href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5DdlpWX2xKc0dGZGJWR3hjRDlDNDlLTXNOOHZUT2JJOHAzb3BKc3JEb1k0dmF4Rk9oX2hBVW1BaUZET2VIbVNMalZFUFVYczk5NmlyTFU5cV95ZnB0eFR1a0lB?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_32ba9be19cd44b70</id>
+    <published>2026-07-28T17:28:33Z</published>
+    <updated>2026-07-28T17:28:33Z</updated>
+    <summary type="text">HAWK-n Key Recovery Reduces to SVP in Dimension n/2+1 Anthropic</summary>
   </entry>
   <entry>
     <title>Taiwan detains Nvidia employee in widening China chip smuggling probe [ ~ ] [ ◻ ]</title>
@@ -361,20 +609,20 @@
     <summary type="text">Nvidia is pouring what it calls a "substantial" sum into Safe Superintelligence (SSI), the AI lab run by Ilya Sutskever, OpenAI's former chief scientist. The article Nvidia invests in Ilya Sutskever's AI lab, shifting SSI away from Google chips appeared first on The Decoder.</summary>
   </entry>
   <entry>
-    <title>Hugging Face is being used to easily undress women and children [ * ] [ ◼ ]</title>
-    <link href="https://www.theverge.com/ai-artificial-intelligence/971723/hugging-face-nudify-deepfake-undress-women-children" rel="alternate"/>
-    <id>urn:uuid:sty_e24b7fab687ffe23</id>
-    <published>2026-07-28T09:07:14Z</published>
-    <updated>2026-07-28T09:07:14Z</updated>
-    <summary type="text">Hugging Face is being used to make nonconsensual deepfakes, and the popular open-source AI model repository is doing very little to prevent it. That's according to a new report published by the European nonprofit AI Forensics, which found that seven out of the top nine image editing models hosted by Hugging Face readily complied with [...]</summary>
+    <title>Anthropic calls for threading the needle on open-source AI - Nextgov/FCW [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMisAFBVV95cUxNNWdxSGp6WGp2VkgxZTdHcVdrUmVRUXNGcEVHc2Zac1hkcVZRa295TVNBalRwdE5SLUVobTlvZnpFcUtoLThXbDg4YzlEbE5odENUUVJMenIyb3RvZGVYMmhwOWlndEFJbUFYQl9YNWJhS2xvdUFUVERjRWQ1TG13MXBUT2pObzRuTVVlYWQ4aVRvdEdIV1VSVFgtbzBsTGhidjdHUnpJam5ZWF9IRm9nRA?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_7447795567ba6f0f</id>
+    <published>2026-07-28T17:08:00Z</published>
+    <updated>2026-07-28T17:08:00Z</updated>
+    <summary type="text">Anthropic calls for threading the needle on open-source AI Nextgov/FCW</summary>
   </entry>
   <entry>
-    <title>Arkansas family sues xAI, alleging Grok used to create CSAM of their daughter - KNWA FOX24 [ ! ] [ ◼ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQMy1RM1BMeEVnbXFyU2V1aGxlX011UVJFZVNoOGFyYU80YTlsbzVGcHd1aFFFLS1zdHNvS0EtbmNOS2hfVEw5MXVUcjMwZGNpTTk1RHc0aDZ2UlhqbFBGX3FtSDMtaU9DUjZub2JnUGhxTWZjU3h6LVczZFQ3anhXVEdaMWJlZXVqM21WaTY5c0ZpYlV0MXFuMmxSVFp3bi1FYTdFclBiVlZzS2d3UmpJRkpVb3JnR3JMb0xjdkFR0gHDAUFVX3lxTE9PTXZRazJ4SXhWZ0ZZUXBjQlR0dTFFSVlwV3lQN21ROHhZSThxZDVhUVY1VzE2SnkzSjdqSHRwWm53UnA3S0N1cTJ2R0pPeW9FNU1pMlBGZWhEWUdWUy0xdE9HQnYzQ2FmZFFqRW5tZHRjeFhQTmt1bkZpMnVVcm1wdDBqRmlkdnJVaFlLZ0tfQnZZUmFHeERISjJ1RVd5NHdaUy12ZDZCRVoxMlo5SUVRUnM2YnExaWM3VEhHMEVUT2NMbw?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_0a712fe4b2839d04</id>
-    <published>2026-07-28T16:11:32Z</published>
-    <updated>2026-07-28T16:11:32Z</updated>
-    <summary type="text">An Arkansas family has filed a lawsuit against xAI, alleging that the company's AI chatbot, Grok, was used to create child sexual abuse material (CSAM) involving their daughter. The family claims that Grok generated inappropriate content depicting their child, raising concerns about the misuse of AI technologies. xAI has not publicly commented on the allegations. The case highlights ongoing debates about AI safety and content moderation.</summary>
+    <title>Anthropic CEO Amodei doubles down on open-weight risk stance while insisting he never called for a ban - the-decoder.com [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPNnVPM1lhR3lXUDBwTFFLME9HNUdrZGNhMWFVbDhBSnNTR2xTSzFDTWY4Z1dqWWt4UjFLeFNwNGpBTWNrTGhGRXZ4bzY2TXlLSnZPOGhOV3FLUlZZcUtaTUtRNFF4TGhEeFBGNnB5SGxfWWliaDBmc2E4SGFKNlMtaEs4RG81TllGX1JrWVg4Ti1fNTQzT2hpMmZoal9ubGVFVFVVbDlkaGdTeHNYN19zY1p1V1NjVDF5R0F5bU1ITGJHNVdsSXc?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_38f1464fd521c70f</id>
+    <published>2026-07-28T16:31:05Z</published>
+    <updated>2026-07-28T16:31:05Z</updated>
+    <summary type="text">Anthropic CEO Amodei doubles down on open-weight risk stance while insisting he never called for a ban the-decoder.com</summary>
   </entry>
   <entry>
     <title>Anthropic CEO Amodei doubles down on open-weight risk stance while insisting he never called for a ban [ * ] [ ◼ ]</title>
@@ -385,12 +633,12 @@
     <summary type="text">Anthropic CEO Dario Amodei is once again warning about the risks of open AI models while insisting he has never called for a ban. He argues that authoritarian states like China could overtake the US and that open models could be misused for biological or cyberattacks. Critics say he's mostly trying to protect his own business from cheaper competition. The article Anthropic CEO Amodei doubles down on open-weight risk stance while insisting he never called for a ban appeared first on The Decoder.</summary>
   </entry>
   <entry>
-    <title>How AI Czar David Sacks 'predicted' what Anthropic CEO Dario Amodei said on Chinese open-weights models - The Times of India</title>
-    <link href="https://news.google.com/rss/articles/CBMikgJBVV95cUxQOVhhTTV3c2I4TDRIMHVqb1ZEMXU2Rm9RX2wxVGVzdEtyUnRhT0hRZHo3TkdpOEVJM2pWM1FrOWNlWExabF9TSkhWSC10aHBHaGh0RWVNaElHa0wtVHpCUm9lU0FZaGZ2MC1IbVFUbTJoS3N5OHhOVzV4MFFnMk4yZ2lWd252aXI1V0tJY0xES09GanUtMDIyYUloRURBSGdfUXFaQ1pZbnZyeEtUV2NPRmdjZk5KODdjV0dMRDVjOVkzY3VxQ1Q2RnNrSFFQWnN5ajVTZ1ZkLU1Wd0kxUjVHVzFBYWJLZDNNNGVUZlhUdmR4MXdDSE9vNGVjWTJlak5lUE85bHhIUWwzVWFJMkxVVy130gGXAkFVX3lxTE03N0ZCVjJQMmRHRU1RUEcySU5FRGtrNVBwanBPXzYzbTNnbWgzejM5MDM3N2FWbnVZV3N4UzBkMFI1ajN3cnlhUjFYNTAyVmQtVVZCT1o2dk5JRUNyUUlEbG9UQUZKcEF4TXhmOEJuM250UkZybGR0eUxreVgxMjJmSGNjR2RMY2pOZDF3VVJWRHFMa1k1Q08zMkdDX0UwZTFmZzJ5RFBvQldaY3BMbE5SRFNzcWl3ZkRMbmFQWTNiM1J0RHVvU2UtM1NRbEoxQUxDYUZpQ3M1Q3EtY240dVVYdHJaS2dUektxVGc3TDF3a2o4MFZMZFVndHhjMkhPRHY4ckxLMzVrUldzS0ZGc2t2b3B4ZXJJVQ?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_b0ef27a818b97a6d</id>
-    <published>2026-07-28T15:33:00Z</published>
-    <updated>2026-07-28T15:33:00Z</updated>
-    <summary type="text">How AI Czar David Sacks 'predicted' what Anthropic CEO Dario Amodei said on Chinese open-weights models The Times of India</summary>
+    <title>Grok Launches Build Mode: One-Prompt App Creation for SuperGrok Heavy - BASENOR - Tesla Accessories [ ~ ] [ ◻ ]</title>
+    <link href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQbTQtMFVxVUhUQ3JsaTFnel9VUHZXdDR3VUNnQWJ1M0k2cVlFWDZBSmg1NnFnUzdxekxBZ0dHTEhhRko3Z3RVWXVDbDRONFZCLWZRdnNfS2VwaVRSOWRCMDNIM0d0dldZYnJYMzQwZkFETG4yNnlxeWdKZExIcS1BNnRtdVF4d3ZBV09Ea0JiZndZT2VISGhiOU92TUFFUXJhTHRmMmx3?oc=5" rel="alternate"/>
+    <id>urn:uuid:sty_1f20ff1ce25d69e6</id>
+    <published>2026-07-28T16:14:36Z</published>
+    <updated>2026-07-28T16:14:36Z</updated>
+    <summary type="text">Grok Launches Build Mode: One-Prompt App Creation for SuperGrok Heavy BASENOR - Tesla Accessories</summary>
   </entry>
   <entry>
     <title>Can the New York Times Save Journalism From Our AI Overlords? [ ~ ] [ ◻ ]</title>
@@ -399,253 +647,5 @@
     <published>2026-07-28T10:30:00Z</published>
     <updated>2026-07-28T10:30:00Z</updated>
     <summary type="text">In 2023, the Times sued OpenAI and Microsoft for copyright infringement. They've since spent more than $20 million on the case, and publisher A.G. Sulzberger has no plans to stop fighting it.</summary>
-  </entry>
-  <entry>
-    <title>Silicon Valley's Next IPO Billionaires Are Coming. Nonprofits Are Ready for Them [ ~ ] [ ◻ ]</title>
-    <link href="https://www.wired.com/story/nonprofits-are-getting-ready-for-the-funding-anthropalypse/" rel="alternate"/>
-    <id>urn:uuid:sty_f89edcfdf3056f0a</id>
-    <published>2026-07-28T10:00:00Z</published>
-    <updated>2026-07-28T10:00:00Z</updated>
-    <summary type="text">Anthropic and OpenAI employees are expected to give generously after their companies go public. "It's going to be a wild ride," says one nonprofit leader.</summary>
-  </entry>
-  <entry>
-    <title>OPINION: The Mask Has Finally Slipped on the AI Race - AfricaBrief</title>
-    <link href="https://news.google.com/rss/articles/CBMie0FVX3lxTFBua3ZZSlJ1LXpQNDUweVlmX2hpTzc5R2g4NGlteUp4UzhrYzZ1dVdraS1lNkdsTGFkelN0M01lUU9yaV9sdDh6SXlQcGJYZTRicnFJSHBjZVI2LW9tRjZwejF5aTlIQTl4aE4wdzZXaFZiRWlvQ0FRMTFPSQ?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_d4218bc30a78fba3</id>
-    <published>2026-07-28T14:31:47Z</published>
-    <updated>2026-07-28T14:31:47Z</updated>
-    <summary type="text">OPINION: The Mask Has Finally Slipped on the AI Race AfricaBrief</summary>
-  </entry>
-  <entry>
-    <title>Anthropic breaks from AI rivals in open-weight model debate - Silicon Republic [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPSHZ6aUtnVDJ4bTl4SkV5eHlabm56YzBKMEhyVVA1TkFyMGlKYVByQnJWYWxtMWJoNHNGcHhjT3lRdFpiOTZTb1FTU3RBd0xDbVNhOURpc0lFTFBvTnBOb2x2Wk14aXhENm1nS2g4V3ZzTWRFbXZKQWtkNkU1VFBIWlFURkltTTZQV0xTbVV6ZXlHbG9Xa01SMzlkZkNXeHFfTWVj?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_c456fd00499da433</id>
-    <published>2026-07-28T13:21:11Z</published>
-    <updated>2026-07-28T13:21:11Z</updated>
-    <summary type="text">Anthropic breaks from AI rivals in open-weight model debate Silicon Republic</summary>
-  </entry>
-  <entry>
-    <title>AWS Launches Amazon GuardDuty Investigation Agent to Automate Threat Triage [ * ] [ ◼ ]</title>
-    <link href="https://www.infoq.com/news/2026/07/guardduty-investigation-agent/" rel="alternate"/>
-    <id>urn:uuid:sty_2d4c135c23702ca5</id>
-    <published>2026-07-28T07:14:00Z</published>
-    <updated>2026-07-28T07:14:00Z</updated>
-    <summary type="text">AWS released a public preview of the GuardDuty investigation agent, which correlates findings, 90-day activity logs, and resource topologies into structured reports with risk ratings, confidence scores, and MITRE ATT&amp;CK classification. It is reachable through the AWS MCP Server, so investigations can run from agentic tooling. Preview quotas cap usage at 10 investigations per account per day. By Steef-Jan Wiggers</summary>
-  </entry>
-  <entry>
-    <title>Uber's Zero Growth Stack: Scaling Services, While Optimising Infrastructure and AI Cost [ * ] [ ◼ ]</title>
-    <link href="https://www.infoq.com/news/2026/07/efficient-ai-infrastructure/" rel="alternate"/>
-    <id>urn:uuid:sty_cd5cccba0ed2efc6</id>
-    <published>2026-07-28T07:07:00Z</published>
-    <updated>2026-07-28T07:07:00Z</updated>
-    <summary type="text">Uber's "Zero Growth Stack" focuses on scalable infrastructure that separates capacity growth from business demand, reducing hardware needs while enhancing service scaling. Central to this is garbage collection optimisation. Additionally, generative AI is integrated into development, elevating developer productivity while introducing cost management measures to maintain economic efficiency. By Olimpiu Pop</summary>
-  </entry>
-  <entry>
-    <title>It Seems a Lot Like Dead Internet Has Actually Come True [ ~ ] [ ◻ ]</title>
-    <link href="https://futurism.com/artificial-intelligence/dead-internet-theory-come-true" rel="alternate"/>
-    <id>urn:uuid:sty_50be030c40108789</id>
-    <published>2026-07-28T12:49:03Z</published>
-    <updated>2026-07-28T12:49:03Z</updated>
-    <summary type="text">"Agentic AI activity is driving a lot of the browser activity you're seeing." The post It Seems a Lot Like Dead Internet Has Actually Come True appeared first on Futurism.</summary>
-  </entry>
-  <entry>
-    <title>Guardoc Health processes clinical documentation using Amazon Nova models [ * ] [ ◼ ]</title>
-    <link href="https://www.artificialintelligence-news.com/news/guardoc-health-processes-clinical-documentation-using-amazon-nova-models/" rel="alternate"/>
-    <id>urn:uuid:sty_1efdda638ddeff4a</id>
-    <published>2026-07-28T11:30:47Z</published>
-    <updated>2026-07-28T11:30:47Z</updated>
-    <summary type="text">Guardoc Health says it processes over one million clinical documents daily using Amazon Nova models through Bedrock. Bringing AI into clinical documentation comes down to a specific kind of risk calculation. Get it wrong and the errors compound into denied Medicare claims under the Patient-Driven Payment Model, audit fines, litigation exposure, and in the worst [...] The post Guardoc Health processes clinical documentation using Amazon Nova models appeared first on AI News.</summary>
-  </entry>
-  <entry>
-    <title>Agent Mini: a minimal, local-first AI agent you can actually read, understand, and extend. [P] [ ~ ] [ ◻ ]</title>
-    <link href="https://www.reddit.com/r/MachineLearning/comments/1v9131l/agent_mini_a_minimal_localfirst_ai_agent_you_can/" rel="alternate"/>
-    <id>urn:uuid:sty_ba3aba243a4dcae2</id>
-    <published>2026-07-28T15:03:38Z</published>
-    <updated>2026-07-28T15:03:38Z</updated>
-    <summary type="text">It is about ~3k lines of Python, uses Ollama by default, and ships with practical tools for shell, files, web search, memory, and vision. No LangChain. No LiteLLM. No big framework stack. Just asyncio, httpx, and a small ReAct loop tuned for local/smaller models. An agent that feels useful without becoming a black box. Didn't wanted to dig through framework abstractions to figure out how agents actually work, so built one small enough to read in an afternoon, but practical enough to use for real tasks. GitHub: https://github.com/mohsinkaleem/agent-mini PyPI: https://pypi.org/project/agent-mini/ pip install agent-mini agent-mini init agent-mini chat Would love feedback from anyone experimenting with local agents. submitted by /u/Lordrovks [link] [comments]</summary>
-  </entry>
-  <entry>
-    <title>Anthropic CEO Amodei doubles down on open-weight risk stance while insisting he never called for a ban - the-decoder.com [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPNnVPM1lhR3lXUDBwTFFLME9HNUdrZGNhMWFVbDhBSnNTR2xTSzFDTWY4Z1dqWWt4UjFLeFNwNGpBTWNrTGhGRXZ4bzY2TXlLSnZPOGhOV3FLUlZZcUtaTUtRNFF4TGhEeFBGNnB5SGxfWWliaDBmc2E4SGFKNlMtaEs4RG81TllGX1JrWVg4Ti1fNTQzT2hpMmZoal9ubGVFVFVVbDlkaGdTeHNYN19zY1p1V1NjVDF5R0F5bU1ITGJHNVdsSXc?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_38f1464fd521c70f</id>
-    <published>2026-07-28T12:08:29Z</published>
-    <updated>2026-07-28T12:08:29Z</updated>
-    <summary type="text">Anthropic CEO Amodei doubles down on open-weight risk stance while insisting he never called for a ban the-decoder.com</summary>
-  </entry>
-  <entry>
-    <title>NeurIPS 2026 Reviewer: AI-Generated Rebuttals (and Paper) [D] [ ~ ] [ ◻ ]</title>
-    <link href="https://www.reddit.com/r/MachineLearning/comments/1v90r9r/neurips_2026_reviewer_aigenerated_rebuttals_and/" rel="alternate"/>
-    <id>urn:uuid:sty_3ad05a87099b6359</id>
-    <published>2026-07-28T14:52:01Z</published>
-    <updated>2026-07-28T14:52:01Z</updated>
-    <summary type="text">One of the papers I reviewed has what seems to be entirely LLM-generated rebuttals, and the original paper is also clearly LLM-generated, with Claude-speak everywhere. While the authors acknowledge LLM writing assistance in the checklist, it really annoys me personally - what is clearly Claude's writing style is very difficult to parse, and indicates a lack of effort to me. While I'm trying to remain objective and realize it's my role just to judge the actual content of the work, I don't feel incentivized to assign a lot of weight to an argument that is fully AI-generated and don't like the idea of engaging with slopped papers (and their "authors") at NeurIPS. This is a partially just a rant and partially asking for advice on how to proceed with my response to the rebuttals. submitted by /u/gateofptolemy [link] [comments]</summary>
-  </entry>
-  <entry>
-    <title>I built a deep learning library from scratch in C that lets you train language models [P] [ ~ ] [ ◻ ]</title>
-    <link href="https://www.reddit.com/r/MachineLearning/comments/1v90hlt/i_built_a_deep_learning_library_from_scratch_in_c/" rel="alternate"/>
-    <id>urn:uuid:sty_b3db1b3b8a76009d</id>
-    <published>2026-07-28T14:42:07Z</published>
-    <updated>2026-07-28T14:42:07Z</updated>
-    <summary type="text">my goal was to train a Language model (SLM) entirely from scratch so no ML libraries allowed . so i gathered what's needed to make it happen : from tensor manipulation (views, operations , allocations) the autograd ( a DAG that retains the previous operations and inputs in order that led into a certain output tensor , this let's us also apply backpropagation so i've got to implement also the partial derivative functions in order to calculate the gradients for each weights) the neural networks modules (organizes the weights / activations , losses , optimizers implemented SGD and Adamw) the decoder so the layer norm , MHA , FFN . also implemented a Fast matmul using AVX2 to speed things up. with it i managed to train a tiny LM with 2 millions params.it's a 4 layer Decoder used tiny_shakespear i got what i think is a good result . since i can't post images in this post i will just paste the output: Corpus: 743500 bytes (669150 train, 74350 validation) TinyLM: L=4 C=192 H=6 T=128 V=256, 1902976 parameters (1.903M) Training: steps=0 batch=1 lr=0.0003 checkpoint=tiny_lm.chk (resumed) validation_loss=0.02989 --- generation --- hello to the name of action. Soft you now! The fair Ophelia! Nymph, in thy orisons be all my sins remember'd. To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of of outrageous fortune, or to take arms against a sea of troubles and by opposing end them. check out the repo : https://github.com/nisbenz/TensorLib it was a cool project overall and i managed to learn a lot about the core mechanics of frameworks like pytorch or ggml. submitted by /u/Intelligent_Nose_791 [link] [comments]</summary>
-  </entry>
-  <entry>
-    <title>Anthropic CEO pushes back on open-weight AI ban - but wants mandatory safety testing - qz.com [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNQ1htSFlZMUhSd2JycHNKbGdtQVc3czM3N1VsOVJVR01YeHFhOVlEb1NLaUFyY0VSMHE3eXoyTG11LTZ2SFlhWGY4ZHpQb2JIUGZ4OXVKS1lNQTQ3MjdHMjQzeTd6ZVN0OEdwZm94WUo5TV96QXRPZ1d2V3F2XzJuODVYUW8?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_c4e42fd1918c7c4a</id>
-    <published>2026-07-28T11:52:47Z</published>
-    <updated>2026-07-28T11:52:47Z</updated>
-    <summary type="text">Anthropic CEO pushes back on open-weight AI ban - but wants mandatory safety testing qz.com</summary>
-  </entry>
-  <entry>
-    <title>Why Investors Shouldn't Panic About Nvidia's Commitments [ ~ ] [ ◻ ]</title>
-    <link href="https://www.theinformation.com/articles/investors-panic-nvidias-commitments" rel="alternate"/>
-    <id>urn:uuid:sty_190cb91f96ae9c4d</id>
-    <published>2026-07-28T00:01:25Z</published>
-    <updated>2026-07-28T00:01:25Z</updated>
-    <summary type="text">Talk about a nervous market! Shares of Nvidia fell 5% on Monday on news of a $500 billion partnership the AI chip giant struck with South Korean conglomerate SK Group, along with a Wall Street Journal report that Nvidia was separately in talks to help OpenAI finance a $500 billion data center campus in Ohio. Investors should take a chill pill: Neither of these deals was actually news. Nor were they fully fleshed out. For instance, Nvidia and SK have only signed letters of intent to formalize a partnership, they said on Friday. Letters of intent are not worth the paper they're written on. Remember, Nvidia and OpenAI signed a letter of intent last September for what they called a "landmark strategic partnership," only to abandon the idea a few months later.</summary>
-  </entry>
-  <entry>
-    <title>Anthropic rejects open-weight AI bans, calls for China chip controls and safety tests - Computerworld [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxOWC1yWUZtbWY3eGxsWE53TmRoRUtKWjZCSF9ONHQwQnVLZHdOVldzaVM0RTFYWTRMY0dzNENNMEEzVk45dDFCUm84b2FRZXBFOE1JV1k5N3llazZ3alpCOVk5RGxvc21HN2ZSSG9zU0czS19DYlplcjZ6REJqTHdWSGt5NmJ5SGZvOEQ0QXplODZpVU1VRm1aSC1sb09FUWJlNVlLMHZQQkVseUw2QWkwbDNkUjRmamNmaXdBVmhpcF9IM204Wk8tOEFYREZpaXZp?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_f740c4c7f96e410d</id>
-    <published>2026-07-28T11:17:08Z</published>
-    <updated>2026-07-28T11:17:08Z</updated>
-    <summary type="text">Anthropic rejects open-weight AI bans, calls for China chip controls and safety tests Computerworld</summary>
-  </entry>
-  <entry>
-    <title>Hugging Face Has a Deepfake Nudes Problem [ * ] [ ◼ ]</title>
-    <link href="https://www.wired.com/story/hugging-face-has-a-nonconsensual-deepfakes-problem/" rel="alternate"/>
-    <id>urn:uuid:sty_c0a1532708a67f8b</id>
-    <published>2026-07-28T05:30:00Z</published>
-    <updated>2026-07-28T05:30:00Z</updated>
-    <summary type="text">Researchers tested top image editing models on Hugging Face and found they could easily create explicit deepfakes-and 1,000 image editing prompts show how people use the software.</summary>
-  </entry>
-  <entry>
-    <title>Anthropic CEO Dario Amodei Says He 'Never Advocated' Open-Weight AI Ban, Calls for Tougher Curbs on China - Benzinga [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMi9gFBVV95cUxOZjNTVEdDYlR5SXY0eWQzM1N4UHVSc3k4NFpET1JqMzV3aV9ReEh2RmI3MmdLa1llaVRibUVyLVIyZUh0QXpFVzFEVlZSZXBuQTE0Zi0xbW9ncl9kOXpHcEZadGNlbG42UmRSeWcxZWpIUlFWWGFaWlJaU1ZFS2ZYNE9CLUw3aXdxSDQ2ZFhob0JfTENLS0gycUpKeXdlUWowcUpyS3BHekQweUdraFlPX29JQVVjLXFqcnplbjZYQkt2WklKUnppdnVQd0I5VGoxWWxUYVdEWmpENDdDakJhYWZHc2ZPX2ZySURhd09MbzE5WjNxQ1E?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_d9dcbfa0dda7baf8</id>
-    <published>2026-07-28T10:04:42Z</published>
-    <updated>2026-07-28T10:04:42Z</updated>
-    <summary type="text">Anthropic CEO Dario Amodei Says He 'Never Advocated' Open-Weight AI Ban, Calls for Tougher Curbs on China Benzinga</summary>
-  </entry>
-  <entry>
-    <title>Anthropic's Dario Amodei responds: doesn't oppose open-weight models, but fears Chinese AI [ ~ ] [ ◻ ]</title>
-    <link href="https://techcrunch.com/2026/07/27/anthropics-dario-amodei-responds-doesnt-oppose-open-weight-models-but-fears-chinese-ai/" rel="alternate"/>
-    <id>urn:uuid:sty_a96c7caf6ae4308e</id>
-    <published>2026-07-28T00:13:33Z</published>
-    <updated>2026-07-28T00:13:33Z</updated>
-    <summary type="text">Anthropic founder and CEO Dario Amodei made his views clear about open-weight models and China's growing AI capabilities.</summary>
-  </entry>
-  <entry>
-    <title>Kimi K3 Open-Source Release: Why Anthropic Finally Dropped Its Pretense in AI Model Competition - 36 Kr [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFBySFo1VDI4X3hmaVdjdXRzb0E5bHFMQ0lRVm1ZVGlCWU81Wkhzdmw2RHB6UlY3T0dxY1JqREpXdG9DTHpUbW9CWkdDRVlQZkhIZXZJ?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_0acba7052a12126e</id>
-    <published>2026-07-28T09:53:03Z</published>
-    <updated>2026-07-28T09:53:03Z</updated>
-    <summary type="text">Kimi K3 Open-Source Release: Why Anthropic Finally Dropped Its Pretense in AI Model Competition 36 Kr</summary>
-  </entry>
-  <entry>
-    <title>Armenia's AI Bet Is Not Chip Manufacturing. It Is Compute Sovereignty [ * ] [ ◼ ]</title>
-    <link href="https://www.artificialintelligence-news.com/news/armenias-ai-bet-is-not-chip-manufacturing-it-is-compute-sovereignty/" rel="alternate"/>
-    <id>urn:uuid:sty_5bd4884694791cb8</id>
-    <published>2026-07-28T08:52:46Z</published>
-    <updated>2026-07-28T08:52:46Z</updated>
-    <summary type="text">Armenia is not a big country. It's not a wealthy country. It's not a famous country. And yet, it has become not only a consumer of different AI products akin to Clideo subtitles generator for video editing, or giants like OpenAI, but also entered the headlines of global news for several reasons, not the least [...] The post Armenia's AI Bet Is Not Chip Manufacturing. It Is Compute Sovereignty appeared first on AI News.</summary>
-  </entry>
-  <entry>
-    <title>Anthropic faces open-weights ban accusations as 77 firms sign letter - PPC Land</title>
-    <link href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQSDFNd1pRU0Zsd21zazItODZQc2tSd2gxRGdrN3l1Nng2VFJueGhMZXpKMFd6OEVXNkdTQ3pHeF9OQjh5QWo5b3lGTF84UzNXTGYweUt1SG82VVVkSGV4VnFPd1BENnJkdFNGb2RRc1NlOW9TWmlDMHBEdGxtZkQ0T1Azem85VmNaNDBneW9Lbw?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_06bae74fa022c8d7</id>
-    <published>2026-07-28T09:40:46Z</published>
-    <updated>2026-07-28T09:40:46Z</updated>
-    <summary type="text">Anthropic faces open-weights ban accusations as 77 firms sign letter PPC Land</summary>
-  </entry>
-  <entry>
-    <title>PIRL: From Open-Loop Exploration to Closed-Loop Reinforcement Learning [R] [ ~ ] [ ◼ ]</title>
-    <link href="https://www.reddit.com/r/MachineLearning/comments/1v8wq2b/pirl_from_openloop_exploration_to_closedloop/" rel="alternate"/>
-    <id>urn:uuid:sty_85c8726f153680ba</id>
-    <published>2026-07-28T12:13:38Z</published>
-    <updated>2026-07-28T12:13:38Z</updated>
-    <summary type="text">TL;DR: Most RL post-training algorithms optimize the current batch and move on. But after an update, did the new policy actually become better? We introduce Policy Improvement Reinforcement Learning (PIRL) and its practical implementation, Policy Improvement Policy Optimization (PIPO)-a plug-and-play framework that lets RL training look back, verify the previous update, and reinforce or correct it accordingly. Why is current RL post-training often "open-loop"? Methods such as PPO, GRPO, GSPO, DAPO, on-policy distillation, and self-distillation differ in how they construct learning signals. But they largely share the same pattern: Sample a batch from the current policy. Compute rewards, advantages, or distillation targets. Update the policy. Move to the next batch. The update may improve the local objective, but that does not necessarily mean the resulting policy is actually better. Finite sampling, generation stochasticity, noisy feedback, and imperfect local credit assignment can all push the policy in an unhelpful direction. Without explicitly checking the result of an update, training may drift, become unstable, or even collapse. That is what we call open-loop RL optimization. PIRL: Make policy improvement itself the objective PIRL introduces a missing feedback signal: the measured performance gain between successive policies. Instead of asking only: PIRL also asks: The cumulative policy-improvement objective remains aligned with final task performance, providing a closed-loop view of RL post-training. PIPO: A two-phase closed-loop update PIPO turns this idea into a practical, plug-and-play algorithm. Phase 1 - Exploration The base algorithm runs normally. Whether it is PPO, GRPO, DAPO, or a self-distillation objective, it uses its original local attribution signal to update the policy. The model takes an exploratory step in the direction that the base algorithm currently considers useful-but that direction is not guaranteed to be correct. Phase 2 - Retrospective verification In the next iteration, PIPO evaluates the updated policy and compares its performance with a sliding-window historical anchor. This produces a policy-improvement feedback signal: If performance improved, PIPO reinforces and consolidates the previous update. If performance declined, PIPO suppresses or rectifies the corresponding learning direction. Importantly, PIPO does not replace the base algorithm's local credit assignment. It adds a second layer of feedback that verifies the empirical effect of the previous update. In one sentence: If it helped, reinforce it. If it hurt, correct it. Results Across mathematical reasoning, code generation, tool use, and self-distillation, PIPO delivers consistent gains when added to PPO, group-relative optimization methods, and self-distillation objectives. The experiments also show improved training stability across random seeds and better overall wall-clock efficiency, with PIPO reaching higher accuracy under comparable or moderately increased training time. PIPO is designed as a general closed-loop layer rather than a replacement for existing RL post-training algorithms. We would love to hear what the RL community thinks-especially about retrospective verification and whether policy improvement should become a first-class training signal. 📄 Paper: Policy Improvement Reinforcement Learning 💻 Code: github.com/JacckMa/pipo_verl submitted by /u/This_Ad9834 [link] [comments]</summary>
-  </entry>
-  <entry>
-    <title>Anthropic CEO Dario Amodei clarifies his stance on open-weight AI models - Neowin [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOTFF1V21iUzk2SV9Nd2V2eE44Q2VCNHRmSXBXOGllbmlrN09LbkNSNUlQQ3ZYSVN5c1pjeW04UjhsY0I0RGFmQl9XbTdmV1NkRjUxN0piaTBiNTNLVWRjSkZCZ2FadkkydGZKQmlIeVZTQXRQd1E4VEtvQ1lwWFVfb21UcW9EbFJyRzBlYktFZjBvRDVjcW1kdkhsQ3RtU2lLRENV0gGiAUFVX3lxTE11djJ0QUZ2ZDljT2tLSF9WaTB3RERUYW1xT3RfODVhTXNFSzFRNXg5QktjS0xYcFpITUQzd0ZOWmdfZUtEV25JQVNyVml5eXAwUktweDdWS3VvaFdXcHhrV2ZreE5EVXJqUzAxVUZzcEpPTFhHdUhjSkFRbk9UcjgzSzJsNTN0MEQxY003NXdtMG9NMWRFdWRfWmNIN2loempJdw?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_f4818f2341eb3b18</id>
-    <published>2026-07-28T09:06:46Z</published>
-    <updated>2026-07-28T09:06:46Z</updated>
-    <summary type="text">Anthropic CEO Dario Amodei clarifies his stance on open-weight AI models Neowin</summary>
-  </entry>
-  <entry>
-    <title>Anthropic Rejects Open-Weight AI Ban but Declines Industry Letter - MLQ.ai [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQVmg1UzNlYmxhN1plUGlacXZIQkxMMEY3QUhzeFIxejFaQTVaeWVjY1VMX2ZsVUtPVzRvejNnX3YyU3gyZ3huZlE5TzFoTjlTbXFfVG00TDJIVlRtS3VWX3BjZTN3SVpmZTRBY2dINEZFSzMtZUc4MWhlSTNtazlYb1ZMaGZJb2pvOWRNRTdNWQ?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_31d33568f3b3602c</id>
-    <published>2026-07-28T08:58:05Z</published>
-    <updated>2026-07-28T08:58:05Z</updated>
-    <summary type="text">Anthropic Rejects Open-Weight AI Ban but Declines Industry Letter MLQ.ai</summary>
-  </entry>
-  <entry>
-    <title>NeurIPS 2026 AI-generated reviews [D] [ ~ ] [ ◻ ]</title>
-    <link href="https://www.reddit.com/r/MachineLearning/comments/1v8vuae/neurips_2026_aigenerated_reviews_d/" rel="alternate"/>
-    <id>urn:uuid:sty_6f54688885565e0f</id>
-    <published>2026-07-28T11:34:57Z</published>
-    <updated>2026-07-28T11:34:57Z</updated>
-    <summary type="text">I'm really confused about what the point of the prompt injection was (speaking as an author). Is it just a study? I would really prefer that they took action against the AI-generated reviews. Obviously, we cannot assume that the reviewers were copy-pasting the output from the LLM without having given it any look at all, but in some cases that does look to be the case. In fact, in some cases the meta-reviewer seems to have also largely used LLMs. What exactly is the consequence here for using an LLM for reviewing? submitted by /u/bricklerex [link] [comments]</summary>
-  </entry>
-  <entry>
-    <title>Google and KDDI are ready to back Japanese startups. [ ~ ] [ ◻ ]</title>
-    <link href="https://blog.google/innovation-and-ai/models-and-research/google-labs/ai-startup-support-program-japan/" rel="alternate"/>
-    <id>urn:uuid:sty_d40359e88ad374b1</id>
-    <published>2026-07-28T01:00:00Z</published>
-    <updated>2026-07-28T01:00:00Z</updated>
-    <summary type="text">We're launching the AI Startup Support Program to accelerate innovative AI-native Japanese startups.</summary>
-  </entry>
-  <entry>
-    <title>Anthropic gives thoughts on open-weights models, especially those from China - TweakTown [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZlBidmhPdVRGbE1TTFVna3QzaFNzMlZUT0h2cGVkdTlyeVJVOFJ4cGhOOGV3akVfWks2M0MwZU80M0UtSzVWWUx6Z2diVmVxTEJXcU1MUi1ldXVXcjA4TkhiQkIwRjZETl9lekhVVHNqWmdZd1YtZERfaV9KUTZnUFZYN2RvX2NScmo0d2FjbzBnNGVackxwVlE2aUNyWXJiMVpiOHduUFU3Nnp2MGNyRWJ0R1VMVVZ0Nk9lQ3JKZ2E4UQ?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_05fc38355bfe32ea</id>
-    <published>2026-07-28T08:15:10Z</published>
-    <updated>2026-07-28T08:15:10Z</updated>
-    <summary type="text">Anthropic gives thoughts on open-weights models, especially those from China TweakTown</summary>
-  </entry>
-  <entry>
-    <title>K3 Running Costs Make It Unaffordable for Ordinary Users, Kimi Goes Open-Source, Anthropic Clarifies It Never Advocated Banning Open-Weight AI Models - 36 Kr [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1kMGF2dUhGWDNacXpYaUtYRkJDVTdmcHZhbjItV29xWDVOY0VxaFlhajZwYmtkVEFNOEUwQzZsZnNfRnZnbkwzNWJmbHBxV3FlRTYw?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_efccf49acc468abd</id>
-    <published>2026-07-28T08:12:52Z</published>
-    <updated>2026-07-28T08:12:52Z</updated>
-    <summary type="text">K3 Running Costs Make It Unaffordable for Ordinary Users, Kimi Goes Open-Source, Anthropic Clarifies It Never Advocated Banning Open-Weight AI Models 36 Kr</summary>
-  </entry>
-  <entry>
-    <title>Anthropic CEO Dario Amodei says company never backed open-weight AI ban - The Economic Times [ ~ ] [ ◻ ]</title>
-    <link href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxOOFR2Slo4M2ZHSC1HOHhsNGhESmwtR1NCUFMtNHpCV3RTZTFJYWpwY2JmSzNBX2lleHNacWF6S2ZpaEVtaUYtWTZGcW12U2tlM082bmxjYVpRb1p6aElBdUhvSDJwUzdpV1ctZC1tT3h6WlotNjN1NC0tVXlaNTRzMUQ3U3ZQa1diMDFJSzI1eEZaaGs2VmxHaWdXa3N2NTBRNUNqOVJyRUloSVBhY1QwZjNsY3ZkeTNQem9RU1hscnZ6czItZ2VvTEt4RzJHZ29RSFlRNUZkbEJHcWtpbUhPbGg4NmpITjlUN2fSAe8BQVVfeXFMTXBxZkhGajdOWm1hVEJ2bWtpZ3BfcG9RY05qSWgtX3doMlFnRXBuamdkYXloUmIzaW5GVnF0Rk9YVlcyclF1Vi1yeHRDVlM2S0toS2tiVEFVc3lDeEUxQlptdlozOURzNnZuX1ZYQU1PYktZcHVWYTZkVmxuOFBadDh5V29KQzlqZ0VCSmtsc19Bckxxd3pBUkZtYUhidnpwOUQwMWtDZFExWUNIbExZdjFIQldoaFg2bW1jZGQ5Z2hhSGpLZTB6aHhVRER2MVd0UVBsVFBTODlPS1RRdmxhblo1ZXZRSkhFN2lqcmlNM00?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_a01069870d423315</id>
-    <published>2026-07-28T08:01:00Z</published>
-    <updated>2026-07-28T08:01:00Z</updated>
-    <summary type="text">Anthropic CEO Dario Amodei says company never backed open-weight AI ban The Economic Times</summary>
-  </entry>
-  <entry>
-    <title>OpenAI called the Hugging Face attack unprecedented. But we've been here before. [ * ] [ ⬢ ]</title>
-    <link href="https://www.technologyreview.com/2026/07/27/1140836/openai-hugging-face-attack-precedent/" rel="alternate"/>
-    <id>urn:uuid:sty_d80d96418676ec6f</id>
-    <published>2026-07-27T18:00:00Z</published>
-    <updated>2026-07-27T18:00:00Z</updated>
-    <summary type="text">This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Reading OpenAI's account last week of how some of its models broke their containment and hacked into the computer systems of Hugging Face, another AI company, was the first time I got...</summary>
-  </entry>
-  <entry>
-    <title>Why Anthropic backs open-weight AI models but still won't sign Nvidia CEO's letter - The Indian Express</title>
-    <link href="https://news.google.com/rss/articles/CBMiywFBVV95cUxQMW9OQXhBZFBJVjVDSEFMQ19GWHdXV0FRMkI4M2NtVXg0SndIVmlHcDUzTGgtTUM1enR2WlN0UlBHUU5hdm1CVFR5SmRQRzBnaXpLRlBCNVpXV21BdFBpbmtiVUNhaUd4bjZrNUR1YTdRMDBMdWJleVpjcmFralA5eDRrM1BvVWhDbUJ5T2ZUb2ZkUTZhMXVWZUZwOW0yOFE2dFcyVVJyYm1DVmdYckxmV0dhOUdybm9FbkNiVzl6YWJoWUZjS1hTaUJHUdIB0gFBVV95cUxPNG8tNnBWXzRjRThweXAydTF6bzNla29JMHdOUEQzMzJuYjBhUy1VWnhnaUsxU1FlamhOUklrOTQ5QkJmME5GMUpNb1JmZjZxeXVBbjZfVWRwSnlPVllHMmh3RmloMEJ3aENmRl92NzA3RE9wY0J2bFptMk9yUU05THdhNFZpNmdpS2lOUVREZDZjU2xrNk95UE9mRG5SR1RaWGNUQ09OVGpEUktvakxVaFFjeXNlUEE0SWdxdUN5SWNEUzA5MnBzeEQzWVRQX21qdEE?oc=5" rel="alternate"/>
-    <id>urn:uuid:sty_fdf51610049d020d</id>
-    <published>2026-07-28T07:43:13Z</published>
-    <updated>2026-07-28T07:43:13Z</updated>
-    <summary type="text">Why Anthropic backs open-weight AI models but still won't sign Nvidia CEO's letter The Indian Express</summary>
-  </entry>
-  <entry>
-    <title>Satya Nadella says companies that trust one AI for everything may not survive [ * ] [ ⬢ ]</title>
-    <link href="https://techcrunch.com/2026/07/27/satya-nadella-says-companies-that-trust-one-ai-for-everything-may-not-survive/" rel="alternate"/>
-    <id>urn:uuid:sty_a7aa8c351e8b2757</id>
-    <published>2026-07-27T21:17:11Z</published>
-    <updated>2026-07-27T21:17:11Z</updated>
-    <summary type="text">Companies without their own models - or without a layer of AI infrastructure known as AI gateways to separate their prompts from the model itself - will be in trouble, Nadella says.</summary>
   </entry>
 </feed>
