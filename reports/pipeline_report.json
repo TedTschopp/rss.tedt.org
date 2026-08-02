@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-08-01T16:29:20.934620Z",
+  "timestamp": "2026-08-02T00:35:01.345894Z",
   "sources_configured": 43,
   "fetch_attempts": 43,
-  "raw_items": 1956,
-  "items": 1956,
-  "stories": 1925,
-  "clusters": 1897,
+  "raw_items": 1942,
+  "items": 1942,
+  "stories": 1885,
+  "clusters": 1856,
   "api_items": 80,
   "backfill_mode": false,
   "llm_status": {
-    "status": "ok",
-    "calls": 113,
-    "ok": 113,
-    "errors": 0,
+    "status": "degraded",
+    "calls": 127,
+    "ok": 124,
+    "errors": 3,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 45,
-      "importance": 37,
+      "ai_relevance": 57,
+      "importance": 39,
       "output_cleanup": 20
     },
     "stages": {
@@ -34,39 +34,39 @@
           },
           "summaries": {
             "before": 20,
-            "remaining": 11
+            "remaining": 10
           }
         }
       },
       "publish": {
-        "status": "ok",
-        "calls": 102,
-        "ok": 102,
-        "errors": 0,
+        "status": "degraded",
+        "calls": 116,
+        "ok": 113,
+        "errors": 3,
         "skipped": 0,
         "by_kind": {
-          "ai_relevance": 45,
-          "importance": 37,
+          "ai_relevance": 57,
+          "importance": 39,
           "output_cleanup": 20
         },
         "by_model": {
-          "openai/gpt-4.1-mini": 102
+          "openai/gpt-4.1-mini": 116
         },
         "backlog": {
           "ai_relevance": {
-            "before": 45,
+            "before": 57,
             "remaining": 0
           },
           "importance": {
             "before": 0,
-            "remaining": 0
+            "remaining": 3
           },
           "output_cleanup": {
             "before": 20,
             "remaining": 0
           }
         },
-        "backlog_remaining": 0
+        "backlog_remaining": 3
       }
     },
     "backlog": {
@@ -76,22 +76,22 @@
       },
       "summaries": {
         "before": 20,
-        "remaining": 11
+        "remaining": 10
       },
       "ai_relevance": {
-        "before": 45,
+        "before": 57,
         "remaining": 0
       },
       "importance": {
         "before": 0,
-        "remaining": 0
+        "remaining": 3
       },
       "output_cleanup": {
         "before": 20,
         "remaining": 0
       }
     },
-    "backlog_remaining": 11
+    "backlog_remaining": 13
   },
   "llm_enrichment_status": {
     "status": "ok",
@@ -106,50 +106,50 @@
       },
       "summaries": {
         "before": 20,
-        "remaining": 11
+        "remaining": 10
       }
     }
   },
   "llm_publish_status": {
-    "status": "ok",
-    "calls": 102,
-    "ok": 102,
-    "errors": 0,
+    "status": "degraded",
+    "calls": 116,
+    "ok": 113,
+    "errors": 3,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 45,
-      "importance": 37,
+      "ai_relevance": 57,
+      "importance": 39,
       "output_cleanup": 20
     },
     "by_model": {
-      "openai/gpt-4.1-mini": 102
+      "openai/gpt-4.1-mini": 116
     },
     "backlog": {
       "ai_relevance": {
-        "before": 45,
+        "before": 57,
         "remaining": 0
       },
       "importance": {
         "before": 0,
-        "remaining": 0
+        "remaining": 3
       },
       "output_cleanup": {
         "before": 20,
         "remaining": 0
       }
     },
-    "backlog_remaining": 0
+    "backlog_remaining": 3
   },
   "stage_timings_sec": {
-    "load_sources_and_state": 0.021,
-    "ingestion": 2.1629,
-    "normalize": 0.0808,
-    "dedupe": 0.0529,
-    "llm_enrich": 19.2055,
-    "cluster": 0.2665,
-    "score": 0.0205,
-    "write_intermediate_outputs": 0.2456,
-    "publish": 496.3645,
-    "persist_llm_cache": 0.2136
+    "load_sources_and_state": 0.0203,
+    "ingestion": 2.5084,
+    "normalize": 0.0803,
+    "dedupe": 0.0532,
+    "llm_enrich": 15.1083,
+    "cluster": 0.2579,
+    "score": 0.0204,
+    "write_intermediate_outputs": 0.2436,
+    "publish": 516.7615,
+    "persist_llm_cache": 0.2088
   }
 }
