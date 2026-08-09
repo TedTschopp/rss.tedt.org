@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-08-08T16:16:20.247986+00:00",
+  "timestamp": "2026-08-09T00:19:23.882528+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Sat, 08 Aug 2026 16:06:25 +0000",
+      "last_updated": "Sun, 09 Aug 2026 00:09:50 +0000",
       "size_bytes": 42685,
       "errors": []
     },
@@ -23,7 +23,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 5,
-      "last_updated": "Sat, 08 Aug 2026 16:06:51 +0000",
+      "last_updated": "Sun, 09 Aug 2026 00:10:15 +0000",
       "size_bytes": 5561,
       "errors": []
     },
@@ -31,7 +31,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 138,
-      "last_updated": "Sat, 08 Aug 2026 16:06:52 +0000",
+      "last_updated": "Sun, 09 Aug 2026 00:10:15 +0000",
       "size_bytes": 171542,
       "errors": []
     },
@@ -39,15 +39,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Sat, 08 Aug 2026 16:08:33 +0000",
-      "size_bytes": 209197,
+      "last_updated": "Sun, 09 Aug 2026 00:11:40 +0000",
+      "size_bytes": 209991,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 722,
-      "last_updated": "Sat, 08 Aug 2026 16:08:33 +0000",
+      "last_updated": "Sun, 09 Aug 2026 00:11:40 +0000",
       "size_bytes": 374486,
       "errors": []
     }
@@ -68,9 +68,9 @@
       "attempted": 14,
       "skipped": 7,
       "with_items": 9,
-      "failures": 1,
+      "failures": 0,
       "recovered": 0,
-      "failure_rate": 7.14
+      "failure_rate": 0.0
     }
   },
   "pipeline_health": {
@@ -81,18 +81,18 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 1969,
-      "clusters": 1941
+      "stories": 1877,
+      "clusters": 1849
     },
     "llm_status": {
-      "status": "ok",
-      "calls": 109,
-      "ok": 109,
-      "errors": 0,
+      "status": "degraded",
+      "calls": 96,
+      "ok": 95,
+      "errors": 1,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 46,
-        "importance": 32,
+        "ai_relevance": 41,
+        "importance": 24,
         "output_cleanup": 20
       },
       "stages": {
@@ -104,7 +104,7 @@
           "skipped": 0,
           "backlog": {
             "embeddings": {
-              "before": 20,
+              "before": 19,
               "remaining": 0
             },
             "summaries": {
@@ -114,23 +114,23 @@
           }
         },
         "publish": {
-          "status": "ok",
-          "calls": 98,
-          "ok": 98,
-          "errors": 0,
+          "status": "degraded",
+          "calls": 85,
+          "ok": 84,
+          "errors": 1,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 46,
-            "importance": 32,
+            "ai_relevance": 41,
+            "importance": 24,
             "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 98
+            "openai/gpt-4.1-mini": 85
           },
           "backlog": {
             "ai_relevance": {
-              "before": 46,
-              "remaining": 0
+              "before": 41,
+              "remaining": 1
             },
             "importance": {
               "before": 0,
@@ -141,12 +141,12 @@
               "remaining": 0
             }
           },
-          "backlog_remaining": 0
+          "backlog_remaining": 1
         }
       },
       "backlog": {
         "embeddings": {
-          "before": 20,
+          "before": 19,
           "remaining": 0
         },
         "summaries": {
@@ -154,8 +154,8 @@
           "remaining": 10
         },
         "ai_relevance": {
-          "before": 46,
-          "remaining": 0
+          "before": 41,
+          "remaining": 1
         },
         "importance": {
           "before": 0,
@@ -166,7 +166,7 @@
           "remaining": 0
         }
       },
-      "backlog_remaining": 10
+      "backlog_remaining": 11
     }
   }
 }
