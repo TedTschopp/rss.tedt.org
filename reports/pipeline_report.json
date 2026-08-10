@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-08-09T16:20:19.560283Z",
+  "timestamp": "2026-08-10T00:20:37.934480Z",
   "sources_configured": 43,
   "fetch_attempts": 43,
-  "raw_items": 1984,
-  "items": 1984,
-  "stories": 1935,
-  "clusters": 1907,
+  "raw_items": 1924,
+  "items": 1924,
+  "stories": 1875,
+  "clusters": 1845,
   "api_items": 80,
   "backfill_mode": false,
   "llm_status": {
     "status": "degraded",
-    "calls": 135,
-    "ok": 134,
-    "errors": 1,
+    "calls": 99,
+    "ok": 97,
+    "errors": 2,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 56,
-      "importance": 48,
+      "ai_relevance": 40,
+      "importance": 28,
       "output_cleanup": 20
     },
     "stages": {
@@ -40,33 +40,33 @@
       },
       "publish": {
         "status": "degraded",
-        "calls": 124,
-        "ok": 123,
-        "errors": 1,
+        "calls": 88,
+        "ok": 86,
+        "errors": 2,
         "skipped": 0,
         "by_kind": {
-          "ai_relevance": 56,
-          "importance": 48,
+          "ai_relevance": 40,
+          "importance": 28,
           "output_cleanup": 20
         },
         "by_model": {
-          "openai/gpt-4.1-mini": 124
+          "openai/gpt-4.1-mini": 88
         },
         "backlog": {
           "ai_relevance": {
-            "before": 56,
+            "before": 40,
             "remaining": 0
           },
           "importance": {
-            "before": 0,
-            "remaining": 1
+            "before": 1,
+            "remaining": 2
           },
           "output_cleanup": {
             "before": 20,
             "remaining": 0
           }
         },
-        "backlog_remaining": 1
+        "backlog_remaining": 2
       }
     },
     "backlog": {
@@ -79,19 +79,19 @@
         "remaining": 10
       },
       "ai_relevance": {
-        "before": 56,
+        "before": 40,
         "remaining": 0
       },
       "importance": {
-        "before": 0,
-        "remaining": 1
+        "before": 1,
+        "remaining": 2
       },
       "output_cleanup": {
         "before": 20,
         "remaining": 0
       }
     },
-    "backlog_remaining": 11
+    "backlog_remaining": 12
   },
   "llm_enrichment_status": {
     "status": "ok",
@@ -112,44 +112,44 @@
   },
   "llm_publish_status": {
     "status": "degraded",
-    "calls": 124,
-    "ok": 123,
-    "errors": 1,
+    "calls": 88,
+    "ok": 86,
+    "errors": 2,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 56,
-      "importance": 48,
+      "ai_relevance": 40,
+      "importance": 28,
       "output_cleanup": 20
     },
     "by_model": {
-      "openai/gpt-4.1-mini": 124
+      "openai/gpt-4.1-mini": 88
     },
     "backlog": {
       "ai_relevance": {
-        "before": 56,
+        "before": 40,
         "remaining": 0
       },
       "importance": {
-        "before": 0,
-        "remaining": 1
+        "before": 1,
+        "remaining": 2
       },
       "output_cleanup": {
         "before": 20,
         "remaining": 0
       }
     },
-    "backlog_remaining": 1
+    "backlog_remaining": 2
   },
   "stage_timings_sec": {
-    "load_sources_and_state": 0.0216,
-    "ingestion": 25.7883,
-    "normalize": 0.0794,
-    "dedupe": 0.0544,
-    "llm_enrich": 18.6763,
-    "cluster": 0.2596,
+    "load_sources_and_state": 0.0203,
+    "ingestion": 2.0506,
+    "normalize": 0.092,
+    "dedupe": 0.0659,
+    "llm_enrich": 15.9658,
+    "cluster": 0.2688,
     "score": 0.0205,
-    "write_intermediate_outputs": 0.2516,
-    "publish": 684.7802,
-    "persist_llm_cache": 0.2125
+    "write_intermediate_outputs": 0.2515,
+    "publish": 475.0439,
+    "persist_llm_cache": 0.2157
   }
 }
