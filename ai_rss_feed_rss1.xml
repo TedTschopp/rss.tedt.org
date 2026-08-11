@@ -6,9 +6,15 @@
     <link>https://rss.tedt.org/</link>
     <description>Latest AI News and Ratings from Ted Tschopp</description>
     <dc:language>en</dc:language>
-    <dc:date>2026-08-10T16:15:32.048358+00:00</dc:date>
+    <dc:date>2026-08-11T00:10:59.929399+00:00</dc:date>
     <items>
       <rdf:Seq>
+        <rdf:li rdf:resource="https://www.databricks.com/blog/managing-ai-coding-costs-scale"/>
+        <rdf:li rdf:resource="https://claude.com/blog/auto-mode-default-in-claude-code"/>
+        <rdf:li rdf:resource="https://www.genspark.ai/blog/the-ai-efficiency-frontier"/>
+        <rdf:li rdf:resource="https://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/"/>
+        <rdf:li rdf:resource="https://x.com/hwchase17/status/2085780032031760694"/>
+        <rdf:li rdf:resource="https://x.ai/news/grok-imagine-image-2"/>
         <rdf:li rdf:resource="https://hbr.org/2026/08/ai-experiments-need-domain-experts-heres-how-to-support-them"/>
         <rdf:li rdf:resource="https://aws.amazon.com/blogs/machine-learning/how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock/"/>
         <rdf:li rdf:resource="https://developer.meta.com/ai/resources/blog/build-with-muse-code/"/>
@@ -53,15 +59,45 @@
         <rdf:li rdf:resource="https://venturebeat.com/security/snowflake-launches-cortex-ai-gateway-to-control-ai-agents-and-prevent-runaway-enterprise-costs"/>
         <rdf:li rdf:resource="https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/"/>
         <rdf:li rdf:resource="https://openai.com/index/ntt-data/"/>
-        <rdf:li rdf:resource="https://www.anthropic.com/research/discovering-cryptographic-weaknesses"/>
-        <rdf:li rdf:resource="https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/"/>
-        <rdf:li rdf:resource="https://www.a16z.news/p/the-next-ai-moat-isnt-a-better-model"/>
-        <rdf:li rdf:resource="https://sloanreview.mit.edu/projects/warner-bros-discovery-seeking-growth-with-generative-ai/"/>
-        <rdf:li rdf:resource="https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/"/>
-        <rdf:li rdf:resource="https://hbr.org/2026/07/dont-let-ai-make-bad-analytics-worse?tpcc=orgsocial_edit&amp;utm_campaign=hbr&amp;utm_medium=social&amp;utm_source=facebook,linkedin,twitter"/>
       </rdf:Seq>
     </items>
   </channel>
+  <item rdf:about="https://www.databricks.com/blog/managing-ai-coding-costs-scale">
+    <title>Managing AI Coding Costs at Scale [ ! ]</title>
+    <link>https://www.databricks.com/blog/managing-ai-coding-costs-scale</link>
+    <description>As AI coding agents scale across enterprises, rapidly growing inference and token costs are creating a need for systematic cost management through model selection, model routing, flexible coding harnesses, and other efficiency techniques. Our analysts emphasized that this post from Databricks has a strong synthesis of AI cost-management practices, with useful examples showing significant savings from model routing, while cautioning AI leaders that the objective should be maximizing business value and ROI, not simply minimizing AI spending.</description>
+    <dc:date>2026-08-10T00:00:00+00:00</dc:date>
+  </item>
+  <item rdf:about="https://claude.com/blog/auto-mode-default-in-claude-code">
+    <title>Auto Mode Is Now the Default in Claude Code for Pro, Max, and Team Plans [ ! ]</title>
+    <link>https://claude.com/blog/auto-mode-default-in-claude-code</link>
+    <description>Claude Code is making auto mode the default for Pro, Max, and Team plans, using a safety classifier to evaluate tool calls and block potentially destructive, irreversible, or externally directed actions. Our analysts emphasized that this is a consequential policy and architecture decision: although Anthropic's testing suggests automated safeguards can identify risks humans miss while enabling developers to accomplish more work, greater autonomy is appropriate primarily when potential failures are low-risk and reversible.</description>
+    <dc:date>2026-08-10T00:00:00+00:00</dc:date>
+  </item>
+  <item rdf:about="https://www.genspark.ai/blog/the-ai-efficiency-frontier">
+    <title>The AI Efficiency Frontier: How Enterprises Scale Agentic AI Without Letting Cost Outrun Value [ * ]</title>
+    <link>https://www.genspark.ai/blog/the-ai-efficiency-frontier</link>
+    <description>Genspark proposes an AI FinOps architecture for controlling agentic AI costs through model routing, fine-tuned models, selective use of frontier intelligence, and continuous evaluation based on cost per successful task. Our analysts noted that measuring AI economics around completed work rather than token consumption is a valuable framework for AI leaders, while emphasizing that defining a successful task difficult and that some proposed approaches, including outcome-based pricing and model fine-tuning, can be challenging to implement effectively at enterprise scale.</description>
+    <dc:date>2026-08-10T00:00:00+00:00</dc:date>
+  </item>
+  <item rdf:about="https://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/">
+    <title>How Cohere Health Digitizes Clinical Policies Using Amazon Bedrock AgentCore [ * ]</title>
+    <link>https://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/</link>
+    <description>Cohere Health is using Amazon Bedrock AgentCore to transform dense clinical policy documents into structured data that AI agents can use within healthcare workflows such as medical-necessity and prior-authorization processes. Our analysts emphasized that converting unstructured information into structured, actionable data is an important enterprise AI use case well beyond healthcare, particularly in regulated environments, but noted that the case study provides less evidence around two critical measures for buyers: accuracy and cost.</description>
+    <dc:date>2026-08-10T00:00:00+00:00</dc:date>
+  </item>
+  <item rdf:about="https://x.com/hwchase17/status/2085780032031760694">
+    <title>Why Managed Agents Are the Next Big Thing in Agent Building [ ~ ]</title>
+    <link>https://x.com/hwchase17/status/2085780032031760694</link>
+    <description>Managed AI agents allow development teams to concentrate on application-specific business logic while outsourcing much of the underlying agent infrastructure, runtime, and operational complexity to a managed platform. Our analysts noted that managed agents are an important emerging issue, particularly for smaller teams, but considered this specific discussion from LangChain largely familiar and questioned how businesses can create durable differentiation when competitors can rely on the same managed agent infrastructure.</description>
+    <dc:date>2026-08-10T00:00:00+00:00</dc:date>
+  </item>
+  <item rdf:about="https://x.ai/news/grok-imagine-image-2">
+    <title>Imagine Image 2.0 [ ~ ]</title>
+    <link>https://x.ai/news/grok-imagine-image-2</link>
+    <description>Imagine Image 2.0 from xAI expands generative AI image creation and editing with improved instruction following, typography, targeted editing, multi-reference inputs, and image resizing across multiple aspect ratios. Our analysts noted that the resizing and editing capabilities could be particularly useful for advertising and marketing workflows across different devices, but questioned how broadly the model will be adopted in enterprise environments despite being a capable generative AI release.</description>
+    <dc:date>2026-08-10T00:00:00+00:00</dc:date>
+  </item>
   <item rdf:about="https://hbr.org/2026/08/ai-experiments-need-domain-experts-heres-how-to-support-them">
     <title>AI Experiments Need Domain Experts. Here's How to Support Them. [ ! ]</title>
     <link>https://hbr.org/2026/08/ai-experiments-need-domain-experts-heres-how-to-support-them</link>
@@ -325,41 +361,5 @@
     <link>https://openai.com/index/ntt-data/</link>
     <description>NTT DATA's case study shows how Codex reduced incident-analysis time while supporting broader AI adoption among both technical and nontechnical employees. Our analysts highlighted its practical lessons for moving from isolated AI experiments to enterprise-scale deployment, including leadership participation, adoption support, strong data foundations, and accessible use cases beyond software development.</description>
     <dc:date>2026-07-29T00:00:00+00:00</dc:date>
-  </item>
-  <item rdf:about="https://www.anthropic.com/research/discovering-cryptographic-weaknesses">
-    <title>Discovering cryptographic weaknesses with Claude [ * ]</title>
-    <link>https://www.anthropic.com/research/discovering-cryptographic-weaknesses</link>
-    <description>Anthropic's research demonstrates how Claude can operate inside an agentic cybersecurity harness to identify weaknesses in cryptographic systems and evaluate defenses against increasingly capable AI-driven attacks. Our analysts considered the work important but early, noting that it points toward continuous AI-based security testing and the eventual vulnerability of existing encryption technologies as models improve and inference costs decline</description>
-    <dc:date>2026-07-29T00:00:00+00:00</dc:date>
-  </item>
-  <item rdf:about="https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/">
-    <title>Introducing MAI-Cyber-1-Flash inside MDASH [ * ]</title>
-    <link>https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/</link>
-    <description>Microsoft combines its MAI-Cyber-1-Flash model with the MDASH cybersecurity system to package specialized AI reasoning, enterprise threat data, and automated security workflows into a unified offering. Our analysts viewed the announcement as important because Microsoft's distribution and product integration could bring agentic cybersecurity to organizations waiting for a mature enterprise platform, even though the tool remains difficult for most AI leaders to evaluate directly.</description>
-    <dc:date>2026-07-29T00:00:00+00:00</dc:date>
-  </item>
-  <item rdf:about="https://www.a16z.news/p/the-next-ai-moat-isnt-a-better-model">
-    <title>The Next AI Moat Isn't a Better Model [ ~ ]</title>
-    <link>https://www.a16z.news/p/the-next-ai-moat-isnt-a-better-model</link>
-    <description>The article argues that durable AI differentiation will come less from foundation-model performance and more from proprietary context, real-time data, workflows, and application-layer orchestration. Our analysts agreed with the strategic direction but rated it optional because the idea is already familiar and offers limited immediate guidance beyond established event-driven and real-time AI platform approaches</description>
-    <dc:date>2026-07-29T00:00:00+00:00</dc:date>
-  </item>
-  <item rdf:about="https://sloanreview.mit.edu/projects/warner-bros-discovery-seeking-growth-with-generative-ai/">
-    <title>Warner Bros. Discovery: Seeking Growth With Generative AI [ ~ ]</title>
-    <link>https://sloanreview.mit.edu/projects/warner-bros-discovery-seeking-growth-with-generative-ai/</link>
-    <description>The MIT Sloan case study describes Warner Bros. Discovery's effort to treat generative AI as a collaborative business transformation rather than a stand-alone technology project. Our analysts found the management principles sensible but the evidence limited, citing the absence of quantified ROI, measurable outcomes, or sufficiently detailed implementation lessons after a two-year AI journey.</description>
-    <dc:date>2026-07-29T00:00:00+00:00</dc:date>
-  </item>
-  <item rdf:about="https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/">
-    <title>Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents [ ! ]</title>
-    <link>https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/</link>
-    <description>DoorDash describes the platform architecture, reusable components, evaluation systems, and governance mechanisms it uses to build, deploy, and continuously improve enterprise AI agents. Our analysts viewed it as an unusually valuable blueprint for moving beyond isolated agent pilots by creating a scalable agent platform that captures organizational context, standardizes development, and reduces the cost of repeatedly rebuilding the same infrastructure.</description>
-    <dc:date>2026-07-28T00:00:00+00:00</dc:date>
-  </item>
-  <item rdf:about="https://hbr.org/2026/07/dont-let-ai-make-bad-analytics-worse?tpcc=orgsocial_edit&amp;utm_campaign=hbr&amp;utm_medium=social&amp;utm_source=facebook,linkedin,twitter">
-    <title>Don't Let AI Make Bad Analytics Worse [ ! ]</title>
-    <link>https://hbr.org/2026/07/dont-let-ai-make-bad-analytics-worse?tpcc=orgsocial_edit&amp;utm_campaign=hbr&amp;utm_medium=social&amp;utm_source=facebook,linkedin,twitter</link>
-    <description>Generative AI makes it dramatically easier to query data and produce analytical answers, but greater speed does not ensure that organizations are asking the right questions or distinguishing descriptive, predictive, and causal analysis. The key insight is that leaders must deliberately preserve analytical discipline-testing assumptions, identifying confounders, and requesting competing hypotheses-so AI does not amplify confirmation bias, political agendas, and "analytics slop."</description>
-    <dc:date>2026-07-28T00:00:00+00:00</dc:date>
   </item>
 </rdf:RDF>
