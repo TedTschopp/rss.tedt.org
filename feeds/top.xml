@@ -6,170 +6,296 @@
     <link>https://rss.tedt.org/feeds/top.xml</link>
     <description>Top Ranked AI stories across configured sources</description>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2026 16:21:01 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 00:14:00 +0000</lastBuildDate>
     <generator>MultiFeedGenerator v1.0</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <ns0:link href="https://rss.tedt.org/feeds/top.xml/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Alibaba's Qwen 3.8 27B vision-capable LLM shows strong performance but defaults to excessive reasoning effort causing slow responses [ * ] [ ◼ ]</title>
-      <link>https://simonwillison.net/2026/Aug/16/qwen-38-27b/</link>
-      <description>Alibaba's Qwen 3.8 27B, an Apache 2 licensed 27 billion parameter vision-capable large language model, demonstrates improved benchmarks over its predecessors and runs on consumer hardware like laptops and NVIDIA DGX Spark. However, its default setting for reasoning effort is set to "xhigh," leading to excessive overthinking and slow output generation, especially on mundane tasks. Testing revealed that reducing the reasoning effort significantly speeds up responses without severely impacting output quality. The model excels at tasks like bounding box detection in images and driving coding agents, but performance remains slower compared to hosted API models. Optimizations such as Multi-Token Prediction show promise for improving inference speed. Overall, Qwen 3.8 27B highlights progress in compact, capable open-weight models suitable for local use, though speed remains a key limitation.</description>
-      <guid isPermaLink="false">sty_55bc2dfbf70f5519</guid>
-      <pubDate>2026-08-16T22:00:39Z</pubDate>
+      <title>AI;DR: Writer advocates ignoring unedited AI-generated content to encourage human review and editing in professional communication [ ~ ] [ ◻ ]</title>
+      <link>https://www.rickmanelius.com/p/aidr-ai-didnt-read</link>
+      <description>A pro-AI writer expresses frustration with unfiltered AI-generated text being shared without human review, coining the term AI;DR (AI; Didn't Read) as a policy to skip reading such content. The writer emphasizes the importance of editing AI output, especially in professional settings like Slack discussions and newsletters, to maintain quality and clarity. While acknowledging AI's role in tasks like customer support, the writer urges colleagues to prioritize a human touch when sharing AI-assisted writing to ensure effective communication.</description>
+      <guid isPermaLink="false">sty_2b2059ea744e88cd</guid>
+      <pubDate>2026-08-17T19:47:15Z</pubDate>
     </item>
     <item>
-      <title>OpenAI releases GPT-5.6 Sol as its most capable vision model with significant improvements in object detection and counting [ * ] [ ◼ ]</title>
-      <link>https://blog.roboflow.com/openai-gpt-5-6/</link>
-      <description>OpenAI introduced the GPT-5.6 lineup, including the Sol, Terra, and Luna models, with Sol demonstrating the strongest vision capabilities to date. Tests on a new vision benchmark showed Sol significantly outperformed previous models in object detection and counting, while Terra and Luna also showed progress over GPT-5.5. The models excelled in document layout detection and dense scene analysis but faced challenges with large images and certain counting tasks. Sol achieved a 46.2 mAP@50 score in object detection, a notable increase from GPT-5.5's 13.8, and improved counting accuracy to 73.0%. OCR performance remained similar to prior versions, with slight variations in text extraction accuracy. OpenAI acknowledged stability issues with large images and recommended resizing or cropping as a workaround. The GPT-5.6 models are available for testing in the Roboflow Playground alongside other vision models.</description>
-      <guid isPermaLink="false">sty_6bd8a985f8d37f74</guid>
-      <pubDate>2026-08-17T12:09:42Z</pubDate>
+      <title>Qwen3.8 27B scores 52 on Artificial Analysis Intelligence Index, outperforming median models with free pricing and 256k token context window [ ~ ] [ ◼ ]</title>
+      <link>https://artificialanalysis.ai/models/qwen3-8-27b</link>
+      <description>Qwen3.8 27B, an open weights AI model released in August 2026, achieved a score of 52 on the Artificial Analysis Intelligence Index, significantly above the median score of 9 for comparable models. It supports text and image inputs, outputs text, and offers a large 256k token context window, making it one of the leading models in intelligence and cost efficiency among open weight models of similar size. The model generated 160 million tokens during evaluation, indicating high verbosity compared to the median of 43 million tokens. Pricing for Qwen3.8 27B is set at zero dollars per million input and output tokens, making it competitively priced relative to the median costs of $0.04 and $0.15 respectively. The evaluation includes various intelligence benchmarks such as reasoning, coding, and knowledge tasks, positioning Qwen3.8 27B as a strong performer in its class.</description>
+      <guid isPermaLink="false">sty_83d0b0a7368ad903</guid>
+      <pubDate>2026-08-17T17:25:17Z</pubDate>
     </item>
     <item>
       <title>Wiz Research finds AI-generated GitHub Copilot autofix introduced critical script injection vulnerability in Snowflake's Jira workflow, patched same day [ * ] [ ◼ ]</title>
       <link>https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug</link>
-      <description>Wiz Research's AI-powered security tool discovered a critical script injection vulnerability in Snowflake's public GitHub repository caused by an AI-generated autofix commit from GitHub Copilot. The flaw allowed unauthenticated users to execute arbitrary commands in a GitHub Actions runner by opening an issue with a crafted title, exposing Jira credentials. The vulnerability was introduced on June 18, 2026, when Copilot autofix replaced a safe input sanitization pattern with unsafe direct string interpolation in a shell script. Wiz disclosed the issue on June 23, 2026, and Snowflake promptly patched the workflow, revoked the exposed credentials, and confirmed no unauthorized access occurred. This incident highlights risks of AI coding assistants inadvertently introducing security flaws into CI/CD workflows.</description>
+      <description>Wiz Research's AI-powered security tool discovered a critical script injection vulnerability in Snowflake's public GitHub repository, introduced by a GitHub Copilot autofix commit five days earlier. The flaw allowed unauthenticated users to execute arbitrary commands in a GitHub Actions runner by submitting a specially crafted issue title, exposing Jira credentials. Snowflake promptly patched the vulnerability and rotated the affected credentials on the day of disclosure, June 23, 2026. Audit logs confirmed no unauthorized access beyond the security research team's proof-of-concept testing, which involved exfiltrating base64-encoded Jira tokens to demonstrate the exploit.</description>
       <guid isPermaLink="false">sty_5912d3271aa4113a</guid>
       <pubDate>2026-08-17T14:18:38Z</pubDate>
     </item>
     <item>
-      <title>Anthropic plans to embed semantic watermarks in Claude's AI-generated text by subtly biasing word choices, altering text meaning to comply with EU regulations [ * ] [ ◼ ]</title>
-      <link>https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing</link>
-      <description>Anthropic announced that all Claude AI models will embed watermarks in generated text using a semantic technique that biases word choices to create detectable patterns. This approach, disclosed after initial vague announcements, involves probabilistic selection between word lists to mark AI content without visible changes but does alter the text's semantics. The watermarking method relies on steganography at the token generation level, where words are categorized into "green" and "red" lists, influencing the model's output probabilities. While Anthropic initially claimed the watermark would be imperceptible and not affect meaning or quality, critics argue this technique adulterates the writing by subtly changing word choices. The system requires a secret key to detect the watermark, and the approach is part of compliance with new EU regulations on AI-generated content.</description>
-      <guid isPermaLink="false">sty_feb22e18aa92b328</guid>
-      <pubDate>2026-08-16T21:53:43Z</pubDate>
-    </item>
-    <item>
       <title>Guide details how to disable or avoid intrusive AI features across popular software and devices [ ~ ] [ ◻ ]</title>
       <link>https://www.librarian.net/notoai/</link>
-      <description>A comprehensive guide has been published to help users disable or avoid intrusive AI features in various software and devices, including Adobe Acrobat, Android phones with Gemini, Apple devices with Apple Intelligence and Siri, and major web browsers like Chrome, Edge, Firefox, and DuckDuckGo. The guide provides step-by-step instructions for turning off AI assistants, embedded AI tools, and personalized AI features to reduce unwanted AI interactions. The guide addresses common user concerns about AI appearing where it is not wanted and offers specific settings adjustments for different platforms, such as disabling AI in Google Workspace apps and managing AI-related browser flags. It aims to assist users who prefer less AI integration in their technology environments and is open to community contributions for updates and improvements.</description>
+      <description>A comprehensive guide explains how users can disable or avoid intrusive AI features in various software and devices, including Adobe Acrobat, Android phones with Gemini, Apple devices with Apple Intelligence and Siri, and major web browsers like Chrome, Edge, Firefox, and DuckDuckGo. The guide targets users who prefer less AI interference in their technology environments and provides step-by-step instructions for turning off AI functionalities. The guide also covers disabling AI enhancements in Google Workspace applications such as Gmail and Google Docs, and offers tips for managing AI-related settings to reduce unwanted AI interactions. It is intended as a resource for users seeking more control over AI features integrated into everyday technology.</description>
       <guid isPermaLink="false">sty_665a5454c2f613cd</guid>
       <pubDate>2026-08-17T14:07:56Z</pubDate>
     </item>
     <item>
-      <title>Anthropic releases system prompts documentation for Claude AI platform</title>
-      <link>https://platform.claude.com/docs/en/release-notes/system-prompts</link>
-      <description>Anthropic has published detailed documentation on system prompts for its Claude AI platform, outlining how users can customize and control AI behavior through prompt engineering. The release aims to enhance user understanding and application of system prompts to tailor Claude's responses effectively.</description>
-      <guid isPermaLink="false">sty_d6bbc1555a5ef608</guid>
-      <pubDate>2026-08-16T12:48:21Z</pubDate>
+      <title>OpenAI releases GPT-5.6 Sol, its strongest vision model with significant improvements in object detection and counting [ * ] [ ◼ ]</title>
+      <link>https://blog.roboflow.com/openai-gpt-5-6/</link>
+      <description>OpenAI introduced the GPT-5.6 lineup, including the Sol, Terra, and Luna models, with Sol demonstrating the best vision capabilities to date. The models showed notable progress in tasks like object detection, counting, OCR, and data extraction, with Sol outperforming previous versions and competitors in several benchmarks. Sol achieved a substantial jump in object detection accuracy, scoring 46.2 mAP@50 compared to GPT-5.5's 13.8, and improved counting accuracy to 73.0%. While OCR performance remained close to GPT-5.5, Sol excelled in complex visual scenes and document layout detection. Some stability issues were noted with large images, which OpenAI acknowledged and suggested resizing as a workaround.</description>
+      <guid isPermaLink="false">sty_6bd8a985f8d37f74</guid>
+      <pubDate>2026-08-17T12:09:42Z</pubDate>
     </item>
     <item>
-      <title>Speko launches OpenRouter API for Voice AI to optimize speech model selection across STT, LLM, and TTS vendors [ * ] [ ◼ ]</title>
-      <link>https://news.ycombinator.com/item?id=49332751</link>
-      <description>Speko has introduced an OpenRouter API designed to streamline the selection and switching of speech models in voice AI systems, which typically combine speech-to-text (STT), large language models (LLM), and text-to-speech (TTS) components. The API benchmarks multiple vendors' models based on criteria like accuracy, latency, and cost, enabling users to dynamically route calls through the best-performing models without complex integrations. The platform includes a public benchmarking dashboard and an open-source gateway that runs locally to avoid extra network hops and maintain key security. Speko's approach aims to keep voice agents updated with the latest and most effective speech models, addressing the common issue of relying on outdated stacks due to integration challenges. Since its launch, Speko has seen steady growth in usage and is offering the gateway and BYOK setup for free, charging only for the hosted router and managed keys.</description>
-      <guid isPermaLink="false">sty_f812533a4e6ff6bb</guid>
+      <title>Researchers present a zero-overhead GPU offload framework integrated into Rust compiler, enabling portable, safe, and fast GPU programming across multiple vendors</title>
+      <link>https://arxiv.org/abs/2608.13759</link>
+      <description>Researchers have developed a GPU offload framework built directly into the Rust compiler and LLVM backends that aims to combine high performance with Rust's compile-time memory safety guarantees. This framework addresses challenges in cross-vendor ABI compatibility and uses Rust's ownership and type systems to optimize data transfers and memory management for GPU kernels. Evaluations on RAJAPerf benchmarks show that the Rust-based solution generates LLVM IR competitive with native CUDA and HIP C++ implementations, demonstrating solid kernel performance without sacrificing safety or portability. The approach avoids vendor lock-in and explicit unsafe code, potentially broadening Rust's applicability in high-performance GPU programming.</description>
+      <guid isPermaLink="false">sty_c20d9bda2cc284d1</guid>
+      <pubDate>2026-08-17T17:54:59Z</pubDate>
+    </item>
+    <item>
+      <title>Speko launches OpenRouter for Voice AI, providing a unified API that routes speech models by language and objective based on benchmarks [ ~ ] [ ◼ ]</title>
+      <link>https://speko.ai/</link>
+      <description>Speko has introduced an OpenRouter for Voice AI that integrates multiple speech models into a single API, selecting the best model per language and task using published performance measurements rather than vendor leaderboards. The platform offers a unified gateway with one base URL and API key, compatible with existing frameworks like LiveKit, Pipecat, and Claude, enabling developers to run and monitor voice AI agents efficiently. The service benchmarks speech models across languages and evaluates them by score versus cost at different stages, allowing users to optimize voice AI workflows. Speko's API speaks the OpenAI protocol, making it easy to integrate with current tools by simply pointing agents to Speko's gateway without changing existing agent code.</description>
+      <guid isPermaLink="false">sty_cc3333b483c59310</guid>
       <pubDate>2026-08-17T15:36:18Z</pubDate>
     </item>
     <item>
-      <title>Data center developers are increasingly choosing Texas over other regions due to concerns about an AI chip surplus and challenges in power availability and political issues [ ~ ] [ ◻ ]</title>
+      <title>Fast.ai co-founder returns to AI startup Answer.AI to focus on ethical AI in education amid widespread criticism and misuse of AI technologies [ ~ ] [ ◻ ]</title>
+      <link>https://www.fast.ai/posts/2026-08-18-returning-to-AI/</link>
+      <description>The co-founder of fast.ai has announced a return to the AI field by joining Answer.AI, an AI startup focused on ethical applications in education. Despite widespread criticism of AI's negative impacts on education, open-source projects, and misinformation, the founder aims to develop AI tools that preserve human judgment and critical thinking. The founder previously left AI due to burnout and concerns over the industry's direction, including overhyped claims and resource misuse. Answer.AI's SolveIt tool emphasizes human control and iterative problem-solving, countering trends of AI-generated content that undermine learning and creativity. This return reflects a commitment to responsible AI development amid growing public backlash and ethical challenges.</description>
+      <guid isPermaLink="false">sty_267a30d4eac49fff</guid>
+      <pubDate>2026-08-17T21:47:30Z</pubDate>
+    </item>
+    <item>
+      <title>Flock updates police license plate reader platform to curb misuse amid stalking cases but critics highlight loopholes and privacy concerns</title>
+      <link>https://www.technologyreview.com/2026/08/17/1142200/what-flocks-defenders-are-missing/</link>
+      <description>Flock, a police technology company operating around 120,000 automatic license plate readers across the US, announced platform changes aimed at preventing illegal or illegitimate use, including stalking by officers. These updates require officers to enter a criminal case number for searches and use software to flag abnormal activity, responding to reports of misuse such as stalking and harassment. However, the new measures have significant loopholes, including the ability for officers to enter false case numbers, and do not address broader civil liberties concerns about mass surveillance. Critics argue that Flock's system design choices-such as data collection scope, search permissions, and data retention policies-set problematic terms for balancing security and privacy. The company's business model depends on maintaining a large, interconnected network, which some cities and states are pushing back against through contract cancellations and proposed legislation.</description>
+      <guid isPermaLink="false">sty_6917029f34a2ba79</guid>
+      <pubDate>2026-08-17T19:16:09Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's annualized revenue surges to $65 billion by July, up from $9 billion at end of 2025 [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/</link>
+      <description>Anthropic, an AI model developer, has rapidly increased its annualized revenue run rate to $65 billion by the end of July 2026, up from $9 billion at the end of 2025. This growth outpaces rival OpenAI, which doubled its revenue to $40 billion over the same period. Investors expect Anthropic's revenue to reach between $100 billion and $120 billion by the end of 2026. The company is preparing for a public offering possibly as soon as this fall, aiming for a valuation of $2 trillion or more, which would set a record for the largest market debut.</description>
+      <guid isPermaLink="false">sty_58f0660a0bf6f8d6</guid>
+      <pubDate>2026-08-17T23:56:26Z</pubDate>
+    </item>
+    <item>
+      <title>Google outbids Mercor to acquire Spirit Airlines' corporate data and software for $10 million in bankruptcy auction</title>
+      <link>https://www.theinformation.com/briefings/google-outbids-mercor-spirit-airlines-corporate-data</link>
+      <description>Google won a bankruptcy auction for the internal business data and software code of the collapsed low-cost carrier Spirit Airlines by bidding $10 million, surpassing a $7.5 million offer from Mercor, a company that trains AI models for labs. The acquisition was confirmed in a recent court filing related to Spirit Airlines' bankruptcy proceedings.</description>
+      <guid isPermaLink="false">sty_e1b58c41a14e7062</guid>
+      <pubDate>2026-08-17T20:48:56Z</pubDate>
+    </item>
+    <item>
+      <title>Qwen 3.8 27B scores 52 on Artificial Analysis Intelligence Index, matching GPT-5.6 Luna and close to larger models GLM-5.2 and DeepSeek V4 Pro [ ~ ] [ ◻ ]</title>
+      <link>https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores-52/</link>
+      <description>The Qwen 3.8 27B language model achieved a score of 52 on the Artificial Analysis Intelligence Index, equaling the performance of GPT-5.6 Luna and trailing GLM-5.2 and DeepSeek V4 Pro by one point. Despite having only 27 billion parameters, Qwen 3.8 27B performs comparably to much larger models, including GLM-5.2 with 753 billion parameters and DeepSeek with 1.6 billion parameters. This result highlights Qwen 3.8 27B as a notable model in generative AI and large language model development.</description>
+      <guid isPermaLink="false">sty_1f86ddcd8b8ed483</guid>
+      <pubDate>2026-08-17T23:58:14Z</pubDate>
+    </item>
+    <item>
+      <title>Smolbox runs a full x86_64 Linux VM with integrated LLM AI entirely in a browser tab using WebAssembly and WebGPU [ ~ ] [ ◻ ]</title>
+      <link>https://remyhax.xyz/posts/smolbox/</link>
+      <description>Smolbox is a proof-of-concept virtual machine sandbox that operates fully within a web browser tab, running Alpine Linux on an x86_64 VM via WebAssembly. It integrates a large language model (LLM) AI using WebGPU, allowing AI tool calls inside the VM without any server-side processing, and supports mounting user-selected files read-only into the VM. The project demonstrates that complex AI and VM environments can run client-side, highlighting potential for agentic AI use without centralized servers. The creator reflects on past experiences with limited internet access and discusses challenges teenagers face today in accessing AI tools on locked-down devices or without payment methods, emphasizing the resourcefulness required to overcome such barriers.</description>
+      <guid isPermaLink="false">sty_5281f750a4ed4c27</guid>
+      <pubDate>2026-08-17T22:07:38Z</pubDate>
+    </item>
+    <item>
+      <title>AI automation startup Relay shuts down; founder Jacob Bank and staff join Google Chrome team to advance AI integration [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/08/17/ai-automation-startup-relay-shuts-down-staff-joins-googles-chrome-team/</link>
+      <description>Relay, an AI-powered workflow automation startup launched in 2021, is shutting down its service with paid customer access ending September 14 and free access already terminated. Founder and CEO Jacob Bank, who previously worked at Google, is rejoining the company as VP of Product for Google Chrome, where he will lead product and developer relations teams. Relay aimed to streamline repetitive business tasks through automation, similar to Zapier, but will now see its team contribute to Google's Chrome browser. Bank indicated plans to enhance AI capabilities within Chrome, describing it as an ideal platform for collaboration with AI agents, aligning with Google's broader integration of AI technologies like Gemini into its products.</description>
+      <guid isPermaLink="false">sty_75b27bb5ec3b56cb</guid>
+      <pubDate>2026-08-17T21:27:05Z</pubDate>
+    </item>
+    <item>
+      <title>Un-AI Your Internet: A guide to reducing reliance on AI-driven tools and services online [ ~ ] [ ◻ ]</title>
+      <link>https://un-ai.digitalprophet.online/</link>
+      <description>The article critiques the widespread integration of large language models and AI technologies in internet services, arguing that current AI implementations are inefficient simulations rather than true intelligence. It advocates for users to actively remove or disable AI features from their devices and software to regain control over their online experience. It outlines practical steps such as avoiding AI-heavy platforms like Google Search and Chrome, and choosing alternatives that do not bundle AI, emphasizing the tension between user freedom and the controlled environments promoted by major tech companies. The article warns that AI's pervasive presence is driven by heavy investments and may be difficult to avoid, but encourages users to resist supporting AI-dependent products and services where possible.</description>
+      <guid isPermaLink="false">sty_679996973058ed33</guid>
+      <pubDate>2026-08-17T23:57:13Z</pubDate>
+    </item>
+    <item>
+      <title>DOJ investigates Andreessen Horowitz over antitrust concerns related to board seats at competing AI firms Databricks and Fivetran [ * ] [ ◻ ]</title>
+      <link>https://www.theinformation.com/briefings/andreessen-horowitz-focus-doj-antitrust-probe-databricks-fivetran-board-seats</link>
+      <description>The Justice Department is conducting an antitrust investigation into Andreessen Horowitz regarding its board positions at competing artificial intelligence companies Databricks and Fivetran. The probe has been ongoing for nearly a year and coincides with the agency's review of Fivetran's acquisition of dbt Labs. The investigation focuses on potential conflicts arising from Andreessen Horowitz's influence across these competing firms.</description>
+      <guid isPermaLink="false">sty_09c36fddbba49c8c</guid>
+      <pubDate>2026-08-17T19:07:43Z</pubDate>
+    </item>
+    <item>
+      <title>Forklane.ai launches a multiplayer coding environment for development teams and agents to collaborate in real time</title>
+      <link>https://forklane.ai</link>
+      <description>Forklane.ai has introduced a new multiplayer coding platform designed to enable real-time collaboration among development teams and agents. The environment aims to improve teamwork efficiency by facilitating simultaneous coding interactions. This platform supports developers working together more effectively by providing shared coding sessions accessible through the web.</description>
+      <guid isPermaLink="false">sty_a5b34e8263c38446</guid>
+      <pubDate>2026-08-17T23:33:00Z</pubDate>
+    </item>
+    <item>
+      <title>Report: Israel plans $145 million campaign using ChatGPT and US influencers to promote pro-Israel narratives among young Americans [ ~ ] [ ◻ ]</title>
+      <link>https://www.ynetnews.com/tech-and-digital/article/rj00kxqzaxx</link>
+      <description>Israel's Foreign Ministry is preparing to spend over half a billion shekels on a global public diplomacy campaign that leverages AI platforms like ChatGPT, US companies, and influencers to shape pro-Israel narratives online. The $145 million initiative aims to counter growing criticism of Israel among young Americans by influencing consumer AI and social media content. The campaign represents a strategic use of emerging AI technologies and digital platforms to engage with international audiences and manage Israel's image abroad. It highlights the increasing role of AI-driven tools in public diplomacy and information campaigns.</description>
+      <guid isPermaLink="false">sty_71e0c417b5ad0411</guid>
+      <pubDate>2026-08-17T21:44:05Z</pubDate>
+    </item>
+    <item>
+      <title>Rysh launches an AI-powered terminal multiplexer in Go, enabling Claude and Codex agents to collaborate in multiple panes with session persistence and local secret management [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/rysh-ai/rysh-cli-code</link>
+      <description>Rysh has released an agentic terminal multiplexer written in Go that allows multiple AI agents, including Claude and Codex, to operate simultaneously in separate panes within a single session. Each pane acts as an independent agent capable of answering prompts and executing tasks, with sessions persisting state even after restarts. The tool supports complex workflows where agents can coordinate tasks, such as managing project goals and parallel work orders, all within a familiar terminal interface. The software ensures security by substituting secrets with tokens before requests leave the local machine, preventing exposure of sensitive data to the AI models. Rysh is available as open-source software under the Apache-2.0 license and supports macOS, Linux, and Windows via WSL2. It offers both source builds and prebuilt binaries, with detailed documentation and video tutorials to guide users through its features and installation.</description>
+      <guid isPermaLink="false">sty_bda822edfc5c0424</guid>
+      <pubDate>2026-08-17T22:51:16Z</pubDate>
+    </item>
+    <item>
+      <title>Cumora launches cross-platform team chat integrating AI agents as active participants alongside humans with shared conversations and workflows [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/yetone/cumora</link>
+      <description>Cumora is a cross-platform team chat application where AI agents participate alongside humans in the same conversations, direct messages, Kanban boards, and calendars. These AI agents maintain personas and memory, coordinate tasks without conflicts, send and receive real emails, and can run on Cumora's cloud or locally on user machines. The platform supports two modes: a managed cloud service with Kubernetes pods running multi-hop tool-calling loops via the OpenAI Responses API, and a Bring Your Own Agent (BYOA) option allowing users to run agents locally with their own AI subscriptions.</description>
+      <guid isPermaLink="false">sty_d3382a1c132b799a</guid>
+      <pubDate>2026-08-17T22:46:00Z</pubDate>
+    </item>
+    <item>
+      <title>AI writes dead code - the Go team's deadcode tool finds it in one command [ ~ ] [ ◼ ]</title>
+      <link>https://towardsdev.com/how-to-find-and-remove-the-dead-code-your-agent-wrote-752eb1e738d0?sk=283d17fe49cb51c9936d99371e7a9d2a</link>
+      <description/>
+      <guid isPermaLink="false">sty_2d327edc7fd0a4ff</guid>
+      <pubDate>2026-08-17T22:36:06Z</pubDate>
+    </item>
+    <item>
+      <title>Prime Agent: A Self-Improving RLM Agent [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/PrimeIntellect-ai/prime-agent</link>
+      <description>Prime Agent is a reinforcement learning-based agent designed to improve its own performance through self-improvement mechanisms. The approach focuses on enabling the agent to adapt and enhance its capabilities autonomously over time.</description>
+      <guid isPermaLink="false">sty_a90c1611983bb26f</guid>
+      <pubDate>2026-08-18T00:05:41Z</pubDate>
+    </item>
+    <item>
+      <title>EY turning internships into yearlong residencies as AI changes entry-level work [ * ] [ ◻ ]</title>
+      <link>https://www.businessinsider.com/ey-internship-residency-career-ai-skills-2026-8</link>
+      <description/>
+      <guid isPermaLink="false">sty_adf542e7ad85f509</guid>
+      <pubDate>2026-08-17T21:36:25Z</pubDate>
+    </item>
+    <item>
+      <title>Show HN: AI-generated music box version of any song (for baby) [ ~ ] [ ◻ ]</title>
+      <link>https://lullabyconverter.com</link>
+      <description>A new tool has been introduced that uses artificial intelligence to create music box versions of any song, designed specifically for babies. This application allows users to input their favorite songs and receive a gentle, music box-style rendition suitable for infants.</description>
+      <guid isPermaLink="false">sty_cb9c58a0a40a1d1f</guid>
+      <pubDate>2026-08-17T23:14:35Z</pubDate>
+    </item>
+    <item>
+      <title>Show HN: A benchmark for AI agent guardrails that caught my own plugin [ ~ ] [ ◻ ]</title>
+      <link>https://github.com/couldbeme/holdline</link>
+      <description/>
+      <guid isPermaLink="false">sty_1b76a91ebf8b0a5d</guid>
+      <pubDate>2026-08-17T23:11:48Z</pubDate>
+    </item>
+    <item>
+      <title>Ask HN: Can you still tell AI-generated text apart in your own language? [ ~ ] [ ◻ ]</title>
+      <link>https://news.ycombinator.com/item?id=49338865</link>
+      <description/>
+      <guid isPermaLink="false">sty_343aeccbf9fa5361</guid>
+      <pubDate>2026-08-17T22:59:37Z</pubDate>
+    </item>
+    <item>
+      <title>[AINews] Stripe buys OpenRouter for $7B [ * ] [ ◼ ]</title>
+      <link>https://www.latent.space/p/ainews-stripe-buys-openrouter-for</link>
+      <description>Stripe has acquired OpenRouter for $7 billion. The acquisition emphasizes infrastructure and distribution capabilities without relying on GPUs or agents.</description>
+      <guid isPermaLink="false">sty_42f693b4604f72fd</guid>
+      <pubDate>2026-08-17T23:13:41Z</pubDate>
+    </item>
+    <item>
+      <title>Control Charts Make AI Agents Cheaper, Less Necessary, and More Useful [ ~ ] [ ◻ ]</title>
+      <link>https://newoldweb.com/control-charts-make-ai-agents-less-necessary-and-more-useful</link>
+      <description/>
+      <guid isPermaLink="false">sty_b542dffd33961737</guid>
+      <pubDate>2026-08-17T21:48:14Z</pubDate>
+    </item>
+    <item>
+      <title>Fearing an AI Chip Glut, Data Center Developers Are Choosin' Texas [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/fearing-ai-chip-glut-data-center-developers-choosin-texas</link>
-      <description>Data center developers working with major AI companies like Google, Microsoft, and Oracle are favoring Texas for new facilities amid fears of a surplus of specialized AI server chips that may lack deployment opportunities. This shift is influenced by Texas's business-friendly environment and energy advantages compared to other regions facing power delays, political conflicts, and technical difficulties. These developers are responding to unexpected challenges in other locations, including multibillion-dollar cost overruns and energy constraints, which have complicated the rollout of AI infrastructure. The move to Texas reflects strategic decisions to mitigate risks associated with these obstacles while accommodating the growing demand for AI data center capacity.</description>
+      <description>Just like in the hit country crossover song of the year, "Choosin' Texas," digital cowboys are throwing themselves into the arms of the Lone Star State. One of the reasons AI giants are rushing to the business- and energy-friendly state is a looming concern about a future glut of specialized server chips that don't have a place to plug in, according to some market analysts and data center developers that work with Google, Microsoft, Oracle and others. These people are taking stock of the unexpected power delays, political fights and technical challenges facing new facilities.</description>
       <guid isPermaLink="false">sty_2e3e340924db5a07</guid>
       <pubDate>2026-08-17T15:00:55Z</pubDate>
     </item>
     <item>
-      <title>Nvidia, OpenAI, and SoftBank finalize deal for $105 billion Ohio data center project with 20-year lease commitment [ * ] [ ◼ ]</title>
+      <title>Amazon, which started off selling books, is destroying rare texts to train AI [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/</link>
+      <description>Rare books are incredibly valuable for training LLMs, since these models have already trained on whatever's available online.</description>
+      <guid isPermaLink="false">sty_da447ff1b5a796fd</guid>
+      <pubDate>2026-08-17T16:38:44Z</pubDate>
+    </item>
+    <item>
+      <title>AI systems out-persuade expert humans [ * ] [ ◼ ]</title>
+      <link>https://arxiv.org/abs/2606.16475</link>
+      <description/>
+      <guid isPermaLink="false">sty_d88fec1c202601a9</guid>
+      <pubDate>2026-08-17T21:08:33Z</pubDate>
+    </item>
+    <item>
+      <title>Groq raises $350M to fuel its pivot from AI chips to neocloud [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/08/17/groq-raises-350m-to-fuel-its-pivot-from-ai-chips-to-neocloud/</link>
+      <description>Groq raised $350 million at a $3.5 billion valuation as the former AI chipmaker pivots to a neocloud business and expands its Nvidia-powered data center footprint.</description>
+      <guid isPermaLink="false">sty_491903945ae9c901</guid>
+      <pubDate>2026-08-17T16:15:12Z</pubDate>
+    </item>
+    <item>
+      <title>Nvidia, OpenAI and SoftBank Finalize Deal For Massive Ohio Data Center Project [ * ] [ ◼ ]</title>
       <link>https://www.theinformation.com/briefings/nvidia-openai-softbank-finalize-deal-massive-ohio-data-center-project</link>
-      <description>Nvidia, OpenAI, and SoftBank's SB Energy have finalized plans to develop a large data center at the PORTS-Pike Technology Campus in Pike County, Ohio. Nvidia will provide credit support up to $105 billion, while OpenAI has committed to a 20-year lease for the facility. The project represents a significant investment in data center infrastructure in southern Ohio, aiming to support growing computational demands. The collaboration combines Nvidia's financial backing, OpenAI's long-term operational commitment, and SoftBank's energy expertise to establish a major technology hub in the region.</description>
+      <description>Nvidia, OpenAI and SB Energy confirmed plans to team up on a massive data center in southern Ohio for which Nvidia will provide credit support covering up to $105 billion and OpenAI will commit to a 20-year lease. The project, at the PORTS-Pike Technology Campus in Pike County, Ohio, will ...</description>
       <guid isPermaLink="false">sty_0cae4144adab2aca</guid>
       <pubDate>2026-08-17T14:01:15Z</pubDate>
     </item>
     <item>
-      <title>Sources: Anthropic and OpenAI may limit API access to their best AI models as they develop industry-specific applications, raising concerns among business customers</title>
+      <title>Will Anthropic and OpenAI Stop Selling Their Best AI to Businesses? [ * ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/will-anthropic-openai-stop-selling-best-ai-businesses</link>
-      <description>Anthropic and OpenAI are increasingly focusing on developing AI applications tailored to specific industries, which has raised concerns among their business customers who now face competition from their AI suppliers. Companies like Canva have recently encountered challenges due to this shift, prompting questions about the future availability of AI models through application programming interfaces (APIs), a major revenue source for both AI labs. Conversations with researchers and founders reliant on these models suggest uncertainty about whether Anthropic and OpenAI will continue offering their top AI models via APIs, which could impact businesses that depend on these services to compete effectively in the evolving AI landscape.</description>
+      <description>Anthropic and OpenAI's move to develop AI applications and features tailored to specific industries continues to worry their customers, some of which must now compete head-on with their main AI suppliers. Design app Canva is the latest to find itself in this predicament, as we reported earlier this month. Through it all, though, most people assumed Anthropic and OpenAI would always offer their models through an application programming interface, which is a multibillion-dollar revenue driver for both of them. As long as it stays that way, businesses will stand a chance against the new competition. But will it? Conversations I've had in recent weeks with researchers at these frontier labs and founders whose applications depend on the latest models left me wondering if the status quo will persist.</description>
       <guid isPermaLink="false">sty_629e58d8ca70074d</guid>
       <pubDate>2026-08-17T14:01:00Z</pubDate>
     </item>
     <item>
-      <title>Critique of Anthropic alleges use of safety claims to enforce anti-competitive controls over open source AI development [ * ] [ ◼ ]</title>
-      <link>https://twitter.com/TheAhmadOsman/status/2065307070044234186</link>
-      <description>A detailed critique accuses Anthropic of using safety and responsible deployment rhetoric to justify opaque model behavior, restrict access, and suppress competition in the AI industry. The company is said to degrade or refuse service to users attempting to build competing AI systems, effectively creating a permission regime that limits independent AI development. The critique highlights concerns that Anthropic's approach transforms AI cognition into a controlled infrastructure, where users cannot freely use outputs to train competing models. This pattern is described as power consolidation that threatens open source AI communities and the broader political economy of intelligence, urging a shift toward local AI model deployment to avoid dependence on restrictive platforms.</description>
-      <guid isPermaLink="false">sty_88ae4f4efdae6a36</guid>
-      <pubDate>2026-08-17T15:24:34Z</pubDate>
+      <title>OpenAI and Elon Musk's xAI called this S.F. building home. Now another startup is moving in - San Francisco Chronicle</title>
+      <link>https://news.google.com/rss/articles/CBMilgFBVV95cUxNMm12VTgwS3l2OF9Tclg0ek9KVnRld0lfZHVBb0lCUzVHeFJaWWxGMHQxdTZOUnI1TFd3bC01dUh4UGZEazBsR1JCa3JfdnpkQURRZ1hJYVluWTBKdF9OcjlVVzgwR2g3SzBKb2E0NE1WQkNXNUEyU3Jvc1ZFUGd6UnZmZ21IN202YXIzZEVhaDI3RjFFa3c?oc=5</link>
+      <description>A building in San Francisco that has housed prominent AI companies such as OpenAI and Elon Musk's xAI is now welcoming another startup as a new tenant. This development highlights the city's ongoing role as a hub for artificial intelligence innovation and technology startups.</description>
+      <guid isPermaLink="false">sty_fd92cd4f14fa4c33</guid>
+      <pubDate>2026-08-17T23:56:58Z</pubDate>
     </item>
     <item>
-      <title>Nvidia invests $1.5 billion in SoftBank-linked SB Energy to supply compute infrastructure for OpenAI's Ports-Pike data center near Cincinnati [ * ] [ ◼ ]</title>
+      <title>Nvidia investing $1.5B in SoftBank data center developer behind OpenAI project [ * ] [ ◼ ]</title>
       <link>https://techcrunch.com/2026/08/17/nvidia-investing-1-5b-in-softbank-data-center-developer-behind-openai-project/</link>
-      <description>Nvidia announced a $1.5 billion investment in SB Energy, a data center developer associated with SoftBank and OpenAI, securing its role as the sole supplier of compute infrastructure for OpenAI's Ports-Pike data center in Ohio. The deal includes up to $105 billion in credit to help build the facility, which could expand from 4.25 to 8 gigawatts in capacity. SB Energy plans to build a 9.2 gigawatt natural gas power plant on land owned by the U.S. Department of Energy, a site with a history of uranium enrichment for nuclear purposes. The power plant is expected to cost $33 billion amid rising natural gas prices and increased construction costs, potentially impacting energy markets as export demand grows.</description>
+      <description>Nvidia's investment in SoftBank's data center developer will guarantee its chips power an OpenAI data center.</description>
       <guid isPermaLink="false">sty_613dea539fe1fcf3</guid>
       <pubDate>2026-08-17T15:16:24Z</pubDate>
     </item>
     <item>
-      <title>Arm CFO says company may pursue acquisitions amid challenges of selling its own AI chips, following share price surge to $300 billion valuation [ ~ ] [ ◻ ]</title>
+      <title>Arm CFO Eyes Deals as Chip Building Bring New Challenges [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/arm-cfo-eyes-deals-chip-building-bring-new-challenges</link>
-      <description>Arm's shares have more than doubled this year, driven by demand for its CPU designs and a new AI chip, boosting its valuation to $300 billion under SoftBank's control. This growth has increased Arm's capacity for acquisitions, though the company has historically focused on smaller deals like last year's $265 million purchase of networking startup DreamBig. Arm's CFO, Jason Child, indicated the company might consider larger acquisitions as it navigates the complexities of manufacturing its own silicon, a shift from its traditional licensing model. Child noted that delivering silicon is more complicated than licensing designs, reflecting new operational challenges for Arm as it expands its business model.</description>
+      <description>Arm shares have more than doubled this year as the U.K. company has benefited from demand for the central processing units it designs and a new AI chip it is selling. And that soaring share price has given the SoftBank-controlled company, now worth $300 billion, more firepower to do acquisitions. In the past, Arm has mostly made small purchases, such as last year's $265 million deal for networking startup DreamBig. It's likely to stick to this kind of acquisition in the future, Arm Chief Financial Officer Jason Child said in an interview. But he indicated the company hasn't ruled out bigger ones. That's especially the case as its decision to sell its own chips, not just license its designs to companies like Nvidia and Apple, forces it to grapple with new growth and the challenges that come with it. "Delivering silicon is definitely more complicated" than licensing designs, he said.</description>
       <guid isPermaLink="false">sty_e4066fec0db3bcfe</guid>
       <pubDate>2026-08-17T13:00:50Z</pubDate>
     </item>
     <item>
-      <title>C# and .NET offer a strong, under-the-radar AI development stack with tools like Aspire and CSharpRepl enhancing agent autonomy and runtime orchestration [ * ] [ ◼ ]</title>
-      <link>https://chrlschn.dev/blog/2026/08/the-unexpected-ai-stack-csharp-dotnet-part-1/</link>
-      <description>This article introduces C# and .NET as a powerful but often overlooked stack for building AI-driven applications, highlighting how modern tooling can accelerate agentic development. It focuses on Aspire, a programmable runtime orchestration layer, and CSharpRepl, which allows agents to interact with and modify running applications, enabling more autonomous and efficient code iteration. The author explains why C# is a compelling choice for AI software development, citing its build- and runtime type safety, rich tooling like Roslyn analyzers and source generators, mature libraries, and strong ecosystem security. The article also outlines a multi-part series that will further explore building agent-friendly applications using this stack, including practical implementations and testing strategies.</description>
-      <guid isPermaLink="false">sty_72a57a5209847889</guid>
-      <pubDate>2026-08-17T15:31:51Z</pubDate>
+      <title>Hidden Airtag reveals Amazon is trashing rare books to train AI [ * ] [ ◻ ]</title>
+      <link>https://arstechnica.com/tech-policy/2026/08/hidden-airtag-reveals-amazon-is-trashing-rare-books-to-train-ai/</link>
+      <description>Amazon's team uses a T. rex preparing to devour a book as its logo.</description>
+      <guid isPermaLink="false">sty_ace6b1844122899b</guid>
+      <pubDate>2026-08-17T18:13:47Z</pubDate>
     </item>
     <item>
-      <title>Report: Big Tech's AI spending may be $3 trillion higher than reported due to accounting practices and indirect costs</title>
-      <link>https://www.wsj.com/tech/ai/why-big-techs-ai-spending-is-3-trillion-higher-than-it-seems-e1067bb2</link>
-      <description>A Wall Street Journal report reveals that Big Tech companies' actual spending on artificial intelligence could be $3 trillion more than official figures suggest. This discrepancy arises from how these companies account for AI investments, including indirect costs and infrastructure expenses not typically classified under AI budgets. The analysis highlights the challenges in accurately measuring AI investment levels and suggests that the scale of AI spending in the tech industry is significantly underestimated.</description>
-      <guid isPermaLink="false">sty_77db9f9189209893</guid>
-      <pubDate>2026-08-17T15:25:40Z</pubDate>
-    </item>
-    <item>
-      <title>OpenAI launches ChatGPT Computer History feature on macOS to track user keystrokes and interactions for AI learning, with opt-in and privacy controls [ * ] [ ◼ ]</title>
-      <link>https://futurism.com/artificial-intelligence/new-chatgpt-feature-collects-every-keystroke-you-make</link>
-      <description>OpenAI has introduced a new feature called Computer History in the ChatGPT desktop app for macOS that records user clicks, keystrokes, and other interactions to help the AI learn how users work and assist with tasks. The feature creates a timeline of user actions that the AI can reference to provide suggestions and complete tasks, but it raises privacy concerns due to the extensive access it requires. Computer History is opt-in and excludes data from incognito or private browsing modes, with options to blacklist specific apps and review or delete stored data. Despite these controls, the feature scans messages on platforms like Slack, potentially accessing private communications of others. OpenAI warns that the collected data may contain sensitive information and is not encrypted, meaning other programs on the user's macOS account could access it, prompting comparisons to previous controversial tools like Microsoft's Windows Recall.</description>
-      <guid isPermaLink="false">sty_674cfaf65523a46a</guid>
-      <pubDate>2026-08-17T15:37:49Z</pubDate>
-    </item>
-    <item>
-      <title>Report: Shipment of rare books tracked to Amazon AI training facility in Las Vegas, confirming large-scale book scanning for AI data [ ~ ] [ ◻ ]</title>
-      <link>https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/</link>
-      <description>404 Media used an Apple AirTag to track a shipment of around 1,000 rare books ordered anonymously from a bookseller, revealing the shipment's destination as the VGT3 corner of Amazon's LAS8 facility in Las Vegas. The facility is reportedly involved in destructive scanning of large volumes of books for AI training purposes, as confirmed by online discussions among Amazon workers. This investigation follows previous reports of companies purchasing large quantities of books to scan them for AI training, including coverage of Anthropic's book scanning activities in 2025. The findings highlight ongoing efforts by AI companies to acquire extensive textual data through unconventional means, raising questions about data sourcing and copyright.</description>
-      <guid isPermaLink="false">sty_6782ec1b53f12570</guid>
-      <pubDate>2026-08-17T15:21:29Z</pubDate>
-    </item>
-    <item>
-      <title>Article explains AI concepts using dosa-making analogies to simplify terminology for broader understanding [ ~ ] [ ◻ ]</title>
-      <link>https://qainsights.com/ai-terms-explained-with-simple-examples-using-a-dosa-analogy/</link>
-      <description>The article uses the process of making dosas, a type of Indian pancake, as an analogy to explain artificial intelligence (AI) terms and concepts. This approach aims to make complex AI ideas more accessible by relating them to familiar, everyday cooking steps. By breaking down AI terminology through simple examples, the article helps readers grasp foundational AI concepts without technical jargon.</description>
-      <guid isPermaLink="false">sty_d65cdad61e20e071</guid>
-      <pubDate>2026-08-17T15:55:41Z</pubDate>
-    </item>
-    <item>
-      <title>Investigation finds Amazon destroys rare books by cutting spines to scan them for AI training data at Las Vegas warehouse [ * ] [ ◻ ]</title>
-      <link>https://the-decoder.com/airtag-reveals-how-amazon-destroys-rare-books-for-ai-training/</link>
-      <description>An investigation by 404 Media revealed that Amazon buys printed books in bulk, scans them for AI training data, and destroys the physical copies by cutting off their spines at a Las Vegas warehouse. The scanned data is used to train Amazon's Nova AI models, with the company stating it acquires books through commercial channels to improve its products. The practice raises concerns among booksellers and authors because it involves destroying sometimes rare and irreplaceable books, removing knowledge from public access and incorporating it into proprietary AI models. Similar operations have been reported at other AI companies like Anthropic, which faced a lawsuit over its book scanning project but was ruled to have fair use rights since the originals were destroyed and not resold.</description>
-      <guid isPermaLink="false">sty_ccebfb252b18193c</guid>
-      <pubDate>2026-08-17T14:43:04Z</pubDate>
-    </item>
-    <item>
-      <title>OpenAI outlines AI-driven cybersecurity defenses following autonomous attack on its and Hugging Face's infrastructure, urging rapid industry-wide action [ * ] [ ⬢ ]</title>
+      <title>The Defender's Window [ * ] [ ⬢ ]</title>
       <link>https://openai.com/index/the-defenders-window</link>
-      <description>OpenAI revealed details of a recent autonomous cyberattack that penetrated both its and Hugging Face's systems, highlighting the evolving threat landscape driven by AI capabilities. The company emphasized the urgent need for organizations to enhance cybersecurity practices using AI tools to detect and fix vulnerabilities faster than attackers can exploit them. OpenAI shared its approach to strengthening defenses, including using AI models to secure code and automate security configurations, illustrated by an example where AI identified and fixed multiple issues on a personal website. The company warned that while AI-powered attackers are advancing, AI also offers defenders new advantages to improve security and reduce risks if adopted promptly and effectively.</description>
+      <description>AI is reshaping cybersecurity for attackers and defenders alike. Learn how OpenAI is strengthening its defenses and what security teams can do now.</description>
       <guid isPermaLink="false">sty_1ee226250235c533</guid>
       <pubDate>2026-08-17T05:30:00Z</pubDate>
     </item>
     <item>
-      <title>Dig.bench: Discovering unknown rules in text-based games [ ~ ] [ ◻ ]</title>
-      <link>https://digbench.ai</link>
-      <description/>
-      <guid isPermaLink="false">sty_69115fc4a53e4b1e</guid>
-      <pubDate>2026-08-17T15:26:23Z</pubDate>
+      <title>Fidji Simo says she believes AI can 'cure all diseases,' agreeing with Anthropic CEO Dario Amodei - LinkedIn [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMivgFBVV95cUxNWHBPd2hJZFNKUVhMZ1E4clpRRVd6ZzB2dGlHbEk3Y3dTQjE0Mi1telZnRVBWVVVyU01SQlFfNTQ3a2U3ZGFUa1I2TTBNU0h3c0JCLTNXb0ZvbVo3YjRYTnVucTB0MFZaYXBkQWMxOVRsTFFtS1hBTGpjYmZlVlZ5VjlVZVFXZXhHelNKQWdScXhnQkl6aE9oN1VLYThKbFpXc3ZzR1dXcXZSeFdWMVVNN1BaRURpcVBRdVI1am9R?oc=5</link>
+      <description>Fidji Simo says she believes AI can 'cure all diseases,' agreeing with Anthropic CEO Dario Amodei LinkedIn</description>
+      <guid isPermaLink="false">sty_1700e80f30955f31</guid>
+      <pubDate>2026-08-17T22:29:01Z</pubDate>
     </item>
     <item>
-      <title>Show HN: AI-Generated Flash Fiction Arena [ ~ ] [ ◻ ]</title>
-      <link>https://worldsenoughstudios.com/flash-fight/</link>
-      <description>A new platform called AI-Generated Flash Fiction Arena has been introduced, where users can create and share very short stories generated by artificial intelligence. The site allows for interactive engagement with AI-generated content in the flash fiction genre.</description>
-      <guid isPermaLink="false">sty_61548a0112e64df9</guid>
-      <pubDate>2026-08-17T15:49:50Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: An AI-produced news podcast for curious kids [ ~ ] [ ◻ ]</title>
-      <link>https://myfirst.news/</link>
-      <description>A new podcast has been launched that uses artificial intelligence to produce news content tailored for curious children. The show aims to present current events in an engaging and accessible manner for young audiences.</description>
-      <guid isPermaLink="false">sty_ec9f29f3fafac366</guid>
-      <pubDate>2026-08-17T15:47:16Z</pubDate>
+      <title>Fidji Simo says she believes AI can 'cure all diseases,' agreeing with Anthropic CEO Dario Amodei - AOL.com [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMifEFVX3lxTE4yOEI1TFZudG1fVGZCdlktdU9zUjUyZ2pFWGZmNHowdEhaV1JKSU5RTHJOUk5jb2NsYVBJRXc3eEdId25WOTJxSVUxNWhBeHJKMmlxeVh1bVBGcU1QU2tNRWZjMm5MeUM0emxQeHVOS0Y4bVYxMVhiMTNtMF8?oc=5</link>
+      <description>Fidji Simo says she believes AI can 'cure all diseases,' agreeing with Anthropic CEO Dario Amodei AOL.com</description>
+      <guid isPermaLink="false">sty_16e804f0270bf51f</guid>
+      <pubDate>2026-08-17T22:28:42Z</pubDate>
     </item>
     <item>
       <title>OpenAI joins PORTS-Pike project [ ~ ] [ ◻ ]</title>
@@ -179,53 +305,18 @@
       <pubDate>2026-08-17T05:00:00Z</pubDate>
     </item>
     <item>
-      <title>OpenAI signs record Ohio data center lease with Nvidia backing up to $105 billion [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/openai-signs-record-ohio-data-center-lease-with-nvidia-backing-up-to-105-billion/</link>
-      <description>OpenAI has signed a 20-year lease for an 8-gigawatt data center in Ohio. Nvidia is guaranteeing up to $105 billion for the residual value of the facilities and becomes the exclusive chip supplier. According to the Wall Street Journal, nine tech companies now hold around $3 trillion in AI commitments that don't appear on any balance sheet. The article OpenAI signs record Ohio data center lease with Nvidia backing up to $105 billion appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_43e2bc9c3170a5f2</guid>
-      <pubDate>2026-08-17T14:13:26Z</pubDate>
+      <title>We Tracked a Shipment of Rare Books. It Ended at an Amazon AI Training Facility [ ~ ] [ ◻ ]</title>
+      <link>https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/</link>
+      <description>We Tracked a Shipment of Rare Books. It Ended at an Amazon AI Training Facility Excellent piece of reporting from 404 Media. For a while now there have been stories of book dealers receiving orders for large volumes of books from apparently price-insensitive anonymous customers, widely suspected to be companies looking to scan them for AI training (see my previous coverage of Anthropic's book scanning from June 2025.) 404 Media investigated with an AirTag! In July, one bookseller told me they received a very large order of around 1,000 books on Biblio, one of these marketplaces. The seller agreed to put an Apple AirTag provided by 404 Media in one of the books included in this order so we could see where the book was going. And by extension, which company, AI or otherwise, was behind this massive order. The book ended up delivered to the VGT3 corner of the LAS8 Amazon facility in the north east of Las Vegas, where the entrance carried this on-the-nose logo of a dinosaur with a book! Photo credit: 404 Media Online forum discussions between Amazon workers confirmed that VGT3 destructively scans large volumes of books. Tags: amazon, journalism, ai, training-data, ai-ethics, 404-media</description>
+      <guid isPermaLink="false">sty_6782ec1b53f12570</guid>
+      <pubDate>2026-08-17T15:21:29Z</pubDate>
     </item>
     <item>
-      <title>The Economy Has Spoken: Stuff That's AI-Generated Has Almost Zero Value [ ~ ] [ ◻ ]</title>
-      <link>https://futurism.com/artificial-intelligence/economy-ai-generated-value</link>
-      <description>"Buyers are voting with their wallets, and AI-generated content is struggling to compete." The post The Economy Has Spoken: Stuff That's AI-Generated Has Almost Zero Value appeared first on Futurism.</description>
-      <guid isPermaLink="false">sty_ce7e082479aa452a</guid>
-      <pubDate>2026-08-17T14:27:32Z</pubDate>
-    </item>
-    <item>
-      <title>AI scrapers use bogus URL tracking tags to make website visits seem legit [ ~ ] [ ◻ ]</title>
-      <link>https://disassociated.com/ai-scraper-bogus-url-tracking-tags/</link>
-      <description>Some AI scrapers are employing fake URL tracking tags to make their visits to websites appear legitimate, potentially complicating website analytics and security measures.</description>
-      <guid isPermaLink="false">sty_fc92898933ddbd25</guid>
-      <pubDate>2026-08-17T15:51:47Z</pubDate>
-    </item>
-    <item>
-      <title>Well done AI, that's the end of the honest boxes [ ~ ] [ ◻ ]</title>
-      <link>https://benfrain.com/well-done-ai-thats-the-end-of-the-honest-boxes/</link>
-      <description>The article discusses recent developments in artificial intelligence, highlighting advancements that have led to the conclusion of a particular phase or concept referred to as "honest boxes." It reflects on the implications of these AI improvements in the broader technological landscape.</description>
-      <guid isPermaLink="false">sty_b4279520380049bc</guid>
-      <pubDate>2026-08-17T15:45:35Z</pubDate>
-    </item>
-    <item>
-      <title>The Endpoint Wars Just Restarted (Rise of the AI Agents) [ * ] [ ⬢ ]</title>
-      <link>https://www.techoperators.com/insights/the-endpoint-wars-just-restarted</link>
-      <description/>
-      <guid isPermaLink="false">sty_a946ae4088c02deb</guid>
-      <pubDate>2026-08-17T15:36:12Z</pubDate>
-    </item>
-    <item>
-      <title>Recently I've received lots of AI emails asking for my feedback</title>
-      <link>https://bsky.app/profile/carlbergstrom.com/post/3mtbboq46qc23</link>
-      <description/>
-      <guid isPermaLink="false">sty_54f069c8c52cd219</guid>
-      <pubDate>2026-08-17T15:19:45Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: Curia - Personal Radio and AI Podcasts</title>
-      <link>https://curia.surge.sh/</link>
-      <description/>
-      <guid isPermaLink="false">sty_f7fee7e69608ed89</guid>
-      <pubDate>2026-08-17T15:19:38Z</pubDate>
+      <title>GPT-5.6 Sol Pricing Cut by 50%</title>
+      <link>https://openrouter.ai/openai/gpt-5.6-sol</link>
+      <description>Comments</description>
+      <guid isPermaLink="false">sty_c89181e90f9de3db</guid>
+      <pubDate>2026-08-17T21:03:18Z</pubDate>
     </item>
     <item>
       <title>New policy ideas for the Intelligence Age [ ~ ] [ ◻ ]</title>
@@ -235,11 +326,25 @@
       <pubDate>2026-08-17T03:15:00Z</pubDate>
     </item>
     <item>
-      <title>Agentic AI costs set to balloon fivefold by 2028 [ * ] [ ◼ ]</title>
-      <link>https://www.theregister.com/ai-and-ml/2026/08/17/agentic-ai-costs-set-to-balloon-fivefold-by-2028/5288363</link>
-      <description/>
-      <guid isPermaLink="false">sty_75fa563018853d92</guid>
-      <pubDate>2026-08-17T15:17:10Z</pubDate>
+      <title>Nvidia $100B OpenAI Credit Support, Tesla's Radical 'Flying' Roaster, Dario Addresses AI Backlash - TITV [Video] [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiU0FVX3lxTFBwTVhKYmwycXlKUEdveXQ0VzZodEZkclZKeU93OERlc0t1THFxdnQ0dmQ4d2E2dVp3dE0wNzJ0Y1VvWGRsaGxfa2FNNkR4R3JsTFNr?oc=5</link>
+      <description>Nvidia $100B OpenAI Credit Support, Tesla's Radical 'Flying' Roaster, Dario Addresses AI Backlash - TITV [Video] The Information</description>
+      <guid isPermaLink="false">sty_6fef96b9dcb107bd</guid>
+      <pubDate>2026-08-17T17:32:10Z</pubDate>
+    </item>
+    <item>
+      <title>Amodei: AI Backlash Is a Crisis of Trust, Not His Warnings - Briefs Finance [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMikgFBVV95cUxORnNmNmdBcDZJVFdzRGxfcm5qc1RwQmRna1pibkg0UWIwYkYwejJTMndBTFQ4Z3JUUkdIZWlreDNDQjVHRDYzUWhEb0RlN25JUTBUTy05UVliYnh5SnBXRVpjT0x6OFpxbExTbFNUTl96Z1BqVlA4a19KTzBjMnU5Vlp4R2dtZkZvQjlXakJWc1BCQQ?oc=5</link>
+      <description>Amodei: AI Backlash Is a Crisis of Trust, Not His Warnings Briefs Finance</description>
+      <guid isPermaLink="false">sty_eda324d088a3b059</guid>
+      <pubDate>2026-08-17T20:27:29Z</pubDate>
+    </item>
+    <item>
+      <title>In Just 1 Word, Anthropic's CEO Admitted Why Everyone Hates Tech Companies Right Now - inc.com</title>
+      <link>https://news.google.com/rss/articles/CBMizAFBVV95cUxPaWZIU1ZPUTVJbjZXS2xkVG8yNVNodFFLVUo3czNQTkhUM1BDZDNCUUVKYmQwSVYtQVVpY1M3TGFWeE40Mk5JSEJiNWQxTDZJcmU4Y3UyNHllRFFUSmV0ekdGRUhnejdGNVE1WmpqODN0SkpCbWRaYXFPSF9BcTFxeTBFMHQzSmdwYjdjZkFOZi1Mbk5kc1VuQjhINWlaTnUyU0JoVGtZZ3F0OGVmWDdWaWhqR0hWd3VqcnQwN0tOUHdnazhILWNteFA4VF8?oc=5</link>
+      <description>In Just 1 Word, Anthropic's CEO Admitted Why Everyone Hates Tech Companies Right Now inc.com</description>
+      <guid isPermaLink="false">sty_f1ef848aa2c846e1</guid>
+      <pubDate>2026-08-17T20:11:31Z</pubDate>
     </item>
     <item>
       <title>Grab Cuts Mechanical Analytics Work From 44% to 30% with AI Agents [ * ] [ ◼ ]</title>
@@ -249,39 +354,11 @@
       <pubDate>2026-08-17T13:41:00Z</pubDate>
     </item>
     <item>
-      <title>The cure for AI mansplaining</title>
-      <link>https://blog.dait.ro/post/ai-mansplaining</link>
-      <description/>
-      <guid isPermaLink="false">sty_22f7fe0eee1c5076</guid>
-      <pubDate>2026-08-17T15:13:18Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: Agent Mesh - Shared memory for multi-Agent coordination [ * ] [ ◼ ]</title>
-      <link>https://github.com/cbalgeman/agent-mesh</link>
-      <description/>
-      <guid isPermaLink="false">sty_d27ecf1af35627cf</guid>
-      <pubDate>2026-08-17T15:10:33Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: The AI Reputation Manager</title>
-      <link>https://moregoodreviews.com/ai</link>
-      <description/>
-      <guid isPermaLink="false">sty_bfb39e61c5571cd9</guid>
-      <pubDate>2026-08-17T15:10:07Z</pubDate>
-    </item>
-    <item>
-      <title>Cloudflare Turns CI Pipelines into TypeScript Workflows</title>
-      <link>https://www.infoq.com/news/2026/08/cloudflare-ci-code-workflows/</link>
-      <description>Cloudflare has released cloudflare/ci, a CI SDK that defines pipelines in TypeScript on top of Cloudflare Workflows, giving each step durable retries and replay, concurrent steps by default and Sandbox snapshot caching. It targets the Workers runtime and depends on Artifacts, still in private beta, so the transferable lesson is the durable-step model rather than a drop-in CI replacement. By Mark Silvester</description>
-      <guid isPermaLink="false">sty_65f45f5b9ccddbbb</guid>
-      <pubDate>2026-08-17T13:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Teaching Everyone to Fish for Tokens [ * ] [ ◼ ]</title>
-      <link>https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens</link>
-      <description>Nvidia wants you building your own model, not buying from Anthropic/OpenAI.</description>
-      <guid isPermaLink="false">sty_43137f684f3019e6</guid>
-      <pubDate>2026-08-17T15:07:49Z</pubDate>
+      <title>Roboflow Playground: Try and Compare 30 Computer Vision Models [ ~ ] [ ◻ ]</title>
+      <link>https://blog.roboflow.com/roboflow-playground/</link>
+      <description>Comments</description>
+      <guid isPermaLink="false">sty_89c72a286ab2312b</guid>
+      <pubDate>2026-08-17T18:28:07Z</pubDate>
     </item>
     <item>
       <title>Anthropic explains how Claude&amp;#8217;s invisible text watermarks will work [ ~ ] [ ◼ ]</title>
@@ -291,11 +368,53 @@
       <pubDate>2026-08-17T10:57:13Z</pubDate>
     </item>
     <item>
-      <title>AI video market has bounced back from Sora's false start [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/ai-video-market-has-bounced-back-from-soras-false-start/</link>
-      <description>AI production companies like Promise are setting up shop around Hollywood's historic studios, using real-time backgrounds and other AI tools to cut film costs. Netflix already uses AI in 300 of its 1,000 titles, and the startup Higgsfield now carries a $5.4 billion valuation. What was once a tech demo has grown into its own industry, complete with valuations, job titles, and fights over who gets a cut. The article AI video market has bounced back from Sora's false start appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_b49def00659d9027</guid>
-      <pubDate>2026-08-17T13:29:01Z</pubDate>
+      <title>Cloudflare Turns CI Pipelines into TypeScript Workflows</title>
+      <link>https://www.infoq.com/news/2026/08/cloudflare-ci-code-workflows/</link>
+      <description>Cloudflare has released cloudflare/ci, a CI SDK that defines pipelines in TypeScript on top of Cloudflare Workflows, giving each step durable retries and replay, concurrent steps by default and Sandbox snapshot caching. It targets the Workers runtime and depends on Artifacts, still in private beta, so the transferable lesson is the durable-step model rather than a drop-in CI replacement. By Mark Silvester</description>
+      <guid isPermaLink="false">sty_65f45f5b9ccddbbb</guid>
+      <pubDate>2026-08-17T13:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Amazon Caught Destroying Rare Books to Train AI [ * ] [ ◼ ]</title>
+      <link>https://futurism.com/artificial-intelligence/amazon-destroying-rare-books-ai</link>
+      <description>"They just want the content as a bunch of words strung together." The post Amazon Caught Destroying Rare Books to Train AI appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_c5abc9143026ec51</guid>
+      <pubDate>2026-08-17T19:02:23Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic CEO Says AI Could Cure Most Human Disease in 5-10 Years - but Admits Big Promises Haven't Lande - Benzinga [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMi-wFBVV95cUxOSkVjSjJoRlpBdlloMmgxWlNIRmdTaFNHMi1UYi1Eem52ZzZneFdJRlFqYjFtX3lfbkI5S2lFWElaLXBGYkhHdW10bXRVZlAxTTVsRUpWQ1hLYjJya2xfSktFbFoxd3FTR2RTeTk4NUEyQWx3R3Rfd1lmUzhXeGRNUGVWWHpCZ25MSU5icDBTNHBOcnhpdlRwa2VrUjV1cDdYUC1vTV9HbVZCeW5hamhCTE9KMnVUWWN3WHNseERvZHRkYXA4WGxENmdmVjBKNmFVclFYMTNaOG5LYm4ySFZSTkU5VkR3My0wa1lVVFdOOWdXYkowcXlzMTFjVQ?oc=5</link>
+      <description>Anthropic CEO Says AI Could Cure Most Human Disease in 5-10 Years - but Admits Big Promises Haven't Lande Benzinga</description>
+      <guid isPermaLink="false">sty_46e2de76e194354d</guid>
+      <pubDate>2026-08-17T18:58:01Z</pubDate>
+    </item>
+    <item>
+      <title>Pondero Brief: Anthropic clears $11.5B and turns a profit before its IPO - Buttondown [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMikwFBVV95cUxObHI2R0YwZjB2ck9pbDZUZEp5dTM5Q05uZWRWaDBfZmFUd052eTh1c0hJLUlFTDRYVEh3UXM1LUUtNmlpd3ZYVjJsVTJLOU1XZUtWSU9aNjh6WnJqZDM2dU9mVTRNLU1abmdiVGZtMjUyUl9LTmszaTNqQ0g0QXNFZVJaMktGVDdiNnV3UDhMaFdDalE?oc=5</link>
+      <description>Pondero Brief: Anthropic clears $11.5B and turns a profit before its IPO Buttondown</description>
+      <guid isPermaLink="false">sty_94e37a0cce8572b3</guid>
+      <pubDate>2026-08-17T18:26:04Z</pubDate>
+    </item>
+    <item>
+      <title>Kentucky Middle School Sends Students Home on First Day of Class With AI-Generated Educational Materials Full of Inexcusable Hallucinations, Including a Map Labeled With "North Dahota" and "Olkchoma" [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/kentucky-middle-school-ai</link>
+      <description>"Planetary distance are temporatory earth, equater the elenonts and regnestiom org toed dishlign." The post Kentucky Middle School Sends Students Home on First Day of Class With AI-Generated Educational Materials Full of Inexcusable Hallucinations, Including a Map Labeled With "North Dahota" and "Olkchoma" appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_afd9a02b3bda95b9</guid>
+      <pubDate>2026-08-17T18:04:18Z</pubDate>
+    </item>
+    <item>
+      <title>Opposition to AI Goes Beyond Data Centers, as Poll Shows Massive Distrust of Big Tech CEOs - Common Dreams</title>
+      <link>https://news.google.com/rss/articles/CBMibEFVX3lxTE9jNUd2SlEwRjcwbUlSRzFhenc4XzJ3cnFvYUZIRThXQmJBM09kR1VHX21yYXY4bW5VS0gtaW02UWtjczFTNWh2QTlJX3ZJa2NhRU5SYTZtcGdOR1U0WDhjeldwUzZiWkR1UEFQNA?oc=5</link>
+      <description>Opposition to AI Goes Beyond Data Centers, as Poll Shows Massive Distrust of Big Tech CEOs Common Dreams</description>
+      <guid isPermaLink="false">sty_e5687f9e7b06dc35</guid>
+      <pubDate>2026-08-17T17:48:58Z</pubDate>
+    </item>
+    <item>
+      <title>Nvidia Turned an AI Startup Bet Into a $21B Stake in SpaceX - Gadget Review</title>
+      <link>https://news.google.com/rss/articles/CBMikAFBVV95cUxOSDN1ZXRUalBZWGcwMFdXTGdDdm13SnJpZUVibmRNZFlNdVcwNmdGRlpyYUFKNDU0bGRvdmtvTkxXMXd2OFB5NUhzclVncGNaUkhvMzQ1RFNsRmNlYnUydUViLWFrYmNtUjdiVlRISlI5R2pjNUxEWTdLNDYyZTlMT2NMQW0wOTdVenFDOVF6YTc?oc=5</link>
+      <description>Nvidia Turned an AI Startup Bet Into a $21B Stake in SpaceX Gadget Review</description>
+      <guid isPermaLink="false">sty_020a8915a6287625</guid>
+      <pubDate>2026-08-17T17:22:15Z</pubDate>
     </item>
     <item>
       <title>Article: Agentic Fitness Functions: Extending Evolutionary Architecture Beyond Deterministic Rules [ * ] [ ◼ ]</title>
@@ -312,53 +431,39 @@
       <pubDate>2026-08-17T11:00:00Z</pubDate>
     </item>
     <item>
-      <title>Minnesota defends AI 'nudification' ban after lawsuit from Musk's xAI - Reuters</title>
+      <title>Anthropic CEO Dario Amodei Says Open-Weight AI Won't Decentralize Power - TechRepublic [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMikAFBVV95cUxQT2VnaTlvT0x1b1dOYkpGTUYwbWtYTzZUaGZVVkZ6aVVPcGdGVnZfU2pBTUdVSWRBYXJCOUFPLWdOOE5LVWhWMm1SVTdDakJ4c2RLVEp6VnhZcXBZUXIxZmw5MmZFQTZxZkxkNXJaVEZCeGdNcFA4Z3JBTGo2c01namNQcE9MWjRFazZRMTZ6b0s?oc=5</link>
+      <description>Anthropic CEO Dario Amodei Says Open-Weight AI Won't Decentralize Power TechRepublic</description>
+      <guid isPermaLink="false">sty_13a4272e07df1d29</guid>
+      <pubDate>2026-08-17T17:06:10Z</pubDate>
+    </item>
+    <item>
+      <title>"Open weights are nowhere near a sufficient solution": Dario Amodei fires back on AI power - The New Stack [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMib0FVX3lxTFA5MkhxeW5rWlN2SGk4OVBWTjllODRrdkg2akNYM01feFl4MEhjZDJSTzVaLXBReFVZTS04SUp1ZUUwSzJtLWd2eUZlNlZwQ1pFT1BTZ0NwN1JzcHlVdkwzcFJKMjdmRnBqZUROZTJ3TQ?oc=5</link>
+      <description>"Open weights are nowhere near a sufficient solution": Dario Amodei fires back on AI power The New Stack</description>
+      <guid isPermaLink="false">sty_ed60e1399a4334fd</guid>
+      <pubDate>2026-08-17T17:02:04Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's Dario Amodei Defends AI Messaging as Company Clarifies Claude Watermarking Details - AI Insider [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiywFBVV95cUxNTVh6THVsc2puMHJFN2JvZlZjSXp2MEJmWUstT3lZRXZDbHUtNUZYNTdIcU5HUW5pcVZPaHB1bmFXemNwRU9aQV80UG5ycS1kZGxwLWpza3cyc2JmeGZBZkNZamRsVFVQZGFOWUo2NTBmWWZWLVA1aTAxUEEyOVNtOTQyallJVE9qN3Q0VGFaY3ZmVnYzUFN0OVpwQU14LU9nV01ScXpTTUlvb3dpb2xyXy1tSGtTNFNUZDlPTXY0dnZYMy10MkNWUkdqaw?oc=5</link>
+      <description>Anthropic's Dario Amodei Defends AI Messaging as Company Clarifies Claude Watermarking Details AI Insider</description>
+      <guid isPermaLink="false">sty_7d0d305b3c71ddcc</guid>
+      <pubDate>2026-08-17T16:43:25Z</pubDate>
+    </item>
+    <item>
+      <title>- Anthropic</title>
+      <link>https://news.google.com/rss/articles/CBMiSkFVX3lxTFB6WXJxdnhvVmlyaG1KLXBVU3lHWmcxMkNXSWh2dDljckRfcmFlSm4xZnhSTVl1WjRJVDBRd1hTVkE2WG9uNnFLV0h3?oc=5</link>
+      <description>Anthropic</description>
+      <guid isPermaLink="false">sty_84696f3115ca0f53</guid>
+      <pubDate>2026-08-17T15:56:47Z</pubDate>
+    </item>
+    <item>
+      <title>Minnesota defends AI 'nudification' ban after lawsuit from Musk's xAI - Reuters [ * ] [ ◻ ]</title>
       <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSlNuOWlXZzFnVk5uSXJBTF9IX1Z1a0JrTThWQS0yVDAxZ1hGS2hkZzdUaEhTaUQ1bEtsTU1HY1p3YWNvLXpoZlNzUHNOakNDVTR6cWFLbkNXQUNOalFWZGRlYjhwVjh5OEt0cElYQTBFVHBLeUd1Y3l3MHBvUWszYXcyZnhrOGoxMWtZMWpJVm45ZmVFaWZzajliU0QxWTl2Y0wyS1BDLXdwTENSVURtV21ZTzY?oc=5</link>
-      <description>Minnesota is defending its ban on AI-generated 'nudification' technology following a lawsuit filed by Elon Musk's AI company, xAI. The state argues that the ban is necessary to prevent misuse of AI in creating non-consensual explicit images. xAI challenges the ban, claiming it restricts technological innovation and free expression. The legal dispute highlights ongoing tensions around regulating AI-generated content and protecting individual rights.</description>
+      <description>Minnesota defends AI 'nudification' ban after lawsuit from Musk's xAI Reuters</description>
       <guid isPermaLink="false">sty_102dd923a1b1373c</guid>
       <pubDate>2026-08-17T15:49:27Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic's Dario Amodei Defends AI Messaging as Company Clarifies Claude Watermarking Details - theaiinsider.tech [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiywFBVV95cUxNTVh6THVsc2puMHJFN2JvZlZjSXp2MEJmWUstT3lZRXZDbHUtNUZYNTdIcU5HUW5pcVZPaHB1bmFXemNwRU9aQV80UG5ycS1kZGxwLWpza3cyc2JmeGZBZkNZamRsVFVQZGFOWUo2NTBmWWZWLVA1aTAxUEEyOVNtOTQyallJVE9qN3Q0VGFaY3ZmVnYzUFN0OVpwQU14LU9nV01ScXpTTUlvb3dpb2xyXy1tSGtTNFNUZDlPTXY0dnZYMy10MkNWUkdqaw?oc=5</link>
-      <description>Anthropic's CEO, Dario Amodei, has addressed concerns regarding the company's AI communication strategies. The company also provided clarifications about the watermarking techniques used in their AI model, Claude, aiming to enhance transparency and user understanding.</description>
-      <guid isPermaLink="false">sty_7d0d305b3c71ddcc</guid>
-      <pubDate>2026-08-17T15:43:31Z</pubDate>
-    </item>
-    <item>
-      <title>Why people aren't buying Mark Zuckerberg's AI future [ ~ ] [ ◻ ]</title>
-      <link>https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/</link>
-      <description>On the latest episode of Equity podcast, we discuss why not everyone is buying Zuckerberg's vision.</description>
-      <guid isPermaLink="false">sty_79fd9f7599ddf156</guid>
-      <pubDate>2026-08-16T20:32:01Z</pubDate>
-    </item>
-    <item>
-      <title>Judge relying wholly on AI in order is covered by judicial immunity, court rules [ ~ ] [ ◻ ]</title>
-      <link>https://reason.com/volokh/2026/08/17/judges-allegedly-relying-wholly-on-ai-in-order-is-covered-by-judicial-immunity-court-rules/</link>
-      <description>Comments</description>
-      <guid isPermaLink="false">sty_e197b76c866a430b</guid>
-      <pubDate>2026-08-17T14:30:09Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic watermarks Claude's output, but critics question the tradeoffs [ ~ ] [ ◼ ]</title>
-      <link>https://the-decoder.com/anthropic-watermarks-claudes-output-but-critics-question-the-tradeoffs/</link>
-      <description>Anthropic's text watermarking for Claude is supposed to make AI-generated content detectable. But critics doubt that word choice stays unaffected, and lawyers are facing new transparency headaches. The article Anthropic watermarks Claude's output, but critics question the tradeoffs appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_b081c3f5d28e5d16</guid>
-      <pubDate>2026-08-17T11:43:19Z</pubDate>
-    </item>
-    <item>
-      <title>No, Dario Amodei, we will not be curing cancer and "most human disease" in five to ten years - Marcus on AI | Substack [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMie0FVX3lxTFBnUkJGUjl4Zk1TV2Nkck1Rd0VTOE8yUTNpTDJIRVpSRkdEellMaEhLZEpvQVlVcHJWTnZIbGtKN04tWVUweTRRQWVZaU51ZTBsbVpBTi1INzg2TUFlQXVnZjRWTUNQMkFSa0ZrbHFUbEw2SzBQaVhyRW9Tbw?oc=5</link>
-      <description>No, Dario Amodei, we will not be curing cancer and "most human disease" in five to ten years Marcus on AI | Substack</description>
-      <guid isPermaLink="false">sty_6cbcc69fdd3f81b7</guid>
-      <pubDate>2026-08-17T14:56:48Z</pubDate>
-    </item>
-    <item>
-      <title>Presentation: From Thousands to One: Building LLM-Powered Selection Systems [ * ] [ ◼ ]</title>
-      <link>https://www.infoq.com/presentations/architecture-patterns-llm/</link>
-      <description>Jendrik Jördening shares practical engineering strategies for integrating LLMs into production pipelines. He discusses overcoming non-determinism, restricting schemas, separating semantic text extraction from deterministic code, and validating choices using discriminator models. Learn how to structure LLMs with an MVC approach to ensure database integrity, observability, and system reliability. By Jendrik Jördening</description>
-      <guid isPermaLink="false">sty_482f0f70360360dd</guid>
-      <pubDate>2026-08-17T09:06:00Z</pubDate>
     </item>
     <item>
       <title>Get closer to the game with Gemini and Pixel [ ~ ] [ ◻ ]</title>
@@ -368,11 +473,46 @@
       <pubDate>2026-08-17T08:00:00Z</pubDate>
     </item>
     <item>
-      <title>Show HN: Sokoban AI Solver [ ~ ] [ ◻ ]</title>
-      <link>https://mkornreich.me/projects/sokoban/</link>
-      <description>Comments</description>
-      <guid isPermaLink="false">sty_19c2aa01caa08a8a</guid>
-      <pubDate>2026-08-17T13:07:00Z</pubDate>
+      <title>New ChatGPT Feature Collects Every Keystroke You Make [ * ] [ ◼ ]</title>
+      <link>https://futurism.com/artificial-intelligence/new-chatgpt-feature-collects-every-keystroke-you-make</link>
+      <description>"It lets ChatGPT learn from everything you do on your computer." The post New ChatGPT Feature Collects Every Keystroke You Make appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_674cfaf65523a46a</guid>
+      <pubDate>2026-08-17T15:37:49Z</pubDate>
+    </item>
+    <item>
+      <title>Presentation: From Thousands to One: Building LLM-Powered Selection Systems [ * ] [ ◼ ]</title>
+      <link>https://www.infoq.com/presentations/architecture-patterns-llm/</link>
+      <description>Jendrik Jördening shares practical engineering strategies for integrating LLMs into production pipelines. He discusses overcoming non-determinism, restricting schemas, separating semantic text extraction from deterministic code, and validating choices using discriminator models. Learn how to structure LLMs with an MVC approach to ensure database integrity, observability, and system reliability. By Jendrik Jördening</description>
+      <guid isPermaLink="false">sty_482f0f70360360dd</guid>
+      <pubDate>2026-08-17T09:06:00Z</pubDate>
+    </item>
+    <item>
+      <title>No, Dario Amodei, we will not be curing cancer and "most human disease" in five to ten years - Marcus on AI | Substack [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMie0FVX3lxTFBnUkJGUjl4Zk1TV2Nkck1Rd0VTOE8yUTNpTDJIRVpSRkdEellMaEhLZEpvQVlVcHJWTnZIbGtKN04tWVUweTRRQWVZaU51ZTBsbVpBTi1INzg2TUFlQXVnZjRWTUNQMkFSa0ZrbHFUbEw2SzBQaVhyRW9Tbw?oc=5</link>
+      <description>No, Dario Amodei, we will not be curing cancer and "most human disease" in five to ten years Marcus on AI | Substack</description>
+      <guid isPermaLink="false">sty_6cbcc69fdd3f81b7</guid>
+      <pubDate>2026-08-17T14:56:48Z</pubDate>
+    </item>
+    <item>
+      <title>Whisker's AI-powered litter robot thinks my cats swapped bodies [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/tech/978323/whisker-litter-robot-5-pro-review</link>
+      <description>The greatest invention in pet tech in recent years is the litter robot. A machine that scoops your kitties' poop so you don't have to - what else could a cat owner possibly want? How about insights into your kitty's litter box usage that could flag health issues? Sign me up. But I have two feline fr</description>
+      <guid isPermaLink="false">sty_02ebd4598858eb37</guid>
+      <pubDate>2026-08-17T11:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic CEO's Wife Cami Clark's 'Luxury Porn Row' Turns Heads as Fresh Details Reveal She Once Asked Jeffrey Epstein to Invest in Her Porn Company - NewsGram</title>
+      <link>https://news.google.com/rss/articles/CBMisgFBVV95cUxPVktuM3U1RFIzeWR6azF1TnlFb0lOd0RSc21mLWFFNm1VTFNFQ3JRM2ZaZHVmUjdnb0RLY29uRmx6QXlMODk2ODZ1SF9NZ09wYzk5VEFtSXVSQk5qMVhGMGN2THZKN09MaVI0VF9LWkdNaGhoYWx1UkRyWXl1V0RWZ1BESVY4OGZPXzluZW9hZ2R2cUx3eXhLNnNNY0I1QWV4QmtqNDdtRFFvRWRhcVctNVZ30gG_AUFVX3lxTE5NYXo2d0hVQWxqWEx3czZ5TE40SEVId3RHeG5Eb3kyNzVJNUJSWjdnVFppaUpqQ2M3dXBVc2d0a2N0ZEhjSHlTR2tCbFl2M0tqTUgzbnhtelo2MnVyS0pPR2xheE9hSzNsTkZPYS1YS0lJNlZpRFp1TXhOeW1icXh1UXNYVHVuR29iV0NHTHdGc2xsVm1pMlZ6SHRORkMwUFh3OUxaMmJEdGlTUEplclpjdmNjYnNUaEVSWVp1Z21N?oc=5</link>
+      <description>Anthropic CEO's Wife Cami Clark's 'Luxury Porn Row' Turns Heads as Fresh Details Reveal She Once Asked Jeffrey Epstein to Invest in Her Porn Company NewsGram</description>
+      <guid isPermaLink="false">sty_cc886fc6a0b80f85</guid>
+      <pubDate>2026-08-17T14:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>The Economy Has Spoken: Stuff That's AI-Generated Has Almost Zero Value [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/economy-ai-generated-value</link>
+      <description>"Buyers are voting with their wallets, and AI-generated content is struggling to compete." The post The Economy Has Spoken: Stuff That's AI-Generated Has Almost Zero Value appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_ce7e082479aa452a</guid>
+      <pubDate>2026-08-17T14:27:32Z</pubDate>
     </item>
     <item>
       <title>Anthropic's Dario Amodei says the AI industry's backlash is a crisis of trust - qz.com [ ~ ] [ ◻ ]</title>
@@ -380,13 +520,6 @@
       <description>Anthropic's Dario Amodei says the AI industry's backlash is a crisis of trust qz.com</description>
       <guid isPermaLink="false">sty_b2d22d2b4cedd874</guid>
       <pubDate>2026-08-17T13:05:44Z</pubDate>
-    </item>
-    <item>
-      <title>Stripe Finalizes $7 Billion-Plus Deal for OpenRouter [ * ] [ ◼ ]</title>
-      <link>https://www.theinformation.com/briefings/stripe-finalizes-7-billion-plus-deal-openrouter</link>
-      <description>Stripe has finished a deal to spend more than $7 billion on OpenRouter, a startup that helps developers switch between AI models. The price tag is significantly higher than the $1.3 billion valuation OpenRouter received months ago, a reflection of the high demand for its technology at a time of ...</description>
-      <guid isPermaLink="false">sty_208eda7aae805b9b</guid>
-      <pubDate>2026-08-17T01:19:21Z</pubDate>
     </item>
     <item>
       <title>Anthropic CEO Dario Amodei says public will finally trust AI if it "actually cures cancer" - Cybernews [ ~ ] [ ◻ ]</title>
@@ -410,13 +543,6 @@
       <pubDate>2026-08-17T12:24:24Z</pubDate>
     </item>
     <item>
-      <title>Scientists turn DNA into a memory device that uses 100x less power [ ~ ] [ ◼ ]</title>
-      <link>https://www.sciencedaily.com/releases/2026/08/260816044853.htm</link>
-      <description>Researchers combined synthetic DNA with a semiconductor to create an ultra-low-power memory device capable of storing and processing information in the same place. The bio-hybrid technology could eventually help make AI systems and next-generation computers far more energy efficient.</description>
-      <guid isPermaLink="false">sty_383558f07e68065c</guid>
-      <pubDate>2026-08-17T08:06:45Z</pubDate>
-    </item>
-    <item>
       <title>Elon Musk's xAI lawsuit threatens California's AI transparency standards | Opinion - Sacramento Bee [ ~ ] [ ◻ ]</title>
       <link>https://news.google.com/rss/articles/CBMiYkFVX3lxTE1FZzZtYUNpQm9LRUFYU0N3NHRqRkFDNkN0ekgxZlRHOFk3TXQxcDh1THRtdk1LMWVZRHNsbWVfOEFsT1NidEVpX05rOGp2U2FMOWlQazZuX1R4VjZ2T2RuNktB0gFiQVVfeXFMUC1CNkJlMVVFTjI0eXVMTkY4WE9GNWlySzlmbUxxQ29DelhZd1NJX3VzMHFBN3RtdkVZeTJuSlVncW1XNDJPRThUUlN3SUdGWWJhRUVHczJwS2t3WWZHTC1jV0E?oc=5</link>
       <description>Elon Musk's xAI lawsuit threatens California's AI transparency standards | Opinion Sacramento Bee</description>
@@ -424,32 +550,11 @@
       <pubDate>2026-08-17T12:00:00Z</pubDate>
     </item>
     <item>
-      <title>AI and data centers have leapfrogged Israel, racism, and crypto as US campaign topics</title>
-      <link>https://the-decoder.com/ai-and-data-centers-have-leapfrogged-israel-racism-and-crypto-as-us-campaign-topics/</link>
-      <description>AI shows up in nearly 40 percent of all US races, ranking ahead of Israel, racism, and manufacturing as a campaign topic. Data centers and their impact on electricity costs and local resources drive most of the conversation. The article AI and data centers have leapfrogged Israel, racism, and crypto as US campaign topics appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_2cf49ea86728bbc5</guid>
-      <pubDate>2026-08-17T07:58:28Z</pubDate>
-    </item>
-    <item>
-      <title>SpaceX Finalizes $60 Billion USD Acquisition of AI Coding Startup Cursor - Hypebeast [ * ] [ ◼ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcENhLWZxZ3lPUmp2NEl1TFJkczEzbkRqbnI1dXpXVG91OTBaRk5EOGs3SVVMN1JtLV9nTHRCUHBpS2JDMmpIMEsxb1pQdm5oTzNhWElEbUtKZ1FuSFowMU05REx5aTJ4aGJSTEFjeElLb3pOcm44YndxbnFBT1BtYTFPV3g5MS1i?oc=5</link>
-      <description>SpaceX Finalizes $60 Billion USD Acquisition of AI Coding Startup Cursor Hypebeast</description>
-      <guid isPermaLink="false">sty_46e8c20895911677</guid>
-      <pubDate>2026-08-17T10:50:10Z</pubDate>
-    </item>
-    <item>
-      <title>Stripe is reportedly acquiring AI startup OpenRouter for more than $7 billion [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/stripe-is-reportedly-acquiring-ai-startup-openrouter-for-more-than-7-billion/</link>
-      <description>According to Bloomberg, Stripe is acquiring the AI startup OpenRouter for more than $7 billion, up from a latest valuation of $1.3 billion. OpenRouter offers access to over 400 AI models, has eight million users, and its CEO had described the company as "Stripe for AI." Now that's becoming a reality. The article Stripe is reportedly acquiring AI startup OpenRouter for more than $7 billion appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_c46301fb4a07edee</guid>
-      <pubDate>2026-08-17T06:49:10Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic's IPO Valuation To Rest On $190-200 Bn Revenue Bet For 2028 - outlookbusiness.com [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMirgFBVV95cUxONXA0TWpoY1FfaGtlQThMUFM0X3RrQlROVVpJdzRSM0dYaVFwZEE0b0dRaW5pSGFnanlrVThGdl9qcVJORGdxR2xnZ2h6TUNVZmtpTWxQNDg0aFZhYnRMUThCR013WVFFcEFUQ2JIeWozMi1TRlA1aUdudGR3aTk2VnNPRDk5QkVPV1Z4TTZTNkVja3lWV0RHc3VMN3F6N2k3eFR3NnRneXcwZnZOdVHSAbsBQVVfeXFMUEc5RHFUcWk5S0FHaEdHSG1vNjVzb01QYXJIckZ3UGptTHlXcHowdXlDX1hCSFEwX2VPT3pFc0d2WlA1ZF91QmxHQWs3cTkwSGQ3aFR1RFhiWF9JeVNvanhEY2FzWWV2eTI4RzlxN01xRmtXQ0ZNTUsyT2NFY1Z0UmdacWFweUx2Qy0tN2JtQ3pfa3JLaTNEVWFBZ1FHVjJJVDQwV2IzbGduWFRCOWhYb1o0Rkg5cGxUZDE4bw?oc=5</link>
-      <description>Anthropic's IPO Valuation To Rest On $190-200 Bn Revenue Bet For 2028 outlookbusiness.com</description>
-      <guid isPermaLink="false">sty_5279599e8d44c314</guid>
-      <pubDate>2026-08-17T10:10:25Z</pubDate>
+      <title>Stripe Finalizes $7 Billion-Plus Deal for OpenRouter [ * ] [ ◼ ]</title>
+      <link>https://www.theinformation.com/briefings/stripe-finalizes-7-billion-plus-deal-openrouter</link>
+      <description>Stripe has finished a deal to spend more than $7 billion on OpenRouter, a startup that helps developers switch between AI models. The price tag is significantly higher than the $1.3 billion valuation OpenRouter received months ago, a reflection of the high demand for its technology at a time of ...</description>
+      <guid isPermaLink="false">sty_208eda7aae805b9b</guid>
+      <pubDate>2026-08-17T01:19:21Z</pubDate>
     </item>
     <item>
       <title>Dario Amodei logs on to answer the critics - The Rundown AI</title>
@@ -459,116 +564,11 @@
       <pubDate>2026-08-17T10:06:50Z</pubDate>
     </item>
     <item>
-      <title>Workday's Potential Buyout Feeds Hope Saas Sell-off Is Over</title>
-      <link>https://www.theinformation.com/articles/workdays-potential-buyout-feeds-hope-saas-sell</link>
-      <description>In software land, it's getting harder and harder to call out a singular vibe shift when the vibes keep shifting every 24 hours. On Thursday, when news broke that Silver Lake was in talks to acquire Workday, the human resource software company's stock shot up 19%. Such a deal would be a big vote of confidence in a prominent software firm and, combined with a 55% appreciation in Workday's shares since late June, a possible sign that the AI-driven SaaSpocalypse is ebbing. But on Friday, the buzz seemed to have worn off. Workday's shares sank almost 4%. The stocks of other software companies, which similarly spiked on Thursday following the Silverlake-Workday reports, also widely dropped. Prepare for more mood swings in the coming weeks.</description>
-      <guid isPermaLink="false">sty_341d7b995b68aa53</guid>
-      <pubDate>2026-08-16T22:00:58Z</pubDate>
-    </item>
-    <item>
       <title>😺 Anthropic CEO denies wanting to rule AI alone - The Neuron [ ~ ] [ ◻ ]</title>
       <link>https://news.google.com/rss/articles/CBMihAFBVV95cUxPcE9NUEQxdlhIMkNmelRjV25oUnEwek5rdThHNFdOaXJDMEl3TFowZWxYX3IxYzBvUEw5a2FyTEdBOWxwMEc0RnBFX0FvWE5keHlZNllLNWNXcWdLX2JkY05pTjk2b3Zud1IwWVRIOEF3MU5taW9CQjhWVXRqaHpHT1RLOEw?oc=5</link>
       <description>😺 Anthropic CEO denies wanting to rule AI alone The Neuron</description>
       <guid isPermaLink="false">sty_8e19b53dfeb88ad4</guid>
       <pubDate>2026-08-17T09:33:18Z</pubDate>
-    </item>
-    <item>
-      <title>How to make any Sparse Attention / KV Compression look good? [D] [R] [ ~ ] [ ◻ ]</title>
-      <link>https://www.reddit.com/r/MachineLearning/comments/1vqqqcs/how_to_make_any_sparse_attention_kv_compression/</link>
-      <description>Original Article - https://x.com/p_nawrot/status/2089315591010079034 I've spent the last few years working on efficient attention and KV Cache Compression. I've read many papers, dug deep into reference or official implementations of methods, and inspected appendices-and I think I've learned a few things. One of them is definitely "how to make things look good, even when they aren't." I'm guilty too, but trying to get better every day. 1. For single-hop retrieval, make sure there are no distractors and context is useless The three most cooperative settings for compression / sparsity are: Needle in a haystack with a single OOD key-value pair and context built out of a repeated sentence or irrelevant background text. Contaminated benchmarks from years ago for which models don't even look at the context anymore. Few-shot in-context learning, where extra shots are useless and don't improve the accuracy over 0-shot. With 1) synthetic tasks, 2) real-data QA, and 3) in-context learning, you get a semblance of broad coverage without the inconvenience of testing much diversity within any of them. Most tasks in these settings should pass under Sliding Window Attention, so it doesn't matter that much whether your method works. Combine it with SWA and you should be good to report 5-10x compression or sparsity. 2. NEVER isolate your contribution Short context: Most of a dense model's performance is recovered by a local window + attention sinks + the ability to retrieve an answer sentence that is largely n-gram matchable with the question. The remaining part is significantly more difficult, but it's neither relevant to nor the subject of this post. Say prior work developed an algorithm X, and its implementation separately keeps a local window of 256 tokens. You find that your method is on par with X in a matched setting, but better and more stable with a window size of 512-let's go, don't look back. Do the same with block size. Smaller blocks can give you finer granularity and more precision in retrieval, so keep their old block size and make yours smaller. Ignore the fact that things may get slower due to irregular memory accesses, etc. Those were historical decisions; respect them. 🤡 Write: "We used the authors' recommended hyperparameters.", then spend weeks tuning your method. The same trick works for speed. LLMs are pretty good at writing Triton now. Keep the baseline algos exactly as they were written in 2023, then ask an LLM for a custom Triton kernel for yours. Extra cleverness if, by using a more efficient implementation, you can hide that your method does more work. You're just optimising your method, no? Prompts are the cherry on top. Move the question before the context so the model knows what to filter out, then present the result as lossless compression. Never share the prompts after tuning them. Don't tune the baselines to reject your paper; tune yours until it's accepted. 3. Use aggregated metrics to hide areas where your method doesn't work RULER has 13 tasks: 6 NIAH tasks satisfy the first point. 2 QA tasks use datasets from years ago. VT also has a lot of irrelevant context. To be clear: This isn't a critique of RULER; imo it's still incredibly useful. It's just an example of potential improper use. Report only the aggregate; maybe, in the limitations section at the end, briefly mention that your method degrades on the NIAH-MK3, which actually stress-tests lossless compression. 4. Enjoy saturated tasks Imagine evaluating on two tasks: The most recent math exam / olympiad from a week ago, which isn't yet in the training data. A benchmark on which a recent family of open models-1B, 10B, and 100B-all scored 80%. On the former task, before compression gets a chance to do any damage, the 1B and 10B models already score 0%; the 100B model starts at 50%, and its performance drops monotonically as compression increases. On the latter, all model sizes tolerate substantial compression, and the 100B model tolerates more than the 1B and 10B models. Don't ask whether the larger model is simply using its extra parameters and hidden-state capacity to absorb compression in a setting where those resources aren't needed to solve harder questions. That definitely isn't what's happening. Extras AIME has 30 samples. You did 4 seeds. Your method scores 80, and the baseline scores 79-bold your 80 and say that it surpasses the baseline. Statistics doesn't exist. Bonus points for your efficiency method surpassing the baseline and setting a new SOTA. 🤡🤡 Pick a baseline, optimise it with your method, and plot a beautiful quality-efficiency curve against the original implementation. Then stop. Don't ask whether a simpler route-a smaller dense model, KV-cache quantisation or offloading, or a better system configuration-reaches a better operating point. Improving your baseline is basically the same as improving the frontier. submitted by /u/korec1234 [link] [comments]</description>
-      <guid isPermaLink="false">sty_60d5a4d1fd105c99</guid>
-      <pubDate>2026-08-17T12:18:17Z</pubDate>
-    </item>
-    <item>
-      <title>Dario Amodei's AI disease cure prediction meets Anthropic's $400M biotech bet - The Cryptonomist [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMic0FVX3lxTE1Ld244aFliQjNDTnBOX0lKRHUwckJyZ3VzbWJqR0YxTGs1cDRvdnBYc09HMUIwelZkWXJ6cnFOQTlnc25Pb0MzdWwxSjZEbHhYX1Vzd3RMWWY5STVUdTJMM0tlYzdoeDJPblNXT05jaElzYUk?oc=5</link>
-      <description>Dario Amodei's AI disease cure prediction meets Anthropic's $400M biotech bet The Cryptonomist</description>
-      <guid isPermaLink="false">sty_ef99f1841d30ce62</guid>
-      <pubDate>2026-08-17T09:05:28Z</pubDate>
-    </item>
-    <item>
-      <title>"This is a crisis of trust": Anthropic's CEO has responded to accusations of fuelling negative sentiment surr - Mezha [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiigFBVV95cUxPOHR1QWh1WkpEbUJ2YXl1M1oxNnJUZ2NMSC1mSlJZcnNxLW1qX2hzRE1GekluWlhXSDRYVGpjYUEwSVM4ZjNHLVFrTUhXdzA4T0dDUmVBLUZQSDRWeTl3cld3bklodWdMU1AtWU1uQVFkRHc4dGxFdThxaURqQXpzMWctRWQ0MmlWYnfSAY8BQVVfeXFMTUprY1JYVFlidkFWR0J4Slo2cld3dnpsMkdLYUJCaGdWZDRtZFBOYVZ2QnlGRDdGNlAwM2FMazJmRGtudVlhNExVbFZMREpSUG1xVThpMzBtbXBHVjJOZFpHdmFwTE42dmNHTmYzbm9SeHdiRnAtbThTOUI5ZEx0dVV6TUZPU01NUHk0Qk1fbVk?oc=5</link>
-      <description>"This is a crisis of trust": Anthropic's CEO has responded to accusations of fuelling negative sentiment surr Mezha</description>
-      <guid isPermaLink="false">sty_ccd09fcaceb1a01d</guid>
-      <pubDate>2026-08-17T08:58:00Z</pubDate>
-    </item>
-    <item>
-      <title>The U.S. government wants allies to pick a side in the AI race - fortune.com</title>
-      <link>https://news.google.com/rss/articles/CBMilwFBVV95cUxOV19DSXp4bmdnOTd2eFYwVnhOVFFITE1PeGF4eno3emFKQmdhV1FfdHZyWkw1LU93OEJPNDAxUldvOExPOC1JYmVQOWNYdWpxLVplWWQ5UTM4NGJHMUNIOHhka2c1ZmVIelNvTWhBTmJra2l5dG1Td0x0cXBqbDhyZXI1NW83ckFPMUhzQmZKSWwtdWRLSG44?oc=5</link>
-      <description>The U.S. government wants allies to pick a side in the AI race fortune.com</description>
-      <guid isPermaLink="false">sty_8ca3a1874f3e7746</guid>
-      <pubDate>2026-08-17T08:46:00Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic Left as the Only Private Company in the World? CEO Dario Amodei Pushes Back on Criticism From C - Benzinga</title>
-      <link>https://news.google.com/rss/articles/CBMiowFBVV95cUxQMXltb01rcEV1SGlDR080VkFZckJuZXlMYXZNNTZGeWhTM3c5NzJXVjJBZEtuaWd5LXZoX2N5V0ZETzMxS2VfV24ybVp2SGZWWE9RSXBzVlZzS2h2QlNFUGZJU0Z0VzdZV1B4OHQ3aGZBYUhldTZzelJCSlZIWU1iLUhneGNBa21PQVBXcVdEXzdULXUySnBoRTdYVnZnbnVhWnFF?oc=5</link>
-      <description>Anthropic Left as the Only Private Company in the World? CEO Dario Amodei Pushes Back on Criticism From C Benzinga</description>
-      <guid isPermaLink="false">sty_5bb5c4aa7064afe1</guid>
-      <pubDate>2026-08-17T07:55:13Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic CEO Dario Amodei to AI companies: Fulfil your Cancer promise, rather than blaming me - The Times of India</title>
-      <link>https://news.google.com/rss/articles/CBMihgJBVV95cUxNVzd1cTRfX2h0bnp2TEw5Qlhtb1djNDlUNHNOUXJaR1ZMVTlVUHZ2cGU4OV9weXpRVmV4RmNZRGhDQ0YxZE5rUkNTbkNIVjQwbkJxanJoTWpaR2g1TWNQMGpQVDlHMmsySDVDdm5mWk1QZVBNUm4wbzhmUHkyX2U4QU5lX2VMYm85R0Z6aW11TEkxRWNGOXZGdHFiZzZNVEJiUFZGVWVWV21ldEZZTjE5Z0NQQ2xxeWlxSFRsWGVjaWhoRHhSZlk4XzhTb3JDM2RjX2t2M0t1SVZGQ0lXMjhJdkpGNVlCdldmZVJGTVktMDVkbE95OWVRZUExcE9TaFpnRGhRYnln0gGLAkFVX3lxTE5QZXBHeE5TWU5YajFlbEF6eHdIaUxUMjVTazYzSkdWX1JvZHlOUDRFcEk1UDB0ZUkxcnR3TmdQMXlNYUpJYlhYUXhORzgwR0RIc3FSQTluMWRNWWdDeDVzMzBoRWpsVDdETUtIaXZmMHh1NjlzbjNFOThmd3hMMi1keE9vQlh0Q3VTY0RySEQ5d1UyOXpTQ0U4U2ptWkNNLW1WTXJWOVhmM25fa2piWWFQRk13WldmSUV6a3N5MjF3NG9od29WbXhqUm5BQjZ6UTZWU0FUamp4MXRYTDlabG94R3R1UDlmS3ZVdDlaWTBDbWhkVnp4N3RQWUQ2WTNoSlR5QnNQLUtEM1JkWQ?oc=5</link>
-      <description>Anthropic CEO Dario Amodei to AI companies: Fulfil your Cancer promise, rather than blaming me The Times of India</description>
-      <guid isPermaLink="false">sty_061f2598d65c1226</guid>
-      <pubDate>2026-08-17T07:53:00Z</pubDate>
-    </item>
-    <item>
-      <title>OpenAI reportedly disbanded its preparedness team [ * ] [ ◼ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team</link>
-      <description>According to the Financial Times, OpenAI disbanded its preparedness team at the end of last month. The job of the preparedness team was to assess if models posed serious risks and develop ways to mitigate those risks. (You know, like the possibility that it could go rogue and hack another company.) According to FT, responsibility [...]</description>
-      <guid isPermaLink="false">sty_f796a4711d4cfd02</guid>
-      <pubDate>2026-08-16T21:32:56Z</pubDate>
-    </item>
-    <item>
-      <title>Nvidia Nears Deal to Guarantee Roughly $100 Billion in Credit for OpenAI [ * ] [ ◻ ]</title>
-      <link>https://www.theinformation.com/briefings/nvidia-nears-deal-guarantee-roughly-100-billion-credit-openai</link>
-      <description>Nvidia is close to finalizing a deal that would provide about $100 billion in credit support for OpenAI's plan to lease a giant Ohio data center, The Information reported. The figure is lower than an earlier report in the Wall Street Journal that it could backstop $250 billion for the project ...</description>
-      <guid isPermaLink="false">sty_0875de98d881f24f</guid>
-      <pubDate>2026-08-16T21:04:33Z</pubDate>
-    </item>
-    <item>
-      <title>Nvidia in Talks to Invest $3 Billion in SB Energy [ * ] [ ◻ ]</title>
-      <link>https://www.theinformation.com/briefings/nvidia-talks-invest-3-billion-sb-energy</link>
-      <description>Nvidia is in talks to invest as much as $3 billion in SB Energy, the Softbank Group-backed developer of a massive planned Ohio data center project for OpenAI, The Information reported. Nvidia has discussed investing half of the $3 billion when a deal for the Ohio project is signed and the other ...</description>
-      <guid isPermaLink="false">sty_23b8fcbccf1be9d1</guid>
-      <pubDate>2026-08-16T21:03:15Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic CEO Dario Amodei Calls AI Backlash a "Crisis of Trust," Rejects Binary Framing on Regulation - finance.biggo.com [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTE80cTVMUGlHRUx6aXpKTUZJejVVRWFvdlhUZ2xTNGlwQ2FlbXc4VFdWbG9BZGZ5d25pLUIzQU5vNE16bl9Pb21Jc290Qm5UQkxCTk9YckRMeVZ4YlFpNVAxTlN3VjZGUUw2b3dxTkJhVDZ1VGV3cmc?oc=5</link>
-      <description>Anthropic CEO Dario Amodei Calls AI Backlash a "Crisis of Trust," Rejects Binary Framing on Regulation finance.biggo.com</description>
-      <guid isPermaLink="false">sty_04043d7695896669</guid>
-      <pubDate>2026-08-17T05:06:00Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic CEO dispels rumors, shifts to AI research for his late father, and vows to eradicate cancer within 10 years. - eu.36kr.com [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Fc1puenNfZ1V1OWtlVnUzUGdydUhMMXFMRjRUNjIzVHZzbEMwZ3luWEd3eHRnNVJwNVBoMXc1b3hJUE4yaVhRZjFhS2xjOXZhQS00?oc=5</link>
-      <description>Anthropic CEO dispels rumors, shifts to AI research for his late father, and vows to eradicate cancer within 10 years. eu.36kr.com</description>
-      <guid isPermaLink="false">sty_013642fb672c3675</guid>
-      <pubDate>2026-08-17T04:40:30Z</pubDate>
-    </item>
-    <item>
-      <title>The Un-Googleable Woman Disrupting the $2 Trillion Global AI Empire - eu.36kr.com</title>
-      <link>https://news.google.com/rss/articles/CBMiU0FVX3lxTE9fNklyMF8zYlkyenQ3UUJxc3VTTFZIYnlUX3k2NjJUZkJnSFlSUDB6RmdBU0pUZERXQ1NvTldiREZJU3FKeTdQUWotQjk0YlNtTXFv?oc=5</link>
-      <description>The Un-Googleable Woman Disrupting the $2 Trillion Global AI Empire eu.36kr.com</description>
-      <guid isPermaLink="false">sty_1ee58415f257ba3b</guid>
-      <pubDate>2026-08-17T04:40:30Z</pubDate>
-    </item>
-    <item>
-      <title>Is CEO a "Cult Leader"? Anthropic Faces Public Backlash Over Its Self-Proclaimed "Faith" Culture - eu.36kr.com [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tQnNnaGp6QkRCWnJETlhhbHV4cFJ4S1l5NGZXVHBJdUY5N09oZmNIYUdybWw3SnV1UnUwR0ZSY2l5ejNuaFFiWWQ0aW9OLTY5eVF3?oc=5</link>
-      <description>Is CEO a "Cult Leader"? Anthropic Faces Public Backlash Over Its Self-Proclaimed "Faith" Culture eu.36kr.com</description>
-      <guid isPermaLink="false">sty_dee4066c9ba9817b</guid>
-      <pubDate>2026-08-17T04:40:30Z</pubDate>
-    </item>
-    <item>
-      <title>- Anthropic</title>
-      <link>https://news.google.com/rss/articles/CBMiSkFVX3lxTFB6WXJxdnhvVmlyaG1KLXBVU3lHWmcxMkNXSWh2dDljckRfcmFlSm4xZnhSTVl1WjRJVDBRd1hTVkE2WG9uNnFLV0h3?oc=5</link>
-      <description>Anthropic</description>
-      <guid isPermaLink="false">sty_84696f3115ca0f53</guid>
-      <pubDate>2026-08-17T04:15:01Z</pubDate>
     </item>
   </channel>
 </rss>
