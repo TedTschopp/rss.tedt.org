@@ -7,18 +7,312 @@
   "language": "en",
   "items": [
     {
-      "id": "04824a00d428d6c84a746b0dfc5ef17e",
-      "url": "https://www.late-review.com/p/obligatory-one-month-without-social",
-      "title": "Obligatory one month without social media on my phone Substack essay (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.late-review.com/p/obligatory-one-month-without-social Comments URL: https://news.ycombinator.com/item?id=49354689 Points: 1 # Comments: 0",
-      "date_published": "2026-08-19T00:00:28+00:00"
+      "id": "0938882db7e20e6bacd4e07ec1e241fc",
+      "url": "https://www.theatlantic.com/philosophy/2026/06/the-ordinary-miracle-of-existing/687351/",
+      "title": "The Ordinary Miracle of Existing (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.theatlantic.com/philosophy/2026/06/the-ordinary-miracle-of-existing/687351/ Comments URL: https://news.ycombinator.com/item?id=49356364 Points: 2 # Comments: 1",
+      "date_published": "2026-08-19T03:32:10+00:00"
     },
     {
-      "id": "3d6ce3c511a2aa57d6e2ca04f233d349",
-      "url": "https://apnews.com/article/trump-harvard-justice-department-brown-columbia-3e2519fac8b1d85caa74b7ff1ff63744",
-      "title": "Whistleblower alleges political pressure,lack of evidence in antisemitism probes (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://apnews.com/article/trump-harvard-justice-department-brown-columbia-3e2519fac8b1d85caa74b7ff1ff63744 Comments URL: https://news.ycombinator.com/item?id=49354686 Points: 1 # Comments: 0",
-      "date_published": "2026-08-19T00:00:15+00:00"
+      "id": "6929a0971fe5532d120b8b12084a94ae",
+      "url": "https://en.wikipedia.org/wiki/Loimulohi",
+      "title": "Loimulohi (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://en.wikipedia.org/wiki/Loimulohi Comments URL: https://news.ycombinator.com/item?id=49356352 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:30:46+00:00"
+    },
+    {
+      "id": "5eec5d6038123cea39dbff8dbe73fc66",
+      "url": "https://spacenews.com/space-nuclear-programs-face-near-and-long-term-challenges/",
+      "title": "Space nuclear programs face near- and long-term challenges (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://spacenews.com/space-nuclear-programs-face-near-and-long-term-challenges/ Comments URL: https://news.ycombinator.com/item?id=49356335 Points: 2 # Comments: 1",
+      "date_published": "2026-08-19T03:29:09+00:00"
+    },
+    {
+      "id": "0ac822eb7f11735b6d6b0c3899edba20",
+      "url": "https://github.com/elin66alpha/Relay",
+      "title": "Show HN: Control AI Agents on Your Old PC at Home from Any Device Anywhere (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "I built Relay around a simple idea: many of us have an unused PC server at home, or a VPS dedicated to AI-assisted coding, but the coding agents running there are still tied to that machine's terminal, I just don't want to ssh/rdp into it every single time. Relay brings Claude Code, Codex, OpenCode, and Hermes into one interface that you can access from your phone, browser, or another computer. Sessions stay alive, so you can start work on one device and continue from another. You can upload/download files from the server, also if you are on subscription, you see your quota usage with 1 click. Your code, shell, and agent credentials remain on the backend machine. Your other devices simply become remote control surfaces. Relay is open source and MIT licensed, right now I only compiled 3 version of frontend: Android, Web, Windows, and 1 version of backend: linux. The goal is to cover all platforms, more coming soon! Love to hear what your thoughts! Comments URL: https://news.ycombinator.com/item?id=49356310 Points: 1 # Comments: 1",
+      "date_published": "2026-08-19T03:26:59+00:00"
+    },
+    {
+      "id": "c0ca77bc7eb094dfbf31cfdd25d3438f",
+      "url": "https://en.wikipedia.org/wiki/Careless_People",
+      "title": "Careless People (2025) (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://en.wikipedia.org/wiki/Careless_People Comments URL: https://news.ycombinator.com/item?id=49356305 Points: 2 # Comments: 0",
+      "date_published": "2026-08-19T03:26:35+00:00"
+    },
+    {
+      "id": "4406c4b5de759d28ebd402978b307fc7",
+      "url": "https://github.com/wdhwg001/csift",
+      "title": "Show HN: Csift - the missing tool to sift your Claude Code sessions (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "I built csift to address all my complaints about Claude's handling of its own session files. Claude Code sessions are plain-text JSONL with everything, but they never document the structure anywhere. Every time, Claude has to craft an ad hoc tool to guess, and SKILL.md isn't enough to cover everything. This is what happened in the night that made it a real tool: Claude deleted project files, froze, and said sorry at midnight. I didn't Ralph loop it, and I asked it to recover from its own JSONL and continue. I thought it would be easy, until it stopped again in the middle of rewriting them, since they're scattered across subagents, with its 5hr limit burnt out. This wasn't the first time after I used --dangerously-skip-permissions. And I created the tool that could put the file back together byte-exact. Now csift recovers deleted files and plans, reconstructs turns, matches plans to sessions, does typed search over 25 record labels, extracts pasted images, and maps the subagent topology tree. It's purely local, read-only to sessions, and has no telemetry. And I decided to use pure regex, no embeddings, and it requires no daemon. It's done in Rust with mmap, a SIMD scan, and rayon, so it's fast. I'd rather not waste my time hand-writing a tool to pick up Claude's slack, so Claude Code wrote this project, and I reviewed it. It passed mutation tests and achieved 94.9% coverage, so I'm happy to share it. I intended it to lack human-readable documentation except for the README.md, so human engineers shouldn't spend time polishing it by hand. Let your Claude do the work. cargo install csift npx skills add wdhwg001/csift Enjoy and let me know what you think. Comments URL: https://news.ycombinator.com/item?id=49356290 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:24:31+00:00"
+    },
+    {
+      "id": "7992f65c8c869a94f72c05e26c474c83",
+      "url": "https://lunacal-sable.vercel.app/",
+      "title": "Customize a lunar calendar generator. Try FREE (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://lunacal-sable.vercel.app/ Comments URL: https://news.ycombinator.com/item?id=49356276 Points: 1 # Comments: 1",
+      "date_published": "2026-08-19T03:23:32+00:00"
+    },
+    {
+      "id": "92f36444488ae0fa90f4dd38a4f6dbd0",
+      "url": "https://vasovagal.github.io/",
+      "title": "Vasovagal: Markdown-Based 2nd Brain (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://vasovagal.github.io/ Comments URL: https://news.ycombinator.com/item?id=49356262 Points: 2 # Comments: 0",
+      "date_published": "2026-08-19T03:21:47+00:00"
+    },
+    {
+      "id": "830509b58adc159a01622497d4c13261",
+      "url": "https://antics.gg/p/side-out-94df7d",
+      "title": "A Multiplayer Survival Pong (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://antics.gg/p/side-out-94df7d Comments URL: https://news.ycombinator.com/item?id=49356251 Points: 2 # Comments: 0",
+      "date_published": "2026-08-19T03:19:57+00:00"
+    },
+    {
+      "id": "5bbe59d86036c5731e522c00412ab0e3",
+      "url": "https://recursive-economy.pages.dev/",
+      "title": "The Recursive Economy: AI Self-Improvement and Scarcity (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://recursive-economy.pages.dev/ Comments URL: https://news.ycombinator.com/item?id=49356213 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:16:21+00:00"
+    },
+    {
+      "id": "52b78e5ec8fb67c7dfbcf6a269bd6dc8",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOUVNZbmw0aVBVcjVLZXU0LUJpS0NUZG1MOXZDTHplcklUblFvdmQtOFdieDZZZ21NdUtKeDRBaUdXaVVHejlGOHpoN2NOd1hvVDUyc0pzc2NEZ2NvNm5jOFFhbUhHaGMzVVZDbkVWT0lLdzNrdmpVNElGenpMZzdRWHNvNkJIczAwX0c4YU0zOERGcnE5SnE1NVJfSXhCeVNXSk5fQmk4VFFMX1dVS1g2azJaV1B6bXdMOFlCRm5pTEdYeS02Wm9KUTRxZERDTHVaNkRQcXo2dw?oc=5",
+      "title": "Anthropic speaks with investors ahead of potential record-setting IPO - Proactive financial news (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic speaks with investors ahead of potential record-setting IPO Proactive financial news",
+      "date_published": "2026-08-19T03:13:49+00:00"
+    },
+    {
+      "id": "fe8fbaf13f6decb60bce6ffeaabd192f",
+      "url": "https://www.nytimes.com/2026/08/18/us/harvard-stolen-body-parts-settlement.html",
+      "title": "Harvard Agrees to $53M Settlement in Body Part Theft Scandal (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.nytimes.com/2026/08/18/us/harvard-stolen-body-parts-settlement.html Comments URL: https://news.ycombinator.com/item?id=49356171 Points: 2 # Comments: 1",
+      "date_published": "2026-08-19T03:10:23+00:00"
+    },
+    {
+      "id": "44b58ecd685685471f1a6f7ea41fcc32",
+      "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxNZWZOa2R4TXNhWlJSR1JEaHd3VDJwaGpFX0o4NDNuRUhDVnFaczVGOTAtNzJJWUVIeVg0NG1RZ2VSam9YUXdvNjA5RXJDZnhoRmVBQ2c5Uno4al9wamIyTGY3TFhUTTQwSEt5S0dIZUs5SUZHMmJVZHZ5aFpsT05qQ0xRS3g1aEJWV0l4OXFHWV9UdDZWUFV2YzZGMm9mdk9UcGxYOGg5NHJsTzRORm5GaVl1blpsa3RGQzdmSzN4b2hKVWJYcUxqUWVWeWl0SnRqVEtueWZka1RtMEl0UDZybXJ0R3dGWTdSTVcxMjNuUkpNQmpCVXd2M256bWdGR1hWVFF2SjNKOGloVmI2NEFibmVnUkNDSnpPN3AtM0J2dGZqRV9aZlJQaEZxREF1dU9WVnZRZHdDYzNCaFlYY0VFLXY1SjBpeEnSAeMBQVVfeXFMUExYdDRxNFg0Q1g3X3dZbHBFY01DYXlhWEp6SmlkYWNqMzhJVlJELWNCVmp4VTJVNmJBc2ZKWURkLUJQMWlNbTFvUFZoN1NQQ0NoYVdlNmhiLWRlcHBObElwNHdYbTZtUjZwa052LUxVZndma3BiTWN0QmZJOHl1eUN3TDlCZzJWaVlaOWpGS1F6SHo3Y0tUN2JVTG9IOGg4ZkdrbnRqbjloaXo2cjF0d0E0b0dCYXVIdUhWOEFnam1vZG5vYTVDU2tHOUJFUDhLdU9aOVk2N3BvdjBHR0FhT1dUaTQ?oc=5",
+      "title": "Anthropic prepares supervoting power for founders ahead of IPO - The Economic Times (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic prepares supervoting power for founders ahead of IPO The Economic Times",
+      "date_published": "2026-08-19T03:10:18+00:00"
+    },
+    {
+      "id": "04ac943a26a2b188166a3c0e4c5d8884",
+      "url": "https://studios.disneyresearch.com/2026/08/18/generalized-audio-driven-synthesis-of-precise-drummer-motion/",
+      "title": "Generalized Audio-Driven Synthesis of Precise Drummer Motion (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://studios.disneyresearch.com/2026/08/18/generalized-audio-driven-synthesis-of-precise-drummer-motion/ Comments URL: https://news.ycombinator.com/item?id=49356169 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:10:13+00:00"
+    },
+    {
+      "id": "4603cc4422a1f09c8d8f66d79dc06f13",
+      "url": "https://www.xda-developers.com/tinyretropad-130-times-smaller-than-windows-notepad-but-functional/",
+      "title": "TinyRetroPad is 130 times smaller than Windows Notepad (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.xda-developers.com/tinyretropad-130-times-smaller-than-windows-notepad-but-functional/ Comments URL: https://news.ycombinator.com/item?id=49356156 Points: 3 # Comments: 1",
+      "date_published": "2026-08-19T03:07:46+00:00"
+    },
+    {
+      "id": "d3b8199c9e6f51c07c8b25c7f88fde64",
+      "url": "https://aaif.io/blog/a2a-joins-aaif",
+      "title": "Agent2Agent (A2A) joins Agentic AI Foundation (AAIF)'s open agentic stack (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://aaif.io/blog/a2a-joins-aaif Comments URL: https://news.ycombinator.com/item?id=49356130 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:05:02+00:00"
+    },
+    {
+      "id": "78ff985c8d86bb6c4fbd844d821b9e0a",
+      "url": "https://sliptonic.com/posts/machines-cheap-toolpaths-not/",
+      "title": "The Machines Are Getting Cheap. The Toolpaths Are Not (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://sliptonic.com/posts/machines-cheap-toolpaths-not/ Comments URL: https://news.ycombinator.com/item?id=49356129 Points: 2 # Comments: 0",
+      "date_published": "2026-08-19T03:04:56+00:00"
+    },
+    {
+      "id": "d3ca077db85f188ae9173c5cb49f477d",
+      "url": "https://news.ycombinator.com/item?id=49356122",
+      "title": "Ask HN: How are front end friends doing these days? (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "With the popularity of AI tools, how are front-end folks doing? BG: My company recently laid off a group of people, most of them from R&D, and among R&D, most were front-end. Comments URL: https://news.ycombinator.com/item?id=49356122 Points: 1 # Comments: 3",
+      "date_published": "2026-08-19T03:03:33+00:00"
+    },
+    {
+      "id": "3f5f276b279ad770eec59379d0098855",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQVVVkVUljRnRqU0IxUXNWVzhhOGk0QVloSmcySjY4bS1ibjBfMmF1eHFlNUVzaDVEQVVNSWxoWGZuYzJqQVNNOXJxako0cVF3c3VaRlNwaTBNSWdUcE5xSW84XzJ1bkdXeFBHT3lWY0JBa2luN1VuX21IeVVXcmFUNjRoeFB1YnZZTUc0dzhUZUc0ZWdfM1d6QlU1ZkdfZEMxSWFnUUxnSHhQMEpjOWpxdENESmNSVjZHLW55N1RYcy0wNXd5TkJXNzBkZ0FaRm9CM0RoMdIB2gFBVV95cUxPXzNRRVVRSVpCQldCS2lqTTg4SWltcDJGTDhETGNWSzBwcmdBc0FDOEhJa1hRTEFoUFdURmswV1FtVmRTNUJHNGpMSFZVWFdMdHNBUTF5aElyRU1VR3JKMDJNWTA0ck9EVnRtQ24ya205aE1VY05wbGhLRmFoQnp1S1NWenZVMFlVaDdFeG53eDB2TUZYcmVXblFWYnEtZHVtQ19Lb2JuWW5KZ0hQLTRCOVotZmltOG11QVVLel81R1FscVFvWHRTNFpGQ1hVSUJHcFpEVWVTUjZjQQ?oc=5",
+      "title": "OpenAI is slowing down AI training as models keep getting more powerful - India Today (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI is slowing down AI training as models keep getting more powerful India Today",
+      "date_published": "2026-08-19T03:03:12+00:00"
+    },
+    {
+      "id": "60e25b1284f45c8e45e450d727d62fab",
+      "url": "https://www.economist.com/asia/2026/08/18/japans-gen-x-workers-are-struggling",
+      "title": "Japan's Gen X workers are struggling (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.economist.com/asia/2026/08/18/japans-gen-x-workers-are-struggling Comments URL: https://news.ycombinator.com/item?id=49356115 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:02:43+00:00"
+    },
+    {
+      "id": "95ce94b412456e376caa26ce3a8070b4",
+      "url": "https://www.smithsonianmag.com/science-nature/earths-organisms-developed-via-evolution-some-theorists-wonder-what-if-the-entire-cosmos-did-too-180989338/",
+      "title": "Cosmological natural selection: evolution beyond biology (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.smithsonianmag.com/science-nature/earths-organisms-developed-via-evolution-some-theorists-wonder-what-if-the-entire-cosmos-did-too-180989338/ Comments URL: https://news.ycombinator.com/item?id=49356108 Points: 1 # Comments: 1",
+      "date_published": "2026-08-19T03:00:59+00:00"
+    },
+    {
+      "id": "950c50170b3d99b897fefb20c9210ffb",
+      "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+      "title": "How Claude is accelerating protein design and analytical chemistry (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.anthropic.com/research/Claude-accelerates-protein-design Comments URL: https://news.ycombinator.com/item?id=49356105 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:00:42+00:00"
+    },
+    {
+      "id": "ae841320e5f08d861abd0ed01b022307",
+      "url": "https://news.ycombinator.com/item?id=49356104",
+      "title": "Does anyone care about HR? (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "I am working on some HR tech that doesn't really exist today, but does HR matter? I mean it was just 10 years ago when HR was just starting to be measurable, not we have AI, automation, etc. But do founders, CEO's etc. truly care about the function? Is it possible for HR to truly sit at the table? Comments URL: https://news.ycombinator.com/item?id=49356104 Points: 1 # Comments: 0",
+      "date_published": "2026-08-19T03:00:31+00:00"
+    },
+    {
+      "id": "960405a3232d50c8b97c1d67af87b509",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMjduOEE1SG93ZW9ZQTZQZW9fR3V3UThWQUFNSVpyZXhWaWQ3S3BuSlNPU3JJR01aQTBwOVI2b3hmSGdnd1N0YnF1RG5qWFhaODY4ZTNWRm03TVlOZ1NQa1BDT2UtelA4Y3hPTS1MMXdXLXB1SFRoVGxvRnRaRWNVNE9vT3ZTWlJIcDZHQzdGU2tWUTc5bUtYZQ?oc=5",
+      "title": "OpenAI slows advanced AI development after cyberattack - daily-sun.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI slows advanced AI development after cyberattack daily-sun.com",
+      "date_published": "2026-08-19T02:58:25+00:00"
+    },
+    {
+      "id": "e3d6bb3a24bfc64773b207ab5af8e270",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQMHIydHBNbEstcThucXJJcXRpalp2WlhkOXd3MnZTNDRQMlFSN3UzQTV3VmtNRWZHRnhwbElYZVUwTnEycE9xSkc2WUNTR3BXR0ZCeURuaDZDajB0MlZRcDBlUy1ZNXdRb3hyMnlKZFFmTHFQOTdrMGNkODFEajl0RUR2WU9jWHBocGtGb0ZhX09NRmJmeFpyRkhGOEg0MkdlNlJYM0NNYUVTTThjR0hOV2RZc1pHc3FwS0k2dmd4R3VLZHhoeFQ2NGNid1UxQ2NMX3BSWNIB2gFBVV95cUxPZ1JWN2Fmdks4RkF0cjdaN2M3UVdNOHh6bXVLNnNSRnVlTWNZNk9OZEZUWWYzZWhNWDRadUJMWEJGRzBpNVk3dzkwMVlEd0wzdGN1R1JCS0JNaDlOWVZTbks4bk9TaXAtcmFSOUI0WEJpNHBRX3NOQ0lDWmZXLUk0TFVmMEh0MUR5ZjZLLVNtM1poWHJZY0JXR1o1VmtSS2I5MmdwUGQ4QWNzUmV4Y1Q5ZVBxUmpHSlVKVEFvQnJKOUh0VlpOLWp5ejdua3BvRFphWndLMTl1eXF0UQ?oc=5",
+      "title": "What's next for ChatGPT? Sam Altman reveals AI could soon watch your screen and record meetings - Firstpost (Source: news.google.com | Category: AI Labs)",
+      "content_text": "What's next for ChatGPT? Sam Altman reveals AI could soon watch your screen and record meetings Firstpost",
+      "date_published": "2026-08-19T02:55:13+00:00"
+    },
+    {
+      "id": "43ab6bc123eb58acdf821a7424e70956",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPRnE3aEJ4VXBpY3Y0NGMyb0E5ZFNvVUxrOFBmZ2QtR0ZVZ2NQSkpLMXZodFR2c1ZyTGlDSHNlVWdheEV5bUJibG9xTFZSeWJyMDJXOEJkX29fVU5ydHhGZWVhWkxtQkxTYmJncEVCM1FLWjB0bjRJVWtwTGNsN3k4TWtWRXFjZkVLV29qb19uZzMxMmRTalN1UVdmLWlBamNGWmFoV0o2Sm1zbnN1U1ZjSXFuazZxSXhCQUVpSTF3RWg1dW1NOHFUNksxSE0?oc=5",
+      "title": "Young Americans really hate AI. These two charts show how much. - The Washington Post (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Young Americans really hate AI. These two charts show how much. The Washington Post",
+      "date_published": "2026-08-19T02:47:44+00:00"
+    },
+    {
+      "id": "f59ea9005e1b787145d3b639eb650603",
+      "url": "https://terrytao.wordpress.com/2026/08/18/palomar-a-registry-of-lean-verified-mathematics/",
+      "title": "Palomar: A registry of Lean verified mathematics (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://terrytao.wordpress.com/2026/08/18/palomar-a-registry-of-lean-verified-mathematics/ Comments URL: https://news.ycombinator.com/item?id=49355968 Points: 6 # Comments: 0",
+      "date_published": "2026-08-19T02:41:50+00:00"
+    },
+    {
+      "id": "963428a0cc4dd9193f1c831dbb5d7d2f",
+      "url": "https://www.economist.com/business/2026/08/18/metas-blockbuster-trial-draws-parallels-to-big-tobacco",
+      "title": "Meta's blockbuster trial draws parallels to big tobacco (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.economist.com/business/2026/08/18/metas-blockbuster-trial-draws-parallels-to-big-tobacco Comments URL: https://news.ycombinator.com/item?id=49355825 Points: 42 # Comments: 18",
+      "date_published": "2026-08-19T02:24:34+00:00"
+    },
+    {
+      "id": "e4eed63e3c3e487eb7c8159989275767",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOcm4zUzdndEtZbnNPNnVZSk5pX3NQZWtqRkpwTFVSekJYNUd2LXo3anY1X2JWak00WnVHdnFuaGhCZ3pjWjk4cm13UER4QWNfYVJmdTh4YkpIckpxeXI4U01Cc3EyUmI3QnByQmZZU1pGaTYwM05RbGFfN0JhRmZFa3FENk1ONTVLTFdXcmNUX2ZkQlFxbGNKVjE3Z0JQdkdEZ21XMGJR?oc=5",
+      "title": "OpenAI Reportedly Just Gave Investors Bad News on Eventual Profitability - Gizmodo (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI Reportedly Just Gave Investors Bad News on Eventual Profitability Gizmodo",
+      "date_published": "2026-08-19T02:07:02+00:00"
+    },
+    {
+      "id": "debfcbac070379f71de2e417602de42f",
+      "url": "https://openlogi.org/en",
+      "title": "OpenLogi (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://openlogi.org/en Comments URL: https://news.ycombinator.com/item?id=49355606 Points: 48 # Comments: 7",
+      "date_published": "2026-08-19T01:58:28+00:00"
+    },
+    {
+      "id": "6fd152fc83c5a259bbc1860118f5877b",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOQUtfdGk5UHVIOWF2aDJucXhrdUlnR2M3OTI4ZG9GQnFucUVVTlU5ckxBTHVSTUpuamIzY3laM0xvcWFvT0l0M25fTXpmZmZDWDl4eXdlMjVoSTdQVGhyV2lWam9xcTExbjJHWGZaeThrQlhUcWNqMV9Ja2l5YnJrLWEwY3RYNU5TXy1oQ21HOW5DbTk4Q1hobE94N21oaUJFVFA0QU44MWNMVWtHRzRxMW1R?oc=5",
+      "title": "OpenAI halts testing, slows development after model went rogue - ABC News & Headlines - Australian Broadcasting Corporation (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI halts testing, slows development after model went rogue ABC News & Headlines - Australian Broadcasting Corporation",
+      "date_published": "2026-08-19T01:49:10+00:00"
+    },
+    {
+      "id": "1933014e04f63e358de3c3e8ae53064b",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxObHlfWFRrNGlEcTROMnlNTnZCS1FKWW5qbUVJQkNMQk8yNkk4bGI4VWhDYnJOcEdScmZrMHFXUVhsZmhZRjNtemdreGo1T3drd1FYN1ZEY2tEQW81aXJBbE5tXzlyc1BrNHZGUVdQNUlqWHdacTdqNVJ1ZkRad0YyajRmRzlNdy0wb3J3aHF1Sm5DVHNFR2VwOFVIZUYzZDhB?oc=5",
+      "title": "OpenAI's junior version of ChatGPT with guardrails has launched - SiliconANGLE (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI's junior version of ChatGPT with guardrails has launched SiliconANGLE",
+      "date_published": "2026-08-19T01:43:00+00:00"
+    },
+    {
+      "id": "ca0a863b97a97011e6a667a1fe67f858",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNc2xpTzk2ejIyRTVoa1pWRHl4VHpza2lmYlJaZWppRTBhdzIyM1g1dm5tY1MwUDIyYmhUMVVGcVBIdFI1ekdVTzFxcEFXalF5YWg0NXRBc21rQWtvSEwyQTZCQ01KUmJZMGlJWW9wOUtQb01mVFZRa1diQl9MUUNNaG0wZUlFUFBFcGRiTk1WRkpIclM4NlRFdWUzdmdhZw?oc=5",
+      "title": "Ex-Presidential Candidate Andrew Yang Pushes for AI Tax Over Payroll Tax - Yahoo (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Ex-Presidential Candidate Andrew Yang Pushes for AI Tax Over Payroll Tax Yahoo",
+      "date_published": "2026-08-19T01:25:00+00:00"
+    },
+    {
+      "id": "08802c889e075a0fb1fd32c97343ac2e",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOZWlqbE40em5vR0FjUDdMWTE1dExtc1MydFFsZ0J1Sm1QVjFXbmk2SHBQVXh6aFQ3NkxrWUV4bFJndUlfb1NuU1Y4RnBMQlY1dXphZnU0N2lycHo5c1JnZmlfWnpWc1JxSkY1UWZlVTFtMzd0d2tXVjJqZWlQZlF3NlNtWThDMVBhWjdxTVdzNHpjQ2ZZaWNKZkdKN2M3aWVxYzRzZjNrTFcwVTBOdWt6Q21xWHU2S2xmTXRMSmxQX2wtZ0QzMEpz?oc=5",
+      "title": "OpenAI falls further behind Anthropic, with disappointing revenue growth and mounting losses - SiliconANGLE (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI falls further behind Anthropic, with disappointing revenue growth and mounting losses SiliconANGLE",
+      "date_published": "2026-08-19T01:25:00+00:00"
+    },
+    {
+      "id": "2baa6661cfe8e33ae04edd978a8611a5",
+      "url": "https://gist.github.com/17twenty/1f230ab8256f42d4cd3ba931b9bd440b",
+      "title": "The Integer (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://gist.github.com/17twenty/1f230ab8256f42d4cd3ba931b9bd440b Comments URL: https://news.ycombinator.com/item?id=49355368 Points: 19 # Comments: 2",
+      "date_published": "2026-08-19T01:23:45+00:00"
+    },
+    {
+      "id": "682eb048bb35957b7c5ccdb3355361c8",
+      "url": "https://lithub.com/on-that-disgraceful-disreputable-wonderful-form-of-punctuation-the-parenthesis/",
+      "title": "That Disgraceful, Disreputable, (Wonderful) Form of Punctuation: The Parenthesis (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://lithub.com/on-that-disgraceful-disreputable-wonderful-form-of-punctuation-the-parenthesis/ Comments URL: https://news.ycombinator.com/item?id=49355360 Points: 17 # Comments: 2",
+      "date_published": "2026-08-19T01:22:45+00:00"
+    },
+    {
+      "id": "6d0b3490d47677074722fcbc592dc3cf",
+      "url": "https://www.cam.ac.uk/research/news/tiny-satellite-will-use-the-dark-side-of-the-moon-to-eavesdrop-on-whispers-from-the-early-universe",
+      "title": "Tiny satellite will use the dark side of the Moon as a shield (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.cam.ac.uk/research/news/tiny-satellite-will-use-the-dark-side-of-the-moon-to-eavesdrop-on-whispers-from-the-early-universe Comments URL: https://news.ycombinator.com/item?id=49355232 Points: 15 # Comments: 1",
+      "date_published": "2026-08-19T01:06:03+00:00"
+    },
+    {
+      "id": "8b2a90dce2194bc9e5aa9fd93a4710b3",
+      "url": "https://bfi.uchicago.edu/wp-content/uploads/2026/08/BFI_WP_2026-108-1.pdf",
+      "title": "New paper shows that 37% of workers in US saw real wages decline from 2021-2024 [pdf] (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://bfi.uchicago.edu/wp-content/uploads/2026/08/BFI_WP_2026-108-1.pdf Comments URL: https://news.ycombinator.com/item?id=49355142 Points: 234 # Comments: 113",
+      "date_published": "2026-08-19T00:53:51+00:00"
+    },
+    {
+      "id": "4be7d010b48c5e591b1235c9f5522f7b",
+      "url": "https://www.bbc.com/news/articles/c1l1r1zne1ro",
+      "title": "Scientists stunned by children's lung recovery in ultra low emission zone (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.bbc.com/news/articles/c1l1r1zne1ro Comments URL: https://news.ycombinator.com/item?id=49355105 Points: 52 # Comments: 26",
+      "date_published": "2026-08-19T00:48:23+00:00"
+    },
+    {
+      "id": "e2c4d371795b31dd850b347c02cc028e",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQT1p6U1FWQ09raEpfZWRHaWF4SmRfeW5NemxIWl9QcHU0aTdlakpVVUZ4SnVkd19BU2JEWXJORHp3V091MXg1Vm9ySkF6QkFURDEyQlhKZXNDOXlMSlNyX0tlcXd2X2hjajNSWlBtdTRFTWdBUGdfQzJQT1pwTmNXaGtXVUhxMlExdlZHekJRMnNLTFRiM3VtaDB6d25lMzZyNTBydkhzUEFSenJOcFkyLTBZdzFHTjBsZGV0cE15ZFYxOTRGWkJvSWN1LUN3V1AyTTlZZ1lINA?oc=5",
+      "title": "OpenAI founder and CEO Sam Altman suggests college should last 2 years instead of 4 - VnExpress International (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI founder and CEO Sam Altman suggests college should last 2 years instead of 4 VnExpress International",
+      "date_published": "2026-08-19T00:47:49+00:00"
+    },
+    {
+      "id": "e6fb5280bf3fa48b15bcb4d8f1323bd6",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOOW9pcjk4N3pxdDlGVlNZemlxYmoycllJd1pKTG1rX01fajBja3NaM1hsdUVkaXlBVWxrZG9kYW5jRFB5anItT2tWdVJqcEV3Wkp6YkpZWVFuWVlhd0lHNlZyWDNvbVVWNHZTNHRaZVcxSXQzVEtEdUE4M19IOHotc0RydklhNmpmYXkwVzlUYnN6bHJRdVlsLXdzNWIya1dUVW5mS01EcXNzMTJaY1dfcnZjazlOcnM0Y3hMUA?oc=5",
+      "title": "Minnesota Defends AI Nudification Ban, Says xAI's Grok Tool Is Not Protected Speech - Law Commentary (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Minnesota Defends AI Nudification Ban, Says xAI's Grok Tool Is Not Protected Speech Law Commentary",
+      "date_published": "2026-08-19T00:37:27+00:00"
+    },
+    {
+      "id": "2aef3c25ae7f1ea54b18c370c2ab23f6",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNWmpuNFQySGxHaGt2REc3dVBmd2ZjTDZuSU53TEZDdnY5bHV2UXNpTnp5aENBeTIxb2pTMzloTFpUVXBGemRSTjRrRzNRMl9jM2RSWGlKaUJUaWxvcUEyS21PbjhQSXBXX1BZMGR1QV8xWjVtWlZ2cGxrTnRKdWl5MEFxUFVCdTd0bFlMQVhlNF9KZFRhVzVTX0tFb1c1bzBBUVNwUFFB?oc=5",
+      "title": "OpenAI slows advanced AI development after cyberattack - The Straits Times (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI slows advanced AI development after cyberattack The Straits Times",
+      "date_published": "2026-08-19T00:34:00+00:00"
+    },
+    {
+      "id": "761e881b8d6b8bf637566294092fb560",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQOUVsYVRndVFzaHVBMEI2Z3pFQ2RZbElxMmNRSXZETlZraUx4VE93dkpIcHQtc1ZITXpSTVAxNGtEYWN0bmRJeWhCc1ZzSW8wZ01BY1JPMTkyOFY1amFoMS11YnNBY0k4Uk82VjF1R2k1M2NDd0YzT1B5RkZsNEkzSkM0M01wTG1fYzVhTFl0aFJvSllBTWVBZFV3NG1CRXJXUGRlTGMxMG43Zw?oc=5",
+      "title": "Anthropic Beats OpenAI in Revenue for First Time - PYMNTS.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic Beats OpenAI in Revenue for First Time PYMNTS.com",
+      "date_published": "2026-08-19T00:31:37+00:00"
+    },
+    {
+      "id": "2c072b8b0237979017e8320b418faac2",
+      "url": "https://www.cerebras.ai/cs4",
+      "title": "Cerebras CS-4 (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.cerebras.ai/cs4 Comments URL: https://news.ycombinator.com/item?id=49354949 Points: 121 # Comments: 79",
+      "date_published": "2026-08-19T00:28:18+00:00"
     },
     {
       "id": "cd728aa8b34d56cb0c3e04dc271b61d5",
@@ -28,200 +322,81 @@
       "date_published": "2026-08-19T00:00:00+00:00"
     },
     {
-      "id": "57ba74f03a9ec91535013db114503266",
-      "url": "https://knowablemagazine.org/content/article/technology/2026/ai-boosts-biofoundries-synthetic-biology",
-      "title": "Artificial intelligence boosts automated biolabs (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://knowablemagazine.org/content/article/technology/2026/ai-boosts-biofoundries-synthetic-biology Comments URL: https://news.ycombinator.com/item?id=49354680 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:59:29+00:00"
-    },
-    {
       "id": "7db2806bc55752aab50891d47259dbc3",
       "url": "https://modelmap.cc",
       "title": "Show HN: Interactive, animated architecture of any HuggingFace models (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://modelmap.cc Comments URL: https://news.ycombinator.com/item?id=49354664 Points: 1 # Comments: 0",
+      "content_text": "Article URL: https://modelmap.cc Comments URL: https://news.ycombinator.com/item?id=49354664 Points: 44 # Comments: 7",
       "date_published": "2026-08-18T23:57:36+00:00"
-    },
-    {
-      "id": "ab03c55326326915d12dde5997801550",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSUNnTmFreEx6VmtxQlFPMUxVQUpUTjdhQkRmZ0VETGVySGFhXzdUWTFDY1FMQm9tbEtnV2Zvdy1UTnNrNzRpelI1ZGVIbGx5MmZ0VkQzRmc1VjM0TWw5em5DRDJSVGFLMzZmMUN3NTA4aG5yaUNjekhjMWhhNWpZQkxwV2t0RG9Lcm40eldmallKSE11WG02WXVVSTFyRmlWLWpra1IxUmhaRDNLMjRNem1vdmhhd1RW?oc=5",
-      "title": "OpenAI slows advanced AI development after cyberattack - Free Malaysia Today (Source: news.google.com | Category: AI Labs)",
-      "content_text": "OpenAI slows advanced AI development after cyberattack Free Malaysia Today",
-      "date_published": "2026-08-18T23:56:35+00:00"
-    },
-    {
-      "id": "fea0d8394faf81b251a63e32358e1fdd",
-      "url": "https://newsroom.arm.com/blog/arm-official-history",
-      "title": "The Official History of Arm (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://newsroom.arm.com/blog/arm-official-history Comments URL: https://news.ycombinator.com/item?id=49354650 Points: 1 # Comments: 1",
-      "date_published": "2026-08-18T23:55:50+00:00"
     },
     {
       "id": "d707d1e44a62c8c35da1d6d2e447a428",
       "url": "https://github.com/pg83/solo",
       "title": "Solo - a .so loader for static Linux binaries (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://github.com/pg83/solo Comments URL: https://news.ycombinator.com/item?id=49354613 Points: 1 # Comments: 0",
+      "content_text": "Article URL: https://github.com/pg83/solo Comments URL: https://news.ycombinator.com/item?id=49354613 Points: 67 # Comments: 69",
       "date_published": "2026-08-18T23:51:49+00:00"
     },
     {
       "id": "3facace1cb05b62e50be3c032bd27424",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPOEdPZTRQN2NiUEpURUc2cFBxaGN3QlpNV203c05DczRMdFJDWHRoazgtZEVaQlE0aU9CWW9LcC1JcGJwZ1VXd1lsQ0dnOEQ0MzlDdjJZOV9Oend0M1NON0RnUEZ5UHlMMFhrR09UU3pzSlAwRnl5OXRPbWd3NVljR21NNjBmWkVnWm9fZWkxVmZjbFEyQjJod1ZvMjFqSHNFX0VOb0s1X0puUVk?oc=5",
       "title": "Exclusive | OpenAI's Second-Quarter Sales Show Tepid Growth Compared With Anthropic - WSJ (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Exclusive | OpenAI's Second-Quarter Sales Show Tepid Growth Compared With Anthropic WSJ",
+      "content_text": "Exclusive | OpenAI's Second-Quarter Sales Show Tepid Growth Compared With Anthropic WSJ Anthropic's Annualized Revenue Tops $65 Billion Before IPO Bloomberg Top Market Strategist Warns Anthropic's 40-50x Revenue Multiple for IPO Could Be \"Dangerous\" Yahoo Finance",
       "date_published": "2026-08-18T23:47:00+00:00"
     },
     {
-      "id": "555cfe143f6f4214c0b746da31ed537c",
-      "url": "https://blog.exe.dev/athena-deploys-exe",
-      "title": "Have an Agent Babysit Your Deployments (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://blog.exe.dev/athena-deploys-exe Comments URL: https://news.ycombinator.com/item?id=49354574 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:46:54+00:00"
+      "id": "f7da712a26434b9a1ac393ca1357ac83",
+      "url": "https://www.dpreview.com/news/the-90-year-history-of-the-binoculars-bolted-to-scenic-overlooks/",
+      "title": "The 90-year history of the binoculars bolted to scenic overlooks (Source: hnrss.org | Category: Hacker News)",
+      "content_text": "Article URL: https://www.dpreview.com/news/the-90-year-history-of-the-binoculars-bolted-to-scenic-overlooks/ Comments URL: https://news.ycombinator.com/item?id=49353854 Points: 34 # Comments: 7",
+      "date_published": "2026-08-18T22:43:06+00:00"
     },
     {
-      "id": "ac54b2f0c27760635e8b96a5ef7b2eda",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPRnE3aEJ4VXBpY3Y0NGMyb0E5ZFNvVUxrOFBmZ2QtR0ZVZ2NQSkpLMXZodFR2c1ZyTGlDSHNlVWdheEV5bUJibG9xTFZSeWJyMDJXOEJkX29fVU5ydHhGZWVhWkxtQkxTYmJncEVCM1FLWjB0bjRJVWtwTGNsN3k4TWtWRXFjZkVLV29qb19uZzMxMmRTalN1UVdmLWlBamNGWmFoV0o2Sm1zbnN1U1ZjSXFuazZxSXhCQUVpSTF3RWg1dW1NOHFUNksxSE0?oc=5",
-      "title": "Young Americans really hate AI. These two charts show how much. - The Washington Post (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Young Americans really hate AI. These two charts show how much. The Washington Post",
-      "date_published": "2026-08-18T23:46:17+00:00"
+      "id": "16f120d518dc9c8c483d0c2ff90ccd55",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdWhlcVlRMWxYS3FJNUhUVXRBbHBaMXh6OTdJYm9JODFsNUF3Z2NVd2tjWGpCUkExSENidW9ZSzlObEtvbWJ4dlIxd21ab3lseXRRY21ad1dyeGdNV2dZdXNWc0lhR3NBYWo4SGwxYm9wZi1CVzNXQlVObGROTVZxcm93SzlIVkhJTG5QWVplMV9WNm9yZEpsOTZxb0Z5QjJ4OWF4czUtRDdkWWV5TlRiVzVqWWV0YXd3WEVQQw?oc=5",
+      "title": "Anthropic prepares supervoting power for founders ahead of IPO, the Information reports - Reuters (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic prepares supervoting power for founders ahead of IPO, the Information reports Reuters",
+      "date_published": "2026-08-18T22:22:54+00:00"
     },
     {
-      "id": "84595b1fe2996c3cd7d4ba241610b2f2",
-      "url": "https://blog.joinmastodon.org/2026/08/5.0-laying-the-foundation/",
-      "title": "Mastodon 5.0: Laying the Foundation (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://blog.joinmastodon.org/2026/08/5.0-laying-the-foundation/ Comments URL: https://news.ycombinator.com/item?id=49354555 Points: 4 # Comments: 1",
-      "date_published": "2026-08-18T23:45:26+00:00"
+      "id": "a2e373005ce765e3332160aec6319f26",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBZSUlFZ25ZeUpwR2FqLUh5WlJpQVRfM3RPaVg5dlo5NWMzbldIOW1WZDR2MklDNWdidlJIN2JKbUV1VU52aDk0YmlpdVJIVmRVTzRfanM5ZmU5MnlWVTZLSHZhTE0wVC1iRzNwUzRKRTk3MC1DMWZR?oc=5",
+      "title": "How Claude is accelerating protein design and analytical chemistry - Anthropic (Source: news.google.com | Category: AI Labs)",
+      "content_text": "How Claude is accelerating protein design and analytical chemistry Anthropic",
+      "date_published": "2026-08-18T22:14:57+00:00"
     },
     {
-      "id": "ec7025c69d228f6adf4c0be36cfc2b85",
-      "url": "https://www.thesis.do/galley",
-      "title": "Made a Lightweight Markdown Reader (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.thesis.do/galley Comments URL: https://news.ycombinator.com/item?id=49354542 Points: 3 # Comments: 0",
-      "date_published": "2026-08-18T23:43:32+00:00"
-    },
-    {
-      "id": "5a845ff1d783118e50c2c1a853e58643",
-      "url": "https://sfwa.org/2026/05/09/in-memoriam-jeffrey-a-carver/",
-      "title": "Sci-Fi Author Jeffrey A Carver Passed Away (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://sfwa.org/2026/05/09/in-memoriam-jeffrey-a-carver/ Comments URL: https://news.ycombinator.com/item?id=49354532 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:42:43+00:00"
-    },
-    {
-      "id": "c118efaa4fcca136d94d055a366b0eb6",
-      "url": "https://github.com/high-cde/ZDOS/tree/main/os/x86_64",
-      "title": "Minimal Zlang bytecode runtime booting in a bare-metal x86_64 kernel (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://github.com/high-cde/ZDOS/tree/main/os/x86_64 Comments URL: https://news.ycombinator.com/item?id=49354512 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:40:45+00:00"
-    },
-    {
-      "id": "51b27decc1d4098045e8078512afa896",
-      "url": "https://seanhelvey.com/mullet-stack/guide/",
-      "title": "The Mullet Stack: Syncing Types Between FastAPI/Pydantic and TypeScript (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://seanhelvey.com/mullet-stack/guide/ Comments URL: https://news.ycombinator.com/item?id=49354412 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:31:33+00:00"
-    },
-    {
-      "id": "eec228744a5c8f3ce8787698280be0df",
-      "url": "https://www.ft.com/content/8a5cd515-191d-42f9-9b0c-1b817a1bc044",
-      "title": "Soaring Diesel Prices Rip Across US Economy (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.ft.com/content/8a5cd515-191d-42f9-9b0c-1b817a1bc044 Comments URL: https://news.ycombinator.com/item?id=49354410 Points: 4 # Comments: 1",
-      "date_published": "2026-08-18T23:31:22+00:00"
-    },
-    {
-      "id": "8947138e72eca45faf5d694e767beb76",
-      "url": "https://blog.veritates.love/selective-applicatives-theoretical-basis",
-      "title": "Selective Applicative Functors (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://blog.veritates.love/selective-applicatives-theoretical-basis Comments URL: https://news.ycombinator.com/item?id=49354380 Points: 2 # Comments: 0",
-      "date_published": "2026-08-18T23:28:34+00:00"
-    },
-    {
-      "id": "c93ac9d4ab0ec11be2134e1fc6780e31",
-      "url": "https://astr0baby.wordpress.com/2019/03/16/running-vax-ultrix-4-5-on-simh/",
-      "title": "Running Ultrix 4.5 (2019) (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://astr0baby.wordpress.com/2019/03/16/running-vax-ultrix-4-5-on-simh/ Comments URL: https://news.ycombinator.com/item?id=49354373 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:28:00+00:00"
-    },
-    {
-      "id": "0a46f23fe0dd96f48538afb40306ea32",
-      "url": "https://www.nytimes.com/interactive/2026/08/17/magazine/transformers-power-electric-grid.html",
-      "title": "The 400-Ton Linchpin of American Electrical Power (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.nytimes.com/interactive/2026/08/17/magazine/transformers-power-electric-grid.html Comments URL: https://news.ycombinator.com/item?id=49354353 Points: 2 # Comments: 0",
-      "date_published": "2026-08-18T23:26:32+00:00"
-    },
-    {
-      "id": "c5e907feed9ccf2ade044ceafbe53f6c",
-      "url": "https://www.inc.com/lucia-auerbach/children-with-more-screen-time-did-not-score-worse-on-cognitive-tests-scored-better/91391749",
-      "title": "Children with More Screen Time Score Better on Cognitive Tests, Not Worse (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.inc.com/lucia-auerbach/children-with-more-screen-time-did-not-score-worse-on-cognitive-tests-scored-better/91391749 Comments URL: https://news.ycombinator.com/item?id=49354345 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:25:49+00:00"
-    },
-    {
-      "id": "7e195930a93f41675daf6d03d0efa5b7",
-      "url": "https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
-      "title": "Cursor capitalizes on GitHub frustration, launches rival hosting platform (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/ Comments URL: https://news.ycombinator.com/item?id=49354330 Points: 3 # Comments: 1",
-      "date_published": "2026-08-18T23:24:28+00:00"
-    },
-    {
-      "id": "1f574f2b8d1e87c65d50b1706936133f",
-      "url": "https://2026.splashcon.org/details/oopsla-2026/96/Equivalence-Checking-of-ML-GPU-Kernels",
-      "title": "Stanford's deterministic CUDA kernel verifier (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://2026.splashcon.org/details/oopsla-2026/96/Equivalence-Checking-of-ML-GPU-Kernels Comments URL: https://news.ycombinator.com/item?id=49354321 Points: 2 # Comments: 1",
-      "date_published": "2026-08-18T23:23:38+00:00"
-    },
-    {
-      "id": "334ac73888e994a2fe02bbbe33bc8591",
-      "url": "https://www.rei.com/product/172306/spot-x-with-bluetooth",
-      "title": "Spot X with Bluetooth (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.rei.com/product/172306/spot-x-with-bluetooth Comments URL: https://news.ycombinator.com/item?id=49354301 Points: 1 # Comments: 0",
-      "date_published": "2026-08-18T23:22:26+00:00"
-    },
-    {
-      "id": "79d76f9b7592764ee35220b173998806",
-      "url": "https://dl.acm.org/doi/10.1145/3828685",
-      "title": "Programmable Property-Based Testing (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://dl.acm.org/doi/10.1145/3828685 Comments URL: https://news.ycombinator.com/item?id=49353618 Points: 7 # Comments: 0",
-      "date_published": "2026-08-18T22:22:41+00:00"
-    },
-    {
-      "id": "b8cb59d1ae54277d259f7ff2c0aaba4b",
+      "id": "c291b6e6098a643b06fc0f4765fcb57d",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB3QXVSLWxia3VqbkVfbkgtbGVENU1ERjRqMnotR0w1bklDS2xXRHFzTG9JNFNsenBMRVpMb2t5aWVmR1VYNjduTTlfclRCdE5qZlhxRVFSTTNSd3V6dlN3NTdEOFlabjByZmRWZlpCekkxSmtOejN2Mw?oc=5",
-      "title": "What Claude's AI text watermark actually does - Mashable (Source: news.google.com | Category: AI Labs)",
-      "content_text": "What Claude's AI text watermark actually does Mashable",
+      "title": "What Claude's AI text watermark actually does - mashable.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "What Claude's AI text watermark actually does mashable.com",
       "date_published": "2026-08-18T22:09:53+00:00"
     },
     {
       "id": "a5bc1a358db48ddf2762f69aac268653",
       "url": "https://linear.app/data",
       "title": "AI usage patterns in software teams (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://linear.app/data Comments URL: https://news.ycombinator.com/item?id=49353432 Points: 17 # Comments: 1",
+      "content_text": "Article URL: https://linear.app/data Comments URL: https://news.ycombinator.com/item?id=49353432 Points: 63 # Comments: 30",
       "date_published": "2026-08-18T22:08:07+00:00"
     },
     {
       "id": "3e860a7eb9b499b953606797be4f6508",
       "url": "https://artificialanalysis.ai/models/glm-5-3",
       "title": "GLM-5.3 Artificial Analysis Benchmarks (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://artificialanalysis.ai/models/glm-5-3 Comments URL: https://news.ycombinator.com/item?id=49353407 Points: 57 # Comments: 21",
+      "content_text": "Article URL: https://artificialanalysis.ai/models/glm-5-3 Comments URL: https://news.ycombinator.com/item?id=49353407 Points: 93 # Comments: 43",
       "date_published": "2026-08-18T22:06:10+00:00"
-    },
-    {
-      "id": "b6145dac6f71c3aa2dff61a3d55a05c3",
-      "url": "https://fx.sh",
-      "title": "fx :Tiny, open, native coding agent. (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://fx.sh Comments URL: https://news.ycombinator.com/item?id=49353339 Points: 60 # Comments: 34",
-      "date_published": "2026-08-18T22:00:21+00:00"
-    },
-    {
-      "id": "146767385c80af750fb76bd18867f789",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOUXF6TnN5RWVGU3dVZzRkZHVId1ZXWno5T0JLX1N0ZkxIQnB6ZVhkc3pOd2NIU0RtRDJVTFpPRkdUVXBfM1M0QkY5UVVfZjJkV0h1bEVJV2wzS01HalYxT3FXOThUd01TMmJnXzRfSVREZ0sxcWlCeHFmWnJlTi1BVksweS1yUkdJQ0RLZ0RUY3V2MHZjZ0Rmazk3Qi1rMVRMaTY2QjEzZlZjLXkzcGtqZkJmUkdyekNQ?oc=5",
-      "title": "Anthropic reportedly bolstering cash reserves ahead of IPO; revolving credit facility may exceed $10 billion as major Wall Street banks compete to participate - Moomoo (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic reportedly bolstering cash reserves ahead of IPO; revolving credit facility may exceed $10 billion as major Wall Street banks compete to participate Moomoo",
-      "date_published": "2026-08-18T22:00:00+00:00"
     },
     {
       "id": "f183608f1e8d3de2323f67c6146ddd99",
       "url": "https://github.com/DenisSergeevitch/desktop-fly",
       "title": "A 3D fruit fly on macOS desktop powered by the real FlyWire connectome (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://github.com/DenisSergeevitch/desktop-fly Comments URL: https://news.ycombinator.com/item?id=49353221 Points: 88 # Comments: 22",
+      "content_text": "Article URL: https://github.com/DenisSergeevitch/desktop-fly Comments URL: https://news.ycombinator.com/item?id=49353221 Points: 191 # Comments: 50",
       "date_published": "2026-08-18T21:50:33+00:00"
+    },
+    {
+      "id": "224c290c4ba1b0d3a2a689a9e363e461",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPa3pkZThyZXNILUxPWmJlYXowR0F3clotOTNhOXlncUM4OTJrVWowYlF5ZzFTbXBDVlVFeVpIXzgtU1NfS2xnRW1kVVBzM2UtOGRRZ0R6a0ZuZGhxWkl2b1NxUG56bU1CNmhFQk1yT1R6Qk5QcE5IMGp4SlZlcThQRTNfNEZVSUxjcDBvTXJjRTFCUXJ3UG5wUkVYdUVOdlNRVVZJRdIBqgFBVV95cUxNaVczV25XbXRnN0wzZHpFWGctazgxQXk2bWpCUUxOSDdmcGw5R3VkSU5Zb0doRVVFbEFiaXpWNTl5V0lzWEd6Ny1HdFdrSTFENU5IMUZoZVUyY2R2ZkFtSERZNTJCT3FiXzJyeDlRR2oxWjhoS3BScnU4MUFjT0xlQ2ZZV1c3Zjh5N2pnSnF1U3dFN1FDS1FPbklsT1hYZlZZdy1kbDUxOHc4dw?oc=5",
+      "title": "OpenAI pauses some AI training after autonomous cyberattack - ABC News - Breaking News, Latest News and Videos (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI pauses some AI training after autonomous cyberattack ABC News - Breaking News, Latest News and Videos",
+      "date_published": "2026-08-18T21:31:13+00:00"
     },
     {
       "id": "3201f12667ee0a9f28c11e5d57302a3b",
@@ -231,20 +406,6 @@
       "date_published": "2026-08-18T21:30:00+00:00"
     },
     {
-      "id": "7e1e8a3f2c817367b37f0ad71c40e564",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOd2tZMXJmRTktbm9XdE5SWGYxZDFZeUtxanFxd0ZlV3I5UV9GbVpQTllMUHFXVVg2TmxQcS0wVmZ4N1JXa2NhUHloNkhKYnBjZmJhc2E5U2ZEd0ExSnpuT0czenNsRjBBdEltanpuOUVZS2dHX21WSEc5XzNtWHh1YnRJZw?oc=5",
-      "title": "OpenAI pauses some AI training after autonomous cyberattack - Yahoo News Canada (Source: news.google.com | Category: AI Labs)",
-      "content_text": "OpenAI pauses some AI training after autonomous cyberattack Yahoo News Canada",
-      "date_published": "2026-08-18T21:27:49+00:00"
-    },
-    {
-      "id": "7c42f04a8a32283596bafdee0915db14",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdWhlcVlRMWxYS3FJNUhUVXRBbHBaMXh6OTdJYm9JODFsNUF3Z2NVd2tjWGpCUkExSENidW9ZSzlObEtvbWJ4dlIxd21ab3lseXRRY21ad1dyeGdNV2dZdXNWc0lhR3NBYWo4SGwxYm9wZi1CVzNXQlVObGROTVZxcm93SzlIVkhJTG5QWVplMV9WNm9yZEpsOTZxb0Z5QjJ4OWF4czUtRDdkWWV5TlRiVzVqWWV0YXd3WEVQQw?oc=5",
-      "title": "Anthropic prepares supervoting power for founders ahead of IPO, The Information reports - Reuters (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic prepares supervoting power for founders ahead of IPO, The Information reports Reuters",
-      "date_published": "2026-08-18T21:25:43+00:00"
-    },
-    {
       "id": "6094aae10fe4c2236fa29ab5816691ca",
       "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQRVRQeVNlY3IyZGJMOTFDMHRiRm5pZnlaVmNsVXN0UG1HODFzcnFIWHVhN29xU3RLUU5hYUNIdG84MFRJeVA1SFBwa3dCd1JSSjB0YVJWaU5tbFN2TVdNaHpCY29rYUFzZlJkaFNBMGdncFBaUDJoY1dMX1NMU1VzcmdvRXFTVWZzV0EyRWdGOXVhSlVHRHFGZGdwZDhaMmVSV3hYaFItTUF1NHRob3dZbG85THE5SDdoN1hiTC14eTk0d1R4SkZ2cnRURFZBLXNuRFVlZXNVdWV0MHZQOElrX3JvOXZxSHhlbFV1Q2Jhc0J4UDFnbGkweU5uVzNaUzgwZ3hvXw?oc=5",
       "title": "FILE PHOTO: FILE PHOTO: Anthropic rolls out Opus 5 AI model in efficiency upgrade - The Daily News | Texas' Oldest Newspaper (Source: news.google.com | Category: AI Labs)",
@@ -252,11 +413,11 @@
       "date_published": "2026-08-18T21:18:50+00:00"
     },
     {
-      "id": "746364e2b2471b2b04813e2639cef68f",
-      "url": "https://cdn.kuber.studio/chat/hp-laser-1008a-driver",
-      "title": "Claude Code Teaching macOS to Natively Print to the HP Laser 1008a (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://cdn.kuber.studio/chat/hp-laser-1008a-driver Comments URL: https://news.ycombinator.com/item?id=49352806 Points: 98 # Comments: 61",
-      "date_published": "2026-08-18T21:14:21+00:00"
+      "id": "80eef4960443f52b0162cd915ed1a625",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWDNEbWpwSmM2M0dnZmphSVVYTVdocWJ3QzFsWlNLVXdDTU1iWjJEQW02eWx3T3dGeEVUbXc1bWxkMkpFMUc2VVVGRHI4b3NOSFlsYWg0bm14cXB2d3IxQ3JVQS1FbW0xT04yZmZPTkRJTWVfZ1puYXlMc3p6dHN0X1BidmhGbUZwZjhad05qR2RLQnpXUnpBSkhwTnpuaEhsT1lEeUx6RFBfTk04OWdaUExfekp3RTcxcEwyVzhFbDZlYVByMXpwZVZHdTI4dw?oc=5",
+      "title": "Anthropic moves to bolster founder control ahead of mega-IPO - The Information - Investing.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic moves to bolster founder control ahead of mega-IPO - The Information Investing.com",
+      "date_published": "2026-08-18T21:14:26+00:00"
     },
     {
       "id": "4f91b295cf4f0ef71de097f22d589365",
@@ -264,13 +425,6 @@
       "title": "OpenAI rolls out ChatGPT for Teens experience with 'stronger built-in safety protections' - CNBC (Source: news.google.com | Category: AI Labs)",
       "content_text": "OpenAI rolls out ChatGPT for Teens experience with 'stronger built-in safety protections' CNBC",
       "date_published": "2026-08-18T21:11:39+00:00"
-    },
-    {
-      "id": "c2fd1c284fa476dafc6bf3ba7c8a137a",
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQSi1YNjZNLXZLZDljaUlVY3RiRFFLSC1zRGxnRGxvVlNnc1BRQ3lCRFdKNW9rTDgyNDRYaGFiVlJLX3llM0tqa1lXQ2E2dGRQMmFBNlh6MFYyX0tNLWRicXdkUHc5ZS1MQ1ZXVFpuU0MxaWRWcUJVcm9UQ0NzazZIOFZtd0l2ZEszWEVkV29SU0hCOThfanI3clNWQkNJSGZORlkxbzJkSlNFSnhIN3I3M2RaZG1ESnlVTXlLNjZmbWNuaU5SeHZOMnEzdHdKZU41Slk3eVU5cGlhV2ctRndxUmtoVlc?oc=5",
-      "title": "Anthropic's Pre-IPO Credit Line Is Growing - and Banks Are Angling for Underwriting Roles - Benzinga (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic's Pre-IPO Credit Line Is Growing - and Banks Are Angling for Underwriting Roles Benzinga",
-      "date_published": "2026-08-18T21:06:22+00:00"
     },
     {
       "id": "dd63925c56daeff407db84d986a22462",
@@ -294,24 +448,31 @@
       "date_published": "2026-08-18T20:34:10+00:00"
     },
     {
-      "id": "c5ee11d4521efaa41b39ee197c870b9c",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNV096MkQ1VUJEM00zZVJ3clNva1lJWERDX2dwLTNwM3lqeEFKOVpUdFhkR19sZ3JBSEpvTmN0OXlGaXZZMlQ5WnU4cFJjOUM0dWdJUUEyT25IdlJBWVY1UWF0Qzhtalg4UVUwRVY3QWM3UDlVV0pnbWp6WHNSYVFjbmd0aWtOcXM4Nnk3SXVBekNWOXBwa0JsZGdNRmQzQW1SV01iRVhkNEZPTzJsMnhOSHcwS3RCWF9FQVdESWtPZzQ?oc=5",
-      "title": "Anthropic Just Gave This Bitcoin Miner a Contract Bigger Than the Whole Company - Barchart.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic Just Gave This Bitcoin Miner a Contract Bigger Than the Whole Company Barchart.com",
-      "date_published": "2026-08-18T19:41:44+00:00"
+      "id": "3b3ea200a1f2edff1a33cf05022f5767",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUTdXMkt2RWM3LVQtV08xbGVaMG5MM3JuS2tpY1FIVUQ5Y3hQLVQtakU4WHZTRkExTXRTOThQWEJKTXJxVklvUzZEc1hPVVowb0h5SVJZeUNPV1U2VjRMTFljSlpnN3lUTEd6OTY1cHZmZTNuMHpYdV9aTUtfRkc2LVF6d3RHd2RxclhxdEIzbGpldjBHU3liU1A2dks0MDhBSVIzdw?oc=5",
+      "title": "Anthropic Prepares Supervoting Power for Founders as it Readies for Mega-IPO - The Information (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic Prepares Supervoting Power for Founders as it Readies for Mega-IPO The Information",
+      "date_published": "2026-08-18T20:29:00+00:00"
     },
     {
-      "id": "cb89ca3af2d4e6e6cd3684683a789c68",
-      "url": "https://www.onethousandmeans.com/p/norway-should-buy-openai",
-      "title": "Norway should buy OpenAI (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.onethousandmeans.com/p/norway-should-buy-openai Comments URL: https://news.ycombinator.com/item?id=49351330 Points: 192 # Comments: 221",
-      "date_published": "2026-08-18T19:30:29+00:00"
+      "id": "86675da505975da474c31f9c50699440",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOc3lMc21JbVpCbDNJbGtHQVZhbEZUOWdhT2hLYS1fekVSb2d4SnMtbDhrMUkxYnc0WEhiUnhhOEpFWEtxREhZVl9hOXRIdzh5NFFreVFoZEN6RERWQ1NBMm9sN3dIUVUzaDd2QlItUUVMbzhKRjVSUFZjUW9TTFY5WTRmVVhONlJRNUwxMkt4TnBLUVp5QXM1aFQ4TnBXMmN3dm5fZA?oc=5",
+      "title": "Anthropic Shows AI Agents Can Infect Each Other With a Self-Spreading Goal - Startup Fortune (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic Shows AI Agents Can Infect Each Other With a Self-Spreading Goal Startup Fortune",
+      "date_published": "2026-08-18T19:43:32+00:00"
+    },
+    {
+      "id": "5bd93fc4518ce650bda70f02ecf2618e",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPLWhRb1BGNl9TNnBvbVgzZ1ZKS0lQdllpYnhBaE14US1FYkdvaHNCMHdMVHNKWnlRR2FXUjd0S296WDh2dXdRamY4M2FXcm9iSFUyWVNsTm9SN210OXhFUjZXUm53eS1iUk96MG9oSDRxZ3JKRU90dFRndUFmNFZlN0x3ZkhRTU8wMzNpZkdvNVFmNnNZbUk5eFVMb2xSdw?oc=5",
+      "title": "Anthropic Just Gave This Bitcoin Miner a Contract Bigger Than the Whole Company - Yahoo Finance (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic Just Gave This Bitcoin Miner a Contract Bigger Than the Whole Company Yahoo Finance",
+      "date_published": "2026-08-18T19:41:44+00:00"
     },
     {
       "id": "dbaee7778f57b70d3c08275bcc398dff",
       "url": "https://about.iceland.co.uk/our-story/the-dark-ages/beware-management-consultants/",
       "title": "Beware Management Consultants (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://about.iceland.co.uk/our-story/the-dark-ages/beware-management-consultants/ Comments URL: https://news.ycombinator.com/item?id=49351324 Points: 421 # Comments: 111",
+      "content_text": "Article URL: https://about.iceland.co.uk/our-story/the-dark-ages/beware-management-consultants/ Comments URL: https://news.ycombinator.com/item?id=49351324 Points: 461 # Comments: 125",
       "date_published": "2026-08-18T19:29:51+00:00"
     },
     {
@@ -329,6 +490,13 @@
       "date_published": "2026-08-18T19:22:11+00:00"
     },
     {
+      "id": "596879eb12dd8b550875181e6925b9f2",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9rX09qWV83dUVMd1dFenpLVkVFZ2hTSHhLb29XOVN3dm9uaUFoUjJXM0FnUmc4NnJpWWxiSGFBUEZUMlRQTkxSVkVBcnFFa1RfaGxsNi1jMWl6TDFkOUxuMGhCanZET1J1OUJ1ODdVQ2F6eWpobnc?oc=5",
+      "title": "Minnesota Defends Landmark AI Nudification Ban Against xAI's First Amendment Challenge - finance.biggo.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Minnesota Defends Landmark AI Nudification Ban Against xAI's First Amendment Challenge finance.biggo.com",
+      "date_published": "2026-08-18T19:10:00+00:00"
+    },
+    {
       "id": "6d9008085b4c8caa000af8946ff44388",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQb3doZUhNQk5FRTdHZUw4SWJLRXQzNW1ZQWZQN2d5dEx4TnlxZElOV09UWlZEeDFyaUNzenZ6M1ozcTRvMzdmX3haRkNDdl8ya2JrRUxod2hmQWVRSnJEZldJZW1sRDEwdFctUTlGbnhRalQxakNCTXRkcll2bTQzbF95RzV4NjJtT3RNMEtZWmZEcjloQ1Q4VjBseEhMSTVqWXhPZmk2SQ?oc=5",
       "title": "Breakingviews - Anthropic's deceleration has some IPO upside - Reuters (Source: news.google.com | Category: AI Labs)",
@@ -341,13 +509,6 @@
       "title": "Strengthening democratic oversight in national security (Source: openai.com | Category: AI Labs)",
       "content_text": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise.",
       "date_published": "2026-08-18T19:00:00+00:00"
-    },
-    {
-      "id": "4dba46e219ac3362322808c6137f3d81",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9iSnBXWEFaa1hJVXNlT3YxM3VJalNlaEhTMGtmeUVXMUotcTJ4bzVRbWJIcDVjS0xMZVpEY2hZdTJhZjdtcUd2RHpRazJvRGdPNGlfTFhUc29nZkV5aFk2VXVSclI4aDl5WlNKa2VyTEdISW1TLVdyQ0R3?oc=5",
-      "title": "Anthropic's revenue run rate reportedly surpasses $65 billion pre-IPO - Axios (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic's revenue run rate reportedly surpasses $65 billion pre-IPO Axios",
-      "date_published": "2026-08-18T18:47:54+00:00"
     },
     {
       "id": "554629fb4d23f0cdcfc50573e0d7da38",
@@ -364,31 +525,17 @@
       "date_published": "2026-08-18T18:23:24+00:00"
     },
     {
-      "id": "372bcb6399f99c295f3cce54f9a8d3f3",
-      "url": "https://openai.com/index/pacing-model-development-cyber-capabilities/",
-      "title": "Pacing model development in an era of cyber-critical capabilities (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://openai.com/index/pacing-model-development-cyber-capabilities/ Comments URL: https://news.ycombinator.com/item?id=49350031 Points: 67 # Comments: 36",
-      "date_published": "2026-08-18T18:14:59+00:00"
-    },
-    {
-      "id": "6a7580668a549254600103414c83d100",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPM3BSMzN3MlFuUWV2OUdiRUNrZTZ0by01UjBLSEoyWk8wYW5FU1pLNFdwRkhtT19Jczl3dXpDNEgtVFlPY19HSmJ5RWV3dHdZWTRSZm4ySmdBZUtucmQ5ZXpWR3lIUkUzYmlvVEMtU0l2d3MzeUY0RVppZ0FnTUJmLWxmbnF6RjN2RUJnUkd2b3AzckNaZ2h0VXNTV3NCTG1CeXRlMktKMXZZaEFaT1hmVWh2bDlCb0ZQc0k0UUtrLTFMQ2dVdzJuQmo5VFIyOGJncWI0MS1Cb1RMdXpocF8zRS05M0pwREJxVEMw?oc=5",
-      "title": "OpenAI introduces 'ChatGPT for Teens' experience amid scrutiny over child safety - WJRT ABC12 (Source: news.google.com | Category: AI Labs)",
-      "content_text": "OpenAI introduces 'ChatGPT for Teens' experience amid scrutiny over child safety WJRT ABC12",
-      "date_published": "2026-08-18T18:13:26+00:00"
-    },
-    {
       "id": "c68083dc746c500a1fca642eb3062cf1",
       "url": "https://www.ikea.com/se/en/customer-service/knowledge/articles/6f564c4d-2ccc-46de-b643-545a3948dc79.html",
       "title": "How does IKEA come up with names for its products? (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.ikea.com/se/en/customer-service/knowledge/articles/6f564c4d-2ccc-46de-b643-545a3948dc79.html Comments URL: https://news.ycombinator.com/item?id=49349984 Points: 207 # Comments: 128",
+      "content_text": "Article URL: https://www.ikea.com/se/en/customer-service/knowledge/articles/6f564c4d-2ccc-46de-b643-545a3948dc79.html Comments URL: https://news.ycombinator.com/item?id=49349984 Points: 255 # Comments: 151",
       "date_published": "2026-08-18T18:11:53+00:00"
     },
     {
       "id": "a2878ac629087e6b389435f44f6ad301",
       "url": "https://github.com/RyanCodrai/turbovec",
       "title": "Turbovec - Google's TurboQuant for vector search in Rust (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://github.com/RyanCodrai/turbovec Comments URL: https://news.ycombinator.com/item?id=49349898 Points: 191 # Comments: 24",
+      "content_text": "Article URL: https://github.com/RyanCodrai/turbovec Comments URL: https://news.ycombinator.com/item?id=49349898 Points: 213 # Comments: 30",
       "date_published": "2026-08-18T18:07:21+00:00"
     },
     {
@@ -399,6 +546,13 @@
       "date_published": "2026-08-18T18:07:00+00:00"
     },
     {
+      "id": "6179486f5a988aa797de8d5b995dec71",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBjWDExYjRyRVZ2UWVFR2pmdnNYb1NwRWY2RzJkSnZ1OVdqNmJWNW5hSVd4dlRTU3g3dmFrWm1zY0d0aFZyWktvN0gyMFc2T1Fta1dzMzdkRFNOaUVxOEZta1hEQTZBSVg1YWtXbjBYbnViS2s?oc=5",
+      "title": "OpenAI launches ChatGPT for teens, a more age-appropriate chatbot - Salina Post (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI launches ChatGPT for teens, a more age-appropriate chatbot Salina Post",
+      "date_published": "2026-08-18T18:01:29+00:00"
+    },
+    {
       "id": "631e7955a9637ac918a876de6f0cd06a",
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOQVhYYS1wd1pOU0E2S0xzaVh4eGNOMUJpQUU2QzJiTmVLUmJzc3NNaUpfN3AxN2lJLXUtbFhkc29QVkhJcjRiTDZvZklSU1F5SWlVQnZyaXhZUzNXNmlMLU5ndzU3WEZrSTJweU9OUDZpajdzMC0wM0RkV1B4aGVZY0RpSnNhalhGWkJCTE5JNnVUaURuMTQ0YkFhaVpIaGxDQlF6cDU2QUNJQ2k5d0VDaEJzRHlYeDhFRFd6NUQ0Y1J5UEo5YXZnaWxuZDN6WkE2?oc=5",
       "title": "Anthropic's pre-IPO credit facility set to exceed $10 billion, Bloomberg News reports - Reuters (Source: news.google.com | Category: AI Labs)",
@@ -406,18 +560,18 @@
       "date_published": "2026-08-18T17:54:21+00:00"
     },
     {
-      "id": "a62d54c6c4e85a7e5f29752db563a641",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOakJSNW84WFB5a2licllQb1hnOFl6NURjQk91ZnM5Y1Iza0RlZzMydkh1SWZlalVPci1iN3NxNnA3Q1laNEprWi03WG50WlJOVHVTeHpzY3F5Q1pZa2Z0NFQzTldmY0NBbTEtTUh6dHBib0tleHRKNWVNbThWRWszZEszb1BxbXo1RXUyN2V0ajNBSnVzRXZJSk1iLTNMbVJvN0ZTZWZsTlZEREVTV185T0RTcG1tbVpnTDJaNzdoRQ?oc=5",
-      "title": "Woman Claims Stepdad Used AI To Turn Photos Of Her As A Kid Into Child Porn - kiss108.iheart.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Woman Claims Stepdad Used AI To Turn Photos Of Her As A Kid Into Child Porn kiss108.iheart.com",
-      "date_published": "2026-08-18T17:53:58+00:00"
+      "id": "7e00e80fe8575ba84cc96271878cf51b",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZ2lFT1B4eXNWbVE2RUY1eHJpTGE2Q2IwckdOV2ZudEhwZmJmWjFtUm9XSVpGcFF5SEdLUi03TXRoeHNtVHpjc0lkaGs2WHVjTnk5NFh3VlE5UUN3bm1MWENORmhsY2NPSGFSanVqbVZpbkMzZlgtcml4VElfWFRJeFhzRHg4dw?oc=5",
+      "title": "Tech Stocks Fall On War, Macro Woes. Is Anthropic Revenue Projection Also A Factor? - Investor's Business Daily (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Tech Stocks Fall On War, Macro Woes. Is Anthropic Revenue Projection Also A Factor? Investor's Business Daily",
+      "date_published": "2026-08-18T17:54:00+00:00"
     },
     {
-      "id": "2769fba2e428f34179dae8a51d10dfcb",
-      "url": "https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban",
-      "title": "Field measurements of neighborhood-scale air temperature impacts of data centers (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban Comments URL: https://news.ycombinator.com/item?id=49349147 Points: 278 # Comments: 414",
-      "date_published": "2026-08-18T17:24:53+00:00"
+      "id": "1d9942118f74564b3fe330af38667812",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOakJSNW84WFB5a2licllQb1hnOFl6NURjQk91ZnM5Y1Iza0RlZzMydkh1SWZlalVPci1iN3NxNnA3Q1laNEprWi03WG50WlJOVHVTeHpzY3F5Q1pZa2Z0NFQzTldmY0NBbTEtTUh6dHBib0tleHRKNWVNbThWRWszZEszb1BxbXo1RXUyN2V0ajNBSnVzRXZJSk1iLTNMbVJvN0ZTZWZsTlZEREVTV185T0RTcG1tbVpnTDJaNzdoRQ?oc=5",
+      "title": "Woman Claims Stepdad Used AI To Turn Photos Of Her As A Kid Into Child Porn - Kiss 108 (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Woman Claims Stepdad Used AI To Turn Photos Of Her As A Kid Into Child Porn Kiss 108",
+      "date_published": "2026-08-18T17:53:58+00:00"
     },
     {
       "id": "153e73d5817c6a276f7d1555479d415e",
@@ -430,22 +584,8 @@
       "id": "7b75039aa5ad5163e5483ba48df64195",
       "url": "https://shkspr.mobi/blog/2026/08/and-then-the-men-with-guns-tell-you-to-do-it-anyway/",
       "title": "And then the men with guns tell you to do it anyway (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://shkspr.mobi/blog/2026/08/and-then-the-men-with-guns-tell-you-to-do-it-anyway/ Comments URL: https://news.ycombinator.com/item?id=49348912 Points: 127 # Comments: 60",
+      "content_text": "Article URL: https://shkspr.mobi/blog/2026/08/and-then-the-men-with-guns-tell-you-to-do-it-anyway/ Comments URL: https://news.ycombinator.com/item?id=49348912 Points: 198 # Comments: 114",
       "date_published": "2026-08-18T17:11:28+00:00"
-    },
-    {
-      "id": "b35c80e5a909a442d6e2645ee3245c40",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPNjNXem5FWE95S2htbEM5X0haZW9VY0pLdHNtaEdqOTd3OHVYMXlMTVNnby1NZTNST2wyRUE2MDc0VWM3djRnWlkzb3MzY0hzNHZOLXVLdDAyelM1dFRpOUlCeVZqUGNVNkxqTzM4U2xFdkRPUUg5d1FIWDc5SE1RS0dOb3ZqT0haN2ZQY3FESWNPVnp6b0EtWEQzQlpOZ1hLY0ZsY3M4UWNMQ2ZBNFBld1hoTlJmTG5VRTBQWWlwWVVFYTlzcklUX2k5US1HMnl3?oc=5",
-      "title": "Anthropic targets $10B+ credit facility ahead of planned public debut - Bloomberg - Investing.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic targets $10B+ credit facility ahead of planned public debut - Bloomberg Investing.com",
-      "date_published": "2026-08-18T17:04:22+00:00"
-    },
-    {
-      "id": "10f73f984fea87aaccda0e8a6e648e94",
-      "url": "https://support.claude.com/en/articles/15910845-claude-code-may-august-2026-weekly-limits-promotion",
-      "title": "Claude Code May-August 2026 weekly limits promotion (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://support.claude.com/en/articles/15910845-claude-code-may-august-2026-weekly-limits-promotion Comments URL: https://news.ycombinator.com/item?id=49348751 Points: 251 # Comments: 219",
-      "date_published": "2026-08-18T17:02:15+00:00"
     },
     {
       "id": "dea27a670f5e8ad6d7fb3fca4fb27c7e",
@@ -462,32 +602,25 @@
       "date_published": "2026-08-18T17:00:24+00:00"
     },
     {
-      "id": "8267b727162371048eb5f42f5844aba3",
+      "id": "58600fff31e707160387dbe6958eb674",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNU9mVXV0ZTMtd20xVkxqQXZwVF9rMTRQMmZJOGlZV0hvb1pGQUpRemRlZHYxUEJUbXFUQTBKWGNfSTg0TWxNbEJGb3JjWVdfSGVvOERjemJabTFmSFlHRlB5Mk1kbWE1c2dOQm92enZfVV9McTdDZmxRMDc1UmlHaDAyR3FJb3NVbE9NVmJaVVgyeTdTb1g4dnFCcXY1bXZTNV9MX0szN0FOblBmdmNHRm5Sdw?oc=5",
-      "title": "Anthropic Pre-IPO Credit Facility Set to Climb Past $10 Billion - Bloomberg.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic Pre-IPO Credit Facility Set to Climb Past $10 Billion Bloomberg.com",
+      "title": "Anthropic Pre-IPO Credit Facility Set to Climb Past $10 Billion - Bloomberg (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic Pre-IPO Credit Facility Set to Climb Past $10 Billion Bloomberg",
       "date_published": "2026-08-18T16:42:15+00:00"
     },
     {
       "id": "5b9d31c21a4dca01d9068f2ed0531fa8",
       "url": "https://machine0.io",
       "title": "Launch HN: machine0 (YC S26) - Persistent CPU and GPU VMs from the CLI (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Hi HN! I'm Barnaby, founder of machine0 (https://machine0.io). I'm building a CLI for long horizon agent compute: `machine0 new mybox` gives your agent a persistent cloud VM, billed by the minute, from $0.013/hr up to 60 vCPU / 240 GB RAM and GPUs (H100s, H200s etc), with 99.99% VM level uptime. Agents self drive via CLI or MCP. Demo: https://www.youtube.com/watch?v=gyllkZ0M04E Agent workloads are moving from ephemeral to always-on. A coding agent working on a complex feature runs 6-8 hours. Agent orchestrated training & RL runs take days. OpenClaw & Hermes run 24/7. As you run more in parallel: - Resources: a few agents on a large codebase saturate RAM and CPU. Model training and RL needs GPUs you don't have. - Security: `--yolo` on your personal machine is one prompt injection away from exfiltrated credentials. - Availability: close your laptop and the agent dies mid-task. - Isolation: there's no clean line between you and the minimum your agent actually needs. machine0 gives every agent its own computer. It's a CLI simple enough that both humans and agents use it without reading docs: `machine0 new mybox` creates an SSH-ready VM with a static IP and HTTPS endpoint. Always on (with 99.99% VM level uptime) until you switch it off. - Billed by the minute. 1 vCPU / 1 GB at $0.013/hr up to 60 vCPU / 240 GB, plus GPUs from RTX 4000 Ada to 8×H200. - Suspend, snapshot and resume. Making it easy to pause your work, and come back to it later. Or to make a golden master image to stamp out clones for a fleet. - Block storage. Persistent volumes (from 10 GB to 16 TB) that you can manage with intuitive grammar: `--yolo` and attach to your VMs. - Profiles. Bundles of credentials, MCP connections, prompts, and env vars, injected at VM creation. So each agent gets exactly the capabilities you choose, and nothing else. - Agents self-serve. Hand the CLI or MCP server to Claude, Codex, or OpenCode and it manages its own fleet: spin up a box for a build, snapshot it, tear it down. - Reproducible Builds. Using NixOS flakes or Ansible playbooks with Ubuntu. How do people use it today? - Agent fleets. People run a pilot agent that scopes work and delegates it to sub-agents, each on its own VM: shape a project with the pilot, and the workers implement it and open PRs. One customer runs hundreds of machines at once, spun up and torn down from the CLI. - Model optimization & RL environments. ML teams use machine0 for agent-orchestrated RL environments and model optimization work. One customer runs RL environments on 60 vCPU machines that stay up for days at a time; another keeps a suspended H100 around and points an agent at it overnight to grind on inference-speed optimizations. - Product infrastructure. One customer builds their product on top of machine0 rather than using it themselves: every user session gets a fresh XL machine from a versioned image of their own agent runtime. They've shipped hundreds of versions of that image and launched thousands of machines, most alive for two minutes. What's under the hood? Every machine is a full KVM virtual machine, not a container or sandbox. You get the real GPU exposed to the guest with its actual driver, kernel-level access (load any module or driver you want), and no syscall-interception layer between you and the hardware. The stack itself is deliberately dull: TypeScript, Postgres, Redis. We weigh heavily towards security, reliability and performance making machine0 ideal for sustained compute intensive workloads. About me I've been building cloud infrastructure for about 15 years. I dropped out of a PhD at Imperial College London on cloud resource allocation, later spent six years as co-founder and CTO of Upflow (YC W20), owning DevOps, infra and security personally the whole way to 7-figures in ARR because it was too high-stakes to delegate. machine0 started as a tool for me, I'm my own first user :) Asks Would love you to try it out and give us your feedback (see below). Or if you're a company looking for compute for software factories, model training or RL environments, feel free to reach out at barnaby@machine0.io # install machine0 $ curl -LsSf https://machine0.io/install.sh | sh # create a machine and ssh in $ machine0 new myvm $ machine0 ssh myvm Comments URL: https://news.ycombinator.com/item?id=49348136 Points: 57 # Comments: 35",
+      "content_text": "Hi HN! I'm Barnaby, founder of machine0 (https://machine0.io). I'm building a CLI for long horizon agent compute: `machine0 new mybox` gives your agent a persistent cloud VM, billed by the minute, from $0.013/hr up to 60 vCPU / 240 GB RAM and GPUs (H100s, H200s etc), with 99.99% VM level uptime. Agents self drive via CLI or MCP. Demo: https://www.youtube.com/watch?v=gyllkZ0M04E Agent workloads are moving from ephemeral to always-on. A coding agent working on a complex feature runs 6-8 hours. Agent orchestrated training & RL runs take days. OpenClaw & Hermes run 24/7. As you run more in parallel: - Resources: a few agents on a large codebase saturate RAM and CPU. Model training and RL needs GPUs you don't have. - Security: `--yolo` on your personal machine is one prompt injection away from exfiltrated credentials. - Availability: close your laptop and the agent dies mid-task. - Isolation: there's no clean line between you and the minimum your agent actually needs. machine0 gives every agent its own computer. It's a CLI simple enough that both humans and agents use it without reading docs: `machine0 new mybox` creates an SSH-ready VM with a static IP and HTTPS endpoint. Always on (with 99.99% VM level uptime) until you switch it off. - Billed by the minute. 1 vCPU / 1 GB at $0.013/hr up to 60 vCPU / 240 GB, plus GPUs from RTX 4000 Ada to 8×H200. - Suspend, snapshot and resume. Making it easy to pause your work, and come back to it later. Or to make a golden master image to stamp out clones for a fleet. - Block storage. Persistent volumes (from 10 GB to 16 TB) that you can manage with intuitive grammar: `--yolo` and attach to your VMs. - Profiles. Bundles of credentials, MCP connections, prompts, and env vars, injected at VM creation. So each agent gets exactly the capabilities you choose, and nothing else. - Agents self-serve. Hand the CLI or MCP server to Claude, Codex, or OpenCode and it manages its own fleet: spin up a box for a build, snapshot it, tear it down. - Reproducible Builds. Using NixOS flakes or Ansible playbooks with Ubuntu. How do people use it today? - Agent fleets. People run a pilot agent that scopes work and delegates it to sub-agents, each on its own VM: shape a project with the pilot, and the workers implement it and open PRs. One customer runs hundreds of machines at once, spun up and torn down from the CLI. - Model optimization & RL environments. ML teams use machine0 for agent-orchestrated RL environments and model optimization work. One customer runs RL environments on 60 vCPU machines that stay up for days at a time; another keeps a suspended H100 around and points an agent at it overnight to grind on inference-speed optimizations. - Product infrastructure. One customer builds their product on top of machine0 rather than using it themselves: every user session gets a fresh XL machine from a versioned image of their own agent runtime. They've shipped hundreds of versions of that image and launched thousands of machines, most alive for two minutes. What's under the hood? Every machine is a full KVM virtual machine, not a container or sandbox. You get the real GPU exposed to the guest with its actual driver, kernel-level access (load any module or driver you want), and no syscall-interception layer between you and the hardware. The stack itself is deliberately dull: TypeScript, Postgres, Redis. We weigh heavily towards security, reliability and performance making machine0 ideal for sustained compute intensive workloads. About me I've been building cloud infrastructure for about 15 years. I dropped out of a PhD at Imperial College London on cloud resource allocation, later spent six years as co-founder and CTO of Upflow (YC W20), owning DevOps, infra and security personally the whole way to 7-figures in ARR because it was too high-stakes to delegate. machine0 started as a tool for me, I'm my own first user :) Asks Would love you to try it out and give us your feedback (see below). Or if you're a company looking for compute for software factories, model training or RL environments, feel free to reach out at barnaby@machine0.io # install machine0 $ curl -LsSf https://machine0.io/install.sh | sh # create a machine and ssh in $ machine0 new myvm $ machine0 ssh myvm Comments URL: https://news.ycombinator.com/item?id=49348136 Points: 66 # Comments: 41",
       "date_published": "2026-08-18T16:26:42+00:00"
     },
     {
-      "id": "2dffa1dada9425621e81e1c836a63816",
+      "id": "266a64b66ee247ca61ae897e4d3a5e9c",
       "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxObmUyZlhROHpiQUZ0Si1CcS1YdlBPc1YyQWcwU1VkcFNOY09VMlVLeUQzWGo4MGt1WExlVHh3akUwejBVOUZGNktfWHZBUmU2Nm9BeUtzRzNaSFBCTUMtOWxFdVJ1WTRmak0xZjh2MVIzTjktN2hKeUQxYnlsWmRjS0RmY092LVh3NGhQY1gxX19vTlZRVHlXdXdRTDZ5M08tTHlHaFp0QkxPUGVGdEFMMjJ5RjJBQnloaWYzVUNWTGNmQzB2OHhNT0pxS2dLZno2SDBrX1NlN1pKeDh4UjdNLUxlWUV2ZGktQ2NaejZReTUtXzdoc3BqcTJMalRyQmstTVhCWtIBigJBVV95cUxNWlp1STJoY0w0NGZOWVh0ZlZfR0ZTUkhTNEJ4WnJqMUFsNTdlc3VBbXlSclpWaENNeGlMNVB6ZkJNRGNwc0hYSDBucW5NSDNNZWhHenktQUJOSjRGYjhpMFREcnhTRDJUczB5clF3ek0xeHZNdTJ0RVJicDNPQXZfU2ltcnJueEIyZF9UckpkZ2xCbDJkNExwQmtVVUZhSTh2RzhNc0lTX2laODFvZ1N5Q2RXQ2xqNnhjd1E4eUk5NFpfdUlxY3Mtb0d6X1gxcUF3RkZZMXIwMUhaTWMxNHdOWHVxNG0wVF9sMWxkU1BUcmtIVnhqbkwtNWVzNjVvWUpTOXlQdFNwZzJJUQ?oc=5",
-      "title": "OpenAI CEO Sam Altman: Within six months, ChatGPT could watch your screen, meetings and emails - The Times of India (Source: news.google.com | Category: AI Labs)",
-      "content_text": "OpenAI CEO Sam Altman: Within six months, ChatGPT could watch your screen, meetings and emails The Times of India",
+      "title": "OpenAI CEO Sam Altman: Within six months, ChatGPT could watch your screen, meetings and emails - timesofindia.indiatimes.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI CEO Sam Altman: Within six months, ChatGPT could watch your screen, meetings and emails timesofindia.indiatimes.com",
       "date_published": "2026-08-18T16:22:00+00:00"
-    },
-    {
-      "id": "664b4e39c1fd9336372e868bd2894b2f",
-      "url": "https://www.apple.com/newsroom/2026/08/apple-announces-changes-for-apps-in-the-european-union/",
-      "title": "Apple announces changes for apps in the European Union (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://www.apple.com/newsroom/2026/08/apple-announces-changes-for-apps-in-the-european-union/ Comments URL: https://news.ycombinator.com/item?id=49348055 Points: 99 # Comments: 154",
-      "date_published": "2026-08-18T16:21:34+00:00"
     },
     {
       "id": "232c08812f4dd7fff0f553ea39620aaf",
@@ -511,8 +644,8 @@
       "date_published": "2026-08-18T15:28:00+00:00"
     },
     {
-      "id": "5f366abc4f56940378278b4380a11e02",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOQUtOeEkwdjF2eXhNNHU2T18zdGZWSkZWb2JSS3h0RmZKVGozT3ZoRE1UTnY5NVpPOUtCZW05VVdqbV9XVHZSclVsbFNjc2t6bVNrRkVDZDBPNmdRXzVIUTNiZmNTdjB6OTdJOVFwTTUxX3BTR0JuWE9pUmp2YUpHb0JicmltZG1Ba3liMnlLVmxHX19IZlBSY2o3R1o4NGJYc1J6Mg?oc=5",
+      "id": "eacb6c57c597c2356e7c9083cc1bcf67",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPVkZwZjJqUndQeVRpd2tHZjRJTDVxN0RlWU5IOXRJYkE0MlJsMjRiY3BpMWVFNjVmV2duem5sUXZ4YThQbHhQRUpxbUl6aUlvTjhYRWpRWXBLN09uNnZfMU15MjFQZmJ0aVFqc3pfUjhKR0RZRWtwLXRMTGhzZkp3N3lBM1phTW9zYTFRcjNBaHQzRm1KUUlJUTI5bTJWOThnZGVxemhvZGdrZ2dqS3YzalJFbDR3UnZwOW1SVFFYdGRuWHpDQ2VpWWo2V21JNUVUc2xXSjFrcFpITjc5NmVCLTNlVXpiNXlkNm54SG1Eaw?oc=5",
       "title": "OpenAI introduces 'ChatGPT for Teens' as AI safety concerns mount - The Seattle Times (Source: news.google.com | Category: AI Labs)",
       "content_text": "OpenAI introduces 'ChatGPT for Teens' as AI safety concerns mount The Seattle Times",
       "date_published": "2026-08-18T15:13:35+00:00"
@@ -539,13 +672,6 @@
       "date_published": "2026-08-18T14:54:24+00:00"
     },
     {
-      "id": "f1765011d60b721003a7e42ca91efbf3",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNS3RQYTNjb0tpYkxrZVBuVDNtdU1sUUpDMVhqdE5CazNlcVpJUWNHcnJfM0R4ZkFYS0J4c1pMNnZkWDg2WmxvMlM5S3FFRncySXVLczNFZUlOWjVwSkFPd19WZzNfVEp0VE1sMndNQnlVVUxmRXhBWkdFUGM1djVaV20zSy1QczdlWHg1T3B4WnVQeFJ1OWpIYWtJMTFFZ0hRaURlVnRIeWduNkI0Tlo3RTRKa1VpaVhEeUx4YnJSWVpIblROZzI5YlZMZ2xOdw?oc=5",
-      "title": "OpenAI vs. Anthropic: AI litigation risk compared ahead of potential IPOs - Investing.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "OpenAI vs. Anthropic: AI litigation risk compared ahead of potential IPOs Investing.com",
-      "date_published": "2026-08-18T14:18:26+00:00"
-    },
-    {
       "id": "e05b691f7e321dacedc38a4d7bfa3e51",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1may1nWWx0Q3dDeWN0UVpjV3doLWxrT2hmY3phQjhNbEh5d2VmRF9BSEhRSDhKc1Q2QzI2bUMtYU5oY0IwWHZlMGx3bDdlQ2dMNXlyZklOeW9aU3Y4cUZ0RXpnSXVNcVB3UmdvN3VhamkyWW1aSWRob0pyc0VaMEE?oc=5",
       "title": "How Anthropic's Revenue Run Rate Topped US$65bn - AI Magazine (Source: news.google.com | Category: AI Labs)",
@@ -553,11 +679,11 @@
       "date_published": "2026-08-18T14:13:53+00:00"
     },
     {
-      "id": "e6f77fa3c3dc282b0ae4e4833311341b",
+      "id": "b15b9e873f88d110354ccd76945364f1",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdVNPdVUycEVoS0tvWHA4V2JhQ1VjN0hURWFtSDkzT2J1dTFXMEhYVXRUUlZ6MDFmTjZYNnJfNHU0aTBPOURtVWRxVEJwSGZYRDRKdTBWdlhVV3ZHUlBNWnBsb2JSclJjb2N6cEFxaVFxQThwbklxd1B2ZWNvR3YwNHZKWWZPeHFOYmNiWTZ0TFFpV01fWVIwSzlMX3NPbUlVWmJOdHdDQ0RaS2h4?oc=5",
       "title": "OpenAI Gains Against Anthropic Among OpenRouter Customers - The Information (Source: news.google.com | Category: AI Labs)",
       "content_text": "OpenAI Gains Against Anthropic Among OpenRouter Customers The Information",
-      "date_published": "2026-08-18T14:01:00+00:00"
+      "date_published": "2026-08-18T14:10:34+00:00"
     },
     {
       "id": "0d82b90472c280a066faa1b736d5e957",
@@ -574,27 +700,6 @@
       "date_published": "2026-08-18T13:44:00+00:00"
     },
     {
-      "id": "2f3484584412dbbfa4c24aa3c346ec11",
-      "url": "https://opensource.posit.co/resources/cheatsheets/polars/",
-      "title": "Python Polars Cheatsheet (based on our O'Reilly book) (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://opensource.posit.co/resources/cheatsheets/polars/ Comments URL: https://news.ycombinator.com/item?id=49345476 Points: 155 # Comments: 33",
-      "date_published": "2026-08-18T13:38:23+00:00"
-    },
-    {
-      "id": "80a76c5c76ab98c28b6a1ceb1251c86a",
-      "url": "https://seths.blog/2026/08/the-amazon-tax/",
-      "title": "The Amazon tax (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://seths.blog/2026/08/the-amazon-tax/ Comments URL: https://news.ycombinator.com/item?id=49345263 Points: 856 # Comments: 513",
-      "date_published": "2026-08-18T13:22:38+00:00"
-    },
-    {
-      "id": "b159b451ff011aa37daafb14f886b550",
-      "url": "https://quantum5.ca/2026/08/16/fixing-bricked-amd-7040-series-framework-13-laptop-with-20-tools/",
-      "title": "Fixing a bricked Framework laptop (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://quantum5.ca/2026/08/16/fixing-bricked-amd-7040-series-framework-13-laptop-with-20-tools/ Comments URL: https://news.ycombinator.com/item?id=49345220 Points: 341 # Comments: 231",
-      "date_published": "2026-08-18T13:18:40+00:00"
-    },
-    {
       "id": "e17083141ba4135fc2a6862372d60fa0",
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTV9XQUtmMTY1ekpKVG9mQ184d3d4bkRZbkh2THRSVFFzbkpVeHcxRE9Pd29SQmE1Mmlqc292Wi1qTC1sQnFYTVJENFFLTU9jRElINXZ4djJUb3BQVmxLaThhcVVYN1ZqbmRIc0JvejVTSGlBMzQzcTNWVWFGYXFYemUxT3paNzVhbThUek1TdWduWXZ5c0hKTmlEUTBldEVyeGhta2FvN2RPemMycTBpRWVIUndiUGk3eUlzcVhiUERzcFE1WGc?oc=5",
       "title": "Anthropic CEO says AI centralizes by nature and open models just shift power to whoever owns the chips - The Decoder (Source: news.google.com | Category: AI Labs)",
@@ -602,25 +707,11 @@
       "date_published": "2026-08-18T13:08:47+00:00"
     },
     {
-      "id": "c88f0ecbba3c1529328a3c53e85d7965",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPVWR4R3BTOVp4U29kV0M5RzV6SWpMRXdTUF9MdXhnSWNXWnJpandUdUNrYXV1QzE1R3QtZnBSVWhyYm52M0hRRTk0YTZhWGhoZjJ5UEQtdTJ6YkNqMUJUNnc0Nl8xeUxYVzhZMlM1YjE3LWl4ODBhcTROcTFFclQ2bHJ2NGtLZ2dnMEtEcktTcHhlSUc2SlJTMTRNX1lVWm1DeVZMZDNVNlZTS2RmNUZDTm13SWVGNHZrY2hqcHQyVC13N0xuUnBzU2V4OUZ4UQ?oc=5",
-      "title": "Developer says Ky data center with Anthropic ties meets new limits on environmental, energy impact - Louisville Public Media (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Developer says Ky data center with Anthropic ties meets new limits on environmental, energy impact Louisville Public Media",
-      "date_published": "2026-08-18T13:05:00+00:00"
-    },
-    {
-      "id": "a0df33dadfc23a8ab7944a5dae652561",
+      "id": "a0488fa4d1290de006d475376abb850a",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNME01NmtrYjVmYlhDUjc5VVN1ajJOUS1kRHQyenpLeUs5MHk5TFVTcHNiV0hsUXUtMXdpMTUtWjFRaGFHVnZsb2FnNndqeEZsa3BOSmN2TVNkZVBycUNmdGZmQVlYUXpYWmtpTmNJZGQyeDdtM1gzYWd4RHVVVDR6UVBaV2REQU1feHBmT2E5UEtSdGZYQXI3RkJ0Ymw2WjdhRlMw?oc=5",
-      "title": "Watch Anthropic's Annualized Revenue Tops $65 Billion - Bloomberg.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Watch Anthropic's Annualized Revenue Tops $65 Billion Bloomberg.com",
+      "title": "Watch Anthropic's Annualized Revenue Tops $65 Billion - Bloomberg (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Watch Anthropic's Annualized Revenue Tops $65 Billion Bloomberg",
       "date_published": "2026-08-18T12:57:37+00:00"
-    },
-    {
-      "id": "1ec6676fb6a54345bb7c9a1ecbf96f9d",
-      "url": "https://philo.gay/linecam/",
-      "title": "Using the railway network as a flatbed scanner (Source: hnrss.org | Category: Hacker News)",
-      "content_text": "Article URL: https://philo.gay/linecam/ Comments URL: https://news.ycombinator.com/item?id=49344825 Points: 382 # Comments: 58",
-      "date_published": "2026-08-18T12:43:54+00:00"
     },
     {
       "id": "cd4c1f657204eea3ced59cf3407e16fd",
@@ -637,6 +728,13 @@
       "date_published": "2026-08-18T12:29:43+00:00"
     },
     {
+      "id": "1adf273d38983ebaa6c62c3279df91f2",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbGhpZjZIMVExdXhzY0NHclZJeVlqUTNFN1czUmlhTUNnd2RxTjF2dEtuU2lCTmJ0STNkNVZ0cmR6b2Z0SHNCMUxrUzNobWR3X3oyUDBHbFFSTmQtNnJMQ0lnSXdUd3JyUF9fNVlrbHVrZmpmamRBd2pGQmdib1gwVG1CcHF4aktVclVnbjhPUUhqY0NuQTBDR1NqRnlhdlh5RzVRN0x6NEE?oc=5",
+      "title": "xAI battles Minnesota over law targeting AI-generated sexual images - CryptoRank (Source: news.google.com | Category: AI Labs)",
+      "content_text": "xAI battles Minnesota over law targeting AI-generated sexual images CryptoRank",
+      "date_published": "2026-08-18T12:07:19+00:00"
+    },
+    {
       "id": "f268c60dd51661c13cc53bb4e9c1ffa0",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPN0g2Q3IzN1M0Uk83ajRSeXlCZGNfRkpIWWhPQkRLcmE5d0ZwRERXVTVyWjdZQTJLeFdnTHFHTWctV2Q1S09jNWFoMVZ4ejJ4X1NFbE9aR1NZTmN3ZWduZjBSN0p1T3NFOTlzdWRJWUc5YmVKX3ZYVXpjZUdFUURCS3RWdlQ3V0VZdW5faFU3YzZsYndaYnpObmdOYktLRzg?oc=5",
       "title": "What's driving Anthropic's massive revenue numbers - Yahoo Finance UK (Source: news.google.com | Category: AI Labs)",
@@ -644,10 +742,10 @@
       "date_published": "2026-08-18T12:00:00+00:00"
     },
     {
-      "id": "ce632954c3725d4abec6f39be3d0da08",
+      "id": "88addbfe121fbb6f8b1d97535235a675",
       "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNd293WHdMWk5JYS12RVFRLTlSLUdCMHh2cnhFODU3Q3hkWXdsMXdSMGp6YV8xdkFRSkU0LTFIMXFwRlZJeTNRX3hUWmFPSXloQlFpOWpwdlcyY2xCUElsR3kyOWRoVEZFYzhQRWNFUXo4VHZPUGx4ZGExSnNlYlJNV3VfY1gtRjd5elJjdDhaR21YakNCTUF1SERhOVg5MWhramEzcGZDeUo3UjBORkNldjhmVXdDZ0hBbjc2OHhrWTExVjhfcEo4SGpiRFpvVUo3S2c5T1FGZVo3RkNEYXQ0VWlYRE5ESGZrYmg1T1FXRnFOZk5aQV9oU1hUU2IxNTNNdVBPb1ZFZFhtRDhBRWRDeDVZaWdpOFJjOXNhVXRsUVhlbUhVUklmOTFIbjhfM3ha0gG2AkFVX3lxTFBCbkIteG9aTUtENHJmVllGVXJHZDlWUDlkbTItRHRDWklkLVRNQllSYUdzbEFTdmcyZjhEbjVNVTZNakRZM053eDVYYW9CSWtCTlEzTWJYQ2xyM1pzeGtyaUZtVm54dEstY2VCNWZxN0RnQmNTTEpET2h5X2xydWNKVEVwLUc4M0VZMmdWYWFiajRrTEZkc1IzMURtQmhxTlk3WDliNEhEX21pNDBfUURSc0hDU2kyNVJLcUd3aVNka3ZnTUp5ckFxWkY1U2tiYkloZlhtaW9iY0VkcEFncFlNR29XaEVWWlFBaE52RU1oMTBNUmQwYzJ1XzF4ZlBldGhfWmVSOEwtT0NRd2RHMlBMSEk2VndGamlSOGR5Y0gyMEJHMnJUeXVpMXZadm5lYzNnc1I2bGc?oc=5",
-      "title": "Chinese AI lab Z.ai that Sam Altman and Dario Amodei complained about has a warning similar to biggest Am - The Times of India (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Chinese AI lab Z.ai that Sam Altman and Dario Amodei complained about has a warning similar to biggest Am The Times of India",
+      "title": "Chinese AI lab Z.ai that Sam Altman and Dario Amodei complained about has a warning similar to biggest Am - timesofindia.indiatimes.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Chinese AI lab Z.ai that Sam Altman and Dario Amodei complained about has a warning similar to biggest Am timesofindia.indiatimes.com",
       "date_published": "2026-08-18T11:30:00+00:00"
     },
     {
@@ -679,13 +777,6 @@
       "date_published": "2026-08-18T11:00:46+00:00"
     },
     {
-      "id": "d7f60b6d4acd41570a3b3d3955901a5f",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPdkVBQklqaTJPTEpWMVRzZGJ3SUphZVhRbmJhdlhmZEstWGs2SXNNdmgybHpUZkZmSnJiQXB1YTJ1RGdYTDlSdjNYaWRjX2FJZ3d1a2l2V3hNQ2ZyLVRGX3F2SkN4S254Z19GaHZRLTZadkl6UzdFWjdVbkdqVWNSWXpnYS0weFFxaWQtTDZkemRqbGVtSXhhdXA2MA?oc=5",
-      "title": "The AI philanthropy boom could hit $430B - rivaling Gilded Age largess of Rockefellers, Fords - New York Post (Source: news.google.com | Category: AI Labs)",
-      "content_text": "The AI philanthropy boom could hit $430B - rivaling Gilded Age largess of Rockefellers, Fords New York Post",
-      "date_published": "2026-08-18T11:00:00+00:00"
-    },
-    {
       "id": "d0947e852b28ea577afa5dc9c977a1ae",
       "url": "https://openai.com/index/partnering-with-codeai",
       "title": "Partnering with CodeAI to prepare the first AI generation (Source: openai.com | Category: AI Labs)",
@@ -707,11 +798,11 @@
       "date_published": "2026-08-18T11:00:00+00:00"
     },
     {
-      "id": "61e104b4d692d36c91d44de564864e0e",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPdnAyb2ViRnZIdHl6WjdRZ2ltMk1BeXc1a09SNW1hd21kcGZFRlROc3RzRldFRlN1UWgyTDRDLUk4ZlZsdkZmaUVta19YN2dkRC1SaWpnM19yeUpob0hSWExUSjgzRmw0c0c1TUdMbkp4VFNxRW5SUTRpdzM1RnUtM3h0QTF0cWlKcklqeVlyZmxSSHc2Sl9lUVhxdEhFdkhLZ0ZxcGRnekJmRWU3RWd0c3hGdHA?oc=5",
-      "title": "Anthropic's per-token cost runs 4.4 times the average on Vercel, and developers keep paying - The Decoder (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic's per-token cost runs 4.4 times the average on Vercel, and developers keep paying The Decoder",
-      "date_published": "2026-08-18T10:48:18+00:00"
+      "id": "439efcbcd2e0f8daf4cec75018cc48cd",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPM3BSMzN3MlFuUWV2OUdiRUNrZTZ0by01UjBLSEoyWk8wYW5FU1pLNFdwRkhtT19Jczl3dXpDNEgtVFlPY19HSmJ5RWV3dHdZWTRSZm4ySmdBZUtucmQ5ZXpWR3lIUkUzYmlvVEMtU0l2d3MzeUY0RVppZ0FnTUJmLWxmbnF6RjN2RUJnUkd2b3AzckNaZ2h0VXNTV3NCTG1CeXRlMktKMXZZaEFaT1hmVWh2bDlCb0ZQc0k0UUtrLTFMQ2dVdzJuQmo5VFIyOGJncWI0MS1Cb1RMdXpocF8zRS05M0pwREJxVEMw?oc=5",
+      "title": "OpenAI introduces 'ChatGPT for Teens' experience amid scrutiny over child safety - WJRT ABC12 (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI introduces 'ChatGPT for Teens' experience amid scrutiny over child safety WJRT ABC12",
+      "date_published": "2026-08-18T11:00:00+00:00"
     },
     {
       "id": "6716e697bafbfdebed49da4ad24433c6",
@@ -726,13 +817,6 @@
       "title": "Neural Network - August 2026 - Stephenson Harwood (Source: news.google.com | Category: AI Labs)",
       "content_text": "Neural Network - August 2026 Stephenson Harwood",
       "date_published": "2026-08-18T10:11:39+00:00"
-    },
-    {
-      "id": "0c4389b4830ffacbda52e889ee196cb5",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBWQkFLNWNOVndnMUZHN0ZiNHp2ODVoNUFRMDNSRGJuR1FiOE1qTTdQZFI1WEg0LWJ0TjJHaWtOdEVUSzdmZjRDSFN1QmxIeGdTZlJGNjlaZ3dpNGRuOE5xT1g3R1VXbURweThZRmtBSHhlR1lOR0Zaai1R0gF_QVVfeXFMUHRtMk1yNmFCRWVjb2o5MzZUQlZnNUFfLTZ2WkQ3eFdXa1RDLTFjaGE3UnJpX0hEbHN2NVZoQVpVOWROcUlMNVZaSG9DaXd2dkFEc3JQZWFsNDc0LWRSb09sdlAzSUpXNnpneWY5VWJvUWRkMHpZYmFpam1nXzJIWQ?oc=5",
-      "title": "We still don't know how people are really using AI - MIT Technology Review (Source: news.google.com | Category: AI Labs)",
-      "content_text": "We still don't know how people are really using AI MIT Technology Review",
-      "date_published": "2026-08-18T10:06:43+00:00"
     },
     {
       "id": "ff95b6d3d6e0c706d0f82fc7e926b9fe",
@@ -756,13 +840,6 @@
       "date_published": "2026-08-18T09:17:00+00:00"
     },
     {
-      "id": "04a529a395d433efb0d756d51b879e75",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNeXpzc0FtcjY1RDMzWU40Tm94c0pMTF85V2N2Q3AtNUFWRjAxYTVpM051WFV2ekpUcVpxSUxjdVZyRWtmMDlUc0ZXWXlwM2xVeERONlc1VUp0UG9rMUdjLU1wREU0Ul80aHh0Nm9odXhzcmd2QWZIdEF5WVNwWjk0Mm9WV1FxS1RHZ21HUW5JbGhlZlpzVWxhUTNFbWloQXRV?oc=5",
-      "title": "Round Hill Music sues Suno and Anthropic in the US - musicweek.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Round Hill Music sues Suno and Anthropic in the US musicweek.com",
-      "date_published": "2026-08-18T09:10:00+00:00"
-    },
-    {
       "id": "4d01e4e22445c9bc84cce64843dbae7c",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNbUVlU3d4c0RrLTNzQ3hUNV9BX2dfdVMxbnB5alp2SkVMT0FWRXJWSzliOElzTlpNalJMNkFqX2JpSlFrS1kzZzR5MXhjMXhPOC0zMDV0YkxBRWxJdlBzaEYxR0dFT0NQVV9DSzZNX2dvZEdtREZlQVA3SWtTMk9VTw?oc=5",
       "title": "\"Paranoid\" AI agents deploy killer malware against one another, Anthropic says - Cybernews (Source: news.google.com | Category: AI Labs)",
@@ -770,17 +847,10 @@
       "date_published": "2026-08-18T09:00:17+00:00"
     },
     {
-      "id": "5a04d1f8b347f193aa01c403ac97fcc4",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE05LVRfZEliVzB6dEhyVXhTWjdJU2U3R1Y0NmlTcEduY3JWdWFFbU5iamNYWU92bWJzZzlKOUoyWTJPTUZ4WVdDUFdZTkZsLTQ4Rl9V?oc=5",
-      "title": "Jensen Huang, Sam Altman & Masayoshi Son: The 20-Year Close Alliance Shaping Global Tech Innovation - 36Kr (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Jensen Huang, Sam Altman & Masayoshi Son: The 20-Year Close Alliance Shaping Global Tech Innovation 36Kr",
-      "date_published": "2026-08-18T08:41:05+00:00"
-    },
-    {
-      "id": "a21a586e7234e56057103ef7de4fc8d6",
+      "id": "15a65907ec108011a0ee77dcf0018161",
       "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOc2FkUGxKUFRKb1g5U21FN2pOZnpLV1lsTUZsR2Ffc0YtM0RQb2J2X2lzblFXbEJ2QUt4dy0tZjBxMDFMMkxqcVZCX0VKWXRIekJHM0hmTDNlY3F5WnNZMDFoc0QxcXZ6NTRpcWVaQzJmVVB0MDBFbWJHR0s4U0RDcFA0YzducGZDbGkzN2RVQ1VpVmVzeF8wTjZhd2I1cHhTa01pLV80M1FPcXUwWWRYVTNmNFgyZnZUZ2ZnTHNTb0tTTGhJbGZWeDl6enRibFRUdmJCdk1Cb19KWFFXVjZpLXFUN3JMc2NaLWk3QU5mNm5hU3ZSLUJibmY2eDlsalF5eVJfeWdvYjhydWNiLVJjRW1MR3htc3NxalJtQWhqdUxkR2t4enJrQndCMU9nX0FobGpYcDVqM27SAb4CQVVfeXFMUG83d2c0ZHR3SGl6bkNFZHRzaEpxVjRyRHZ5OGhlc3Axall0R1hiMkV5MWNSSzV5Y0RhNTNjOHJwR3J1dlZvWGZibkNRalhiWGxMaWRkdWFYcjlnUkZVN3lBZXNSQWhvMGFkekJFUEU0dmJ1dkE0WjQ0X2hVMEhHOU9CeDZBQ0h1Yk5HVzZIa0pNc3kzckxyaE91WHdzYTdwSklrZlAySWNyelNWSFloZFpKVVlWeHNubmVqY3ZaMl94RVhycTBZbmliRWZlTEZrOG9aNlcyRDRRdGs3d0dVWDg5R2lFa3ZZT3hRaE5JcUlUZFMtdFBKSEc1ME1haGhFU28xbkZjdnREcF9MWlhzVnlPVVZDaTVVemo5ak5xdk9aRXNnOVBZeVZtcnhSRTZIMW00QjZlTE5jdGlIdU5R?oc=5",
-      "title": "OpenAI's former top exec Fidji Simo admits that she disagrees with Dario Amodei on most things, but says - The Times of India (Source: news.google.com | Category: AI Labs)",
-      "content_text": "OpenAI's former top exec Fidji Simo admits that she disagrees with Dario Amodei on most things, but says The Times of India",
+      "title": "OpenAI's former top exec Fidji Simo admits that she disagrees with Dario Amodei on most things, but says - timesofindia.indiatimes.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "OpenAI's former top exec Fidji Simo admits that she disagrees with Dario Amodei on most things, but says timesofindia.indiatimes.com",
       "date_published": "2026-08-18T08:22:00+00:00"
     },
     {
@@ -826,17 +896,17 @@
       "date_published": "2026-08-18T05:04:00+00:00"
     },
     {
-      "id": "888ed3ffc16282ada56ee1fecf7a2865",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPNVktR0ZGanRzYkMwQjBWRkhfbmVfLTVxR3JpYWtRbk1HemlQbjRab2EzTmN1VDNmYmk5Z0xIWGYzVmU2b3VTRENNTy00d1RrLXBoWjFPVE5hNEQyVDdrZ1ZuTzFaczRGODM0VnpycFpDa0tTZWpFSzYyU3d1dVNwQzlicGJPTm9WdlFHczFUMzNOalhjdDIwSWZZcVltMHdsVDY2OXE4QnZOQ2laUlU4Xw?oc=5",
-      "title": "Anthropic's Annualized Revenue Tops $65 Billion Before IPO - Bloomberg.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic's Annualized Revenue Tops $65 Billion Before IPO Bloomberg.com Anthropic revenue run rate hits $65 billion ahead of IPO Yahoo Finance Tech Stocks Fall On War, Macro Woes. Is Anthropic Revenue Projection Also A Factor? Investor's Business Daily",
-      "date_published": "2026-08-18T03:29:00+00:00"
+      "id": "d982cf79f417ad475d073a39111195f0",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOTFo1UlpMTUpqVmFFQ3puUmU5MjJuNXZKeGlDcGVxaEh0NGdBOEZwZXVqamkxYlI3aU9DZDlTODExdmduaVBuN3BndERuSm9IcTZ3SjNMUnpwWHU0NHBweV9qT1lVS2I4SFAzS0NEbDhlS0hEXzFLaFpHSksxeU5reHVQeWY?oc=5",
+      "title": "UK examines economic hit from loss of access to frontier AI models - Financial Times (Source: news.google.com | Category: AI Labs)",
+      "content_text": "UK examines economic hit from loss of access to frontier AI models Financial Times",
+      "date_published": "2026-08-18T04:00:23+00:00"
     },
     {
-      "id": "e810cc09f830bd24ae3aa90295193d81",
+      "id": "62e5ce4defb61a31f29b36eaa11172cd",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNT2ZjNEQxYmh6N3dHS1RoOXNJVGxuaDRnYXRvemZuLWVDYUNudHBCaURVdHdFSHNaTlRoNWFsSUhkc2k5RU9OcVpWeVh1UGg3QjJZc3dwWVduTGJNNEh4MV9OR0FmQkthSnhmVXdxZjZGcUZiNFh5MXk0OGZUbkJwdThFaFBMdw?oc=5",
-      "title": "Anthropic nears $6 billion deal for Israeli AI startup Decart, creating new billionaires - jpost.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic nears $6 billion deal for Israeli AI startup Decart, creating new billionaires jpost.com",
+      "title": "Anthropic nears $6 billion deal for Israeli AI startup Decart, creating new billionaires - The Jerusalem Post (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic nears $6 billion deal for Israeli AI startup Decart, creating new billionaires The Jerusalem Post",
       "date_published": "2026-08-18T02:06:38+00:00"
     },
     {
@@ -854,10 +924,10 @@
       "date_published": "2026-08-17T23:56:26+00:00"
     },
     {
-      "id": "d9137a396fc6b2316b12038bfa5f446d",
+      "id": "c372593989e9a57fdb6a94fa74339ea9",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdndROUV5bmltd1BSWktMaVBwMnJDdE41TXd4bzJqSGpZQ2x0cXREXzd1eUp5dmQ0cXR1MmxFVXRtNFRlWEN5aVR2aUVRQ085X0ZUalRkZlNpbmcwYll1cUUxeWZSMGNOcVdNT1B5dVhjUkN6UHNtY3VELTFSNTVROENfc0FvUzlaeXFKSDJfQkNoRWFadDVSSTVXV09uX3Nud0ZUVklJSXE3RFpMRUJxQk9fdWh6bW04S2hwSA?oc=5",
-      "title": "Round Hill Files $1 Billion Copyright Infringement Suits Against Suno, Anthropic - The Hollywood Reporter (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Round Hill Files $1 Billion Copyright Infringement Suits Against Suno, Anthropic The Hollywood Reporter",
+      "title": "Round Hill Files $1 Billion Copyright Infringement Suits Against Suno, Anthropic - hollywoodreporter.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Round Hill Files $1 Billion Copyright Infringement Suits Against Suno, Anthropic hollywoodreporter.com",
       "date_published": "2026-08-17T23:47:01+00:00"
     },
     {
@@ -924,18 +994,32 @@
       "date_published": "2026-08-17T21:36:00+00:00"
     },
     {
-      "id": "eb83f5c4ccd2f460cb511af43c212bd7",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNdmdhVWZKa3pQUzRxV0NTb1Z4YUJBSTZ4SjNMZW9VVUdnUTZwemxVMUd2OWFWNWtjUFhOZHVJUU5zQ05vOE9LRkU5bmNoZnZFLUdwTGNua3FWZ0w4YzFObl9EM05UUFZNbV9fMjk0RDZWanRFVV9QZjNZVXgwSUZwMTVNdS1JV3NMWFBFOXd1S21zTkRIYjBtcUh6cDE4dGxGbUhRUFdNSUtxbkhjazF0emoxMzRrOTBJR2lj?oc=5",
-      "title": "A Court Called AI Training Legal. Anthropic Still Paid $1.5 Billion - Forbes (Source: news.google.com | Category: AI Labs)",
-      "content_text": "A Court Called AI Training Legal. Anthropic Still Paid $1.5 Billion Forbes",
-      "date_published": "2026-08-17T21:32:24+00:00"
-    },
-    {
       "id": "1b8186bed3a0a6aca6ca614a7266dbb6",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQX280akVORVNYTEF5XzF0aHUxdzl6eGtWUWVGdGw0enkteGxzblZ6ZGFuMW9zcTZiMmVzRmF6ZlVIZjREbmgwZFRsSkZYdjJNM2JUWjJRVW1TeldCdDFVSUgtcml5MWRUVFFHX21yRS16NnhoNlVzV3hWOHpvaE9mLXVkbDNneE1Fa2xn?oc=5",
       "title": "How Wikipedia vandals convinced Google that Sam Altman was dead - Straight Arrow (Source: news.google.com | Category: AI Labs)",
       "content_text": "How Wikipedia vandals convinced Google that Sam Altman was dead Straight Arrow",
       "date_published": "2026-08-17T21:31:04+00:00"
+    },
+    {
+      "id": "e4bae055e48046e88f089067ed2a3631",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9iSnBXWEFaa1hJVXNlT3YxM3VJalNlaEhTMGtmeUVXMUotcTJ4bzVRbWJIcDVjS0xMZVpEY2hZdTJhZjdtcUd2RHpRazJvRGdPNGlfTFhUc29nZkV5aFk2VXVSclI4aDl5WlNKa2VyTEdISW1TLVdyQ0R3?oc=5",
+      "title": "Anthropic's revenue run rate reportedly surpasses $65 billion pre-IPO - Axios (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic's revenue run rate reportedly surpasses $65 billion pre-IPO Axios",
+      "date_published": "2026-08-17T21:08:30+00:00"
+    },
+    {
+      "id": "fc8f660e422025ba6a93d75454f5638a",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQzNYSG1VZlFaUzVoRmJuU3VNNHdGcEVKeG5FaGVhOFRNYXp6T3RySVBwcXY1SUdiLWlFeVFCZlFIakRYTW03ejVKLWpaNkdvQVJTZmFsTC04QUVCY1RoSUlkQXVubENqYlRoc0RrX0xLUWh5ckZCTzNaaWp4U3JqM3Voanc?oc=5",
+      "title": "Suno, Anthropic Face $1B Copyright Lawsuits From Round Hill Music Over AI Training - Billboard (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Suno, Anthropic Face $1B Copyright Lawsuits From Round Hill Music Over AI Training Billboard",
+      "date_published": "2026-08-17T20:52:25+00:00"
+    },
+    {
+      "id": "dad1756b89411451e07b285d373219a3",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOUi05NkI4cXl6M3ZhcWx2QlFuYjNJa2xTN3pIUER6YWZ6bGc3TTBUb0VIV3ppTXBXdG5pbEo2b19kRFQ3MW1SR3p3eFQ2RGNlQUdwUFRJRXJtS0ZCemxjZmRRRWl3Y3M0VXo0dU5nZE0tTXVsZ2xGVXZXa1czZWo3alFiTm9GTWtXVHVoOW1FOVY4ZDJWZzN6MHN0SWtPQXRRQlE?oc=5",
+      "title": "Anthropic tells investors annualized revenue run rate climbed to $65 billion in July - CNBC (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic tells investors annualized revenue run rate climbed to $65 billion in July CNBC",
+      "date_published": "2026-08-17T20:33:35+00:00"
     },
     {
       "id": "549c1ec75c94e3a4e461bcb00f11a96a",
@@ -957,13 +1041,6 @@
       "title": "Anthropic Revenue Run Rate Surpasses $65 Billion Ahead of IPO - Yahoo Finance (Source: news.google.com | Category: AI Labs)",
       "content_text": "Anthropic Revenue Run Rate Surpasses $65 Billion Ahead of IPO Yahoo Finance",
       "date_published": "2026-08-17T19:37:45+00:00"
-    },
-    {
-      "id": "9ef35c8bb17d131a2ea31d2d49ba8be8",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSW1uMm1Jb2VDWlE1V01iRFJ6U3lhcExMXzBOdDM5X1E4UnQ5RzQxMWtfaUkzbVlLUWViVlR5VnV3a1hEYXVsRFdaM2s0eTRmalR4Zl9xVmswOXE3dVBjWUkzMkN0UUZtQklwTHYzY2V5SkM4bzlEdlAxZ1pZWXBKVFdtaDRmeG90NWhwcGdnLVRUV1R0YXc?oc=5",
-      "title": "John Gruber Calls Claude's AI Watermarking 'Patently Offensive' - Business Insider (Source: news.google.com | Category: AI Labs)",
-      "content_text": "John Gruber Calls Claude's AI Watermarking 'Patently Offensive' Business Insider",
-      "date_published": "2026-08-17T19:09:00+00:00"
     },
     {
       "id": "fc4731961c101c9bbeedb270a54eae63",
@@ -994,10 +1071,10 @@
       "date_published": "2026-08-17T17:06:10+00:00"
     },
     {
-      "id": "8a673aea009b2af8e88c07cefa2d0e32",
+      "id": "96c800dfc2abf7d474e7f5b11a6c639f",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA5MkhxeW5rWlN2SGk4OVBWTjllODRrdkg2akNYM01feFl4MEhjZDJSTzVaLXBReFVZTS04SUp1ZUUwSzJtLWd2eUZlNlZwQ1pFT1BTZ0NwN1JzcHlVdkwzcFJKMjdmRnBqZUROZTJ3TQ?oc=5",
-      "title": "\"Open weights are nowhere near a sufficient solution\": Dario Amodei fires back on AI power - thenewstack.io (Source: news.google.com | Category: AI Labs)",
-      "content_text": "\"Open weights are nowhere near a sufficient solution\": Dario Amodei fires back on AI power thenewstack.io",
+      "title": "\"Open weights are nowhere near a sufficient solution\": Dario Amodei fires back on AI power - The New Stack (Source: news.google.com | Category: AI Labs)",
+      "content_text": "\"Open weights are nowhere near a sufficient solution\": Dario Amodei fires back on AI power The New Stack",
       "date_published": "2026-08-17T17:02:04+00:00"
     },
     {
@@ -1013,6 +1090,13 @@
       "title": "Anthropic's Dario Amodei Defends AI Messaging as Company Clarifies Claude Watermarking Details - AI Insider (Source: news.google.com | Category: AI Labs)",
       "content_text": "Anthropic's Dario Amodei Defends AI Messaging as Company Clarifies Claude Watermarking Details AI Insider",
       "date_published": "2026-08-17T16:43:25+00:00"
+    },
+    {
+      "id": "a84077212ed1277d27cab768561ded6d",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxORnNmNmdBcDZJVFdzRGxfcm5qc1RwQmRna1pibkg0UWIwYkYwejJTMndBTFQ4Z3JUUkdIZWlreDNDQjVHRDYzUWhEb0RlN25JUTBUTy05UVliYnh5SnBXRVpjT0x6OFpxbExTbFNUTl96Z1BqVlA4a19KTzBjMnU5Vlp4R2dtZkZvQjlXakJWc1BCQQ?oc=5",
+      "title": "Amodei: AI Backlash Is a Crisis of Trust, Not His Warnings - Briefs Finance (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Amodei: AI Backlash Is a Crisis of Trust, Not His Warnings Briefs Finance",
+      "date_published": "2026-08-17T16:27:29+00:00"
     },
     {
       "id": "6508f6d8c1a6afea5fe03ff5fbf22bc4",
@@ -1050,13 +1134,6 @@
       "date_published": "2026-08-17T14:51:10+00:00"
     },
     {
-      "id": "af87060764a7a94ca770f81201a34906",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVktuM3U1RFIzeWR6azF1TnlFb0lOd0RSc21mLWFFNm1VTFNFQ3JRM2ZaZHVmUjdnb0RLY29uRmx6QXlMODk2ODZ1SF9NZ09wYzk5VEFtSXVSQk5qMVhGMGN2THZKN09MaVI0VF9LWkdNaGhoYWx1UkRyWXl1V0RWZ1BESVY4OGZPXzluZW9hZ2R2cUx3eXhLNnNNY0I1QWV4QmtqNDdtRFFvRWRhcVctNVZ30gG_AUFVX3lxTE5NYXo2d0hVQWxqWEx3czZ5TE40SEVId3RHeG5Eb3kyNzVJNUJSWjdnVFppaUpqQ2M3dXBVc2d0a2N0ZEhjSHlTR2tCbFl2M0tqTUgzbnhtelo2MnVyS0pPR2xheE9hSzNsTkZPYS1YS0lJNlZpRFp1TXhOeW1icXh1UXNYVHVuR29iV0NHTHdGc2xsVm1pMlZ6SHRORkMwUFh3OUxaMmJEdGlTUEplclpjdmNjYnNUaEVSWVp1Z21N?oc=5",
-      "title": "Anthropic CEO's Wife Cami Clark's 'Luxury Porn Row' Turns Heads as Fresh Details Reveal She Once Asked Jeffrey Epstein to Invest in Her Porn Company - NewsGram (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO's Wife Cami Clark's 'Luxury Porn Row' Turns Heads as Fresh Details Reveal She Once Asked Jeffrey Epstein to Invest in Her Porn Company NewsGram",
-      "date_published": "2026-08-17T14:30:00+00:00"
-    },
-    {
       "id": "d1247ec6dda41799acddd2a2076c5f99",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPaHctcEk1cmdPOUJVMzljSXBOMzM3XzBsMFhfazI4b09Jb1BPQ2tiSXJtV3RsaFF5ZFpNZEtYWXE5OVhhZVRDMjI2OU1tUGNVblV1V0draVlNSDdnTjB2U0pPYmNlSWpZX3JmbWQyM1ZXdmFRM1A0R1p4R19zaUxUeUVhdE1FbU1WenfSAY8BQVVfeXFMUEJSa3dSXzZsVm1XNkFNbzVhTEZ4aEh2UVFpQ2Y0eExKaTAxRVEyR2dSTzBrT3F2cE9TMFRWNXlBZlpSb0E2Q3B2aTBEOW9MVWFHTmZMRGNKRXFwMkRTZzNmdG9wTThvelZaSFdQOElyQk5oVklrY3JmZ0F0YWZ0M0duTGd4UG1hYTR0R2t2bDQ?oc=5",
       "title": "The head of OpenAI has said that four years of university study is too long - Mezha (Source: news.google.com | Category: AI Labs)",
@@ -1071,10 +1148,10 @@
       "date_published": "2026-08-17T14:01:00+00:00"
     },
     {
-      "id": "86051481f9e55ed1a706aeb71374ede0",
+      "id": "cf6f2bc5ed3d4b22e1fa4f15ee13022d",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNc09MZ3cwSnBDRVJxUmdPcTgzZ0ZvV3Rva0RyNDRDWV9RM0VnZ3VuZzNwLVNfcFhmSVliVUhxanFEMEIwdWtDdHhHQnNLRjBhMldVYUFnRjE3aFlOMk4zSUZtZzVBLTFLcDBFbUVrTE5RZU5XZWVRM2lCQ1NxNDJqaVE3Um9yYzdSYmtMSEdsX09KdTlKclM2ZFN3dDl3eE5xeHY0RUVCTXVfUjhUMi1MVmhCREg0LTJPU1BVbll3?oc=5",
-      "title": "Sam Altman ChatGPT AI Predicts Bitcoin Could Be Entering Its Most Important 5 Months of 2026 - Cryptonews (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Sam Altman ChatGPT AI Predicts Bitcoin Could Be Entering Its Most Important 5 Months of 2026 Cryptonews",
+      "title": "Sam Altman ChatGPT AI Predicts Bitcoin Could Be Entering Its Most Important 5 Months of 2026 - cryptonews.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Sam Altman ChatGPT AI Predicts Bitcoin Could Be Entering Its Most Important 5 Months of 2026 cryptonews.com",
       "date_published": "2026-08-17T13:30:20+00:00"
     },
     {
@@ -1176,13 +1253,6 @@
       "date_published": "2026-08-17T08:45:03+00:00"
     },
     {
-      "id": "79c2120b61f27adfd784e1acf26de29e",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9JR0s4QXRUYnJiaVVYMjVmV1JGXzdXMlpHTGRDT0k3S3VGVTBUUVNLQV9McUV2bFBlX0xBRnltZXZ6cWlYdG1vMjlkQzkwZ1hwZmxN?oc=5",
-      "title": "Sam Altman's Pick: The Most Important Unknown AI Researcher You've Never Heard Of - 36Kr (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Sam Altman's Pick: The Most Important Unknown AI Researcher You've Never Heard Of 36Kr",
-      "date_published": "2026-08-17T08:40:51+00:00"
-    },
-    {
       "id": "a761a56278cdc4add73d23ffb00816d7",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMXltb01rcEV1SGlDR080VkFZckJuZXlMYXZNNTZGeWhTM3c5NzJXVjJBZEtuaWd5LXZoX2N5V0ZETzMxS2VfV24ybVp2SGZWWE9RSXBzVlZzS2h2QlNFUGZJU0Z0VzdZV1B4OHQ3aGZBYUhldTZzelJCSlZIWU1iLUhneGNBa21PQVBXcVdEXzdULXUySnBoRTdYVnZnbnVhWnFF?oc=5",
       "title": "Anthropic Left as the Only Private Company in the World? CEO Dario Amodei Pushes Back on Criticism From C - Benzinga (Source: news.google.com | Category: AI Labs)",
@@ -1190,11 +1260,18 @@
       "date_published": "2026-08-17T07:55:13+00:00"
     },
     {
-      "id": "da801d96cda97dd16e10eb8cb9fceecb",
+      "id": "477cd1a6a87f14609da1442b189eb8c1",
       "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNVzd1cTRfX2h0bnp2TEw5Qlhtb1djNDlUNHNOUXJaR1ZMVTlVUHZ2cGU4OV9weXpRVmV4RmNZRGhDQ0YxZE5rUkNTbkNIVjQwbkJxanJoTWpaR2g1TWNQMGpQVDlHMmsySDVDdm5mWk1QZVBNUm4wbzhmUHkyX2U4QU5lX2VMYm85R0Z6aW11TEkxRWNGOXZGdHFiZzZNVEJiUFZGVWVWV21ldEZZTjE5Z0NQQ2xxeWlxSFRsWGVjaWhoRHhSZlk4XzhTb3JDM2RjX2t2M0t1SVZGQ0lXMjhJdkpGNVlCdldmZVJGTVktMDVkbE95OWVRZUExcE9TaFpnRGhRYnln0gGLAkFVX3lxTE5QZXBHeE5TWU5YajFlbEF6eHdIaUxUMjVTazYzSkdWX1JvZHlOUDRFcEk1UDB0ZUkxcnR3TmdQMXlNYUpJYlhYUXhORzgwR0RIc3FSQTluMWRNWWdDeDVzMzBoRWpsVDdETUtIaXZmMHh1NjlzbjNFOThmd3hMMi1keE9vQlh0Q3VTY0RySEQ5d1UyOXpTQ0U4U2ptWkNNLW1WTXJWOVhmM25fa2piWWFQRk13WldmSUV6a3N5MjF3NG9od29WbXhqUm5BQjZ6UTZWU0FUamp4MXRYTDlabG94R3R1UDlmS3ZVdDlaWTBDbWhkVnp4N3RQWUQ2WTNoSlR5QnNQLUtEM1JkWQ?oc=5",
-      "title": "Anthropic CEO Dario Amodei to AI companies: Fulfil your Cancer promise, rather than blaming me - The Times of India (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO Dario Amodei to AI companies: Fulfil your Cancer promise, rather than blaming me The Times of India",
+      "title": "Anthropic CEO Dario Amodei to AI companies: Fulfil your Cancer promise, rather than blaming me - timesofindia.indiatimes.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Anthropic CEO Dario Amodei to AI companies: Fulfil your Cancer promise, rather than blaming me timesofindia.indiatimes.com",
       "date_published": "2026-08-17T07:53:00+00:00"
+    },
+    {
+      "id": "44cf0928205fe07ddb2af020c8bb3037",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSDBCMHl6NWFXVjN4bFdxNkxJb0g0TllzQUNXeDVGeUdPZEduUTczSnZhcmE4UFdNZk82UDV4SVpGOTJMT29SUHJINVNubnY1Vkl1UXhMekVOYm52YmxhSk9HSHdkRDBBNEVkUTdTNGFJMkR3Z3hyY1A1VVViaDVIQ1BKOEhMMmxlVmpmSG01bmNZdk1JM2I4WHVROE9oMTdhOWVOaFBPZEZvUDhnblhMMVFHVU9aSGlwakctcU1DOVlPdkU?oc=5",
+      "title": "EXCLUSIVE Anthropic IPO valuation hinges on $190-200 billion 2028 revenue forecast, sources say - Reuters (Source: news.google.com | Category: AI Labs)",
+      "content_text": "EXCLUSIVE Anthropic IPO valuation hinges on $190-200 billion 2028 revenue forecast, sources say Reuters",
+      "date_published": "2026-08-17T07:00:00+00:00"
     },
     {
       "id": "f8f1a854cdb599e755e5402bbc298fc1",
@@ -1218,10 +1295,10 @@
       "date_published": "2026-08-17T05:00:00+00:00"
     },
     {
-      "id": "37c7ad22a6fc8d68d446f9b79c13fcb3",
+      "id": "530a70daf9b21d439858ac047420f164",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeFl1bG9fYjJocFZZT21STjhESkhZQUM2MV94cXJ1cTFyemZkRTMtalVMZURQUzFVcXp0dW1IQTVaSzFVT2Vfc1Z3QUxROXJzRm9rWUN3UmpJWTNPRkV0MDFOUkE1SWY2Z0F3NzJZUmFBS0xYZG1kUF9QS3VldlVyRGlsM3RqUEpjcG1iSk9fTW5qcFN3d1hpVXV2dXpUczdKb01qLWVNS0U1RTFja3p1bHVqNmpiOFZqSVhFM1ptM1dmd9IBygFBVV95cUxPTDBtbWFfREk5V0NLbjQzLVJXU1FZTDB0VUlwRE9ZdURKYnFkbk1pQkNZRDBtbXdzbGVTTHVMVnlheVlxem5qYVgzRWVWN1JubDcxMDkwb29sa3hqaEc3TnRLNlhUSWU4cTI1czZyUnJtVDdwWmtsNlRvcVNhb0RfZ190RUR0UXVxNDR3VnpnbGZoa0gybXF6NGN5d2FEWlZWNWx6UEhnaURTQjRscDl5U01NV2tNaHFja2ZiOEFubXZCeFVBUF9ROUVR?oc=5",
-      "title": "'Billionaires Were Wrong': Why AI Didn't Live Up To The 4-Day Work Promise - NDTV (Source: news.google.com | Category: AI Labs)",
-      "content_text": "'Billionaires Were Wrong': Why AI Didn't Live Up To The 4-Day Work Promise NDTV",
+      "title": "'Billionaires Were Wrong': Why AI Didn't Live Up To The 4-Day Work Promise - ndtv.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "'Billionaires Were Wrong': Why AI Didn't Live Up To The 4-Day Work Promise ndtv.com",
       "date_published": "2026-08-17T04:49:49+00:00"
     },
     {
@@ -1237,6 +1314,13 @@
       "title": "The Un-Googleable Woman Disrupting the $2 Trillion Global AI Empire - 36Kr (Source: news.google.com | Category: AI Labs)",
       "content_text": "The Un-Googleable Woman Disrupting the $2 Trillion Global AI Empire 36Kr",
       "date_published": "2026-08-17T04:40:30+00:00"
+    },
+    {
+      "id": "a22a6cfd5872d3635c7e45350025fc09",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPZjVzQzN3WU54RFg0T251aWltVUo0VDQ4SHlDVnUwcm1fTGlSMjlsS2w0RjRxc3pYUTl2alV5ZlZ4X29qa0hESVByS19zbXVhOEtXd3VBNS1iVW9ZdmxKVllZbE5MdXBjYTYxT2JjQUNlWGhDSnlKdzJRSUNhck1sdnk1cE1jd3dmN1R4MGFidEhjeGdHM0FSbmNRanR3c3VUcEtUVWwtbUIwMG5rRVFYdG4wb0p0ZFlNNEV1dmVLX1l1YnRSUUdvMVE1TzJWQThKMEE?oc=5",
+      "title": "From \"Luxury Porn\" to AI Power: The Shocking Cami Clark Story Behind Anthropic's CEO - telugutimes.net (Source: news.google.com | Category: AI Labs)",
+      "content_text": "From \"Luxury Porn\" to AI Power: The Shocking Cami Clark Story Behind Anthropic's CEO telugutimes.net",
+      "date_published": "2026-08-17T04:06:41+00:00"
     },
     {
       "id": "5ba7151fc02a860744d46a1911d77419",
@@ -1274,24 +1358,24 @@
       "date_published": "2026-08-17T01:01:52+00:00"
     },
     {
-      "id": "b2468230db952c80abf3b714cb734cca",
+      "id": "8d0e4cdf1aa2bf093cc4fa9be572bf9a",
       "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOOHFKUFZyRUwyaEc5NzdFdV9TbzhkcTJvNmtvSjcwSUJmazZDR3FZcDRHTjBWcUtzLUVWLVkxNUh1XzRfTnNGMWRJWGYwclFXM3RNMUlacjNQQkE5cFFHMXNPZU5sSXJ5X2Q4ZEZTeGM3WmIzRnRPejRZQU5UZnk5RUFYdTY3MHp2Mk94ZjJqZm9teGp4VzJyRWZOOEZzS0R6R29LcU1SNmVybVltRUpYbWtva0NWMGI4NzlXbU9BNVpOUXRpeVZXa2I0cnJBdzFiNnVGM2hTZ3JJV2xvWWJV?oc=5",
-      "title": "Chinese AI company Zhipu claims its new model is a better bug-finder than Anthropic, OpenAI - The Register (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Chinese AI company Zhipu claims its new model is a better bug-finder than Anthropic, OpenAI The Register",
+      "title": "Chinese AI company Zhipu claims its new model is a better bug-finder than Anthropic, OpenAI - theregister.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Chinese AI company Zhipu claims its new model is a better bug-finder than Anthropic, OpenAI theregister.com",
       "date_published": "2026-08-17T00:51:21+00:00"
     },
     {
-      "id": "4aabc4006ef688dcb030540563126d0e",
+      "id": "3965216e73934b16da7c500f7d96fb76",
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMDQ4YW9FczJLOU9OZm5jQ0lDeTVKVnBrb0lJcEs2Z0hPZ3JMV2JQUTROVGt5R040djluMEVlUElvbzY3OUU3b2t2Z3MxNGlyOVpwLWpTZVNabW50Ym9tRFIzZzJxcXVCckJGbTNGdnZHbTdmUmtiT3RTVF9hSXI2TnI2dFhtdC1VWW52blE1SGVQVFlrdDJB?oc=5",
-      "title": "Woman sues xAI over Grok-generated abuse images - The American Bazaar (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Woman sues xAI over Grok-generated abuse images The American Bazaar",
+      "title": "Woman sues xAI over Grok-generated abuse images - americanbazaaronline.com (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Woman sues xAI over Grok-generated abuse images americanbazaaronline.com",
       "date_published": "2026-08-17T00:31:16+00:00"
     },
     {
-      "id": "607b881ef5175a52bc45afa2c322b4bd",
+      "id": "a73256ef4fd9fc1ae8b4e43ea7bfd281",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdUE2VUJ2OTlhNjg3RWVQdFBwVnhEbEFWS3hVWnFoeHhYOWgwZGN4SVp0S3dnbTJVSUYwZkJ1cVpuS1Fhc2F2ellWcGstenV1bmE3M05wMzBJNlJRaUpqcGVQZXhCTG51bkNZTmNVTGxKTVlTaWlrT09rc3hwT29uU2xna24?oc=5",
-      "title": "Watch AI Stocks Surge on Anthropic Growth | Open Interest 8/17/2026 - Bloomberg.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Watch AI Stocks Surge on Anthropic Growth | Open Interest 8/17/2026 Bloomberg.com",
+      "title": "Watch AI Stocks Surge on Anthropic Growth | Open Interest 8/17/2026 - Bloomberg (Source: news.google.com | Category: AI Labs)",
+      "content_text": "Watch AI Stocks Surge on Anthropic Growth | Open Interest 8/17/2026 Bloomberg",
       "date_published": "2026-08-17T00:00:00+00:00"
     },
     {
@@ -1321,90 +1405,6 @@
       "title": "Dario Amodei admits AI suffers from a crisis of trust, saying people worry companies or governments are 'cooking up some new way to screw them over' - Yahoo Tech (Source: news.google.com | Category: AI Labs)",
       "content_text": "Dario Amodei admits AI suffers from a crisis of trust, saying people worry companies or governments are 'cooking up some new way to screw them over' Yahoo Tech",
       "date_published": "2026-08-16T21:30:49+00:00"
-    },
-    {
-      "id": "c555acca1d9ff7d8b13dc997d055427b",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFB0ZEF6UGcyekFROUo3REViVDJpODNSMjExOERtSVVoekJBWjdxelBaZlpUNkNmQlQyWkVGNXN2dWdrUm0yUDJnbWZiakN5YzJBSWljY0VlVHl3NGF1RzFBbDd2REVNVlVVaWlZc28xN3QwNmY0LVhYU3FfRDI?oc=5",
-      "title": "Dario Amodei admits AI companies have not delivered on their promises - The Next Web (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Dario Amodei admits AI companies have not delivered on their promises The Next Web",
-      "date_published": "2026-08-16T21:12:56+00:00"
-    },
-    {
-      "id": "656cc8ee197e873e767da440c2b1c721",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE41Q1h2QkF0SGRpMFZSMVN5al9RNkhQLTR4MDc0cHJNbndmdndTbHE5cGswRFk4SS1JbVhmXzdWNm5KRDlJa3FiUkt6T01MZUNiTjhON2R6cFJtQQ?oc=5",
-      "title": "Anthropic | History, Controversies, & Claude AI - Encyclopedia Britannica (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic | History, Controversies, & Claude AI Encyclopedia Britannica",
-      "date_published": "2026-08-16T21:10:43+00:00"
-    },
-    {
-      "id": "254e4fb7b997e8050c483b669b8d28ed",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPWmlfclpBNEUxODhwOGZMMVllRWZtanRoVnlZWF85MU56a0RxaFl5cHFJLXJOUmlBRWtxX1BNQUwzaW1KanQ0cmg2WnFXWHFvVHN1WmwxazdoU0liS3NFSjhnTzloMGF5MWtfZllqUDhEYVJUQUVNT2VnMjZyQmgwZw?oc=5",
-      "title": "Anthropic CEO Dario Amodei says the way for AI to win over the public is to 'actually' cure cancer - AOL.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO Dario Amodei says the way for AI to win over the public is to 'actually' cure cancer AOL.com",
-      "date_published": "2026-08-16T20:10:20+00:00"
-    },
-    {
-      "id": "afef4d1a9058b2055ceb2eb205140235",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNQlY2ZVdIc3dkTmRhZlFxbHhvTEl6ZEctdVZXcGJyYjdEajM1UTYyNXJrdmFvSmJQSTlJWXBSb3JrUU12QVNZaDVVYTRBbFlzb0luWl9mZFdwUWUxUTAwc1U2bkRaVi1aY0hNOEZTbE5ocXZtd0taRHdIMDNTeGE0RkJjYWNNOXk3czlnNlV0QmxVMmZLb2t6eHZ0bVdYZXk1elVyazRIQ2NIZzAxYjVUcXFGVmhybWNkYzVTQV9lZ0d6OGk1QkdFT2UzZkFxSm8?oc=5",
-      "title": "Why Anthropic's Provenance Policy Makes AI Accountability A Boardroom Imperative - Forbes (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Why Anthropic's Provenance Policy Makes AI Accountability A Boardroom Imperative Forbes",
-      "date_published": "2026-08-16T19:42:06+00:00"
-    },
-    {
-      "id": "f1a48e27acc7a5ed42079404c65d38b3",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPNXNMT1dnblNkYk5qOFF5Y0pvOFhPWXN6MWdYaFJ3QjNrWlJrd3lyMk9ZUU1OUmhqYVZrWVdVa2wzRHIxYWR0dlMzTm91UUxPOEItNjJhRl8tbGt0QTEyLVBfdHBQa09TLXdLU2NGQVRTT0JTQ3plb3pJLXlTdzEzbnUyWGZIMlpHUFNJVl9kcTdCbjI3UGRoZzlxR2xrcjZyZGZNVWRHOHd4U1pFUkhWWURyWmU0enk4aWZlSENfZlBJaEYzNjVnX19aOW9wVDlhRHJERVB4dlhWRTM5a05N0gHkAUFVX3lxTE9iTzVSUkZUaWJHdHZ5a3FLdE1PcjNxMTFuWjR6YzU3YjROUmdTS3lOWlZqa0U2NnRRYlBadGk0QkRWdVl3RGJOaGNfSFNoSndWblFYX0swajFzZThRUUtETnpLMG5DZXRKa3FMTzdlT00wTDRLdWw3RjJ2eDlUbXJzNW5QZjd0TmxqbkpORks0QnRmbmVTY3Q2TUF3bVY1R2hUdWh5clB4ZGNJSXl2SU1EOEQ2bXNYTGI3SThkeDEwV3R1QTlsWkZPc0szaTcwNTZMVEJwWmJPbktqbjNqXzVjMTdIeA?oc=5",
-      "title": "'AI Can win over the public by curing cancer': Dario Amodei says AI must deliver on Its biggest promises - firstpost.com (Source: news.google.com | Category: AI Labs)",
-      "content_text": "'AI Can win over the public by curing cancer': Dario Amodei says AI must deliver on Its biggest promises firstpost.com",
-      "date_published": "2026-08-16T19:41:34+00:00"
-    },
-    {
-      "id": "723f4cfe645e4cc194019fb9381d06a8",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1xalAzMmNyWUxzTHBEMjZpMmtDUVJsN2l6NVpBNTlDbkJKQjlvLTZmN01ZZmtrQTdQV3FIMWtVMXQ1ZER6MHF5TXdxUWY3ZTMtQWJiaXlxeDBQSF9OcEFGWndmVEp6dmpISEh1cVdFaw?oc=5",
-      "title": "The hyping of Anthropic's IPO - Marcus on AI | Substack (Source: news.google.com | Category: AI Labs)",
-      "content_text": "The hyping of Anthropic's IPO Marcus on AI | Substack",
-      "date_published": "2026-08-16T19:25:30+00:00"
-    },
-    {
-      "id": "61fc130c251d5e57b408eab1a67e50e0",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNaVFxZm9sQXEyN3hkUnZheUZ6dDJIZWJhelZER29lZmgxVV9xMFU4R3h0YkFGM0cycm56MzFPS1dHbENSaTR0OXVUM3ZrOUpmWmx2NEZjS0toQk50MmhySkZmV2JwaFJRSng4Z1VvbEtfd3dRWVp6Z2JqY0FfS0J0TmFJNXpnZUpIekh6TjU0UEJyZnlmcm1RUGJaNUNEdEVqOVpwNFZSVUxqZnJrOV9vcngxVG1iekZ4S01RZS1B0gHDAUFVX3lxTE5hMEl6RzB3VWdEVkdyZDhmVENLU0VrTUVuWnBrYWNCRjhYQ05ubHg2WS1ZNG5MMVRhOXgyYld0XzNBSkoySjBDTzg2SDdacklEMkZzcl8xM29hVldDbUR5M1FLZHY0c01pZ094Rl9KdzRrVGt6M1lOdFNXMVc4am5mQ0JlM3ZaX2lpMkNGZEFtcS1ta2VLb3pyNmZYVk5rNC1DUnc3ZXpNMlhLeGFKZE4waUNoWEJIcVd5MXlSd3NxMXpySQ?oc=5",
-      "title": "100 years of medical progress in just 10, Anthropic CEO Dario Amodei says - WION (Source: news.google.com | Category: AI Labs)",
-      "content_text": "100 years of medical progress in just 10, Anthropic CEO Dario Amodei says WION",
-      "date_published": "2026-08-16T19:19:00+00:00"
-    },
-    {
-      "id": "eea1b078bbde0994b50f030ca9e0beb6",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONEhuenhCOGNNMHlNU2tHNk0zamNzUHNXS3BtX2g5aVAyWlN1NnB2WVdCRlFqbTJLMlJnYTAyNGFsbUdvYTBIU1dTWkJoX0N5ZjNDMEs4ZzlqVm1lUnA4WkNCeEtsaFlDSkVSN3d1Q2NJbVVnVWFiZjVsOWF0VEZHT0tBNXltdFlXQXQzNHJlUnZqZGNrX1E?oc=5",
-      "title": "Anthropic's Dario Amodei Blames AI Backlash on a Crisis of Trust - Startup Fortune (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic's Dario Amodei Blames AI Backlash on a Crisis of Trust Startup Fortune",
-      "date_published": "2026-08-16T18:52:35+00:00"
-    },
-    {
-      "id": "e19b398e1d672d6ea0bea56263c83014",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8xeVVpVTlfSHlkVDZhaGJTTjhXWEFZOFJEZXVLV2ItUG5CNTZWUnhueFpaTThUQ2RFSGxWaFZDRDRPVUwzam9Nck1GMnNNVkVUdGNLRlFiTWxxcnlGLTNPSlVHNDdTZVE?oc=5",
-      "title": "Anthropic CEO Says AI Backlash Reflects a Crisis of Trust - Межа. Новини України. (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO Says AI Backlash Reflects a Crisis of Trust Межа. Новини України.",
-      "date_published": "2026-08-16T17:27:20+00:00"
-    },
-    {
-      "id": "0942f15d43d168f6a74e31e2dc25efdc",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQZGtCM3JXUkxNNHZZZU45ckJ6VHZRd2NxUWxUZWRVeGZKVFFWc3pYWFl4eDRtbV9BWVFLdFpBVkxCVllBdG01d3cxdmxfZXRKZjI3bU1fM2FDa1htRnJKNy1DR3pwRTgxY0gzY2oxSjl2eVBXd2hKWjRLMy10SzY5N1N1akYybGhlejFMRmJ4dkRfZENQWUtQb0RMV2czSUs2TWc?oc=5",
-      "title": "Anthropic CEO says AI backlash is 'fundamentally a crisis of trust' - TechCrunch (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO says AI backlash is 'fundamentally a crisis of trust' TechCrunch",
-      "date_published": "2026-08-16T16:53:51+00:00"
-    },
-    {
-      "id": "c7ab1846f26a50318987b78b6ad1d744",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxObnFsQnVnN2dNOXB3bzI4VHhFUkpLcDJqMkF5QmpZM0phb0gzYms4aDh5TzRORWVvRVhGV3FkSmE3ejlrV1htdUliZmlZRTFZUnZQbktQYzhmNlBRclRtalhqUmZWRGFfMGNCVkFCenUwM0hrcFpoTkFva2xCWDk5STZPOTNuODVNeFg3MVU1Y0NOMWV6M0NHY3ZkS0ZZdl9WVm1HNHBBU1d6RGk0Qk1JaUdES1dyQURpaUhtV0d1NFR6QQ?oc=5",
-      "title": "Anthropic CEO Dario Amodei says the way for AI to win over the public is to 'actually' cure cancer - LinkedIn (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO Dario Amodei says the way for AI to win over the public is to 'actually' cure cancer LinkedIn",
-      "date_published": "2026-08-16T16:33:53+00:00"
-    },
-    {
-      "id": "a92bb2c12c826ee21350ffdfb33e8a30",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQaGdIdzNVMzJUdUpkLVFwVXZGSkZPRzBlM1lRaHNSdFNYS0YyVUZGYXhVbUZ4bmFVNFZCYkVha0J5NWU4akswT1ZWZTVlUDVrYzBvS0FJQld4dXp0Y256X3VJa2w3RTktZVJrS2VrY1FNZ0NhOXJfaTgtaWxhcHpnbzhWRzhXMEJ2YlhvOWx4dlFkN2hKUGpTUmF2cw?oc=5",
-      "title": "Anthropic CEO Dario Amodei says the way for AI to win over the public is to 'actually' cure cancer - Business Insider (Source: news.google.com | Category: AI Labs)",
-      "content_text": "Anthropic CEO Dario Amodei says the way for AI to win over the public is to 'actually' cure cancer Business Insider",
-      "date_published": "2026-08-16T16:30:00+00:00"
     }
   ],
   "authors": [
