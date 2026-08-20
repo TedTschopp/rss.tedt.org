@@ -5,8 +5,38 @@
   "with_items": 9,
   "failures": 1,
   "recovered": 0,
-  "timestamp": "2026-08-20T00:06:46.584397+00:00",
+  "timestamp": "2026-08-20T03:47:52.496249+00:00",
   "details": [
+    {
+      "url": "https://export.arxiv.org/rss/cs.AI",
+      "category": "arXiv AI Categories",
+      "status": "empty",
+      "items": 0,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 304,
+      "classification": "not_modified"
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/feed",
+      "category": "Newsletters",
+      "status": "ok",
+      "items": 20,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://hnrss.org/frontpage",
+      "category": "Hacker News",
+      "status": "ok",
+      "items": 20,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
     {
       "url": "https://export.arxiv.org/rss/cs.CL",
       "category": "arXiv AI Categories",
@@ -28,72 +58,12 @@
       "classification": "skipped"
     },
     {
-      "url": "https://aisnakeoil.substack.com/feed",
-      "category": "Newsletters",
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "HTTP 403",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://aiweekly.co/issues.rss",
-      "category": "Extras",
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "HTTP 404",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://news.google.com/rss/search?q=xAI+AI",
-      "category": "AI Labs",
-      "status": "ok",
-      "items": 100,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://openai.com/news/rss.xml",
-      "category": "AI Labs",
-      "status": "ok",
-      "items": 1141,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://deepmind.com/blog/feed/basic",
-      "category": "AI Labs",
-      "status": "ok",
-      "items": 100,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://www.reddit.com/r/MachineLearning/.rss",
+      "url": "https://www.reddit.com/r/artificial/.rss",
       "category": "Reddit",
-      "status": "empty",
-      "items": 0,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://oneusefulthing.substack.com/feed",
-      "category": "Newsletters",
       "status": "skipped",
       "items": 0,
       "consecutive_failures": 5,
-      "last_error": "HTTP 403",
+      "last_error": "HTTP 429",
       "last_status": "exception",
       "classification": "skipped"
     },
@@ -108,20 +78,30 @@
       "classification": "skipped"
     },
     {
-      "url": "https://news.google.com/rss/search?q=Dario+Amodei+AI",
-      "category": "AI Labs",
+      "url": "https://hnrss.org/newest",
+      "category": "Hacker News",
       "status": "ok",
-      "items": 99,
+      "items": 20,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
       "classification": "success"
     },
     {
-      "url": "https://news.google.com/rss/search?q=Anthropic+AI",
-      "category": "AI Labs",
-      "status": "ok",
-      "items": 97,
+      "url": "https://aisnakeoil.substack.com/feed",
+      "category": "Newsletters",
+      "status": "skipped",
+      "items": 0,
+      "consecutive_failures": 5,
+      "last_error": "HTTP 403",
+      "last_status": "exception",
+      "classification": "skipped"
+    },
+    {
+      "url": "https://www.reddit.com/r/LocalLLaMA/.rss",
+      "category": "Reddit",
+      "status": "empty",
+      "items": 0,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
@@ -138,24 +118,24 @@
       "classification": "success"
     },
     {
-      "url": "https://www.reddit.com/r/LocalLLaMA/.rss",
-      "category": "Reddit",
-      "status": "failed",
+      "url": "https://oneusefulthing.substack.com/feed",
+      "category": "Newsletters",
+      "status": "skipped",
       "items": 0,
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429",
+      "consecutive_failures": 5,
+      "last_error": "HTTP 403",
       "last_status": "exception",
-      "classification": "other_failure"
+      "classification": "skipped"
     },
     {
-      "url": "https://export.arxiv.org/rss/cs.AI",
-      "category": "arXiv AI Categories",
-      "status": "empty",
-      "items": 0,
+      "url": "https://deepmind.com/blog/feed/basic",
+      "category": "AI Labs",
+      "status": "ok",
+      "items": 100,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
+      "last_status": 200,
+      "classification": "success"
     },
     {
       "url": "https://www.reddit.com/r/ChatGPT/.rss",
@@ -168,40 +148,60 @@
       "classification": "skipped"
     },
     {
-      "url": "https://magazine.sebastianraschka.com/feed",
-      "category": "Newsletters",
+      "url": "https://news.google.com/rss/search?q=xAI+AI",
+      "category": "AI Labs",
       "status": "ok",
-      "items": 20,
+      "items": 100,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
       "classification": "success"
     },
     {
-      "url": "https://hnrss.org/newest",
-      "category": "Hacker News",
-      "status": "ok",
-      "items": 20,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://www.reddit.com/r/artificial/.rss",
+      "url": "https://www.reddit.com/r/MachineLearning/.rss",
       "category": "Reddit",
+      "status": "failed",
+      "items": 0,
+      "consecutive_failures": 1,
+      "last_error": "HTTP 429",
+      "last_status": "exception",
+      "classification": "other_failure"
+    },
+    {
+      "url": "https://openai.com/news/rss.xml",
+      "category": "AI Labs",
+      "status": "ok",
+      "items": 1141,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://news.google.com/rss/search?q=Dario+Amodei+AI",
+      "category": "AI Labs",
+      "status": "ok",
+      "items": 100,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://aiweekly.co/issues.rss",
+      "category": "Extras",
       "status": "skipped",
       "items": 0,
       "consecutive_failures": 5,
-      "last_error": "HTTP 429",
+      "last_error": "HTTP 404",
       "last_status": "exception",
       "classification": "skipped"
     },
     {
-      "url": "https://hnrss.org/frontpage",
-      "category": "Hacker News",
+      "url": "https://news.google.com/rss/search?q=Anthropic+AI",
+      "category": "AI Labs",
       "status": "ok",
-      "items": 20,
+      "items": 99,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
