@@ -118,6 +118,11 @@ class PathContractTests(unittest.TestCase):
         concurrency = workflow["jobs"]["scrape-and-generate-rss"]["concurrency"]
         self.assertFalse(concurrency["cancel-in-progress"])
 
+    def test_scheduled_deployment_skips_cancelled_workflows(self):
+        workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
+        condition = workflow["jobs"]["deploy-after-scrape"]["if"]
+        self.assertEqual(condition, "${{ always() && !cancelled() && github.event_name != 'push' }}")
+
     def test_workflow_rejects_oversized_staged_blobs_before_commit(self):
         workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")
         self.assertIn("MAX_STAGED_BLOB_BYTES=90000000", workflow)

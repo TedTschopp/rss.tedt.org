@@ -297,7 +297,7 @@ jobs:
   deploy-after-scrape:
     runs-on: ubuntu-latest
     needs: scrape-and-generate-rss
-    if: ${{ always() && github.event_name != 'push' }}
+    if: ${{ always() && !cancelled() && github.event_name != 'push' }}
     permissions:
       contents: read
       pages: write
