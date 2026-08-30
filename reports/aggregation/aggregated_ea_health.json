@@ -5,10 +5,30 @@
   "with_items": 3,
   "failures": 0,
   "recovered": 0,
-  "timestamp": "2026-08-29T16:03:48.912595+00:00",
+  "timestamp": "2026-08-30T00:12:14.231501+00:00",
   "details": [
     {
+      "url": "https://www.leanix.net/en/blog/rss.xml",
+      "category": null,
+      "status": "ok",
+      "items": 8,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
       "url": "https://www.architectureandgovernance.com/elevating-ea/feed/",
+      "category": null,
+      "status": "empty",
+      "items": 0,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 304,
+      "classification": "not_modified"
+    },
+    {
+      "url": "https://eapj.org/feed",
       "category": null,
       "status": "empty",
       "items": 0,
@@ -28,24 +48,14 @@
       "classification": "success"
     },
     {
-      "url": "https://blog.opengroup.org/feed",
+      "url": "https://bizzdesign.com/blog/feed",
       "category": null,
-      "status": "empty",
+      "status": "skipped",
       "items": 0,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
-    },
-    {
-      "url": "https://www.leanix.net/en/blog/rss.xml",
-      "category": null,
-      "status": "ok",
-      "items": 8,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
+      "consecutive_failures": 5,
+      "last_error": "not well-formed (invalid token): line 3, column 42",
+      "last_status": "exception",
+      "classification": "skipped"
     },
     {
       "url": "https://www.forrester.com/blogs/category/enterprise-architecture/feed/",
@@ -58,17 +68,7 @@
       "classification": "success"
     },
     {
-      "url": "https://bizzdesign.com/blog/feed",
-      "category": null,
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "not well-formed (invalid token): line 3, column 42",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://eapj.org/feed",
+      "url": "https://blog.opengroup.org/feed",
       "category": null,
       "status": "empty",
       "items": 0,
