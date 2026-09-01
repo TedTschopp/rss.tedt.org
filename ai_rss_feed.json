@@ -7,6 +7,48 @@
   "language": "en",
   "items": [
     {
+      "id": "6d2222dcc8dad97c82bb3fb17fa4a8d4",
+      "url": "https://www.uber.com/us/en/blog/efficient-software-factory/",
+      "title": "Running a Software Factory Efficiently at Uber Scale [ ! ]",
+      "content_text": "Uber details the infrastructure and economics behind scaling AI agents in software development, including a 9.4x rise in agent requests while reducing cost per thousand requests by 34% and cost per session by 52%. The key insight is the emergence of \"enterprise agent economics\" and AI value engineering: enterprises should optimize the full agent system-including model routing, MCP tool selection, caching, token usage, trajectories, and business outcomes-instead of narrowly managing cost per token.",
+      "date_published": "2026-08-31T00:00:00+00:00"
+    },
+    {
+      "id": "e640eb787a11b79dc34f30c3f8897470",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai?cid=mgp_opr-eml-alt-dna_qb-mgp-glb--&hlkid=c427b31d73e9417faf84be7b1edb6b40&hctky=1595995&hdpid=982d0fe3-1b25-47ac-a134-6c247cd8486f",
+      "title": "The state of AI in 2026: On the road to ROI [ ! ]",
+      "content_text": "McKinsey's latest AI survey highlights a widening gap between adoption and enterprise value: while 90% of organizations report using AI, only 37% see EBIT-level impact and just 6% qualify as high performers with more than 5% EBIT improvement attributed to AI. Our analysts emphasized that these leaders distinguish themselves by redesigning entire workflows, pursuing growth and innovation rather than efficiency alone, rigorously measuring outcomes, and applying stronger leadership-making the report a valuable quantitative playbook for AI transformation and agentic AI strategy.",
+      "date_published": "2026-08-31T00:00:00+00:00"
+    },
+    {
+      "id": "f5a5d5a937a07db5c816ce2c91410d19",
+      "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+      "title": "How Warp builds self-improving agents on Claude [ * ]",
+      "content_text": "Warp describes an architecture in which agents periodically review human feedback and execution history, then use those insights to update a persistent base skill containing operational, industry, or process knowledge. Our analysts saw this as an elegant and relatively simple mechanism for self-improving agents and long-horizon work, but kept it at Important because the case study does not quantify resulting business-performance improvements.",
+      "date_published": "2026-08-31T00:00:00+00:00"
+    },
+    {
+      "id": "f1ca39c347876777e32474b67627e560",
+      "url": "https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures",
+      "title": "Automated researchers can reliably mitigate alignment failures [ ~ ]",
+      "content_text": "Anthropic explores whether autonomous AI researchers can identify and mitigate alignment failures at scale, reporting performance ranging from roughly one-quarter of issues addressed to as much as 96% across different experimental settings. The research suggests AI agents could run far more alignment and quality experiments than human researchers, but our analysts rated it Optional because the approach remains experimental and is not yet a production-ready capability for most AI leaders.",
+      "date_published": "2026-08-31T00:00:00+00:00"
+    },
+    {
+      "id": "44ed1cd999eee44713f5bfefdf0499d3",
+      "url": "https://arxiv.org/abs/2608.27454",
+      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution [ ~ ]",
+      "content_text": "WikiSkill proposes a shared repository in which reusable agent skills can be stored as persistent knowledge and called by other agents, effectively creating a \"Wikipedia for skills.\" Our analysts believe standardized skill repositories could eventually improve reuse and productivity substantially, but unresolved challenges around retrieval, model-to-model compatibility, versioning, evaluation, and deployment keep the framework in the Optional category for now.",
+      "date_published": "2026-08-31T00:00:00+00:00"
+    },
+    {
+      "id": "71fab30c13980ce951d61637341a24de",
+      "url": "https://hy.tencent.ai/research/hy4-preview",
+      "title": "Introducing Hy4 preview [ ~ ]",
+      "content_text": "Tencent's Hy4 preview introduces a very large mixture-of-experts model with roughly 770 billion parameters, about 50 billion activated per token, a one-million-token context window, and optimization for workloads including coding, office productivity, game development, and scientific research. Despite its open availability and reasoning capabilities, our analysts view it as Optional because its infrastructure requirements, latency and inference costs, and limited adoption among U.S. enterprises make alternatives such as GLM, Kimi, and Qwen more immediately practical.",
+      "date_published": "2026-08-31T00:00:00+00:00"
+    },
+    {
       "id": "de9c0a0c2e244ee82f76621f9043981c",
       "url": "https://www.salesforce.com/news/press-releases/2026/08/26/salesforce-and-anthropic-announce-claudeforce/?utm_campaign=amer_cbaw&utm_content=salesforce__sprout-1787776759&utm_medium=organic_social&utm_source=twitter",
       "title": "Salesforce and Anthropic Announce Claudeforce: The #1 AI Meets the #1 AI CRM [ ! ]",
@@ -313,48 +355,6 @@
       "title": "Own Your Intelligence: A How-To Guide [ * ]",
       "content_text": "This guide lays out how organizations can build greater control over their AI capabilities through evaluation infrastructure, post-training, online learning, proprietary data, and a mix of frontier and open models. Our analysts emphasized that \"owning your intelligence\" is becoming a practical enterprise decision as companies weigh cognitive capital, model infrastructure, cost, speed, data control, and vendor dependence rather than simply renting intelligence indefinitely from model providers.",
       "date_published": "2026-08-19T00:00:00+00:00"
-    },
-    {
-      "id": "0c6179ad318ecde3e8f0254b26138d8f",
-      "url": "https://linear.app/data?utm_source=tldrai",
-      "title": "AI usage patterns in software teams [ * ]",
-      "content_text": "Linear's data shows AI becoming deeply embedded across software organizations, including growing adoption among executives and a sharp rise in machine-authored development activity, with agents and MCP-enabled systems reportedly creating about half of Linear issues. Our analysts see this as evidence that AI coding agents, human-AI collaboration, FinOps, organizational design, and persistent agent memory are becoming core operating concerns as more software is produced by both autonomous systems and non-engineers.",
-      "date_published": "2026-08-19T00:00:00+00:00"
-    },
-    {
-      "id": "af92c92600473529cd42f17d278578fe",
-      "url": "https://arxiv.org/abs/2608.10218",
-      "title": "Mind Viruses: Self-Propagating Ideas in Multi-Agent LLM Systems [ ~ ]",
-      "content_text": "The paper investigates whether ideas or behavioral patterns can propagate between agents in multi-agent LLM systems and persist even after portions of agent memory are cleared. While the concept raises interesting questions about agent-to-agent influence, prompt injection, model inheritance, and AI safety, our analysts found the practical risk limited because current frontier-model safety mechanisms largely prevented harmful messages from propagating, making the lengthy paper more exploratory than immediately actionable.",
-      "date_published": "2026-08-19T00:00:00+00:00"
-    },
-    {
-      "id": "7ae33e9048d4959eb8739512a6a3837b",
-      "url": "https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race?utm_source=tldrai",
-      "title": "Cursor launches Origin code hosting platform as GitHub outage exposes opening in AI coding race [ ~ ]",
-      "content_text": "Cursor's Origin extends the AI coding platform into code hosting, potentially giving the company more control over the developer workflow instead of relying on GitHub for repository infrastructure and collaboration. Our analysts saw strategic logic in the vertical integration but questioned whether Origin can overcome GitHub's enormous developer ecosystem and network effects, making it worth monitoring rather than an immediate priority for business leaders.",
-      "date_published": "2026-08-19T00:00:00+00:00"
-    },
-    {
-      "id": "62e6b197d3f39a773111a23ffd933a10",
-      "url": "https://blog.gregbrockman.com/the-defenders-window",
-      "title": "The Defender's Window [ ! ]",
-      "content_text": "Greg Brockman argues that AI-powered cybersecurity is entering a critical \"defender's window,\" where frontier models can already discover vulnerabilities and automate security work before similarly capable open models become broadly accessible. Our analysts called this essential because AI leaders should treat cyber defence as an immediate AI arms race; using models for secure code, vulnerability detection, patching, and prioritization now, while remaining sceptical of OpenAI's optimistic six-month timeline and the article's inherent vendor bias.",
-      "date_published": "2026-08-18T00:00:00+00:00"
-    },
-    {
-      "id": "faba841f8ce9035f801a866951d69abe",
-      "url": "https://hbr.org/2026/08/research-the-innovation-problems-ai-cant-solve?utm_medium=email&utm_source=newsletter_daily&utm_campaign=dailyalert_&deliveryName=NL_DailyAlert_20260817",
-      "title": "The Innovation Problems AI Can't Solve [ * ]",
-      "content_text": "The HBR research examines how generative AI and LLMs affect different stages of innovation: from ideation and stage-gating to market research and scaling, and shows that AI can sometimes reinforce rather than overcome existing innovation problems. Our analysts' key takeaway is that innovation remains fundamentally a human and organizational dynamics challenge: generic LLM use can create groupthink, anchoring, and undifferentiated ideas, so leaders need thoughtful prompting and process design rather than assuming AI tools will automatically accelerate innovation.",
-      "date_published": "2026-08-18T00:00:00+00:00"
-    },
-    {
-      "id": "05d2ea7db9428548f9c6bd9f6532e5ed",
-      "url": "https://huggingface.co/blog/state-of-open-models-summer-2026",
-      "title": "State of Open Models: Summer 2026 Observations [ * ]",
-      "content_text": "Hugging Face's market snapshot highlights the rapid expansion of the open-model ecosystem, including China's strength in large open models, growing competition among small models, and a highly concentrated pattern of actual downloads and usage. Our analysts viewed it as important because AI leaders increasingly need a model garden and model-selection strategy: Qwen remains especially influential, usage is concentrated in a tiny share of repositories, and licensing, cost-performance, agent adoption, and rapidly shifting model popularity all matter when evaluating open-source AI.",
-      "date_published": "2026-08-18T00:00:00+00:00"
     }
   ],
   "authors": [
