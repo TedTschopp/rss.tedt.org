@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-09-02T16:18:17.010485Z",
+  "timestamp": "2026-09-03T00:23:53.399884Z",
   "sources_configured": 43,
   "fetch_attempts": 43,
-  "raw_items": 2080,
-  "items": 2080,
-  "stories": 2021,
-  "clusters": 1992,
+  "raw_items": 2020,
+  "items": 2020,
+  "stories": 1961,
+  "clusters": 1932,
   "api_items": 80,
   "backfill_mode": false,
   "llm_status": {
     "status": "degraded",
-    "calls": 158,
-    "ok": 157,
-    "errors": 1,
+    "calls": 136,
+    "ok": 133,
+    "errors": 3,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 69,
-      "importance": 58,
+      "ai_relevance": 62,
+      "importance": 43,
       "output_cleanup": 20
     },
     "stages": {
@@ -34,39 +34,39 @@
           },
           "summaries": {
             "before": 20,
-            "remaining": 10
+            "remaining": 11
           }
         }
       },
       "publish": {
         "status": "degraded",
-        "calls": 147,
-        "ok": 146,
-        "errors": 1,
+        "calls": 125,
+        "ok": 122,
+        "errors": 3,
         "skipped": 0,
         "by_kind": {
-          "ai_relevance": 69,
-          "importance": 58,
+          "ai_relevance": 62,
+          "importance": 43,
           "output_cleanup": 20
         },
         "by_model": {
-          "openai/gpt-4.1-mini": 147
+          "openai/gpt-4.1-mini": 125
         },
         "backlog": {
           "ai_relevance": {
-            "before": 69,
-            "remaining": 0
+            "before": 62,
+            "remaining": 1
           },
           "importance": {
             "before": 0,
-            "remaining": 1
+            "remaining": 2
           },
           "output_cleanup": {
             "before": 20,
             "remaining": 0
           }
         },
-        "backlog_remaining": 1
+        "backlog_remaining": 3
       }
     },
     "backlog": {
@@ -76,22 +76,22 @@
       },
       "summaries": {
         "before": 20,
-        "remaining": 10
+        "remaining": 11
       },
       "ai_relevance": {
-        "before": 69,
-        "remaining": 0
+        "before": 62,
+        "remaining": 1
       },
       "importance": {
         "before": 0,
-        "remaining": 1
+        "remaining": 2
       },
       "output_cleanup": {
         "before": 20,
         "remaining": 0
       }
     },
-    "backlog_remaining": 11
+    "backlog_remaining": 14
   },
   "llm_enrichment_status": {
     "status": "ok",
@@ -106,50 +106,50 @@
       },
       "summaries": {
         "before": 20,
-        "remaining": 10
+        "remaining": 11
       }
     }
   },
   "llm_publish_status": {
     "status": "degraded",
-    "calls": 147,
-    "ok": 146,
-    "errors": 1,
+    "calls": 125,
+    "ok": 122,
+    "errors": 3,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 69,
-      "importance": 58,
+      "ai_relevance": 62,
+      "importance": 43,
       "output_cleanup": 20
     },
     "by_model": {
-      "openai/gpt-4.1-mini": 147
+      "openai/gpt-4.1-mini": 125
     },
     "backlog": {
       "ai_relevance": {
-        "before": 69,
-        "remaining": 0
+        "before": 62,
+        "remaining": 1
       },
       "importance": {
         "before": 0,
-        "remaining": 1
+        "remaining": 2
       },
       "output_cleanup": {
         "before": 20,
         "remaining": 0
       }
     },
-    "backlog_remaining": 1
+    "backlog_remaining": 3
   },
   "stage_timings_sec": {
-    "load_sources_and_state": 0.0197,
-    "ingestion": 5.6089,
-    "normalize": 0.0891,
-    "dedupe": 0.0593,
-    "llm_enrich": 24.6301,
-    "cluster": 0.2682,
-    "score": 0.0225,
-    "write_intermediate_outputs": 0.2594,
-    "publish": 665.8488,
-    "persist_llm_cache": 0.2187
+    "load_sources_and_state": 0.02,
+    "ingestion": 25.9302,
+    "normalize": 0.0866,
+    "dedupe": 0.0592,
+    "llm_enrich": 18.7762,
+    "cluster": 0.2636,
+    "score": 0.022,
+    "write_intermediate_outputs": 0.2566,
+    "publish": 601.5036,
+    "persist_llm_cache": 0.204
   }
 }

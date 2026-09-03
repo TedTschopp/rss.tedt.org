@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-09-02T16:18:17.136352+00:00",
+  "timestamp": "2026-09-03T00:23:53.506972+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 50,
-      "last_updated": "Wed, 02 Sep 2026 16:04:49 +0000",
-      "size_bytes": 45079,
+      "last_updated": "Thu, 03 Sep 2026 00:11:26 +0000",
+      "size_bytes": 44901,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
@@ -23,7 +23,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 2,
-      "last_updated": "Wed, 02 Sep 2026 16:05:13 +0000",
+      "last_updated": "Thu, 03 Sep 2026 00:11:50 +0000",
       "size_bytes": 2560,
       "errors": [
         "Low entry count: 2"
@@ -33,7 +33,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 147,
-      "last_updated": "Wed, 02 Sep 2026 16:05:13 +0000",
+      "last_updated": "Thu, 03 Sep 2026 00:11:50 +0000",
       "size_bytes": 180599,
       "errors": []
     },
@@ -41,16 +41,16 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Wed, 02 Sep 2026 16:06:39 +0000",
-      "size_bytes": 217165,
+      "last_updated": "Thu, 03 Sep 2026 00:13:05 +0000",
+      "size_bytes": 215385,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 756,
-      "last_updated": "Wed, 02 Sep 2026 16:06:39 +0000",
-      "size_bytes": 403185,
+      "entry_count": 758,
+      "last_updated": "Thu, 03 Sep 2026 00:13:05 +0000",
+      "size_bytes": 404322,
       "errors": []
     }
   },
@@ -83,18 +83,18 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 2021,
-      "clusters": 1992
+      "stories": 1961,
+      "clusters": 1932
     },
     "llm_status": {
       "status": "degraded",
-      "calls": 158,
-      "ok": 157,
-      "errors": 1,
+      "calls": 136,
+      "ok": 133,
+      "errors": 3,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 69,
-        "importance": 58,
+        "ai_relevance": 62,
+        "importance": 43,
         "output_cleanup": 20
       },
       "stages": {
@@ -111,39 +111,39 @@
             },
             "summaries": {
               "before": 20,
-              "remaining": 10
+              "remaining": 11
             }
           }
         },
         "publish": {
           "status": "degraded",
-          "calls": 147,
-          "ok": 146,
-          "errors": 1,
+          "calls": 125,
+          "ok": 122,
+          "errors": 3,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 69,
-            "importance": 58,
+            "ai_relevance": 62,
+            "importance": 43,
             "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 147
+            "openai/gpt-4.1-mini": 125
           },
           "backlog": {
             "ai_relevance": {
-              "before": 69,
-              "remaining": 0
+              "before": 62,
+              "remaining": 1
             },
             "importance": {
               "before": 0,
-              "remaining": 1
+              "remaining": 2
             },
             "output_cleanup": {
               "before": 20,
               "remaining": 0
             }
           },
-          "backlog_remaining": 1
+          "backlog_remaining": 3
         }
       },
       "backlog": {
@@ -153,22 +153,22 @@
         },
         "summaries": {
           "before": 20,
-          "remaining": 10
+          "remaining": 11
         },
         "ai_relevance": {
-          "before": 69,
-          "remaining": 0
+          "before": 62,
+          "remaining": 1
         },
         "importance": {
           "before": 0,
-          "remaining": 1
+          "remaining": 2
         },
         "output_cleanup": {
           "before": 20,
           "remaining": 0
         }
       },
-      "backlog_remaining": 11
+      "backlog_remaining": 14
     }
   }
 }
