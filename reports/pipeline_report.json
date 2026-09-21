@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-09-21T08:19:13.299640Z",
+  "timestamp": "2026-09-21T16:16:54.498620Z",
   "sources_configured": 43,
   "fetch_attempts": 43,
-  "raw_items": 3234,
-  "items": 3234,
-  "stories": 2386,
-  "clusters": 2357,
+  "raw_items": 2071,
+  "items": 2071,
+  "stories": 2018,
+  "clusters": 1990,
   "api_items": 80,
   "backfill_mode": false,
   "llm_status": {
     "status": "degraded",
-    "calls": 189,
-    "ok": 187,
+    "calls": 162,
+    "ok": 160,
     "errors": 2,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 79,
-      "importance": 79,
+      "ai_relevance": 72,
+      "importance": 59,
       "output_cleanup": 20
     },
     "stages": {
@@ -40,21 +40,21 @@
       },
       "publish": {
         "status": "degraded",
-        "calls": 178,
-        "ok": 176,
+        "calls": 151,
+        "ok": 149,
         "errors": 2,
         "skipped": 0,
         "by_kind": {
-          "ai_relevance": 79,
-          "importance": 79,
+          "ai_relevance": 72,
+          "importance": 59,
           "output_cleanup": 20
         },
         "by_model": {
-          "openai/gpt-4.1-mini": 178
+          "openai/gpt-4.1-mini": 151
         },
         "backlog": {
           "ai_relevance": {
-            "before": 79,
+            "before": 72,
             "remaining": 0
           },
           "importance": {
@@ -79,7 +79,7 @@
         "remaining": 9
       },
       "ai_relevance": {
-        "before": 79,
+        "before": 72,
         "remaining": 0
       },
       "importance": {
@@ -112,21 +112,21 @@
   },
   "llm_publish_status": {
     "status": "degraded",
-    "calls": 178,
-    "ok": 176,
+    "calls": 151,
+    "ok": 149,
     "errors": 2,
     "skipped": 0,
     "by_kind": {
-      "ai_relevance": 79,
-      "importance": 79,
+      "ai_relevance": 72,
+      "importance": 59,
       "output_cleanup": 20
     },
     "by_model": {
-      "openai/gpt-4.1-mini": 178
+      "openai/gpt-4.1-mini": 151
     },
     "backlog": {
       "ai_relevance": {
-        "before": 79,
+        "before": 72,
         "remaining": 0
       },
       "importance": {
@@ -141,15 +141,15 @@
     "backlog_remaining": 2
   },
   "stage_timings_sec": {
-    "load_sources_and_state": 0.02,
-    "ingestion": 2.0074,
-    "normalize": 0.1723,
-    "dedupe": 0.0879,
-    "llm_enrich": 15.475,
-    "cluster": 0.254,
-    "score": 0.0318,
-    "write_intermediate_outputs": 0.3685,
-    "publish": 651.4258,
-    "persist_llm_cache": 0.2178
+    "load_sources_and_state": 0.0157,
+    "ingestion": 2.989,
+    "normalize": 0.0639,
+    "dedupe": 0.052,
+    "llm_enrich": 22.928,
+    "cluster": 0.2284,
+    "score": 0.0197,
+    "write_intermediate_outputs": 0.268,
+    "publish": 607.9258,
+    "persist_llm_cache": 0.2048
   }
 }
