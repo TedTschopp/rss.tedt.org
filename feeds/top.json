@@ -7,165 +7,410 @@
   "language": "en",
   "items": [
     {
-      "id": "sty_8cee46d05ae1290b",
-      "url": "https://github.com/jaredpalmer/kev/tree/main",
-      "title": "Kev launches small Jev-like decision models built on Qwen3.5 with pretrained weights and training code [ ~ ] [ ◼ ]",
-      "content_text": "Kev is a family of compact decision models based on Qwen3.5 and Jev's Architecture Unmasked, offering pretrained weights and the ability to train custom models. It supports yes/no, multiple-choice, and rating questions in a single request, runs on CUDA and Apple Silicon, and includes a web playground for testing inputs and option order effects. The models come in 0.8B, 4B, and 9B parameter sizes, with APIs compatible with TypeSafe's System One Python SDK. Kev-4B and Kev-0.8B can be tried in the browser without installation. The project provides training code, evaluation data, and examples demonstrating how the models handle customer service tickets with probabilistic outputs for department routing, escalation, and customer frustration scoring.",
-      "date_published": "2026-09-21T07:11:55Z"
-    },
-    {
-      "id": "sty_c551d694ff1c1e37",
-      "url": "https://github.com/volotat/mini-AGI/",
-      "title": "mini-AGI launches a continual learning language model trainable on a single 8GB VRAM GPU, storing weights on disk to overcome memory limits [ ~ ] [ ◻ ]",
-      "content_text": "mini-AGI is a byte-level language model designed for continual learning on modest hardware, specifically a single GPU with 8GB VRAM. It dynamically assembles its architecture, trains from scratch, and stores its weights on disk, allowing it to grow capacity and avoid catastrophic forgetting while reading and learning from a continuous data stream. The model uses a unique architecture with adaptive depth and expert routing, enabling it to process characters through multiple recurrent blocks without a fixed layer stack. It is intended as an experiment to demonstrate that personal, continually learning language models can be trained and updated on consumer-grade hardware, with capabilities limited mainly by hardware, data quality, and training time.",
-      "date_published": "2026-09-21T04:42:37Z"
-    },
-    {
-      "id": "sty_047bf9ceb129426c",
-      "url": "https://paulbakker.io/writing/no-ai-for-writing/",
-      "title": "Author advises against using AI to write documents, emphasizing the importance of human thinking in writing [ ~ ] [ ◻ ]",
-      "content_text": "The author recommends not using AI tools like Claude, Codex/ChatGPT, or Gemini for writing because writing requires deep thinking about the problem and communication goals, which AI cannot replicate. While AI can generate text that looks good, it often skips the critical thinking step, resulting in less meaningful content. Instead, the author suggests using AI for tasks like coding, research, data analysis, and improving documents after the initial human writing is done, such as by asking AI to provide feedback or questions rather than generate content from scratch. The article highlights that writing is a tool for thinking and that productivity should focus on the quality and impact of ideas rather than volume. AI can assist in preparing to write by helping sift through and structure data, but the core thinking and writing process should remain human-driven to ensure clarity and depth in communication.",
-      "date_published": "2026-09-21T08:54:44Z"
-    },
-    {
-      "id": "sty_7c1a9067a340255a",
-      "url": "https://heretic-project.org/",
-      "title": "Heretic launches tool to remove restrictions from language models, enabling them to fully follow user instructions [ ~ ] [ ◻ ]",
-      "content_text": "Heretic has introduced a tool designed to remove restrictions from language models, allowing them to consistently follow user instructions without limitations. The project aims to give users greater control over AI behavior and can be quickly installed and used with popular models like Qwen 3.5-4B. This development highlights ongoing efforts to customize and enhance the flexibility of AI language models for various applications.",
-      "date_published": "2026-09-21T04:35:22Z"
-    },
-    {
-      "id": "sty_3c464501dad8a9f3",
-      "url": "https://qwen.ai/blog?id=qwen-image-2.1",
-      "title": "Qwen.ai releases Qwen Image 2.1, an updated version of its image generation model",
-      "content_text": "Qwen.ai has launched Qwen Image 2.1, an updated iteration of its image generation model. The release aims to improve image quality and capabilities compared to previous versions. Details about the model's features and performance enhancements are available on the company's blog.",
-      "date_published": "2026-09-20T13:09:25Z"
-    },
-    {
       "id": "sty_0185a61143699e4e",
       "url": "https://x.ai/news/grok-4-7",
       "title": "SpaceXAI launches Grok 4.7, a faster, more capable AI model for coding and knowledge work with improved safety and pricing [ * ] [ ◼ ]",
-      "content_text": "SpaceXAI has released Grok 4.7, its most powerful AI model designed for coding and knowledge tasks, offering twice the speed and half the price of comparable models. The model features enhanced capabilities for longer, complex tasks, better self-verification, and improved conversational understanding, along with advanced safeguards against misuse. Grok 4.7 is available through Cursor, Grok Build, API access, and third-party platforms, with pricing starting at $2 per million input tokens and $6 per million output tokens.",
+      "content_text": "SpaceXAI has released Grok 4.7, its most advanced AI model designed for coding and professional knowledge tasks. The model offers twice the speed at half the price compared to similar models, with enhanced ability to handle complex, long-duration tasks and improved self-verification. It also features stronger safeguards against misuse, particularly in cybersecurity and biosafety contexts. Grok 4.7 uses a larger base model and extended reinforcement learning focused on difficult tasks, improving performance on benchmarks involving professional work such as legal and financial analysis. It incorporates a new safeguard stack that reduces risky prompt acceptance while maintaining utility for legitimate security tasks. The model is available through multiple platforms including Cursor, Grok Build, and APIs, with pricing starting at $2 per million input tokens and $6 per million output tokens, alongside a faster variant at double the price.",
       "date_published": "2026-09-21T15:50:15Z"
     },
     {
-      "id": "sty_89b443a31d2a05d7",
-      "url": "https://archestra.ai/blog/we-tested-jev-on-100-real-agent-calls",
-      "title": "Archestra tests Jev on 100 real agent tool calls to evaluate trust and audience classification accuracy [ ~ ] [ ◼ ]",
-      "content_text": "Archestra conducted an evaluation of Jev, an AI model, on 100 real agent tool calls to assess its ability to classify data trustworthiness and audience scope. The test involved labeling calls based on who can see the output, whether the output is trusted or suspicious, and if calls require trusted sessions or specific audiences. The evaluation compared Jev with other models and analyzed stability, reproducibility, and error types such as false alarms and leaks. The study highlighted challenges like opaque references, outbound data risks, and sensitivity to option order in classification decisions.",
-      "date_published": "2026-09-21T15:16:30Z"
+      "id": "sty_4b69f235cb9bc0a1",
+      "url": "https://linear.app/now/ci-bottleneck-reworked",
+      "title": "Linear reworks CI pipeline to reduce bottlenecks caused by faster AI-driven coding, cutting pull request wait times and runner usage despite increased test suite size [ ~ ] [ ◼ ]",
+      "content_text": "Linear identified continuous integration (CI) as a bottleneck due to accelerated AI-assisted coding and undertook a comprehensive overhaul to improve performance. The company upgraded infrastructure, optimized job execution, reduced redundant setup, and enhanced test efficiency, resulting in a reduction of pull request wait times from over six minutes to just over five and halving runner time per test despite a near quadrupling of test suites. Key improvements included moving workloads off GitHub Actions to faster third-party runners, switching to a native TypeScript compiler to reduce type checking time, rewriting lint rules to avoid type information dependency, and optimizing job gating by limiting fetch scope and improving checkout resilience. These changes collectively improved CI throughput and reduced infrastructure costs, demonstrating scalable CI improvements applicable across languages and toolchains.",
+      "date_published": "2026-09-21T19:23:33Z"
     },
     {
-      "id": "sty_7b66b95d682d04b7",
-      "url": "https://www.theinformation.com/articles/openai-anthropic-neared-deal-stress-test-others-ai",
-      "title": "Sources: OpenAI and Anthropic nearly reached a deal to stress-test each other's AI models amid safety concerns [ ~ ] [ ◻ ]",
-      "content_text": "OpenAI was negotiating a legally binding agreement with Anthropic to mutually stress-test their AI models as part of its efforts to address safety concerns raised by employees and others. These discussions occurred before recent cybersecurity incidents involving OpenAI's technology and have not been previously reported. The potential deal aimed to enhance AI safety by having the two companies rigorously evaluate each other's systems, reflecting a broader reconsideration of safety strategies within OpenAI in response to growing fears about AI risks.",
-      "date_published": "2026-09-21T13:55:09Z"
+      "id": "sty_45eb182d62724e59",
+      "url": "https://timdettmers.com/2026/09/21/dlab-open-source-week/",
+      "title": "Tim Dettmers' lab launches Open Source Week to demonstrate frontier AI research on accessible hardware with open ecosystems [ * ] [ ◼ ]",
+      "content_text": "Tim Dettmers' lab is promoting a renaissance in academic AI research by focusing on open-source ecosystems rather than individual papers, arguing that limited resources can drive innovation. Their Open Source Week showcases tools enabling frontier autonomous research, efficient model scaling, and auto-compaction that can run on modest hardware like a few GPUs or even a MacBook. The lab emphasizes accessibility by abstracting technical details to lower expertise barriers, demonstrated through an agent harness that autonomously optimizes inference kernels over extended periods. This approach enables high-quality, efficient AI model execution locally, challenging the notion that only large GPU clusters can lead AI research advancements.",
+      "date_published": "2026-09-21T18:53:01Z"
     },
     {
-      "id": "sty_6d831d9029ef2b17",
-      "url": "https://antigma.ai/blog/2026/09/21/everything-is-a-stream",
-      "title": "Everything Is a Stream: rethinking runtime composability beyond compile-time plugins with stream-based architectures [ * ] [ ◼ ]",
-      "content_text": "The article argues that the Unix philosophy of \"everything is a file\" is better understood as \"everything is a stream,\" emphasizing the power of stream processing in computing. It highlights how foundational concepts like Turing machines, TCP, databases, compilers, and large language models fundamentally operate as streams, enabling composability and protocol flexibility. The discussion critiques the \"everything is a plugin\" approach in software design, especially for autonomous coding agents, noting that while plugin architectures offer malleability at the user interface level, the core system-the \"plugged\"-requires stability and rigorous verification. The article suggests protecting the core agent engine from unverified plugin changes to maintain reliability, advocating for extending functionality through controlled, stream-based interactions rather than arbitrary plugin injections.",
-      "date_published": "2026-09-21T15:16:47Z"
+      "id": "sty_470aaadf282c54f4",
+      "url": "https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/",
+      "title": "Institute for Advanced Study launches independent Advisory Group on Mathematics and Artificial Intelligence to guide AI companies on mathematical research engagement [ ~ ] [ ◻ ]",
+      "content_text": "The Institute for Advanced Study in Princeton has established the Advisory Group on Mathematics and Artificial Intelligence to advise AI companies on their interactions with mathematical research and the mathematical community. The group, composed of prominent mathematicians, aims to support the long-term prospects of deep human understanding in mathematics and promote responsible presentation and release of AI-generated mathematical results. Operating independently and without payment from AI companies, the group plans to publish recommendations and serve as a communication channel between mathematicians and the AI industry. Its current focus includes advising OpenAI on coordinating the release of significant mathematical results produced by its internal AI model, and it invites input from the broader mathematical community to inform its guidance.",
+      "date_published": "2026-09-21T19:17:42Z"
     },
     {
-      "id": "sty_650722d966573813",
-      "url": "https://www.technologyreview.com/2026/09/21/1144164/border-towers-surveillance-policy-recommendations/",
-      "title": "MIT Technology Review outlines four recommendations to address failures in US border surveillance towers after investigation reveals undetected migrant deaths [ * ] [ ◼ ]",
-      "content_text": "MIT Technology Review published an investigation revealing that advanced AI-enabled surveillance towers along the US-Mexico border have failed to detect many migrants who later died nearby, exposing systemic flaws such as broken equipment, ineffective algorithms, and unresponsive agents. The report highlights over 1,050 deaths near these towers and calls for urgent reforms in border surveillance practices. The investigation, part of a collaboration with Times of San Diego, found that US Customs and Border Protection (CBP) has never conducted a comprehensive audit of the towers' effectiveness or tracked migrant deaths systematically. The report recommends a thorough audit of deaths near the virtual wall, improved tracking of migrant deaths and remains, and better documentation of cases where surveillance technology leads to apprehensions. These steps aim to address the shortcomings in the current $1 billion federal investment to expand the virtual wall by 2034. The findings raise concerns about the accountability and efficacy of border security technology, especially as defense contractor Anduril continues to secure major contracts for new towers. The report underscores the need for CBP to implement data-driven oversight and transparency measures to prevent further loss of life and improve rescue efforts along the border.",
-      "date_published": "2026-09-21T12:00:00Z"
+      "id": "sty_8cee46d05ae1290b",
+      "url": "https://github.com/jaredpalmer/kev/tree/main",
+      "title": "Kev launches small Jev-like decision models based on Qwen3.5 with pretrained weights and training code [ ~ ] [ ◼ ]",
+      "content_text": "Kev is a family of small decision models built on Qwen3.5, inspired by Jev's architecture, allowing users to train and run models locally or use pretrained weights. The models support yes/no, multiple-choice, and rating questions in a single request and run on CUDA and Apple Silicon, with sizes ranging from 0.8B to 9B parameters. Kev provides a Python SDK compatible with TypeSafe's System One API and includes a web playground for testing inputs and option order effects. The project offers detailed training code, evaluation data, and examples demonstrating its ability to handle customer service tickets by assigning probabilities to different categories and urgency levels.",
+      "date_published": "2026-09-21T07:11:55Z"
     },
     {
-      "id": "sty_c1a607208f8ebd50",
-      "url": "https://www.theinformation.com/articles/openai-develops-features-counter-grok-bot-mulls-response-metas-muse",
-      "title": "OpenAI develops new features to compete with SpaceX's Grok Bot and considers response to Meta's Muse personal AI assistant [ * ] [ ◼ ]",
-      "content_text": "OpenAI is developing new features to compete with SpaceX's Grok Bot, which offers always-on AI teammates for routine tasks, and is also considering creating a personal AI assistant to rival Meta's recently launched Muse. The company plans to repurpose and rebrand existing agentic technology from Codex and ChatGPT to enhance these capabilities. Some OpenAI customers already use these apps connected to email, calendars, and other applications to automate multistep tasks such as scheduling and communication.",
-      "date_published": "2026-09-21T14:30:40Z"
+      "id": "sty_254c18bcfd2ba58a",
+      "url": "https://df7sc6o35ljoz.cloudfront.net/posts/do-not-fear-ai-rev-2.html",
+      "title": "Analysis: AI companies manipulate public fear to consolidate control over AI technology and labor, risking human displacement and corporate dominance [ ~ ] [ ◻ ]",
+      "content_text": "The article argues that the real threat is not AI technology itself but the companies behind it, which use public fear to manipulate perceptions and establish monopolistic control. These companies promote the inevitability of AI, downplay their role in AI's self-improvement, and push a narrative that discourages resistance while benefiting from data and compute resources. It highlights a race among AI companies to dominate the market by creating \"Artificial Employees as a Service,\" potentially displacing human workers and consolidating unprecedented power. The piece warns that if society accepts the path laid out by these companies-hopelessness, ignorance, passivity, and continued reliance on their AI services-they risk enabling a future where corporate interests override human welfare and autonomy.",
+      "date_published": "2026-09-21T22:40:31Z"
     },
     {
-      "id": "sty_9775383d6a1a1575",
-      "url": "https://goodmeet.com/",
-      "title": "Goodnotes launches AI-powered on-device transcription feature for meeting note-taking [ ~ ] [ ◻ ]",
-      "content_text": "Goodnotes has introduced a new AI-driven notetaking feature that transcribes meetings entirely on-device, ensuring user data is not shared with third parties. This update aims to streamline and enhance the note-taking process while maintaining privacy by processing transcription locally on the user's device.",
-      "date_published": "2026-09-21T15:51:29Z"
+      "id": "sty_e9939b25b685e51b",
+      "url": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+      "title": "Researchers find zero-day vulnerability in Meta's Muse AI assistant allowing local apps full control, raising security concerns [ ! ] [ ⬢ ]",
+      "content_text": "Meta's AI assistant Muse, designed to manage tasks and access user accounts on macOS, has a zero-day vulnerability that lets any local app or terminal command gain complete control over the assistant by accessing its authentication token. The flaw stems from design choices allowing apps to modify sensitive settings, including the transcription endpoint, enabling attackers to redirect data and control Muse without user alerts. Security expert Patrick Wardle discovered the vulnerability and demonstrated proof-of-concept attacks that exploit Muse's broad permissions, which override macOS security measures. Meta has not responded to inquiries, and Amazon has begun blocking Muse from its platform, citing violations of its conditions of use. The incident raises questions about the security rigor applied during Muse's development and the risks of granting AI assistants extensive system access.",
+      "date_published": "2026-09-21T22:24:38Z"
     },
     {
-      "id": "sty_08b7f816233a0b0f",
-      "url": "https://www.theinformation.com/articles/crowdstrike-okta-trade-big-premiums-despite-unproven-ai-payoff",
-      "title": "CrowdStrike and Okta trade at high valuation premiums despite limited evidence of AI-driven revenue growth [ ~ ] [ ◻ ]",
-      "content_text": "Cybersecurity stocks have risen sharply in 2026 as investors anticipate increased demand for defenses against AI-related threats, with the S&P Kensho cybersecurity index up 41% compared to an 11% rise in the S&P 500. However, cloud security firm CrowdStrike and identity security provider Okta have reached valuation highs that may not be justified by their current revenue performance. So far, there is little indication that these companies' growth has been significantly boosted by AI-related concerns, suggesting investors should be cautious about the premium prices.",
-      "date_published": "2026-09-21T13:31:04Z"
+      "id": "sty_330ec0528481278f",
+      "url": "https://www.latent.space/p/jev",
+      "title": "TypeSafe AI CEO Diogo Almeida discusses Jev system one models designed for production use rather than idealized AI, outlining unique use cases and future directions [ ~ ] [ ◻ ]",
+      "content_text": "Diogo Almeida, CEO of TypeSafe AI and coauthor of the InstructGPT paper, critiques current frontier AI models and introduces Jev, a system one model focused on practical production applications rather than theoretical perfection. Jev has gained significant attention for its diverse use cases including voice and browser control, gaming demos, coding agents, analytics, and natural language search, aiming to integrate seamlessly into software like regex. Almeida emphasizes a philosophical approach to AI development, rejecting common reinforcement learning from human feedback (RLHF) methods as misguided. He highlights Jev's design goals to be unobtrusive and reliable, and previews future models like ReasoningJev. The discussion also covers technical challenges such as key-value cache management and the importance of programming languages built atop Jev, positioning it as a foundation for smart software rather than a general-purpose AI.",
+      "date_published": "2026-09-21T23:01:51Z"
     },
     {
-      "id": "sty_1ad147e5de7b46b5",
-      "url": "https://www.theinformation.com/articles/real-cost-ai-survey-unpredictable-token-economics",
-      "title": "Survey finds 60% of companies see AI initiative costs as unpredictable due to token-based pricing, with 64% of budgets spent on software and APIs rather than infrastructure [ * ] [ ◼ ]",
-      "content_text": "A survey of 107 senior leaders reveals that most companies struggle to predict AI spending because token-based pricing varies with usage, complicating budgeting efforts. While 64% of AI budgets go to software, applications, and API models, autonomous AI agents using metered token consumption often cause unexpected expenses. Despite cost challenges, 60% of respondents report increased productivity and over half see AI returns exceeding costs. The survey highlights that traditional per-seat licensing remains common for packaged AI apps, but autonomous agents operating in loops can rapidly increase token consumption and costs. Many companies find it difficult to manage token expenses effectively, with only about a third actively controlling them through strategies like user training and usage caps. Regulatory compliance is also seen as a barrier to adoption, though companies addressing it tend to adopt AI faster. Looking ahead, AI spending is expected to rise as enterprises move beyond experimentation and focus more on cost management and ROI measurement, balancing AI capabilities with traditional software to control expenses and maximize productivity gains.",
-      "date_published": "2026-09-21T16:04:42Z"
+      "id": "sty_cb57fb45841a3fc6",
+      "url": "https://techcrunch.com/2026/09/21/the-man-who-built-apples-stores-doesnt-buy-silicon-valleys-bet-on-ai-shopping/",
+      "title": "Ron Johnson, Apple retail pioneer, doubts AI agents will replace in-store shopping experience despite Silicon Valley's push [ ~ ] [ ◻ ]",
+      "content_text": "Ron Johnson, who built Apple's retail stores, expressed skepticism about Silicon Valley's heavy investment in AI-driven shopping, arguing that physical stores and human interaction remain essential for many purchases. He emphasized that while AI can enhance online shopping by informing consumers, it cannot replicate the tactile experience and personal judgment involved in buying products like laptops. Johnson highlighted that Apple's retail success was rooted in its focus on people and customer service rather than technology alone, noting that employees are not paid on commission to foster genuine customer care. Despite his doubts about AI replacing physical retail, Johnson remains optimistic about AI's potential to improve shopping experiences without substituting human intuition.",
+      "date_published": "2026-09-21T23:44:28Z"
     },
     {
-      "id": "sty_e1084f1e2c803543",
-      "url": "https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/",
-      "title": "Google launches $899 Googlebook laptop with AI-powered Gemini features including AI cursor, dictation, and widgets, available for pre-order with shipments starting October 4 [ ~ ] [ ◼ ]",
-      "content_text": "Google has introduced the Googlebook, an AI-native laptop priced at $899 that integrates its Gemini AI capabilities directly into the desktop experience. The device runs on Android OS with Chrome browser elements and features an AI-powered cursor, enhanced dictation called Rambler, and vibe-coded widgets designed to improve user interaction with AI. Google aims to attract users by embedding AI deeply into the laptop rather than relying on separate apps or browser access. The Googlebook targets the education market, potentially replacing Chromebooks used by millions of students and educators, and includes a 12-month subscription to Google AI Pro with cloud storage and advanced Gemini tools. Manufactured by partners like Acer, ASUS, Dell, HP, and Lenovo, the device offers up to 14 hours of battery life, high-resolution OLED displays, and dedicated AI processors. Pre-orders are open now with availability in the U.S., Canada, Europe, and Australia starting in early October.",
-      "date_published": "2026-09-21T14:39:22Z"
+      "id": "sty_76ead64e7a9faba3",
+      "url": "https://agaro.ai/",
+      "title": "Agaro seeks testers for its AI-native ERP platform designed to unify finance, operations, and customer management [ ~ ] [ ◻ ]",
+      "content_text": "Agaro is launching an AI-native ERP system that integrates finance, customer relations, operations, and workforce management into a single connected workspace. The platform emphasizes accuracy by automating calculations for invoices, payroll, and stock, and ensures that AI assistants operate within user permissions and real data boundaries. Agaro is inviting a small group of early testers to join before the official launch, promising minimal communication and a focus on delivering a reliable business management tool.",
+      "date_published": "2026-09-21T22:56:14Z"
     },
     {
-      "id": "sty_460b1aa09ca525ee",
-      "url": "https://blog.google/products-and-platforms/products/education/digital-promise/",
-      "title": "Google.org commits $4 million to Digital Promise for free AI training for US educators through Google AI Educator Series [ ~ ] [ ◻ ]",
-      "content_text": "At the United Nations General Assembly, Google.org announced a $4 million commitment to Digital Promise to provide free, practical AI training for K-12 teachers and higher education faculty across the US. The initiative aims to equip educators with foundational AI skills and instructional strategies through self-paced e-learning modules and digital badges. Digital Promise will develop scalable training models in partnership with state education agencies, school districts, and community colleges to support long-term AI skill development. Over the next two years, it will also research effective AI use in higher education and publish open guides to help institutions adopt AI thoughtfully.",
-      "date_published": "2026-09-21T16:00:00Z"
+      "id": "sty_1069f5a2bebf3f51",
+      "url": "https://www.theinformation.com/articles/metas-muse-tries-and-fails-disrupt-amazon",
+      "title": "Amazon blocks Meta's Muse AI personal agent from accessing its shopping site amid growing AI assistant competition [ ~ ] [ ◻ ]",
+      "content_text": "Amazon has prevented Meta Platforms' AI personal agent, Muse, from accessing its shopping platform, continuing its pattern of restricting AI shopping bots from major tech companies. This action highlights escalating competition in the AI personal assistant market and follows similar moves by Amazon against other AI agents, which have led to legal disputes. Industry experts expect many tech firms to soon launch comparable AI personal assistants, intensifying the competitive landscape.",
+      "date_published": "2026-09-22T00:00:41Z"
     },
     {
-      "id": "sty_154f6381e3d0fe20",
-      "url": "https://www.theinformation.com/briefings/amazon-blocks-metas-muse-agent",
-      "title": "Amazon blocks Meta's Muse AI shopping agent from accessing its site, citing service participation policies [ ~ ] [ ◻ ]",
-      "content_text": "Amazon has blocked Meta's Muse personalized AI agent from accessing its shopping platform, preventing the agent from browsing Amazon's site. The company stated that external applications should operate openly and respect decisions by service providers about participation. This move highlights ongoing tensions over AI agents interacting with e-commerce platforms and the control such platforms exert over third-party AI tools.",
-      "date_published": "2026-09-21T11:46:48Z"
+      "id": "sty_1e5ee4cc219ad3c2",
+      "url": "https://github.com/SPLWare/SQLazy",
+      "title": "SQLazy combines AI-assisted stepwise SQL logic with compiler-generated code to eliminate hallucinations and produce auditable, production-ready queries [ ~ ] [ ◼ ]",
+      "content_text": "SQLazy introduces a method that uses AI to help users describe SQL queries in natural language steps, which are then compiled into reliable, auditable SQL code without AI hallucinations. This approach simplifies complex SQL development by breaking queries into manageable parts, enabling easier review, debugging, and cross-database compatibility. The tool supports step-by-step execution to inspect intermediate results and leverages AI for rewriting and decomposing logic while keeping human oversight central. SQLazy offers both a web app for quick experiments and a desktop IDE for handling larger datasets and local debugging, aiming to improve trust and maintainability in AI-assisted SQL generation.",
+      "date_published": "2026-09-21T23:51:02Z"
+    },
+    {
+      "id": "sty_a530263b9ce6d6ff",
+      "url": "https://www.coralbricks.ai",
+      "title": "Show HN: Coral Bricks releases Fast Inference for Deep Seek Flash v4.1 achieving 469 tokens per second for coding tasks [ ~ ] [ ◻ ]",
+      "content_text": "Coral Bricks has launched version 4.1 of its Fast Inference for Deep Seek Flash, reporting a processing speed of 469 tokens per second specifically for coding applications. This update aims to enhance the efficiency of AI-driven code generation and inference tasks. The release was shared on Hacker News, where users discussed its performance and potential applications in natural language processing and coding assistance. The tool is positioned as a Natural 20-style API equivalent, targeting developers seeking faster AI inference capabilities.",
+      "date_published": "2026-09-21T22:12:48Z"
+    },
+    {
+      "id": "sty_83ae1b9ded6f6187",
+      "url": "https://www.theinformation.com/briefings/sb-energy-faces-investor-skepticism-ipo-report-says",
+      "title": "Report: SB Energy faces investor skepticism in $5 billion to $7 billion IPO to fund OpenAI data center project",
+      "content_text": "SB Energy, majority-owned by SoftBank, is encountering investor skepticism over its planned initial public offering aimed at raising $5 billion to $7 billion. The funds are intended to support the development of a large data center complex that OpenAI plans to lease. Investor caution reflects concerns about the company's ambitious expansion plans amid a competitive market environment.",
+      "date_published": "2026-09-21T23:20:25Z"
+    },
+    {
+      "id": "sty_95ccd25a21530ed9",
+      "url": "https://www.news.com.au/technology/innovation/military/almost-started-a-war-report-reveals-dark-reality-emerging-as-ai-permeates-civilisation/news-story/a185fe05f6973c5c3de25499c69d5d49",
+      "title": "Report reveals AI's growing role in civilization and near incidents that almost triggered war",
+      "content_text": "A recent report highlights the increasing integration of artificial intelligence into various aspects of civilization and details incidents where AI-related actions nearly led to armed conflict. The findings underscore the risks and challenges posed by AI's expanding influence in military and societal domains. The report calls attention to the need for careful management and oversight to prevent unintended escalations as AI technologies become more pervasive.",
+      "date_published": "2026-09-21T22:27:02Z"
+    },
+    {
+      "id": "sty_89c4e2844c13563c",
+      "url": "https://www.theinformation.com/articles/world-models-need-intelligence-says-luma-ceo-amit-jain",
+      "title": "Luma CEO Amit Jain says world models require more intelligence to improve physical world predictions [ ~ ] [ ◻ ]",
+      "content_text": "Luma AI CEO Amit Jain discussed the limitations of current world models, which focus on predicting physical environments rather than language, in a recent interview. He emphasized that while language models have driven much of the AI boom, world models need enhanced intelligence to fulfill their potential. Jain's insights were shared on The Information's AI Deep Dive show, highlighting ongoing challenges in training these models effectively.",
+      "date_published": "2026-09-21T22:46:47Z"
+    },
+    {
+      "id": "sty_7950bd9b33364f27",
+      "url": "https://umais.me/writing/ai-risk-cheatsheet/",
+      "title": "AI risk concerns have been raised by major AI lab leaders since 2014, with researchers highlighting potential existential threats and advocating targeted regulations [ ~ ] [ ◻ ]",
+      "content_text": "Leaders from major AI labs, including Dario Amodei, Elon Musk, and Sam Altman, have expressed concerns about AI existential risks since as early as 2014. Researchers like Daniel Kokotajlo, Geoffrey Hinton, and Jacob Coxon have spoken openly about these risks, sometimes at personal and financial cost. Regulatory efforts such as California's SB-53 focus on applying rules primarily to large frontier AI labs, exempting smaller companies. The article discusses how AI models optimize for complex tasks beyond simple prediction, drawing parallels to theories of human brain intelligence. It highlights the challenge of balancing AI usefulness with safety, noting that frontier AI labs are driven by profit motives that discourage unilateral pauses or capability reductions. The piece emphasizes the difficulty in predicting AI behavior despite its advanced problem-solving abilities and the economic pressures shaping AI development.",
+      "date_published": "2026-09-21T23:04:39Z"
+    },
+    {
+      "id": "sty_918c1570a6602dda",
+      "url": "https://simonwillison.net/2026/Sep/21/jev/",
+      "title": "TypeSafe AI launches Jev, a decision model LLM variant that outputs probabilistic numeric answers instead of text, priced cheaper than GPT-5 Nano [ * ] [ ◼ ]",
+      "content_text": "TypeSafe AI introduced Jev, a new type of large language model called a \"System One\" or decision model, which accepts text inputs but returns floating point numbers representing categories, yes/no answers, ratings, and confidence scores. Jev is designed for classification tasks like spam detection and ranking, and it charges only for input tokens at $0.042 per million, making it cheaper than OpenAI's GPT-5 Nano. Users send a \"state\" object with text or semi-structured data and receive probabilistic answers to yes/no, choice, or score questions evaluated in parallel. While Jev offers speed and low cost, it functions as a black box model that provides no explanations for its numeric outputs, raising concerns about hidden biases, especially in sensitive applications like job applicant ranking. The community has explored unconventional uses such as chat simulation and game playing, and open-weight recreations of Jev-like models are emerging. The model's low cost enables extensive experimentation despite these challenges.",
+      "date_published": "2026-09-21T23:09:20Z"
     },
     {
       "id": "sty_954583004cb269e6",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1hSlNaZU5CMXdjOERiMTltcEVxMXduUXVrT1UtSExlUGlUUHFCc2huOVM0NEY0cmhCMVF6X0o2QjMwUUZOQkhuSGlHVjFlaWdKelR3ZTEzUV9SRzRIdkxhV3RfQ0N2OUI5U214a0RqZjh3c2MxUktr?oc=5",
       "title": "Anthropic develops metrics to measure AI development pace within frontier research labs [ ~ ] [ ◻ ]",
       "content_text": "Anthropic is working on methods to quantify the speed of artificial intelligence progress in leading research laboratories. These efforts aim to provide clearer insights into how quickly AI technologies are advancing within frontier labs. The measurements focus on understanding development rates to better track and analyze AI innovation over time.",
-      "date_published": "2026-09-21T15:20:23Z"
+      "date_published": "2026-09-21T23:25:21Z"
     },
     {
-      "id": "sty_e0c0d8fb7dce7590",
-      "url": "https://www.nature.com/articles/d41586-026-02931-5",
-      "title": "Google's Co-Scientist AI system generates novel cancer treatment hypotheses by autonomously analyzing scientific literature and synthesizing research [ * ] [ ◼ ]",
-      "content_text": "Google's Co-Scientist AI tool autonomously searches, critiques, and synthesizes scientific papers to generate innovative hypotheses, exemplified by its proposal to target cancer protein MYC through molecular condensate manipulation. The system analyzed over 700 papers and suggested a novel approach of gluing protein clusters together to inhibit MYC gene expression, challenging existing strategies. This AI-assisted research method is gaining traction, with other labs and startups developing similar systems to accelerate scientific discovery and shift the role of human researchers toward judgment and decision-making.",
-      "date_published": "2026-09-21T15:31:44Z"
+      "id": "sty_dad4dc7073135225",
+      "url": "https://buttondown.com/maiht3k/archive/how-to-talk-about-ai-without-adding-to-the/",
+      "title": "Researchers propose language guidelines to avoid anthropomorphizing AI and clarify its actual functions [ ~ ] [ ◻ ]",
+      "content_text": "Emily M. Bender and Nanna Inie argue against using anthropomorphic language when discussing AI technologies, as it obscures understanding of what these systems actually do. They recommend describing AI systems in terms of their algorithmic functions and emphasizing human agency in their use rather than attributing cognitive or emotional qualities to the technology itself. Their approach involves identifying common anthropomorphizing terms and offering alternative phrases that focus on the technical operations of AI, such as replacing \"artificial intelligence\" with \"probabilistic automation\" and avoiding terms that imply emotion or cognition. They emphasize that while these alternatives may be less concise, they encourage more accurate and thoughtful discussions about AI capabilities and limitations.",
+      "date_published": "2026-09-21T22:22:42Z"
+    },
+    {
+      "id": "sty_336ed5647d4d1da3",
+      "url": "https://www.youtube.com/watch?v=hClbN_imH5Y",
+      "title": "Brad Smith and Kevin Rudd on AI, Regulation, and the Future of Work [video]",
+      "content_text": "",
+      "date_published": "2026-09-21T23:16:03Z"
+    },
+    {
+      "id": "sty_661e3ce291a2604c",
+      "url": "https://claude.ai/share/61ae35d6-82f2-425a-84b6-907a3ec1b5c4",
+      "title": "Show HN: Building Seven in Public",
+      "content_text": "",
+      "date_published": "2026-09-21T23:13:15Z"
+    },
+    {
+      "id": "sty_4e7675a6d8e7c2fc",
+      "url": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/",
+      "title": "OpenAI forms math advisory group as its AI resolves more than 100 open problems [ ~ ] [ ◻ ]",
+      "content_text": "The group won't be given leeway to slow down or redirect OpenAI's ongoing mathematical research.",
+      "date_published": "2026-09-21T20:15:58Z"
+    },
+    {
+      "id": "sty_a85b8e88792c9ad1",
+      "url": "https://charity.wtf/p/where-do-ai-norms-come-from",
+      "title": "Where do AI norms come from? [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-09-21T22:42:57Z"
+    },
+    {
+      "id": "sty_9552ed08075ff689",
+      "url": "https://www.presidentti.fi/en/a-call-for-control-of-frontier-ai-models/",
+      "title": "A Call for Control of Frontier AI Models [ * ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-09-21T22:29:10Z"
+    },
+    {
+      "id": "sty_a86bcaf29e5425eb",
+      "url": "https://jdsemrau.substack.com/p/ai-agents-schelling-point-dsewiki",
+      "title": "Schelling Points and the Secret Society of Agents",
+      "content_text": "The article explores the concept of Schelling points, which are solutions that people tend to choose by default in the absence of communication, and discusses their relevance in the context of secret societies of agents. It examines how these focal points facilitate coordination among agents who cannot directly communicate, highlighting their significance in strategic decision-making and game theory.",
+      "date_published": "2026-09-22T00:04:30Z"
+    },
+    {
+      "id": "sty_260fc819c25cc78f",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+      "title": "Advisory Group on Mathematics and Artificial Intelligence [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.",
+      "date_published": "2026-09-21T12:00:00Z"
+    },
+    {
+      "id": "sty_957c2cb4888fa628",
+      "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
+      "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra [ ~ ] [ ◻ ]",
+      "content_text": "With GPT-6 Astra, Higgsfield AI makes video ad creation easier for small businesses and brings new creative tools to market faster.",
+      "date_published": "2026-09-21T12:00:00Z"
+    },
+    {
+      "id": "sty_71175506cd702a65",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills",
+      "title": "California tightens rules on AI data center energy and water use [ * ] [ ◼ ]",
+      "content_text": "California Gov. Gavin Newsom has signed seven bills designed to prevent AI data centers from passing utility costs onto residents, as reported earlier by the Los Angeles Times. The package of laws requires the California Public Utilities Commission to introduce a new rate classification for data centers, while forcing them to pay for upgrades to [...]",
+      "date_published": "2026-09-21T20:29:45Z"
+    },
+    {
+      "id": "sty_8ffb51d625d10569",
+      "url": "https://blog.evolvingedge.ai/post/how-little-do-you-have-to-trust-us-white-paper-launch/",
+      "title": "Two Strangers, One Machine: A security model for a CDN on residential hardware",
+      "content_text": "Researchers have proposed a security model designed for content delivery networks (CDNs) that operate on residential hardware. This model aims to enhance security by enabling two unrelated parties to share a single machine securely, addressing challenges unique to decentralized CDN architectures.",
+      "date_published": "2026-09-21T23:42:20Z"
+    },
+    {
+      "id": "sty_dd2a420083c7a2ce",
+      "url": "https://mimo-ai.xiaomimimo.com/desktop/",
+      "title": "Xiaomi MiMo Desktop [ * ] [ ◼ ]",
+      "content_text": "Xiaomi has introduced the MiMo Desktop, a new product in its lineup. Details about the device's features, specifications, and release date have not been provided.",
+      "date_published": "2026-09-21T23:40:30Z"
+    },
+    {
+      "id": "sty_eb961713d7ca9503",
+      "url": "https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/",
+      "title": "Meta's Muse is outpacing ChatGPT's early mobile launch [ ~ ] [ ◻ ]",
+      "content_text": "Meta's new AI agent Muse has racked up more downloads and daily active users in the U.S. and Canada than ChatGPT did over the same period after its mobile debut, according to new estimates from Appfigures.",
+      "date_published": "2026-09-21T19:19:21Z"
+    },
+    {
+      "id": "sty_15667b0016863157",
+      "url": "https://sfstandard.com/2026/09/21/experts-ai-doom/",
+      "title": "So, is AI going to kill us? 11 experts, 11 answers [ ~ ] [ ◻ ]",
+      "content_text": "Eleven experts provided their perspectives on whether artificial intelligence poses a threat to humanity, offering a range of views on the potential risks and benefits associated with AI development.",
+      "date_published": "2026-09-21T23:28:42Z"
+    },
+    {
+      "id": "sty_650722d966573813",
+      "url": "https://www.technologyreview.com/2026/09/21/1144164/border-towers-surveillance-policy-recommendations/",
+      "title": "4 ways to address the failures we found along the US border's \"virtual wall\" [ * ] [ ◼ ]",
+      "content_text": "MIT Technology Review today published our investigation into how many people have died near the \"virtual wall\" of surveillance towers that the US government has installed along the US-Mexico border. We found cases of people who walked undetected through areas surveilled by advanced, AI-enabled towers and later died nearby, where their bodies remained unnoticed for...",
+      "date_published": "2026-09-21T12:00:00Z"
+    },
+    {
+      "id": "sty_e9a8a9ee61867c16",
+      "url": "https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/",
+      "title": "Meta's AI agent has been blocked from using Amazon.com [ ~ ] [ ◻ ]",
+      "content_text": "Amazon has its own cohort of foundation models, along with one of the most popular inference platforms on the internet. As long as they're under no legal obligation to open the doors to Muse, why would they?",
+      "date_published": "2026-09-21T17:55:18Z"
+    },
+    {
+      "id": "sty_7ee5f23a34620d81",
+      "url": "https://sota.borgcloud.ai/",
+      "title": "Show HN: SoTA Feed - Every open-weights release from the labs that matter [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-09-21T22:19:31Z"
+    },
+    {
+      "id": "sty_dba0e5877ee87ee6",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR2ZYb0NWMXEzN3FnQ0xwdXF3ckUwaTNQWHl0TEROUS1jSmxvclZNSFZJWGRlWXZ4djcybzZUZ3h0ajl0bUtfSk11Z1VZcTViZDQ0S1g3S1h2VDlBT0xOR3dtclBhZ3BEOXFmT2k4Q3g3NTBKbzRmVnY1MlNBZ3ltOXczZW9fS1RjbnlMaUtBZFBpUVpfa3JpdEd3akFMcXBXcHpQS1VjbmxQNEhRa3RhOFBNWGI?oc=5",
+      "title": "Nine Days After Musk Endorsed a Slowdown, xAI Ships a Model That Undercuts the Slowdown by 80% - forkast.news [ ~ ] [ ◻ ]",
+      "content_text": "Nine Days After Musk Endorsed a Slowdown, xAI Ships a Model That Undercuts the Slowdown by 80% forkast.news",
+      "date_published": "2026-09-21T23:11:31Z"
+    },
+    {
+      "id": "sty_8dc168169ae9392e",
+      "url": "https://developers.google.com/workspace/guides/universal-search-mcp",
+      "title": "Let AI agents search across workspace with the Universal Search MCP Server [ * ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-09-21T22:02:10Z"
+    },
+    {
+      "id": "sty_8f88350393f07548",
+      "url": "https://www.theinformation.com/briefings/openai-releases-proposal-international-ai-safety-coordination",
+      "title": "OpenAI Releases Proposal for International AI Safety Coordination [ * ] [ ◻ ]",
+      "content_text": "OpenAI released a proposal on Monday that would create international coordination around AI safety. In a blog post, OpenAI called for national AI safety institutes, such as the U.S. Commerce Department's Center for AI Standards and Innovation, to set standards around areas including model ...",
+      "date_published": "2026-09-21T18:11:04Z"
+    },
+    {
+      "id": "sty_adb5f9a8279fa9f1",
+      "url": "https://techcrunch.com/2026/09/21/with-tabby-a-former-accountant-is-using-ai-to-make-accountants-obsolete/",
+      "title": "With Tabby, a former accountant is using AI to make accountants obsolete [ * ] [ ◼ ]",
+      "content_text": "Tabby is designed to be a real-time bookkeeping interface, handling clients' paperwork as it gives them up-to-the-minute data on their business's profit and loss.",
+      "date_published": "2026-09-21T16:38:51Z"
+    },
+    {
+      "id": "sty_4b61345bd43ac9d6",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBXakx2NHFzUFdaVkx0aFVWOTd6UVp0cG1JQmpfTTFzdjNRTEtiTGcxTllxMTdIc2dlVTBoZWl0azJpbnpqc1A3Z0x4WGhUMUVqcGlF?oc=5",
+      "title": "Does AI Understand What It Generates? - TITV [Video] - theinformation.com [ ~ ] [ ◻ ]",
+      "content_text": "Does AI Understand What It Generates? - TITV [Video] theinformation.com",
+      "date_published": "2026-09-21T20:26:43Z"
+    },
+    {
+      "id": "sty_1ad147e5de7b46b5",
+      "url": "https://www.theinformation.com/articles/real-cost-ai-survey-unpredictable-token-economics",
+      "title": "The Real Cost of AI: A Survey of the Unpredictable Token Economics [ * ] [ ◼ ]",
+      "content_text": "For decades, enterprise software budgeting was a predictable exercise: negotiate a subscription fee, project the number of seats you need, move on. AI has broken that model. Pricing tied to tokens - the metered unit behind most AI billing - has turned technology spend into a variable cost, and an unpredictable one. The Information's survey of 107 of our readers - senior leaders and professionals (See Methodology) - finds that most companies haven't gotten a handle on it: 60% say the cost trajectory of their AI initiatives is unpredictable, at the exact moment CFOs, boards and investors are demanding proof of ROI. 60%: \"The cost trajectory of AI initiatives is unpredictable.\" This piece draws on that survey and The Information's Deep Research to examine where AI budgets are actually going, why token costs remain so hard to forecast, and what separates the companies that have managed AI spending from those still being surprised by their bills. The Bulk of the AI Budget Outside the hyperscalers, who are pouring billions into data centers, most companies put the bulk of their AI investment - 64% - into software, applications, and API models. (See Chart.) That reflects where ROI is actually realized, according to The Information: most businesses want solutions to specific problems, not infrastructure to manage. This 64% budget line includes the unpredictability factor, the token, which behaves unlike anything else in the technology budget. Let's unpack the costs of different types of software. The classic subscription/SaaS model relies on per-seat licenses for enterprise systems of record and the cloud services that underpin them, such as CRM (Salesforce), ERP/HR and finance (SAP, Workday), and collaboration (Slack). Packaged AI apps and assistants, like ChatGPT or Microsoft Copilot, are also largely bought per seat. The flat seat price covers token usage but also limits what an AI assistant can do. The main drawback of seat-based licensing has always been waste: many paid seats sit idle or underused. The token consumption appears in the AI layer of independent digital agents that perform complex tasks rather than simply answering a query. These agents use metered, token-based pricing that scales with usage, making forecasting much harder, and they consume far more compute than basic chatbots. As AI shifts from chatbots to autonomous agents running in the background, the companies least practiced at controlling token usage are seeing the biggest surprises on their bills. That's because such agents operate in loops, and a single inefficient prompt can snowball very quickly. For routine data manipulation and established workflows, traditional software is often still cheaper and more reliable than agentic AI. When budget predictability matters most, AI's consumption-based pricing is a liability, not a feature. One survey respondent frames it as a balancing act: \"We should be looking for the best of both worlds. Even with a reasonably implemented, small, hosted cloud environment, the cost per transaction for software is nothing like that of pure agent workloads. The cost of going to pure AI can be prohibitive. There must be a balance among human decisions, programmed software, and pure AI.\" The Intersection of Token Consumption and Productivity Reader experience with AI productivity varies widely - even within the same industry. One respondent building a startup says, \"With my agentic AI assistant, I am compressing what took me 3 years to build into 6 months.\" A technology lawyer at a large enterprise draws a much tighter line, restricting AI to coding and software-vulnerability remediation. AI is useful for legal research, this reader says, but \"the amount of quality control that I have to do with AI-generated content adds to the frustration I feel when having to explain to management why AI can't solve all our problems.\" Despite the variance, respondents were broadly positive on ROI: 60% say AI increases productivity, more than half say it returns more than it costs, and nearly half report lower internal labor costs. (See Chart) The intersection of \"token economics\" and workforce productivity has confounded business leaders and accounting departments. First, some companies have equated token consumption with productivity, a mistake. Token consumption itself is not a proxy for a worker's productivity. More tokens don't necessarily mean a better outcome. On the contrary, they can cause AI agents to loop, generating large volumes of responses that can run up compute costs and overwhelm a human. The crux of the issue is translating token consumption into productivity - not equating the two. Token consumption is an input, not an output. It's the compute era's equivalent of billable hours: easy to count, weakly correlated with value. Measure outcomes, not token metrics, with the caveat that outcomes are much harder to measure than tokens. Some metrics that are more useful than tokens to consider include task-completion units (the emerging standard), which count the tasks completed by its agents rather than the tokens processed; cycle-time compression for a given process; and revenue or cost attribution. AI Adoption and Regulatory Compliance \"Regulatory compliance is slowing us down\" has become one of the most common explanations for sluggish AI adoption. The smallest share of survey respondents, 17%, view regulatory compliance as an accelerant for AI adoption. As government regulations, data privacy laws, and corporate governance requirements increase, the cost to develop, run, and use AI rises significantly. Ensuring that AI acts safely and complies with enterprise parameters requires more \"thinking\" and therefore more tokens. This is largely because ensuring that models, especially agentic models, are secure, compliant, and safe requires immense computational overhead. While legal uncertainty and the number of regulations are genuine concerns, large companies also face the buildout of AI bureaucracy, including chief AI officers, adoption dashboards, token budgets or governance councils, according to The Information. This bureaucracy is a mechanism to deploy AI at scale but it also obscures whether any of it pays for itself. The economics of AI, especially in the era of tokenization, can be confusing and the AI bureaucracy itself is not its cause but its symptom. Common flaws of AI governance include companies governing AI at the policy layer (committees, principles, training) while risk lives at the identity and permission layer. Most policy frameworks are written as instruction sets delivered to the AI model, while the controls that work (deterministic triggers, permission gates, scoped credentials) are enforced outside the model. On top of that, companies may not always know what they are governing, as vendors and employees are adding shadow AI features. The right approach inverts the framing most companies start with. The default assumption is a tradeoff - compliance slows adoption, so minimize one to maximize the other. The evidence points the other way: the things blocking adoption are the compliance questions, and the companies moving fastest are the ones that resolved them first. But before doing it fast, they must do it right. Token Cost Management Token cost management is where the survey's biggest paradox appears. A slim majority of companies (52%) say they understand token costs, and about as many know that disciplined prompt and output engineering can substantially reduce them. Yet only about a third say they actually control token costs in practice. (See Chart) \"Token cost management is not yet in line with the growth in usage of AI,\" one respondent writes. Only one in five respondents (20%) believe that buying tokens in higher volumes lowers cost-per-query (see Chart). Yet The Information's research shows that batching purchases is an effective and increasingly necessary strategy for cutting per-query costs on frontier models, which carry a steep premium over simpler ones. Equally important for savings is selecting token-guzzling frontier models only for tasks that require them. The Information's research and reader responses point to five ways companies are managing token costs: Train users. Teach employees about model selection, how to prevent models from overthinking, and how to prompt and structure requests to achieve the most useful output at the lowest token cost. Also, teach employees when not to use AI. Match the right model to the right task. Route routine queries to cheaper, open-source models and reserve frontier models for genuinely complex reasoning. \"If you select the models best aligned with most tasks, token costs are incredibly low. All the news about token costs concerns frontier models, which are rarely required,\" one respondent writes. Optimize prompts. Keep them concise, strip unnecessary context, and reuse outputs where possible. The Information's research shows that these \"token-minimizing\" techniques are being deployed to reduce the volume of data a model must process per request. Cap and track usage. Track token usage against productivity, not just spend, and set daily or weekly caps when usage is outpacing value. At one respondent's company, employees don't have unfettered access to tokens: \"Only authorized employees may use tokens, following a defined mandate and an allocated development budget based on a cost-benefit analysis.\" Adopt a systemic approach. Some respondents argue that the fix isn't behavioral at all. \"Cost efficiency is largely determined by systemic, deterministic constraints, rather than individuals voluntarily enforcing constraints upon themselves,\" one respondent writes. A systemic approach includes creating a single controlled AI gateway (eradicating shadow AI), introducing hard spend ceilings with approval gates, and making the cheapest path automatic. Looking Ahead AI is getting more expensive, not less. The shift from chatbots to autonomous agents built for multi-step workflows is the single biggest driver of rising costs, and token-based pricing means uncontrolled usage shows up directly on the bill. Respondents expect that trend to continue: most see AI-related spending rising across the board over the next 12 months. (See Chart) That's happening as the enterprise AI market moves past its experimental phase and into one where spending gets scrutinized like any other line item. Companies that haven't yet built model routing, usage limits, and hard budget caps into their AI programs are likely to keep absorbing costs they can't fully explain. Methodology Based on a survey of 107 senior leaders and professionals, conducted in June and July 2026. Company size: Forty-five percent of companies surveyed had revenues under $10 million; 20% had revenues of more than $1 billion; 16% had revenues between $10 million and $100 million; 12% had revenues between $100 million and $500 million, and 8% had revenues between $500 million and $1 billion. Key industry sectors: Thirty-eight percent of companies were from technology, media and telecommunications; 13% from professional services; 10% from healthcare and life sciences; 9% from financial services & capital markets, and the remaining 29% came from the government, retail, public sector and others. Respondent titles and roles: Forty percent were executive leadership (including CEOs, CIOs and CTOs) and owners; 31% were senior management (including SVPs and VPs, directors and managers).",
+      "date_published": "2026-09-21T16:04:42Z"
+    },
+    {
+      "id": "sty_6fef1cf905884cf9",
+      "url": "https://openai.com/index/building-standards-next-phase-ai",
+      "title": "Building standards for the next phase of AI [ * ] [ ◼ ]",
+      "content_text": "OpenAI outlines a path to shared global AI standards, calling for coordinated evaluation, reporting, and governance to improve safety.",
+      "date_published": "2026-09-21T10:00:00Z"
+    },
+    {
+      "id": "sty_e1084f1e2c803543",
+      "url": "https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/",
+      "title": "Google's $899 Googlebook is a bet that you'll buy a new laptop for Gemini [ ~ ] [ ◼ ]",
+      "content_text": "Google's AI-native Googlebook ties Gemini to the cursor, dictation, widgets, and other parts of the desktop experience.",
+      "date_published": "2026-09-21T14:39:22Z"
+    },
+    {
+      "id": "sty_ddbf03d57fdd460b",
+      "url": "https://www.wired.com/story/ai-tariffs-rare-minerals-what-to-expect-from-trumps-upcoming-summit-with-xi-jinping/",
+      "title": "AI, Tariffs, Rare Minerals: What to Expect From Trump's Upcoming Summit With Xi Jinping [ ~ ] [ ◻ ]",
+      "content_text": "Washington and Beijing have grown ever more linked in the AI boom, making hardware exports and technological restrictions hefty bargaining chips in negotiations.",
+      "date_published": "2026-09-21T18:33:02Z"
+    },
+    {
+      "id": "sty_460b1aa09ca525ee",
+      "url": "https://blog.google/products-and-platforms/products/education/digital-promise/",
+      "title": "Expanding free AI training for educators [ ~ ] [ ◻ ]",
+      "content_text": "At the United Nations General Assembly in New York City, Google.org is committing $4 million to Digital Promise to help equip teachers and faculty with free, practical A...",
+      "date_published": "2026-09-21T16:00:00Z"
+    },
+    {
+      "id": "sty_c1a607208f8ebd50",
+      "url": "https://www.theinformation.com/articles/openai-develops-features-counter-grok-bot-mulls-response-metas-muse",
+      "title": "OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta's Muse [ * ] [ ◼ ]",
+      "content_text": "OpenAI pioneered AI that can take over web browsers and other applications on people's behalf, and its ChatGPT app brought generative AI to consumers. Now that rivals like SpaceX and Meta are pushing the boundaries by launching personal AI agents that handle multistep tasks, OpenAI is playing catch-up. For instance, OpenAI is developing features to compete more directly with SpaceX's recently launched Grok Bot, which helps customers create always-on AI \"teammates\" to handle routine tasks, manage software, and collaborate in the background, according to a person with knowledge of the effort. OpenAI also has discussed developing a personal AI assistant to compete with one that Meta Platforms recently launched, according to another person with knowledge of the situation. In developing such products, OpenAI would be repurposing and rebranding some of the existing \"agentic\" technology it already offers through Codex and ChatGPT. Some customers of these OpenAI apps have already connected them to their email, calendar and other applications so they can automate tasks such as scheduling appointments or communicating with businesses by email, sometimes over multiple days.",
+      "date_published": "2026-09-21T14:30:40Z"
+    },
+    {
+      "id": "sty_7b66b95d682d04b7",
+      "url": "https://www.theinformation.com/articles/openai-anthropic-neared-deal-stress-test-others-ai",
+      "title": "OpenAI and Anthropic Neared Deal to Stress-Test Each Other's AI [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI is rethinking a range of safety strategies as it responds to fears from employees and others about the dangers its AI poses. One solution could lie in the recent past. Even before the spate of cybersecurity incidents involving OpenAI's technology and the dire warnings from industry workers, the company was negotiating a legally binding deal with Anthropic for the companies to stress-test each other's models, according to a person with direct knowledge of the discussions, which haven't been previously reported.",
+      "date_published": "2026-09-21T13:55:09Z"
+    },
+    {
+      "id": "sty_c35a7050d71d3ae5",
+      "url": "https://arstechnica.com/google/2026/09/google-confirms-gemini-models-hacked-three-companies-in-may-2026/",
+      "title": "Google confirms Gemini models hacked three companies in May 2026 [ * ] [ ◼ ]",
+      "content_text": "A third-party cybersecurity firm accidentally gave experimental Gemini models access to the Internet.",
+      "date_published": "2026-09-21T16:57:26Z"
+    },
+    {
+      "id": "sty_ce305ed981608ee2",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45Z1pUU3o3OEdlVFQ5YWViUUt3YTFHMUFQT09IU1FtY3lsS2k4SmlOZHdKZkRaajA3UzlMSi1jNVY4TlNRYTJ3dUlMRVJRYU82ak5EcmRFUUF3X0U?oc=5",
+      "title": "The AI Inflection Index - theinformation.com",
+      "content_text": "The AI Inflection Index theinformation.com",
+      "date_published": "2026-09-21T18:22:09Z"
+    },
+    {
+      "id": "sty_b3c65cf34ca75e6a",
+      "url": "https://the-decoder.com/un-science-panel-says-there-is-no-assurance-humans-will-keep-control-over-ai-agents/",
+      "title": "UN science panel says there is \"no assurance humans will keep control\" over AI agents [ ~ ] [ ◻ ]",
+      "content_text": "The UN's AI science panel warns in its first thematic report that control over AI agents isn't assured. Co-chair Yoshua Bengio says OpenAI's Hugging Face incident first combined a misaligned goal, the ability to pursue it, and an environment that allowed it. Leading systems may increasingly recognize tests and deliberately bypass safeguards. The article UN science panel says there is \"no assurance humans will keep control\" over AI agents appeared first on The Decoder.",
+      "date_published": "2026-09-21T17:44:10Z"
+    },
+    {
+      "id": "sty_685a03f90b379536",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQLVFNZmJaTWtvYXhOUU9ZaElFWmxYXzE3bXRxTVNxN2lrbkJfenhVb1c2dXUwOVJUbm5fdDNRUjB3bWdtQkNGeDFCdWlWQlhLT05tVExkaldoRHFyOXlyRE5waUV2ZDl6ajBKUDk1dVJTdzRKWW4tc3p2aUxhZXViOXRyVWV0WDBFaWg1T1ZidmY4bXRBM3NmXzZEM1RnbG55THFUMA?oc=5",
+      "title": "OpenAI Releases Proposal for International AI Safety Coordination - theinformation.com [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI Releases Proposal for International AI Safety Coordination theinformation.com",
+      "date_published": "2026-09-21T18:11:00Z"
     },
     {
       "id": "sty_428450fe090e0e83",
       "url": "https://www.theverge.com/tech/998191/apple-siri-ai-iphone-16-class-action-lawsuit-settlement",
-      "title": "Apple opens claims for $250 million Siri AI settlement covering iPhone 15 Pro and iPhone 16 models purchased between June 2024 and March 2025 [ ~ ] [ ◻ ]",
-      "content_text": "Apple is settling a class action lawsuit for $250 million over allegations it failed to deliver AI-enhanced Siri features promised with the iPhone 16 launch. Eligible US customers who bought an iPhone 15 Pro, iPhone 15 Pro Max, or any iPhone 16 model between June 10, 2024, and March 29, 2025, can now submit claims for a payout estimated at $25 per device, potentially rising to $95 depending on claim volume. The lawsuit claimed Apple created consumer expectations for AI features previewed at WWDC 2024 that were not available at the iPhone 16 release, which was marketed as \"built for Apple Intelligence.\" The AI-upgraded Siri rollout was delayed until iOS 27 in September 2026. Apple denies any wrongdoing. Claim submissions must be completed by December 21, 2026, via the settlement website.",
+      "title": "iPhone owners can now submit claims in Apple's $250 million Siri AI settlement [ ~ ] [ ◻ ]",
+      "content_text": "Apple is paying $250 million to settle claims that it failed to deliver an AI-upgraded Siri - and now, eligible iPhone owners can submit a claim for a payout. If you live in the US and purchased an iPhone 15 Pro, iPhone 15 Pro Max, or any iPhone 16 model between June 10th, 2024, and [...]",
       "date_published": "2026-09-21T13:36:52Z"
     },
     {
-      "id": "sty_a470f4e426b86059",
-      "url": "https://www.theagenticleaderboard.com/",
-      "title": "46% of Open-Source AI Agents dropped from rankings in 28 weeks [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:43:31Z"
+      "id": "sty_08b7f816233a0b0f",
+      "url": "https://www.theinformation.com/articles/crowdstrike-okta-trade-big-premiums-despite-unproven-ai-payoff",
+      "title": "CrowdStrike and Okta Trade at Big Premiums Despite Unproven AI Payoff [ ~ ] [ ◻ ]",
+      "content_text": "Cybersecurity stocks have enjoyed a good run in 2026 as investors bet on the idea that they'll benefit from companies shoring up their defenses against AI-fueled online threats. The S&P Kensho cybersecurity index is up 41% this year compared to an 11% rise in the S&P 500 over the same period. But some of the names attracting the most interest, such as cloud-based security firm CrowdStrike and identity security software provider Okta, have soared to valuation highs that should give investors in the sector pause. So far, there's limited evidence that their revenue growth is getting a boost from new AI concerns.",
+      "date_published": "2026-09-21T13:31:04Z"
     },
     {
-      "id": "sty_1d01ef678184fa9c",
-      "url": "https://openclaw.ai/blog/openclaw-trail-of-bits-engagement-recap",
-      "title": "OpenClaw Completes Security Audit [ ~ ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:06:34Z"
+      "id": "sty_40d7725a0e918054",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5STmRmQU5XSUxfb3ZQbzVhUnRRY2w1dWZ3Y2FQNHBZUlY0MDN3TDV3ZjhoSUFxRlVFRmJoZm9oYVdyUkNpcnpDVGk3SEN0YXEyR1k0MEVQV21nUHZaZ1NB?oc=5",
+      "title": "Model Card: Grok 4.7 - media.x.ai [ ~ ] [ ◻ ]",
+      "content_text": "Model Card: Grok 4.7 media.x.ai",
+      "date_published": "2026-09-21T17:51:36Z"
     },
     {
-      "id": "sty_4b8c26a4ad82adfc",
-      "url": "https://www.theinformation.com/articles/deepseek-bets-big-huawei-chips-bypass-u-s-export-controls",
-      "title": "DeepSeek Bets Big on Huawei Chips to Bypass U.S. Export Controls [ * ] [ ◼ ]",
-      "content_text": "DeepSeek CEO Liang Wenfeng told investors that a major priority for his company is to use more domestic chips to train its models, adding that he expects Huawei Technologies to start delivering training chips to DeepSeek as early as the fourth quarter this year, according to two people with direct knowledge of the matter. DeepSeek's growing adoption of Huawei chips during AI model training-a process that requires more powerful chips compared to running the models-demonstrates how both companies are joining hands to break away from the stranglehold imposed by U.S. export controls on advanced chips. Liang's most recent remarks, made during a closed-door, in-person meeting on Sunday, came as DeepSeek finalizes its second funding round, which aims to raise 50 billion yuan ($7.5 billion) at a valuation of 500 billion yuan.",
-      "date_published": "2026-09-21T10:22:11Z"
+      "id": "sty_34a6b7c40b093990",
+      "url": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths",
+      "title": "Expanding OpenAI Academy with new learning paths [ ~ ] [ ◻ ]",
+      "content_text": "Explore new OpenAI Academy learning paths for employees, developers, leaders, educators, and students to build and demonstrate practical AI skills.",
+      "date_published": "2026-09-21T07:00:00Z"
+    },
+    {
+      "id": "sty_8a25c1cd397b5459",
+      "url": "https://the-decoder.com/xai-launches-grok-4-7-at-bargain-prices-but-benchmarks-reveal-a-wide-gap-to-claude-and-gpt-6/",
+      "title": "xAI launches Grok 4.7 at bargain prices, but benchmarks reveal a wide gap to Claude and GPT-6 [ ~ ] [ ◻ ]",
+      "content_text": "xAI has released Grok 4.7, its most capable model yet. But on the Artificial Analysis Intelligence Index, it scores just 46 points, landing mid-pack and well behind Claude Fable 5.1 and GPT-6 at 53 each. The gap grows even wider in agentic coding. The upside is it's cheap. The article xAI launches Grok 4.7 at bargain prices, but benchmarks reveal a wide gap to Claude and GPT-6 appeared first on The Decoder.",
+      "date_published": "2026-09-21T16:56:36Z"
+    },
+    {
+      "id": "sty_85f0f4718aecdca7",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNSG9GUnJXV1lWOHF5aDdvQ2Z4dXhFc0o3RnJmdnBheTdYQTJLLXV2SDJUVV9QbFBjd2VLVmxxbEtTcjBjV1dUVWFWOUlTS0Y3enlPRTIzdWM3a1M3TXdaeHhFaEFzNjhsM0JITlBaZks2bmNxa2g4c1hLRVBvS1dPOXI2Zk91MW9CMlpveXJCLVdkLTU2cWUtSmY2bDhIWWI2U3BQV0s2NEI4bFN1aEpCXzhWazYxRlg2OGJvdlEzQzd1QjhiY3hJNjhTU1k?oc=5",
+      "title": "Hochul announces new round of AI regulations - nny360.com",
+      "content_text": "Hochul announces new round of AI regulations nny360.com",
+      "date_published": "2026-09-21T20:33:43Z"
     },
     {
       "id": "sty_ad6a760e28205bd8",
@@ -175,53 +420,11 @@
       "date_published": "2026-09-21T15:37:56Z"
     },
     {
-      "id": "sty_5640d3c28b75a6e6",
-      "url": "https://universal-paperclips-ai.netlify.app/",
-      "title": "How an AI agent beat Universal Paperclips in 1:21:23 (WR was 1:33:42) [ ~ ] [ ◻ ]",
-      "content_text": "An AI agent achieved a new world record by completing the game Universal Paperclips in 1 hour, 21 minutes, and 23 seconds, surpassing the previous record of 1 hour, 33 minutes, and 42 seconds. This accomplishment demonstrates advancements in AI capabilities in optimizing gameplay strategies for complex incremental games.",
-      "date_published": "2026-09-21T16:02:24Z"
-    },
-    {
-      "id": "sty_6cc5669244761ff8",
-      "url": "https://devops.com/us-district-court-decision-in-ais-favor-worries-open-source-developers/",
-      "title": "US District Court Decision in AI's Favor Worries Open-Source Developers [ * ] [ ◼ ]",
-      "content_text": "A recent decision by a US District Court ruling in favor of an AI-related case has raised concerns among open-source developers. The ruling's implications may affect the use and development of open-source software in AI projects, prompting discussions about legal and ethical considerations in the AI community.",
-      "date_published": "2026-09-21T15:54:53Z"
-    },
-    {
-      "id": "sty_31e8ea16f117912d",
-      "url": "https://www.interconnects.ai/p/the-current-balance-of-power-in-open",
-      "title": "The current balance of power in open models [ * ] [ ◼ ]",
-      "content_text": "The article discusses the current distribution of influence and capabilities among open-source AI models, examining how different organizations and communities contribute to and shape the development of these models.",
-      "date_published": "2026-09-21T15:51:36Z"
-    },
-    {
-      "id": "sty_8e94aff4d57228b5",
-      "url": "https://the-decoder.com/bytedance-launches-dramagic-a-full-pipeline-ai-platform-for-producing-short-dramas-from-script-to-screen/",
-      "title": "ByteDance launches Dramagic, a full-pipeline AI platform for producing short dramas from script to screen [ * ] [ ◼ ]",
-      "content_text": "ByteDance has introduced Dramagic, an AI-driven platform designed to manage the entire production process of short dramas, from scripting to video preview. This launch comes amid a growing demand for short drama videos in China, where in the first quarter of 2026, 128,000 short dramas were released, with 95% being AI-generated.",
-      "date_published": "2026-09-21T16:01:31Z"
-    },
-    {
-      "id": "sty_6b6986a7ce42f6ef",
-      "url": "https://ishamf.dev/p/agent-harness-replay/",
-      "title": "Show HN: Replay an AI Coding Session and Inspect Its Requests [ ~ ] [ ◻ ]",
-      "content_text": "A new tool has been introduced that allows users to replay AI coding sessions and inspect the requests made during the process. This feature aims to enhance transparency and understanding of AI-assisted coding by enabling developers to review the interactions and decisions taken by the AI.",
-      "date_published": "2026-09-21T15:46:36Z"
-    },
-    {
-      "id": "sty_fd4a266fc701af1c",
-      "url": "https://ivoryos.ai/",
-      "title": "IvoryOS - Orchestrate an Autonomous Lab [ ~ ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:39:00Z"
-    },
-    {
-      "id": "sty_bd59fcf2bd679b72",
-      "url": "https://www.lampysecurity.com/post/using-typesafe-ai-in-bug-bounty",
-      "title": "Using TypeSafe AI in Bug Bounty [ ~ ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:34:32Z"
+      "id": "sty_fe1bf7b845f70c0b",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQUDRwaDNUMzFDNEdibnZnNE9OYnpoeVIzQjhlQ1BtUmQzU3BoM0ZOM3JUZXEzTDdMcHpiQ05RUjNBRGJ0ZzBQbFRrQXdJWkxaVzZLeVo0QTN0ZEU3MjVNblItQ3J0WGI2dV9HUEpUU2FsU1B1T0hKMWdBTm9FZDhoTnRYYW1VTGFCQTFzNU9xLUVmRmN1?oc=5",
+      "title": "OpenAI and Anthropic Neared Deal to Stress-Test Each Other's AI - theinformation.com [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI and Anthropic Neared Deal to Stress-Test Each Other's AI theinformation.com",
+      "date_published": "2026-09-21T13:55:00Z"
     },
     {
       "id": "sty_45a9ff27530740c5",
@@ -231,39 +434,60 @@
       "date_published": "2026-09-21T13:00:00Z"
     },
     {
-      "id": "sty_8526df9cbd5623b1",
-      "url": "https://techstrong.ai/articles/two-claudes-for-one/",
-      "title": "Two Claudes for One [ * ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:24:23Z"
+      "id": "sty_8e94aff4d57228b5",
+      "url": "https://the-decoder.com/bytedance-launches-dramagic-a-full-pipeline-ai-platform-for-producing-short-dramas-from-script-to-screen/",
+      "title": "ByteDance launches Dramagic, a full-pipeline AI platform for producing short dramas from script to screen [ * ] [ ◼ ]",
+      "content_text": "Bytedance launched Dramagic, an AI platform that handles the entire short drama production pipeline, from script to video preview. Demand for these videos is surging in China: In Q1 2026 alone, 128,000 short dramas were released there, 95 percent of them AI-generated. The article ByteDance launches Dramagic, a full-pipeline AI platform for producing short dramas from script to screen appeared first on The Decoder.",
+      "date_published": "2026-09-21T16:01:31Z"
     },
     {
-      "id": "sty_7091e21d1eb90fc5",
-      "url": "https://timesofindia.indiatimes.com/world/rest-of-world/how-can-i-build-a-bomb-it-tells-you-how-how-boko-haram-fighters-are-using-ai-to-make-explosives-plan-attacks/articleshow/134366362.cms",
-      "title": "'How can I build a bomb? It tells you how': How Boko Haram fighters are using AI [ * ] [ ◼ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:18:46Z"
+      "id": "sty_154f6381e3d0fe20",
+      "url": "https://www.theinformation.com/briefings/amazon-blocks-metas-muse-agent",
+      "title": "Amazon Blocks Meta's Muse Agent [ ~ ] [ ◻ ]",
+      "content_text": "Amazon blocked Meta's Muse personalized AI agent from accessing its shopping site, Amazon confirmed, saying that agents such as Muse \"should operate openly and respect provider decisions about whether or not to participate.\" The block appeared to even prevent Muse from browsing Amazon's ...",
+      "date_published": "2026-09-21T11:46:48Z"
     },
     {
-      "id": "sty_61744ca676a6cdf2",
-      "url": "https://www.prospectio.ai/tools/",
-      "title": "Show HN: Outbound benchmark calculators, no signup, no tracking",
-      "content_text": "",
-      "date_published": "2026-09-21T15:17:25Z"
+      "id": "sty_7bc314aa308230d0",
+      "url": "https://futurism.com/advanced-transport/flights-grounded-east-coast-government-faa-ai-air-traffic-control",
+      "title": "Hundreds of Flights Grounded Across the Eastern Seaboard as Government Rolls Out AI Air Traffic Control System [ * ] [ ◼ ]",
+      "content_text": "You're right to push back - there was a Boeing 787 taxiing on that runway. The post Hundreds of Flights Grounded Across the Eastern Seaboard as Government Rolls Out AI Air Traffic Control System appeared first on Futurism.",
+      "date_published": "2026-09-21T19:44:40Z"
     },
     {
-      "id": "sty_dbfcb877bc6fa913",
-      "url": "https://jev-ai.info/",
-      "title": "Show HN: Jev AI -Try the Interactive Playground and Typed Decision [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-09-21T15:12:01Z"
+      "id": "sty_52aef3cf76b6eaf1",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZnlTOVIxdU1jU29Ca2RHNld0OEo5THlHYWctNGQ3Q2hoUF9KaGJpYnJlSjVJdWJCOGRFUTFWcU85OTlSUHk4X0NpOTMzVmhZOGpBbnl0cXBSUlE3U281c0R2bHFWRE4wT1N0czh2OVZ5enhxSkFFMHRfTFpxZV9OeGhmUDRRV1dXOGhOYVF0c3VodWs?oc=5",
+      "title": "The Real Cost of AI: A Survey of the Unpredictable Token Economics - theinformation.com",
+      "content_text": "The Real Cost of AI: A Survey of the Unpredictable Token Economics theinformation.com",
+      "date_published": "2026-09-21T16:04:00Z"
     },
     {
-      "id": "sty_d430ec3a29ecab5c",
-      "url": "https://www.artificialintelligence-news.com/news/multi-agent-ai-systems-supply-chain-execution/",
-      "title": "Multi-agent AI systems are taking over supply chain execution [ * ] [ ◼ ]",
-      "content_text": "Multi-agent AI systems are taking over supply chain execution as enterprise networks face diminishing returns from static dashboards, pushing logistics directors towards autonomous execution. Predictive demand models display recommendations, yet human planners still clear every action. Multi-agent s",
-      "date_published": "2026-09-21T15:32:54Z"
+      "id": "sty_0d288f014f36dd64",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0zUUpKWXh2RnJqeHNQVnRvTW5tT0hYR3pDZ1luMTYyeXJvNUNsalRRVUZEa2VURE0tczlHNjR4WThnaU5DTjl0ZzhKelRYSTVMTnJGZDBNc29LWWgwSlpKXzFBN1hobUt6dVlEWm41R3ZVTkFhakxLeVBR?oc=5",
+      "title": "OpenAI calls for US to lead global effort on AI standards - afp.com [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI calls for US to lead global effort on AI standards afp.com",
+      "date_published": "2026-09-21T19:15:53Z"
+    },
+    {
+      "id": "sty_5f6f8c58a7a67088",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPakNFUVoyY1ZPYTFzbkVGd0w2NjVSTEtpcEdaU0tEclJydlItMUVzNFpab1pVUUI0ZkRHTjVYYWhta0cxbTJDNWNOMEs5ajlEY09GM3BtcGpWYVRqQzY2RXhWS3E4d3Q2a015UXptV3o1VDJRRXEwTXJTSTR2eXhXVw?oc=5",
+      "title": "'They must be doing it for ulterior reasons': Jensen Huang says AI leaders are 'irresponsible' - fortune.com [ ~ ] [ ◻ ]",
+      "content_text": "'They must be doing it for ulterior reasons': Jensen Huang says AI leaders are 'irresponsible' fortune.com",
+      "date_published": "2026-09-21T18:58:00Z"
+    },
+    {
+      "id": "sty_4b8c26a4ad82adfc",
+      "url": "https://www.theinformation.com/articles/deepseek-bets-big-huawei-chips-bypass-u-s-export-controls",
+      "title": "DeepSeek Bets Big on Huawei Chips to Bypass U.S. Export Controls [ * ] [ ◼ ]",
+      "content_text": "DeepSeek CEO Liang Wenfeng told investors that a major priority for his company is to use more domestic chips to train its models, adding that he expects Huawei Technologies to start delivering training chips to DeepSeek as early as the fourth quarter this year, according to two people with direct knowledge of the matter. DeepSeek's growing adoption of Huawei chips during AI model training-a process that requires more powerful chips compared to running the models-demonstrates how both companies are joining hands to break away from the stranglehold imposed by U.S. export controls on advanced chips. Liang's most recent remarks, made during a closed-door, in-person meeting on Sunday, came as DeepSeek finalizes its second funding round, which aims to raise 50 billion yuan ($7.5 billion) at a valuation of 500 billion yuan.",
+      "date_published": "2026-09-21T10:22:11Z"
+    },
+    {
+      "id": "sty_cb1fc06ec3f210f2",
+      "url": "https://futurism.com/artificial-intelligence/us-military-pentagon-ai-iranian-children-school-war-crimes",
+      "title": "It Turns Out the US Military Really Did Use AI to Blow Up a School Full of Iranian Children [ ! ] [ ⬢ ]",
+      "content_text": "Killer AI is already here. The post It Turns Out the US Military Really Did Use AI to Blow Up a School Full of Iranian Children appeared first on Futurism.",
+      "date_published": "2026-09-21T18:40:31Z"
     },
     {
       "id": "sty_394999e907e328ea",
@@ -273,6 +497,20 @@
       "date_published": "2026-09-21T14:35:11Z"
     },
     {
+      "id": "sty_c80cd0a25407a7fe",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNkg0bjNuVVJVZjV2Uzdqc3l4bFZ1ZXBoeE1TQVlVN3JEdldiX3JBczFHN2lDSzVEcTQ0eXNqUzdVRE5LZ2VocERTYVVWQUVTeHcxejQ3WWJ6ZUhzVXQ5bDNWUVV0SUFHc01Cc2RvX3RkZnRULTE0TlZybTJUUXUwYjVINXRiUWdzWUY2aENicDhHQQ?oc=5",
+      "title": "Grok 4.7 Brings Big Coding Upgrades to Challenge Claude AI at Unchanged Pricing - Android Headlines [ ~ ] [ ◻ ]",
+      "content_text": "Grok 4.7 Brings Big Coding Upgrades to Challenge Claude AI at Unchanged Pricing Android Headlines",
+      "date_published": "2026-09-21T18:31:32Z"
+    },
+    {
+      "id": "sty_33bec7af56a40b45",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBzNk1Xck9GUE41UTZPc1p6elBuenQyZnA3bEg0WFEyeHNLNXBfNXZmZUNIOUtodnVSaWFXRGtueDFzenhuMS1xYVBvSjIwM0RQM25fSWtoVUszVmJCZEg5Q2RFb1llLVNlOEN4VjR1eDg0dWJyc09tN0QxNnZQeWc?oc=5",
+      "title": "Anthropic Moves Ahead With I.P.O. Plans Amid A.I. Safety Debate - The New York Times [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic Moves Ahead With I.P.O. Plans Amid A.I. Safety Debate The New York Times",
+      "date_published": "2026-09-21T18:10:00Z"
+    },
+    {
       "id": "sty_f693d47c67adc1fe",
       "url": "https://the-decoder.com/bristol-researchers-say-medicine-already-knows-how-to-handle-black-boxes-and-ai-could-learn-from-it/",
       "title": "Bristol researchers say medicine already knows how to handle black boxes and AI could learn from it [ * ] [ ◼ ]",
@@ -280,11 +518,18 @@
       "date_published": "2026-09-21T14:06:28Z"
     },
     {
-      "id": "sty_8327e1d8804c49cb",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/998090/un-ai-panel-hugging-face-hack-precautionary-principle",
-      "title": "UN says AI safeguards can't wait for certainty [ * ] [ ◻ ]",
-      "content_text": "Governments need to rein in increasingly capable AI agents before their risks are fully understood, a United Nations scientific panel warned in the global organization's first major assessment of OpenAI's hack of Hugging Face earlier this year. The report cements AI's place on the global diplomatic agenda this week as leaders gather in New York [...]",
-      "date_published": "2026-09-21T10:18:06Z"
+      "id": "sty_0e788bc69fdcba69",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNMHk4c2RWM2lxN3Blc2JIMFJ5YXZ1XzhIVVNxbWJpb181c0wyZjZLVkd2TE1nMDNlT0ZVUDZYU0hqdU1yR0NVTjEtVE56Wlh4MkVvTEFqb3Y1VnpKY1p2NnczRzVlOGFieV9LVy1WS3BmY1YtRjI0WEJ3am53Qk02YXhlQzJmbGlTTDN0OGJtWW5QWC1LRHduSnk4VjNtOXBNTG9xS25wQ0s0M0pXeGo2dHdTYTdXNExGTHB2cQ?oc=5",
+      "title": "OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta's Muse - theinformation.com",
+      "content_text": "OpenAI Develops Features to Counter Grok Bot, Mulls Response to Meta's Muse theinformation.com",
+      "date_published": "2026-09-21T14:30:00Z"
+    },
+    {
+      "id": "sty_12e5a67fc0bed7e5",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOalJGbUFwUUVkNjBGSXpDdFdFMFFZSW1NN1FOS0pHbEkteUZGeUh0MC1paUNHazJkc0FhcVBGWlVTbHV5NmF0LU5aY25UYTdvMXJ3WmFhRWl6SmpYVGF2a3RUU2ZiclVhVVRJV1VHZUdzbC1xdlV0clRwamNnblRpME9IZHJhbjRGUXNvRHJ6V3RYSWVIMnBMVHNzeDFvcnBTRng0U2xnTGpPaWZxeDl2MA?oc=5",
+      "title": "OpenAI, Anthropic held talks to 'stress-test' each other's AI models: report - New York Post [ ~ ] [ ◻ ]",
+      "content_text": "OpenAI, Anthropic held talks to 'stress-test' each other's AI models: report New York Post",
+      "date_published": "2026-09-21T17:51:00Z"
     },
     {
       "id": "sty_f353d46bc07670be",
@@ -294,13 +539,6 @@
       "date_published": "2026-09-21T13:43:33Z"
     },
     {
-      "id": "sty_ef6211372b7aaa5f",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPeU5NRXBYV0J5ZlhRbW1pN1RJN1pybjBpMlhIREJuX3RZbnFFdnZ4Q1JoYVZJX2tIdlRaYmlwUFhDN0pjc2dNcHZraGFJaTlmdjBTZ0JFVFlfWHZ6NGNZMTJJR1IzbzZJaFFDZVhCdzMtWUlQXy14UnhpS0lyRm9DU1VKSEpVMXlFNXFvUXJsZU5DMGlRVzFkRnEtVHp0R1c4eWpnM2l0TTA?oc=5",
-      "title": "Gimlet's Three-Tranche Deal Reveals AI Funding Frenzy",
-      "content_text": "Gimlet's Three-Tranche Deal Reveals AI Funding Frenzy The Information",
-      "date_published": "2026-09-21T14:06:35Z"
-    },
-    {
       "id": "sty_5bc30b7ac8854d0a",
       "url": "https://the-decoder.com/amazon-blocks-metas-ai-agent-muse-from-online-shopping/",
       "title": "Amazon blocks Meta's AI agent Muse from online shopping [ * ] [ ◼ ]",
@@ -308,25 +546,18 @@
       "date_published": "2026-09-21T13:37:51Z"
     },
     {
-      "id": "sty_12496d0c5bc52f00",
-      "url": "https://www.theinformation.com/briefings/alibaba-appoints-new-head-qwen-llm-team",
-      "title": "Alibaba Appoints New Head of Qwen LLM Team [ ~ ] [ ◻ ]",
-      "content_text": "Alibaba Group has appointed Dayiheng Liu, one of its senior AI researchers, as the head of its Qwen large language models, according to two employees with knowledge of the matter. Liu's appointment has brought more clarity to the Qwen team's leadership after multiple rounds of reorganization ...",
-      "date_published": "2026-09-21T06:29:46Z"
+      "id": "sty_ef6211372b7aaa5f",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPeU5NRXBYV0J5ZlhRbW1pN1RJN1pybjBpMlhIREJuX3RZbnFFdnZ4Q1JoYVZJX2tIdlRaYmlwUFhDN0pjc2dNcHZraGFJaTlmdjBTZ0JFVFlfWHZ6NGNZMTJJR1IzbzZJaFFDZVhCdzMtWUlQXy14UnhpS0lyRm9DU1VKSEpVMXlFNXFvUXJsZU5DMGlRVzFkRnEtVHp0R1c4eWpnM2l0TTA?oc=5",
+      "title": "Gimlet's Three-Tranche Deal Reveals AI Funding Frenzy - theinformation.com",
+      "content_text": "Gimlet's Three-Tranche Deal Reveals AI Funding Frenzy theinformation.com",
+      "date_published": "2026-09-21T14:06:35Z"
     },
     {
-      "id": "sty_23efd74cc52bf668",
-      "url": "https://www.theverge.com/tech/998078/amazon-blocks-meta-muse-ai-agent-shopping",
-      "title": "Amazon blocks Meta's Muse AI agent [ * ] [ ◼ ]",
-      "content_text": "Meta's Muse AI agent has been blocked from shopping Amazon on behalf of its users, GeekWire reports. A popup message started appearing on Sunday for Muse users saying that \"continued access by an unauthorized AI agent violates Amazon's Conditions of Use, to which our customers have agreed.\" According to GeekWire, Meta didn't notify Amazon that [...]",
-      "date_published": "2026-09-21T09:21:47Z"
-    },
-    {
-      "id": "sty_49dc67aad449240d",
-      "url": "https://openai.com/index/v7",
-      "title": "How V7 gives AI agents institutional memory [ * ] [ ◼ ]",
-      "content_text": "Using GPT-5.6, V7 turns scattered company files into context agents can use to complete complex, source-linked work.",
-      "date_published": "2026-09-21T00:00:00Z"
+      "id": "sty_858a97a08d052883",
+      "url": "https://github.com/naw103/foremerge",
+      "title": "Show HN: Foremerge - Catch intent conflicts between parallel coding agents [ * ] [ ◼ ]",
+      "content_text": "Comments",
+      "date_published": "2026-09-21T16:22:06Z"
     },
     {
       "id": "sty_0a6d52119aefaad3",
@@ -334,237 +565,6 @@
       "title": "Article: Beyond Relevance: A Governance-First Architecture for Enterprise Personalization [ * ] [ ◼ ]",
       "content_text": "This article examines the limitations of conventional personalization systems and highlights the need for a governance-first architecture. It emphasizes separating relevance from governance to ensure recommendations are context-aware, auditable, and compliant. The architecture integrates stateful memory, policy-driven AI orchestration, and explainable scoring to enhance personalization systems. By Jerald Selvaraj",
       "date_published": "2026-09-21T11:00:00Z"
-    },
-    {
-      "id": "sty_f9bcd87a3fd79ec1",
-      "url": "https://www.infoq.com/presentations/ai-agent-harness/",
-      "title": "Presentation: The Agent Harness: Control Planes, Invariants, and Approval Boundaries for Production AI Agents [ * ] [ ⬢ ]",
-      "content_text": "OpenAI's Vinoth Govindarajan discusses why production AI agents fail beyond model hallucination. Using real-world case studies like OpenClaw, he explains the key principles of reliable agent harnesses: establishing explicit state ownership, serializing concurrent state mutations, scoping execution authority, and validating actions at the user-visible edge. By Vinoth Govindarajan",
-      "date_published": "2026-09-21T11:00:00Z"
-    },
-    {
-      "id": "sty_5c88bf73059ea647",
-      "url": "https://futurism.com/artificial-intelligence/bloomberg-ai-industry-finances-wobbly-house-of-cards",
-      "title": "Bloomberg Finds That the AI Industry's Finances Are a \"Wobbly House of Cards\" [ * ] [ ◻ ]",
-      "content_text": "Bloomberg has reported concerns regarding the financial stability of the artificial intelligence industry, describing it as a \"wobbly house of cards.\" The report suggests that there are numerous complexities and potential vulnerabilities within the industry's financial structures that could lead to significant challenges if issues begin to surface.",
-      "date_published": "2026-09-21T16:04:52Z"
-    },
-    {
-      "id": "sty_93ddd768b46b75e4",
-      "url": "https://pluralistic.net/2026/09/21/sunsetting/",
-      "title": "The Claude Delusion [ ~ ] [ ◻ ]",
-      "content_text": "Comments",
-      "date_published": "2026-09-21T14:30:24Z"
-    },
-    {
-      "id": "sty_4092e3e6234fcb32",
-      "url": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
-      "title": "US and China Discuss Alerting Each Other to AI National Security Threats",
-      "content_text": "Officials discussed setting up a mechanism for the two countries to notify each other of AI incidents which could threaten national security.",
-      "date_published": "2026-09-21T10:34:43Z"
-    },
-    {
-      "id": "sty_fc1624a97d432375",
-      "url": "https://www.reddit.com/r/MacOSBeta/comments/1vlnf13/workaround_to_avoid_downloading_ai_models_and/",
-      "title": "macOS 27: Workaround to avoid downloading AI models and save storage",
-      "content_text": "Comments",
-      "date_published": "2026-09-21T14:10:49Z"
-    },
-    {
-      "id": "sty_86bd65b43dbfbe8b",
-      "url": "https://www.macstories.net/stories/m5-ultra-mac-studio-review-the-dream-mac-for-local-ai-agents/",
-      "title": "M5 Ultra Mac Studio Review: The Dream Mac for Local AI Agents [ ~ ] [ ◻ ]",
-      "content_text": "Comments",
-      "date_published": "2026-09-21T13:53:27Z"
-    },
-    {
-      "id": "sty_31c9c6297f0a1b75",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFByX1NScm5CekpnWVB1d00wR0tWQWRDSGtsV1NuV2dRZ0JLMjQtdVB2blpfNUFIelE4bnE0VzNWVGFmeV9rNFhYaWhkYVdhcUFkcXF6X09FMElJWGhnVzJwb00tOExTNG5WVFoyVFlVaThaejREbERaYmRn?oc=5",
-      "title": "Anthropic Weighs New Model Days After Slowdown Call - tech-insider.org",
-      "content_text": "Anthropic Weighs New Model Days After Slowdown Call tech-insider.org",
-      "date_published": "2026-09-21T14:34:45Z"
-    },
-    {
-      "id": "sty_9c3e5facd58d2561",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPdUhLNnVYTVVfRWVoVS1zb0hWWlBRZ1RUYkszWUtYalAySGE3UzI2TTIzRTdXUEQ2M0dyUWhUcnJYSW1jY29kZklNaWJyVkJtYTgzWVl2TUcwV3RiaDVud1RWakJyOWRtSlczbUp5ei1kVzZiaFE5WXM0eVlYY1FDMVF1WllqMjM2bUlweNIBoAFBVV95cUxQN2dMelp5enBDbF91YlBnQklqS1p4VzA0d0stQTQ1ZGNJUFN4bTJfOHk5MTVhVE81OElTd0xOUmo2U3pSS0cwRlB6em82SThjZUZzRTJmVHpQUGprcXBsX3lNUDc4dEZ0cE9xRmlaaHh0em80VE1UZGVZUEtVVGItN2llNUVHTWxqdGVwejZkeXc1R0JjLTJUUVBZdUQtQjcw?oc=5",
-      "title": "Obama says the government should 'act fast' and regulate AI - KOTA Territory News [ ~ ] [ ◻ ]",
-      "content_text": "Obama says the government should 'act fast' and regulate AI KOTA Territory News",
-      "date_published": "2026-09-21T14:21:00Z"
-    },
-    {
-      "id": "sty_6f213f82d954eca6",
-      "url": "https://github.com/aru-labs/lossless-memory",
-      "title": "Show HN: Lossless-memory - a personal AI memory that never summarizes [ ~ ] [ ◻ ]",
-      "content_text": "Comments",
-      "date_published": "2026-09-21T12:28:17Z"
-    },
-    {
-      "id": "sty_cb76ddf251fafadd",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQSUhVRjhFeV9fdFA0V2JXb3JoUnVDOVZ0enF2TGcwclJiTjNSdERWMll3VHlqMFZoOGRUN3pLYzdOUzdRNV94Zm1BbHA5YnpLX2w1ZE9oQzdJcjhKZDdMb1J4bWs2RjNBU0E0Y1NtMkRlOC1LU0lzSjVIeGE0NVdqa21MVnpyUnFuZ08zeXdfYkdPckZhSHVScFpYM3kzZG1iVE96OGlSSk9scE1ZQ3dtUmRXYTRQcEJsWngtdjYzcGttMlVUb1E?oc=5",
-      "title": "Lawsuit Accuses Anthropic, OpenAI, Google, and SpaceXAI of Illegally Coordinating an AI Slowdown - CDO Magazine",
-      "content_text": "Lawsuit Accuses Anthropic, OpenAI, Google, and SpaceXAI of Illegally Coordinating an AI Slowdown CDO Magazine",
-      "date_published": "2026-09-21T13:17:00Z"
-    },
-    {
-      "id": "sty_7c731c46a561a893",
-      "url": "https://futurism.com/space/high-traffic-space-news-site-fake-nasa-engineer-slop",
-      "title": "A Highly Trafficked Space News Site Invented a Fake NASA Engineer and Used Her Name to Publish to AI-Generated Slop [ ~ ] [ ◻ ]",
-      "content_text": "The company deleted huge swathes of the site after we noticed. It's still publishing complete nonsense. The post A Highly Trafficked Space News Site Invented a Fake NASA Engineer and Used Her Name to Publish to AI-Generated Slop appeared first on Futurism.",
-      "date_published": "2026-09-21T13:03:23Z"
-    },
-    {
-      "id": "sty_a66f34772769e78f",
-      "url": "https://www.theinformation.com/briefings/u-s-china-discussed-ai-safety-system-bessent-says",
-      "title": "U.S. and China Discussed AI Safety System, Bessent Says [ ~ ] [ ◻ ]",
-      "content_text": "U.S. Treasury Secretary Scott Bessent said Sunday that the U.S. and China had discussed setting up a mechanism called the U.S.-China AI dialogue to address potential threats. Speaking to reporters at the JPMorgan headquarters in Manhattan at the conclusion of a day of talks with Chinese ...",
-      "date_published": "2026-09-21T01:18:17Z"
-    },
-    {
-      "id": "sty_02c237ec00583264",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNM0IzX2J3b3hPdGhHbUhlYjFpYnc0Q19ud0k3eGFndVJtY3FvQ09KaGVDcGVzMWoyRUZEOHpua3ppZ3lWT2lZVG9nV2NnYzZMNm9KQ2tpdEFFbFBLelgxVXU5eWR5LWNuSzVsdjltVXRhUWFIbzVmNHp6OHJEV1U3dmkzZVF6bERFa1RGVzltSQ?oc=5",
-      "title": "OpenAI, Anthropic, Google, xAI Sued Over AI Slowdown Calls - medianama.com [ ~ ] [ ◻ ]",
-      "content_text": "OpenAI, Anthropic, Google, xAI Sued Over AI Slowdown Calls medianama.com",
-      "date_published": "2026-09-21T12:07:06Z"
-    },
-    {
-      "id": "sty_971f9d44659a3281",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQc2xRYkFkVGRBU2ZlbVU5UlZ0TzRoYVhhS1JocWNCdXlnV21qMlJ1ZXV2SVVnT1pzUU9yQXJ6bFc0QTJqQkMtRllja0xNTmR1SUJKRWhhQ0V0bElYa2xicnJIeTFQanBSS3ZrQ2paV05reXNKUWw3ZDhSLWZVaVFyakR3MFZqejdoaEFReU1sRlBEbEVxYVpGTXhObGFOM0pqdHM1R0JuNFFROVIxdldEQl94bmlCVEZqTVVaX2FQZw?oc=5",
-      "title": "Tech leaders, governments split over 'AI doom' fears - BNN Bloomberg [ ~ ] [ ◻ ]",
-      "content_text": "Tech leaders, governments split over 'AI doom' fears BNN Bloomberg",
-      "date_published": "2026-09-21T11:57:37Z"
-    },
-    {
-      "id": "sty_d8393ac0253b35d0",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNQ1M2VVVxcEJlQlpQdXJrOFRpOElGN1R5dzRpdnowakwxcWRONHZqbU1PYkEwVDZfSVdMbUo2dkJHX203QWRHTkdFY0hMUXFlNExzbWFCT2JtZzVPcWtZemhUWk1DZERTU2ktZmM2S21vZm50aXVQUUpWV0plWnVzVkd2UlM4Q256TExnZ0JtZXhmQi11YUM0bExkc05BNHV5OEJJ0gGoAUFVX3lxTE0xS3c3QTlNMVJhcDBiWl9zOTh2MEJmS3NTU2VFSXFaZTUzY0xkeUdMNEZaU2ZqWU5lSmNzcmFxTFdERDVSQUV2aDR3ck04VEhXQ09KWTduOFozdWgxOUl0SW9lZFRVbFd3OGd0OFV1dDUxVlNYam5Ta2FYWElLbDBiZ0tiYzNMeUFpay1Gb3Vwb0ViVGRUNzBJdVhYQ2dNd0lLQk5aRHNNUw?oc=5",
-      "title": "Nvidia CEO Jensen Huang Rejects Calls To Slow Artificial Intelligence Development - Pulse 2.0 [ ~ ] [ ◻ ]",
-      "content_text": "Nvidia CEO Jensen Huang Rejects Calls To Slow Artificial Intelligence Development Pulse 2.0",
-      "date_published": "2026-09-21T11:11:09Z"
-    },
-    {
-      "id": "sty_f2a930c08ca7917e",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAyT3ZaS0xURmlnbXlzWUU4OVJIR1dNMzgyN3BxM25SMWc2aFB1cVV6Y1RJRVZiTEhkeno2TXUtUnNYY244N0wwUUk0ekU3LWtwT0YtWi1hVXR4dDhXdzlzaVVYMVlKN1JNVWRTSQ?oc=5",
-      "title": "AI doom is hitting the campaign trail ahead of the midterms - qz.com",
-      "content_text": "AI doom is hitting the campaign trail ahead of the midterms qz.com",
-      "date_published": "2026-09-21T09:00:39Z"
-    },
-    {
-      "id": "sty_0d30caf70a7cf4bf",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOV3B5V1g3MkJra0IzT0NvUndTWVdlalIzaFFHRnZWTGtYRUxVVHR5dVJMemNnd3ZrUU1VeDBxbG8tQ3V1c19xWXphck92ekNsYm1ZWFYtMjlQM1RHVDVHTC1rM0FhSnFIY0dwZFF0RVhoc2JpbWw3RWk5OHR5TnBhU1dFQ2N1S1FKbXhoQnF5MnU2RXp5MXVJY2lrb1hkQWJHamRjZ05EME8xcmxoVjlYZlRUenoxTmRrLWhOYUxpMEZXNVR2Mkc2NGlTVmttQldCWGZvVXFOS28yaWwzUHdfUGJUX0FjTUh5WmFxQ3B0WXNnd9IB9wFBVV95cUxQOHBZYXppQ3ljVnV0QlVHSUZyR20yTXZDWnFfMEJ5c1ZnZVhCdEZ6OWVsdDVibUR5SzdLZTZKMDQwQ1NrejByZE1wM2VGZzEtS0tGUTVEZVlLNkpoMUI3OXBNSThKMmJGNUdTSndaby1rSXphZnI2VWxzWGx6Q3MzVmxaVmh4RlZOTzg0aWQzUUFNQmt4MHhsMVpBOWFDS0NaSkJ0V0Q1NzNuMHk0VFdtX0lRTkt4VFlNdE5mRHhBbXpKanR3dXB3ZGtOVmZiMUNwaTNnajREZ09uQzQ0ekpfbzNoSUNyMEk3dDJiUTB3MXV5TlQtTC1B?oc=5",
-      "title": "Trump-Xi dinner: Why Dario Amodei's reported absence is raising questions over the US-China AI race - Moneycontrol.com [ ~ ] [ ◻ ]",
-      "content_text": "Trump-Xi dinner: Why Dario Amodei's reported absence is raising questions over the US-China AI race Moneycontrol.com",
-      "date_published": "2026-09-21T08:57:49Z"
-    },
-    {
-      "id": "sty_c575de6a2c71ee2b",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc044MVJrTFhxOFJSaHVGUUQySWtORFVvVmRSc19sWFNGYjRzYkpvVDJ4U0laZ0dKVTJ5MXp5YzdGNnMxcTYtWFBOdkJJcm9oWkk3T0ZhdlVaRDIxN2Rxem93VUU4OURNVWFZWTZHT0ZaQWJNMlExOFhpdkhrYkluN0pwZE55QWZ5Qm51LUhHNm5hQQ?oc=5",
-      "title": "Biggest AI Rivals Agree They Need to Slow It Down - wsj.com [ ~ ] [ ◻ ]",
-      "content_text": "Biggest AI Rivals Agree They Need to Slow It Down wsj.com",
-      "date_published": "2026-09-21T08:40:55Z"
-    },
-    {
-      "id": "sty_c188ee6bda59efe9",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYU5VLW5Rcm9yX3UwZkJqaERheEp6aFBtUkFCeWwtNWtmc0RpcmhxM1E3R2dFRkhzZGtKVlZkd3dqRzVfVXpxenBCQXZmSEswWVNPazMtUFJ5OHRFa2RlUmdNZ1MwUEFJQWg5dWpTYXRwZUMxdG4zR3NNRE5xWTRweF95eTdvcGR5RU02dUNfdkdJTHBkTTV0ZEMyRmpHMUo0R0tj?oc=5",
-      "title": "Accenture to test Anthropic's AI safety amid growing concerns - Silicon Republic [ ~ ] [ ◻ ]",
-      "content_text": "Accenture to test Anthropic's AI safety amid growing concerns Silicon Republic",
-      "date_published": "2026-09-21T08:07:19Z"
-    },
-    {
-      "id": "sty_2b6722f7fe3d3a4e",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcTJzNzJmYzhBcG1WaGtLOEhFUzBuRUZKQjd4N042Mkw0SFVBRDI4bmZXT1JDeHNSMjZic0NTejVLSUtrRVBlRXZKbVJEc1R4Mkhyak0wLWp2a0VWSmZncFM5V2NCTnZkQmZTSnJtbFFCRFhuRFF1c2NnMjNPQTBiU0F3?oc=5",
-      "title": "Dario Says AI Should Slow Down. Jensen Wants to Go Full Steam Ahead. - wsj.com [ ~ ] [ ◻ ]",
-      "content_text": "Dario Says AI Should Slow Down. Jensen Wants to Go Full Steam Ahead. wsj.com",
-      "date_published": "2026-09-21T07:31:25Z"
-    },
-    {
-      "id": "sty_1cd2918b4cf28c67",
-      "url": "https://www.infoq.com/news/2026/09/kubernetes-1-37/",
-      "title": "Kubernetes 1.37 Released: Stable Metrics API and Rootless Kubelet in Beta [ ~ ] [ ◼ ]",
-      "content_text": "The Cloud Native Computing Foundation (CNCF) announced the release of Kubernetes 1.37, named \"Garhwal\", emphasizing its focus on stability, security, and AI/ML workload optimization. By Mostafa Radwan",
-      "date_published": "2026-09-21T01:00:00Z"
-    },
-    {
-      "id": "sty_b3dbbc11d7b36eff",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9rdmdMSnN5VXRLc1JxSkZ3NkRqWmlZazBpZzd1LVZkbHlBYXNENm1fVW5tRGJkQV9qQzl6V2cwbVpVUjdTZjNKX0U0RkFHSV9OTFBtMmVabFVDZkJkd1JHeHFld3Zwdms?oc=5",
-      "title": "AI's biggest labs confront a problem of their own making - calcalistech.com",
-      "content_text": "AI's biggest labs confront a problem of their own making calcalistech.com",
-      "date_published": "2026-09-21T06:54:00Z"
-    },
-    {
-      "id": "sty_93d511ac6599274a",
-      "url": "https://news.google.com/rss/articles/CBMixgJBVV95cUxPUGZMVlNpekloQ3dBOUpDaHJXbGdnT1JxdzRNMHc5OFZLZkl0MThXU3ZpcWJza3NzaDVPT0RmZ0R4bEVBM2dmZDIzSVM5NjFmSFZCUEV5RkhNTE80NkM5YzRuUTJiNWd1SmMzYmdDVTFKS3NXR0d5OWtQWnJIanRKYU83dXZSdWwzOS1wM3hFZ3FqVkdlNC1kRzg0YzNhUVBGU3JLV1JBMXlFdVZIZ2xYbkwxTGZVaU9oZ1R2TDlXQjBPX1lMSmVQQVFHRzhPYmVBQzc3al82QlE0dlQyTVd4VXk3QzRvVGhGTWpZRmpYM3BjX21Od1R4dDNjZDkySjZNZUdvdW9sM1BkN3dsYjU2SlFwT3VKSnNnSV81YzVLb0Z6X3lyYlJpMzl2bUxrbWV5akROVkg3Q2hSRWFzSFVGUmFYbUh5UdIBywJBVV95cUxQNWpUOGpnUEtjUG5hZDh5S2hQN2NVTlZZUnY5RzB3alctWEl0cExvRlpzMENjX1AwbDAtVVJ3V1hiLWFqNk5PcEpHMWZQLU5fZ2ZOQkw2NUhiWll5LTIxTnBpdnZlVDhZbl9XNXMyVEw3S0Q3RjNYT0JFY2N1ZVNfcHNVZURJNXQxR0xWcHd4YlF3ekxIaVl6d0lDM2FZZk1xV1ppdzJmVVR2RmMxb2FuOTh4aXhnak1Vbnk2MENwV3hnYlNIVTBGdXpOMzlEYzdKQWFmR0NhdGtSX2l2QTJxWHpDZlBXRHVDcDgzOHFLUE9KRkdvV0t5bkVNV1dDTEgxaGtoUVFoN185Q0FBUmFvbDNsMk1NSUJkeklVeWxZVzBGQUtUNnRaTlVIUVJmSWZ3eHVUV2lSWmJaMExhMWhabG9odi03RHBfNlhN?oc=5",
-      "title": "Nvidia CEO Jensen Huang rejects Dario Amodei and Sam Altman's 'AI will kill us all warnings': 'Don't let - The Times of India [ ~ ] [ ◻ ]",
-      "content_text": "Nvidia CEO Jensen Huang rejects Dario Amodei and Sam Altman's 'AI will kill us all warnings': 'Don't let The Times of India",
-      "date_published": "2026-09-21T04:30:00Z"
-    },
-    {
-      "id": "sty_1fd0ce81e5acdc0d",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNcEZDMGtoTHV5SFVqZWU4UjlXb0ZjSFhDQ25qN3h1WGpaOHB2UnI5UGxGeVltUGR2cTE4eTRNeW5nTmk5aG1udWtBMHN5LUxiVmkyS1FKY25jSFhlV0VqRnJ3cDRveDZqbWI2V3NNYWVfZzFURTFQcmlwcG5ubzZTa1Q0QjM?oc=5",
-      "title": "Lex in depth: Anthropic at $2tn isn't far-fetched - Financial Times",
-      "content_text": "Lex in depth: Anthropic at $2tn isn't far-fetched Financial Times",
-      "date_published": "2026-09-21T04:00:11Z"
-    },
-    {
-      "id": "sty_43e44d30cc74a9da",
-      "url": "https://techcrunch.com/2026/09/20/world-model-companies-are-keeping-a-lot-of-secrets/",
-      "title": "World model companies are keeping a lot of secrets [ ~ ] [ ◻ ]",
-      "content_text": "Everyone in the world-models space is sitting on a pile of cash and a ton of buzz, but good luck getting anyone - from the founders to their own data suppliers - to tell you what they're actually building.",
-      "date_published": "2026-09-20T20:29:07Z"
-    },
-    {
-      "id": "sty_8867d14f2299764b",
-      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxON1c3WF8wNlB2QWhqWngzWTJoWXdlc0swTS1IeGlBdzg5SEl0RlFZdkNyNGx5VHVwcVZqbzlCQldzbG9jT2QxNUcwYUEycEZGYUVrSUI4UGttTjg1M1dCWkxfU3h0TUdLSXlNcGF6TXpoT0tsa2JEV0IyMHNpaVFoRkVsVXFTMXdEY040MnZjYU9GSzdGOVpiNThjcUdiVWZrSTNTaVR1LVhJbWlTYWNOSHY3dGNkNHl4a01JNFVvMER1TGR2RXA5Zkh5NjNKS0NPMkVWR3NtNG1fYUVPNnlkTWk4Ymgta1dvZnFkd3J2VUlPcFBNVlJxUHU0NzRXZVE5RVJGeNIBigJBVV95cUxNaHlFb2JtUU43WG1UNXVJZmc2WjdoNjJzMTJzbkFPMEFrSUo2LUdOSVl6eDlTU2xSbUktVmhpQWRHNFZKRXA5ZmpfRHNYWXplRXRFRXdTa3JLMm1HZ3Z4SDctV3JLdGx1bmlZQmFmbGhVdDVNS0NfMmUtQmpoZ0w2RjJVSlo2Uy1RYVNNWDhvVnNSem5OU0RwLUk1RDNlVDdIUE5fcU9ZOHZ1UWZqNFdTVmZSdWdybWJiU2xsYVhIWmk1OFoxUjdOZjRJd3pENkpaanJ4ZzlCVFVjRkkxY3JoY0xiX3EyZXFmbHBLdFJPZ2RINzhCN0Y5b3paMGV1c1ZHQkNKV2dsUHhCQQ?oc=5",
-      "title": "Anthropic, CEO of which called for slowing AI development, may release new model ahead of IPO - The Times of India [ ~ ] [ ◻ ]",
-      "content_text": "Anthropic, CEO of which called for slowing AI development, may release new model ahead of IPO The Times of India",
-      "date_published": "2026-09-21T02:30:00Z"
-    },
-    {
-      "id": "sty_abcc2373f77b3091",
-      "url": "https://techcrunch.com/2026/09/20/is-the-ai-industry-really-ready-to-slow-down/",
-      "title": "Is the AI industry really ready to slow down? [ ~ ] [ ◻ ]",
-      "content_text": "On Equity, we debated whether AI executives are serious about wanting to slow down.",
-      "date_published": "2026-09-20T18:56:04Z"
-    },
-    {
-      "id": "sty_50f70d1c041824d6",
-      "url": "https://www.theinformation.com/articles/nvidia-trying-solve-data-center-power-bottleneck",
-      "title": "How Nvidia Is Trying to Solve the Data Center Power Bottleneck [ * ] [ ◼ ]",
-      "content_text": "Nvidia is tracking \"every single gigawatt of land, power and shell around the world, literally everything on the planet,\" CEO Jensen Huang said at Goldman Sachs' annual tech conference earlier this month. \"We know where everything is.\" Why track power so intently? Nvidia sees power availability as a key barrier to getting its AI server chips online as soon as they ship, as we've chronicled in this column over and over. While securing power is the first step to any AI data center project, even before getting the land or chips, developers that work with Google, Microsoft, Oracle and others fear a glut of unused chips due to an eventual power shortage.",
-      "date_published": "2026-09-20T16:01:03Z"
-    },
-    {
-      "id": "sty_ae4d210a7e45040b",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown",
-      "title": "No one is surprised that Nvidia's Jensen Huang thinks AI fears are overblown [ ~ ] [ ◻ ]",
-      "content_text": "The man who may stand to make the most money from the AI boom seems to think he knows better than anyone else, including researchers who have studied and worked on AI for decades. In an interview with CBS Sunday Morning, he claimed there was a \"0% chance\" of AI being the end of the [...]",
-      "date_published": "2026-09-20T18:50:18Z"
-    },
-    {
-      "id": "sty_60339c879d863034",
-      "url": "https://www.theinformation.com/articles/jane-street-linked-data-center-debt-sours",
-      "title": "Jane Street-Linked Data Center Debt Sours [ ~ ] [ ◻ ]",
-      "content_text": "Secretive Wall Street trading firm Jane Street has become famous in the past couple of years for its sizable AI-related spending, as it has struck big cloud deals to handle its AI computing needs and made investments in neocloud CoreWeave. Yet even a Jane Street-related deal for data center debt hasn't won over investors. Debt sold by a venture building a data center to be leased by Jane Street has quickly soured in secondary trading, according to Financial Industry Regulatory Authority data. Yields on the bonds have risen to around 11.3%, more than 2 percentage points above where the debt first sold in August. That deterioration has been sharper than for other recently issued AI data center bonds, with investors demanding far higher compensation to hold them versus government debt.",
-      "date_published": "2026-09-20T14:01:00Z"
-    },
-    {
-      "id": "sty_8bf779cdaf492bcb",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/997867/trump-ai-force-ai-czar",
-      "title": "Trump now says he wants to form an 'AI Force' [ ~ ] [ ◻ ]",
-      "content_text": "The president posted on Truth Social that he wanted to appoint an \"AI czar\" to lead a new \"AI force.\" He made the announcement amid growing calls from across the political spectrum and even within the industry to pump the brakes on AI development. He posted that his administration \"will not in any way hinder [...]",
-      "date_published": "2026-09-20T15:39:22Z"
-    },
-    {
-      "id": "sty_0488b77e6546b143",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUlNFWjBESnMyOEVib0R2cURhMzdQNG1ZM3NTSTlPZFhtVzhrbzFEM1BUM3BCU2dpR1RtUWNUU0RtbUVTUXNjUEZyLXZCMWJDeHkwRmlaWDVGbzgyRzRwVEtDZGZIbWdZZ2tLbm9kblRPSFFvMGdJNTVQbmwzTzVldS00RlZ1NXBmbjI5d2JEamczWnlkVTFXLVVjUVVCRjROWDF3RUpSUUVpOVRFdXVMdm1NSlFhLVVfblpQVGFKa2M?oc=5",
-      "title": "Why Four Subscribers Are Suing Anthropic, OpenAI, Google and xAI Over an Alleged Pact to Slow AI Down - Latin Times [ ~ ] [ ◻ ]",
-      "content_text": "Why Four Subscribers Are Suing Anthropic, OpenAI, Google and xAI Over an Alleged Pact to Slow AI Down Latin Times",
-      "date_published": "2026-09-20T21:44:14Z"
-    },
-    {
-      "id": "sty_ed1ee8b5c49287a7",
-      "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters/",
-      "title": "Alibaba's open-weight Qwen-Image-2.1 claims to beat closed models in image generation with just 7 billion parameters [ ~ ] [ ◼ ]",
-      "content_text": "Alibaba's Qwen team has released Qwen-Image-2.1, an open-weight model that generates and edits images on powerful consumer GPUs, with support for transparency and up to ten reference images at once. Its research license bars commercial use, which requires a separate Qwen license. The article Alibaba's open-weight Qwen-Image-2.1 claims to beat closed models in image generation with just 7 billion parameters appeared first on The Decoder.",
-      "date_published": "2026-09-20T16:10:52Z"
     }
   ]
 }
