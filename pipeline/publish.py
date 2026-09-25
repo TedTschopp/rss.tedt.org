@@ -1,8 +1,10 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from contextlib import ExitStack
 from datetime import datetime, timezone
 import hashlib
 import json
 import os
+from pathlib import Path
 import re
 from threading import Lock
 from typing import Any, cast
@@ -10,6 +12,7 @@ from typing import Any, cast
 from scripts.feed_generator import MultiFeedGenerator
 
 from .article_content import fetch_article_markdown
+from .article_cache import ArticleCacheError, SQLiteArticleCache, import_json, load_legacy_json
 from .constants import DEFAULT_PIPELINE_CONFIG
 from .github_models_limits import (
     llm_call_limits,
@@ -19,7 +22,7 @@ from .github_models_limits import (
     seed_global_daily_state_from_call_log,
     seed_model_daily_states_from_call_log,
 )
-from .io_utils import append_jsonl, read_json, write_json
+from .io_utils import append_jsonl, write_json
 from .llm_client import GitHubModelsClient, LLMProviderConfigError, OpenAIAPIClient
 from .llm_rate_limit import RateLimitBudgetExceeded
 from .llm_rate_limit import call_with_retry as _call_with_retry
@@ -327,25 +330,24 @@ def _cached_output_cleanup(cache_entry: dict[str, Any], context_hash: str) -> di
     return cleanup_map
 
 
+def _normalize_article_cache_entry(value: Any) -> dict[str, Any] | None:
+    if not isinstance(value, dict):
+        return None
+    markdown = str(value.get("markdown") or "")
+    fetched_at = str(value.get("fetched_at") or "")
+    fetch_failed = bool(value.get("fetch_failed"))
+    if not fetched_at or (not markdown and not fetch_failed):
+        return None
+    return {"markdown": markdown, "fetched_at": fetched_at, "fetch_failed": fetch_failed}
+
+
 def _load_article_cache(path: str) -> dict[str, dict[str, Any]]:
-    payload = read_json(path, {})
-    if not isinstance(payload, dict):
-        return {}
+    payload = load_legacy_json(path)
     cache: dict[str, dict[str, Any]] = {}
     for key, value in payload.items():
-        if not isinstance(key, str) or not isinstance(value, dict):
-            continue
-        value_map = cast(dict[str, Any], value)
-        markdown = str(value_map.get("markdown") or "")
-        fetched_at = str(value_map.get("fetched_at") or "")
-        fetch_failed = bool(value_map.get("fetch_failed"))
-        if not fetched_at or (not markdown and not fetch_failed):
-            continue
-        cache[key] = {
-            "markdown": markdown,
-            "fetched_at": fetched_at,
-            "fetch_failed": fetch_failed,
-        }
+        entry = _normalize_article_cache_entry(value)
+        if entry is not None:
+            cache[key] = entry
     return cache
 
 
@@ -375,6 +377,26 @@ def publish_outputs(
     llm_status: dict[str, Any] | None = None,
     config: dict[str, Any] | None = None,
 )-> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+    # A cache transaction spans publication. Any uncaught failure closes its
+    # connection and rolls back pending writes instead of leaking a locked file.
+    with ExitStack() as cache_stack:
+        return _publish_outputs(
+            ranked_stories, api_path, base_feed_path, llm_cache,
+            llm_call_log_path, llm_status, config, cache_stack=cache_stack,
+        )
+
+
+def _publish_outputs(
+    ranked_stories: list[dict[str, Any]],
+    api_path: str,
+    base_feed_path: str,
+    llm_cache: dict[str, dict[str, Any]] | None = None,
+    llm_call_log_path: str | None = None,
+    llm_status: dict[str, Any] | None = None,
+    config: dict[str, Any] | None = None,
+    *,
+    cache_stack: ExitStack,
+)-> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     cfg: dict[str, Any] = {**DEFAULT_PIPELINE_CONFIG, **(config or {})}
     publish_top_n = int(cfg.get("publish_top_n", 200))
     llm_workers = max(1, int(cfg.get("llm_workers", 1)))
@@ -400,7 +422,7 @@ def publish_outputs(
     article_fetch_workers = max(1, int(cfg.get("article_fetch_workers", 5)))
     article_fetch_max_urls = max(0, int(cfg.get("article_fetch_max_urls", 0)))
     article_cache_enabled = str(cfg.get("article_cache_enabled", True)).lower() not in {"0", "false", "no"}
-    article_cache_path = str(cfg.get("article_cache_path", "derived/article_cache.json"))
+    article_cache_path = str(cfg.get("article_cache_path", "derived/article_cache.sqlite3"))
     article_cache_ttl_hours = int(cfg.get("article_cache_ttl_hours", 48))
     retry_max_attempts = int(cfg.get("llm_retry_max_attempts", 4))
     retry_base_delay_sec = float(cfg.get("llm_retry_base_delay_sec", 1.5))
@@ -542,7 +564,25 @@ def publish_outputs(
             "by_model": by_model,
         }
 
-    article_cache = _load_article_cache(article_cache_path) if article_cache_enabled else {}
+    article_cache: SQLiteArticleCache | dict[str, dict[str, Any]] = {}
+    if article_cache_enabled:
+        if article_cache_path.endswith(".json"):
+            article_cache = _load_article_cache(article_cache_path)
+        else:
+            database_path = Path(article_cache_path)
+            if not database_path.exists():
+                if any(
+                    (database_path.parent / name).exists()
+                    for name in ("article_archive", ".article_archive.previous")
+                ):
+                    raise ArticleCacheError(
+                        "Article history exists in the Git archive but its runtime database is missing; "
+                        "run python -m scripts.article_cache_archive restore before publishing"
+                    )
+                legacy_path = database_path.with_suffix(".json")
+                if legacy_path.exists():
+                    import_json(legacy_path, database_path)
+            article_cache = cache_stack.enter_context(SQLiteArticleCache(article_cache_path))
     article_cache_updated = False
     article_markdown_by_url: dict[str, str] = {}
 
@@ -576,7 +616,7 @@ def publish_outputs(
 
     urls_to_fetch: list[str] = []
     for url in unique_urls:
-        cached_entry = article_cache.get(url)
+        cached_entry = _normalize_article_cache_entry(article_cache.get(url))
         if cached_entry and (
             bool(cfg.get("backfill_mode"))
             or _article_cache_fresh(cached_entry, article_cache_ttl_hours)
@@ -600,13 +640,6 @@ def publish_outputs(
                 url = futures[future]
                 try:
                     fetched_url, markdown = future.result()
-                    article_markdown_by_url[fetched_url] = markdown
-                    if article_cache_enabled and markdown:
-                        article_cache[fetched_url] = {
-                            "markdown": markdown,
-                            "fetched_at": to_iso(datetime.now(timezone.utc)),
-                        }
-                        article_cache_updated = True
                 except Exception:
                     article_markdown_by_url[url] = ""
                     if article_cache_enabled and bool(cfg.get("backfill_mode")):
@@ -614,6 +647,16 @@ def publish_outputs(
                             "markdown": "",
                             "fetched_at": to_iso(datetime.now(timezone.utc)),
                             "fetch_failed": True,
+                        }
+                        article_cache_updated = True
+                else:
+                    article_markdown_by_url[fetched_url] = markdown
+                    # Storage failures must fail publication, not masquerade as
+                    # an article-fetch failure and silently lose history.
+                    if article_cache_enabled and markdown:
+                        article_cache[fetched_url] = {
+                            "markdown": markdown,
+                            "fetched_at": to_iso(datetime.now(timezone.utc)),
                         }
                         article_cache_updated = True
 
@@ -964,7 +1007,7 @@ def publish_outputs(
         publish_status["backlog_remaining"] = sum(backlog_after.values())
         llm_status.update(publish_status)
 
-    if article_cache_enabled and article_cache_updated:
+    if article_cache_enabled and article_cache_updated and isinstance(article_cache, dict):
         write_json(article_cache_path, article_cache)
 
     payload: dict[str, Any] = {

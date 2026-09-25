@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://blog.hellas.ai/blog/thunderbolt-ibverbs/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-05-29T02:14:08.201601Z",
+      "markdown": "I spent the past few weeks working on this project, I thought it might be interesting to write up a technical report on it, the motivation, the process, learnings, etc.\n\nDISCLAIMER: all of the code in this repo ( github.com/hellas-ai/thunderbolt-ibverbs ) is AI-generated (mostly Codex 5.5 and Opus 4.7) — while I made an effort to understand enough of it to keep it on-track, I almost certainly failed in many instances and I'm sure the code contains many false assumptions, hallucinations and plain stupidity. No warranty or guarantee offered, for research use only, not for human consumption.\n\nTL;DR. We write a linux kernel module and userspace shim to pretend our generic usb4 connection is a low-latency, high-performance InfiniBand device and use it to perform distributed inference across two 128GB Strix Halo mini PCs. Basic interop with Apple's native protocol is functional.\n\n- ~48 Gb/s per direction (~95 Gb/s bidi total) sustained ib_write_bw , 4-HCA aggregate at 1 MiB / 8 QPs with IOMMU off — vs ~2.3 Gb/s over the onboard 2.5 GbE and ~9 Gb/s for soft-RoCE on top of thunderbolt-net at the per-rail level.\n\n- ~7 µs one-way ib_write_lat at 64 B, single QP — vs ~28 µs over RXE/2.5 GbE and ~65 µs over RXE/TBnet."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/05/blog.hellas.ai"
+}

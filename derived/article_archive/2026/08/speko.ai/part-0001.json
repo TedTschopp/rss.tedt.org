@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://speko.ai/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-18T00:08:13.763216Z",
+      "markdown": "# The Router for Voice AI\n\nEvery speech model, benchmarked language by language, wired into one API.\n\n## Router\n\nWhich model to call, per language and per objective, decided from published measurements instead of a vendor's English leaderboard.\n\n## Benchmark coverage by language\n\n## Score against cost, per stage\n\n## Gateway\n\nOne base URL and one key in front of every provider, speaking the API your framework already calls.\n\n## Run and observe your voice workers\n\nSpeko speaks the OpenAI API, so the frameworks you already use need a hostname and a model string.\n\n- LiveKit TypeScript Point the OpenAI plugin at the gateway. The agent code is unchanged.\n\n- Pipecat Python\n\n- Claude / Cursor MCP\n\nimport { defineAgent, voice } from '@livekit/agents' ; import * as openai from '@livekit/agents-plugin-openai' ; const key = process .env.SPEKO_API_KEY!; const baseURL = 'https://api.speko.ai/v1' ; export default defineAgent({ entry: async (ctx) => { const session = new voice.AgentSession({ stt: new openai.STT({ apiKey: key, baseURL, model: 'auto' }), llm: new openai.LLM({ apiKey: key, baseURL, model: 'auto' }), tts: new openai.TTS({ apiKey: key, baseURL, model: 'auto' }), }); await session.start({ agent: new voice.Agent({ ... }) }); }, });\n\n## Point your agent at Speko\n\n$ claude mcp add --transport http speko https://mcp.speko.ai/mcp"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/speko.ai"
+}

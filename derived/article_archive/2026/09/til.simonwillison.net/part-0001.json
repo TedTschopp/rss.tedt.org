@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://til.simonwillison.net/llms/blender-coding-agents-macos": {
+      "fetch_failed": false,
+      "fetched_at": "2026-09-06T08:06:48.382780Z",
+      "markdown": "# Using Blender with coding agents on macOS\n\nModern frontier models have got really good at using Blender. I've been having a lot of fun trying this out recently - models can produce .blend files you can edit in Blender itself, and can also render images and even movies (by rendering a sequence of images and combining them with ffmpeg ).\n\nSetting this up, at least on macOS, is really easy . Install the Blender desktop app from blender.org and then tell the coding agent:\n\n> Use the already install /Applications/Blender to render a scene of a pelican riding a bicycle\n\nThat worked for me with GPT-6 Astra. You can also be a bit more explicit, to save the model some time figuring out how to use it:\n\n> Use Blender like this: /Applications/Blender.app/Contents/MacOS/Blender --background --python scene.py\n\n## A pelican riding a bicycle with GPT-6 Astra\n\nI used GPT-6 Astra (Medium) in the ChatGPT macOS application, Codex mode:\n\n2m39s later:\n\npelican-bicycle.blend , pelican_scene.py\n\n> OK add a background and a lot of flair\n\n3m51s later:\n\npelican-bicycle-festival.blend , pelican_flair.py\n\n> OK make it a whole lot better\n\n5m59s later:\n\npelican-coastal-parade.blend , pelican_final.py\n\nThe project lives in this repo , and here's the exported transcript from Codex .\n\n## Creating a skill\n\nCodex makes it pretty easy to create skills (using its built-in skill creating skill), so I finished up by prompting:\n\n> Create a quick skill that describes how to use the currently installed /Application/Blender based on what you learned\n\nIt produced and installed this Markdown skill , which I have since used for further Blender experiments with prompts like this:\n\n> Use your Blender Local skill to build this scene (attached image)\n\nCreated 2026-09-05T08:42:28-07:00, updated 2026-09-05T08:47:13-07:00 · History · Edit"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/09/til.simonwillison.net"
+}

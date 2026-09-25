@@ -59,7 +59,7 @@ DEFAULT_PIPELINE_CONFIG: dict[str, Any] = {
     "article_fetch_workers": 5,
     "article_fetch_max_urls": 0,
     "article_cache_enabled": True,
-    "article_cache_path": "derived/article_cache.json",
+    "article_cache_path": "derived/article_cache.sqlite3",
     "article_cache_ttl_hours": 48,
     "importance_backfill_days": 60,
     "ai_relevance_max_calls": 0,

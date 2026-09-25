@@ -1,4 +1,5 @@
 import os
+from copy import deepcopy
 import tempfile
 import unittest
 from datetime import datetime, timezone
@@ -7,6 +8,7 @@ from threading import Barrier, Lock
 from unittest.mock import patch
 
 from pipeline.io_utils import write_json
+from pipeline.article_cache import ArticleCacheError, SQLiteArticleCache, import_json, validate_database
 from pipeline.publish import publish_outputs
 
 
@@ -165,6 +167,100 @@ class PublishTests(unittest.TestCase):
                             )
 
             self.assertEqual(fetch_mock.call_count, 0)
+
+    def test_sqlite_backfill_preserves_historical_text_and_model_cache_reuse(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            legacy = root / "article_cache.json"
+            database = root / "article_cache.sqlite3"
+            url = "https://example.com/historical"
+            record = {"markdown": "Historical AI article with exact ◻ text", "fetched_at": "2000-01-01T00:00:00Z"}
+            write_json(str(legacy), {url: record})
+            import_json(legacy, database)
+            story = self._story("historical-story", url)
+            results = []
+            frozen_now = datetime.now(timezone.utc)
+            for cache_path in (legacy, database):
+                with self.subTest(format=cache_path.suffix):
+                    FakeClient.reset()
+                    config = {
+                        "backfill_mode": True,
+                        "output_cleanup_enabled": False,
+                        "article_cache_path": str(cache_path),
+                        "article_cache_ttl_hours": 1,
+                    }
+                    with patch("pipeline.publish._resolve_llm_client", return_value=(FakeClient(), None, "fake")), patch("pipeline.publish.datetime") as clock:
+                        clock.now.return_value = frozen_now
+                        with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                            with patch("pipeline.publish.fetch_article_markdown") as fetch_mock:
+                                payload, llm_cache = publish_outputs(
+                                    [deepcopy(story)], str(root / "api.json"), str(root / "feed"),
+                                    llm_cache={}, config=config,
+                                )
+                                calls = (FakeClient.relevance_calls, FakeClient.importance_calls)
+                                self.assertEqual(calls, (1, 1))
+                                publish_outputs(
+                                    [deepcopy(story)], str(root / "api.json"), str(root / "feed"),
+                                    llm_cache=llm_cache, config=config,
+                                )
+                                self.assertEqual((FakeClient.relevance_calls, FakeClient.importance_calls), calls)
+                                fetch_mock.assert_not_called()
+                    results.append((payload["items"], llm_cache))
+            self.assertEqual(results[0], results[1])
+            with SQLiteArticleCache(database) as cache:
+                self.assertEqual(cache.get(url), record)
+
+    def test_sqlite_auto_imports_legacy_cache_without_git_archive(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            database = root / "article_cache.sqlite3"
+            record = {"markdown": "old history", "fetched_at": "2000-01-01T00:00:00Z", "optional": True}
+            write_json(str(root / "article_cache.json"), {"historic-url": record})
+            with patch("pipeline.publish._resolve_llm_client", return_value=(None, "no token", "fake")):
+                with patch("pipeline.publish.MultiFeedGenerator", FakeFeedGenerator):
+                    publish_outputs([], str(root / "api.json"), str(root / "feed"), config={
+                        "article_cache_path": str(database), "output_cleanup_enabled": False,
+                    })
+            with SQLiteArticleCache(database) as cache:
+                self.assertEqual(cache.get("historic-url"), record)
+
+    def test_missing_runtime_database_requires_git_archive_restore_before_legacy_import(self):
+        for archive_name in ("article_archive", ".article_archive.previous"):
+            with self.subTest(archive=archive_name), tempfile.TemporaryDirectory() as temp_dir:
+                root = Path(temp_dir)
+                database = root / "article_cache.sqlite3"
+                write_json(str(root / "article_cache.json"), {"old": {"markdown": "stale legacy"}})
+                # Even an empty/corrupt archive or an interrupted replacement's
+                # backup must go through validated restoration, never fallback.
+                (root / archive_name).mkdir()
+                with patch("pipeline.publish._resolve_llm_client", return_value=(None, "no token", "fake")):
+                    with self.assertRaisesRegex(ArticleCacheError, "article_cache_archive restore"):
+                        publish_outputs([], str(root / "api.json"), str(root / "feed"), config={
+                            "article_cache_path": str(database),
+                        })
+                self.assertFalse(database.exists())
+                self.assertFalse((root / "api.json").exists())
+
+    def test_failed_publication_rolls_back_sqlite_and_closes_handle(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            database = root / "article_cache.sqlite3"
+            with SQLiteArticleCache(database) as cache:
+                cache["old"] = {"markdown": "keep", "fetched_at": "2000-01-01T00:00:00Z"}
+            with patch("pipeline.publish._resolve_llm_client", return_value=(FakeClient(), None, "fake")):
+                with patch("pipeline.publish.MultiFeedGenerator", side_effect=RuntimeError("feed failed")):
+                    with patch("pipeline.publish.fetch_article_markdown", return_value="fresh text"):
+                        with self.assertRaisesRegex(RuntimeError, "feed failed"):
+                            publish_outputs(
+                                [self._story("new", "https://example.com/new")],
+                                str(root / "api.json"), str(root / "feed"), config={
+                                    "article_cache_path": str(database), "output_cleanup_enabled": False,
+                                },
+                            )
+            self.assertEqual(validate_database(database), 1)
+            with SQLiteArticleCache(database) as cache:
+                self.assertIsNone(cache.get("https://example.com/new"))
+                cache["next"] = {"markdown": "connection available"}
 
     def test_duplicate_urls_fetched_once(self):
         with tempfile.TemporaryDirectory() as temp_dir:

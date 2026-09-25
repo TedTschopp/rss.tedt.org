@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://x86ecosystem.org/resource/ai-compute-extensions-ace-specification/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-06-18T02:43:55.538881Z",
+      "markdown": "# AI Compute Extensions (ACE) Specification\n\n- June 15, 2026\n\nThis document defines x86 extensions for accelerating computation tasks, initially focusing on matrix multiplication kernels and reduced precision data formats important to ML workloads.\n\nThe ACE extensions define matrix multiplication primitives that augment AVX and scalar code with new capabilities, adding:\n\n- ACE register state, including tile and block scale registers\n\n- Data processing operations that consume AVX register input and operate on tile register state\n\n- Data move operations to move data between ACE register state and AVX registers\n\n- State and operations for system management\n\nACE provides tight integration between AVX vectors and ACE tile registers, combining high compute density tile processing operations with the comprehensive data processing features of AVX.\n\nIn addition to matrix acceleration, a number of dedicated format convert operations are provided under the AVX10 framework."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/06/x86ecosystem.org"
+}

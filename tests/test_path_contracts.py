@@ -118,10 +118,29 @@ class PathContractTests(unittest.TestCase):
         concurrency = workflow["jobs"]["scrape-and-generate-rss"]["concurrency"]
         self.assertFalse(concurrency["cancel-in-progress"])
 
-    def test_scheduled_deployment_skips_cancelled_workflows(self):
+    def test_scheduled_deployment_requires_successful_generation(self):
         workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
         condition = workflow["jobs"]["deploy-after-scrape"]["if"]
-        self.assertEqual(condition, "${{ always() && !cancelled() && github.event_name != 'push' }}")
+        self.assertEqual(condition, "${{ needs.scrape-and-generate-rss.result == 'success' && github.event_name != 'push' }}")
+
+    def test_article_archive_transaction_order_and_single_writer(self):
+        workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
+        job = workflow["jobs"]["scrape-and-generate-rss"]
+        self.assertIn("github.ref == 'refs/heads/main'", job["if"])
+        self.assertEqual(job["concurrency"]["group"], "rss-article-cache-writer")
+        runs = [step.get("run", "") for step in job["steps"]]
+        restore_index = runs.index("python -m scripts.article_cache_archive restore")
+        pipeline_index = runs.index("python -m pipeline.run_all")
+        archive_index = runs.index("python -m scripts.article_cache_archive archive")
+        commit_index = next(index for index, run in enumerate(runs) if "git push" in run)
+        self.assertLess(restore_index, pipeline_index)
+        self.assertLess(pipeline_index, archive_index)
+        self.assertLess(archive_index, commit_index)
+        self.assertIn("git add -u -- derived/article_cache.json", runs[commit_index])
+        self.assertIn("git add -A -- derived/article_archive", runs[commit_index])
+        self.assertIn("staged_size > 1048576", runs[commit_index])
+        self.assertIn("git check-attr filter", runs[commit_index])
+        self.assertNotIn("derived/*.sqlite3", runs[commit_index])
 
     def test_workflow_rejects_oversized_staged_blobs_before_commit(self):
         workflow = Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8")

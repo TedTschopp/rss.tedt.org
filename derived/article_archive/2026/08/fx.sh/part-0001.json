@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://fx.sh": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-20T00:08:57.664721Z",
+      "markdown": "Tiny, open, native coding agent.\n\n$ curl -fsSL https://fx.sh/setup.sh | bash copied\n\nv0.0.4 · 6.39mib · status: experimental (i) use at your own risk, we will be making frequent changes\n\nThis demo runs the full fx CLI as WebAssembly compiled with the Zig toolchain. Networking is delegated to browser fetch , and every SDK aspect is configurable in the docs .\n\n𝒇 x v0.0.4 · Run /help for commands ┃ auto · glm-5.2\n\nfx is a coding agent harness and CLI written in Zig, optimized for research and embeddability as part of larger systems.\n\nIt focuses on minimalism and performance across the board, from system prompt design, to its tools, feature set, and 6.39mib binary.\n\nFor end users, its CLI output style and form factor aims to be closer to a Unix shell than a heavy \"IDE in the terminal\" TUI.\n\nIt's open source (Apache-2.0), model-agnostic, and suitable for both local and cloud inference.\n\n## Tiny ~6mb binary\n\nDesigned for instant installation and embedding in resource constrained environments and agent sandboxes.\n\n## Instant time to prompt\n\nfx cold starts in 10µs and does no unnecessary work or I/O prior to accepting user input, making it ideal for programmatic use.\n\n## Wasm support\n\nOptimal fx.wasm builds produced by the Zig toolchain, which further reduce fx's size, making the network stack pluggable.\n\n## Minimal memory footprint\n\nfx contributes single-digit megabytes of memory baseline, allowing you to pack many instances in one machine.\n\n## Shell-like UI and ergonomics\n\nfx preserves scroll history by default, produces minimal output, and makes sparing use of complex TUI or paints\n\n## Context efficient\n\nMinimal system prompt and tools, to save on token costs and to yield optimal time-to-first-token performance (TTFT).\n\n## Embeddable and extensible\n\nSmall core, extended via skills, plugins, MCPs, with a Unix-like philosophy to extensibility.\n\n## Model and provider agnostic\n\nDesigned to work with local models , gateways , direct provider API access or subscriptions ."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/fx.sh"
+}

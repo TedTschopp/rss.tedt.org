@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://acceptmarkdown.com/status": {
+      "fetch_failed": false,
+      "fetched_at": "2026-06-05T17:50:07.976286Z",
+      "markdown": "Status\n\n# AI agent support matrix.\n\nWhich AI agents send Accept: text/markdown (or otherwise advertise a Markdown preference) when their built-in browse or fetch tools hit a URL.\n\nLast updated 2026-05-09 .\n\n## Verify an AI agent yourself\n\nWe test the matrix ourselves, but AI agent behavior shifts across versions, plans, and newly-added tools. You can corroborate any row — or catch a regression — by triggering an agent against your own server and reading the request from your access logs.\n\n### 1. Capture the Accept header in your logs\n\nDefault log formats usually drop it. Add it once:\n\nlog_format with_accept '$remote_addr - $remote_user [$time_local] ' '\"$request\" $status $body_bytes_sent ' '\"$http_referer\" \"$http_user_agent\" ' 'accept=\"$http_accept\"'; access_log /var/log/nginx/access.log with_accept;\n\nLogFormat \"%h %l %u %t \\\"%r\\\" %>s %b \\\"%{Referer}i\\\" \\\"%{User-Agent}i\\\" accept=\\\"%{Accept}i\\\"\" with_accept\n\nexample.com { log { output file /var/log/caddy/access.log format json } } # JSON access logs include request.headers.Accept by default.\n\n### 2. Trigger a known AI agent against a specific URL\n\nPick a URL on your site — ideally a unique or freshly-published one so the request isn't masked by background traffic. Then ask the agent to fetch or summarize it:\n\n- ChatGPT — \"Summarize https://yoursite.com/article-xyz\" (with the browse tool enabled)\n\n- Claude — \"What does https://yoursite.com/article-xyz say?\" (requires web_fetch / web_search)\n\n- Perplexity — paste the URL directly into a query\n\n- …and so on for whichever agent you're testing.\n\n### 3. Report what you saw\n\nGrep for the URL in your access log and send the line(s) to feedback , along with the agent you used and the prompt you sent. The accept= field tells us whether text/markdown was advertised."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/06/acceptmarkdown.com"
+}

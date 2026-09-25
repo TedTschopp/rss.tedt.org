@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://code.intellios.ai/cwbrowser/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-01T04:40:53.343675Z",
+      "markdown": "# cwbrowser\n\nA web browser with a rendering engine written completely from scratch in Zig , paired with Google’s V8 for JavaScript. Two years of solo work — extremely lightweight, and about 2× faster than Chrome in early testing.\n\nNo Chromium, no WebKit, no Gecko. The HTML parser, CSS cascade, layout engine, and paint pipeline are all hand-written in Zig ; only the JavaScript virtual machine is borrowed from Google’s V8 . The result is a browser small enough to reason about end to end, and fast enough to beat the mainstream engines on the same hardware.\n\n## What it is\n\ncwbrowser is a desktop web browser built on a rendering engine I wrote from nothing over the last two years. Where Chrome ships Blink, Safari ships WebKit, and Firefox ships Gecko, cwbrowser ships an engine of its own: the tokenizer, DOM, CSS parser and cascade, the box-model layout pass, and the painting stage are all original code in Zig — a small, fast, memory-careful systems language.\n\nThe one piece it doesn’t reinvent is the JavaScript engine. Re-implementing a modern, JIT-compiling JS VM is a decade-scale project, so cwbrowser embeds Google’s V8 — the same engine inside Chrome and Node — and wires it to the from-scratch DOM. You get a real, standards-following browser where the parts that decide how the web looks are entirely hand-built.\n\n## How it’s built\n\n## Why build a browser from scratch?\n\nThe modern web runs on three rendering engines, all enormous, and all descended from code written more than twenty years ago. cwbrowser is a bet that a browser engine can be rebuilt today — smaller, faster, and understandable by one person — using a modern systems language and only borrowing the one component (the JS VM) that genuinely isn’t worth reinventing. Passing Acid3 at 100/100 is the first proof the approach holds up against real standards.\n\n## Download\n\nA public preview build for macOS on Apple Silicon is on the way. It isn’t posted here yet — when it is, this is where it’ll live."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/code.intellios.ai"
+}
