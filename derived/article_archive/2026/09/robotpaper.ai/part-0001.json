@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://robotpaper.ai/graphlin-jev-enabled-live-architecture-visualizer/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-09-22T16:06:37.896640Z",
+      "markdown": "Introducing Graphlin - a plugin for Claude Code/Codex that auto visualises your architecture as your agent is building it, and what the agent is currently working on.\n\nWhy? I, like many others, tried Jev over the weekend. Unlike others, I did NOT build a router. I built a live diagram of the architecture being built by my agent - not perfect but it might be the beginning of something. It's open source and you can plug your own visualization to it. The source is fully open at https://github.com/royosherove/graphlin\n\n## How does it work?\n\nAfter various hooks in the agent such as pre tool use, file edit, create etc, actions are being sent for classification by Jev (multiple layers), and the results are used for both generating state, and visualizing it by a local server.\n\nJev is used as a runtime decider on what actions are being taken, what are the various types of components/files, what icons to use, who depends on who and more.\n\nThe idea of a general classifier is pretty strong and opens up a bunch of use cases. Classifiers are not new, but the packaging, lack of need to pre-train, and ease of use out of the box are pretty useful.\n\nLike OpenClaw that gave birth to many a grok-bot, instinct, kiroCrew and others, I believe this will just be the first one to open the door to imagining a general classifier future. a system one classifer is a useful tool in the toolbelt.\n\nOther projects claim to have been first: Laya , for example. I have not tried it yet so cannot share my opinion. However, graphlin is pluggable, you could technically ask your agent to replace the decision service with laya and see what happens."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/09/robotpaper.ai"
+}

@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://blog.devgenius.io/how-to-audit-ai-generated-code-with-the-go-standard-library-381d0f03d52e?source=friends_link&sk=ec62bd2bace50df5821234e137a95910": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-25T16:14:54.476086Z",
+      "markdown": "Member-only story\n\n# How to Audit AI-Generated Code With the Go Standard Library\n\n## A field guide to dead code, shadowed names, ghost deps, and duplicate logic— caught with Go’s stdlib\n\n--\n\n1\n\nListen\n\nShare\n\nLet’s start with something we’ve all felt. You ask an AI to write you a function, it hands you something that compiles, and you drop it into the codebase. It works. The tests pass. You move on.\n\nBut here’s the thing about AI-generated code: it’s rarely wrong — it’s just unreviewed . The model doesn’t have a mental model of your codebase. It doesn’t know that os is already imported, that applyTax is a near-copy of applyDiscount , or that it left a deadCode function behind because it generated three versions of a helper and forgot to delete the other two.\n\nNone of that stops the code from compiling. None of it fails a test. It just quietly accumulates — until the next human who touches the codebase has to untangle it.\n\nThe good news is that Go gives us an unusual advantage here. The standard library ships a full compiler front-end as ordinary packages. go/ast , go/parser , and go/token let us parse Go source and inspect it the way a careful reviewer would — without installing a single third-party tool.\n\nSo in this post, we’re going to build a small audit tool that walks an AI-written codebase and checks for the five most common kinds of cruft: unused dependencies, unused imports, shadowed names, duplicated logic, and dead code. We’ll take it piece by…"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/blog.devgenius.io"
+}

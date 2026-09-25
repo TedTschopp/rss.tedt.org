@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://www.makralabs.org/about": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-30T00:14:19.117629Z",
+      "markdown": "# The State of AI Web Scraping in 2026\n\nLAUNCH · AUG.27.2026 · Ritwik\n\n75% of the web is dynamic. Basically database records presented in HTML. Built for humans.\n\nFor Agents, this problem was solved by:\n\n- RAG was the first generation (2024)\n\n- And then, long-context LLMs took it to a completely new level (2025)\n\nFast-forward to 2026, and we're basically dumping anything and everything into the context windows; taking Nvidia to the moon.\n\nThis consists of claws, browser/computer-use, and agentic crawlers, and scrapers. These have made it easier to retrieve data, but the cost has stayed the same. Underneath, these still rely on long-context LLMs.\n\nAnd, here's where they fall short:\n\n- Cost at scale: for large datasets, cost grows linearly on a per-page basis.\n\n- Hallucinations: LLMs are prone to hallucinations\n\n- Context pollution and prompt injection\n\nLet me now show you what we have built:\n\n- Memoization-driven Knowledge and Data Retrieval\n\nIt's an work-in-progress implementation for a continual learning harness focusing on Browser-use.\n\n### Large-request correctness versus cost\n\nScatter plot of correctness against average USD cost for Makra, Exa, and Firecrawl. Lower cost is toward the left.\n\nBuilding applications on top of a memoization-engine like Makra solves all 3 of these problems:\n\n- Lower cost at scale: as layouts are memoized, cost comes down to a vector query.\n\n- Makra extracts data like a traditional scraper. So, hallucinations? Theoretically, none.\n\n- Your agentic loop only has to deal with the DOM nodes it's concerned with: More signal, less noise.\n\nWe have built an in-house browser harness (read-only for now) that does the following for you:\n\n- Spins up a browser instance and sets up proxies.\n\n- Extracts any structured or tabular data from the web for you.\n\n- And you can do all this at 1/10th the cost of all the other previous generations.\n\nTry it out in: /playground"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/www.makralabs.org"
+}

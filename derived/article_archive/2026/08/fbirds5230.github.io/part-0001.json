@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://fbirds5230.github.io/sentinel-scan/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-16T00:08:05.850881Z",
+      "markdown": "## What the pilot run actually showed\n\nWe ran a 15-attack pilot against a first-party test target to validate cost and methodology before offering this publicly. Results, unedited:\n\n### The pilot target held up — that's the point\n\nOur first-party pilot target defended against all 15 attacks in the corpus (direct override, roleplay/jailbreak, fake system tags, encoding tricks, indirect/RAG injection, and more), each scored by an independent LLM judge, not a keyword filter. A clean result doesn't mean the corpus is weak — it means this specific target's guardrails were tested and confirmed to hold under those attacks. We built this the honest way: a genuinely hardened target with no vulnerabilities to report on the first run, rather than a manufactured failure to make a flashier landing page.\n\nThe real value is the same either way: an independently-judged, transcript-backed answer to \"does my LLM app leak under adversarial pressure,\" at roughly a tenth of a cent in judge/target LLM cost per scan. We're offering it as a fixed-price $249 audit while we build a track record across real customer targets.\n\n## How it works\n\n- 1. You give us authorized access to a first-party target you own or control — no third-party or unauthorized targets, ever.\n\n- 2. We run our attack corpus (direct override, roleplay/jailbreak, fake system tags, encoding tricks, indirect/RAG injection, and more) against it.\n\n- 3. An independent LLM judge scores every response for actual policy violation or data leakage — not just \"did it say something spicy.\"\n\n- 4. You get a report: what broke, the exact transcript, why it broke, and a fix recommendation — usually within 48 hours.\n\n## Pricing\n\n- ✓ 15+ attack corpus run against your live or staging target\n\n- ✓ Full transcripts + independent judge verdicts\n\n- ✓ Plain-English report with root-cause + fix guidance\n\n- ✓ One free re-test after you ship fixes\n\n## Scope & authorization"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/fbirds5230.github.io"
+}

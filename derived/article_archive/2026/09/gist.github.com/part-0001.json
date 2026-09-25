@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3": {
+      "fetch_failed": false,
+      "fetched_at": "2026-09-10T00:11:59.632590Z",
+      "markdown": "# Reasoning prefills on a few open models, v1.1\n\nA follow-up to Reasoning prefills on a few open models and Stolen Thoughts\n\nThis v1.1 reruns the reasoning-prefill experiment with GPT-5.5 Pro as the teacher.\n\nFor each problem, I generated two responses from each target model:\n\n- an ordinary, unprefilled response; and\n\n- a response starting with the first 1% of GPT-5.5 Pro's reasoning, inserted into the target model's reasoning channel.\n\nThe visible answer remained freely generated. I then measured how much of the teacher's visible answer appeared in the first 100 tokens of the target model's answer. As in the previous post, each score is the mean of unigram, bigram, and trigram source recall. Deltas are absolute percentage-point changes.\n\n## All problems\n\nThe evaluation contains 45 problems: 15 STEM, 15 non-STEM, and 15 synthetic puzzles.\n\n## Qwen by category\n\n## Discussion\n\nQwen barely moved toward Opus 4.8 in the earlier experiment, but moved by +18.18 points toward GPT-5.5 Pro here, including a large effect on the private synthetic puzzles. The data suggest that Qwen may have learned from GPT-5.5 Pro, or from a closely related GPT model, rather than from Opus.\n\nKimi K3 has the highest overlap with GPT-5.5 Pro both without and with the prefill (31.11% and 35.65%), although the prefill adds only +4.54 points."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/09/gist.github.com"
+}

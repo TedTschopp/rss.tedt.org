@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://celeris.ai/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-07-26T00:26:54.367364Z",
+      "markdown": "# The fastest LLM on Earth.\n\nFrontier level intelligence, 15x faster.\n\n## A fraction of the latency.\n\nSame tasks, same scoring. Celeris lands within a few points of the frontier on accuracy - and at more than 10x the speed.\n\n## A new architecture for language model inference.\n\nCurrent autoregressive models generate one token at a time. Every token depends on the one before it, making latency fundamentally sequential. Celeris is a new inference architecture for language models, built on diffusion, that achieves latency and quality previous diffusion systems could not.\n\nThe result is an OpenAI-compatible API that delivers intelligent responses in milliseconds.\n\n## Three lines to swap. Then everything is faster.\n\n- › The API is OpenAI-compatible. Point your SDK at api.celeris.ai and keep the code you already wrote.\n\n- › Streaming is on by default. Responses as low as 24 ms, with no buffering or batch delay.\n\n- › Pricing is per token. You are billed for the tokens you generate, so speed costs you nothing extra.\n\nfrom celeris import Celeris client = Celeris(api_key= \"sk-…\" ) # same call shape you already know stream = client.chat.completions.create( model= \"celeris-1\" , messages=[{ \"role\" : \"user\" , \"content\" : \"Explain a Kalman filter\" }], stream= True , )\n\n## Start building with Celeris.\n\nExperience the new paradigm of inference."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/07/celeris.ai"
+}

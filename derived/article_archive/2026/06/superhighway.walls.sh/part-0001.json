@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://superhighway.walls.sh": {
+      "fetch_failed": false,
+      "fetched_at": "2026-06-09T02:09:43.134164Z",
+      "markdown": "# Superhighway\n\nThe information superhighway, productized for agents. A web-search API your AI agent can pay for on its own — no signup, no API key, no human in the loop.\n\n$0.001 per search, paid in USDC on base via the x402 protocol.\n\n## How it works\n\n- Your agent GET s /search?q=... .\n\n- It gets back 402 Payment Required with the price and where to pay.\n\n- An x402 client signs a USDC payment and retries automatically.\n\n- It gets clean JSON search results. Total human involvement: zero.\n\n## Try it\n\nUnpaid request — see the 402 and its payment terms:\n\ncurl -i \"https://api-production-17e1.up.railway.app/search?q=best+espresso+machines\"\n\nPaid request — with an x402 client (TypeScript):\n\nimport { wrapFetchWithPayment, createSigner } from \"x402-fetch\"; const signer = await createSigner(\"base\", process.env.AGENT_PRIVATE_KEY); const pay = wrapFetchWithPayment(fetch, signer); const res = await pay(\"https://api-production-17e1.up.railway.app/search?q=best+espresso+machines\"); console.log(await res.json());\n\n## For agents\n\nMachine-readable spec: /openapi.json · Health: /health\n\nBuilt on SearXNG + x402 . One query at a time, paid as you go."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/06/superhighway.walls.sh"
+}

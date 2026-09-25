@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://hackaday.com/2026/08/14/shieldfont-bludgeoning-ai-scrapers-that-disrespect-robots-txt/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-16T08:07:03.211191Z",
+      "markdown": "In the more innocent days of the World Wide Web you could simply put a robots.txt file in the root of your website that search engine indexing bots and similar would consult for the indexing wishes of the site owner. In this brave new world of LLM training data indexing such pleasantries are however rarely respected, leaving site owners to resort to increasingly more involved ways to bludgeon so-called AI scrapers, with ShieldFont being one of the most recent methods.\n\nIts basic functioning is detailed in the white paper , explaining their use of ligatures. These are normally used to join multiple graphemes or letters into a single glyph which are rendered in the final text. By substituting about a quarter of the words in a text with such ligature-based versions in an intelligent, dictionary-based manner, the HTML version – as typically parsed by a scraper – will read as grammatically valid but nonsensical text, while the rendered font version will look normal.\n\nNaturally, there are some disadvantages to this, such as screen readers for the visually impaired needing to also use the rendered font version, and it’s just as effective on legitimate search engine indexing bots. That said, if you apply this to static, archived content, or content marked as ‘do not follow’ in said robots.txt , then it might just be one way to make ChatGPT and friends spit out really funny output in the future now that the novelty of wood glue on pizza and eating rocks has somewhat worn off.\n\nWhile LLM scrapers can adapt to this by also parsing the rendered text, this makes the scraping effort significantly more expensive. Together with maze traps like Nepenthes and Cloudflare’s offerings that seek to keep these scrapers busy scraping dynamically generated content through infinite linked pages, the tools available to combat the menace of these scrapers keep developing."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/hackaday.com"
+}

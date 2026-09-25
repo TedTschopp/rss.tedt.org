@@ -1,0 +1,16 @@
+{
+  "articles": {
+    "https://lexifina.com/blog/granular-ai-diffs-and-source-tracing": {
+      "fetch_failed": false,
+      "fetched_at": "2026-09-12T00:12:26.321620Z",
+      "markdown": "Using AI makes it easy to let go of attention to detail. Making agent edits granular and trivial to investigate is part of a more satisfying AI UX.\n\nYet, this is a particularly challenging problem when it comes to version control for WYSIWYG documents, as they are highly coiled. DOCX for example, combines words, formatting and structure in its shared OOXML representation.\n\nAn interactive system needs to be able to reconcile harmless changes to the document (file changes that do not actually change the document as viewed, such as changes to the span nesting of a sentence), as well as connect changes to recorded actions: an AI proposal, the reviewer's decision, and the final application.\n\nRecording these actions alongside full agent traces lets us attribute supported text ranges to their contributors. We can distinguish an AI agent’s edits from changes made by a human reviewer or other agents, even when they are working concurrently.\n\nEach agent edit should record what changed, where, and the before/after state. This lets reviewers check the intended effect and any other changes, then follow the linked run to establish authorship. Essentially, defence-in-depth, rather than a snapshot-only approach.\n\nBy recording which paragraphs were added or modified at each version, alongside rejected proposals, we can follow their evolution over time. This gives us a basis for maintaining persistent graph, vector or simple metadata representations of our documents for information retrieval."
+    },
+    "https://lexifina.com/blog/new-audit-for-ai-agents": {
+      "fetch_failed": false,
+      "fetched_at": "2026-09-11T03:42:30.490389Z",
+      "markdown": "As far as we know, this is a novel combination of features to strengthen AI audit.\n\nDown to each individual word. We attribute:\n\nWhether the word was added by a human, or AI.\n\nIf AI, whether the suggestion was modified, or accepted as initially proposed.\n\nAlso, which sources the AI cited, with specific pincites.\n\nAlso, the full trace of the agent conversation, including all tool calls and metadata (such as model involved, complete token composition, etc).\n\nWe trace the evolution of every paragraph in the document, from version 1, to the most recent version. For every version, you once again uncover the human or AI attribution with full agent traces.\n\nFinally, if the edit was generated from a multi-agent swarm, we show the file lock, and any interactions that occurred between two agents that touched a paragraph.\n\nYou can see this in a quick video below."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/09/lexifina.com"
+}

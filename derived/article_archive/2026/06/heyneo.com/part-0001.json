@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://heyneo.com/claude-code": {
+      "fetch_failed": false,
+      "fetched_at": "2026-06-23T10:56:47.156584Z",
+      "markdown": "# Extend Claude limits by offloading AI tasks to Neo\n\n### Install neo-mcp\n\nAdd NEO's MCP server to any environment with Python 3.11+ .\n\n### Create your Secret Key\n\nOpen your NEO dashboard, create a key, and copy it. Keys look like sk-v1-… .\n\n### Connect Claude Code\n\nRegister NEO with one command, then just ask in a new chat to ship work.\n\nclaude mcp add --scope user neo \\ -e NEO_SECRET_KEY=sk-v1-your-key \\ -- python3 -m neo_mcp\n\nUsing Cursor, VS Code, or another MCP client? See the neo-mcp setup .\n\n## Ship production AI directly\n\nIndependent benchmark\n\n## 62% cheaper. Better answer.\n\nThe task: benchmark a speech-to-text model on a CPU-only Azure VM — 2 cores, 7.7 GB RAM, no GPU. Claude Code alone reached for the obvious HuggingFace + PyTorch path and iterated in real time. NEO spent two minutes researching first, then chose ONNX Runtime for its AVX2-optimized CPU kernels — same task, same machine.\n\nCost per task\n\n$1.96 → $0.74\n\n62% cheaper\n\nRuntime (RTF)\n\n0.519 → 0.328\n\n37% faster\n\nBackend chosen\n\nPyTorch → ONNX Runtime\n\nCPU-optimized\n\nBenchmark by Gaurav Vij · Read the full writeup\n\n## Start shipping.\n\nInstall once, then delegate ML work to NEO from any Claude Code session."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/06/heyneo.com"
+}

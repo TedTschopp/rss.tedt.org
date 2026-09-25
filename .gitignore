@@ -45,6 +45,7 @@ coverage.xml
 # Environment variables
 .env
 .venv
+.venv*/
 env/
 venv/
 ENV/
@@ -78,7 +79,12 @@ Gemfile.lock
 *.tmp
 *.temp
 
+# Disposable SQLite index and local archive transaction files (article JSON is tracked).
+derived/article_cache.sqlite3*
+derived/.article-restore-*/
+derived/.article_archive.stage-*/
+derived/.article_archive.previous/
+
 # Keep RSS feeds (override global ignores)
 !ai_rss_feed.xml
 !rss_status.json
-

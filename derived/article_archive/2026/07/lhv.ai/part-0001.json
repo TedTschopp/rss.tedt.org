@@ -1,0 +1,11 @@
+{
+  "articles": {
+    "https://lhv.ai/": {
+      "fetch_failed": false,
+      "fetched_at": "2026-07-16T01:46:45.533062Z",
+      "markdown": "### Set up your AI tool\n\nIn your AI tool's settings, add a new MCP server and paste in the LHV server address.\n\nComing soon Find LHV directly in your AI tool's marketplace and connect without any manual setup.\n\n- 1 Open connector settings On claude.ai, go to Customize â Connectors, then click Add â Add custom connector.\n\n- 2 Add the LHV connector Name it LHV and paste in the server URL. https://mcp.lhv.ai/mcp\n\n- 3 Connect Click Add, then Connect to sign in with LHV.\n\nSet up on claude.ai, then it's available in the desktop and mobile apps too. Free is limited to one custom connector.\n\n$ claude mcp add lhv \\ --transport http \\ https://mcp.lhv.ai/mcp # â Added MCP server 'lhv' $ claude mcp login lhv # â opens your browser to sign in with LHV\n\n$ codex mcp add lhv \\ --url https://mcp.lhv.ai/mcp # â Added MCP server 'lhv' # â opens your browser to sign in with LHV\n\n// .cursor/mcp.json { \"mcpServers\" : { \"lhv\" : { \"url\" : \"https://mcp.lhv.ai/mcp\" } } }\n\n// Command palette â \"agent: add context server\" // or paste into ~/.config/zed/settings.json { \"context_servers\" : { \"lhv\" : { \"url\" : \"https://mcp.lhv.ai/mcp\" } } }"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/07/lhv.ai"
+}

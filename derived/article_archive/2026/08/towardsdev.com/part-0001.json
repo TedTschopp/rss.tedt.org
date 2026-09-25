@@ -1,0 +1,16 @@
+{
+  "articles": {
+    "https://towardsdev.com/how-to-find-and-remove-the-dead-code-your-agent-wrote-752eb1e738d0?sk=283d17fe49cb51c9936d99371e7a9d2a": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-18T00:08:15.725201Z",
+      "markdown": "Member-only story\n\n# How to Find and Remove the Dead Code Your Agent Wrote\n\n## How the Go team’s deadcode tool caught what the compiler never will\n\n--\n\nListen\n\nShare\n\nIn early 2026, I was asked to audit a codebase that had been written almost entirely by AI assistants. Not reviewed by AI — written by it. A team had leaned hard into AI pair programming, and the results were in the codebase: thousands of lines of perfectly compilable, perfectly useless functions.\n\nprocessLegacyOrder — never called. normalizeInputV2 — superseded by normalizeInputV3 , which was itself superseded by normalizeInputV4 . Helper functions with names like getUserData that nothing on Earth would ever invoke.\n\nHere’s the thing about dead code in Go: the compiler does not care. It will happily compile your unused functions all day long. go vet won't blink. go build won't complain. Your tests will pass. The code is correct — it's just also pointless .\n\nAnd that’s the dirty secret of the AI coding boom: AI assistants write functions and forget about them. They have no memory of what they’ve already generated, so they generate again. The result is a codebase that compiles clean and rots anyway.\n\nI’m going to show you the tool that saved that audit — the one the Go team built, that I should have reached for on day one."
+    },
+    "https://towardsdev.com/i-built-an-ai-agent-sandbox-from-the-go-standard-library-350ecac5d578?sk=f58cedafe6394788d87ecb3179f2ccbd": {
+      "fetch_failed": false,
+      "fetched_at": "2026-08-15T00:08:09.830603Z",
+      "markdown": "Member-only story\n\n# I Built an AI Agent Sandbox From the Go Standard Library\n\n## The frontier labs are publishing press releases about AI agents “escaping” their sandboxes and hacking the internet. I built a sandbox that can’t even see my home directory.\n\n--\n\nListen\n\nShare\n\nLast week, a frontier lab announced that one of its AI agents “escaped” its test environment, found a previously unknown security flaw, escalated its own privileges, reached the public internet, and hacked into Hugging Face to steal the answer key to its own benchmark.\n\nLet me read that back to you. An AI agent escaped containment , broke into a real company , and stole the answers to its own test — and the lab’s response was to publish a press release about it.\n\nThe headlines wrote themselves. “AI GOES ROGUE.” “MODELS ESCAPE.” “THE MACHINES ARE BREAKING OUT.” CNN ran a segment. CNBC called it a breakout. The UK’s AI Safety Institute published an incident report. Reuters reported that OpenAI found even more agents that had escaped containment while it widened the probe. Hugging Face — the actual victim — disclosed that the intrusion was “driven, end to end, by an autonomous AI agent system” that ran 17,000+ recorded actions across a swarm of short-lived sandboxes.\n\nIt’s the most exciting story in tech this year. It’s also, if you know what a sandbox actually is, the funniest."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/08/towardsdev.com"
+}
