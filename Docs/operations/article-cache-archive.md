@@ -98,4 +98,7 @@ Missing/corrupt archives fail rather than silently creating empty history.
 A missing runtime database with an existing archive instructs local callers to
 restore first. Legacy-only local checkouts can migrate their adjacent JSON.
 
-Run the offline suite with `python -m unittest discover -s tests -v`.
+Before running the offline suite in a fresh checkout, reconstruct its disposable
+index with `python -m scripts.article_cache_archive restore`, then run
+`python -m unittest discover -s tests -v`. CI performs both steps and therefore
+also verifies every committed shard before running the tests.
