@@ -49,6 +49,21 @@ class GAIInlinePayloadParserTests(unittest.TestCase):
 
         RSSGenerator._validate_freshness(rows, max_staleness_days=3, now=now)
 
+    def test_complete_history_wins_over_populated_paginated_table(self):
+        scraper = GAIInsightsScraper()
+        table = f'''<table id="{scraper.table_id}"><thead><tr>
+          <th>Date</th><th>Rating</th><th>Title</th><th>Rationale</th></tr></thead>
+          <tbody><tr><td>05/22/2026</td><td>Essential</td>
+          <td>Fresh Item A</td><td>Visible first page</td></tr></tbody></table>'''
+        rows = scraper._extract_table_data(BeautifulSoup(table + INLINE_PAYLOAD_HTML, 'html.parser'))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[1]['Title']['text'], 'Fresh Item B')
+
+    def test_javascript_emoji_surrogate_pairs_are_valid_utf8(self):
+        decoded = GAIInsightsScraper._decode_js_fragment(r'Agent \ud83d\ude80 launch')
+        self.assertEqual(decoded, 'Agent 🚀 launch')
+        self.assertEqual(decoded.encode('utf-8').decode('utf-8'), decoded)
+
     def test_validate_freshness_raises_for_stale_rows(self):
         stale_rows = [
             {

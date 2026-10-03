@@ -34,9 +34,11 @@ except Exception:
 try:
     from scripts.config import *
     from scripts.feed_generator import MultiFeedGenerator
+    from scripts.gai_briefings import supplement_rows
 except ModuleNotFoundError:
     from config import *
     from feed_generator import MultiFeedGenerator
+    from gai_briefings import supplement_rows
 
 try:
     from pipeline.article_content import fetch_article_markdown as _fetch_article_markdown
@@ -191,6 +193,16 @@ class GAIInsightsScraper:
     def scrape(self):
         """Scrape table data from GAI Insights."""
         logger.info(f"Starting GAI Insights scraping from {self.url}")
+        # The page embeds its complete history; the rendered table is paginated.
+        try:
+            response = requests.get(self.url, timeout=self.config["page_load_timeout"])
+            response.raise_for_status()
+            rows = self._extract_inline_payload_rows(response.content.decode('utf-8', errors='replace'))
+            if rows:
+                logger.info("Recovered %s published GAI rows from the complete inline history", len(rows))
+                return rows
+        except requests.RequestException as exc:
+            logger.warning("GAI inline history lookup failed; trying browser: %s", exc)
         
         with BrowserManager() as page:
             return self._scrape_with_page(page)
@@ -232,9 +244,13 @@ class GAIInsightsScraper:
     def _extract_table_data(self, soup):
         """Extract data from the HTML table.
 
-        Primary: find table by configured ID.
-        Fallback: heuristically choose a table with headers likely matching the GAI ratings table.
+        Prefer complete inline history over the paginated rendered table.
+        Otherwise find the configured table or a matching header layout.
         """
+        inline_rows = self._extract_inline_payload_rows(str(soup))
+        if inline_rows:
+            logger.info("Recovered %s rows from complete inline history", len(inline_rows))
+            return inline_rows
         table = soup.find('table', id=self.table_id)
         if not table:
             logger.warning(f"Table with ID '{self.table_id}' not found; attempting heuristic fallback")
@@ -330,6 +346,9 @@ class GAIInsightsScraper:
             lambda m: chr(int(m.group(1), 16)),
             text,
         )
+        # JavaScript escapes emoji as UTF-16 surrogate pairs. Combine the pair
+        # before hashing or writing UTF-8 feeds and saved history.
+        text = text.encode('utf-16-le', errors='surrogatepass').decode('utf-16-le', errors='replace')
         return html_lib.unescape(text).strip()
 
     @classmethod
@@ -419,7 +438,7 @@ class RSSGenerator:
 
             for i, row_data in enumerate(recent_rows):
                 try:
-                    fe = fg.add_entry()
+                    fe = fg.add_entry(order='append')
                     date_val, rating_val, title_val, title_url, desc_val = RSSGenerator._extract_row_data(row_data)
                     # Normalize text to fix encoding issues
                     title_val = normalize_text(title_val)
@@ -427,6 +446,8 @@ class RSSGenerator:
                     rss_title = title_val or f"Entry {i+1}"
                     if rating_val and rating_val.lower() in RATING_TAGS:
                         rss_title += RATING_TAGS[rating_val.lower()]
+                    if row_data.get('Rating', {}).get('estimated'):
+                        rss_title += ' (Estimated)'
                     content_for_id = f"{date_val}|{rating_val}|{title_val}|{desc_val}"
                     entry_id = hashlib.md5(content_for_id.encode()).hexdigest()
                     fe.id(entry_id)
@@ -468,6 +489,8 @@ class RSSGenerator:
                         rss_title = title_val or "Entry"
                         if rating_val and rating_val.lower() in RATING_TAGS:
                             rss_title += RATING_TAGS[rating_val.lower()]
+                        if row_data.get('Rating', {}).get('estimated'):
+                            rss_title += ' (Estimated)'
                         content_for_id = f"{date_val}|{rating_val}|{title_val}|{desc_val}"
                         entry_id = hashlib.md5(content_for_id.encode()).hexdigest()
                         pub_date = RSSGenerator._parse_date(date_val) or datetime.now(timezone.utc)
@@ -555,6 +578,7 @@ class RSSGenerator:
                         continue
 
                 # Append new archive rows
+                added_archive = 0
                 for row_data in archive_rows:
                     try:
                         date_val, rating_val, title_val, title_url, desc_val = RSSGenerator._extract_row_data(row_data)
@@ -569,19 +593,23 @@ class RSSGenerator:
                         rss_title = title_val or "Archived Entry"
                         if rating_val and rating_val.lower() in RATING_TAGS:
                             rss_title += RATING_TAGS[rating_val.lower()]
+                        if row_data.get('Rating', {}).get('estimated'):
+                            rss_title += ' (Estimated)'
                         fe.id(entry_id)
                         fe.title(rss_title)
                         fe.description(desc_val or title_val)
                         fe.link(href=title_url or metadata['link'])
                         pub_date = RSSGenerator._parse_date(date_val) or datetime.now(timezone.utc)
                         fe.pubDate(pub_date)
+                        existing_guids.add(entry_id)
+                        added_archive += 1
                     except Exception as e:
                         logger.error(f"Error archiving row: {e}")
                         continue
 
                 with open(archive_filename, 'wb') as f:
                     f.write(archive_fg.rss_str(pretty=True))
-                logger.info(f"Archive RSS updated: {archive_filename} (total entries: {len(existing_archive) + len(archive_rows)})")
+                logger.info(f"Archive RSS updated: {archive_filename} (total entries: {len(existing_archive) + added_archive})")
             except Exception as e:
                 logger.error(f"Error updating archive feed: {e}")
         else:
@@ -1756,7 +1784,16 @@ def main():
                 RSSGenerator.generate_gai_feed(current_gai_data)
         else:
             try:
-                current_gai_data = gai_scraper.scrape()
+                ratings_error = None
+                try:
+                    rated_rows = gai_scraper.scrape()
+                except RSSScraperError as exc:
+                    ratings_error = str(exc)
+                    rated_rows = []
+                    logger.warning("GAI ratings unavailable; checking dated briefing selections: %s", exc)
+                current_gai_data = supplement_rows(
+                    rated_rows, current_gai_data, ratings_error=ratings_error,
+                )
                 max_staleness_days = int(str(os.environ.get("GAI_MAX_STALENESS_DAYS", "7")).strip())
                 if max_staleness_days >= 0:
                     RSSGenerator._validate_freshness(current_gai_data, max_staleness_days)
