@@ -234,6 +234,19 @@ def check_rss_health():
 
     status['pipeline_health'] = pipeline_checks
 
+    recovery_path = Path('reports/gai_recovery_report.json')
+    if recovery_path.exists():
+        try:
+            status['gai_source_health'] = json.loads(recovery_path.read_text(encoding='utf-8'))
+            gai = status['gai_source_health']
+            if (gai.get('status') == 'supplemented' or gai.get('ratings_lookup_error') or
+                    gai.get('briefing_lookup_error')) and status['overall_status'] == 'healthy':
+                status['overall_status'] = 'warning'
+        except (ValueError, OSError) as exc:
+            status['gai_source_health'] = {'error': str(exc)}
+            if status['overall_status'] == 'healthy':
+                status['overall_status'] = 'warning'
+
     return status
 
 def save_status_report(status):
@@ -319,6 +332,17 @@ def create_github_action_summary(status):
                         f.write("\n")
 
             # Pipeline artifact summary
+            gai = status.get('gai_source_health', {})
+            if gai:
+                f.write("\n## GAI Source Coverage\n\n")
+                f.write(f"- Coverage: {gai.get('status', 'unavailable')}\n")
+                f.write(f"- Latest published rating: {gai.get('latest_published_rating_date')}\n")
+                f.write(f"- Latest selected briefing story: {gai.get('latest_selection_date')}\n")
+                f.write(f"- Estimated ratings: {gai.get('estimated_ratings', 0)} (explicitly labeled in feeds)\n")
+                for field in ('ratings_lookup_error', 'briefing_lookup_error', 'error'):
+                    if gai.get(field):
+                        f.write(f"- {field}: {gai[field]}\n")
+
             pipeline = status.get('pipeline_health', {})
             if pipeline:
                 f.write("## Pipeline Artifacts\n\n")
