@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://offrun.dev/": {
+      "fetched_at": "2026-10-03T15:37:59.736245Z",
+      "markdown": "01 Â· Worktrees\n\n## Agents that never step on each other.\n\nEvery agent in a project gets its own git worktree, so two agents working the same repo never touch the same files. Run a refactor and a bug fix at once and merge them on your own schedule.\n\nProjects\n\nbilling-svc\n\napi-gateway\n\noffrun-site\n\nAgents\n\nFix flaky upload test now\n\nRetry backoff 1m\n\nRefactor the parser 2m\n\nToken refresh 18m\n\nbilling-svc fix-flaky-upload\n\nThe upload test fails about one run in ten. Find out why and fix it.\n\nThe test checked the file before the upload had finished, so it raced the network. It now waits for the upload itself instead of a fixed timer.\n\nChanged test/upload.test.js only, on this chat's own branch. It passed 50 runs in a row.\n\nAsk to make changes"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/offrun.dev"
+}
