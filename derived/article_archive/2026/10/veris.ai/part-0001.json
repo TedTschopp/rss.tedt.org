@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://veris.ai/leaderboard/vamos-pro": {
+      "fetched_at": "2026-10-05T16:07:05.594246Z",
+      "markdown": "### “Yes, fine, I agree. Do it.” Nothing happened\n\n> “Your account shows a zero balance with nothing past due.”\n\nThe agent read the address on file correctly, asked whether to turn paperless billing on, and the caller said “Yes, fine, I agree. Do it.” The trace holds three tool calls: two verifications and one account lookup. set_paperless_billing was never among them. The closing line is wrong too: this account owes $229.41 and it is overdue. get_account reports arrears on bills only, and the agent read that $0 back without checking the arrangement."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/veris.ai"
+}
