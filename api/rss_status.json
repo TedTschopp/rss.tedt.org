@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-10-05T16:15:04.485020+00:00",
+  "timestamp": "2026-10-06T00:19:19.820477+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 227,
-      "last_updated": "Mon, 05 Oct 2026 16:04:54 +0000",
-      "size_bytes": 196203,
+      "entry_count": 221,
+      "last_updated": "Tue, 06 Oct 2026 00:11:12 +0000",
+      "size_bytes": 192891,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 3693,
-      "last_updated": "Mon, 05 Oct 2026 16:04:54 +0000",
-      "size_bytes": 2630674,
+      "entry_count": 3699,
+      "last_updated": "Tue, 06 Oct 2026 00:11:12 +0000",
+      "size_bytes": 2635487,
       "errors": []
     },
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 16,
-      "last_updated": "Mon, 05 Oct 2026 16:05:20 +0000",
+      "last_updated": "Tue, 06 Oct 2026 00:11:36 +0000",
       "size_bytes": 16205,
       "errors": []
     },
@@ -29,7 +29,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 156,
-      "last_updated": "Mon, 05 Oct 2026 16:05:20 +0000",
+      "last_updated": "Tue, 06 Oct 2026 00:11:36 +0000",
       "size_bytes": 190927,
       "errors": []
     },
@@ -37,20 +37,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Mon, 05 Oct 2026 16:06:46 +0000",
-      "size_bytes": 227298,
+      "last_updated": "Tue, 06 Oct 2026 00:13:26 +0000",
+      "size_bytes": 220123,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 807,
-      "last_updated": "Mon, 05 Oct 2026 16:06:46 +0000",
-      "size_bytes": 430899,
+      "entry_count": 808,
+      "last_updated": "Tue, 06 Oct 2026 00:13:26 +0000",
+      "size_bytes": 431412,
       "errors": []
     }
   },
-  "overall_status": "warning",
+  "overall_status": "healthy",
   "aggregation_health": {
     "aggregated_ea.xml": {
       "total_sources": 7,
@@ -79,19 +79,19 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 2060,
-      "clusters": 2033
+      "stories": 2842,
+      "clusters": 2813
     },
     "llm_status": {
       "status": "degraded",
-      "calls": 168,
-      "ok": 166,
-      "errors": 2,
+      "calls": 145,
+      "ok": 144,
+      "errors": 1,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 77,
-        "importance": 60,
-        "output_cleanup": 20
+        "ai_relevance": 64,
+        "importance": 51,
+        "output_cleanup": 19
       },
       "stages": {
         "enrichment": {
@@ -113,33 +113,33 @@
         },
         "publish": {
           "status": "degraded",
-          "calls": 157,
-          "ok": 155,
-          "errors": 2,
+          "calls": 134,
+          "ok": 133,
+          "errors": 1,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 77,
-            "importance": 60,
-            "output_cleanup": 20
+            "ai_relevance": 64,
+            "importance": 51,
+            "output_cleanup": 19
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 157
+            "openai/gpt-4.1-mini": 134
           },
           "backlog": {
             "ai_relevance": {
-              "before": 77,
+              "before": 64,
               "remaining": 0
             },
             "importance": {
               "before": 0,
-              "remaining": 2
+              "remaining": 1
             },
             "output_cleanup": {
-              "before": 20,
+              "before": 19,
               "remaining": 0
             }
           },
-          "backlog_remaining": 2
+          "backlog_remaining": 1
         }
       },
       "backlog": {
@@ -152,36 +152,36 @@
           "remaining": 10
         },
         "ai_relevance": {
-          "before": 77,
+          "before": 64,
           "remaining": 0
         },
         "importance": {
           "before": 0,
-          "remaining": 2
+          "remaining": 1
         },
         "output_cleanup": {
-          "before": 20,
+          "before": 19,
           "remaining": 0
         }
       },
-      "backlog_remaining": 12
+      "backlog_remaining": 11
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-10-05T16:04:54.745519+00:00",
-    "status": "supplemented",
+    "timestamp": "2026-10-06T00:11:12.193989+00:00",
+    "status": "ratings",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
-    "latest_published_rating_date": "2026-09-25",
+    "latest_published_rating_date": "2026-10-05",
     "latest_selection_date": "2026-10-05",
-    "ratings_age_days": 10,
+    "ratings_age_days": 1,
     "total_rows": 3920,
-    "published_ratings": 3908,
-    "estimated_ratings": 12,
+    "published_ratings": 3914,
+    "estimated_ratings": 6,
     "briefing_versions": 28,
     "briefing_lookup_error": null,
     "ratings_lookup_error": null,
-    "fetched_rating_rows": 3929,
+    "fetched_rating_rows": 3935,
     "archive_recovery": {
       "checked_on": "2026-10-03",
       "source": "Internet Archive CDX index and replay",
