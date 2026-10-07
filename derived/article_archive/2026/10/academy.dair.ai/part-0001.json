@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://academy.dair.ai/resources/jev-as-a-judge": {
+      "fetched_at": "2026-10-07T03:49:28.306995Z",
+      "markdown": "LLM-as-a-judge means using a large language model (LLM) to evaluate the work of another model. You give the judge an output, or a pair of outputs, along with the criteria that matter, and it scores, ranks, or compares them. Did the answer follow the policy? Is response A better than response B? Did the agent actually finish the task?\n\nThis approach is useful because manual review does not scale. A person can carefully read a few dozen outputs, but a judge model can apply the same criteria to thousands of runs, every time you change a prompt, a tool, or a model.\n\nJev is a new model built specifically for this kind of decision, which makes it a natural fit for the judge role. Using Jev as the judging LLM is what this tutorial means by Jev-as-a-Judge .\n\nJudging agents adds a twist, because an agent can sound correct even when its work failed. Imagine a refund agent telling a customer, \"Your refund has been processed,\" when the refund tool actually timed out.\n\nJev-as-a-Judge catches this by checking what the agent did, not just what it said. Jev reads the request, each tool call and its result, and the final reply, then returns a verdict with a probability attached.\n\nThis guide walks through the idea with one refund example and a live playground. The full lab builds the complete evaluation workflow."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/academy.dair.ai"
+}

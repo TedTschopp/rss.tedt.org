@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://camlabs.ai/redaction-checker/": {
+      "fetched_at": "2026-10-07T03:49:27.915565Z",
+      "markdown": "# Is this PDF really redacted?\n\nBlack boxes drawn on top of a PDF often leave the words underneath. Drop in a file to see if anything can still be copied out.\n\nReading file…\n\n### Want redactions that can't be undone?\n\nRedactly AI finds SSNs, account numbers, names and other personal details, blacks them out, and exports a flattened PDF with the text underneath removed. It runs on your Mac and nothing is uploaded.\n\nAlso on iPhone and Android. Learn more\n\n## What this checks\n\n- Text under boxes. We draw each page the way a PDF viewer would, then look at every piece of selectable text. If a word sits under a solid box, it's still in the file and anyone can copy it out.\n\n- Invisible text. Text that is selectable but can't be seen on the page, such as white text or a hidden OCR layer over a blacked-out area.\n\n- Unapplied redaction marks. Some editors let you mark areas for redaction but only remove the content when you click \"Apply.\" Marks that were never applied are flagged.\n\n- Document info. The title, author and other details saved inside the file, which can give away names.\n\n## What it can't check\n\n- Pictures under a box. If a scanned image sits under a black rectangle, the original image may still be in the file. This tool only reads text.\n\n- Whether you blacked out the right things. A clean result means nothing is hiding under the boxes, not that every SSN or name on the page was covered.\n\n- Password-protected files. Remove the password first, then check the copy.\n\nNo checker is perfect, including this one. For anything important, also open the file, select all the text (Command-A or Ctrl-A), copy it, and paste it into a blank note to see what comes out.\n\n## How it stays private\n\nThe checker is a single web page. Your PDF is opened by code running in your own browser tab and is never sent to CamLabs or anyone else. You can turn off Wi-Fi after the page loads and it still works."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/camlabs.ai"
+}
