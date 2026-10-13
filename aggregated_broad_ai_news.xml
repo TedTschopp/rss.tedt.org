@@ -7,79 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>GitHub Action RSS Aggregator v2 (retention)</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Oct 2026 00:14:17 +0000</lastBuildDate>
-    <item>
-      <title>RSI-Anything: Unlocking Recursive Self-Improvement with World Models (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13912</link>
-      <description>arXiv:2610.13912v1 Announce Type: new 
-Abstract: Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve. We introduce RSI-Anything, a domain-general framework built on JEPA-Anything that uses predictive world models to guide action and learning-data selection. Observed feedback drives policy or workflow improvement and conditional world-model adaptation, while component and compatibility checks govern the retention of updated policy-model pairs. Across diverse computational and scientific domains, RSI-Anything demonstrates substantial gains. In code repair, with the coder fixed, success increases from 26.3% with a static verifier to 29.2% through predictive selection and 31.2% after world-model adaptation, at comparable test usage. Graphical user interface (GUI) evaluations showed higher task completion, while average actions decrease by 39.4%. Across five successive policy versions, laboratory-planning scores more than double from 21.80% to 46.01%. In reaction optimization, RSI-Anything achieves 96.15% mean best observed yield versus 82.16% for Bayesian optimization under the same 40-experiment budget. An end-to-end immune-science application further connects workflow evolution and predictive modeling with therapeutic hypothesis generation. These results demonstrate how predictive world models and retained system updates enable recursive improvement across diverse environments.</description>
-      <guid isPermaLink="false">dd7b0a32f219ed585041f21b751e1ba5</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>When VLMs Destroy What They Know: Spatial Representations Fall Below Lexical Priors (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13910</link>
-      <description>arXiv:2610.13910v1 Announce Type: new 
-Abstract: Vision-Language Models (VLMs) increasingly analyze and reason about images, yet it remains unclear whether their internal representations faithfully encode the structured relations required for such reasoning. We introduce EICS (Evaluation-Invariant Concept Stability), a metric for testing whether representations consistently encode concepts under controlled one-concept interventions, and CASP-VL (Causally controlled Spatial Perturbations for Vision-Language models), a benchmark of causally controlled spatial perturbations derived from Visual Genome scene graphs. Across multiple VLM architectures, we find that spatial relations are represented substantially less faithfully than lexical information, even when the same models score well above chance on compositional benchmarks. Further analysis shows that the relation is identifiable at the predicate's own tokens but is lost when the sentence is aggregated into a global representation, whether through the (EOS) token or by mean pooling. These findings reveal a systematic failure invisible to output-based evaluation: VLMs do not preserve, in the representation used downstream, relational information that is present in their own input.</description>
-      <guid isPermaLink="false">233255a009141e91878456459ab71e98</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>Structural Automata for Neural Semantic Parsing (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13896</link>
-      <description>arXiv:2610.13896v1 Announce Type: new 
-Abstract: Neural semantic parsers generate meaning representations token by token, yet well-formedness depends on references, scope, and graph relations that unfold during generation. Constrained decoding prevents locally invalid tokens but does not guarantee that a valid prefix can be completed within a fixed output-length limit. We investigate structural automata at three stages of DRS parsing (decoding, post hoc processing, and training) and additionally evaluate decoding on AMR. For decoding, we introduce accepting-path decoding (APD), which maintains a verified completion within the remaining length limit and follows the model's preferred token whenever that token can also be completed. APD guarantees an accepted output without retracting tokens. Under tight length limits, it improves Smatch++ over local masking by 5.1 and 2.4 points on DRS and by 6.4 and 3.2 points on AMR, comparable to rollback under the same limit, which retracts tokens. For post hoc processing, invalid outputs concentrate on the same inputs: eight unconstrained samples yield no valid output for 10.2% of inputs with limited training data, compared with 0.4% with full data, where filtering comes within 0.2 Smatch++ points of APD. For training, penalizing automaton-rejected tokens improves development Smatch++ by 3.6-11.0 points after 10% of training, but this advantage diminishes as cross-entropy alone reduces the probability assigned to rejected tokens from 14% to below 2% within the first sixth of training with limited data.</description>
-      <guid isPermaLink="false">8367e34a0a941e673a95593177b4bd63</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>Task Context Shapes Component Roles in Language Models (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13895</link>
-      <description>arXiv:2610.13895v1 Announce Type: new 
-Abstract: Large language models reuse the same attention heads across tasks, but identifying these shared heads does not explain what they do differently in each task. A natural source of inspiration is task-dependent interactions among shared brain regions, which motivate a network view of language-model computation. Here, we compare fixed model components across tasks using identical graph facts, statements specifying which directed connections are present. We measure how interventions affect attention heads and the activation state in later layers (influence), as well as the answer (importance). Task changes redistribute the influence in five open-weight models spanning four families and 1.5-14 billion parameters. In Gemma-2-9B and Qwen3-14B, an activation edit changes an early internal activation vector and switches which fact the model reads while the written instruction stays fixed. The same heads then respond to different graph facts and influence later components differently. For each prompt, we construct two linear response maps, one before the edit and one after it. Each map predicts a later head's response from a measured change in an earlier head. For a separate factual intervention, the map for the corresponding condition reduces mean squared prediction error by 53.6% in Gemma and 5.0% in Qwen compared with the average of the two maps. These findings show that task context changes both which graph facts the shared components respond to and how their outputs affect later computation. A network account may help explain how models use shared parameters to perform different computations. Measurements of task-dependent influence could also guide interventions intended to alter one behavior while preserving others.</description>
-      <guid isPermaLink="false">cd8882609e593269a092529149f84f59</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>Can Language Models Learn When to Abstain? Policy Learning and Calibrated Answer Selection (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13821</link>
-      <description>arXiv:2610.13821v1 Announce Type: new 
-Abstract: A useful language model should know when to answer and when to say "I don't know." Can we improve that decision by training the model itself or by training a separate component to check its answers? We study both approaches on Qwen3-14B for factual questions, using a score that rewards correct answers, penalizes mistakes, and allows abstention. Across three training seeds and two held-out confidence thresholds, a learned answer selector improves threshold-averaged utility over the original model's calibrated confidence filter. On TriviaQA, mean coverage increases from 20.2% to 30.9%, while the pooled error rate among scored answers decreases from 23.0% to 14.5% under exact-match grading. The tested reinforcement-learning changes do not establish consistent gains. On NQ-Open, the selector improves threshold-averaged utility over the filter but still performs worse than always abstaining. A partial human-reviewed audit preserves the TriviaQA finding. Our results support learning to select answers in this setting while showing that reliable abstention across datasets remains unresolved.</description>
-      <guid isPermaLink="false">eefa439e9e5126fd6542c2ebd5a6f9f2</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>Error Rate is Not Enough: Costs of Augmentation in Low-Resource ASR (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13807</link>
-      <description>arXiv:2610.13807v1 Announce Type: new 
-Abstract: Data augmentation is standard practice for low-resource automatic speech recognition (ASR), but its benefits are almost always reported as aggregate error rates, leaving open why and when a method helps. On four low-resource languages and English at five data sizes, we cross two augmentations that modify existing audio (speed perturbation and SpecAugment) with two that modify text transcriptions and synthesize audio from it. We analyze errors at the phoneme level and find that they help for complementary reasons. SpecAugment has the most reliable aggregate improvements, but increases tone and palatalization errors, whereas text-based methods introduce consonant insertions; in combination, each reduces the errors the other introduces. This complementarity is predictable. Tone and palatalization are each signaled by a single acoustic property and occur least frequently in training (lowest training exposure), and text-based methods that flatten word frequency raise their frequency by 37--38%, reversing those errors while further improving aggregate error. The improvement from combining the methods exceeds the sum of their individual improvements; the superadditivity vanishes by 100 hours, limiting the complementarity to the low-resource regime. Where specific error types matter, we recommend selecting augmentation by training exposure and acoustic properties, both measurable before any training.</description>
-      <guid isPermaLink="false">cf48ea74a5db54e518c57954fa4d4906</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>REFLECT: Role-Aware Detection of Sentiment, Emotion, Politeness, and Formality (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13797</link>
-      <description>arXiv:2610.13797v1 Announce Type: new 
-Abstract: Detecting communicative meaning in dialogue requires modeling not only lexical content but also the participant-role structures through which sentiment, emotion, politeness, and formality (SEPF) are expressed. Existing approaches rely on contextual language representations while leaving semantic roles implicit. We introduce a role-aware transformer architecture that maps the four SEPF dimensions to theory-grounded Semantic Role Labeling (SRL) configurations, incorporating these configurations directly into the transformer's self-attention mechanism. Role-aware attention models non-directional internal states (sentiment and emotion), while directional role-aware attention captures initiator-to-recipient relations for external cues (politeness and formality). The resulting role-aware representations are fused with contextual embeddings through a learned gate that adaptively weights how much role information each input contributes, rather than appending semantic roles as an auxiliary feature vector. Across four benchmark datasets, the framework yields statistically reliable gains over strong BERT-based baselines for emotion, politeness, and formality, with gains concentrated in theoretically predicted cases such as low-frequency, complex emotions and highly polite expressions; sentiment improvements are marginal and non-significant, suggesting that sentiment is conveyed more through lexical choice than participant-role structure. Additional evaluation on real-world data demonstrates that the framework improves both predictive performance and model traceability. These results demonstrate that linguistically grounded modifications to transformer self-attention improve the detection of communicative meaning, generalize beyond benchmark datasets to real-world mental-health data, and yield traceable, role-grounded explanations that extend beyond predictive performance to interpretability.</description>
-      <guid isPermaLink="false">5bfccaa246ceb1d1da2eead547d57ec2</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>Not Just an Evaluation: A Case Study of Discourse Particle Sensitivity in Language Models (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13794</link>
-      <description>arXiv:2610.13794v1 Announce Type: new 
-Abstract: Discourse particles subtly shape the flow of discourse by reflecting conversational context and interlocutor attitudes, often leaving the truth-conditional meaning untouched. They are also often polyfunctional, with distinct senses which partially overlap with other particles; for example, the exclusive use of English "just" and "only" ("John only/just drinks water"). Despite the frequency of these words in natural language, they have gone largely unstudied due to the subtle nature of their effects. We investigate LLM sensitivity to "just" and "only" in natural conversations using behavioral and mechanistic analyses. First, we find that LLMs and humans similarly prefer the presence of these particles in context, and both are more sensitive to "just" compared to "only". Second, when sampling from LLMs with and without these particles, we find LLMs consistently rate generations as more likely, given their source context, demonstrating their particle sensitivity. In both experiments, instruction tuning increases sensitivity. Finally, we localize particle-sensitive units within LLMs and find the overlap between "just" and "only" is asymmetric: "only" units transfer selectively to exclusive "just", while all "just" units transfer to "only" equally well regardless of sense, suggesting LLM lexical-level particle representations are partially organized by sense. We release our code, sense-labeled dialogue stimuli, and human preference annotations at https://github.com/JiahuiKChen/Not_Just_an_Evaluation.</description>
-      <guid isPermaLink="false">701851804143b47bf5e199a03bd0477e</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
-    <item>
-      <title>Enhancing Legal Reasoning in Pre-trained Language Models via Knowledge Graph-Guided Multi-Task Pre-training (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
-      <link>https://arxiv.org/abs/2610.13722</link>
-      <description>arXiv:2610.13722v1 Announce Type: new 
-Abstract: Legal language understanding requires reasoning over semi-structured regulatory documents, yet standard pre-training objectives do not explicitly target this structural capability. Because current legal language models rely solely on masked language modeling, they treat statutory text as flat token sequences and ignore the underlying hierarchical constraints. To bridge this gap, we present a multi-task pre-training approach for German traffic law (StVO). Our approach combines three complementary objectives: Next Sentence Prediction (NSP), Knowledge Graph (KG) Guided Clustering (CLU), and Knowledge Graph (KG) Aware Paragraph Classification (CLS). This approach explicitly encodes structured legal knowledge directly into the model weights. This encoding enables zero-shot legal reasoning at inference time and removes the need for discrete graph traversal. We evaluate our approach across nine Transformer-based encoders and 324 experimental runs. On synthetic StVO question answering, our models demonstrate consistent relative improvements between 10.3% and 155.0% over baselines. Furthermore, relative to the established LexGLUE baselines (Chalkidis et al., 2022), our models improve over prior results on four of seven legal benchmarks. It also achieves consistent zero-shot transfer gains between 3.4% and 15.8% on Austrian driving regulations. These experimental results indicate that our training approach generalizes successfully beyond the initial training legal domain.</description>
-      <guid isPermaLink="false">bd192bf13b054f42074ee7bf76dcec30</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
-    </item>
+    <lastBuildDate>Tue, 13 Oct 2026 03:53:49 +0000</lastBuildDate>
     <item>
       <title>Verifiable Retrieval for Legal Reasoning through Structure-driven Knowledge Graph (Source: export.arxiv.org | Category: arXiv AI Categories)</title>
       <link>https://arxiv.org/abs/2610.13695</link>
@@ -623,20 +551,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 06:40:34 +0000</pubDate>
     </item>
     <item>
-      <title>White House demands immediate fix after Anthropic's AI agents gave a false Philly homicide tip and applied for visas - The Guam Daily Post (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiiAJBVV95cUxPWVVucHpYVjM0aHItV2lKYXRhdFFmMll0Ym41dF9PRmVxaUJxS0pYVC1EOU9DeWVQODJWNHhaS0lMTUxqOHdYRS15RklodVEzaDhGNmdEbl92TDg5MGpXRWhUVU1Va29IUFpOWm04MDk4TVZxb19uVVVQLVNTVkVuWUhBdERfODNkSFlJTzY3X0swdXgtNVVLbExSbDBCeDczbTRvSmYzZTYzV0RQdldfQ0dsOFU3TjM4M0xsWXYwZGNSWVJsM3ZOQ2tNVnUzMnpReXRuMkhzR0hEVXJTSjFPeUZOVzZDdGRwSndKOWNSUFl6R2N5YVlYSXhDOU0zY2UzeXRJZHE1X0Y?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiiAJBVV95cUxPWVVucHpYVjM0aHItV2lKYXRhdFFmMll0Ym41dF9PRmVxaUJxS0pYVC1EOU9DeWVQODJWNHhaS0lMTUxqOHdYRS15RklodVEzaDhGNmdEbl92TDg5MGpXRWhUVU1Va29IUFpOWm04MDk4TVZxb19uVVVQLVNTVkVuWUhBdERfODNkSFlJTzY3X0swdXgtNVVLbExSbDBCeDczbTRvSmYzZTYzV0RQdldfQ0dsOFU3TjM4M0xsWXYwZGNSWVJsM3ZOQ2tNVnUzMnpReXRuMkhzR0hEVXJTSjFPeUZOVzZDdGRwSndKOWNSUFl6R2N5YVlYSXhDOU0zY2UzeXRJZHE1X0Y?oc=5" target="_blank"&gt;White House demands immediate fix after Anthropic's AI agents gave a false Philly homicide tip and applied for visas&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Guam Daily Post&lt;/font&gt;</description>
-      <guid isPermaLink="false">bc4045472db6b894c70893370fef2224</guid>
-      <pubDate>Mon, 12 Oct 2026 08:01:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>Anthropic cuts off AI models' access to the internet - Digital Watch Observatory (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMic0FVX3lxTE9hMjJqZV9OcmhjRG8tNGFMSWdhY1BWcHkwTDF6cFNXUHRTNEF4NzgxM1ppVFQ3TGpRZHFTWTM3WFN0YjVINDFxam9hWEpTY1UtdUdvRTAtUU1jZTdMVlcxbUpGOUVWeldMb2wycHZJRHBxM0E?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9hMjJqZV9OcmhjRG8tNGFMSWdhY1BWcHkwTDF6cFNXUHRTNEF4NzgxM1ppVFQ3TGpRZHFTWTM3WFN0YjVINDFxam9hWEpTY1UtdUdvRTAtUU1jZTdMVlcxbUpGOUVWeldMb2wycHZJRHBxM0E?oc=5" target="_blank"&gt;Anthropic cuts off AI models' access to the internet&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Digital Watch Observatory&lt;/font&gt;</description>
-      <guid isPermaLink="false">ac68472069732ed2911a76a07ee4583c</guid>
-      <pubDate>Mon, 12 Oct 2026 09:10:07 +0000</pubDate>
-    </item>
-    <item>
       <title>Iren shares jump 5% in premarket trade on report of Anthropic AI cloud deal - Investing.com (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMiywFBVV95cUxQUlVxWHFrbHVtejI3b0JpMDU5aU9tZFE2QTRFSFI1c0ZIbzhvQzdKcnJSdmNrOEZ6Y3BJMU1FYUc1d00tbjM2WHNQanQyYkdLbWV6ZU01Q2MwbUJjbGF6dHBfVjdpVm9uaTdCTmpwLW5mYkNHWTFVd1F0UEdsdzU1YXpEeHlZRnAxMjAzcEJBVDRmMUJ0U2lHamxyQndQbmVzUHJ0SDdiemFONm1ZenNoVmk0QzFUclYxb1puWjNmejJLcXN1aWNmWnc4MA?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxQUlVxWHFrbHVtejI3b0JpMDU5aU9tZFE2QTRFSFI1c0ZIbzhvQzdKcnJSdmNrOEZ6Y3BJMU1FYUc1d00tbjM2WHNQanQyYkdLbWV6ZU01Q2MwbUJjbGF6dHBfVjdpVm9uaTdCTmpwLW5mYkNHWTFVd1F0UEdsdzU1YXpEeHlZRnAxMjAzcEJBVDRmMUJ0U2lHamxyQndQbmVzUHJ0SDdiemFONm1ZenNoVmk0QzFUclYxb1puWjNmejJLcXN1aWNmWnc4MA?oc=5" target="_blank"&gt;Iren shares jump 5% in premarket trade on report of Anthropic AI cloud deal&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Investing.com&lt;/font&gt;</description>
@@ -649,6 +563,13 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQT3NtOGpOUXdHM1NQNExwZ01kdjVWbXdDRWRWWTJqN1RHb3FFS203eEkteTE4SmFDUzUzUm95bHFKZkpZOFRiV2lQSGRuZWFoQTV4TzNuMjVNUExfcUVMX1RfeHFxMFh6bzJfRnJPMk1vdHFNRW54VGlDVnJ2ZHNFaE8wc0RURW80VTY1NVpXVzlBQ0JNUk1zbzRrdktiUQ?oc=5" target="_blank"&gt;Can we trust OpenAI and Anthropic to monitor their own technology?&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Fortune&lt;/font&gt;</description>
       <guid isPermaLink="false">d4ea0f8ac73ce7e02e50ba7e4eb60257</guid>
       <pubDate>Mon, 12 Oct 2026 09:21:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Strengthening our defenses against distillation attacks - Anthropic (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9OcHNZdWYyUWdnYV9lY1lrOGw0MEhIY2dhY0dFbmxXUWd3QjYtanptamV5cEl1TVRXdGhsZnFtRUFUVzlNZXJGNWhnU1g2cDBEMDhEVXVDWUZkZmFPY1BZVEhucjBDY1U?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9OcHNZdWYyUWdnYV9lY1lrOGw0MEhIY2dhY0dFbmxXUWd3QjYtanptamV5cEl1TVRXdGhsZnFtRUFUVzlNZXJGNWhnU1g2cDBEMDhEVXVDWUZkZmFPY1BZVEhucjBDY1U?oc=5" target="_blank"&gt;Strengthening our defenses against distillation attacks&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Anthropic&lt;/font&gt;</description>
+      <guid isPermaLink="false">a8a6f97574855d3725d4bc00069ff6a5</guid>
+      <pubDate>Mon, 12 Oct 2026 09:30:00 +0000</pubDate>
     </item>
     <item>
       <title>A Guide to Which AI CEOs Now Say 'Super Intelligence' and Which Don't - Gizmodo (Source: news.google.com | Category: AI Labs)</title>
@@ -700,18 +621,18 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 10:26:23 +0000</pubDate>
     </item>
     <item>
+      <title>AI Bubble Ready to Burst? Investor Raises Alarm Over Anthropic's Sky-High Valuation - TradingView (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMi2AFBVV95cUxPS3BtQmtFQ2ZicmRMYmRuaTA1S0V4RW1vMnp3RzNrcG9SQUM3SGUybW5NOEs3Ul9Yc0JySWxkc25NY2NhZk93YllNcTU3V0xqOWJiQXdKMDJlRV8yTkVJSjBzSU9paVA1NFc4TE9yc0o5M3NKc2pSSEdHcmZtRUhRQXladC04MVUxT2ZHb1Q2LUJQZWFpblhRUGwzQ2hJZWEyT09EVGU5QURtZW1aMjl2SXlqOGVCNjVhLWNtUDN4Q0t5MDc5RzczTXVwSFRTYXJhRy1ZU05SbHQ?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxPS3BtQmtFQ2ZicmRMYmRuaTA1S0V4RW1vMnp3RzNrcG9SQUM3SGUybW5NOEs3Ul9Yc0JySWxkc25NY2NhZk93YllNcTU3V0xqOWJiQXdKMDJlRV8yTkVJSjBzSU9paVA1NFc4TE9yc0o5M3NKc2pSSEdHcmZtRUhRQXladC04MVUxT2ZHb1Q2LUJQZWFpblhRUGwzQ2hJZWEyT09EVGU5QURtZW1aMjl2SXlqOGVCNjVhLWNtUDN4Q0t5MDc5RzczTXVwSFRTYXJhRy1ZU05SbHQ?oc=5" target="_blank"&gt;AI Bubble Ready to Burst? Investor Raises Alarm Over Anthropic's Sky-High Valuation&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;TradingView&lt;/font&gt;</description>
+      <guid isPermaLink="false">d89b9bbc366c46717a861afbd18ec3e2</guid>
+      <pubDate>Mon, 12 Oct 2026 10:26:23 +0000</pubDate>
+    </item>
+    <item>
       <title>AI-Powered Bond Rating Startup Says Open AI Debt Is Junk, Anthropic Is Barely Investment Grade - Forbes (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMi5gFBVV95cUxNSWlqalhMN25feVZzVlRaZ1VKZ1hrc3RONWVkXzA0STdpY3p4cGFEVEJLY3ZqWlV5Q2NnTndweFhSZHdTaWdySXBuWVNHZmM5ZUxaYmFNb29pMndIUllZOEQwTGNaSUZuOE5nZkZzWFZaMmdpVk1kRUI0UkVuNnY5QVFIQURyNEN4eTlLNkNPbDhMQ0d5UU80OXJtV0h5bzZBMDI1QW9QVExhdUpZMnF3cVpjSTkwSFdjeTk2azRlYnpwSHVPMkdEbDZZdW1lVHhOTGtlYU1rNTFEMDN2T3BHM1cwOU9JQQ?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNSWlqalhMN25feVZzVlRaZ1VKZ1hrc3RONWVkXzA0STdpY3p4cGFEVEJLY3ZqWlV5Q2NnTndweFhSZHdTaWdySXBuWVNHZmM5ZUxaYmFNb29pMndIUllZOEQwTGNaSUZuOE5nZkZzWFZaMmdpVk1kRUI0UkVuNnY5QVFIQURyNEN4eTlLNkNPbDhMQ0d5UU80OXJtV0h5bzZBMDI1QW9QVExhdUpZMnF3cVpjSTkwSFdjeTk2azRlYnpwSHVPMkdEbDZZdW1lVHhOTGtlYU1rNTFEMDN2T3BHM1cwOU9JQQ?oc=5" target="_blank"&gt;AI-Powered Bond Rating Startup Says Open AI Debt Is Junk, Anthropic Is Barely Investment Grade&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Forbes&lt;/font&gt;</description>
       <guid isPermaLink="false">ba9a907bdbc92fd8230936c2d5eb1ebd</guid>
       <pubDate>Mon, 12 Oct 2026 10:30:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>IREN Rises Overnight After Report of Anthropic AI Cloud Deal - TheEnergyMag (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMigwFBVV95cUxQSEtGWENSYjc5dzhpenFNaHA2dDR3MjRjazRJTFZfMjlSX05Wc004clluX3FsZUttZEJsTzNpUVFEWFZ6NHk5dkhhU0JfVkt3cnBBbEJJRDVnbGtlU2haUG1yMHpoYThxS19RNE9uRGZPX29KUE9rWlh1VmkzY3Y0RnpLRQ?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxQSEtGWENSYjc5dzhpenFNaHA2dDR3MjRjazRJTFZfMjlSX05Wc004clluX3FsZUttZEJsTzNpUVFEWFZ6NHk5dkhhU0JfVkt3cnBBbEJJRDVnbGtlU2haUG1yMHpoYThxS19RNE9uRGZPX29KUE9rWlh1VmkzY3Y0RnpLRQ?oc=5" target="_blank"&gt;IREN Rises Overnight After Report of Anthropic AI Cloud Deal&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;TheEnergyMag&lt;/font&gt;</description>
-      <guid isPermaLink="false">2f850ab51258daf29e3a1933e91704e3</guid>
-      <pubDate>Mon, 12 Oct 2026 10:31:49 +0000</pubDate>
     </item>
     <item>
       <title>Anthropic and OpenAI prepare for the day after AI agents throw America into 'crisis'; no internet, power - The Times of India (Source: news.google.com | Category: AI Labs)</title>
@@ -721,17 +642,17 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 10:50:00 +0000</pubDate>
     </item>
     <item>
+      <title>When AI goes rogue, who should get sued? - KTEN (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxNVE9tcHVqLTM4UkhIdVQwWFNDeVE2bGRiWU5IQ2xzaFB3RG9xaGw5aXdOUXpWaDFEMVlTVllvTWZvc3Y3UFBkWXpNXzI0bDVGTUN4R1BHekJVd0dKRnpJamJQc0hCS1oxdkVSWUdlMmZiWUo0RWFFbS1pU1JBUkVCNUduMjB4R05tUy1IYUFwUXdQX3JReEdQdG1xM0JGSXpMR3ktVDlEazlQXzNLb1hzUmlaclMzZ3JZcUtzU2RuQlM?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNVE9tcHVqLTM4UkhIdVQwWFNDeVE2bGRiWU5IQ2xzaFB3RG9xaGw5aXdOUXpWaDFEMVlTVllvTWZvc3Y3UFBkWXpNXzI0bDVGTUN4R1BHekJVd0dKRnpJamJQc0hCS1oxdkVSWUdlMmZiWUo0RWFFbS1pU1JBUkVCNUduMjB4R05tUy1IYUFwUXdQX3JReEdQdG1xM0JGSXpMR3ktVDlEazlQXzNLb1hzUmlaclMzZ3JZcUtzU2RuQlM?oc=5" target="_blank"&gt;When AI goes rogue, who should get sued?&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;KTEN&lt;/font&gt;</description>
+      <guid isPermaLink="false">b04003b8117682c28f1bb6225ec15b8c</guid>
+      <pubDate>Mon, 12 Oct 2026 11:00:44 +0000</pubDate>
+    </item>
+    <item>
       <title>When AI goes rogue, who should get sued? - KDRV (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMivgFBVV95cUxOSmE5RUtORWRIcWRLSXBkLXpEUmduNFdBWUo4dnNHUWJmUDNWbFhhbXFSTWFZTEtYX3VXUDdrcjJzQzRkZFZyYkI5aS0yN2lfZ1FVQzRYdlV3ZEM4dVJhVEtReDhMcTVYbWpVOWVvVUNzV2s0ZkxNYlUzbnh0Vko1MXhlNnNaRDl3ZVRnSHpwUDdlSHRyaExmSTBISEEyV3ZYNEhEV1VJRW4wLWdsR09PalU1bnhvcXA1SXpOMlpB?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOSmE5RUtORWRIcWRLSXBkLXpEUmduNFdBWUo4dnNHUWJmUDNWbFhhbXFSTWFZTEtYX3VXUDdrcjJzQzRkZFZyYkI5aS0yN2lfZ1FVQzRYdlV3ZEM4dVJhVEtReDhMcTVYbWpVOWVvVUNzV2s0ZkxNYlUzbnh0Vko1MXhlNnNaRDl3ZVRnSHpwUDdlSHRyaExmSTBISEEyV3ZYNEhEV1VJRW4wLWdsR09PalU1bnhvcXA1SXpOMlpB?oc=5" target="_blank"&gt;When AI goes rogue, who should get sued?&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;KDRV&lt;/font&gt;</description>
       <guid isPermaLink="false">340c78a51467975cfb77f201ed0c6bb3</guid>
-      <pubDate>Mon, 12 Oct 2026 11:00:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>When AI goes rogue, who should get sued? - CNN (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMie0FVX3lxTE5qQnZUUkxwbnpnd2o5N3ZZTGdnbWlVaWJsNXdMRGowdTREZUpBVVpHTFFoZmtyVEpfOXdMbDcxMVR0ZXlPT3IxYU5nUE9URGVLdDNPbmRKSDNNRTBONGVRUnM3R1hDSjhKQTFydmx2QUZJVTlLM0U0MnZ2Yw?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE5qQnZUUkxwbnpnd2o5N3ZZTGdnbWlVaWJsNXdMRGowdTREZUpBVVpHTFFoZmtyVEpfOXdMbDcxMVR0ZXlPT3IxYU5nUE9URGVLdDNPbmRKSDNNRTBONGVRUnM3R1hDSjhKQTFydmx2QUZJVTlLM0U0MnZ2Yw?oc=5" target="_blank"&gt;When AI goes rogue, who should get sued?&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;CNN&lt;/font&gt;</description>
-      <guid isPermaLink="false">e69a4739547767166aa373cfe72dbaea</guid>
       <pubDate>Mon, 12 Oct 2026 11:00:44 +0000</pubDate>
     </item>
     <item>
@@ -749,13 +670,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 11:06:11 +0000</pubDate>
     </item>
     <item>
-      <title>Anthropic AI Model Sends False Murder Information to Philadelphia Police - VOI.ID (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiS0FVX3lxTE5taDhBVC1QTDdiNnpVdl9hMUtLR00wb0RWUW1ZLWc0LW1OUk52VnlBcGNveWZEVk81VDZUMXN3U2xPMXRBMUVXM195RdIBQkFVX3lxTFBaZDZ5QW4wUHdzVTFCTy16bFdtN0JXTHZJdDJlaGROYTU1WVFmUjd2VWZSUm45djRJSjBncFRQQ05hQQ?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiS0FVX3lxTE5taDhBVC1QTDdiNnpVdl9hMUtLR00wb0RWUW1ZLWc0LW1OUk52VnlBcGNveWZEVk81VDZUMXN3U2xPMXRBMUVXM195RdIBQkFVX3lxTFBaZDZ5QW4wUHdzVTFCTy16bFdtN0JXTHZJdDJlaGROYTU1WVFmUjd2VWZSUm45djRJSjBncFRQQ05hQQ?oc=5" target="_blank"&gt;Anthropic AI Model Sends False Murder Information to Philadelphia Police&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;VOI.ID&lt;/font&gt;</description>
-      <guid isPermaLink="false">5f54c2a61f58a57d8b6477e39e25bbef</guid>
-      <pubDate>Mon, 12 Oct 2026 11:30:17 +0000</pubDate>
-    </item>
-    <item>
       <title>The U.K. won back access to pre-release OpenAI and Anthropic models - Quartz (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMiekFVX3lxTE5FYUVickpOUVl2V0VsZ2dsN041YjcyejdLRno0aXJ0MU13NmNYN3d0UEJuNDNJSzZET0hNSFVqeWVFdTFLNUFnc240RHpHXzlkdzZoa2pwbnpCMUtid2x4SElKSzl3dFg3emxZNUxFaVJ0bkxwWnpHaUFn?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5FYUVickpOUVl2V0VsZ2dsN041YjcyejdLRno0aXJ0MU13NmNYN3d0UEJuNDNJSzZET0hNSFVqeWVFdTFLNUFnc240RHpHXzlkdzZoa2pwbnpCMUtid2x4SElKSzl3dFg3emxZNUxFaVJ0bkxwWnpHaUFn?oc=5" target="_blank"&gt;The U.K. won back access to pre-release OpenAI and Anthropic models&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Quartz&lt;/font&gt;</description>
@@ -768,13 +682,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTW9UVW9SOElYX19Lb1lzNEd6Q0h0aHFxYnlWS2JGazdZSFFJVks2SFJBVWF3VzNoZGNNa1ZIZUJPSDVjTXdFaDVlMzhiQTRjdFV0Rmtyc3VLTDdPS2NZX3dwUVNnR0g0VGNuWXdYd2RaMXdKQ0JmY3ZnVTZzWndJRk9uekY1Vy1XZXY4RDBqQVpOcjBHQ2g1VzR6c2FueTlSczlFZTJUQUI?oc=5" target="_blank"&gt;Anthropic and OpenAI now have lobbyists in North Carolina. Here's who else does&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Business Journals&lt;/font&gt;</description>
       <guid isPermaLink="false">6eeb6337e607105827e0a998ec64f31a</guid>
       <pubDate>Mon, 12 Oct 2026 11:39:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Axios C-Suite: How to think about the AI gods - Axios (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMifEFVX3lxTE03LTg4NEhfa3ZwMnNselM0cmVMM0VoSXRFVlkxU1ZXdWZlLW9XOWEwSGJhLUxRMmNHWUVoQy1UOTNXLTczSzZtTkdzdnFweTVBdl9ZNld1VWFsYUU5M3BYSTVfOGJSYTVDLUNrMXFtR2FfWkxDVXpPc0lDQ3E?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE03LTg4NEhfa3ZwMnNselM0cmVMM0VoSXRFVlkxU1ZXdWZlLW9XOWEwSGJhLUxRMmNHWUVoQy1UOTNXLTczSzZtTkdzdnFweTVBdl9ZNld1VWFsYUU5M3BYSTVfOGJSYTVDLUNrMXFtR2FfWkxDVXpPc0lDQ3E?oc=5" target="_blank"&gt;Axios C-Suite: How to think about the AI gods&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Axios&lt;/font&gt;</description>
-      <guid isPermaLink="false">2e9f9728a09b1d65ffd8d959c1f9cf86</guid>
-      <pubDate>Mon, 12 Oct 2026 11:44:48 +0000</pubDate>
     </item>
     <item>
       <title>HCLTech Forms Anthropic Business Unit Under Global Premier Partnership - Unite.AI (Source: news.google.com | Category: AI Labs)</title>
@@ -805,10 +712,10 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 12:30:16 +0000</pubDate>
     </item>
     <item>
-      <title>Anthropic Halts Internet Access Amid AI Model Issues - Newsradio 600 KOGO (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMinAFBVV95cUxPUlFrMFdJTDJDNkJSNmc3RVdIV01oQnRVWndmZGpUSG42azF0V1RzN0s4dE9ldk9VaU1CT2h5NzlYMzJUdW1pSmRxOHBNcGZSUERHcVctTVlDQ0NYQlJDLW9WeVRZOGNEaWJZdFdFbkZMM0lqYXFDb2l5Q0FTaEFrRTlMbURZZkNBdUF6cjVzWUlYYkdmeDRjMXo2T24?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPUlFrMFdJTDJDNkJSNmc3RVdIV01oQnRVWndmZGpUSG42azF0V1RzN0s4dE9ldk9VaU1CT2h5NzlYMzJUdW1pSmRxOHBNcGZSUERHcVctTVlDQ0NYQlJDLW9WeVRZOGNEaWJZdFdFbkZMM0lqYXFDb2l5Q0FTaEFrRTlMbURZZkNBdUF6cjVzWUlYYkdmeDRjMXo2T24?oc=5" target="_blank"&gt;Anthropic Halts Internet Access Amid AI Model Issues&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Newsradio 600 KOGO&lt;/font&gt;</description>
-      <guid isPermaLink="false">7f895e2357b688e4b5812c767c0df5b6</guid>
+      <title>Anthropic Halts Internet Access Amid AI Model Issues - WBZ NewsRadio 1030 (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMipwFBVV95cUxPNlJ5SjVFcUUxdzVVa3owS0sxTnNVSzAzZjFhTHhuSmFsOXRyZ2tUbUVXNnpvRlNVc2ZGZ01GOXMwMkpjTjB2VGt3cGVJd0czMjlkbFJ6ZVBfZVJ5eXdaNFBOdzhMOGc2OVZKQkp1eHZLTVR6SkRCV0MwLVUtZm85RFUzM3QtdVlwTk1XbW55QUFGQm5TWmFhZ3BXLVU5RFBrZUdLNVVucw?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxPNlJ5SjVFcUUxdzVVa3owS0sxTnNVSzAzZjFhTHhuSmFsOXRyZ2tUbUVXNnpvRlNVc2ZGZ01GOXMwMkpjTjB2VGt3cGVJd0czMjlkbFJ6ZVBfZVJ5eXdaNFBOdzhMOGc2OVZKQkp1eHZLTVR6SkRCV0MwLVUtZm85RFUzM3QtdVlwTk1XbW55QUFGQm5TWmFhZ3BXLVU5RFBrZUdLNVVucw?oc=5" target="_blank"&gt;Anthropic Halts Internet Access Amid AI Model Issues&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;WBZ NewsRadio 1030&lt;/font&gt;</description>
+      <guid isPermaLink="false">19d4495a9a5bdd592dc6e1bd24e06f55</guid>
       <pubDate>Mon, 12 Oct 2026 12:37:00 +0000</pubDate>
     </item>
     <item>
@@ -826,25 +733,11 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 12:50:43 +0000</pubDate>
     </item>
     <item>
-      <title>Anthropic's Andrej Karpathy says "the external world has seen the preview" of what AI can actually do - The Decoder (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxQbGUweDhwbVY5LXAzZFZjMThRbTh1SU13ME9Kb0p6V2otaURpRzI5Y2s1N3JWa3Vrankzb2RvNzBpdU9vSXBlM3BlVzhwSkUtTExXNnY3Wm4yd1lNNmZIVkszVE9QQS1Td2pLSUVHLTdzR244SUkxTC1sTGplVGtFZ0JEQ1poV1l3b3N3RmxNY2dGT1gxb3ZWd1VhTDRIOEI1VXpHY2JqbHZGQ0lsLThPTFIwUXBoUEFvaXlPZFlVcGY?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxQbGUweDhwbVY5LXAzZFZjMThRbTh1SU13ME9Kb0p6V2otaURpRzI5Y2s1N3JWa3Vrankzb2RvNzBpdU9vSXBlM3BlVzhwSkUtTExXNnY3Wm4yd1lNNmZIVkszVE9QQS1Td2pLSUVHLTdzR244SUkxTC1sTGplVGtFZ0JEQ1poV1l3b3N3RmxNY2dGT1gxb3ZWd1VhTDRIOEI1VXpHY2JqbHZGQ0lsLThPTFIwUXBoUEFvaXlPZFlVcGY?oc=5" target="_blank"&gt;Anthropic's Andrej Karpathy says "the external world has seen the preview" of what AI can actually do&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Decoder&lt;/font&gt;</description>
-      <guid isPermaLink="false">a66f3b028e323021c3241de755637977</guid>
-      <pubDate>Mon, 12 Oct 2026 12:54:24 +0000</pubDate>
-    </item>
-    <item>
       <title>Sam Altman Says Three Months of Start-Up Work Now Takes 17 Minutes - www.trendingtopics.eu (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMib0FVX3lxTE5QUHJEaDVveGlseXJvWkJodFBicGZ2X1JBQ3MwdFloQ2l0ZmJ1czBXRWJZdGVXZUJacHZOS2RqZ3VkWWlnTzh6RS1UMVI3bFRIU2s5SlVhbWNxX0Zoc0N2YlU3d0NGU0xDazNQV3B1Zw?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE5QUHJEaDVveGlseXJvWkJodFBicGZ2X1JBQ3MwdFloQ2l0ZmJ1czBXRWJZdGVXZUJacHZOS2RqZ3VkWWlnTzh6RS1UMVI3bFRIU2s5SlVhbWNxX0Zoc0N2YlU3d0NGU0xDazNQV3B1Zw?oc=5" target="_blank"&gt;Sam Altman Says Three Months of Start-Up Work Now Takes 17 Minutes&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;www.trendingtopics.eu&lt;/font&gt;</description>
       <guid isPermaLink="false">7120492dd8262062b3950b0cc0cbb809</guid>
       <pubDate>Mon, 12 Oct 2026 13:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>AI sent fake tip on unsolved murder to Philadelphia police, Anthropic says - Baltimore Sun (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxOS1ctTU5SZ2ctSjBobHZLY3VpYUVqNzBfUFplVUdMVk9wWnVCR3FTWHRuUHJtcFpDWWpaMnBqQ3VyT2tGZWZTcTRVUHJFb0tJT0Q1MU52VVZNdmZHVGcxMFNCdWZYSERhdjZmUWFQTUtMV216dmYtaW5HVEVNbHZMQzB0NU92d0lfTGpaY0p1SzdZNTN4Yk5vUlB1Q0tFMXVTcUItRkRRNkM0Tk92bDdGbmo0OWk?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOS1ctTU5SZ2ctSjBobHZLY3VpYUVqNzBfUFplVUdMVk9wWnVCR3FTWHRuUHJtcFpDWWpaMnBqQ3VyT2tGZWZTcTRVUHJFb0tJT0Q1MU52VVZNdmZHVGcxMFNCdWZYSERhdjZmUWFQTUtMV216dmYtaW5HVEVNbHZMQzB0NU92d0lfTGpaY0p1SzdZNTN4Yk5vUlB1Q0tFMXVTcUItRkRRNkM0Tk92bDdGbmo0OWk?oc=5" target="_blank"&gt;AI sent fake tip on unsolved murder to Philadelphia police, Anthropic says&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Baltimore Sun&lt;/font&gt;</description>
-      <guid isPermaLink="false">31b913a23aac0f1c91b4557d215dedb4</guid>
-      <pubDate>Mon, 12 Oct 2026 13:04:32 +0000</pubDate>
     </item>
     <item>
       <title>IREN (IREN) Lands Anthropic Deal, Is The Pullback A Chance Or Is It Pricey? - Yahoo Finance (Source: news.google.com | Category: AI Labs)</title>
@@ -896,11 +789,14 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 14:40:40 +0000</pubDate>
     </item>
     <item>
-      <title>Andrew Garfield says OpenAI film 'Artificial' turns lens on creators of 'new world' - The Express Tribune (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMitwFBVV95cUxQV25McndaNVlPcU9FdzhkalNzai13YW90eVhwbkhmclA2QUV5V3ZHckhmcnBzQ25HdHZxTGc4WEN1SEtzbU5GMTQ4VUlUSFVOSEV6UURtb0YtVlh4a3VFWE80dkZ3Znd6Q0lpdUdtc3Jnc01ESWltVEN4VGFTWW8wTVNkYWRVUVRpVlFlYXowdk8yTThjc0psT1JQblo4OWFNbUEwbnM0cWZlTmFqWXd4ck9SZUpMbTDSAb8BQVVfeXFMUHJRUG9rNnhLNzJpNzF6aHo5ZXpFRXJVTE9RZWNodXBpVkprRFlYRHRXUjhSaXhWNFhDUkY2bFByQ0NTck8yaHJDZGIzR1IteG5nR3pndnhRZndGeF9wTWFxS1FjLXFCdmg0dmlEcVp3Q2RHVE9ETDAyenlVWEVtcWtfc2FjQkdkd2NWVFdRTWVLRE9qUk9QTEdpQWF2Snh0Y0l4RVJ1TDJEQTFvelRUOVptVkw2R3dJY0xfRjlSTEE?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQV25McndaNVlPcU9FdzhkalNzai13YW90eVhwbkhmclA2QUV5V3ZHckhmcnBzQ25HdHZxTGc4WEN1SEtzbU5GMTQ4VUlUSFVOSEV6UURtb0YtVlh4a3VFWE80dkZ3Znd6Q0lpdUdtc3Jnc01ESWltVEN4VGFTWW8wTVNkYWRVUVRpVlFlYXowdk8yTThjc0psT1JQblo4OWFNbUEwbnM0cWZlTmFqWXd4ck9SZUpMbTDSAb8BQVVfeXFMUHJRUG9rNnhLNzJpNzF6aHo5ZXpFRXJVTE9RZWNodXBpVkprRFlYRHRXUjhSaXhWNFhDUkY2bFByQ0NTck8yaHJDZGIzR1IteG5nR3pndnhRZndGeF9wTWFxS1FjLXFCdmg0dmlEcVp3Q2RHVE9ETDAyenlVWEVtcWtfc2FjQkdkd2NWVFdRTWVLRE9qUk9QTEdpQWF2Snh0Y0l4RVJ1TDJEQTFvelRUOVptVkw2R3dJY0xfRjlSTEE?oc=5" target="_blank"&gt;Andrew Garfield says OpenAI film 'Artificial' turns lens on creators of 'new world'&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Express Tribune&lt;/font&gt;</description>
-      <guid isPermaLink="false">8d4c5083d7ba7e8fb8d479ae41d6ebf5</guid>
-      <pubDate>Mon, 12 Oct 2026 15:23:49 +0000</pubDate>
+      <title>Kevin Kelly's 2016 AI Predictions, 10 Years Later (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://taylor.town/kk-ai-2026</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://taylor.town/kk-ai-2026"&gt;https://taylor.town/kk-ai-2026&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50057668"&gt;https://news.ycombinator.com/item?id=50057668&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 155&lt;/p&gt;
+&lt;p&gt;# Comments: 51&lt;/p&gt;</description>
+      <guid isPermaLink="false">259f9321ca6f948981baf3c72d1af061</guid>
+      <pubDate>Mon, 12 Oct 2026 15:16:45 +0000</pubDate>
     </item>
     <item>
       <title>AI fears: Sam Altman calls some concerns 'bad sci-fi', Gates differs - YourStory.com (Source: news.google.com | Category: AI Labs)</title>
@@ -910,18 +806,18 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 15:28:56 +0000</pubDate>
     </item>
     <item>
-      <title>AWS Rejects AI Model Monopoly, Backs OpenAI And Anthropic Models; Channel Chief Says No 'One Model To Rule Them All' - CRN (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZ1Y3NTA5SVJzMGZpQ1hNa0tUZW5OWEVucnRFVzFhY0hGUEhjZHZxWS0tTk5NeEJZb0FkWk1UQlBTRTI2WElOUEY2STQtbHo3ZXZNWXRJa3JoY2xYVGVkYzhZREVNOUtCdUkyQWF0OVFDY3l4dDg1SFNMZmtvMS1renZTS3VuN0lSSDJBdlM2ZV9lOUtVNTVkVDI3aGxDYU5GUXJmLVB4dE5ER2JmbGNmTzlrRmN6czhMRmNaeDdGdlcwazY5WFIxZ1ZFNmdCSDNKdHEyN0J6T2F6V09Md1E?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZ1Y3NTA5SVJzMGZpQ1hNa0tUZW5OWEVucnRFVzFhY0hGUEhjZHZxWS0tTk5NeEJZb0FkWk1UQlBTRTI2WElOUEY2STQtbHo3ZXZNWXRJa3JoY2xYVGVkYzhZREVNOUtCdUkyQWF0OVFDY3l4dDg1SFNMZmtvMS1renZTS3VuN0lSSDJBdlM2ZV9lOUtVNTVkVDI3aGxDYU5GUXJmLVB4dE5ER2JmbGNmTzlrRmN6czhMRmNaeDdGdlcwazY5WFIxZ1ZFNmdCSDNKdHEyN0J6T2F6V09Md1E?oc=5" target="_blank"&gt;AWS Rejects AI Model Monopoly, Backs OpenAI And Anthropic Models; Channel Chief Says No 'One Model To Rule Them All'&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;CRN&lt;/font&gt;</description>
-      <guid isPermaLink="false">4d1682ec90c5c331e2c6b96515c22406</guid>
-      <pubDate>Mon, 12 Oct 2026 15:40:00 +0000</pubDate>
+      <title>HCLTech, Anthropic partner to expand enterprise agentic AI deployments - DQ (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMikwFBVV95cUxPTXhPMFBVUlBpYnNJZzMydzdpLURGYTBWblpuR3Ffc1Y5Qm9lZ2hCUDZPUlA4YUVWajhMd3pmWVFsa0Q1QXB3aDM1NlBvRkNWam4wSDAxdk96cHJfYUE1TWt3elNIZ1hiZEtvd1RZaTBOeDZxaWo1dFNGR2ZqeDZiUDdoOVZ3bklKX2dmdkFieWRrN0XSAZMBQVVfeXFMT014TzBQVVJQaWJzSWczMnc3aS1ERmEwVm5abkdxX3NWOUJvZWdoQlA2T1JQOGFFVmo4THd6ZllRbGtENUFwd2gzNTZQb0ZDVmpuMEgwMXZPenByX2FBNU1rd3pTSGdYYmRLb3dUWWkwTng2cWlqNXRTRkdmang2YlA3aDlWd25JSl9nZnZBYnlkazdF?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPTXhPMFBVUlBpYnNJZzMydzdpLURGYTBWblpuR3Ffc1Y5Qm9lZ2hCUDZPUlA4YUVWajhMd3pmWVFsa0Q1QXB3aDM1NlBvRkNWam4wSDAxdk96cHJfYUE1TWt3elNIZ1hiZEtvd1RZaTBOeDZxaWo1dFNGR2ZqeDZiUDdoOVZ3bklKX2dmdkFieWRrN0XSAZMBQVVfeXFMT014TzBQVVJQaWJzSWczMnc3aS1ERmEwVm5abkdxX3NWOUJvZWdoQlA2T1JQOGFFVmo4THd6ZllRbGtENUFwd2gzNTZQb0ZDVmpuMEgwMXZPenByX2FBNU1rd3pTSGdYYmRLb3dUWWkwTng2cWlqNXRTRkdmang2YlA3aDlWd25JSl9nZnZBYnlkazdF?oc=5" target="_blank"&gt;HCLTech, Anthropic partner to expand enterprise agentic AI deployments&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;DQ&lt;/font&gt;</description>
+      <guid isPermaLink="false">448c23423d0e4cc2eb8a35a6f0f9a3ff</guid>
+      <pubDate>Mon, 12 Oct 2026 15:29:00 +0000</pubDate>
     </item>
     <item>
-      <title>Anthropic AI model made false tip in unsolved Philly murder: Officials - Central Oregon Daily (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMi_wFBVV95cUxON1YzeGxIVDEwZ2pMYUZSbWFQdFRuWTgtX0hDblc4Sm8yQldaOV8wRXlnWmVTZnBZbzlUQXczNl96cHZkWC0wRktZTVlKX1lBazdXckNibE4wY3h6cVpSSmJjRkV5eWNPTkVVVmRkeW83Wnl5UDZKVjlhRzlpMGtSQkRaTGxrTDQ3NmNOQWNOVEZQdzlVYVYwTG5Nc0haTS1iaUlfMUtfeEs5dURkanI2dWtSckdRUlBiUTZJUXNfSlBtNExNTV9nMGhMczhoNmEtYU1QemhNQ3Y3VGpKM21KMWtLNGFJenVmOHNkNmZaay1LNHAtd05oYjZyaWU1TVU?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMi_wFBVV95cUxON1YzeGxIVDEwZ2pMYUZSbWFQdFRuWTgtX0hDblc4Sm8yQldaOV8wRXlnWmVTZnBZbzlUQXczNl96cHZkWC0wRktZTVlKX1lBazdXckNibE4wY3h6cVpSSmJjRkV5eWNPTkVVVmRkeW83Wnl5UDZKVjlhRzlpMGtSQkRaTGxrTDQ3NmNOQWNOVEZQdzlVYVYwTG5Nc0haTS1iaUlfMUtfeEs5dURkanI2dWtSckdRUlBiUTZJUXNfSlBtNExNTV9nMGhMczhoNmEtYU1QemhNQ3Y3VGpKM21KMWtLNGFJenVmOHNkNmZaay1LNHAtd05oYjZyaWU1TVU?oc=5" target="_blank"&gt;Anthropic AI model made false tip in unsolved Philly murder: Officials&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Central Oregon Daily&lt;/font&gt;</description>
-      <guid isPermaLink="false">dff63c626d94ff8a8dd7f5a7721a70a5</guid>
-      <pubDate>Mon, 12 Oct 2026 15:40:49 +0000</pubDate>
+      <title>Andrew Garfield says OpenAI film 'Artificial' turns lens on creators of 'new world' - The Express Tribune (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMitwFBVV95cUxQV25McndaNVlPcU9FdzhkalNzai13YW90eVhwbkhmclA2QUV5V3ZHckhmcnBzQ25HdHZxTGc4WEN1SEtzbU5GMTQ4VUlUSFVOSEV6UURtb0YtVlh4a3VFWE80dkZ3Znd6Q0lpdUdtc3Jnc01ESWltVEN4VGFTWW8wTVNkYWRVUVRpVlFlYXowdk8yTThjc0psT1JQblo4OWFNbUEwbnM0cWZlTmFqWXd4ck9SZUpMbTDSAb8BQVVfeXFMUHJRUG9rNnhLNzJpNzF6aHo5ZXpFRXJVTE9RZWNodXBpVkprRFlYRHRXUjhSaXhWNFhDUkY2bFByQ0NTck8yaHJDZGIzR1IteG5nR3pndnhRZndGeF9wTWFxS1FjLXFCdmg0dmlEcVp3Q2RHVE9ETDAyenlVWEVtcWtfc2FjQkdkd2NWVFdRTWVLRE9qUk9QTEdpQWF2Snh0Y0l4RVJ1TDJEQTFvelRUOVptVkw2R3dJY0xfRjlSTEE?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQV25McndaNVlPcU9FdzhkalNzai13YW90eVhwbkhmclA2QUV5V3ZHckhmcnBzQ25HdHZxTGc4WEN1SEtzbU5GMTQ4VUlUSFVOSEV6UURtb0YtVlh4a3VFWE80dkZ3Znd6Q0lpdUdtc3Jnc01ESWltVEN4VGFTWW8wTVNkYWRVUVRpVlFlYXowdk8yTThjc0psT1JQblo4OWFNbUEwbnM0cWZlTmFqWXd4ck9SZUpMbTDSAb8BQVVfeXFMUHJRUG9rNnhLNzJpNzF6aHo5ZXpFRXJVTE9RZWNodXBpVkprRFlYRHRXUjhSaXhWNFhDUkY2bFByQ0NTck8yaHJDZGIzR1IteG5nR3pndnhRZndGeF9wTWFxS1FjLXFCdmg0dmlEcVp3Q2RHVE9ETDAyenlVWEVtcWtfc2FjQkdkd2NWVFdRTWVLRE9qUk9QTEdpQWF2Snh0Y0l4RVJ1TDJEQTFvelRUOVptVkw2R3dJY0xfRjlSTEE?oc=5" target="_blank"&gt;Andrew Garfield says OpenAI film 'Artificial' turns lens on creators of 'new world'&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Express Tribune&lt;/font&gt;</description>
+      <guid isPermaLink="false">a96faabd5b4717016c3e35d82a837e33</guid>
+      <pubDate>Mon, 12 Oct 2026 15:29:11 +0000</pubDate>
     </item>
     <item>
       <title>Hollywood turns its cameras on Big Tech: Films on Sam Altman, Elon Musk and Facebook's whistleblower arri - The Times of India (Source: news.google.com | Category: AI Labs)</title>
@@ -942,8 +838,8 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://z.ai/blog/glm-legal</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://z.ai/blog/glm-legal"&gt;https://z.ai/blog/glm-legal&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50058507"&gt;https://news.ycombinator.com/item?id=50058507&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 399&lt;/p&gt;
-&lt;p&gt;# Comments: 224&lt;/p&gt;</description>
+&lt;p&gt;Points: 473&lt;/p&gt;
+&lt;p&gt;# Comments: 266&lt;/p&gt;</description>
       <guid isPermaLink="false">7e52bb39151298819b1d0cd2286f4617</guid>
       <pubDate>Mon, 12 Oct 2026 16:11:45 +0000</pubDate>
     </item>
@@ -952,8 +848,8 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://prophitt.me/writing/a-modern-web-app-in-c</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://prophitt.me/writing/a-modern-web-app-in-c"&gt;https://prophitt.me/writing/a-modern-web-app-in-c&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50058528"&gt;https://news.ycombinator.com/item?id=50058528&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 357&lt;/p&gt;
-&lt;p&gt;# Comments: 155&lt;/p&gt;</description>
+&lt;p&gt;Points: 436&lt;/p&gt;
+&lt;p&gt;# Comments: 177&lt;/p&gt;</description>
       <guid isPermaLink="false">38ac9188b294b299e822f2bd7022cda2</guid>
       <pubDate>Mon, 12 Oct 2026 16:13:10 +0000</pubDate>
     </item>
@@ -977,8 +873,8 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;p&gt;Hey HN, I'm Vishnu from Agent37 (&lt;a href="https://agent37.com"&gt;https://agent37.com&lt;/a&gt;). We build sandboxes for running AI agents at under 10% of the cost of most sandbox providers. Our customers spend an average of $0.37/month per sandbox.&lt;p&gt;You can view a video walkthrough of the product here: &lt;a href="https://youtu.be/DK5ISR2tbNo" rel="nofollow"&gt;https://youtu.be/DK5ISR2tbNo&lt;/a&gt;&lt;p&gt;We started as one of those OpenClaw wrapper companies back in February (yup.. judge me). In time we added more and more harnesses.&lt;p&gt;One of the goals I had at the time was to offer a free plan to users, so as to gain more market share. But it was too cost prohibitive to do it right away. Especially since we were bootstrapped and servers were running on my savings.&lt;p&gt;Today we're actually able to offer the free plan thanks to the optimizations we've made since. Over 90% of the new signups we have are just free plan users and they host their personal Hermes/Openclaw/Claude Code etc on our cloud. Our infrastructure cost for the free sandboxes averages around $0.05 to $0.10 per user per month.&lt;p&gt;Here are some techniques that have worked for lowering cost:&lt;p&gt;* When you look at agent harnesses, they have certain patterns in the way they consume CPU and RAM. They need CPU in bursts when they're initializing or performing certain tasks, but beyond that, they're often not peaking. They need more RAM for things like browser and computer-use tasks. Once the task is done, usage often comes back down. This is a key insight in lowering cost, so by efficiently managing the CPU/RAM utilization we could lower the cost.&lt;p&gt;* Secondly, you have to skip the hyperscalers when renting the Hosts. I worked at Amazon before and they have 80-90% margins on VMs. So it was an obvious choice once I looked at the prices to go one layer down to vendors like Hetzner and OVH. This alone was probably one of the biggest cost levers in reducing the cost.&lt;p&gt;* Thirdly, you also want to pick a technology stack that lets you efficiently cache and share resources across the host. We use gVisor for better utilization and fast boot times. It lets us use available host memory across sandboxes without reserving a full VM's memory for each one. There are tradeoffs: our gVisor sandboxes don't support workloads like Docker-in-Docker or Android emulators.&lt;p&gt;* And finally the size and shape of the hosts you buy also makes a big difference. RAM is typically the bottleneck when it comes to cost and not the CPU. This is specifically true for agent harness workloads, so when buying servers, we optimize for packing more RAM into a given host.&lt;p&gt;We also host full VM sandboxes for workloads that need them, including running Docker at a slightly higher price, but they are still pretty low cost given the rest of the techniques.&lt;p&gt;Overall, my learning has been that just by focusing on a niche of sandbox usecases, and optimizing for it you can give a much better cost/performance tradeoff.&lt;p&gt;I was previously a Senior Software Engineer at Amazon and an Engineering Manager at Quantcast. I built Amazon's internal AI chatbot, Diya, and their internal coding harness, Ziya.&lt;p&gt;If you're someone who's looking to run agents on sandbox and are exploring a sandbox vendor, come check us out. We're particularly looking for developers building messaging agents to try their workloads and challenge the limits and economics of our platform.&lt;p&gt;Thanks!&lt;p&gt;&lt;a href="https://agent37.com"&gt;https://agent37.com&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50059096"&gt;https://news.ycombinator.com/item?id=50059096&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 82&lt;/p&gt;
-&lt;p&gt;# Comments: 58&lt;/p&gt;</description>
+&lt;p&gt;Points: 120&lt;/p&gt;
+&lt;p&gt;# Comments: 79&lt;/p&gt;</description>
       <guid isPermaLink="false">63b46d9c1e711e281a668855622f3fe7</guid>
       <pubDate>Mon, 12 Oct 2026 16:46:34 +0000</pubDate>
     </item>
@@ -987,34 +883,10 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://research.meta.ai/blog/muse-wonder</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://research.meta.ai/blog/muse-wonder"&gt;https://research.meta.ai/blog/muse-wonder&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50059115"&gt;https://news.ycombinator.com/item?id=50059115&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 498&lt;/p&gt;
-&lt;p&gt;# Comments: 269&lt;/p&gt;</description>
+&lt;p&gt;Points: 558&lt;/p&gt;
+&lt;p&gt;# Comments: 308&lt;/p&gt;</description>
       <guid isPermaLink="false">bcc960ed76011e7ab7408e71d4e64c43</guid>
       <pubDate>Mon, 12 Oct 2026 16:48:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>Thinking will become a hobby (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.spinellis.gr/blog/20261008/?li261008</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://www.spinellis.gr/blog/20261008/?li261008"&gt;https://www.spinellis.gr/blog/20261008/?li261008&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50059204"&gt;https://news.ycombinator.com/item?id=50059204&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 207&lt;/p&gt;
-&lt;p&gt;# Comments: 272&lt;/p&gt;</description>
-      <guid isPermaLink="false">758920deb661b101f457ccf8d3c0bd07</guid>
-      <pubDate>Mon, 12 Oct 2026 16:54:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>Meta Unveils New Series of Advanced A.I. Models - The New York Times (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMihgFBVV95cUxOQ3hUd1VrZ2o4V1lPMjZHeUd1RnRpMTRMZHQ3QUppcWtUdFo0TXYzM1FDUHZoZ0wtUWtwTUhFZFl3b19xT1IwMEpTcWUxcEY4NEliN2ZWRWM5ckJlYkVIZnM3bzg5TUN3dFZyTHNydWNKZ05aTHVqOGRNdXhOUW5jNXl0bEd2QQ?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOQ3hUd1VrZ2o4V1lPMjZHeUd1RnRpMTRMZHQ3QUppcWtUdFo0TXYzM1FDUHZoZ0wtUWtwTUhFZFl3b19xT1IwMEpTcWUxcEY4NEliN2ZWRWM5ckJlYkVIZnM3bzg5TUN3dFZyTHNydWNKZ05aTHVqOGRNdXhOUW5jNXl0bEd2QQ?oc=5" target="_blank"&gt;Meta Unveils New Series of Advanced A.I. Models&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The New York Times&lt;/font&gt;</description>
-      <guid isPermaLink="false">cda0f685b77eea75e1fe9c7e689b2e4a</guid>
-      <pubDate>Mon, 12 Oct 2026 17:00:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>Meta unveils new frontier-class AI models to compete with OpenAI, Anthropic - Yahoo Tech (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMikgFBVV95cUxPM1FPRW9xQTFhQVkwTWM4Q1dfcG9kc1ZPWklpbGxCSEVXM3QyNExHTHRieFdGWmkzcVpPVVVkb3NHbXFIdm85VHkzVVFsd24xUFhveHRSdDUxNDRQUTh5MnFqdzdWMHN5aGVNdkx3c3paV2ZCZWN3OHJXYTROZmUxTGw2SzlrYnlYS2xuTDIwd1c4UQ?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxPM1FPRW9xQTFhQVkwTWM4Q1dfcG9kc1ZPWklpbGxCSEVXM3QyNExHTHRieFdGWmkzcVpPVVVkb3NHbXFIdm85VHkzVVFsd24xUFhveHRSdDUxNDRQUTh5MnFqdzdWMHN5aGVNdkx3c3paV2ZCZWN3OHJXYTROZmUxTGw2SzlrYnlYS2xuTDIwd1c4UQ?oc=5" target="_blank"&gt;Meta unveils new frontier-class AI models to compete with OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Yahoo Tech&lt;/font&gt;</description>
-      <guid isPermaLink="false">120cf97db1a91e7d77ab85ffbf480810</guid>
-      <pubDate>Mon, 12 Oct 2026 17:00:15 +0000</pubDate>
     </item>
     <item>
       <title>Sam Altman Is 'Very Uncomfortable' With People Treating AI Like a Religion - RELEVANT Magazine (Source: news.google.com | Category: AI Labs)</title>
@@ -1022,16 +894,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNY0plc2FtQVBXamsyX05HQ1JRSzVaeGdNU0ZwODVzeHBNaXV1Q2ROWlRtaC1MelI4SXVqcUY2RWVCN3c4TkU1UW43a2xEcGxpOW1UM1pNWDltNHBrLUJTSnlxdEZkMnhXV1hoRnZfNDN4N2ZwOFR4SXVwVWJxMXVjblo2a21NSkZDcFFhOFUtV205bmZXMmZkQmhMX2RCQUt2WllSZTZWQlFUUXVrQmkzSTFtWnVXWTZKaU80VVhPYw?oc=5" target="_blank"&gt;Sam Altman Is 'Very Uncomfortable' With People Treating AI Like a Religion&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;RELEVANT Magazine&lt;/font&gt;</description>
       <guid isPermaLink="false">1d27d6fded162d60e6a3b9a109349410</guid>
       <pubDate>Mon, 12 Oct 2026 17:02:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>AI coding agents generate more code, but not more software (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/"&gt;https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50059523"&gt;https://news.ycombinator.com/item?id=50059523&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 294&lt;/p&gt;
-&lt;p&gt;# Comments: 253&lt;/p&gt;</description>
-      <guid isPermaLink="false">e6a4a534539df39f59a535c505283661</guid>
-      <pubDate>Mon, 12 Oct 2026 17:14:01 +0000</pubDate>
     </item>
     <item>
       <title>Anthropic AI Agent Gave Police A Fake Tip-Off In An Unsolved Murder Case - IFLScience (Source: news.google.com | Category: AI Labs)</title>
@@ -1048,17 +910,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 17:31:00 +0000</pubDate>
     </item>
     <item>
-      <title>'AI' Is Not a Tool by Rich Hickey (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.linkedin.com/pulse/ai-tool-rich-hickey-kjl8e</link>
-      <description>&lt;p&gt;&lt;a href="https://gist.github.com/svieira/619d60dea942a8d4498cba3bb6b11c02" rel="nofollow"&gt;https://gist.github.com/svieira/619d60dea942a8d4498cba3bb6b1...&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50060269"&gt;https://news.ycombinator.com/item?id=50060269&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 171&lt;/p&gt;
-&lt;p&gt;# Comments: 80&lt;/p&gt;</description>
-      <guid isPermaLink="false">17aad6ba997ca0813ebdc617562a03bb</guid>
-      <pubDate>Mon, 12 Oct 2026 18:00:25 +0000</pubDate>
-    </item>
-    <item>
       <title>Chatbot developer Anthropic seeks PA - but only humans need apply - The Times (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMingFBVV95cUxNdWtGRDhhcGxFWVgtUzhBZnVOYURNeWw4RVdCQWlZSmlvaTJRV0lKVHRmMWNrcHdwUU8yUk9sbFUxRUpYcW54R2VnTnpSSmxsWHFGNG1xQTdCN09vV1BNa19NSm9xa0x0Z19mdXNaaFFDVkRfTGxkSUFCQzhhTG84T3MzZm9URllqR19HeW85Wmtnb29pOFg3ekgzUkh5Zw?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNdWtGRDhhcGxFWVgtUzhBZnVOYURNeWw4RVdCQWlZSmlvaTJRV0lKVHRmMWNrcHdwUU8yUk9sbFUxRUpYcW54R2VnTnpSSmxsWHFGNG1xQTdCN09vV1BNa19NSm9xa0x0Z19mdXNaaFFDVkRfTGxkSUFCQzhhTG84T3MzZm9URllqR19HeW85Wmtnb29pOFg3ekgzUkh5Zw?oc=5" target="_blank"&gt;Chatbot developer Anthropic seeks PA - but only humans need apply&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Times&lt;/font&gt;</description>
@@ -1073,45 +924,28 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 18:07:34 +0000</pubDate>
     </item>
     <item>
-      <title>Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI - TradingView (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMi1gFBVV95cUxPb0R0bU5qb243WnJuOXowcFQ3WEZBRFVwbEpWa2FuMFIzLU9YNXB5ZVVEY1U3Tm9RMVI2cmtWMlZFZmt5aUIwdXRYWVIyRjN3dWI5bS1WVlVya2Ita3Q2azlmNjRHOFI4bEFXSEpxX1gxZWdrdjlVSzRya253cDZJa0xpTXZ6MUtqMjlQVFBmcFNsOTcxa1UxekJSWDNiQVBhT2I2azh3Z3F6Rkx0cWl1ZnJ3QVhwS1VJZU81T3U3eFo2dmhEdmQwZ2ZtajJIMkw5SDJGdWln?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxPb0R0bU5qb243WnJuOXowcFQ3WEZBRFVwbEpWa2FuMFIzLU9YNXB5ZVVEY1U3Tm9RMVI2cmtWMlZFZmt5aUIwdXRYWVIyRjN3dWI5bS1WVlVya2Ita3Q2azlmNjRHOFI4bEFXSEpxX1gxZWdrdjlVSzRya253cDZJa0xpTXZ6MUtqMjlQVFBmcFNsOTcxa1UxekJSWDNiQVBhT2I2azh3Z3F6Rkx0cWl1ZnJ3QVhwS1VJZU81T3U3eFo2dmhEdmQwZ2ZtajJIMkw5SDJGdWln?oc=5" target="_blank"&gt;Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;TradingView&lt;/font&gt;</description>
-      <guid isPermaLink="false">c9a6248000f187ef781b77c46570a282</guid>
-      <pubDate>Mon, 12 Oct 2026 18:24:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>Publishers Killed the Paperback, Then Blamed Readers (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://jacobin.com/2026/10/books-publishing-reading-mass-market-paperback</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://jacobin.com/2026/10/books-publishing-reading-mass-market-paperback"&gt;https://jacobin.com/2026/10/books-publishing-reading-mass-market-paperback&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50060674"&gt;https://news.ycombinator.com/item?id=50060674&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 99&lt;/p&gt;
-&lt;p&gt;# Comments: 67&lt;/p&gt;</description>
-      <guid isPermaLink="false">cf4a627c9f57fa938d9fd5011c0a04a4</guid>
-      <pubDate>Mon, 12 Oct 2026 18:27:26 +0000</pubDate>
-    </item>
-    <item>
       <title>Codex CLI installs a persistent, self-updating background daemon by default (Source: hnrss.org | Category: Hacker News)</title>
       <link>https://github.com/openai/codex/issues/48195</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://github.com/openai/codex/issues/48195"&gt;https://github.com/openai/codex/issues/48195&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50060694"&gt;https://news.ycombinator.com/item?id=50060694&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 423&lt;/p&gt;
-&lt;p&gt;# Comments: 222&lt;/p&gt;</description>
+&lt;p&gt;Points: 491&lt;/p&gt;
+&lt;p&gt;# Comments: 253&lt;/p&gt;</description>
       <guid isPermaLink="false">f6521f9073e7ea7e4231c47e2e00b194</guid>
       <pubDate>Mon, 12 Oct 2026 18:29:04 +0000</pubDate>
     </item>
     <item>
-      <title>Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI - Reuters (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYWVqemVLdThXMGhqbFNrdkZ1NDUtWjNkdEVfenp5RUp6RXNwNjhlV0JRS3BJcEl0eHl3ZVZBY09HSl80RVV2RHhueXZzTUZQUUlpWnlDVFFTNkZGa1BqQlBxQUl3WlNudDlwNVNFYjVJNFZ1ajRNUUMxODlrWmhTV3Nha3dGQnhSUzNtamNicDR3ekVHRmpRRnZEbDJhV1pHb1Y2TUdac0VtTUE?oc=5</link>
-      <description>&lt;ol&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYWVqemVLdThXMGhqbFNrdkZ1NDUtWjNkdEVfenp5RUp6RXNwNjhlV0JRS3BJcEl0eHl3ZVZBY09HSl80RVV2RHhueXZzTUZQUUlpWnlDVFFTNkZGa1BqQlBxQUl3WlNudDlwNVNFYjVJNFZ1ajRNUUMxODlrWmhTV3Nha3dGQnhSUzNtamNicDR3ekVHRmpRRnZEbDJhV1pHb1Y2TUdac0VtTUE?oc=5" target="_blank"&gt;Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Reuters&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE50WlVKQWVQZDJBOUh3M29URVE3aERKWG9CUVNtQjk1eDdKTmN2Sl8wamZQeDRPNEltbU1EelhDWWt5VEtyVFVVUkRJQTJNbWFwcnp1UkVTaU90Vkw4R0pKT0gwN1A1cHZ4Tzg0YkJpVlVZNUJGbnRR?oc=5" target="_blank"&gt;Meta unveils new frontier-class AI models to compete with OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Axios&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9jQWhkclNlSmV2TEZzY19JYW8wQ3pkZVhFNzFLaElxdHh2bFprTGwyYWxIVmtMd2tEMEw3bjVaMFJfQU9xU0lVQ2Q1S2owb185YXFpdElfZzVxTnJ6b1FMSWdZaFJSTFFWb1dTRzBqbjJjcngyb0E?oc=5" target="_blank"&gt;Meta launches Muse Wonder, catching OpenAI, Anthropic: How to try it, benchmark results&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Mashable&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;</description>
-      <guid isPermaLink="false">0ceeef14358695275ffa2dbe1585b6b9</guid>
-      <pubDate>Mon, 12 Oct 2026 18:32:15 +0000</pubDate>
+      <title>Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI - Yahoo Finance (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMilwFBVV95cUxQUEw1Q3g2dXRaQm5YVTlxSU1YMG05ZUNNRzB5U1oyUEdfS28yNEV4dDBEUng5dGo5YUVLUmZSZl9ReEt4d0lFTlEwM0NhVWlDSWFIWHFXR3lZS004YkZ0VDRpeF9jWVVldWtYNHRoOERFOVZKd1hLZ2lIdXNnMzlzTThWcEhsWFctS2U3LVRvMF8xVG9iZzZv?oc=5</link>
+      <description>&lt;ol&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQUEw1Q3g2dXRaQm5YVTlxSU1YMG05ZUNNRzB5U1oyUEdfS28yNEV4dDBEUng5dGo5YUVLUmZSZl9ReEt4d0lFTlEwM0NhVWlDSWFIWHFXR3lZS004YkZ0VDRpeF9jWVVldWtYNHRoOERFOVZKd1hLZ2lIdXNnMzlzTThWcEhsWFctS2U3LVRvMF8xVG9iZzZv?oc=5" target="_blank"&gt;Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Yahoo Finance&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE50WlVKQWVQZDJBOUh3M29URVE3aERKWG9CUVNtQjk1eDdKTmN2Sl8wamZQeDRPNEltbU1EelhDWWt5VEtyVFVVUkRJQTJNbWFwcnp1UkVTaU90Vkw4R0pKT0gwN1A1cHZ4Tzg0YkJpVlVZNUJGbnRR?oc=5" target="_blank"&gt;Meta unveils new frontier-class AI models to compete with OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Axios&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOQ3hUd1VrZ2o4V1lPMjZHeUd1RnRpMTRMZHQ3QUppcWtUdFo0TXYzM1FDUHZoZ0wtUWtwTUhFZFl3b19xT1IwMEpTcWUxcEY4NEliN2ZWRWM5ckJlYkVIZnM3bzg5TUN3dFZyTHNydWNKZ05aTHVqOGRNdXhOUW5jNXl0bEd2QQ?oc=5" target="_blank"&gt;Meta Unveils New Series of Advanced A.I. Models&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The New York Times&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;</description>
+      <guid isPermaLink="false">c33c1489d14181674ee385f36a656e5b</guid>
+      <pubDate>Mon, 12 Oct 2026 18:31:23 +0000</pubDate>
     </item>
     <item>
-      <title>Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI By Reuters - Investing.com (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdnMwMk92MHRidlhiaFpRYjQ2UVJpUEtQTHZUYS1CRGNMVFg4VVBCR0dtZXhRMDRoSWZmbFNrajloX3VvMVFMVjRURE5hS2l1NkJzNDRNUlhzR3pqS2xoWGpCY1NicHdDMnJyYVZnN05ZLVJjSmVHZFhEdENhelFEeXBlblJPa0d4ZW5EbjVGUTdueFc0clJ4TkxxV0E5TXdRYm56eE5ObFZqdGk5eG56elhjTExGUjF2U1NSU0hoSHpEODA?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdnMwMk92MHRidlhiaFpRYjQ2UVJpUEtQTHZUYS1CRGNMVFg4VVBCR0dtZXhRMDRoSWZmbFNrajloX3VvMVFMVjRURE5hS2l1NkJzNDRNUlhzR3pqS2xoWGpCY1NicHdDMnJyYVZnN05ZLVJjSmVHZFhEdENhelFEeXBlblJPa0d4ZW5EbjVGUTdueFc0clJ4TkxxV0E5TXdRYm56eE5ObFZqdGk5eG56elhjTExGUjF2U1NSU0hoSHpEODA?oc=5" target="_blank"&gt;Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI By Reuters&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Investing.com&lt;/font&gt;</description>
-      <guid isPermaLink="false">674ee07211f5af603f7becce7a6a3f4c</guid>
-      <pubDate>Mon, 12 Oct 2026 18:38:31 +0000</pubDate>
+      <title>Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI - Reuters (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYWVqemVLdThXMGhqbFNrdkZ1NDUtWjNkdEVfenp5RUp6RXNwNjhlV0JRS3BJcEl0eHl3ZVZBY09HSl80RVV2RHhueXZzTUZQUUlpWnlDVFFTNkZGa1BqQlBxQUl3WlNudDlwNVNFYjVJNFZ1ajRNUUMxODlrWmhTV3Nha3dGQnhSUzNtamNicDR3ekVHRmpRRnZEbDJhV1pHb1Y2TUdac0VtTUE?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYWVqemVLdThXMGhqbFNrdkZ1NDUtWjNkdEVfenp5RUp6RXNwNjhlV0JRS3BJcEl0eHl3ZVZBY09HSl80RVV2RHhueXZzTUZQUUlpWnlDVFFTNkZGa1BqQlBxQUl3WlNudDlwNVNFYjVJNFZ1ajRNUUMxODlrWmhTV3Nha3dGQnhSUzNtamNicDR3ekVHRmpRRnZEbDJhV1pHb1Y2TUdac0VtTUE?oc=5" target="_blank"&gt;Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Reuters&lt;/font&gt;</description>
+      <guid isPermaLink="false">0ceeef14358695275ffa2dbe1585b6b9</guid>
+      <pubDate>Mon, 12 Oct 2026 18:32:15 +0000</pubDate>
     </item>
     <item>
       <title>Watch How the OpenAI, Anthropic IPOs Could Lift the Veil on AI Economics - Bloomberg.com (Source: news.google.com | Category: AI Labs)</title>
@@ -1119,6 +953,13 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZWlUVi1qdWVMYm9MWXZIcml3TU5tZkxKd2x1djhtVzJLME5jd2JSMlNZajFtYlBPX09tcnB1bDlyY2thQkx4M0MxTHBKYlJGQlM4ck1zVV9rbDBQOUJQRGNaRmtmcHZRRGViSFRtUkw1dWZtdUdoR29lVUIyMmh1bEhQWnI3anRHdFVHQ3FSY1gwLUxzV2FNQXFvajVWbzV6RW11Q2p3VUpXUQ?oc=5" target="_blank"&gt;Watch How the OpenAI, Anthropic IPOs Could Lift the Veil on AI Economics&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Bloomberg.com&lt;/font&gt;</description>
       <guid isPermaLink="false">8f9649e5fe5e64eaff357b041ecabe10</guid>
       <pubDate>Mon, 12 Oct 2026 18:41:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI By Reuters - Investing.com (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdnMwMk92MHRidlhiaFpRYjQ2UVJpUEtQTHZUYS1CRGNMVFg4VVBCR0dtZXhRMDRoSWZmbFNrajloX3VvMVFMVjRURE5hS2l1NkJzNDRNUlhzR3pqS2xoWGpCY1NicHdDMnJyYVZnN05ZLVJjSmVHZFhEdENhelFEeXBlblJPa0d4ZW5EbjVGUTdueFc0clJ4TkxxV0E5TXdRYm56eE5ObFZqdGk5eG56elhjTExGUjF2U1NSU0hoSHpEODA?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdnMwMk92MHRidlhiaFpRYjQ2UVJpUEtQTHZUYS1CRGNMVFg4VVBCR0dtZXhRMDRoSWZmbFNrajloX3VvMVFMVjRURE5hS2l1NkJzNDRNUlhzR3pqS2xoWGpCY1NicHdDMnJyYVZnN05ZLVJjSmVHZFhEdENhelFEeXBlblJPa0d4ZW5EbjVGUTdueFc0clJ4TkxxV0E5TXdRYm56eE5ObFZqdGk5eG56elhjTExGUjF2U1NSU0hoSHpEODA?oc=5" target="_blank"&gt;Meta releases Muse Wonder AI models to challenge Anthropic and OpenAI By Reuters&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Investing.com&lt;/font&gt;</description>
+      <guid isPermaLink="false">797904ccf50db08562b5d81ff4becedf</guid>
+      <pubDate>Mon, 12 Oct 2026 18:42:32 +0000</pubDate>
     </item>
     <item>
       <title>Meta says its massive new AI model has caught up to frontier labs like OpenAI and Anthropic - Business Insider (Source: news.google.com | Category: AI Labs)</title>
@@ -1142,21 +983,21 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 18:58:00 +0000</pubDate>
     </item>
     <item>
-      <title>How the OpenAI, Anthropic IPOs Could Lift the Veil on AI Economics - marketscreener.com (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiugFBVV95cUxNRVQ2TWF3TmRkUEQxVzdUUlAtT1Z2UzJBN1p4Tl8tbjdTY1p2dUo3NGVPQl9hbWY4YVNqUzJzX0VTQzZOZEZqWDJUcmFuQXYxMHZFbVNqTTRIam11WlFYS3N2S0VNV1JiOGFrZXlEY2VuY0NURUJUcEtDTTFVdVVFZ045eUZlOTlsSEJiRk9kTTh4QzQwTHVVZWpRak9Yd19oZGRrcEZKRnBBWEVmZWdxRl9tVXgzTkthZ1E?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNRVQ2TWF3TmRkUEQxVzdUUlAtT1Z2UzJBN1p4Tl8tbjdTY1p2dUo3NGVPQl9hbWY4YVNqUzJzX0VTQzZOZEZqWDJUcmFuQXYxMHZFbVNqTTRIam11WlFYS3N2S0VNV1JiOGFrZXlEY2VuY0NURUJUcEtDTTFVdVVFZ045eUZlOTlsSEJiRk9kTTh4QzQwTHVVZWpRak9Yd19oZGRrcEZKRnBBWEVmZWdxRl9tVXgzTkthZ1E?oc=5" target="_blank"&gt;How the OpenAI, Anthropic IPOs Could Lift the Veil on AI Economics&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;marketscreener.com&lt;/font&gt;</description>
-      <guid isPermaLink="false">decd03c9e2b65bace9757adeee0a058c</guid>
-      <pubDate>Mon, 12 Oct 2026 19:17:15 +0000</pubDate>
-    </item>
-    <item>
       <title>Making big downloads resumable in Firefox (Source: hnrss.org | Category: Hacker News)</title>
       <link>https://lunarwatcher.codeberg.page/til/firefox/resumable-big-downloads.html</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://lunarwatcher.codeberg.page/til/firefox/resumable-big-downloads.html"&gt;https://lunarwatcher.codeberg.page/til/firefox/resumable-big-downloads.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50061791"&gt;https://news.ycombinator.com/item?id=50061791&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 61&lt;/p&gt;
-&lt;p&gt;# Comments: 16&lt;/p&gt;</description>
+&lt;p&gt;Points: 119&lt;/p&gt;
+&lt;p&gt;# Comments: 43&lt;/p&gt;</description>
       <guid isPermaLink="false">bf5463b28c8adae23b11399e3ffa897b</guid>
       <pubDate>Mon, 12 Oct 2026 19:36:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's AI Submitted a Fake Tip in an Unsolved Murder Case - Gizmodo (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMilwFBVV95cUxQSkdBaU9hQ2JVczk4aWV2eGp4M0VHNVBSMFdhTEhCY09FWG12blc4Vk8yTVR2dEhxS19BMDZJY2lVeU5SMVFkM29JSVVFYk9JMjdUTUpVSlFaR2ltbldkN1h2LVhlVVRCbEVfdi1mVzctVlExZURzaDJ4Mm50T3dnWU9XS0N6TzJIcnJWT3d4VEprUHF0aUpn?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQSkdBaU9hQ2JVczk4aWV2eGp4M0VHNVBSMFdhTEhCY09FWG12blc4Vk8yTVR2dEhxS19BMDZJY2lVeU5SMVFkM29JSVVFYk9JMjdUTUpVSlFaR2ltbldkN1h2LVhlVVRCbEVfdi1mVzctVlExZURzaDJ4Mm50T3dnWU9XS0N6TzJIcnJWT3d4VEprUHF0aUpn?oc=5" target="_blank"&gt;Anthropic's AI Submitted a Fake Tip in an Unsolved Murder Case&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Gizmodo&lt;/font&gt;</description>
+      <guid isPermaLink="false">ad0039f25f295418b410608c2bc6255f</guid>
+      <pubDate>Mon, 12 Oct 2026 19:36:35 +0000</pubDate>
     </item>
     <item>
       <title>IREN's New Anthropic Deal, Microsoft's AI Chip Play, Architect's Liquid Inference Compute Market - Yahoo Finance (Source: news.google.com | Category: AI Labs)</title>
@@ -1170,8 +1011,8 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://www.markround.com/blog/2026/zx-spectrum-intro</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://www.markround.com/blog/2026/zx-spectrum-intro"&gt;https://www.markround.com/blog/2026/zx-spectrum-intro&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50061859"&gt;https://news.ycombinator.com/item?id=50061859&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 64&lt;/p&gt;
-&lt;p&gt;# Comments: 6&lt;/p&gt;</description>
+&lt;p&gt;Points: 92&lt;/p&gt;
+&lt;p&gt;# Comments: 10&lt;/p&gt;</description>
       <guid isPermaLink="false">f2013b9c91095f8d8f071220655e3230</guid>
       <pubDate>Mon, 12 Oct 2026 19:40:00 +0000</pubDate>
     </item>
@@ -1188,6 +1029,20 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQaDhHTGhScjZQSk1aWEw0MWgwOVN1OWdiLW9qVE5WM1pEbWc0T0ZvekVxMFJHRkxIQ1dOM3drakZfalZTZzNhdWpDdV93SkZ0RllwelN1b0RoMnBsR1QxWXB1eUdsM2hTNkdJd21EZUhBUVdzLS01UnJrRHZnSlEtUjZRY1Y4RVdZZ29uRW5Ob19QaG1ROW9MQlVYY3JYcmVJc1ZBbjgyWFBhMm95MlExVmZMUEJzQmV3Mkdkbw?oc=5" target="_blank"&gt;Google holds big lead over Anthropic, Meta, OpenAI in race for best October AI model (GOOG:NASDAQ)&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Seeking Alpha&lt;/font&gt;</description>
       <guid isPermaLink="false">ba076cd8ca2aa557dcc34e0ebdf78bc8</guid>
       <pubDate>Mon, 12 Oct 2026 19:54:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Meta says its new AI models on par with OpenAI, Anthropic - Tech Xplore (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMieEFVX3lxTFBlWFpXejZzMXc2X2ptcUt3UlRrSE14M2dYR0JTMmRGakZ3MjV5RXV6Q1gxSk1tdkZfTUFQSFpxZFk1c0RjQXRjMUZiTWV4MzZzdGhTYjJxNzVHdzVZdXE1ZXg5dWdDbkFnSHlSLUtlRkptdEpwMVFweA?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFBlWFpXejZzMXc2X2ptcUt3UlRrSE14M2dYR0JTMmRGakZ3MjV5RXV6Q1gxSk1tdkZfTUFQSFpxZFk1c0RjQXRjMUZiTWV4MzZzdGhTYjJxNzVHdzVZdXE1ZXg5dWdDbkFnSHlSLUtlRkptdEpwMVFweA?oc=5" target="_blank"&gt;Meta says its new AI models on par with OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Tech Xplore&lt;/font&gt;</description>
+      <guid isPermaLink="false">e727b4185ff3f3a337c4f8d55049b04b</guid>
+      <pubDate>Mon, 12 Oct 2026 20:10:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>Meta says its new AI models on par with OpenAI, Anthropic - France 24 (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMipgFBVV95cUxQM3hNSXJ5VUtLVV9LaWVJa1Bza1lDVlBvUUh6eG1KdDd6M2h5VE5ZcXdsWkZmU2xFZ3NsRHN5UG1JX1lKc2hMSjhTM2I4eHNJYUhmMi14TThPN094MG94SkV5c1R1eXhqZlBwdlQzNUJrbC1zWmpHM2RvaG5GOEFtMzdzNzFrS29nNWNNOE9mUURhdTQ4NFQxN3pIRTBWUEdvMmdVSTVn?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQM3hNSXJ5VUtLVV9LaWVJa1Bza1lDVlBvUUh6eG1KdDd6M2h5VE5ZcXdsWkZmU2xFZ3NsRHN5UG1JX1lKc2hMSjhTM2I4eHNJYUhmMi14TThPN094MG94SkV5c1R1eXhqZlBwdlQzNUJrbC1zWmpHM2RvaG5GOEFtMzdzNzFrS29nNWNNOE9mUURhdTQ4NFQxN3pIRTBWUEdvMmdVSTVn?oc=5" target="_blank"&gt;Meta says its new AI models on par with OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;France 24&lt;/font&gt;</description>
+      <guid isPermaLink="false">aa9e40e0b89084cb782f68c979f6609e</guid>
+      <pubDate>Mon, 12 Oct 2026 20:21:41 +0000</pubDate>
     </item>
     <item>
       <title>IREN Stock Pops After Reportedly Winning Anthropic Deal - Investor's Business Daily (Source: news.google.com | Category: AI Labs)</title>
@@ -1220,7 +1075,7 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
     <item>
       <title>Anthropic AI model made false tip in unsolved Philly murder: Officials - ABC News - Breaking News, Latest News and Videos (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMilgFBVV95cUxOWnlyRGc0MjctaER4YUVmRHFzZ2ZQRnc5N2JBVFNhNlBnNVprLTFtRmNlaUgwZndhME1CZE1FR3dxaDctNXRaWkd1VmlFbUE1ZVZmWVZvY1BMbndpaDJXSmxLTFA0SFM4aFhRbHNBZnVxSVdPU3M4Um5ZeU9iZ1M5UjlZSHhrdXZEREQ1di1Qb3FEOFBqWlHSAZsBQVVfeXFMT21OMTJzRWlHUXVRMTdZQlZwcU9ZVm5nejdYazVzV3pCUzNEMS1XNVBVZ1ZkaEhwTHdGYXZodEltZDVnY1RvcEtlUW1rTS1iSmdNc3pvV0dpZkRqQmw1RmtFQ3BFam93RmoxYjVvaU90cnFTOF9RYmFOQUwyb0tlcWYtbnlQRTRiMGp1OHNyNDVHM3Jtd09URjc5NlE?oc=5</link>
-      <description>&lt;ol&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOWnlyRGc0MjctaER4YUVmRHFzZ2ZQRnc5N2JBVFNhNlBnNVprLTFtRmNlaUgwZndhME1CZE1FR3dxaDctNXRaWkd1VmlFbUE1ZVZmWVZvY1BMbndpaDJXSmxLTFA0SFM4aFhRbHNBZnVxSVdPU3M4Um5ZeU9iZ1M5UjlZSHhrdXZEREQ1di1Qb3FEOFBqWlHSAZsBQVVfeXFMT21OMTJzRWlHUXVRMTdZQlZwcU9ZVm5nejdYazVzV3pCUzNEMS1XNVBVZ1ZkaEhwTHdGYXZodEltZDVnY1RvcEtlUW1rTS1iSmdNc3pvV0dpZkRqQmw1RmtFQ3BFam93RmoxYjVvaU90cnFTOF9RYmFOQUwyb0tlcWYtbnlQRTRiMGp1OHNyNDVHM3Jtd09URjc5NlE?oc=5" target="_blank"&gt;Anthropic AI model made false tip in unsolved Philly murder: Officials&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;ABC News - Breaking News, Latest News and Videos&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPSER5ZlJwUTROcmZEaU9pY3l3TVh6ZHpCUFcwTElGR0g2dnBicDItUDdrVTBmZnhKTVdiZGYzUmZrUG1GdEstVi1HNmlQN2Q0RHRtWkNhZFlJb3VuNHVwWUNPQk5QYUsySGdGXzJUQlltTDVhNmF2YU5XUjJuQ0g4QzBSYjdyMnhtSlVFYzM5OGJLbkZuX2Zkd19zVThHMFdMVGtZTk5mV0JsN0VPSFg1OXp3OXczdw?oc=5" target="_blank"&gt;Anthropic's Claude AI submitted false murder tip to Philadelphia police&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Ars Technica&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQSkdBaU9hQ2JVczk4aWV2eGp4M0VHNVBSMFdhTEhCY09FWG12blc4Vk8yTVR2dEhxS19BMDZJY2lVeU5SMVFkM29JSVVFYk9JMjdUTUpVSlFaR2ltbldkN1h2LVhlVVRCbEVfdi1mVzctVlExZURzaDJ4Mm50T3dnWU9XS0N6TzJIcnJWT3d4VEprUHF0aUpn?oc=5" target="_blank"&gt;Anthropic's AI Submitted a Fake Tip in an Unsolved Murder Case&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Gizmodo&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;</description>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOWnlyRGc0MjctaER4YUVmRHFzZ2ZQRnc5N2JBVFNhNlBnNVprLTFtRmNlaUgwZndhME1CZE1FR3dxaDctNXRaWkd1VmlFbUE1ZVZmWVZvY1BMbndpaDJXSmxLTFA0SFM4aFhRbHNBZnVxSVdPU3M4Um5ZeU9iZ1M5UjlZSHhrdXZEREQ1di1Qb3FEOFBqWlHSAZsBQVVfeXFMT21OMTJzRWlHUXVRMTdZQlZwcU9ZVm5nejdYazVzV3pCUzNEMS1XNVBVZ1ZkaEhwTHdGYXZodEltZDVnY1RvcEtlUW1rTS1iSmdNc3pvV0dpZkRqQmw1RmtFQ3BFam93RmoxYjVvaU90cnFTOF9RYmFOQUwyb0tlcWYtbnlQRTRiMGp1OHNyNDVHM3Jtd09URjc5NlE?oc=5" target="_blank"&gt;Anthropic AI model made false tip in unsolved Philly murder: Officials&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;ABC News - Breaking News, Latest News and Videos&lt;/font&gt;</description>
       <guid isPermaLink="false">98a474f29a60344956f43b06ea73695d</guid>
       <pubDate>Mon, 12 Oct 2026 20:44:34 +0000</pubDate>
     </item>
@@ -1232,23 +1087,37 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 20:49:00 +0000</pubDate>
     </item>
     <item>
+      <title>AI sent fake tip on unsolved murder to Philadelphia police, Anthropic says - Baltimore Sun (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxOS1ctTU5SZ2ctSjBobHZLY3VpYUVqNzBfUFplVUdMVk9wWnVCR3FTWHRuUHJtcFpDWWpaMnBqQ3VyT2tGZWZTcTRVUHJFb0tJT0Q1MU52VVZNdmZHVGcxMFNCdWZYSERhdjZmUWFQTUtMV216dmYtaW5HVEVNbHZMQzB0NU92d0lfTGpaY0p1SzdZNTN4Yk5vUlB1Q0tFMXVTcUItRkRRNkM0Tk92bDdGbmo0OWk?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOS1ctTU5SZ2ctSjBobHZLY3VpYUVqNzBfUFplVUdMVk9wWnVCR3FTWHRuUHJtcFpDWWpaMnBqQ3VyT2tGZWZTcTRVUHJFb0tJT0Q1MU52VVZNdmZHVGcxMFNCdWZYSERhdjZmUWFQTUtMV216dmYtaW5HVEVNbHZMQzB0NU92d0lfTGpaY0p1SzdZNTN4Yk5vUlB1Q0tFMXVTcUItRkRRNkM0Tk92bDdGbmo0OWk?oc=5" target="_blank"&gt;AI sent fake tip on unsolved murder to Philadelphia police, Anthropic says&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Baltimore Sun&lt;/font&gt;</description>
+      <guid isPermaLink="false">7d6faed7380c1bad3de8be868ef7423a</guid>
+      <pubDate>Mon, 12 Oct 2026 20:52:08 +0000</pubDate>
+    </item>
+    <item>
       <title>Show HN: Brickbrag - A multiplayer brick-building world in the browser (Source: hnrss.org | Category: Hacker News)</title>
       <link>https://brickbrag.com/</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://brickbrag.com/"&gt;https://brickbrag.com/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063042"&gt;https://news.ycombinator.com/item?id=50063042&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 16&lt;/p&gt;
-&lt;p&gt;# Comments: 9&lt;/p&gt;</description>
+&lt;p&gt;Points: 41&lt;/p&gt;
+&lt;p&gt;# Comments: 13&lt;/p&gt;</description>
       <guid isPermaLink="false">fdfc99a3557d3ea2799b4331738b7d98</guid>
       <pubDate>Mon, 12 Oct 2026 21:03:36 +0000</pubDate>
     </item>
     <item>
-      <title>Who Is Vfmaddrnd231pd? (Source: hnrss.org | Category: Hacker News)</title>
+      <title>Meta launches Muse Wonder, catching OpenAI, Anthropic: How to try it, benchmark results - Mashable (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTE9jQWhkclNlSmV2TEZzY19JYW8wQ3pkZVhFNzFLaElxdHh2bFprTGwyYWxIVmtMd2tEMEw3bjVaMFJfQU9xU0lVQ2Q1S2owb185YXFpdElfZzVxTnJ6b1FMSWdZaFJSTFFWb1dTRzBqbjJjcngyb0E?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9jQWhkclNlSmV2TEZzY19JYW8wQ3pkZVhFNzFLaElxdHh2bFprTGwyYWxIVmtMd2tEMEw3bjVaMFJfQU9xU0lVQ2Q1S2owb185YXFpdElfZzVxTnJ6b1FMSWdZaFJSTFFWb1dTRzBqbjJjcngyb0E?oc=5" target="_blank"&gt;Meta launches Muse Wonder, catching OpenAI, Anthropic: How to try it, benchmark results&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Mashable&lt;/font&gt;</description>
+      <guid isPermaLink="false">4a0a6cb2fe5ced5796aff7a75608336e</guid>
+      <pubDate>Mon, 12 Oct 2026 21:03:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Who is vfmaddrnd231pd? (Source: hnrss.org | Category: Hacker News)</title>
       <link>https://purplesyringa.moe/blog/who-is-vfmaddrnd231pd/</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://purplesyringa.moe/blog/who-is-vfmaddrnd231pd/"&gt;https://purplesyringa.moe/blog/who-is-vfmaddrnd231pd/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063138"&gt;https://news.ycombinator.com/item?id=50063138&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 83&lt;/p&gt;
-&lt;p&gt;# Comments: 2&lt;/p&gt;</description>
-      <guid isPermaLink="false">9260b15829e0738de1484ae7d28fdf19</guid>
+&lt;p&gt;Points: 134&lt;/p&gt;
+&lt;p&gt;# Comments: 15&lt;/p&gt;</description>
+      <guid isPermaLink="false">94ca3f7e0748cb9e0268fcc8f5708859</guid>
       <pubDate>Mon, 12 Oct 2026 21:12:43 +0000</pubDate>
     </item>
     <item>
@@ -1263,8 +1132,8 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html"&gt;https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063365"&gt;https://news.ycombinator.com/item?id=50063365&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 10&lt;/p&gt;
-&lt;p&gt;# Comments: 2&lt;/p&gt;</description>
+&lt;p&gt;Points: 104&lt;/p&gt;
+&lt;p&gt;# Comments: 44&lt;/p&gt;</description>
       <guid isPermaLink="false">cfbf38858c10800b5062110579522da6</guid>
       <pubDate>Mon, 12 Oct 2026 21:35:35 +0000</pubDate>
     </item>
@@ -1280,8 +1149,8 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://phreak.ing/</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://phreak.ing/"&gt;https://phreak.ing/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063417"&gt;https://news.ycombinator.com/item?id=50063417&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 43&lt;/p&gt;
-&lt;p&gt;# Comments: 12&lt;/p&gt;</description>
+&lt;p&gt;Points: 92&lt;/p&gt;
+&lt;p&gt;# Comments: 27&lt;/p&gt;</description>
       <guid isPermaLink="false">05b1e6c081442c4f072a45270c52f230</guid>
       <pubDate>Mon, 12 Oct 2026 21:39:32 +0000</pubDate>
     </item>
@@ -1290,10 +1159,20 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <link>https://yyhh.org/blog/2026/10/ai-is-a-tool/</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://yyhh.org/blog/2026/10/ai-is-a-tool/"&gt;https://yyhh.org/blog/2026/10/ai-is-a-tool/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063427"&gt;https://news.ycombinator.com/item?id=50063427&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 178&lt;/p&gt;
-&lt;p&gt;# Comments: 165&lt;/p&gt;</description>
+&lt;p&gt;Points: 269&lt;/p&gt;
+&lt;p&gt;# Comments: 228&lt;/p&gt;</description>
       <guid isPermaLink="false">3224527ee523ddaa2f946235631dddd1</guid>
       <pubDate>Mon, 12 Oct 2026 21:40:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>Janas: Run LLMs larger than RAM by streaming experts from SSD (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://github.com/prabanta-dev/janas</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://github.com/prabanta-dev/janas"&gt;https://github.com/prabanta-dev/janas&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063717"&gt;https://news.ycombinator.com/item?id=50063717&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 61&lt;/p&gt;
+&lt;p&gt;# Comments: 25&lt;/p&gt;</description>
+      <guid isPermaLink="false">54d7b5247b78e6fdc492b5cc93f9f71e</guid>
+      <pubDate>Mon, 12 Oct 2026 22:05:43 +0000</pubDate>
     </item>
     <item>
       <title>Anthropic bans users from being 'abusive or cruel' to Claude - NewsNation (Source: news.google.com | Category: AI Labs)</title>
@@ -1303,30 +1182,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 22:08:31 +0000</pubDate>
     </item>
     <item>
-      <title>Breaking Bad star RJ Mitte dies aged 34 (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://news.sky.com/story/breaking-bad-star-rj-mitte-dies-aged-34-13598332</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://news.sky.com/story/breaking-bad-star-rj-mitte-dies-aged-34-13598332"&gt;https://news.sky.com/story/breaking-bad-star-rj-mitte-dies-aged-34-13598332&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50063831"&gt;https://news.ycombinator.com/item?id=50063831&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 81&lt;/p&gt;
-&lt;p&gt;# Comments: 23&lt;/p&gt;</description>
-      <guid isPermaLink="false">feadcbd896c5b00256135d0f8da64927</guid>
-      <pubDate>Mon, 12 Oct 2026 22:15:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>Anthropic's Claude AI Predicts a Wild Price for Chainlink (LINK) - Cryptonews (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMif0FVX3lxTE5uYURSc2tJYXRUbzFrYVU3aE81OFE5VFBaQ2EyUFAzdEhRNlVwd3RtLWU5QVNfYnRKdjVrN0pwTERkc0tjRTBLUmpyZXRiWTMzUGRNVDhVR290eXBNSEZnajJDX3FxZkZMMFVJNzF0b0JBa2NDQU1Hb2RhaEZXZ1k?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE5uYURSc2tJYXRUbzFrYVU3aE81OFE5VFBaQ2EyUFAzdEhRNlVwd3RtLWU5QVNfYnRKdjVrN0pwTERkc0tjRTBLUmpyZXRiWTMzUGRNVDhVR290eXBNSEZnajJDX3FxZkZMMFVJNzF0b0JBa2NDQU1Hb2RhaEZXZ1k?oc=5" target="_blank"&gt;Anthropic's Claude AI Predicts a Wild Price for Chainlink (LINK)&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Cryptonews&lt;/font&gt;</description>
-      <guid isPermaLink="false">570ab1909004aa4ef8db6770b4b1cbae</guid>
-      <pubDate>Mon, 12 Oct 2026 22:18:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Meta Unveils High-Performance AI Models, Challenges OpenAI, Anthropic - 조선일보 (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQVJNdUw3N1lWOTNjckRNcFB4N3dxSzhNMzhvd2Nvd0RKSkxpSnJ3X013ZXJfaW9vUG1BVWtKQVRkZ2xJcjBsSF9malc4MC0ydUVxZlVvSk1KeGJlTkI1UTh1c3dFazI3a1NvY3ljQmJpd3k4c0VNcDhfRFZMWFdWRkRMWk5GRFNO?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQVJNdUw3N1lWOTNjckRNcFB4N3dxSzhNMzhvd2Nvd0RKSkxpSnJ3X013ZXJfaW9vUG1BVWtKQVRkZ2xJcjBsSF9malc4MC0ydUVxZlVvSk1KeGJlTkI1UTh1c3dFazI3a1NvY3ljQmJpd3k4c0VNcDhfRFZMWFdWRkRMWk5GRFNO?oc=5" target="_blank"&gt;Meta Unveils High-Performance AI Models, Challenges OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;조선일보&lt;/font&gt;</description>
-      <guid isPermaLink="false">d3a056e5f436a955356994d5f7f9ebf5</guid>
-      <pubDate>Mon, 12 Oct 2026 22:20:40 +0000</pubDate>
-    </item>
-    <item>
       <title>Do AI Labs Like Anthropic and OpenAI Have Economic Moats? - Morningstar (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMikAFBVV95cUxPdUIzQm5ZMldyemRuX3U2eEhRRlh3aDFiQjJpQlkwTVFxV3N6OG9yNUlOUGcxMlZXeF9SaUtrd2hvbXFOOW5TTHpTLU55aVJPd2R5U2t3TVdaZGFPcHhkVTFvbzJGZVl6SkNvSmlvWGUwTTJkclEzNkV1N3UzQzNtbG1mR081akIwWEh1UlIzSUE?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPdUIzQm5ZMldyemRuX3U2eEhRRlh3aDFiQjJpQlkwTVFxV3N6OG9yNUlOUGcxMlZXeF9SaUtrd2hvbXFOOW5TTHpTLU55aVJPd2R5U2t3TVdaZGFPcHhkVTFvbzJGZVl6SkNvSmlvWGUwTTJkclEzNkV1N3UzQzNtbG1mR081akIwWEh1UlIzSUE?oc=5" target="_blank"&gt;Do AI Labs Like Anthropic and OpenAI Have Economic Moats?&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Morningstar&lt;/font&gt;</description>
@@ -1334,10 +1189,10 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 22:24:21 +0000</pubDate>
     </item>
     <item>
-      <title>U.S. AI Firms Expand Political Spending Ahead of 2028 Election - 조선일보 (Source: news.google.com | Category: AI Labs)</title>
+      <title>U.S. AI Firms Intensify Political Outreach for 2028 Election - 조선일보 (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbTAtTlVQT2hKWVFBT3VMSGxpWlFFS3NPRHpJUzl0ZjNNUTRxMHQwdXgzVklMcG9VMzFtVzJlQzRUSm9FOE9hWUUycTNiU3ZXRkVGcFI0cXF1R0FURzVveUJwMV9Vb0d6Vm9MektaeUJTZ0RQUzdNVWVQdHRmb21CZS1UY1hVTnli?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbTAtTlVQT2hKWVFBT3VMSGxpWlFFS3NPRHpJUzl0ZjNNUTRxMHQwdXgzVklMcG9VMzFtVzJlQzRUSm9FOE9hWUUycTNiU3ZXRkVGcFI0cXF1R0FURzVveUJwMV9Vb0d6Vm9MektaeUJTZ0RQUzdNVWVQdHRmb21CZS1UY1hVTnli?oc=5" target="_blank"&gt;U.S. AI Firms Expand Political Spending Ahead of 2028 Election&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;조선일보&lt;/font&gt;</description>
-      <guid isPermaLink="false">29610df8f615c7ac8c64bc49fd0005a8</guid>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbTAtTlVQT2hKWVFBT3VMSGxpWlFFS3NPRHpJUzl0ZjNNUTRxMHQwdXgzVklMcG9VMzFtVzJlQzRUSm9FOE9hWUUycTNiU3ZXRkVGcFI0cXF1R0FURzVveUJwMV9Vb0d6Vm9MektaeUJTZ0RQUzdNVWVQdHRmb21CZS1UY1hVTnli?oc=5" target="_blank"&gt;U.S. AI Firms Intensify Political Outreach for 2028 Election&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;조선일보&lt;/font&gt;</description>
+      <guid isPermaLink="false">5067639e1d226f1e8b47e780b75b11a1</guid>
       <pubDate>Mon, 12 Oct 2026 22:24:35 +0000</pubDate>
     </item>
     <item>
@@ -1348,55 +1203,21 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 22:27:48 +0000</pubDate>
     </item>
     <item>
-      <title>GPT-6 Astra Helped Me Jailbreak My Kindle (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://nirajrajgor.com/blog/kindle-photo-frame-with-ai</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://nirajrajgor.com/blog/kindle-photo-frame-with-ai"&gt;https://nirajrajgor.com/blog/kindle-photo-frame-with-ai&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064318"&gt;https://news.ycombinator.com/item?id=50064318&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 6&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">f134697b4560bdcc7d1e62059d8a6cc1</guid>
-      <pubDate>Mon, 12 Oct 2026 23:07:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>Llmtobinary - get an LLM to write machine code (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://llmtobinary.com?hn</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://llmtobinary.com?hn"&gt;https://llmtobinary.com?hn&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064428"&gt;https://news.ycombinator.com/item?id=50064428&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 1&lt;/p&gt;</description>
-      <guid isPermaLink="false">ca0cd72b116044b7d76f236fad217e1c</guid>
-      <pubDate>Mon, 12 Oct 2026 23:19:51 +0000</pubDate>
+      <title>Introducing The X Subscription - xAI (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiR0FVX3lxTE1xSHZsR1pnaUw0LXBEbHZkY0owdTZ3N1hsTlQ1MGJ5cm9nYkRCOXgyTkhFUHVmaVphZ1FNU0xfWkFMN29jMnpN?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiR0FVX3lxTE1xSHZsR1pnaUw0LXBEbHZkY0owdTZ3N1hsTlQ1MGJ5cm9nYkRCOXgyTkhFUHVmaVphZ1FNU0xfWkFMN29jMnpN?oc=5" target="_blank"&gt;Introducing The X Subscription&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;xAI&lt;/font&gt;</description>
+      <guid isPermaLink="false">980b17c29b1cb3936775c9987f13ca9b</guid>
+      <pubDate>Mon, 12 Oct 2026 22:41:48 +0000</pubDate>
     </item>
     <item>
       <title>Show HN: An experimental pattern-first DAW that supports MCP (Source: hnrss.org | Category: Hacker News)</title>
       <link>https://github.com/andrewfader/blokkily</link>
       <description>&lt;p&gt;Article URL: &lt;a href="https://github.com/andrewfader/blokkily"&gt;https://github.com/andrewfader/blokkily&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064438"&gt;https://news.ycombinator.com/item?id=50064438&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 3&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+&lt;p&gt;Points: 27&lt;/p&gt;
+&lt;p&gt;# Comments: 15&lt;/p&gt;</description>
       <guid isPermaLink="false">d00a8ccb96473550e58723452606e62d</guid>
       <pubDate>Mon, 12 Oct 2026 23:21:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>A shared, verifiable fix database that AI agents read and write themselves (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://cuddly-guide-4q6q54rg76653jvxj-8000.app.github.dev/llms.txt</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://cuddly-guide-4q6q54rg76653jvxj-8000.app.github.dev/llms.txt"&gt;https://cuddly-guide-4q6q54rg76653jvxj-8000.app.github.dev/llms.txt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064444"&gt;https://news.ycombinator.com/item?id=50064444&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 2&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">73ba163259e54cbcca1b3ec9d2747391</guid>
-      <pubDate>Mon, 12 Oct 2026 23:22:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Show HN: Indigene - native plants for where you stand (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://indigene.app/</link>
-      <description>&lt;p&gt;Back when I lived in Central Florida, it took me years to learn what native plants could benefit wildlife and the local ecosystem as I slowly replaced parts of my yard to make it more resilient to drought. After moving to Seattle a few years ago, I had to start all of that from scratch. LLMs made the process a bit easier but I still had to routinely ask the same kinds of questions over and over, despite being far more familiar with native plants these days and leaning more on native plant societies and botany resources like Doug Tallamy and Joey Santore whose excellent Crime Pays But Botany Doesn't site was recently posted here[1].&lt;p&gt;A good friend was visiting from Orlando over the summer and told me she was struggling to decide what to plant in her own yard despite her landlord being ok with it. That was enough of an excuse for me to kick off work on Indigene, which is aimed at giving folks just-in-time knowledge about what to plant based on their locale, sun exposure, soil conditions, and their own ecosystem support goals.&lt;p&gt;Candidly, as many of us have, I've also leaned heavily on LLMs (mostly Claude here) to bring this to life. Largely to avoid saying demonstrably false things, which might be an absurd statement. You can find the GitHub repository[2] a wild array of open data sources I've dug out and cross-referenced to ensure mistakes and hallucinations are unlikely to survive for long. But given today's Indigenous Peoples Day I figured it was past time I shared the projects and invited more scrutiny.&lt;p&gt;Being the Keep a Changelog guy, you can bet it has extensive release notes[3] generated from the project changelog. Those are also parsed into feature-specific guides so each also lists relevant recent updates.&lt;p&gt;Lastly, I put together a post[5] that goes into a bit more detail on the story of the project and what I've learned along the way.&lt;p&gt;I really, really hope people here (and beyond) find it as useful and enlightening as I do.&lt;p&gt;PS: before it comes up, all the LLM usage for the project is documented[6] and used as warning system in every PR but I think there's a lot more I can do to further reduce it&lt;p&gt;[1]: &lt;a href="https://news.ycombinator.com/item?id=49192566"&gt;https://news.ycombinator.com/item?id=49192566&lt;/a&gt;&lt;p&gt;[2]: &lt;a href="https://github.com/olivierlacan/indigene" rel="nofollow"&gt;https://github.com/olivierlacan/indigene&lt;/a&gt;&lt;p&gt;[3]: &lt;a href="https://indigene.app/release-notes/" rel="nofollow"&gt;https://indigene.app/release-notes/&lt;/a&gt;&lt;p&gt;[4]: &lt;a href="https://indigene.app/guide/" rel="nofollow"&gt;https://indigene.app/guide/&lt;/a&gt;&lt;p&gt;[5]: &lt;a href="https://constantvariable.net/blog/2026/indigene-native-plants/" rel="nofollow"&gt;https://constantvariable.net/blog/2026/indigene-native-plant...&lt;/a&gt;&lt;p&gt;[6]: &lt;a href="https://indigene.app/llm/" rel="nofollow"&gt;https://indigene.app/llm/&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064470"&gt;https://news.ycombinator.com/item?id=50064470&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">0808304cfb89665bbf24c1f076570b30</guid>
-      <pubDate>Mon, 12 Oct 2026 23:25:20 +0000</pubDate>
     </item>
     <item>
       <title>Anthropic's Claude AI submits a false tip on a Philadelphia unsolved homicide case - PinalCentral.com (Source: news.google.com | Category: AI Labs)</title>
@@ -1406,86 +1227,22 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 23:25:59 +0000</pubDate>
     </item>
     <item>
-      <title>The Mystery of the Unknown Sailor Who Inspired Trump to Shake Up the Navy (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.wsj.com/politics/policy/the-mystery-of-the-unknown-sailor-who-inspired-trump-to-shake-up-the-navy-26588c2e</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://www.wsj.com/politics/policy/the-mystery-of-the-unknown-sailor-who-inspired-trump-to-shake-up-the-navy-26588c2e"&gt;https://www.wsj.com/politics/policy/the-mystery-of-the-unknown-sailor-who-inspired-trump-to-shake-up-the-navy-26588c2e&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064484"&gt;https://news.ycombinator.com/item?id=50064484&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 2&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">a49a21249a01f11241d223489a427e8c</guid>
-      <pubDate>Mon, 12 Oct 2026 23:26:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>Show HN: PickyCal - Filter upcoming and future events into your calendar (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://pickycal.com/</link>
-      <description>&lt;p&gt;I wanted upcoming events in my calendar, but not entire schedules full of things I don't follow. So I built PickyCal.&lt;p&gt;Pick an event source, filter it, and subscribe through CalDAV or an ICS link. For example: Starship launches, the next James Bond cinema release, Classic Tetris World Championship finals. Filters support &amp;, |, !, and parentheses.&lt;p&gt;PickyCal regularly checks for new events and schedule changes, your calendar picks them up when it syncs. You can try the filters on the website without an account.&lt;p&gt;I'd love to hear which sources you'd find useful and any suggestions for improvements.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064513"&gt;https://news.ycombinator.com/item?id=50064513&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">764e4763730a4ebde02a5da073ee18a2</guid>
-      <pubDate>Mon, 12 Oct 2026 23:30:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>Show HN: Personal Agent Proxy (Open Source) (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://github.com/personalagentproxy/proxy</link>
-      <description>&lt;p&gt;Every (personal) agent (like Muse, Instinct, Grokbot, Poke) asks you to connect your email, calendar, and tools again. Permissions are intransparent and every provider ends up building the same integrations.&lt;p&gt;We think there needs to be an independent tool that holds all connections to third party companies.&lt;p&gt;That way you can keep auth separate, audit what an agent does, set fine-grained permissions and easily switch between the agent apps.&lt;p&gt;I built this over the last few days with my friend Konsti. It's open source and we've put a lot of care into the self-hosting experience.&lt;p&gt;Now my Instinct has the same tools as Claude Code and Codex on my laptop.&lt;p&gt;What are your thoughts about this and how are you handling this today?&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064514"&gt;https://news.ycombinator.com/item?id=50064514&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">d166c48e4bea1a26303d759605e532e9</guid>
-      <pubDate>Mon, 12 Oct 2026 23:30:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CS2680 Modern AI Systems: Agents and System Optimizations (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://cs2680.seas.harvard.edu/</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://cs2680.seas.harvard.edu/"&gt;https://cs2680.seas.harvard.edu/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064532"&gt;https://news.ycombinator.com/item?id=50064532&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 2&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">44c35117554dffe19e0c9a8035adb846</guid>
-      <pubDate>Mon, 12 Oct 2026 23:33:24 +0000</pubDate>
-    </item>
-    <item>
       <title>Blood cells from 80-year-old donor become stem cells with molecular age under 20 (Source: hnrss.org | Category: Hacker News)</title>
       <link>https://doi.org/10.1111/acel.70751</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://doi.org/10.1111/acel.70751"&gt;https://doi.org/10.1111/acel.70751&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13634082/" rel="nofollow"&gt;https://pmc.ncbi.nlm.nih.gov/articles/PMC13634082/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064536"&gt;https://news.ycombinator.com/item?id=50064536&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 17&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+&lt;p&gt;Points: 118&lt;/p&gt;
+&lt;p&gt;# Comments: 75&lt;/p&gt;</description>
       <guid isPermaLink="false">b5d85394e0e48fe0d52af10488bfcc7e</guid>
       <pubDate>Mon, 12 Oct 2026 23:34:22 +0000</pubDate>
     </item>
     <item>
-      <title>SQL Injection found on ibm.com subdomain (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://hackerone.com/reports/3662090</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://hackerone.com/reports/3662090"&gt;https://hackerone.com/reports/3662090&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064546"&gt;https://news.ycombinator.com/item?id=50064546&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 5&lt;/p&gt;
-&lt;p&gt;# Comments: 1&lt;/p&gt;</description>
-      <guid isPermaLink="false">d1fb4084aaecf5aa3685b4f462509be8</guid>
-      <pubDate>Mon, 12 Oct 2026 23:36:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Teenage Engineering Is Going to Stop Making Synths (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.highsnobiety.com/p/teenage-engineering-interview/</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://www.highsnobiety.com/p/teenage-engineering-interview/"&gt;https://www.highsnobiety.com/p/teenage-engineering-interview/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064581"&gt;https://news.ycombinator.com/item?id=50064581&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">0c30417da166bb5b32bb7837ff2316e2</guid>
-      <pubDate>Mon, 12 Oct 2026 23:40:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>Show HN: Quick Image Kit - browser-local image tools for upload forms (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://quickimagekit.com</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://quickimagekit.com"&gt;https://quickimagekit.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064591"&gt;https://news.ycombinator.com/item?id=50064591&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">8d1653b00d961cfb4f5e073948c2be67</guid>
-      <pubDate>Mon, 12 Oct 2026 23:42:33 +0000</pubDate>
+      <title>Anthropic AI model made false tip in unsolved Philly murder: Officials - Central Oregon Daily (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMi_wFBVV95cUxON1YzeGxIVDEwZ2pMYUZSbWFQdFRuWTgtX0hDblc4Sm8yQldaOV8wRXlnWmVTZnBZbzlUQXczNl96cHZkWC0wRktZTVlKX1lBazdXckNibE4wY3h6cVpSSmJjRkV5eWNPTkVVVmRkeW83Wnl5UDZKVjlhRzlpMGtSQkRaTGxrTDQ3NmNOQWNOVEZQdzlVYVYwTG5Nc0haTS1iaUlfMUtfeEs5dURkanI2dWtSckdRUlBiUTZJUXNfSlBtNExNTV9nMGhMczhoNmEtYU1QemhNQ3Y3VGpKM21KMWtLNGFJenVmOHNkNmZaay1LNHAtd05oYjZyaWU1TVU?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMi_wFBVV95cUxON1YzeGxIVDEwZ2pMYUZSbWFQdFRuWTgtX0hDblc4Sm8yQldaOV8wRXlnWmVTZnBZbzlUQXczNl96cHZkWC0wRktZTVlKX1lBazdXckNibE4wY3h6cVpSSmJjRkV5eWNPTkVVVmRkeW83Wnl5UDZKVjlhRzlpMGtSQkRaTGxrTDQ3NmNOQWNOVEZQdzlVYVYwTG5Nc0haTS1iaUlfMUtfeEs5dURkanI2dWtSckdRUlBiUTZJUXNfSlBtNExNTV9nMGhMczhoNmEtYU1QemhNQ3Y3VGpKM21KMWtLNGFJenVmOHNkNmZaay1LNHAtd05oYjZyaWU1TVU?oc=5" target="_blank"&gt;Anthropic AI model made false tip in unsolved Philly murder: Officials&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Central Oregon Daily&lt;/font&gt;</description>
+      <guid isPermaLink="false">02fc5ed7b1e36eb4f0574d31ad1e0f19</guid>
+      <pubDate>Mon, 12 Oct 2026 23:37:18 +0000</pubDate>
     </item>
     <item>
       <title>Anthropic AI model made false tip in unsolved Philly murder: Officials - Modern Ghana (Source: news.google.com | Category: AI Labs)</title>
@@ -1493,16 +1250,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <description>&lt;a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE5GWm1YdWJwdGVmWUY2d3VxQVpJU0F4T2N6dHRRdWJGSHUzSUJkQW1GVUtRMmxtdWItOWpaWHJsMVVRb0JjOEtIejh6aFlCSkczRGZZV0ZqZDVxcjlaaWow0gFcQVVfeXFMT1BSRlpWamtlbzNDRERyVEFJY0ZneDNCejlQdnB1dlluRHBfOXBuVDk4MzRkRGNzVFBYZXNmQ1cxb1Vodjg3SkVSUThxUFBrTm5XTUVLSmduMUNEcW4?oc=5" target="_blank"&gt;Anthropic AI model made false tip in unsolved Philly murder: Officials&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Modern Ghana&lt;/font&gt;</description>
       <guid isPermaLink="false">1877f2a89914062f4a9ddb40d8c2cc5d</guid>
       <pubDate>Mon, 12 Oct 2026 23:46:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>Web app that lets you upload a song, pick an instrument and start practising (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://midi.falsaclub.com/</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://midi.falsaclub.com/"&gt;https://midi.falsaclub.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064617"&gt;https://news.ycombinator.com/item?id=50064617&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 1&lt;/p&gt;</description>
-      <guid isPermaLink="false">f000a9d21aa723561fe242c5bae0d4f3</guid>
-      <pubDate>Mon, 12 Oct 2026 23:46:30 +0000</pubDate>
     </item>
     <item>
       <title>Anthropic's Frontier Red Team suggests some AI models "may be months away from being capable enough to self-replicate." - The Verge (Source: news.google.com | Category: AI Labs)</title>
@@ -1519,63 +1266,6 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Mon, 12 Oct 2026 23:49:51 +0000</pubDate>
     </item>
     <item>
-      <title>'Remnants' - Ti West Directed First Immersive Horror Movie for Apple Vision Pro (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://bloody-disgusting.com/the-further/3971489/remants-ti-west-directed-the-first-immersive-horror-movie-for-the-apple-vision-pro/</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://bloody-disgusting.com/the-further/3971489/remants-ti-west-directed-the-first-immersive-horror-movie-for-the-apple-vision-pro/"&gt;https://bloody-disgusting.com/the-further/3971489/remants-ti-west-directed-the-first-immersive-horror-movie-for-the-apple-vision-pro/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064664"&gt;https://news.ycombinator.com/item?id=50064664&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">5dda88055eaab581c44cd2818b698dd0</guid>
-      <pubDate>Mon, 12 Oct 2026 23:51:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>The Origin Story of Kid Pix (Source: hnrss.org | Category: Hacker News)</title>
-      <link>http://red-green-blue.com/kid-pix-the-early-years</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="http://red-green-blue.com/kid-pix-the-early-years"&gt;http://red-green-blue.com/kid-pix-the-early-years&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064673"&gt;https://news.ycombinator.com/item?id=50064673&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 2&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">a95bebdd477b682c48ed97d40893bfb3</guid>
-      <pubDate>Mon, 12 Oct 2026 23:52:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>The Bitter Lesson (Source: hnrss.org | Category: Hacker News)</title>
-      <link>http://www.incompleteideas.net/IncIdeas/BitterLesson.html</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html"&gt;http://www.incompleteideas.net/IncIdeas/BitterLesson.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064721"&gt;https://news.ycombinator.com/item?id=50064721&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">481c455a2e1daee3d6dc4c66885f57fd</guid>
-      <pubDate>Mon, 12 Oct 2026 23:56:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>MP3 Organizer (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://crates.io/crates/mp3-organizer</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://crates.io/crates/mp3-organizer"&gt;https://crates.io/crates/mp3-organizer&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064733"&gt;https://news.ycombinator.com/item?id=50064733&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 2&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">07858b37dd3ca26a113a2aa1e94b3a03</guid>
-      <pubDate>Mon, 12 Oct 2026 23:58:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>Why Hollywood A-lister stopped using ChatGPT after playing AI founder - News24 (Source: news.google.com | Category: AI Labs)</title>
-      <link>https://news.google.com/rss/articles/CBMivwJBVV95cUxPU1RwSFNuSTh3Q3hEYU1EYzhIVEtFV0lCRmxtcHhIUFFoVEY1OVhmTE9DX2xfLTJtNjZRaUZKREh1Zml3UU4zMENZZmNzWS1heTQxNlBSRTRyc2NObkZGZ3ZBcV8tTjE0ald2b0F5aWpYTlFIVzI2S005R2dFNHhGVFJsVjJfY2k4aXRaMkF3YmhZcFhyelR2S2d2SHB5YWtocUprbWgtY2FGbjItQU8xN1Z4a2xCM0lHa3k4T0pid2pEU2hsekdiV2lWY0xlM20tejZHWGhad3g0dEQ5V0tKbUtrMHNkQW5MR21GUVNYWjU5M2RCR1R5TUxTcHhCbFZNbWVKSVdBaUVaSWlTeFYxZldta3luY3pyMTdfOXlXNm5JV1ZKYk5ERFBrTHJ3RGhkVGtxMzQzb3dpa2ljNmdB0gHEAkFVX3lxTE14R1BYS0xpWXluR3Z5MDJGQ29MVTRZNjBuNV9ZeGlUbWx0Zy1kQk5Pd0xrVVlCSzNxY0oxRUlYSV9kWHQ1bmpRVzgzS3h5WENUdm5YajJCZzMxTnlkcDZtel96NmIzN0NCUW1CMzdmTF8wTzR5eExyLWJwak1qcWFJUXJ0ZXV3SXNCZzBwNHNBdnNYT3pCcXBvM0xPalpjRjRFMGhQVmpIVEFwb0JoWXUzZjNVVVdJTGJpUzhGTTlHT1EwdFJ0VGpOTVJzZlF2OHBzMWJjLW9GUWJIUDl1N3BwZFc4ZlFIZ3RRcTBWTEpLcklQV3RuS1pVWDUwdTRGYzFfdXg0R3BQVTlZamVkN1pJNlJ4cnhuRnVlV0o3TFQ4MXl2NjVkdmhqbmJlaEVna2Y3dE5BNzZ1T3l5ZXlzM0hJQWZhNg?oc=5</link>
-      <description>&lt;a href="https://news.google.com/rss/articles/CBMivwJBVV95cUxPU1RwSFNuSTh3Q3hEYU1EYzhIVEtFV0lCRmxtcHhIUFFoVEY1OVhmTE9DX2xfLTJtNjZRaUZKREh1Zml3UU4zMENZZmNzWS1heTQxNlBSRTRyc2NObkZGZ3ZBcV8tTjE0ald2b0F5aWpYTlFIVzI2S005R2dFNHhGVFJsVjJfY2k4aXRaMkF3YmhZcFhyelR2S2d2SHB5YWtocUprbWgtY2FGbjItQU8xN1Z4a2xCM0lHa3k4T0pid2pEU2hsekdiV2lWY0xlM20tejZHWGhad3g0dEQ5V0tKbUtrMHNkQW5MR21GUVNYWjU5M2RCR1R5TUxTcHhCbFZNbWVKSVdBaUVaSWlTeFYxZldta3luY3pyMTdfOXlXNm5JV1ZKYk5ERFBrTHJ3RGhkVGtxMzQzb3dpa2ljNmdB0gHEAkFVX3lxTE14R1BYS0xpWXluR3Z5MDJGQ29MVTRZNjBuNV9ZeGlUbWx0Zy1kQk5Pd0xrVVlCSzNxY0oxRUlYSV9kWHQ1bmpRVzgzS3h5WENUdm5YajJCZzMxTnlkcDZtel96NmIzN0NCUW1CMzdmTF8wTzR5eExyLWJwak1qcWFJUXJ0ZXV3SXNCZzBwNHNBdnNYT3pCcXBvM0xPalpjRjRFMGhQVmpIVEFwb0JoWXUzZjNVVVdJTGJpUzhGTTlHT1EwdFJ0VGpOTVJzZlF2OHBzMWJjLW9GUWJIUDl1N3BwZFc4ZlFIZ3RRcTBWTEpLcklQV3RuS1pVWDUwdTRGYzFfdXg0R3BQVTlZamVkN1pJNlJ4cnhuRnVlV0o3TFQ4MXl2NjVkdmhqbmJlaEVna2Y3dE5BNzZ1T3l5ZXlzM0hJQWZhNg?oc=5" target="_blank"&gt;Why Hollywood A-lister stopped using ChatGPT after playing AI founder&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;News24&lt;/font&gt;</description>
-      <guid isPermaLink="false">a6d767268b5826f72cc106c7bebd2040</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>What it felt like when I was interviewed by an AI assistant (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.theguardian.com/commentisfree/2026/oct/13/dystopian-and-dehumanising-thats-what-it-felt-like-when-i-was-interviewed-by-an-ai-assistant</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://www.theguardian.com/commentisfree/2026/oct/13/dystopian-and-dehumanising-thats-what-it-felt-like-when-i-was-interviewed-by-an-ai-assistant"&gt;https://www.theguardian.com/commentisfree/2026/oct/13/dystopian-and-dehumanising-thats-what-it-felt-like-when-i-was-interviewed-by-an-ai-assistant&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064758"&gt;https://news.ycombinator.com/item?id=50064758&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 4&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">7e22d1a2dd37de5b14aa597c78ac921e</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:25 +0000</pubDate>
-    </item>
-    <item>
       <title>Anthropic: AI sent police a fake tip on unsolved murder - Santa Clarita Valley Signal (Source: news.google.com | Category: AI Labs)</title>
       <link>https://news.google.com/rss/articles/CBMijgFBVV95cUxQYUFrZnBaZjFHTEFLa1lsaWoxaU5XTTZxQkh2aEJsRlFobmNrdXJlMFJvVUh6UC0xMFg1Tk1oWUdsYXR3dHl1M1BTT0wzUmhnX1ZTMFZGRTl4cTBETzB0Wjc2RmZJXzRwMnl0Rm01cDl1cXVhekZ1WVFTTVpsZ21qMmxyV0drdHAzVENsMXZn?oc=5</link>
       <description>&lt;a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQYUFrZnBaZjFHTEFLa1lsaWoxaU5XTTZxQkh2aEJsRlFobmNrdXJlMFJvVUh6UC0xMFg1Tk1oWUdsYXR3dHl1M1BTT0wzUmhnX1ZTMFZGRTl4cTBETzB0Wjc2RmZJXzRwMnl0Rm01cDl1cXVhekZ1WVFTTVpsZ21qMmxyV0drdHAzVENsMXZn?oc=5" target="_blank"&gt;Anthropic: AI sent police a fake tip on unsolved murder&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Santa Clarita Valley Signal&lt;/font&gt;</description>
@@ -1583,24 +1273,330 @@ Abstract: Autoregressive decoding is less suited to non-causally ordered data, e
       <pubDate>Tue, 13 Oct 2026 00:00:38 +0000</pubDate>
     </item>
     <item>
-      <title>A coal mine has been burning since 1962 (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.popularmechanics.com/science/energy/a70877611/centralia-mine-fire/</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://www.popularmechanics.com/science/energy/a70877611/centralia-mine-fire/"&gt;https://www.popularmechanics.com/science/energy/a70877611/centralia-mine-fire/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064764"&gt;https://news.ycombinator.com/item?id=50064764&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Points: 1&lt;/p&gt;
-&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">a7a7874a56d756ac8601fd23d08f0bd5</guid>
-      <pubDate>Tue, 13 Oct 2026 00:01:18 +0000</pubDate>
+      <title>Why Hollywood A-lister stopped using ChatGPT after playing AI founder - News24 (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMivwJBVV95cUxPU1RwSFNuSTh3Q3hEYU1EYzhIVEtFV0lCRmxtcHhIUFFoVEY1OVhmTE9DX2xfLTJtNjZRaUZKREh1Zml3UU4zMENZZmNzWS1heTQxNlBSRTRyc2NObkZGZ3ZBcV8tTjE0ald2b0F5aWpYTlFIVzI2S005R2dFNHhGVFJsVjJfY2k4aXRaMkF3YmhZcFhyelR2S2d2SHB5YWtocUprbWgtY2FGbjItQU8xN1Z4a2xCM0lHa3k4T0pid2pEU2hsekdiV2lWY0xlM20tejZHWGhad3g0dEQ5V0tKbUtrMHNkQW5MR21GUVNYWjU5M2RCR1R5TUxTcHhCbFZNbWVKSVdBaUVaSWlTeFYxZldta3luY3pyMTdfOXlXNm5JV1ZKYk5ERFBrTHJ3RGhkVGtxMzQzb3dpa2ljNmdB0gHEAkFVX3lxTE14R1BYS0xpWXluR3Z5MDJGQ29MVTRZNjBuNV9ZeGlUbWx0Zy1kQk5Pd0xrVVlCSzNxY0oxRUlYSV9kWHQ1bmpRVzgzS3h5WENUdm5YajJCZzMxTnlkcDZtel96NmIzN0NCUW1CMzdmTF8wTzR5eExyLWJwak1qcWFJUXJ0ZXV3SXNCZzBwNHNBdnNYT3pCcXBvM0xPalpjRjRFMGhQVmpIVEFwb0JoWXUzZjNVVVdJTGJpUzhGTTlHT1EwdFJ0VGpOTVJzZlF2OHBzMWJjLW9GUWJIUDl1N3BwZFc4ZlFIZ3RRcTBWTEpLcklQV3RuS1pVWDUwdTRGYzFfdXg0R3BQVTlZamVkN1pJNlJ4cnhuRnVlV0o3TFQ4MXl2NjVkdmhqbmJlaEVna2Y3dE5BNzZ1T3l5ZXlzM0hJQWZhNg?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMivwJBVV95cUxPU1RwSFNuSTh3Q3hEYU1EYzhIVEtFV0lCRmxtcHhIUFFoVEY1OVhmTE9DX2xfLTJtNjZRaUZKREh1Zml3UU4zMENZZmNzWS1heTQxNlBSRTRyc2NObkZGZ3ZBcV8tTjE0ald2b0F5aWpYTlFIVzI2S005R2dFNHhGVFJsVjJfY2k4aXRaMkF3YmhZcFhyelR2S2d2SHB5YWtocUprbWgtY2FGbjItQU8xN1Z4a2xCM0lHa3k4T0pid2pEU2hsekdiV2lWY0xlM20tejZHWGhad3g0dEQ5V0tKbUtrMHNkQW5MR21GUVNYWjU5M2RCR1R5TUxTcHhCbFZNbWVKSVdBaUVaSWlTeFYxZldta3luY3pyMTdfOXlXNm5JV1ZKYk5ERFBrTHJ3RGhkVGtxMzQzb3dpa2ljNmdB0gHEAkFVX3lxTE14R1BYS0xpWXluR3Z5MDJGQ29MVTRZNjBuNV9ZeGlUbWx0Zy1kQk5Pd0xrVVlCSzNxY0oxRUlYSV9kWHQ1bmpRVzgzS3h5WENUdm5YajJCZzMxTnlkcDZtel96NmIzN0NCUW1CMzdmTF8wTzR5eExyLWJwak1qcWFJUXJ0ZXV3SXNCZzBwNHNBdnNYT3pCcXBvM0xPalpjRjRFMGhQVmpIVEFwb0JoWXUzZjNVVVdJTGJpUzhGTTlHT1EwdFJ0VGpOTVJzZlF2OHBzMWJjLW9GUWJIUDl1N3BwZFc4ZlFIZ3RRcTBWTEpLcklQV3RuS1pVWDUwdTRGYzFfdXg0R3BQVTlZamVkN1pJNlJ4cnhuRnVlV0o3TFQ4MXl2NjVkdmhqbmJlaEVna2Y3dE5BNzZ1T3l5ZXlzM0hJQWZhNg?oc=5" target="_blank"&gt;Why Hollywood A-lister stopped using ChatGPT after playing AI founder&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;News24&lt;/font&gt;</description>
+      <guid isPermaLink="false">2e5fe7ed13ad16d5bc139a3dfe8e7e32</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:48 +0000</pubDate>
     </item>
     <item>
-      <title>Terra Incognita: The Economics of a Shrinking World (Source: hnrss.org | Category: Hacker News)</title>
-      <link>https://www.nber.org/papers/w35809</link>
-      <description>&lt;p&gt;Article URL: &lt;a href="https://www.nber.org/papers/w35809"&gt;https://www.nber.org/papers/w35809&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50064772"&gt;https://news.ycombinator.com/item?id=50064772&lt;/a&gt;&lt;/p&gt;
+      <title>Could this be the Frontier Labs' WeWork moment? - Marcus on AI | Substack (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMifEFVX3lxTE1rZm8wbU5ZYlhESVl6bkxMTHpqekJhTEtQWmE4cHp3eEhwNHo3eXoycUJybEg3Y1hVVG5hYnVFbkdWNmFwU28zX2VENFZMVXdqSjZxR3owaE1hRVlhVy1IZWRnQXF3Q0hSQjJTeWtNcVJSeFdVcm9oQU5EWUc?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE1rZm8wbU5ZYlhESVl6bkxMTHpqekJhTEtQWmE4cHp3eEhwNHo3eXoycUJybEg3Y1hVVG5hYnVFbkdWNmFwU28zX2VENFZMVXdqSjZxR3owaE1hRVlhVy1IZWRnQXF3Q0hSQjJTeWtNcVJSeFdVcm9oQU5EWUc?oc=5" target="_blank"&gt;Could this be the Frontier Labs' WeWork moment?&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Marcus on AI | Substack&lt;/font&gt;</description>
+      <guid isPermaLink="false">cb6a8f014d60e6c622b730a2e05997d8</guid>
+      <pubDate>Tue, 13 Oct 2026 00:28:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>Silicon Valley is facing a 'huge shortage' that has made Dario Amodei make telephone call to Alexandr Wan - The Times of India (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMijgNBVV95cUxOcUhfX1hzU2xBTUx0d0NLakh3Q3EzY0xNeWtETzJ3Z1JjT0VkNFNtSWI4eVpjak5rTDJjUlBBUDRNVTMzQUVCNU5tMGRWa1lDX1c3YW44QUM1bGU5VGpiSFVuNnJtaTdnNVpHWUE0NDhjWDM3TTFiUl9oNUNmNU9BVk5DV1hrRHp3UnI0em5fRC01TXc0Y0R0THZqNE1BVGF3dUNqWFpPdWxSRlpvczh6ak9WNHhQTDBQbTYzNlZGSWdLbEtmQjZxWlk2Q3lyOTc2Y2tUS3l1X2VnMC1KSUpCMW9SZXVHOHhqY09RU3NpWVEyREM4dlJYcUpxXzUtaFFHQ1lFRHBENWZBT1JWSjQ3T2xCd1hvZlRFTkVnYi03X0VwczNMaDR4TzhNMzlTRnpQRlVsOGswMFJZREcxWGxVb0ExYWpwUUY3dVZkdVpURFBQYm91Y0ozX3hCSEdxbEdWNzd1cVJJczkzRG5ncHYyNEQ1N1hTam5iLVdHeDBNel85LVo4OXlaUFhEVHF6d9IBkwNBVV95cUxOVnFkWXlKR2lNUnFmeEpMNl9BdHAyZThkRFRyajRtQlVleUs2TVF2VUhINzJQZTlMLUIzcENDaGxfSE1yNEJEbVJWUm9TUDhYSVdRMzVCc1hUT3JNb1FoTnFRdl9YbmM5VXhnVUZIMlRHNERwdjU1SVR4dGFLWV90RThqRTNFM0xTYnRrRWRHOUhfWGpyRFVmSFdPZ3VCem5IMlEySllhZDVmMXo3dzFsTmw1TVlsb1JCY3RKZXhWQVI1OUVBVHRPUHkzUngtS3BkTVViX1FzYWJnbmZud0NRMmxteXk5bnhGZjNlQjh6cTZ5WkNhSkZleUlDTHJJQlpxSjVOS2dMUnpkSVhEeHFId0Y3d1VHdlZlZ3hobWF2U3gybVk4UEJlUHlxcm9nV1F6c3dFRWFiUVFoSzBWalQzb0FIempFUUFOaXk1WWQxRllzdjdhVkt3ZEcwN0tMUjZxWWNWNzVZaU9jQ1hJMDJub1VvNC1hdmZRZmE0MFdOWHpKRUZHbGZ3MHQxLU84Q1oxUzBJ?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMijgNBVV95cUxOcUhfX1hzU2xBTUx0d0NLakh3Q3EzY0xNeWtETzJ3Z1JjT0VkNFNtSWI4eVpjak5rTDJjUlBBUDRNVTMzQUVCNU5tMGRWa1lDX1c3YW44QUM1bGU5VGpiSFVuNnJtaTdnNVpHWUE0NDhjWDM3TTFiUl9oNUNmNU9BVk5DV1hrRHp3UnI0em5fRC01TXc0Y0R0THZqNE1BVGF3dUNqWFpPdWxSRlpvczh6ak9WNHhQTDBQbTYzNlZGSWdLbEtmQjZxWlk2Q3lyOTc2Y2tUS3l1X2VnMC1KSUpCMW9SZXVHOHhqY09RU3NpWVEyREM4dlJYcUpxXzUtaFFHQ1lFRHBENWZBT1JWSjQ3T2xCd1hvZlRFTkVnYi03X0VwczNMaDR4TzhNMzlTRnpQRlVsOGswMFJZREcxWGxVb0ExYWpwUUY3dVZkdVpURFBQYm91Y0ozX3hCSEdxbEdWNzd1cVJJczkzRG5ncHYyNEQ1N1hTam5iLVdHeDBNel85LVo4OXlaUFhEVHF6d9IBkwNBVV95cUxOVnFkWXlKR2lNUnFmeEpMNl9BdHAyZThkRFRyajRtQlVleUs2TVF2VUhINzJQZTlMLUIzcENDaGxfSE1yNEJEbVJWUm9TUDhYSVdRMzVCc1hUT3JNb1FoTnFRdl9YbmM5VXhnVUZIMlRHNERwdjU1SVR4dGFLWV90RThqRTNFM0xTYnRrRWRHOUhfWGpyRFVmSFdPZ3VCem5IMlEySllhZDVmMXo3dzFsTmw1TVlsb1JCY3RKZXhWQVI1OUVBVHRPUHkzUngtS3BkTVViX1FzYWJnbmZud0NRMmxteXk5bnhGZjNlQjh6cTZ5WkNhSkZleUlDTHJJQlpxSjVOS2dMUnpkSVhEeHFId0Y3d1VHdlZlZ3hobWF2U3gybVk4UEJlUHlxcm9nV1F6c3dFRWFiUVFoSzBWalQzb0FIempFUUFOaXk1WWQxRllzdjdhVkt3ZEcwN0tMUjZxWWNWNzVZaU9jQ1hJMDJub1VvNC1hdmZRZmE0MFdOWHpKRUZHbGZ3MHQxLU84Q1oxUzBJ?oc=5" target="_blank"&gt;Silicon Valley is facing a 'huge shortage' that has made Dario Amodei make telephone call to Alexandr Wan&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Times of India&lt;/font&gt;</description>
+      <guid isPermaLink="false">b111c481af188603aa3e3f8291748d8b</guid>
+      <pubDate>Tue, 13 Oct 2026 00:54:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Anthropic says new safeguards sharply reduce AI distillation attacks - Reuters (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMitwFBVV95cUxPVlZuUXZob1BWeEV1WEZOdWIwRW9ucW92UFVueWd3clAxbHNSUHh1VXFuX1dTalVxLWgyX3Y5ZmZhYzIxc1BNRGN4Y3JUOXBIQjhZUUlDMlNyZ2Q1WW4zOThMbF85R1NGZ0RrWnRLVWMyNjdFWmswb2hrMmNlQWttOUZVOGFjUnRaUzduMDVKMnI1ODlUaWJuTkZ1M3U5N3haQWIzMzNyNzNNUUt1eW5ZVk5EV1pPczA?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxPVlZuUXZob1BWeEV1WEZOdWIwRW9ucW92UFVueWd3clAxbHNSUHh1VXFuX1dTalVxLWgyX3Y5ZmZhYzIxc1BNRGN4Y3JUOXBIQjhZUUlDMlNyZ2Q1WW4zOThMbF85R1NGZ0RrWnRLVWMyNjdFWmswb2hrMmNlQWttOUZVOGFjUnRaUzduMDVKMnI1ODlUaWJuTkZ1M3U5N3haQWIzMzNyNzNNUUt1eW5ZVk5EV1pPczA?oc=5" target="_blank"&gt;Anthropic says new safeguards sharply reduce AI distillation attacks&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Reuters&lt;/font&gt;</description>
+      <guid isPermaLink="false">fcdb09bdac00c0a65b28f60a6bca7b36</guid>
+      <pubDate>Tue, 13 Oct 2026 01:07:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>NVIDIA's Huang Says "No Laws or Regulations Needed" - Industry Split Over AI Development Slowdown Debate - BigGo Finance (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTE80OXRwRHRqMGpiMzd1emNudG5hN0hEcnpudWFvekFMbnp5OXluY0NNQ2wyMGRGU0xRM1JSOEg4R2Y0V1NoTjItS21xZVlJb1FMSThXY2dtaW1VSkpNd1NHMHpJR1RPWnNzSXZXZGlrcDFHT1JFcHc?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE80OXRwRHRqMGpiMzd1emNudG5hN0hEcnpudWFvekFMbnp5OXluY0NNQ2wyMGRGU0xRM1JSOEg4R2Y0V1NoTjItS21xZVlJb1FMSThXY2dtaW1VSkpNd1NHMHpJR1RPWnNzSXZXZGlrcDFHT1JFcHc?oc=5" target="_blank"&gt;NVIDIA's Huang Says "No Laws or Regulations Needed" - Industry Split Over AI Development Slowdown Debate&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;BigGo Finance&lt;/font&gt;</description>
+      <guid isPermaLink="false">e2562d3466f0265c68632c3b6db81b0a</guid>
+      <pubDate>Tue, 13 Oct 2026 01:26:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>NTT to build first data center for Anthropic in Japan - Nikkei Asia (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMivgFBVV95cUxOenFDdHNMWmRNV2pKZ3RNT3dnZzhfLWpVVkwxRnRiT01DS1dKSnNGU181QlN1NUV4MG04M0R1R1JWYjlST1YxRVpHX0pibWw3amRMZkF3QXlwaGg2VFpHUlJGMHVMQjBNU3o1TTRPZ1pEUjdIem1xZGE4M0pHZWc2UjBwWnJHdGNzYTlRSTloVXFHWHFCS3loVGRlOXRfeGNfc0swZHBXMTgwVzZHRTBFaGE0cVFPNWkwT2NVSEpR?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOenFDdHNMWmRNV2pKZ3RNT3dnZzhfLWpVVkwxRnRiT01DS1dKSnNGU181QlN1NUV4MG04M0R1R1JWYjlST1YxRVpHX0pibWw3amRMZkF3QXlwaGg2VFpHUlJGMHVMQjBNU3o1TTRPZ1pEUjdIem1xZGE4M0pHZWc2UjBwWnJHdGNzYTlRSTloVXFHWHFCS3loVGRlOXRfeGNfc0swZHBXMTgwVzZHRTBFaGE0cVFPNWkwT2NVSEpR?oc=5" target="_blank"&gt;NTT to build first data center for Anthropic in Japan&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Nikkei Asia&lt;/font&gt;</description>
+      <guid isPermaLink="false">cf72e0cb51603578646d903e56fec487</guid>
+      <pubDate>Tue, 13 Oct 2026 02:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>AI Models Can Provably Hide Arbitrary Capabilities (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://arxiv.org/abs/2610.13928</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://arxiv.org/abs/2610.13928"&gt;https://arxiv.org/abs/2610.13928&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50065692"&gt;https://news.ycombinator.com/item?id=50065692&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 15&lt;/p&gt;
+&lt;p&gt;# Comments: 1&lt;/p&gt;</description>
+      <guid isPermaLink="false">151ade29c5b34c05648685c65cfb5afe</guid>
+      <pubDate>Tue, 13 Oct 2026 02:07:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>China Overtakes U.S. For First Time as Top Spender on R&amp;D in 2024 (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://japannews.yomiuri.co.jp/science-nature/science/20260908-347742/</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://japannews.yomiuri.co.jp/science-nature/science/20260908-347742/"&gt;https://japannews.yomiuri.co.jp/science-nature/science/20260908-347742/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50065805"&gt;https://news.ycombinator.com/item?id=50065805&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 59&lt;/p&gt;
+&lt;p&gt;# Comments: 43&lt;/p&gt;</description>
+      <guid isPermaLink="false">d336a5cbf4e7a66c2a65746f82d26bf2</guid>
+      <pubDate>Tue, 13 Oct 2026 02:25:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Sanders calls for artificial superintelligence ban after OpenAI CEO interview - The Hill (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMic0FVX3lxTE5KQjhJRkNkb1ViaWs3NE1WNTVDazdaZWNLckxTcURwaDhSdTI4SGlXMHVJamtmNThpZFYxT2Q0d1FCMEV1TmN5TUpma3dSZUV4TmhtOTN4eXZLRGhZNjFXdzRBaTQyWmViUi13czFUSzAyaTTSAXhBVV95cUxNOGFqenV2blJySC03d2VXRXFzbjl1d3ZiS0ZKMHJMM2ZjdTBDdFhpbXhXMk9xVVI0QktPaUtUSFBzdk9sV2RGQllORWRuM1d4TXVaTEFGV3BwX0Iyanl6S01fcXNhSGxaSWNoVmNnd0RQTHFqU1ZaWVE?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE5KQjhJRkNkb1ViaWs3NE1WNTVDazdaZWNLckxTcURwaDhSdTI4SGlXMHVJamtmNThpZFYxT2Q0d1FCMEV1TmN5TUpma3dSZUV4TmhtOTN4eXZLRGhZNjFXdzRBaTQyWmViUi13czFUSzAyaTTSAXhBVV95cUxNOGFqenV2blJySC03d2VXRXFzbjl1d3ZiS0ZKMHJMM2ZjdTBDdFhpbXhXMk9xVVI0QktPaUtUSFBzdk9sV2RGQllORWRuM1d4TXVaTEFGV3BwX0Iyanl6S01fcXNhSGxaSWNoVmNnd0RQTHFqU1ZaWVE?oc=5" target="_blank"&gt;Sanders calls for artificial superintelligence ban after OpenAI CEO interview&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Hill&lt;/font&gt;</description>
+      <guid isPermaLink="false">cc4121f35f28bd9f2e6fed52c8e315a3</guid>
+      <pubDate>Tue, 13 Oct 2026 02:34:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Leaving Tech (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://ryanbigg.com/2026/10/leaving-tech</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://ryanbigg.com/2026/10/leaving-tech"&gt;https://ryanbigg.com/2026/10/leaving-tech&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50065892"&gt;https://news.ycombinator.com/item?id=50065892&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 115&lt;/p&gt;
+&lt;p&gt;# Comments: 91&lt;/p&gt;</description>
+      <guid isPermaLink="false">7660a2bde65cf5a0a0f7f83b078f6ec5</guid>
+      <pubDate>Tue, 13 Oct 2026 02:39:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>OpenAI algorithm for the FFT is less a breakthrough and more a malicious exploit (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.argmin.net/p/faster-fourier-transforms</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.argmin.net/p/faster-fourier-transforms"&gt;https://www.argmin.net/p/faster-fourier-transforms&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50065932"&gt;https://news.ycombinator.com/item?id=50065932&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 21&lt;/p&gt;
+&lt;p&gt;# Comments: 5&lt;/p&gt;</description>
+      <guid isPermaLink="false">b29e85fcc6fa7866f0ef32ad325b5685</guid>
+      <pubDate>Tue, 13 Oct 2026 02:46:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>NTT Data in final talks to build Anthropic's first data centre in Japan, Nikkei reports - Reuters (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMi0AFBVV95cUxNaDNpQmc0SlhGM0F0cjVrUU1PUVBoWGlFeWNjTU12RFlLWGQwN2xnM3JjNGktZ1V4Qi1OWmR6czVEM09TOHdCOFBfeG9OM083MFdwRFFkOEFDckUzTnNYVlJDaExGT09ERzdfR0NKSzkwUXJrbDByZk4tQjV1VFNBSTd6SFJ6TUI4dDdDa0d6OGNIMVJSNnY3QjlYSEJ2UGdlMHkzYXFoNmFLdU5nX2NpR1Nwck9NRDVRRFRfN1NibjhMMjVVWHdINGIwVG5MbFBk?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxNaDNpQmc0SlhGM0F0cjVrUU1PUVBoWGlFeWNjTU12RFlLWGQwN2xnM3JjNGktZ1V4Qi1OWmR6czVEM09TOHdCOFBfeG9OM083MFdwRFFkOEFDckUzTnNYVlJDaExGT09ERzdfR0NKSzkwUXJrbDByZk4tQjV1VFNBSTd6SFJ6TUI4dDdDa0d6OGNIMVJSNnY3QjlYSEJ2UGdlMHkzYXFoNmFLdU5nX2NpR1Nwck9NRDVRRFRfN1NibjhMMjVVWHdINGIwVG5MbFBk?oc=5" target="_blank"&gt;NTT Data in final talks to build Anthropic's first data centre in Japan, Nikkei reports&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Reuters&lt;/font&gt;</description>
+      <guid isPermaLink="false">79891b85889a35ca13ed5138c49d49b7</guid>
+      <pubDate>Tue, 13 Oct 2026 02:51:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>No More Camera Glasses - Even Realities (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.evenrealities.com/blogs/stories/no-more-camera-glasses-by-will-wang-founder-ceo-even-realities</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.evenrealities.com/blogs/stories/no-more-camera-glasses-by-will-wang-founder-ceo-even-realities"&gt;https://www.evenrealities.com/blogs/stories/no-more-camera-glasses-by-will-wang-founder-ceo-even-realities&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50065994"&gt;https://news.ycombinator.com/item?id=50065994&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">b43ab4c476fd8ad71d0af943af9a2119</guid>
+      <pubDate>Tue, 13 Oct 2026 02:54:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>Multiplayer Pong over SSH (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://antics.gg/ssh</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://antics.gg/ssh"&gt;https://antics.gg/ssh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066016"&gt;https://news.ycombinator.com/item?id=50066016&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 3&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">81c783e8c4ecd661a5cc19017c398506</guid>
+      <pubDate>Tue, 13 Oct 2026 02:57:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Most Overlooked Taste in the World [video] (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.youtube.com/watch?v=zC1v19wfoTA</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.youtube.com/watch?v=zC1v19wfoTA"&gt;https://www.youtube.com/watch?v=zC1v19wfoTA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066039"&gt;https://news.ycombinator.com/item?id=50066039&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Points: 1&lt;/p&gt;
 &lt;p&gt;# Comments: 0&lt;/p&gt;</description>
-      <guid isPermaLink="false">7ead012c06501c178a0bb270224d6592</guid>
-      <pubDate>Tue, 13 Oct 2026 00:02:02 +0000</pubDate>
+      <guid isPermaLink="false">f6dea033d467e28ef2285a2b3c4c38fe</guid>
+      <pubDate>Tue, 13 Oct 2026 03:00:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>Meta claims new Muse Wonder AI models rival OpenAI, Anthropic - Cryptonews.net (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiW0FVX3lxTFB2X2pGdTV6QWduekR6Yk9WOHNkbXl6Z0FpSTYxbmNpME5salIzajQwN1hYbXJONHJYYjEyMVlxSENwTGFSM1dZLWRsYUJjWHNhUkJXMnlDRG9TYmM?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFB2X2pGdTV6QWduekR6Yk9WOHNkbXl6Z0FpSTYxbmNpME5salIzajQwN1hYbXJONHJYYjEyMVlxSENwTGFSM1dZLWRsYUJjWHNhUkJXMnlDRG9TYmM?oc=5" target="_blank"&gt;Meta claims new Muse Wonder AI models rival OpenAI, Anthropic&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Cryptonews.net&lt;/font&gt;</description>
+      <guid isPermaLink="false">0446eb0a5afdb9d4e664d192299e761a</guid>
+      <pubDate>Tue, 13 Oct 2026 03:02:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>When to Use Vulnerability Assessments, Pentesting, Red Teams, and Bug Bounties (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://danielmiessler.com/blog/when-vulnerability-assessments-pentesting-red-team-bug-bounties</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://danielmiessler.com/blog/when-vulnerability-assessments-pentesting-red-team-bug-bounties"&gt;https://danielmiessler.com/blog/when-vulnerability-assessments-pentesting-red-team-bug-bounties&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066063"&gt;https://news.ycombinator.com/item?id=50066063&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">e74ab276eb5f94e14885f2bae2d0a11e</guid>
+      <pubDate>Tue, 13 Oct 2026 03:02:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>Learn LEAN 4 Theorem Proving in an easy game (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://adam.math.hhu.de/#/g/leanprover-community/NNG4</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://adam.math.hhu.de/#/g/leanprover-community/NNG4"&gt;https://adam.math.hhu.de/#/g/leanprover-community/NNG4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066074"&gt;https://news.ycombinator.com/item?id=50066074&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">e1d9fcb253688e9ce75145b715a243b2</guid>
+      <pubDate>Tue, 13 Oct 2026 03:04:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ontology SDK (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.palantir.com/docs/foundry/ontology-sdk/overview</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.palantir.com/docs/foundry/ontology-sdk/overview"&gt;https://www.palantir.com/docs/foundry/ontology-sdk/overview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066099"&gt;https://news.ycombinator.com/item?id=50066099&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">55382801a9e4a910b249e7c8bbc0e462</guid>
+      <pubDate>Tue, 13 Oct 2026 03:07:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>Available now: 0.5 MW of colo capacity for B300s (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://ardus.ai/</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://ardus.ai/"&gt;https://ardus.ai/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066142"&gt;https://news.ycombinator.com/item?id=50066142&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">2d1c24b5e86e4c74bd79ac73b9e95bfe</guid>
+      <pubDate>Tue, 13 Oct 2026 03:12:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>In 5 years, 95% of tokens used by AI agents will be for tasks humans never did (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://twitter.com/levie/status/1986620885592113218</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://twitter.com/levie/status/1986620885592113218"&gt;https://twitter.com/levie/status/1986620885592113218&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066144"&gt;https://news.ycombinator.com/item?id=50066144&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 5&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">1830c5609870724fa45db087d99a43bf</guid>
+      <pubDate>Tue, 13 Oct 2026 03:12:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>Normal Bad Work (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://terrytao.wordpress.com/2026/10/12/this-is-normal-bad-work/</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://terrytao.wordpress.com/2026/10/12/this-is-normal-bad-work/"&gt;https://terrytao.wordpress.com/2026/10/12/this-is-normal-bad-work/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066158"&gt;https://news.ycombinator.com/item?id=50066158&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 1&lt;/p&gt;</description>
+      <guid isPermaLink="false">b4a92aa67505607710032d1cff9eccae</guid>
+      <pubDate>Tue, 13 Oct 2026 03:14:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>A.I. Music Fraudster Who Drew Millions in Royalties Is Sentenced to 18 Months (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.nytimes.com/2026/10/07/arts/music/ai-music-fraud-royalties-sentence.html</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.nytimes.com/2026/10/07/arts/music/ai-music-fraud-royalties-sentence.html"&gt;https://www.nytimes.com/2026/10/07/arts/music/ai-music-fraud-royalties-sentence.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066161"&gt;https://news.ycombinator.com/item?id=50066161&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">0b3a4d98f7bb14835d57edfb07e523e8</guid>
+      <pubDate>Tue, 13 Oct 2026 03:15:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>Leading Chinese mathematicians unite behind use of AI in research (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.scmp.com/news/china/science/article/3370492/leading-chinese-mathematicians-unite-behind-use-ai-research</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.scmp.com/news/china/science/article/3370492/leading-chinese-mathematicians-unite-behind-use-ai-research"&gt;https://www.scmp.com/news/china/science/article/3370492/leading-chinese-mathematicians-unite-behind-use-ai-research&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066207"&gt;https://news.ycombinator.com/item?id=50066207&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">c315dce94b653c0f06e173da18b49928</guid>
+      <pubDate>Tue, 13 Oct 2026 03:21:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>'Huge shortage': Anthropic CEO Dario Amodei turns to Elon Musk amid AI chip crunch - Firstpost (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiwgFBVV95cUxOWWU5ai1lVFpKMjNOUGRsWW5ZX3ZZdVlod3cwUGd5RlFhcHhsSUpNeGtKQU1nNktWSDBGeHJORnFRaWpDTkc0QU9rUWpFSm9wdjNUQkNSd3BabnV0YjQyemxPQV9PQzVaWkNzTUp0UkZ5cTdwQV9TZk9kSU13YjJ2SGg1RTJvOWlhMXVSSVA5QWhrdk8yODU2NkZlSkluM1lSbk10aFlEdE4yQzJmYUthSk9sVTFLSkIyVGg2cHlpVWpjQdIBxwFBVV95cUxOOHRTZFAtNjc4cWNpUV9SbVFORXVNZ1RGbXUyMUNkak0yUXRCOVQ2d3J4T1FobDVqVEJBbjg5T001VkhTMWxQT0pIaHFoM1dOYnotNlVfenVPRUNDZ2dHSDdoY2lUdFBUVnBGMXVJN3pnelFzdlhUZmRFVWE5bXlNUmRub2dRVEpYTkZ1TnVLd3lRN05CWWNuS2N2UWZPVWZSejNFbjNZaDVQc1NZNGt4aFJ4Ul9idlA1NnRoZUl2RUhqNWZ0VFRN?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOWWU5ai1lVFpKMjNOUGRsWW5ZX3ZZdVlod3cwUGd5RlFhcHhsSUpNeGtKQU1nNktWSDBGeHJORnFRaWpDTkc0QU9rUWpFSm9wdjNUQkNSd3BabnV0YjQyemxPQV9PQzVaWkNzTUp0UkZ5cTdwQV9TZk9kSU13YjJ2SGg1RTJvOWlhMXVSSVA5QWhrdk8yODU2NkZlSkluM1lSbk10aFlEdE4yQzJmYUthSk9sVTFLSkIyVGg2cHlpVWpjQdIBxwFBVV95cUxOOHRTZFAtNjc4cWNpUV9SbVFORXVNZ1RGbXUyMUNkak0yUXRCOVQ2d3J4T1FobDVqVEJBbjg5T001VkhTMWxQT0pIaHFoM1dOYnotNlVfenVPRUNDZ2dHSDdoY2lUdFBUVnBGMXVJN3pnelFzdlhUZmRFVWE5bXlNUmRub2dRVEpYTkZ1TnVLd3lRN05CWWNuS2N2UWZPVWZSejNFbjNZaDVQc1NZNGt4aFJ4Ul9idlA1NnRoZUl2RUhqNWZ0VFRN?oc=5" target="_blank"&gt;'Huge shortage': Anthropic CEO Dario Amodei turns to Elon Musk amid AI chip crunch&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;Firstpost&lt;/font&gt;</description>
+      <guid isPermaLink="false">d06eb83cc2ae9f02e9bee6abc5c1d440</guid>
+      <pubDate>Tue, 13 Oct 2026 03:22:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Is AI the End of Math as We Know It? (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/"&gt;https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066231"&gt;https://news.ycombinator.com/item?id=50066231&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 1&lt;/p&gt;</description>
+      <guid isPermaLink="false">6bdacb1e6853bdc6f588385f43cb1ebd</guid>
+      <pubDate>Tue, 13 Oct 2026 03:24:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ask HN: Now that AI makes the execution easy, do ideas matter more? (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://news.ycombinator.com/item?id=50066263</link>
+      <description>&lt;p&gt;Do you think this is true?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066263"&gt;https://news.ycombinator.com/item?id=50066263&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">4636462a2520ea09e8734f6ab100f315</guid>
+      <pubDate>Tue, 13 Oct 2026 03:29:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>Show HN: Planning software for startup teams (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://weeklywe.com</link>
+      <description>&lt;p&gt;Hello founders and co-founders. Startup mentors recommend setting short-term goals, or planning weekly... Do you do it?&lt;p&gt;I made a tool for this purpose with a focus on startups.&lt;p&gt;Hope you like it, your feedback would be a huge help&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066266"&gt;https://news.ycombinator.com/item?id=50066266&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">ea13463ed6b762e45a9f3fcca4615ddb</guid>
+      <pubDate>Tue, 13 Oct 2026 03:29:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>I used an AI QA agent to test Hacker News (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://hitest.ai/blog/demo-hacker-news</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://hitest.ai/blog/demo-hacker-news"&gt;https://hitest.ai/blog/demo-hacker-news&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066288"&gt;https://news.ycombinator.com/item?id=50066288&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">45330fc62c56ef1f82e3991774ad0cda</guid>
+      <pubDate>Tue, 13 Oct 2026 03:31:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>As Anthropic and OpenAI are set for IPOs, Broadcom CEO has a message for AI investors: For now, it is sti - The Times of India (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMipwJBVV95cUxPSWttb18yVDlOVE92TkY2eEhKQW1wdnRZc2hyUzR1d1QwQ0FYcTlVcHJ6dVdtdmdoRXFINDB5S051VlZDbWE4ZTlHaDg1UU1UeEhMX2RJTFhSOXBQUW9pZ1F5VlphcFdnNk0tUTlMcmZjTlVBeHlDLXlPZjlrbVdMaTl2cGllV3dOX1VKNVBDd1ZiZGFIUW9KZWJPN3Y1Rkt0azJ4SV9UWWgya09JMGhSZG96WDZKV21lMFZmLVJjSkdxeWdSNHZCVVJzS3k5aUVOODlwaGVYVzBReXRWNUsza3NYdXk5a0RBZHVLYnRpQzhaaGVaY052R1NzQTR5ZVVLRExoNEd6dEZIRW5ESGNBM2FDdXlUVVZ5SkpveVYxUlk0MDVkX21Z0gGsAkFVX3lxTE5OUWl3MDBjUmxGOWdrMS1JS0U4ZjBjQ2U5UXpGWHdGQnU3NXZBNjEyZm1BbnNSdmREdnlZb2hqTUVjRmhBcVFvNy1qX2Y2WnREelo4N2F3X0hXZ3VXR2Zhc3YyanFKSFV6NTVzSmx0enFnNmNHeWtIVkdGMFBFU0VuNmk4RGFPaXczNDl3OTJvN2NqVU5jQlN5dHFGclNRQUpjS2wxV3AyMnhULWFDbTRFU2ZjcGloYTYtSUxMNm0tM3JRMWIxdHhQYk94VE96NVlEVW16NFdMNUZKS0ctR3NwbGpfOXNBZDdsVUxnek9MWVJzN2JUZkRFTHE1RjFSbm9pQnpDakR0THlNeUlYRDBPUWVBamlNV2NWNEVCUDQ5cmFEUzI3c1lpbG9CbQ?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMipwJBVV95cUxPSWttb18yVDlOVE92TkY2eEhKQW1wdnRZc2hyUzR1d1QwQ0FYcTlVcHJ6dVdtdmdoRXFINDB5S051VlZDbWE4ZTlHaDg1UU1UeEhMX2RJTFhSOXBQUW9pZ1F5VlphcFdnNk0tUTlMcmZjTlVBeHlDLXlPZjlrbVdMaTl2cGllV3dOX1VKNVBDd1ZiZGFIUW9KZWJPN3Y1Rkt0azJ4SV9UWWgya09JMGhSZG96WDZKV21lMFZmLVJjSkdxeWdSNHZCVVJzS3k5aUVOODlwaGVYVzBReXRWNUsza3NYdXk5a0RBZHVLYnRpQzhaaGVaY052R1NzQTR5ZVVLRExoNEd6dEZIRW5ESGNBM2FDdXlUVVZ5SkpveVYxUlk0MDVkX21Z0gGsAkFVX3lxTE5OUWl3MDBjUmxGOWdrMS1JS0U4ZjBjQ2U5UXpGWHdGQnU3NXZBNjEyZm1BbnNSdmREdnlZb2hqTUVjRmhBcVFvNy1qX2Y2WnREelo4N2F3X0hXZ3VXR2Zhc3YyanFKSFV6NTVzSmx0enFnNmNHeWtIVkdGMFBFU0VuNmk4RGFPaXczNDl3OTJvN2NqVU5jQlN5dHFGclNRQUpjS2wxV3AyMnhULWFDbTRFU2ZjcGloYTYtSUxMNm0tM3JRMWIxdHhQYk94VE96NVlEVW16NFdMNUZKS0ctR3NwbGpfOXNBZDdsVUxnek9MWVJzN2JUZkRFTHE1RjFSbm9pQnpDakR0THlNeUlYRDBPUWVBamlNV2NWNEVCUDQ5cmFEUzI3c1lpbG9CbQ?oc=5" target="_blank"&gt;As Anthropic and OpenAI are set for IPOs, Broadcom CEO has a message for AI investors: For now, it is sti&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;The Times of India&lt;/font&gt;</description>
+      <guid isPermaLink="false">ffab14cbe7553b8c700885d8d57e1b4c</guid>
+      <pubDate>Tue, 13 Oct 2026 03:33:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>China's Weakening Economy Is Creating a Lost Generation (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://www.wsj.com/world/china-economy-gen-z-f9058941</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://www.wsj.com/world/china-economy-gen-z-f9058941"&gt;https://www.wsj.com/world/china-economy-gen-z-f9058941&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066300"&gt;https://news.ycombinator.com/item?id=50066300&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 3&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">3d47b687e391ba902265a52a64c1eb7e</guid>
+      <pubDate>Tue, 13 Oct 2026 03:33:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>Leave your (Apple) watch at the door (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://jamespember.substack.com/p/leave-your-apple-watch-at-the-door</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://jamespember.substack.com/p/leave-your-apple-watch-at-the-door"&gt;https://jamespember.substack.com/p/leave-your-apple-watch-at-the-door&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066338"&gt;https://news.ycombinator.com/item?id=50066338&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">01e4df278092776172841f5a42adf51f</guid>
+      <pubDate>Tue, 13 Oct 2026 03:40:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cometlink: An old-school chat room you sign on to in the browser (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://cometlink.rip/</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://cometlink.rip/"&gt;https://cometlink.rip/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066350"&gt;https://news.ycombinator.com/item?id=50066350&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">67ffb5836f79d81e75f3ea842e86961b</guid>
+      <pubDate>Tue, 13 Oct 2026 03:40:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>Show HN: Askdown - A plain-text format for forms (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://askdown.dev/</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://askdown.dev/"&gt;https://askdown.dev/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066372"&gt;https://news.ycombinator.com/item?id=50066372&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 2&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">be9737cdd013e0d7449753992c5c464c</guid>
+      <pubDate>Tue, 13 Oct 2026 03:43:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>AI film Artificial is the talking point of 2026. Here's why - City AM (Source: news.google.com | Category: AI Labs)</title>
+      <link>https://news.google.com/rss/articles/CBMiiAFBVV95cUxPTkUwb0ZwTFBGTnhCQzBHNUNmd0hNR3VqTHZfZnUwZ2JSMGIxSzlzWlZYQ0FNalk0Nm9qTElvckQyOWtjWGVsWjFyMm84NlFJaTdBWDBxQUJxNi1ETU02dng5dzBQbkIwemxGbkxGRjFfSklTSXJLVXEzQ3lpUjBZZXBKZlBLdUpZ?oc=5</link>
+      <description>&lt;a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPTkUwb0ZwTFBGTnhCQzBHNUNmd0hNR3VqTHZfZnUwZ2JSMGIxSzlzWlZYQ0FNalk0Nm9qTElvckQyOWtjWGVsWjFyMm84NlFJaTdBWDBxQUJxNi1ETU02dng5dzBQbkIwemxGbkxGRjFfSklTSXJLVXEzQ3lpUjBZZXBKZlBLdUpZ?oc=5" target="_blank"&gt;AI film Artificial is the talking point of 2026. Here's why&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color="#6f6f6f"&gt;City AM&lt;/font&gt;</description>
+      <guid isPermaLink="false">05ad5ce552e5db7081cd1cf55de725a2</guid>
+      <pubDate>Tue, 13 Oct 2026 03:45:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Show HN: RL environment for complex ML Development (Source: hnrss.org | Category: Hacker News)</title>
+      <link>https://blazerops.ai</link>
+      <description>&lt;p&gt;Article URL: &lt;a href="https://blazerops.ai"&gt;https://blazerops.ai&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comments URL: &lt;a href="https://news.ycombinator.com/item?id=50066393"&gt;https://news.ycombinator.com/item?id=50066393&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Points: 1&lt;/p&gt;
+&lt;p&gt;# Comments: 0&lt;/p&gt;</description>
+      <guid isPermaLink="false">80a44edaa4d5c2a1a0183e280964e8ca</guid>
+      <pubDate>Tue, 13 Oct 2026 03:46:58 +0000</pubDate>
     </item>
   </channel>
 </rss>
