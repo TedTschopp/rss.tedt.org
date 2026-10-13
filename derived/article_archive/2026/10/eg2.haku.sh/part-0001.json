@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://eg2.haku.sh/": {
+      "fetched_at": "2026-10-13T16:07:06.124901Z",
+      "markdown": "# Embedding Gemma Transcribe\n\nGoogle's EmbeddingGemma 2 is an embedding model. We turned it into a speech-to-text model: an hour of audio in about 13 seconds on a base MacBook Air , entirely on device.\n\n## Can an embedding model transcribe speech?\n\nEmbeddingGemma 2 is a multimodal embedding model: text, images, audio and video in one shared space. Say a word out loud and its audio lands close to the written word.\n\nSo we tried reading words straight out of that space.\n\n## How it works\n\n- EmbeddingGemma 2's audio encoder stays exactly as it is.\n\n- A small reader moves each short slice of audio into the model's text space.\n\n- The closest of ~229,000 English words wins, and the slices become a transcript.\n\n- A tiny extra model adds punctuation and capitals.\n\nOnly the reader is trained: under two hours on 8×H100, on openly licensed English speech. The base model was never trained for speech-to-text.\n\n## How fast?\n\n× real time: seconds of audio per second of processing. Rows 1–2: our tests on the same base M3 MacBook Air. Rows 3–5: FluidAudio's published benchmarks on larger, newer Macs and different audio. A rough guide, not a like-for-like ranking.\n\n## Where it stands\n\nIts word error rate is about 5% right now, against 2–3% for leading speech models. We believe a better-trained reader can close that gap; that's the next iteration.\n\n## Use it\n\nDrop in an audio file, or hold Right Option, speak and release to dictate into any app. It runs on the Mac's Neural Engine; your audio never leaves the machine."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/eg2.haku.sh"
+}
