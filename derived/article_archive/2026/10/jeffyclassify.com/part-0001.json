@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://jeffyclassify.com/blog/mind-reader/": {
+      "fetched_at": "2026-10-14T03:44:38.545402Z",
+      "markdown": "# Can AI read your mind?\n\nHumans are terrible at being random. Tap or use arrow keys to pick left or right. A Markov chain learns your pattern\n\n## How it works\n\nThe predictor builds a frequency table from your recent picks. Given the context of your last 1-4 choices, it looks up what you did next in similar situations and bets on the most likely side. After about 20 picks it typically reads you 60-70% of the time\n\nThis is the same core idea behind Jeffy , an open-source text classifier. Instead of tracking left/right patterns, Jeffy maps text into a high-dimensional embedding space and trains logistic regression on top. Same principle: find patterns in how humans make choices, then predict them\n\nJeffy ships 68 pretrained classifiers for text, game state, and numeric features. They run on CPU in under 80ms, no GPU or API keys needed. Install with pip install jeffy-classify and start classifying in 3 lines of code\n\nText classification that runs anywhere"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/jeffyclassify.com"
+}
