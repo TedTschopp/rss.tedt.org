@@ -1,19 +1,19 @@
 {
-  "timestamp": "2026-10-15T04:00:56.373027+00:00",
+  "timestamp": "2026-10-15T08:13:45.274412+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 228,
-      "last_updated": "Thu, 15 Oct 2026 03:41:55 +0000",
-      "size_bytes": 198350,
+      "entry_count": 234,
+      "last_updated": "Thu, 15 Oct 2026 08:05:12 +0000",
+      "size_bytes": 201825,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 3735,
-      "last_updated": "Thu, 15 Oct 2026 03:41:55 +0000",
+      "last_updated": "Thu, 15 Oct 2026 08:05:12 +0000",
       "size_bytes": 2667251,
       "errors": []
     },
@@ -21,7 +21,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 7,
-      "last_updated": "Thu, 15 Oct 2026 03:42:22 +0000",
+      "last_updated": "Thu, 15 Oct 2026 08:05:38 +0000",
       "size_bytes": 7124,
       "errors": []
     },
@@ -29,7 +29,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 156,
-      "last_updated": "Thu, 15 Oct 2026 03:42:22 +0000",
+      "last_updated": "Thu, 15 Oct 2026 08:05:38 +0000",
       "size_bytes": 190927,
       "errors": []
     },
@@ -37,20 +37,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Thu, 15 Oct 2026 03:43:45 +0000",
-      "size_bytes": 214986,
+      "last_updated": "Thu, 15 Oct 2026 08:06:38 +0000",
+      "size_bytes": 327978,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 834,
-      "last_updated": "Thu, 15 Oct 2026 03:43:45 +0000",
+      "last_updated": "Thu, 15 Oct 2026 08:06:38 +0000",
       "size_bytes": 445075,
       "errors": []
     }
   },
-  "overall_status": "healthy",
+  "overall_status": "warning",
   "aggregation_health": {
     "aggregated_ea.xml": {
       "total_sources": 7,
@@ -65,10 +65,10 @@
       "total_sources": 21,
       "attempted": 14,
       "skipped": 7,
-      "with_items": 9,
-      "failures": 1,
+      "with_items": 12,
+      "failures": 0,
       "recovered": 0,
-      "failure_rate": 7.14
+      "failure_rate": 0.0
     }
   },
   "pipeline_health": {
@@ -78,107 +78,107 @@
     "pipeline_report_exists": true,
     "errors": [],
     "counts": {
-      "api_items": 200,
-      "stories": 4554,
-      "clusters": 4523
+      "api_items": 80,
+      "stories": 4276,
+      "clusters": 4246
     },
     "llm_status": {
-      "status": "degraded",
-      "calls": 391,
-      "ok": 390,
-      "errors": 1,
+      "status": "ok",
+      "calls": 180,
+      "ok": 180,
+      "errors": 0,
       "skipped": 0,
       "by_kind": {
-        "importance": 159,
-        "ai_relevance": 162,
-        "output_cleanup": 44
+        "ai_relevance": 77,
+        "importance": 72,
+        "output_cleanup": 20
       },
       "stages": {
         "enrichment": {
           "status": "ok",
-          "calls": 26,
-          "ok": 26,
+          "calls": 11,
+          "ok": 11,
           "errors": 0,
           "skipped": 0,
           "backlog": {
             "embeddings": {
-              "before": 44,
+              "before": 20,
               "remaining": 0
             },
             "summaries": {
-              "before": 44,
-              "remaining": 19
+              "before": 20,
+              "remaining": 10
             }
           }
         },
         "publish": {
-          "status": "degraded",
-          "calls": 365,
-          "ok": 364,
-          "errors": 1,
+          "status": "ok",
+          "calls": 169,
+          "ok": 169,
+          "errors": 0,
           "skipped": 0,
           "by_kind": {
-            "importance": 159,
-            "ai_relevance": 162,
-            "output_cleanup": 44
+            "ai_relevance": 77,
+            "importance": 72,
+            "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 365
+            "openai/gpt-4.1-mini": 169
           },
           "backlog": {
             "ai_relevance": {
-              "before": 162,
+              "before": 77,
               "remaining": 0
             },
             "importance": {
-              "before": 2,
-              "remaining": 1
+              "before": 0,
+              "remaining": 0
             },
             "output_cleanup": {
-              "before": 44,
+              "before": 20,
               "remaining": 0
             }
           },
-          "backlog_remaining": 1
+          "backlog_remaining": 0
         }
       },
       "backlog": {
         "embeddings": {
-          "before": 44,
+          "before": 20,
           "remaining": 0
         },
         "summaries": {
-          "before": 44,
-          "remaining": 19
+          "before": 20,
+          "remaining": 10
         },
         "ai_relevance": {
-          "before": 162,
+          "before": 77,
           "remaining": 0
         },
         "importance": {
-          "before": 2,
-          "remaining": 1
+          "before": 0,
+          "remaining": 0
         },
         "output_cleanup": {
-          "before": 44,
+          "before": 20,
           "remaining": 0
         }
       },
-      "backlog_remaining": 20
+      "backlog_remaining": 10
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-10-15T03:41:55.554269+00:00",
-    "status": "ratings",
+    "timestamp": "2026-10-15T08:05:12.545717+00:00",
+    "status": "supplemented",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
     "latest_published_rating_date": "2026-10-14",
-    "latest_selection_date": "2026-10-14",
+    "latest_selection_date": "2026-10-15",
     "ratings_age_days": 1,
-    "total_rows": 3963,
+    "total_rows": 3969,
     "published_ratings": 3956,
-    "estimated_ratings": 7,
-    "briefing_versions": 35,
+    "estimated_ratings": 13,
+    "briefing_versions": 36,
     "briefing_lookup_error": null,
     "ratings_lookup_error": null,
     "fetched_rating_rows": 3977,
