@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-21T00:19:12.430549+00:00",
+  "timestamp": "2026-10-21T04:06:29.939439+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 223,
-      "last_updated": "Wed, 21 Oct 2026 00:10:00 +0000",
+      "last_updated": "Wed, 21 Oct 2026 03:42:52 +0000",
       "size_bytes": 193872,
       "errors": []
     },
@@ -13,7 +13,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 3765,
-      "last_updated": "Wed, 21 Oct 2026 00:10:00 +0000",
+      "last_updated": "Wed, 21 Oct 2026 03:42:52 +0000",
       "size_bytes": 2693634,
       "errors": []
     },
@@ -21,7 +21,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 4,
-      "last_updated": "Wed, 21 Oct 2026 00:10:25 +0000",
+      "last_updated": "Wed, 21 Oct 2026 03:43:17 +0000",
       "size_bytes": 4034,
       "errors": [
         "Low entry count: 4"
@@ -31,7 +31,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 156,
-      "last_updated": "Wed, 21 Oct 2026 00:10:25 +0000",
+      "last_updated": "Wed, 21 Oct 2026 03:43:17 +0000",
       "size_bytes": 190927,
       "errors": []
     },
@@ -39,15 +39,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Wed, 21 Oct 2026 00:12:00 +0000",
-      "size_bytes": 222744,
+      "last_updated": "Wed, 21 Oct 2026 03:44:37 +0000",
+      "size_bytes": 213376,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 842,
-      "last_updated": "Wed, 21 Oct 2026 00:12:00 +0000",
+      "last_updated": "Wed, 21 Oct 2026 03:44:37 +0000",
       "size_bytes": 452450,
       "errors": []
     }
@@ -68,9 +68,9 @@
       "attempted": 14,
       "skipped": 7,
       "with_items": 9,
-      "failures": 1,
+      "failures": 0,
       "recovered": 0,
-      "failure_rate": 7.14
+      "failure_rate": 0.0
     }
   },
   "pipeline_health": {
@@ -80,56 +80,56 @@
     "pipeline_report_exists": true,
     "errors": [],
     "counts": {
-      "api_items": 80,
-      "stories": 2073,
-      "clusters": 2043
+      "api_items": 200,
+      "stories": 3524,
+      "clusters": 3495
     },
     "llm_status": {
       "status": "ok",
-      "calls": 154,
-      "ok": 154,
+      "calls": 411,
+      "ok": 411,
       "errors": 0,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 69,
-        "importance": 54,
-        "output_cleanup": 20
+        "ai_relevance": 174,
+        "importance": 169,
+        "output_cleanup": 42
       },
       "stages": {
         "enrichment": {
           "status": "ok",
-          "calls": 11,
-          "ok": 11,
+          "calls": 26,
+          "ok": 26,
           "errors": 0,
           "skipped": 0,
           "backlog": {
             "embeddings": {
-              "before": 20,
+              "before": 42,
               "remaining": 0
             },
             "summaries": {
-              "before": 20,
-              "remaining": 10
+              "before": 45,
+              "remaining": 20
             }
           }
         },
         "publish": {
           "status": "ok",
-          "calls": 143,
-          "ok": 143,
+          "calls": 385,
+          "ok": 385,
           "errors": 0,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 69,
-            "importance": 54,
-            "output_cleanup": 20
+            "ai_relevance": 174,
+            "importance": 169,
+            "output_cleanup": 42
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 143
+            "openai/gpt-4.1-mini": 385
           },
           "backlog": {
             "ai_relevance": {
-              "before": 69,
+              "before": 174,
               "remaining": 0
             },
             "importance": {
@@ -137,7 +137,7 @@
               "remaining": 0
             },
             "output_cleanup": {
-              "before": 20,
+              "before": 42,
               "remaining": 0
             }
           },
@@ -146,15 +146,15 @@
       },
       "backlog": {
         "embeddings": {
-          "before": 20,
+          "before": 42,
           "remaining": 0
         },
         "summaries": {
-          "before": 20,
-          "remaining": 10
+          "before": 45,
+          "remaining": 20
         },
         "ai_relevance": {
-          "before": 69,
+          "before": 174,
           "remaining": 0
         },
         "importance": {
@@ -162,15 +162,15 @@
           "remaining": 0
         },
         "output_cleanup": {
-          "before": 20,
+          "before": 42,
           "remaining": 0
         }
       },
-      "backlog_remaining": 10
+      "backlog_remaining": 20
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-10-21T00:10:00.528047+00:00",
+    "timestamp": "2026-10-21T03:42:52.609487+00:00",
     "status": "ratings",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
