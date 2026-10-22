@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-22T08:15:11.111054+00:00",
+  "timestamp": "2026-10-22T16:15:32.310250+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 235,
-      "last_updated": "Thu, 22 Oct 2026 08:05:42 +0000",
+      "last_updated": "Thu, 22 Oct 2026 16:04:30 +0000",
       "size_bytes": 203209,
       "errors": []
     },
@@ -13,7 +13,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 3765,
-      "last_updated": "Thu, 22 Oct 2026 08:05:42 +0000",
+      "last_updated": "Thu, 22 Oct 2026 16:04:30 +0000",
       "size_bytes": 2693634,
       "errors": []
     },
@@ -21,7 +21,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 4,
-      "last_updated": "Thu, 22 Oct 2026 08:06:06 +0000",
+      "last_updated": "Thu, 22 Oct 2026 16:04:57 +0000",
       "size_bytes": 4034,
       "errors": [
         "Low entry count: 4"
@@ -31,7 +31,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 156,
-      "last_updated": "Thu, 22 Oct 2026 08:06:06 +0000",
+      "last_updated": "Thu, 22 Oct 2026 16:04:57 +0000",
       "size_bytes": 190927,
       "errors": []
     },
@@ -39,15 +39,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Thu, 22 Oct 2026 08:07:29 +0000",
-      "size_bytes": 344036,
+      "last_updated": "Thu, 22 Oct 2026 16:06:27 +0000",
+      "size_bytes": 210329,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 847,
-      "last_updated": "Thu, 22 Oct 2026 08:07:29 +0000",
+      "last_updated": "Thu, 22 Oct 2026 16:06:27 +0000",
       "size_bytes": 456266,
       "errors": []
     }
@@ -67,7 +67,7 @@
       "total_sources": 21,
       "attempted": 14,
       "skipped": 7,
-      "with_items": 12,
+      "with_items": 9,
       "failures": 1,
       "recovered": 0,
       "failure_rate": 7.14
@@ -81,18 +81,18 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 3539,
-      "clusters": 3512
+      "stories": 2177,
+      "clusters": 2148
     },
     "llm_status": {
-      "status": "ok",
-      "calls": 169,
-      "ok": 169,
-      "errors": 0,
+      "status": "degraded",
+      "calls": 157,
+      "ok": 155,
+      "errors": 2,
       "skipped": 0,
       "by_kind": {
         "ai_relevance": 70,
-        "importance": 68,
+        "importance": 56,
         "output_cleanup": 20
       },
       "stages": {
@@ -114,18 +114,18 @@
           }
         },
         "publish": {
-          "status": "ok",
-          "calls": 158,
-          "ok": 158,
-          "errors": 0,
+          "status": "degraded",
+          "calls": 146,
+          "ok": 144,
+          "errors": 2,
           "skipped": 0,
           "by_kind": {
             "ai_relevance": 70,
-            "importance": 68,
+            "importance": 56,
             "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 158
+            "openai/gpt-4.1-mini": 146
           },
           "backlog": {
             "ai_relevance": {
@@ -134,14 +134,14 @@
             },
             "importance": {
               "before": 0,
-              "remaining": 0
+              "remaining": 2
             },
             "output_cleanup": {
               "before": 20,
               "remaining": 0
             }
           },
-          "backlog_remaining": 0
+          "backlog_remaining": 2
         }
       },
       "backlog": {
@@ -159,18 +159,18 @@
         },
         "importance": {
           "before": 0,
-          "remaining": 0
+          "remaining": 2
         },
         "output_cleanup": {
           "before": 20,
           "remaining": 0
         }
       },
-      "backlog_remaining": 10
+      "backlog_remaining": 12
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-10-22T08:05:42.194260+00:00",
+    "timestamp": "2026-10-22T16:04:30.728189+00:00",
     "status": "supplemented",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
