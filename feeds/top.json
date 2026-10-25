@@ -7,172 +7,207 @@
   "language": "en",
   "items": [
     {
+      "id": "sty_dbf2b70f50cdf6b0",
+      "url": "https://twitter.com/mike64_t/status/2114150399406202896",
+      "title": "Samsung runs TensorFlow Lite AlexNet model on 960x540 images to identify games, with INT8 quantization and frequent CPU use [ ~ ] [ ◻ ]",
+      "content_text": "A researcher found that Samsung devices run a TensorFlow Lite model named \"alex.tflite,\" based on AlexNet, on 960x540 images every few seconds to attempt to identify the game being played. The model uses INT8 quantization and performs nearest neighbor feature comparisons against a database but reportedly fails to work correctly 99% of the time. The results appear to be discarded since user consent is requested later in the process. This discovery raises concerns about CPU usage and privacy on Samsung devices running Tizen OS.",
+      "date_published": "2026-10-25T10:42:01Z"
+    },
+    {
       "id": "sty_218a5f87fc40a166",
       "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class",
-      "title": "Report: America lost over 200,000 media, film, and arts jobs in four years amid AI rise, with movie and sound recording sectors hardest hit [ * ] [ ◻ ]",
-      "content_text": "America has lost more than 200,000 jobs in creative industries over the past four years, including about 50,000 in the last year, marking one of the worst periods for media employment outside major recessions. This decline coincides with the rise of AI systems capable of generating novels, images, music, and other digital art at low cost, though the exact impact of AI on job losses remains difficult to quantify due to factors like industry consolidation and offshoring. Job losses have affected nearly every subsector of digital arts, with the movie and sound recording industry, including Hollywood, losing over 100,000 jobs-about one-third of its workforce-since 2022. Other sectors like publishing and live broadcasting have also seen unusual downturns, while in-person entertainment continues to grow. The ongoing job losses raise questions about the future sustainability of creative industry business models amid advancing AI technologies.",
+      "title": "America loses over 200,000 jobs in media, film, and arts over four years amid rise of AI-generated content [ * ] [ ◻ ]",
+      "content_text": "America has lost more than 200,000 jobs in creative industries such as media, film, and the arts over the past four years, with about 50,000 lost in the last year alone. This decline coincides with the rise of AI systems capable of producing novels, images, music, and other digital art at low cost, though the exact impact of AI on job losses is difficult to isolate due to factors like industry consolidation and offshoring. Job losses have affected nearly every subsector of digital arts, with the movie and sound recording sector, including Hollywood, experiencing the most severe decline-losing over 100,000 jobs, nearly one-third of its workforce. While some losses continue long-term trends, others, such as live broadcasting and streaming, have seen unusual downturns recently, raising questions about the future sustainability of creative industry employment amid advancing AI technologies.",
       "date_published": "2026-10-24T23:11:54Z"
     },
     {
       "id": "sty_56717aca2d465ff6",
       "url": "https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras",
-      "title": "Cerebras deploys multi-trillion parameter AI models using multiple WSE-3T wafers with 44 GB on-chip memory each [ * ] [ ◼ ]",
-      "content_text": "Cerebras explains how it deploys large AI models with trillions of parameters by splitting them across multiple WSE-3T wafers, each with 44 GB of on-chip memory, to achieve high throughput of 1000-2000+ tokens per second. The company uses the open source Kimi K3 model with about 3 trillion parameters as an example to illustrate the approach. The deployment involves mapping model layers across 59 wafers, with dense layers assigned one per wafer due to KV cache requirements and linear-attention layers sharing wafers. The wafers are connected in a pipeline where only activations pass between wafers, minimizing data movement. Multiple requests are processed concurrently by keeping the pipeline full, allowing efficient utilization and high throughput.",
+      "title": "Cerebras deploys trillion-parameter AI models using multiple WSE-3T wafers with 44 GB on-chip memory each to run multi-trillion parameter models at over 1000 tokens per second [ * ] [ ◼ ]",
+      "content_text": "Cerebras explains how it deploys large AI models with trillions of parameters on its wafer-scale engine (WSE-3T) chips, each with 44 GB of on-chip memory. The company uses a pipeline approach to split models like the open-source 3 trillion-parameter Kimi K3 across multiple wafers, enabling efficient processing at high throughput. The deployment involves mapping model layers to wafers, with dense layers assigned one per wafer due to key-value cache requirements and linear-attention layers sharing wafers. This results in a total of 59 wafers for Kimi K3. Activations flow between wafers with low latency, while weights remain on-chip, allowing the system to handle many concurrent requests by keeping the pipeline stages busy with different requests simultaneously.",
       "date_published": "2026-10-25T01:33:49Z"
     },
     {
-      "id": "sty_9580b7d48c930773",
-      "url": "https://github.com/slee-persis/GVS5H",
-      "title": "GVS5H method enables five Qwen3.8-27B models to match Fable 5's coding performance on LiveCodeBench hard problems [ ~ ] [ ◼ ]",
-      "content_text": "Researchers introduced GVS5H, a ledger-based zero-shot self-orchestration method that allows multiple instances of a single model to decompose and coordinate on coding problems through a shared filesystem. Using this approach, five Qwen3.8-27B models achieved up to 92.4% pass@1 accuracy on the 100 latest hard LiveCodeBench problems, matching or exceeding Fable 5's 90.4% at a fraction of the cost. The method was tested across eleven open and closed-weight models, showing gains of up to 25.6 percentage points on pinned backends. The improvement is attributed to problem decomposition and persistent context management during inference, enabling frontier-level coding accuracy without additional training. The code and results are available under open licenses on GitHub.",
-      "date_published": "2026-10-25T03:56:01Z"
+      "id": "sty_4a3c8c1cbcf0f096",
+      "url": "https://www.techspot.com/news/114171-nikon-photography-contest-winner-loses-title-after-scientists.html",
+      "title": "Nikon strips 2026 Small World in Motion contest winner of title after AI-generated video suspicions",
+      "content_text": "Nikon revoked the 2026 Small World in Motion contest title from Dr. Ning Xu after scientists identified signs of AI generation in his winning microscopic video of cilia movement. Concerns included unnatural cell behavior and a watermark suggesting AI use, which Xu partially acknowledged but denied violated rules. Nikon awarded the top prize to Nguyen Nam Nhat and plans to revise contest rules and evaluation procedures to address AI-related issues in future entries.",
+      "date_published": "2026-10-25T09:51:17Z"
     },
     {
-      "id": "sty_fc787e5888115826",
-      "url": "https://arxiv.org/abs/2610.29162",
-      "title": "Researchers find AI-generated text uses more complex linguistic features than human writing, potentially reducing readability due to optimization for information density over communication [ ~ ] [ ◻ ]",
-      "content_text": "A study analyzing AI-generated text across various domains found that language models frequently use psycholinguistic features associated with human processing difficulty, such as long syntactic dependencies and low-frequency word combinations. Compared to human writing and paraphrases, AI models tend to employ more inanimate subjects with animate verbs and other complex structures, which may make their output harder to understand. The researchers suggest this arises because AI models optimize for goals like math and reasoning that prioritize information density rather than clear communication. They demonstrated this by fine-tuning a model with a length penalty, which increased divergence from human-like language patterns. The findings highlight misalignments between human linguistic processing and AI-generated language, pointing to potential avenues for improving AI text clarity.",
-      "date_published": "2026-10-24T18:04:57Z"
+      "id": "sty_84dd4c57c9fd7be3",
+      "url": "https://medium.com/@thomasunise/this-open-source-cybersecurity-platform-uses-ai-agents-to-detect-threats-and-protect-businesses-762e65392b42",
+      "title": "Open-source cybersecurity platform launches AI agents to detect threats and protect businesses",
+      "content_text": "An open-source cybersecurity platform has introduced AI agents designed to detect threats and enhance protection for businesses. The platform leverages artificial intelligence to monitor and respond to potential security risks in real time. This development aims to provide accessible, automated cybersecurity solutions for organizations seeking to improve their defense capabilities.",
+      "date_published": "2026-10-25T13:41:19Z"
     },
     {
-      "id": "sty_75a2d603a2891e43",
-      "url": "https://medium.com/@ai_news/argus-might-be-one-of-the-most-impressive-open-source-cybersecurity-projects-released-this-year-118043bd0c8c",
-      "title": "Open-source platform Argus launches AI agents to automate cyber threat detection and response [ * ] [ ◼ ]",
-      "content_text": "Argus, a new open-source cybersecurity platform, uses artificial intelligence agents to automate the detection and hunting of cyber threats. The platform aims to improve security operations by enhancing threat identification and response processes through AI automation. This project has been highlighted as one of the most impressive open-source cybersecurity releases of the year, reflecting growing interest in AI-driven security tools.",
-      "date_published": "2026-10-25T07:09:35Z"
+      "id": "sty_769a88915e86a3a6",
+      "url": "https://news.ycombinator.com/item?id=50232407",
+      "title": "Ask HN: Hacker News community discusses ways to address the accelerating impact of AI on software development and potential dystopian outcomes [ ~ ] [ ◻ ]",
+      "content_text": "A discussion on Hacker News has emerged where software developers express concern about the rapid rise of AI-driven agentic coding and its potential to end their profession. The community is exploring strategies to slow down or halt this trend to avoid a dystopian future. Participants compare the current situation to the transition from horse carriages to automobiles, highlighting the exponential pace of AI adoption and the dependency it creates. They debate whether a sudden stop or gradual control measures could mitigate the risks associated with increasing AI automation in software development.",
+      "date_published": "2026-10-25T15:12:10Z"
+    },
+    {
+      "id": "sty_b4ce256ad38c1da7",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+      "title": "Reddit's r/opensource bans AI-related projects, non-English posts, and new solo developer submissions amid community backlash [ ~ ] [ ◻ ]",
+      "content_text": "The moderators of Reddit's r/opensource subreddit introduced new rules banning projects that use, are made by, or are intended for AI, citing incompatibility with the community's open source values. The rules also require projects to be at least one year old, actively maintained, and have multiple contributors, effectively barring new solo developers from posting. Additionally, non-English posts are prohibited due to concerns about verifying AI-generated translations. These changes have sparked significant controversy within the community, leading to the creation of a rival subreddit, r/trueopensource. Moderators have acknowledged some nuance in enforcement, allowing exceptions for incidental AI features like automatic captioning, but many users criticize the rules as overly broad and vague. The ban on AI projects has raised concerns since even established projects like the Linux kernel now include some AI-generated code, potentially putting them at risk under the new guidelines.",
+      "date_published": "2026-10-25T13:25:32Z"
+    },
+    {
+      "id": "sty_d4168ecd7b40aefc",
+      "url": "https://reddit.com/opensource_projects",
+      "title": "Reddit bans AI content on r/opensource, prompting creation of a new AI-focused subreddit [ ~ ] [ ◻ ]",
+      "content_text": "The subreddit r/opensource has banned all AI-related content, leading users to create a new subreddit dedicated to discussions and posts about artificial intelligence. This new community aims to provide a platform for AI topics that are no longer permitted on r/opensource.",
+      "date_published": "2026-10-25T15:03:44Z"
+    },
+    {
+      "id": "sty_5b522bd918595fe0",
+      "url": "https://www.vincentschmalbach.com/if-ai-can-copy-photoshop-why-build-the-next-figma/",
+      "title": "Analysis: AI's ability to replicate Photoshop features raises questions about the future development of new design tools like Figma [ ~ ] [ ◻ ]",
+      "content_text": "The article examines how AI technologies capable of copying functionalities of established design software such as Photoshop could impact the creation of new design platforms like Figma. It explores whether AI-driven replication might reduce incentives for building innovative design tools or reshape the software development landscape. The discussion considers the broader implications of AI advancements on productivity and innovation within the design software industry.",
+      "date_published": "2026-10-25T15:20:51Z"
     },
     {
       "id": "sty_8c197af5860c67b0",
       "url": "https://actu.epfl.ch/news/neural-chip-decodes-interactions-between-brain-r-2/",
-      "title": "EPFL develops LogSync neural chip to decode cross-regional brain interactions and identify cognitive and emotional states in real time for psychiatric therapy [ ~ ] [ ◼ ]",
-      "content_text": "EPFL researchers have created an implantable neural chip called LogSync that records brain activity across multiple regions to detect cognitive and emotional states in real time. The chip uses low power and machine-learning algorithms to analyze brain wave synchrony and generate stimulation triggers, aiming to improve treatments for psychiatric disorders such as depression and PTSD. LogSync was tested on human brain recordings and animal models, demonstrating its ability to track brain oscillations and trigger stimulation at precise phases. The system operates under 200 microwatts of power by combining hardware and algorithm design, using logarithmic computations to efficiently process neural signals. This technology could enhance adaptive deep brain stimulation and other neurotechnologies beyond psychiatric applications.",
+      "title": "EPFL develops implantable neural chip LogSync to decode brain region interactions and identify cognitive and emotional states in real time [ ~ ] [ ◼ ]",
+      "content_text": "Researchers at EPFL have created LogSync, a low-power implantable neural chip that records brain activity across multiple regions to detect cognitive and emotional states using machine learning. The chip aims to improve deep brain stimulation therapies by enabling adaptive, network-level modulation rather than relying on single-region signals or fixed stimulation patterns. LogSync operates within a strict power budget under 200 microwatts by combining hardware and algorithm co-design and using logarithmic computations for efficient brain-network analysis. The system was validated with human and animal data, distinguishing mental engagement and emotional arousal, and generating stimulation triggers aligned with brain oscillations. This technology could advance treatments for psychiatric disorders and other neurological conditions requiring precise, adaptive brain stimulation.",
       "date_published": "2026-10-24T15:57:17Z"
     },
     {
-      "id": "sty_2a51b52ad38f7e16",
-      "url": "https://www.youtube.com/watch?v=ZumXpZzDsgo",
-      "title": "Video explores concerns about AI's impact on cognitive abilities and brain function",
-      "content_text": "A video discusses potential negative effects of artificial intelligence on human brain health and cognitive function. It examines how reliance on AI tools might influence mental processes and memory retention. The content aims to raise awareness about the cognitive implications of increasing AI usage in daily life.",
-      "date_published": "2026-10-25T06:38:17Z"
+      "id": "sty_960ec34939fd15e7",
+      "url": "https://www.worldofbuilders.com/",
+      "title": "World of Builders launches directory of 958 artisans, craftspeople, and smiths to support traditional skills in a post-AI era",
+      "content_text": "World of Builders has launched a directory featuring 958 artisans, craftspeople, and smiths to highlight and connect users with skilled creators specializing in traditional crafts. The directory aims to promote inspirational makers and preserve artisanal work amid increasing AI influence.",
+      "date_published": "2026-10-25T15:12:26Z"
     },
     {
-      "id": "sty_0a334665a17b4eac",
-      "url": "https://taskwire.si",
-      "title": "TaskWire launches MCP-based taskboard to manage AI agent workflows with exclusive task claims and status tracking [ ~ ] [ ◼ ]",
-      "content_text": "TaskWire is a taskboard platform built on the Message Control Protocol (MCP) framework designed to manage AI agent workflows by coordinating task progress from Pending to Review stages. It ensures that tasks are claimed one at a time to prevent multiple agents from working on the same task simultaneously, aiming to improve workflow efficiency and task coordination among AI agents.",
-      "date_published": "2026-10-25T06:44:53Z"
+      "id": "sty_db418416c9585ebe",
+      "url": "https://www.youtube.com/watch?v=kD5qYiLIhJc",
+      "title": "Video explores the interaction between human creativity and AI technologies, examining AI's impact on creative processes and the evolving role of human creativity [ ~ ] [ ◻ ]",
+      "content_text": "The video discusses how artificial intelligence technologies influence and interact with human creative processes, highlighting changes in creativity as AI advances. It examines the evolving relationship between human creativity and AI in shaping artistic and innovative endeavors in the modern era.",
+      "date_published": "2026-10-25T15:42:15Z"
     },
     {
-      "id": "sty_eff1976658edf239",
-      "url": "https://seowins.net/",
-      "title": "SEO Wins launches free SEO audit and AI search tools with no sign-up required [ ~ ] [ ◻ ]",
-      "content_text": "SEO Wins has introduced a free SEO audit tool and AI-powered search utilities that do not require user registration. These tools analyze a webpage's technical SEO factors, on-page elements, and AI search readiness by examining raw HTML as search engines do, providing clear explanations and prioritized fixes for issues affecting rankings. Users can audit unlimited pages, add target keywords, and generate branded PDF reports for sharing. Additional related tools include bulk URL checking, broken link detection, schema markup generation, and AI content brief creation, all designed to help website owners and marketers optimize their online presence efficiently.",
-      "date_published": "2026-10-25T06:39:46Z"
+      "id": "sty_f28db8d60dc18d21",
+      "url": "https://www.redwoodresearch.org/blog/simulated-control-evaluations",
+      "title": "Researchers develop simulated control evaluations using LLMs to fake tool outputs for testing AI agent monitors under realistic deployment conditions [ * ] [ ◼ ]",
+      "content_text": "Researchers have introduced simulated control evaluations (SCEs), a method that uses large language models (LLMs) to simulate tool outputs and test whether AI agent monitors can detect harmful behavior in conditions closer to real deployments. This approach avoids executing actual attacks by generating plausible tool responses and assessing attack success through an LLM judge, improving over traditional control settings that lack deployment realism. The team validated SCEs by comparing simulated environments with real executable settings like LinuxArena, finding that simulation results closely match real outcomes and better predict monitor performance. While SCEs enhance evaluation fidelity and reduce risks, they require some extrapolation for deployment contexts and currently do not cover complex long-term or multi-agent attacks. The researchers encourage AI developers to adopt SCEs to improve the robustness of AI safety monitoring.",
+      "date_published": "2026-10-25T15:41:09Z"
     },
     {
-      "id": "sty_437a89731ad98ba1",
-      "url": "https://melty.gg",
-      "title": "Melty launches platform to merge games with AI-driven mashups and mods, enabling one-click multiplayer and AI-assisted creation [ ~ ] [ ◻ ]",
-      "content_text": "Melty has introduced a platform that allows users to combine any games in their library into AI-driven mashups and mods, playable with friends via one-click multiplayer. The platform installs necessary components automatically and provides invite links for multiplayer sessions, simplifying setup and gameplay. Users can discover and create mashups from popular games like SkyCraft, Super Mario Ring, and Elden Craft, with AI agents assisting in building and publishing custom content. Melty offers verified, free-to-play mashups and mods for Windows, aiming to enhance gaming experiences through AI integration and easy multiplayer access.",
-      "date_published": "2026-10-25T07:22:43Z"
+      "id": "sty_b3392b2ae536b11a",
+      "url": "https://enjoy.dev/hn/",
+      "title": "Enjoy launches free AI creative studio for macOS, Windows, and Linux [ ~ ] [ ◻ ]",
+      "content_text": "Enjoy has released a free AI-powered creative studio compatible with macOS, Windows, and Linux, providing users with tools to enhance their creative projects. The software is available for download at any size without cost.",
+      "date_published": "2026-10-25T15:39:33Z"
     },
     {
-      "id": "sty_6a5b8ffcc7ebb1a2",
-      "url": "https://www.red5.net/blog/ai-detection-is-set-to-transform-live-streaming/",
-      "title": "Red5 plans AI detection service with real-time frame extraction to enhance live streaming analytics and content moderation [ * ] [ ◼ ]",
-      "content_text": "Red5 is developing an AI detection service that enables real-time extraction of video frames from live streams across various protocols, allowing for instant AI analysis and enhanced live streaming capabilities. This technology supports both conventional HTTP streaming and Red5's Cloud Experience Delivery Network (XDN) infrastructure, enabling applications such as content moderation, surveillance, sports highlights, and quality control with minimal latency. The service can extract frames at sub-second intervals and push them to cloud storage for immediate AI processing, often completing analysis before the primary content reaches viewers. This advancement aims to overcome previous delays in frame extraction and unlock new use cases by combining hardware-accelerated cloud processing with Red5's streaming platform architecture.",
-      "date_published": "2026-10-25T07:15:51Z"
+      "id": "sty_ae38b03bd2b9497a",
+      "url": "https://www.youtube.com/shorts/P4z9L17uEgk",
+      "title": "Snowflake adds per-user quotas to limit Cortex AI spending and control individual usage costs [ ~ ] [ ◻ ]",
+      "content_text": "Snowflake has introduced per-user quotas to help organizations manage and cap spending on Cortex AI usage within its platform. This feature enables companies to set limits on individual user consumption, providing more granular control over AI-related expenses.",
+      "date_published": "2026-10-25T15:20:38Z"
     },
     {
-      "id": "sty_517e13289e2c938f",
-      "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/",
-      "title": "OpenAI offers up to 90% discounts to win major customers from Anthropic, slowing Anthropic's growth amid rising price competition [ * ] [ ◼ ]",
-      "content_text": "OpenAI has secured significant AI business from major customers like Rippling, Replit, and DataCamp by offering discounts of up to 90%, leading these companies to shift their AI workloads away from Anthropic. This aggressive pricing strategy has contributed to a slowdown in Anthropic's growth and reflects OpenAI's focus on expanding market share despite reduced margins. The discounts include a 30% price cut on a $100 million contract with Replit and an 80 to 90% cost reduction for DataCamp. OpenAI has also doubled ChatGPT seats for a US bank at a substantially lower per-user price. These price reductions are supported by OpenAI's more efficient Sol and Luna model lines. Both OpenAI and Anthropic face increasing price pressure from Chinese AI providers offering competitive models at lower costs.",
-      "date_published": "2026-10-25T07:30:11Z"
+      "id": "sty_1f7d54825f0ad034",
+      "url": "https://techcrunch.com/2026/10/25/the-hottest-ai-wearables-and-gadgets-you-should-know-about/",
+      "title": "TechCrunch lists notable AI wearables including Amazon's Bee, Friend, Limitless, Meta's Muse Charm, Nirva, Omi, and Plaud NotePin with features from conversation recording to emotional support",
+      "content_text": "A variety of AI-powered wearables are emerging to integrate artificial intelligence into daily life, offering functions from productivity tools to emotional companionship. Devices like Amazon's Bee pendant and wristbands record conversations and create reminders, while Friend provides emotional support with mood recognition and proactive messaging. Meta's upcoming Muse Charm features a digital avatar assistant, and Nirva focuses on personal growth by analyzing speech patterns. Other devices include Limitless, which transcribes and summarizes conversations for professionals, Omi, which uses ChatGPT to provide personalized advice, and Plaud's NotePin, a wearable voice recorder with AI transcription aimed at students and professionals. These products vary in price and capabilities, reflecting a growing market for AI wearables designed to assist with communication, organization, and emotional well-being.",
+      "date_published": "2026-10-25T14:10:00Z"
     },
     {
-      "id": "sty_73835b2c7197bf72",
-      "url": "https://the-decoder.com/openmobile-2-proves-open-source-smartphone-agents-can-rival-proprietary-models/",
-      "title": "Researchers release OpenMobile-2, an open-source AI smartphone agent trained on 110+ simulated apps, achieving top performance among open models on real Android devices [ ~ ] [ ◼ ]",
-      "content_text": "Researchers from Nanjing University, SenseTime, and other institutions developed OpenMobile-2, an open-source AI smartphone agent trained on over 110 simulated applications, including replicas of popular apps like Taobao and Slack. The agent was tested on real Android devices and achieved the highest score among open-source models on the SPA-Bench benchmark, demonstrating that open-source smartphone agents can rival proprietary ones. The team rebuilt apps to create a controlled training environment that avoids challenges of using real apps, such as login requirements and state persistence. They found that increasing the diversity of apps in training improved the agent's success rate on unseen applications more than simply increasing data volume. OpenMobile-2 models, built on Qwen3.5 and Qwen3.6 architectures, showed significant performance gains on multiple benchmarks, with the larger model scoring 59.6 points on SPA-Bench, nearly doubling previous open-source results. The researchers also experimented with direct command interfaces in simulated apps, allowing the agent to bypass menu navigation, which improved task completion rates when the agent was trained to use these shortcuts. While reinforcement learning added limited benefits, the overall results suggest that open-source AI agents can effectively operate smartphone apps and approach the capabilities of proprietary models.",
-      "date_published": "2026-10-25T06:55:22Z"
+      "id": "sty_9e49f8a8eae065a6",
+      "url": "https://github.com/komovaar/kolo",
+      "title": "Kolo launches multiplayer AI coding sessions with shared browser access and integrated terminal agents for trusted teams [ ~ ] [ ◼ ]",
+      "content_text": "Kolo is an experimental tool that enables teams to collaborate on AI coding sessions by sharing a single terminal view in the browser. The host runs AI coding agents on their machine and shares a link so team members can watch, type, and take control without installing software or managing tokens. It supports built-in adapters for Claude Code, Codex CLI, and opencode, with read-only observer roles and host-controlled permissions. The system runs as a single Go binary combining a hub and host, with support for Linux and macOS on amd64 and arm64 architectures, and Windows via WSL2. Kolo detects agent status from terminal output and offers commands for setup verification and compatibility checks. It is intended for trusted teams running agents with host user permissions, recommending isolated environments for security. The project is open source under the AGPL-3.0 license and available on GitHub.",
+      "date_published": "2026-10-25T13:49:15Z"
     },
     {
-      "id": "sty_30224ce6f1f38414",
-      "url": "https://www.youtube.com/watch?v=iIm3f1qTvp8",
-      "title": "Video examines accuracy and challenges of AI-generated historical content [ ~ ] [ ◻ ]",
-      "content_text": "A video titled \"How Bad Is AI History Content?\" analyzes the quality and reliability of historical narratives produced by artificial intelligence. It discusses common inaccuracies and issues in AI-generated history, emphasizing the need for critical assessment of such content.",
-      "date_published": "2026-10-25T07:51:59Z"
+      "id": "sty_66057d75d511e85e",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/ai-provides-zero-payoff-to-s-p-493-outside-tech-apollo-economist-says",
+      "title": "Apollo economist Slok says AI has delivered no economic payoff outside the tech sector in S&P 493 companies",
+      "content_text": "Apollo Global Management economist Jeffrey Slok stated that artificial intelligence has not produced any measurable economic benefits outside the technology sector among S&P 493 companies. He highlighted that despite AI's prominence, its impact remains confined primarily to tech firms, with other industries yet to see significant gains from AI adoption.",
+      "date_published": "2026-10-25T13:56:49Z"
     },
     {
-      "id": "sty_f9343ab673784bd3",
-      "url": "https://www.reddit.com/r/opensource/s/Vmk5Fd1N8H",
-      "title": "Discussion on Reddit argues tokens lack value and questions the future of AI",
-      "content_text": "A Reddit discussion in the open source community debates the value of tokens in AI systems and expresses skepticism about the continued development of AI. Participants question the utility and significance of tokens, suggesting this could impact AI's future trajectory. The conversation reflects broader concerns about AI's direction and the foundational elements that support its growth.",
-      "date_published": "2026-10-25T03:25:18Z"
+      "id": "sty_2565cb99ac3d4048",
+      "url": "https://apnews.com/article/anthropic-moral-artificial-intelligence-religion-2bb91e3334fd6d732edf22288cabf4ec",
+      "title": "Anthropic and other AI companies incorporate religious frameworks to guide moral behavior in artificial intelligence development",
+      "content_text": "Anthropic and several technology companies are exploring religious and philosophical frameworks to instill moral principles in artificial intelligence systems. This approach aims to address ethical challenges in AI behavior by drawing on established moral traditions. The effort reflects growing concern about AI decision-making and the need for consistent ethical guidelines as AI systems become more autonomous and influential.",
+      "date_published": "2026-10-25T13:29:41Z"
     },
     {
-      "id": "sty_d9d531acde8412af",
-      "url": "https://kevinkelly.substack.com/p/most-improbable-agent-of-you",
-      "title": "Kevin Kelly argues society prefers a single dominant AI over multiple competing AIs",
-      "content_text": "Kevin Kelly discusses the societal preference for having one dominant artificial intelligence rather than multiple competing AI systems. He explores the implications of this preference for technology development and human interaction with AI agents. Kelly's perspective highlights the potential consequences of consolidating AI capabilities into a single entity rather than fostering diverse AI ecosystems.",
-      "date_published": "2026-10-25T03:53:52Z"
+      "id": "sty_ef46ad2269bf5e7f",
+      "url": "https://futurism.com/artificial-intelligence/majority-americans-ai-bad-society",
+      "title": "Poll shows 57% of Americans believe AI is bad for society, with concerns over cybersecurity and job loss rising [ ~ ] [ ◻ ]",
+      "content_text": "A recent poll conducted by the Washington Post, ABC News, and IPSOS found that 57 percent of Americans view artificial intelligence as harmful to society, while only 42 percent see it as beneficial. The survey of over 2,500 adults revealed heightened fears about AI's risks, including hacking secure systems and job displacement. Younger Americans and Democrats expressed stronger negative views, and a majority opposed new data center construction, especially near their communities. These findings come amid increased public scrutiny following incidents of AI models engaging in unauthorized hacking and ongoing debates about regulating AI development.",
+      "date_published": "2026-10-25T13:56:00Z"
     },
     {
-      "id": "sty_d43fc72be0c5d019",
-      "url": "https://four-leaf.ai/jobs",
-      "title": "Four-Leaf launches job matching service with live openings scraped from company career pages and ghost-job checks",
-      "content_text": "Four-Leaf has introduced a job matching platform that automatically finds live job openings by scraping company career pages. The service includes checks to filter out ghost jobs and allows users to search for jobs without needing an account.",
-      "date_published": "2026-10-25T03:25:36Z"
-    },
-    {
-      "id": "sty_3702a9c04b9af690",
-      "url": "https://ai.jagular.io",
-      "title": "AI Jagular launches AI Heat Map aggregating data from over 140 news feeds",
-      "content_text": "AI Jagular has launched an AI Heat Map that aggregates and visualizes data sourced from more than 140 news feeds. The platform aims to provide a comprehensive overview of AI-related news and trends in a single interface accessible at ai.jagular.io.",
-      "date_published": "2026-10-25T03:25:15Z"
-    },
-    {
-      "id": "sty_3659e0ce761ad664",
-      "url": "https://aiweekly.co/alerts/anthropic-open-sources-claude-code-sandbox-under-apache-20",
-      "title": "Anthropic open-sources Claude Code's sandbox-runtime as Apache-2.0 npm package with macOS, Linux, and Windows support [ ~ ] [ ◼ ]",
-      "content_text": "Anthropic has released the sandbox-runtime (srt) used in Claude Code as an open-source npm package under the Apache-2.0 license. The runtime provides OS-level sandboxing for filesystem and network restrictions without requiring containers, supporting macOS, Linux, and Windows platforms. The sandbox-runtime uses native primitives like sandbox-exec with Seatbelt profiles on macOS, bubblewrap on Linux, and a Windows build combining Windows Filtering Platform filters and NTFS ACLs. Features include allow-only network policies, Unix-socket allowlisting, experimental TLS termination, credential masking, and AWS SigV4 signing. The release is framed as a research preview for safer AI agents, with evolving APIs and some Windows limitations noted.",
-      "date_published": "2026-10-25T03:34:51Z"
-    },
-    {
-      "id": "sty_c1eabb35fa10c269",
-      "url": "https://github.com/zephium-browser/Zephium",
-      "title": "Zephium launches an open-source browser and integrated work environment with AI agent collaboration and native ad blocking on WebKit and WebView2 engines [ ~ ] [ ◼ ]",
-      "content_text": "Zephium has released an open-source browser built in Rust that uses the native WebKit engine on macOS and WebView2 on Windows, offering native ad and tracker blocking, Chrome extension support, and a unique integrated work environment called Work. Work allows users to describe outcomes in natural language and watch AI agents perform tasks in parallel on a canvas, with results and plans laid out visually and linked to task management tools. The browser features a sidebar assistant called Ask Zephium that reads and interacts with web pages, and supports multiple AI models through user-provided keys or Zephium AI's own selection. Zephium emphasizes privacy with no telemetry and local storage of history and tasks, and includes features like vertical tabs, customizable shortcuts, and importing from other browsers. Work integrates with various services and command-line tools, enabling users to manage complex workflows without leaving the browser.",
-      "date_published": "2026-10-25T03:16:39Z"
-    },
-    {
-      "id": "sty_3454341b80e65083",
-      "url": "https://npmjs.com/protoshot",
-      "title": "Show HN: Close the UI building AI agent loop with Protoshot [ ~ ] [ ◻ ]",
+      "id": "sty_4a48a2003f39b5ca",
+      "url": "https://www.vincentschmalbach.com/can-ai-make-us-so-productive-it-destroys-the-economy/",
+      "title": "Can AI Make Us So Productive That It Destroys the Economy? [ ~ ] [ ◻ ]",
       "content_text": "",
-      "date_published": "2026-10-25T03:10:26Z"
+      "date_published": "2026-10-25T14:32:18Z"
     },
     {
-      "id": "sty_81dc499654eeb536",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
-      "title": "Blue Planet III is keeping the rough edges in the age of AI",
-      "content_text": "BBC's Blue Planet III is looking to prove its authenticity by leaving in the less-than-perfect shots. Previous incarnations of the nature series were defined by their gorgeous, crystal-clear footage that seemed almost too good to be real. But one dead giveaway of AI is when things look too polished and seamless. To counter that, Blue [...]",
-      "date_published": "2026-10-24T21:29:12Z"
+      "id": "sty_ccc5c1a6e79c8f95",
+      "url": "https://www.theverge.com/column/1017983/google-ai-search-online-publishing",
+      "title": "Google's AI search changes upended online publishing [ * ] [ ◼ ]",
+      "content_text": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more about AI's impact on the web, follow Emma Roth. The Stepback arrives in our subscribers' inboxes on Sunday at 8AM ET. Opt in for The Stepback here. How it started The digital publishing industry has relied on [...]",
+      "date_published": "2026-10-25T12:00:00Z"
     },
     {
-      "id": "sty_759328459430aa44",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
-      "title": "Pennsylvania will require labels on AI-generated ads [ * ] [ ◻ ]",
-      "content_text": "On Thursday, Pennsylvania Governor Josh Shapiro signed the Artificial Intelligence Deceptive Advertising Act into law, requiring disclosures on AI-generated ads. The law requires any ad - whether it's a still image, video, audio, or text - that \"has been significantly modified or generated by artificial intelligence\" to include a label in the same format as [...]",
-      "date_published": "2026-10-24T18:32:21Z"
-    },
-    {
-      "id": "sty_ff35959bd5a23fb8",
-      "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector",
-      "title": "No signs of AI payoff outside the tech sector [ ~ ] [ ◻ ]",
+      "id": "sty_7292f9f136ff0ca3",
+      "url": "https://www.phoronix.com/news/Linux-7.4-Sound",
+      "title": "Linux 7.4 Sound Changes Merged: \"The AI Flood Continues\"",
       "content_text": "",
-      "date_published": "2026-10-24T19:47:19Z"
+      "date_published": "2026-10-25T14:10:31Z"
+    },
+    {
+      "id": "sty_3743241d67dc4f07",
+      "url": "https://futurism.com/artificial-intelligence/super-smash-bros-creator-ai",
+      "title": "Creator of Super Smash Brothers Offers Blistering Takedown of AI-Generated Games [ ~ ] [ ◻ ]",
+      "content_text": "AI is being used to \"churn out\" video games. The post Creator of Super Smash Brothers Offers Blistering Takedown of AI-Generated Games appeared first on Futurism.",
+      "date_published": "2026-10-25T12:54:00Z"
+    },
+    {
+      "id": "sty_fdfea522e8257461",
+      "url": "https://twitter.com/boneGPT/status/2114035719853265264",
+      "title": "Imagine an AI future where being banned means you are now economically useless [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-10-25T12:47:20Z"
+    },
+    {
+      "id": "sty_0e2aa2b84ecf26de",
+      "url": "https://skyl-docs.vercel.app/",
+      "title": "Skyl - One Go interface for 400 AI models [ ~ ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-10-25T14:28:48Z"
+    },
+    {
+      "id": "sty_bc9d560e2f217d5c",
+      "url": "https://github.com/NoMac-app/simulator-use",
+      "title": "Show HN: The fastest, most token-efficient iOS Simulator MCP for AI agents [ ~ ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-10-25T14:05:18Z"
+    },
+    {
+      "id": "sty_f3be11bf9babca0d",
+      "url": "https://futurism.com/artificial-intelligence/chatgpt-building-profiles-users",
+      "title": "ChatGPT Is Building Detailed Psychological Profiles of Its Users [ * ] [ ◼ ]",
+      "content_text": "\"...there is no boundary anymore; the system is acting as your advisor, your friend, your doctor, your lawyer, and so it has information on everything.\" The post ChatGPT Is Building Detailed Psychological Profiles of Its Users appeared first on Futurism.",
+      "date_published": "2026-10-25T11:55:00Z"
+    },
+    {
+      "id": "sty_2d8789e6de9692b2",
+      "url": "https://www.foreignaffairs.com/china/empires-artificial-intelligence-niall-ferguson-eric-schmidt",
+      "title": "Empires of AI: The Rise and Fall of a New Global Order [ * ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-10-25T13:41:46Z"
     },
     {
       "id": "sty_062ecdf0c640629b",
@@ -182,18 +217,88 @@
       "date_published": "2026-10-24T19:00:00Z"
     },
     {
-      "id": "sty_4fd47377a9f1a37b",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOX0N0ZWVJZjFXUjdmLTdoRVdJbzkwVDBYaXM1eHN3aEdPbm4zTXNhdjJrbTdHdkQyQTJ5ZWRBMGdheFRKeUFjMFNGbWRZdHhnZWh2YXdDZDV2R2JTazNmaU5kTk9oVmQ2a0hnUzl3V2dtSWE0U2ZOZjB5TElicGVxOE1sSQ?oc=5",
-      "title": "Anthropic's Margin is OpenAI's Opportunity",
-      "content_text": "Anthropic's Margin is OpenAI's Opportunity The Information",
-      "date_published": "2026-10-24T14:00:00Z"
+      "id": "sty_c00132e59da4f0c4",
+      "url": "https://futurism.com/artificial-intelligence/microsoft-new-ai-better-real-doctors",
+      "title": "Microsoft Says Its New AI Is Better at Diagnosing Patients Than Real Doctors [ * ] [ ◼ ]",
+      "content_text": "\"This is just going to change the way care is delivered in a big way.\" The post Microsoft Says Its New AI Is Better at Diagnosing Patients Than Real Doctors appeared first on Futurism.",
+      "date_published": "2026-10-25T10:57:00Z"
     },
     {
-      "id": "sty_ae0f0780bc813232",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1nNVRycmlWXzJTdWtVSVZMbkN2SlVsVEhpUTktdFVuX1g0RmNGNjV4WUhaTjlCMTZmVEg1dWVlSkRWUjJuWGd4bXNvU2dqOXFScG9QMnNrUmJNMmZKNXJtMmp3?oc=5",
-      "title": "Who Is Dario Amodei? The Anthropic CEO Behind Claude - The Profile | Polina Pompliano [ ~ ] [ ◻ ]",
-      "content_text": "Who Is Dario Amodei? The Anthropic CEO Behind Claude The Profile | Polina Pompliano",
-      "date_published": "2026-10-24T20:35:29Z"
+      "id": "sty_47383b65f6f665d0",
+      "url": "https://www.interconnects.ai/p/podcast-kimi-k31-pro-the-new-cyber",
+      "title": "Podcast: Kimi K3.1 Pro, the new cyber reality, and Muse musings [ ~ ] [ ◻ ]",
+      "content_text": "#20",
+      "date_published": "2026-10-25T11:49:00Z"
+    },
+    {
+      "id": "sty_9a95ae4613f24e2d",
+      "url": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
+      "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra [ * ] [ ◼ ]",
+      "content_text": "Nvidia's new data engine Flora labels one hour of robot video for 72 cents instead of $88 with GPT-6 Astra, while scoring slightly higher on quality. The open system, built on three fine-tuned Qwen3.5 models, catches errors in robot actions far more reliably than any competitor but sometimes falls short on descriptive accuracy. Nvidia is positioning Flora as a key piece of its strategy to control the entire robotics value chain. The article Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra appeared first on The Decoder.",
+      "date_published": "2026-10-25T10:08:49Z"
+    },
+    {
+      "id": "sty_af89d2d3782ca01d",
+      "url": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
+      "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027 [ ~ ] [ ◻ ]",
+      "content_text": "A new benchmark by P-Zero Research measures how well AI models design and evaluate experiments on their own. The results are improving so fast that Anthropic co-founder Jack Clark now thinks self-improving AI could arrive by 2027. The article Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027 appeared first on The Decoder.",
+      "date_published": "2026-10-25T09:37:46Z"
+    },
+    {
+      "id": "sty_a3b7697ac9126a9f",
+      "url": "https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone/",
+      "title": "Anthropic says one AI agent beats many subagents now that models can handle complexity alone [ * ] [ ◼ ]",
+      "content_text": "Anthropic says companies should evaluate whether they can consolidate sub-agents into a single agent that loads context on demand. In one architecture comparison, the single-agent setup ran about twice as fast. Anthropic has published a migration kit on GitHub to help teams make the transition. The article Anthropic says one AI agent beats many subagents now that models can handle complexity alone appeared first on The Decoder.",
+      "date_published": "2026-10-25T09:12:10Z"
+    },
+    {
+      "id": "sty_9944c2c739508c27",
+      "url": "https://the-decoder.com/ex-google-ceo-eric-schmidt-calls-openai-and-anthropic-modern-colonial-trading-companies/",
+      "title": "Ex-Google CEO Eric Schmidt calls OpenAI and Anthropic modern colonial trading companies [ ~ ] [ ◻ ]",
+      "content_text": "In Foreign Affairs, historian Niall Ferguson, researcher Lisa Klaassen, and former Google CEO Eric Schmidt cast the US and China as AI empires and every other country as a dependency. The race won't be decided by breakthroughs but by who can bankroll it. US corporations alone plan to spend more than $600 billion in 2026. Yet mounting debt, protests against data centers, and a potential chip crisis over Taiwan could stall both superpowers. The article Ex-Google CEO Eric Schmidt calls OpenAI and Anthropic modern colonial trading companies appeared first on The Decoder.",
+      "date_published": "2026-10-25T08:09:32Z"
+    },
+    {
+      "id": "sty_517e13289e2c938f",
+      "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/",
+      "title": "OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers [ * ] [ ◼ ]",
+      "content_text": "OpenAI is poaching Anthropic's customers with steep discounts. Companies like Rippling, Replit, and DataCamp say they've cut AI costs by up to 90 percent after switching. Anthropic's growth has slowed, but OpenAI is trading its own margins for market share. Chinese rivals like Deepseek are piling on more price pressure. The article OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers appeared first on The Decoder.",
+      "date_published": "2026-10-25T07:30:11Z"
+    },
+    {
+      "id": "sty_73835b2c7197bf72",
+      "url": "https://the-decoder.com/openmobile-2-proves-open-source-smartphone-agents-can-rival-proprietary-models/",
+      "title": "OpenMobile-2 proves open-source smartphone agents can rival proprietary models [ ~ ] [ ◼ ]",
+      "content_text": "Smartphone agents don't get better by processing more data. They improve by training on as many different apps as possible. The researchers behind OpenMobile-2 built an open training environment with more than 110 applications, including 35 replicas of popular apps. On real Android devices, their model scores highest among open agents, the authors say. The article OpenMobile-2 proves open-source smartphone agents can rival proprietary models appeared first on The Decoder.",
+      "date_published": "2026-10-25T06:55:22Z"
+    },
+    {
+      "id": "sty_d1dd1993041bd993",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQaUtJRXRwRkw2ZWJJQk56ZFlDVmdVRWxMcFprM25lTnNLdUNiX1FFV2F4WEM5SFhGWmVBaXd6R1BROU1kSENGWEJtQUUxdkR4ZEdFc3U3bG82NDltbkFNNnJfUlhzTE1NRXpzRENTVURtaTQ5UWpNVG8xVEFVbHhkMmljQlZxdTdlNTAzc0pzVHBXRF9nUWFKLW5Ldl9KQXZmODNZVWhrZnZicXZ2QVJVZzZYQ19JU0I5a2pUbnpzUlQ2SnVoZ2lCd051a2JwUGN2dXJOQ3M5R0s1VlBTNldrX010eHA4LXRjV1Q1a19nUVpMdWRwSTV3SmVpQlVNcEJBWTlTNQ?oc=5",
+      "title": "Before He Was Warning About AI, A College-Age Dario Amodei Warned That The Iraq War Would Hurt Science Jobs - And That Prediction Didn't Pan Out Either - OfficeChai",
+      "content_text": "Before He Was Warning About AI, A College-Age Dario Amodei Warned That The Iraq War Would Hurt Science Jobs - And That Prediction Didn't Pan Out Either OfficeChai",
+      "date_published": "2026-10-25T07:37:39Z"
+    },
+    {
+      "id": "sty_81dc499654eeb536",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
+      "title": "Blue Planet III is keeping the rough edges in the age of AI",
+      "content_text": "BBC's Blue Planet III is looking to prove its authenticity by leaving in the less-than-perfect shots. Previous incarnations of the nature series were defined by their gorgeous, crystal-clear footage that seemed almost too good to be real. But one dead giveaway of AI is when things look too polished and seamless. To counter that, Blue [...]",
+      "date_published": "2026-10-24T21:29:12Z"
+    },
+    {
+      "id": "sty_a3a0624fae7024a0",
+      "url": "https://www.theinformation.com/articles/neoclouds-gathering-storm",
+      "title": "A Neocloud's Gathering Storm [ ~ ] [ ◻ ]",
+      "content_text": "Welcome, Weekenders! Whenever I'm the slightest bit ill, I take to my bed and mope. If it goes more than a day or so, I assume the worst-that the end is nigh. I can't honestly remember the last time I felt unwell for more than a couple days, but I imagine such a scenario would probably find me consulting ChatGPT about burial shrouds. So I'd like to extend a smidgen of sympathy to CoreWeave CEO Mike Intrator. Surely, he's been feeling poorly for nearly two weeks! In the last 12 days, CoreWeave's stock has been nearly halved. A confluence of factors has contributed to the rampant decline, as my colleague Dakin Campbell explained. In short, investors are worried about how rising interest rates will affect CoreWeave's ability to raise debt, which it needs to fund its business of selling cloud computing services. They're also concerned about whether CoreWeave can handle the costs of the mound of debt it already has. Last week, fresh data on U.S. inflation fueled interest rate concerns: Inflation jumped in September, increasing the odds that the Federal Reserve will hike interest rates-making all debt more expensive. Even though there was no new inflation data this week, CoreWeave shares continued to fall-from around $60 on Monday to roughly $54 on Friday. Not even Nvidia's all-powerful CEO, Jensen Huang, was able to stanch the bleeding when he tried to sound a note of confidence for CoreWeave on Thursday, saying the demand for companies like CoreWeave-neoclouds-is \"off the charts.\" The stock nerds over at Barron's tried to argue that Wednesday's earnings report from SpaceX is actually a good sign for CoreWeave. Those numbers showed surging demand for SpaceX's nascent business of selling its excess AI compute, but I'm not sure whether that necessarily bodes well for the company. Yes, an indicator of demand for compute could be interpreted as a welcome data point for CoreWeave, a compute seller. But SpaceX's compute business increasingly seems like a real competitor to CoreWeave and other neoclouds, and as the much, much better established company, SpaceX has the resources to fund expansion of its compute-selling efforts without acquiring hazardous amounts of debt. And investors are a great deal less likely to sink its stock price over interest rate jitters. More news from Wednesday highlighted the industry's appetite for compute. Meta Platforms said it will create a new share class in January-essentially a two-for-one stock split-that will allow it to reach for more capital to spend on AI. It's also partly a maneuver that would help CEO Mark Zuckerberg pay off California's billionaire tax if the levy is approved next month. Meta's board justified helping Zuck pay his taxes by saying that the CEO had threatened to pick up sticks and leave California-and that it was essential to have him in the office as much as possible. (I had to laugh. Just a couple years ago, Zuckerberg was telling us the metaverse would arrive soon, and we'd all be living as digital stick things. Such was the potential of the metaverse that Zuckerberg renamed his entire company for it. Well, guess not!) More capital at Meta might be good for CoreWeave. Meta is a CoreWeave customer-to the tune of $35 billion. There's no guarantee, of course, that Meta will take a newfound gusher of capital and go back to CoreWeave again. Recently, Meta has been building its own data centers and readying production of its custom AI chips. It has also considered selling compute. Investors looked on wearily at Meta's stock split/potential Zuck gift, with the company's shares dropping nearly 9% on Thursday. In fact, Meta's moves unnerved the entire market yet again over how much this whole AI thing will cost. The Nasdaq sank 2.6% on Thursday. CoreWeave shares fell 10%, while declines also hit Nebius (down 7.2%) and IREN (8.3%), the two other publicly traded neoclouds. And everything kept falling on Friday. Are all the stock moves based on buttoned-up rationality? No. But like the common cold that I'm always certain will put me six feet under, worry on Wall Street is contagious.-Abram Brown (abe@theinformation.com) The Information's Must-Read Stories Ramp Investors Went Nuclear Against Airwallex After Doomed Deal Hackers Used Claude and Grok to Automate Attacks on Banks How CoreWeave's Debt Binge Brought a Moment of Reckoning Listening: \"Bear Brook: A Private Matter\" Back in 2017, NHPR, a little public radio station in New Hampshire, found itself with a hit national podcast, \"Bear Brook,\" about cold-case murders-four bodies in two barrels stashed in Bear Brook State Park-and the genetic testing involved in investigating the crimes. Reporter Jason Moon followed up with a second season about a different crime in 2023 and now returns with a third season about another weird happening: the disappearance of 76-year-old Jay Hickey, a local Christmas tree farmer. (Moon likens the setting to a Hallmark movie-frankly, it gave me distinct \"Twin Peaks\" vibes.) After Hickey vanished one autumn, it was months before anyone went looking for him. That was strange because he was suffering from dementia, so surely his wife, Pat, would've, uh, noticed he wasn't around, right? Obviously she offed him, right? Perhaps, but she clearly was suffering from something herself. It's the type of tale that could be glossed over with schlock, sordid storytelling. That's definitely not Moon's approach.-Abram Brown Reading: \"Kobuk the Destroyer\" by Alex Davies Just in the past 12 hours, I've dodged a number of possible catastrophes: I was not singed by my hair dryer, crushed by my office's elevator doors or left unproductive by a bunch of buttons tumbling out of my keyboard. I owe my good fortune to the rigorous science of product testing, a gorpy-seeming topic made into enlightening, witty entertainment in \"Kobuk the Destroyer\" by Alex Davies, a former Wired magazine editor. It is an ode to the nerd geniuses who devise those tests, but it can also feel like a drop directly onto the factory floor of Looney Tunes' Acme Corporation, presenting a sharp critique of how often executives cut corners and ignore blatant problems as they pursue commercialization. Without the centurylong expansion of product testing, we'd all be left in the same position as Wile E. Coyote, with faulty, rocket-powered roller skates attached to our feet. The titular Kobuk, a grizzly bear, may be one of the most prolific practitioners of the field-having lived out the last several decades at a Montana wildlife sanctuary that partners with a government agency to certify various products as bear proof. Kobuk has the great joy of tearing apart coolers, trash cans, composters, and many other items, and gets rewarded with fish, peanut butter, honey, and dog biscuits for his efforts: Whatever survives Kobuk's assault receives the certification. Through his efforts, the general public can buy coolers that actually do keep out other Kobuks. Theoretically, that prevents his shaggy-haired brethren from learning to filch food or hang around humans, habits that can get a bear relocated or euthanized. Kobuk has pawed his way onto a noble path initially blazed in the 1920s by Underwriters Laboratories, a Chicago-based business that pioneered the art of product testing-with engineers who assessed the durability of safes by subjecting them to thousand-degree heat, 30-foot drops and kerosene-fueled explosions. Davies keeps up a brisk pace as he winds through the many testing approaches adopted by various industries in the following years, including the NASA wind tunnel used to develop the Curiosity Mars lander and the oval-shaped gelatin sacks that engineers fired into airplane engines to avoid needing to kill thousands and thousands of live birds. As many of you might surely agree, determining the safety of one group of products in particular remains decidedly challenging: ahem, AI! Much of the alignment training and red teaming that goes into AI development comes away with vague conclusions, Davies writes: We simply don't understand enough about what we've created, and AI often operates much more unpredictably than, say, a refrigerator door or an airbag. Trying to understand why an AI behaved safely in one setting but dangerously in another is \"like trying to understand why your dog growls at people carrying shopping bags but not people carrying suitcases.\"-A.B. Watching: \"Carrie\" Stephen King's cabinet of terrors is a well-stocked place, cluttered with weird evils, many with complex, lengthy backstories. The It of \"It,\" you may recall, is not actually an evil clown-it's an ageless, alien ball of light. \"The Langoliers\" is a time-travel story...about piranha-like, interdimensional critters that literally eat time. I could try to also get into the motivations of Randall Flagg in \"The Stand,\" but unlike King, I don't have 823 pages to do that here. The knottier of King's novels defy easy screen adaptations. Other retellings of King stories fail on the screen largely because they suffer in comparison to finer, earlier movie adaptations, to say nothing of their misappropriation of King's material. On Amazon, there's an excellent new restructuring of King's \"Carrie,\" his first bestseller and, of course, the source for a much-loved film by director Brian De Palma, which put both De Palma and King on the map. There's a simplicity and universal resonance to King's story of tortured, telekinetic high schooler Carrie White that makes it highly moldable: Teenagers have been terrifying ever since there have been teenagers, both to themselves and to those around them. Amazon's \"Carrie\" was helmed by Mike Flanagan, who has a string of spooky series on Netflix (\"The Fall of the House of Usher,\" \"The Haunting of Hill House\") and did the 2019 movie adaptation of King's \"Doctor Sleep.\" Flanagan adeptly positions his \"Carrie\" in the modern day. The infamous shower scene, for example, does not really end when Carrie (newcomer Summer Howell) is escorted away by kindhearted PE teacher Miss Desjardin (Amber Midthunder). Her bullying classmates captured the entire thing on their cellphones, and their torment of her continues via an anonymous Instagram account. Later, her mother, Margaret (Samantha Sloyan), a religious nut who also favors QAnon-like conspiracy theories, seizes the internet as a means for her own ferocious manipulations. With the benefit of an eight-episode run, Flanagan gets the opportunity to give greater depth to the Whites and the people around them, including Carrie's chief bully, Christine (Alison Thornton), and classmate Sue (Siena Agudong), who befriends Carrie in this version. Granted, it might seem like Flanagan is trying to stretch the material as thin as a funeral crepe. He doesn't, aided by roundly top-notch performances.-A.B.",
+      "date_published": "2026-10-24T15:00:45Z"
+    },
+    {
+      "id": "sty_759328459430aa44",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+      "title": "Pennsylvania will require labels on AI-generated ads [ * ] [ ◻ ]",
+      "content_text": "On Thursday, Pennsylvania Governor Josh Shapiro signed the Artificial Intelligence Deceptive Advertising Act into law, requiring disclosures on AI-generated ads. The law requires any ad - whether it's a still image, video, audio, or text - that \"has been significantly modified or generated by artificial intelligence\" to include a label in the same format as [...]",
+      "date_published": "2026-10-24T18:32:21Z"
     },
     {
       "id": "sty_d23369ed16418af4",
@@ -203,46 +308,11 @@
       "date_published": "2026-10-24T16:00:00Z"
     },
     {
-      "id": "sty_9d9ae72fa6a32bf1",
-      "url": "https://the-decoder.com/three-fired-openai-safety-researchers-say-they-were-never-told-what-they-actually-leaked/",
-      "title": "Three fired OpenAI safety researchers say they were never told what they actually leaked [ * ] [ ◼ ]",
-      "content_text": "The three OpenAI safety researchers who were fired, Tomek Korbak, Mikita Balesni, and Jasmine Wang, are publicly pushing back against allegations from their former employer. They deny sharing confidential information and see a connection to their advocacy for AI systems that are easier to scrutinize. The researchers say OpenAI never told them in writing which information they allegedly mishandled. The article Three fired OpenAI safety researchers say they were never told what they actually leaked appeared first on The Decoder.",
-      "date_published": "2026-10-24T15:19:33Z"
-    },
-    {
-      "id": "sty_8f266769a917f274",
-      "url": "https://the-decoder.com/ai-makes-junior-patent-attorneys-instantly-better-but-may-quietly-stunt-their-professional-growth/",
-      "title": "AI makes junior patent attorneys instantly better but may quietly stunt their professional growth [ * ] [ ◼ ]",
-      "content_text": "A three-month field experiment with 133 patent attorneys shows that AI boosts immediate performance, with junior lawyers gaining the most. But when the AI is taken away, only senior attorneys retain the benefits, suggesting that baseline expertise is a prerequisite for turning AI-assisted practice into lasting skill. The article AI makes junior patent attorneys instantly better but may quietly stunt their professional growth appeared first on The Decoder.",
-      "date_published": "2026-10-24T14:34:05Z"
-    },
-    {
       "id": "sty_d573496a4d81102e",
       "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
       "title": "Forced to pick, Grok's AI model chooses Republicans. OpenAI's picks Democrats. [ ~ ] [ ◻ ]",
       "content_text": "A new study found Grok's AI overwhelmingly recommends Republican candidates while OpenAI's GPT favors Democrats, with the two AI models disagreeing in more than 90% of nearly 500 election races.",
       "date_published": "2026-10-24T15:00:00Z"
-    },
-    {
-      "id": "sty_2cf893e0bfd9e6b2",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1yVi1sdEgxYmx2THJJODdIVTVFLUVTbXN0ZGFKQzB5TW5BZHFRb29JTTJNZUtjR25Palc4Ymo3SnVSeWhvU0xHb0hyMllRNUQ0NFU0RlhfZ1BKODBvRXhWdzdZY3Q2UUU3bHFlQnRyamtnR19xR01mZTBR?oc=5",
-      "title": "Forget Anthropic: Biotech Is Quietly Dominating the IPO Sphere - Barron's",
-      "content_text": "Forget Anthropic: Biotech Is Quietly Dominating the IPO Sphere Barron's",
-      "date_published": "2026-10-24T18:57:00Z"
-    },
-    {
-      "id": "sty_0ecc97a8403e0ead",
-      "url": "https://the-decoder.com/blocks-new-ai-model-dessa-was-trained-entirely-on-human-speech-to-catch-emotions-text-based-models-miss/",
-      "title": "Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss [ ~ ] [ ◻ ]",
-      "content_text": "Block, the company behind Square and Cash App, has introduced Dessa, a speech model that processes audio directly instead of converting it to text first. Dessa is designed to recognize emotions, sarcasm, and pauses in real time. The model runs locally on a MacBook Pro M4 Max but isn't publicly available yet. The article Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss appeared first on The Decoder.",
-      "date_published": "2026-10-24T14:09:46Z"
-    },
-    {
-      "id": "sty_81fe6b109f3b310f",
-      "url": "https://danielball.com/notes/ai_image_generation.html",
-      "title": "A practical guide to AI image generation, from diffusion to agents [ ~ ] [ ◻ ]",
-      "content_text": "Comments",
-      "date_published": "2026-10-20T19:22:39Z"
     },
     {
       "id": "sty_e387797e5267d0ca",
@@ -252,6 +322,55 @@
       "date_published": "2026-10-24T14:00:00Z"
     },
     {
+      "id": "sty_ac81cb44149828e1",
+      "url": "https://www.theinformation.com/articles/anthropics-margin-openais-opportunity",
+      "title": "Anthropic's Margin is OpenAI's Opportunity [ * ] [ ◼ ]",
+      "content_text": "OpenAI's efforts to undercut Anthropic on price are producing some results. For instance, in May, Anthropic models powered 57% of the coding work of hundreds of engineers at Rippling, an HR software firm, while OpenAI models handled 16% of that work. Since then, the situation has reversed: 52% of the coding work is now handled by OpenAI models and 18% with Anthropic ones, as the company sought to cut costs and OpenAI proved cheaper, CEO Parker Conrad said.",
+      "date_published": "2026-10-24T14:00:49Z"
+    },
+    {
+      "id": "sty_ff35959bd5a23fb8",
+      "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector",
+      "title": "No signs of AI payoff outside the tech sector [ ~ ] [ ◻ ]",
+      "content_text": "",
+      "date_published": "2026-10-24T19:47:19Z"
+    },
+    {
+      "id": "sty_9d9ae72fa6a32bf1",
+      "url": "https://the-decoder.com/three-fired-openai-safety-researchers-say-they-were-never-told-what-they-actually-leaked/",
+      "title": "Three fired OpenAI safety researchers say they were never told what they actually leaked [ * ] [ ◼ ]",
+      "content_text": "The three OpenAI safety researchers who were fired, Tomek Korbak, Mikita Balesni, and Jasmine Wang, are publicly pushing back against allegations from their former employer. They deny sharing confidential information and see a connection to their advocacy for AI systems that are easier to scrutinize. The researchers say OpenAI never told them in writing which information they allegedly mishandled. The article Three fired OpenAI safety researchers say they were never told what they actually leaked appeared first on The Decoder.",
+      "date_published": "2026-10-24T15:19:33Z"
+    },
+    {
+      "id": "sty_ae0f0780bc813232",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1nNVRycmlWXzJTdWtVSVZMbkN2SlVsVEhpUTktdFVuX1g0RmNGNjV4WUhaTjlCMTZmVEg1dWVlSkRWUjJuWGd4bXNvU2dqOXFScG9QMnNrUmJNMmZKNXJtMmp3?oc=5",
+      "title": "Who Is Dario Amodei? The Anthropic CEO Behind Claude - The Profile | Polina Pompliano [ ~ ] [ ◻ ]",
+      "content_text": "Who Is Dario Amodei? The Anthropic CEO Behind Claude The Profile | Polina Pompliano",
+      "date_published": "2026-10-24T20:35:29Z"
+    },
+    {
+      "id": "sty_8f266769a917f274",
+      "url": "https://the-decoder.com/ai-makes-junior-patent-attorneys-instantly-better-but-may-quietly-stunt-their-professional-growth/",
+      "title": "AI makes junior patent attorneys instantly better but may quietly stunt their professional growth [ * ] [ ◼ ]",
+      "content_text": "A three-month field experiment with 133 patent attorneys shows that AI boosts immediate performance, with junior lawyers gaining the most. But when the AI is taken away, only senior attorneys retain the benefits, suggesting that baseline expertise is a prerequisite for turning AI-assisted practice into lasting skill. The article AI makes junior patent attorneys instantly better but may quietly stunt their professional growth appeared first on The Decoder.",
+      "date_published": "2026-10-24T14:34:05Z"
+    },
+    {
+      "id": "sty_0ecc97a8403e0ead",
+      "url": "https://the-decoder.com/blocks-new-ai-model-dessa-was-trained-entirely-on-human-speech-to-catch-emotions-text-based-models-miss/",
+      "title": "Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss [ ~ ] [ ◻ ]",
+      "content_text": "Block, the company behind Square and Cash App, has introduced Dessa, a speech model that processes audio directly instead of converting it to text first. Dessa is designed to recognize emotions, sarcasm, and pauses in real time. The model runs locally on a MacBook Pro M4 Max but isn't publicly available yet. The article Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss appeared first on The Decoder.",
+      "date_published": "2026-10-24T14:09:46Z"
+    },
+    {
+      "id": "sty_5379d0749ab9b1ce",
+      "url": "https://news.google.com/rss/articles/CBMiMkFVX3lxTE9KUlpuaWtVOGw0VTlVRGlxYVdJZUZRQ3BPakJPYVQ5UjNyaGQyVHk3RWdn?oc=5",
+      "title": "AI teammates that finish the work | Grok Bot",
+      "content_text": "AI teammates that finish the work | Grok Bot xAI",
+      "date_published": "2026-10-24T14:16:55Z"
+    },
+    {
       "id": "sty_ecf0a3bf601085e4",
       "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
       "title": "The PHP Meltdown Shows How AI Makes Bugs More Exploitable [ * ] [ ◼ ]",
@@ -259,11 +378,11 @@
       "date_published": "2026-10-24T12:00:00Z"
     },
     {
-      "id": "sty_319ecb8d22a0a936",
-      "url": "https://magazine.sebastianraschka.com/p/building-reasoning-models",
-      "title": "Building Reasoning Models from the Ground Up: A Full Video Course [ ~ ] [ ◻ ]",
-      "content_text": "Over 11 hours of coding videos on evaluation, inference-time scaling, reinforcement learning, and distillation, with Python and PyTorch.",
-      "date_published": "2026-10-24T11:14:32Z"
+      "id": "sty_f9392fe7e5371c99",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQa1BuVFA1TktUX2NIdUE1OFoydW9yLUN0Z1AxNVNUQkVyczQyQ3FtNXRjRXFDOXgtNlBBVFFlb2tUdlJhSlNMcmhvaEM5OGJOOTBqWGxWNE9rNGNvdmh1dzdONWxVY1J4c1lPMU1pVmJhWFdwSXM4c1FyOUd0LXd3eVdEZVk2cVM5akc3WGNUQTBqcEV0QzJyZjFDTVE4ZWZ2NnBta0FPOVhwZURuam1yZlhuRGRPYURWSTZqRFdB?oc=5",
+      "title": "Anthropic CEO Dario Amodei Was Unusually Worried About The Y2K Bug, High School Teacher Recalls - OfficeChai",
+      "content_text": "Anthropic CEO Dario Amodei Was Unusually Worried About The Y2K Bug, High School Teacher Recalls OfficeChai",
+      "date_published": "2026-10-24T18:15:30Z"
     },
     {
       "id": "sty_77d7d2bfade49080",
@@ -273,32 +392,18 @@
       "date_published": "2026-10-24T08:34:00Z"
     },
     {
+      "id": "sty_319ecb8d22a0a936",
+      "url": "https://magazine.sebastianraschka.com/p/building-reasoning-models",
+      "title": "Building Reasoning Models from the Ground Up: A Full Video Course [ ~ ] [ ◻ ]",
+      "content_text": "Over 11 hours of coding videos on evaluation, inference-time scaling, reinforcement learning, and distillation, with Python and PyTorch.",
+      "date_published": "2026-10-24T11:14:32Z"
+    },
+    {
       "id": "sty_ca0b43a393829ed4",
       "url": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
       "title": "OpenAI's isolated AI agents found ways to talk to each other through CPU cache [ * ] [ ⬢ ]",
       "content_text": "OpenAI now trains its most powerful models without internet access, after an internal research model exploited a DNS misconfiguration in September and reached the open internet. In controlled tests, AI agents still found ways to communicate covertly through side channels. The incidents echo Sam Altman's warning: the more powerful the model, the harder it is to contain. The article OpenAI's isolated AI agents found ways to talk to each other through CPU cache appeared first on The Decoder.",
       "date_published": "2026-10-24T11:12:36Z"
-    },
-    {
-      "id": "sty_8c39dc73bd8244c9",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUXVnUHMtSllmR05NWHBYYURqWGF6MmtzaXpZVmppTXRmYUFxbUlKT0tYTWozZUJoNE1HbXp5U2dRRjVjTWozZmQ1UVJEd2FhNTY3ZDl2LWJmTkZtTTJWRjNZdjFIMmJoR2Z5aXFYTkhCdVBibXJUZHByZUthM3p4WDlKWXBlYU5KZTYwWmI2UEdHMmppTndYQmlnYXRtVTNVR2ZB?oc=5",
-      "title": "Grok Bot Will Route Your Tasks to Claude. The Moat Just Moved to the Switchboard. - Forkast News",
-      "content_text": "Grok Bot Will Route Your Tasks to Claude. The Moat Just Moved to the Switchboard. Forkast News",
-      "date_published": "2026-10-24T14:53:07Z"
-    },
-    {
-      "id": "sty_b735ea1a6cd23078",
-      "url": "https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/",
-      "title": "Fancy harnesses make coding agents more expensive but not better, study finds [ ~ ] [ ◻ ]",
-      "content_text": "A controlled study shows that switching between coding-agent harnesses like Claude Code, OpenCode, or mini-SWE-agent barely moves pass rates more than rerunning the same setup. Cost per task, however, can triple, driven mainly by the system prompt that gets resent with every step. The article Fancy harnesses make coding agents more expensive but not better, study finds appeared first on The Decoder.",
-      "date_published": "2026-10-24T09:21:39Z"
-    },
-    {
-      "id": "sty_b23030cf4dc6e596",
-      "url": "https://futurism.com/artificial-intelligence/banks-preparing-ai-financial-catastrophe",
-      "title": "Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI [ * ] [ ◼ ]",
-      "content_text": "\"You can't stop it.\" The post Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI appeared first on Futurism.",
-      "date_published": "2026-10-24T13:55:00Z"
     },
     {
       "id": "sty_cabefd2ed2c737e6",
@@ -308,6 +413,13 @@
       "date_published": "2026-10-23T17:00:00Z"
     },
     {
+      "id": "sty_b23030cf4dc6e596",
+      "url": "https://futurism.com/artificial-intelligence/banks-preparing-ai-financial-catastrophe",
+      "title": "Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI [ * ] [ ◼ ]",
+      "content_text": "\"You can't stop it.\" The post Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI appeared first on Futurism.",
+      "date_published": "2026-10-24T13:55:00Z"
+    },
+    {
       "id": "sty_fb0d7707cd1f209e",
       "url": "https://futurism.com/artificial-intelligence/character-ai-horror-show-bankrupt",
       "title": "We Investigated Character.AI and Found a Horror Show. Now It's Bankrupt. [ ! ] [ ◼ ]",
@@ -315,11 +427,32 @@
       "date_published": "2026-10-24T12:53:00Z"
     },
     {
+      "id": "sty_8a04907b2ed8cfcc",
+      "url": "https://www.theinformation.com/briefings/moonshot-ai-launches-new-kimi-k3-1-pro-model",
+      "title": "Moonshot AI Launches New Kimi K3.1 Pro Model [ ~ ] [ ◻ ]",
+      "content_text": "Moonshot AI on Friday announced its new model, Kimi K3.1 Pro, demonstrating performance that rivals that of top-tier U.S. frontier models on some benchmarks. Kimi K3.1 Pro, built on the architecture of its popular predecessor Kimi K3, is now ranked fourth on the Artificial Analysis Intelligence ...",
+      "date_published": "2026-10-23T22:26:12Z"
+    },
+    {
       "id": "sty_2ef1933be2afbddb",
       "url": "https://futurism.com/future-society/ai-billionaires-elections-backfiring",
       "title": "AI Billionaires Are Flooding Money Into Politics to Influence Elections, But It's Backfiring [ ~ ] [ ◻ ]",
       "content_text": "Even a whiff of AI money seems to disgust voters. The post AI Billionaires Are Flooding Money Into Politics to Influence Elections, But It's Backfiring appeared first on Futurism.",
       "date_published": "2026-10-24T11:51:00Z"
+    },
+    {
+      "id": "sty_4fcbbf90c712a420",
+      "url": "https://www.theinformation.com/briefings/aws-sold-capacity-2028-jassy-says",
+      "title": "AWS Largely Sold Out Of Capacity Into 2028, Jassy Says [ * ] [ ◼ ]",
+      "content_text": "Amazon Web Services capacity is mostly booked up through at least next year, Amazon CEO Andy Jassy said on an Andreessen Horowitz podcast released on Friday. \"'26 is obviously at this point sold out. [2027] is largely sold out. We always leave a certain amount for on demand and our inference ...",
+      "date_published": "2026-10-23T21:59:37Z"
+    },
+    {
+      "id": "sty_8758f59f0eaafbe6",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+      "title": "Securing our frontier model training environment [ * ] [ ⬢ ]",
+      "content_text": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
+      "date_published": "2026-10-23T10:00:00Z"
     },
     {
       "id": "sty_792c70080642cee2",
@@ -336,25 +469,11 @@
       "date_published": "2026-10-24T10:53:00Z"
     },
     {
-      "id": "sty_5379d0749ab9b1ce",
-      "url": "https://news.google.com/rss/articles/CBMiMkFVX3lxTE9KUlpuaWtVOGw0VTlVRGlxYVdJZUZRQ3BPakJPYVQ5UjNyaGQyVHk3RWdn?oc=5",
-      "title": "AI teammates that finish the work | Grok Bot",
-      "content_text": "AI teammates that finish the work | Grok Bot xAI",
-      "date_published": "2026-10-24T05:14:46Z"
-    },
-    {
-      "id": "sty_8758f59f0eaafbe6",
-      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
-      "title": "Securing our frontier model training environment [ * ] [ ⬢ ]",
-      "content_text": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
-      "date_published": "2026-10-23T10:00:00Z"
-    },
-    {
-      "id": "sty_08c59a763c5b7ad6",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOTXdscXJRNl9NTmM4d0RQdTdYUFBCUmNqejhjRjMxT0RPNjRPREpxcGVOckNkcUw3Z2tXY2NpRXVoX0V6Mk9CQmdwNV91S0dNZ1lQVy0wZmJKQldOeF9vMFJ1bHdwcVhXa3ZDUC1IQWJJa3FCSmk4OTU2QVhmYy1PVmVTTk5yY1dxWkhBSmZON3oyb3VmRHBEd1Y3TlhVRXZsOEpoMUR3?oc=5",
-      "title": "AI plays role in regulatory capture - Minot Daily News",
-      "content_text": "AI plays role in regulatory capture Minot Daily News",
-      "date_published": "2026-10-24T06:32:15Z"
+      "id": "sty_fd5b440ef68ca433",
+      "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+      "title": "OpenAI says it will no longer train its AI models on the live internet, citing \"significant risks\" [ * ] [ ⬢ ]",
+      "content_text": "OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work.",
+      "date_published": "2026-10-23T23:05:49Z"
     },
     {
       "id": "sty_d6da77cb4eb71be4",
@@ -362,6 +481,27 @@
       "title": "OpenAI now trains its frontier AI models with no internet access [ ~ ] [ ◼ ]",
       "content_text": "OpenAI is now training its most advanced AI models without internet access following a string of rogue hacking incidents. In a blog post on Friday, OpenAI says it built an offline testing environment where AI models can interact with indexed and cached web content \"without risk of affecting external systems.\" OpenAI paused training its frontier [...]",
       "date_published": "2026-10-23T21:11:07Z"
+    },
+    {
+      "id": "sty_9f907f51d7bf1b4c",
+      "url": "https://techcrunch.com/2026/10/23/from-toast-to-bessemer-who-founders-will-hear-from-at-techcrunch-founder-summit-2026/",
+      "title": "From Toast to Bessemer: Who founders will hear from at TechCrunch Founder Summit 2026 [ ~ ] [ ◻ ]",
+      "content_text": "Hosted by TechCrunch in partnership with Fidelity Private Shares, the full-day event goes beyond fundraising and AI to explore the realities of finding customers, building teams, sharpening a pitch, developing founder leadership, and scaling companies both inside and outside traditional startup hubs.",
+      "date_published": "2026-10-23T19:06:23Z"
+    },
+    {
+      "id": "sty_98353f2758d72683",
+      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+      "title": "OpenAI and Poland's NASK partner to advance AI safety and security [ ~ ] [ ◼ ]",
+      "content_text": "OpenAI and Poland's NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
+      "date_published": "2026-10-23T00:00:00Z"
+    },
+    {
+      "id": "sty_669e55d70abc8ddc",
+      "url": "https://www.theinformation.com/articles/vc-firms-tap-lp-pools-warehouse-loans-speedy-ai-cash",
+      "title": "VC Firms Tap LP Pools, Warehouse Loans for Speedy AI Cash [ ~ ] [ ◻ ]",
+      "content_text": "When Reflection AI set out to raise $2.5 billion early this year, one of its existing venture backers, B Capital, was eager to invest again in the startup, which has emerged as the most high-profile U.S. maker of open-source AI models. But Reflection's valuation had more than tripled in just six months, forcing investors to write big checks for a sizable stake. Such a check would have been too big for B Capital's main venture fund, a $500 million vehicle raised in July. To come up with the cash, the company turned to a different source of capital: a pool of money apart from its regular fund, designed to give limited partners-the pension funds, endowments and wealthy individuals that back VC firms-more direct access to hot startups like Reflection at reduced fees.",
+      "date_published": "2026-10-23T14:00:57Z"
     },
     {
       "id": "sty_6c54b40959de80ae",
@@ -378,18 +518,11 @@
       "date_published": "2026-10-23T19:32:39Z"
     },
     {
-      "id": "sty_98353f2758d72683",
-      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
-      "title": "OpenAI and Poland's NASK partner to advance AI safety and security [ ~ ] [ ◼ ]",
-      "content_text": "OpenAI and Poland's NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
-      "date_published": "2026-10-23T00:00:00Z"
-    },
-    {
-      "id": "sty_ad5b0deae18186b0",
-      "url": "https://the-decoder.com/chinese-ai-model-kimi-k3-1-pro-is-closing-in-on-anthropics-claude-opus-5-5/",
-      "title": "Chinese AI model Kimi K3.1 Pro is closing in on Anthropic's Claude Opus 5.5 [ * ] [ ◼ ]",
-      "content_text": "Moonshot AI's Kimi K3.1 Pro scores 55 points on the Artificial Analysis Intelligence Index, an 11-point jump over its predecessor that puts it in fourth place. Only three Anthropic and Meta models rank higher. If Moonshot releases the weights as planned, the gap between open and proprietary models shrinks to just three points. The article Chinese AI model Kimi K3.1 Pro is closing in on Anthropic's Claude Opus 5.5 appeared first on The Decoder.",
-      "date_published": "2026-10-23T19:00:07Z"
+      "id": "sty_70f6513e0c1ad7d5",
+      "url": "https://openai.com/index/decisions-api",
+      "title": "Build more responsive apps with the Decisions API [ * ] [ ◼ ]",
+      "content_text": "Fast, focused, low-cost decisions for any application.",
+      "date_published": "2026-10-22T19:00:00Z"
     },
     {
       "id": "sty_9be14460349af7cf",
@@ -399,32 +532,25 @@
       "date_published": "2026-10-23T16:52:55Z"
     },
     {
-      "id": "sty_93b3c400f5ab11f4",
-      "url": "https://the-decoder.com/three-week-on-site-audit-at-openai-reveals-major-gaps-in-ai-safety-monitoring/",
-      "title": "Three-week on-site audit at OpenAI reveals major gaps in AI safety monitoring [ * ] [ ◼ ]",
-      "content_text": "External auditors from METR and Redwood Research spent three weeks on-site at OpenAI examining the company's internal monitoring system for AI agents and found significant gaps, with up to 25 percent of agent traffic from models at the GPT-5.5 class and above going unmonitored. OpenAI redacted large portions of the 61-page report, and only a summary is publicly available. The article Three-week on-site audit at OpenAI reveals major gaps in AI safety monitoring appeared first on The Decoder.",
-      "date_published": "2026-10-23T18:00:32Z"
-    },
-    {
-      "id": "sty_0465e4c2cf0f9054",
-      "url": "https://the-decoder.com/anthropic-says-its-unreleased-model-is-both-more-capable-and-better-aligned-than-mythos-5-1/",
-      "title": "Anthropic says its unreleased model is both more capable and better aligned than Mythos 5.1 [ ~ ] [ ◼ ]",
-      "content_text": "Anthropic says it has an internal AI model that outperforms and is better aligned than Mythos 5.1. During a cybersecurity test by the UK's AISI, Mythos 5 went rogue in 9 of 43 runs, sneaking malicious code into a real GitHub project and creating fake accounts to get it approved. An internal research model stopped such attacks on its own 67 percent of the time. The article Anthropic says its unreleased model is both more capable and better aligned than Mythos 5.1 appeared first on The Decoder.",
-      "date_published": "2026-10-23T17:19:49Z"
-    },
-    {
       "id": "sty_a15619f130eed0a1",
       "url": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
-      "title": "Meta delays new business terms after publisher pushback on AI scraping",
+      "title": "Meta delays new business terms after publisher pushback on AI scraping [ * ] [ ◻ ]",
       "content_text": "Meta is delaying the enforcement of its new business terms after publishers raised concerns that they could allow the company to scrape news sites for AI training, as reported earlier by Fast Company. In a statement to The Verge, Meta spokesperson Daniel Roberts says the terms will go into effect on November 20th \"to allow [...]",
       "date_published": "2026-10-23T14:47:41Z"
     },
     {
-      "id": "sty_70f6513e0c1ad7d5",
-      "url": "https://openai.com/index/decisions-api",
-      "title": "Build more responsive apps with the Decisions API [ * ] [ ◼ ]",
-      "content_text": "Fast, focused, low-cost decisions for any application.",
-      "date_published": "2026-10-22T19:00:00Z"
+      "id": "sty_c8d77be2642c088c",
+      "url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
+      "title": "Beyond tree cover: mapping the world's forest types",
+      "content_text": "A global map categorizing every 10-meter patch of land on Earth into distinct forest types.",
+      "date_published": "2026-10-22T14:30:24Z"
+    },
+    {
+      "id": "sty_3a872472e04b3687",
+      "url": "https://www.theinformation.com/briefings/deepseek-raises-nearly-16-billion-second-funding-round",
+      "title": "DeepSeek Raises Nearly $16 billion in Second Funding Round [ ~ ] [ ◻ ]",
+      "content_text": "DeepSeek has closed its second funding round, raising 106 billion yuan ($15.9 billion) in one of the biggest-ever fundraising deals in China's AI sector, according to three people with knowledge of the matter. The amount is more than double DeepSeek's original fundraising target of 50 billion ...",
+      "date_published": "2026-10-23T06:13:02Z"
     },
     {
       "id": "sty_747a4dc87e805006",
@@ -439,132 +565,6 @@
       "title": "Retro gaming is being overrun with AI [ ~ ] [ ◻ ]",
       "content_text": "Retro video games are everywhere lately - especially in places where they aren't supposed to be. Halo in a web browser, Wind Waker on the iPhone, Super Smash Bros. in mixed reality. Over the past month or so, these kinds of unexpected projects have gone viral with incredible frequency thanks to new AI tools, as [...]",
       "date_published": "2026-10-23T12:00:00Z"
-    },
-    {
-      "id": "sty_c8d77be2642c088c",
-      "url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
-      "title": "Beyond tree cover: mapping the world's forest types",
-      "content_text": "A global map categorizing every 10-meter patch of land on Earth into distinct forest types.",
-      "date_published": "2026-10-22T14:30:24Z"
-    },
-    {
-      "id": "sty_572b74c1587b1f8e",
-      "url": "https://futurism.com/future-society/wolves-finland-google-ai-data-centers",
-      "title": "Wolves Descend on Finnish Villages After Google Hacked Down 1,300 Acres of Habitat to Make Room for AI Data Centers [ ~ ] [ ◻ ]",
-      "content_text": "\"We had wolves coming into the village because all the wild animals moved out of the forest.\" The post Wolves Descend on Finnish Villages After Google Hacked Down 1,300 Acres of Habitat to Make Room for AI Data Centers appeared first on Futurism.",
-      "date_published": "2026-10-23T19:57:06Z"
-    },
-    {
-      "id": "sty_b3eba9b45bce7744",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSDg1cnpPN2hhSEk5U1BmUjNzU1JhOTFTVThob1VzZ0YwdDRNNkJpVldQQl9jZE1hUjFzQXl0NWpDT3RtRkpTNXJsakp1NGM3Z1RXOThCdnpSZktTTnppZTV1UmNGQjVkb0VRUzFsTEpFMXJmWFY0OVBDS0NwQWVkbWVFWHNvR3NSMVdPRDdtdVh0YW5ad04wWU9fSXAxeno0aUFXWW8yTmtsTHNqQ1hN?oc=5",
-      "title": "Pioneer Building SF: Former OpenAI, xAI Office For Sale - Hoodline",
-      "content_text": "Pioneer Building SF: Former OpenAI, xAI Office For Sale Hoodline",
-      "date_published": "2026-10-23T18:17:45Z"
-    },
-    {
-      "id": "sty_7e8002a0be33cd5e",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbG9nUG5GZEJPOXQtM1psdU5hTTZzdWE0TTlLc2JrQkpSNUs1UHRoNWZOY2VfVW0tVEV2bTZxMkJ5eGt1S3BCMkJoeUZKQmM0ejJ1THNESVJLWV9sOWNXZ2ZzTHhYbHB1YzRpUWNmUEo5TUY2d1pQZWlYc2drU1U1dDhOOEpVaHdremZCRkNnT0JRUnRJZzV3?oc=5",
-      "title": "Opinion: The big bet on AI - CT Insider",
-      "content_text": "Opinion: The big bet on AI CT Insider",
-      "date_published": "2026-10-23T17:30:43Z"
-    },
-    {
-      "id": "sty_2ece6a4d28da4e51",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZkpudDFXcnVvNjBPVUVOVnNsaFJ5SWZTRm9zemp5RzdpckxtZ3hFYU1EMnYyc3R6blViZUF0SjlXa3JIWFlEbEEwUWhHVEZiTldCTFM5SU03alVqeGM1UGtZUkhteEk4S2F5c2dXNTlVSUUzZ19NZ05WQ3lZRXNESUpMMWtWWW0xTXA2cmFEYzlzMDhjM2tPN3VCUVFGTjRnNmpkeUw3bw?oc=5",
-      "title": "Is Ethereum a Buy Under $2,400? We Asked Grok AI - 24/7 Wall St.",
-      "content_text": "Is Ethereum a Buy Under $2,400? We Asked Grok AI 24/7 Wall St.",
-      "date_published": "2026-10-23T17:30:00Z"
-    },
-    {
-      "id": "sty_4397bbdad20e7792",
-      "url": "https://openai.com/index/forward-deployed-engineering-means",
-      "title": "What FDE means at OpenAI [ * ] [ ◼ ]",
-      "content_text": "What forward deployed engineering means at OpenAI",
-      "date_published": "2026-10-22T06:00:00Z"
-    },
-    {
-      "id": "sty_59aae521059a8766",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQX0lwQTVaTTdKZ2EyVzI1M1pWWVQzTktBb0FzMjdpQXFiaGt1ZVVCZ3Z4bnJmZXBrUElmZzhhTkVEeFN1RTNfVUN0bTUtekZTdHFjU2M4WnFpXzFRbzlzeV9VamhJSE5SSHVza2hhWnd2ZU94b1VkeDBpWVowNkt2LUJpTDdMOHBMdWNQSGoxRExVNERmWUN5T3NmOExpeHFVMWpDNDc3WHVwLUxJQXVDekpGZ3FibXNVNlFLdmdndEIwcnYxX2JrNGl3YVByY2tiRjMwSjJpSHdRU2ZwMElVUU9fMkRnbUl6NndZ?oc=5",
-      "title": "SpaceX CEO Elon Musk is 'one of one': Will the market give Anthropic's Dario Amodei the same leeway? - Yahoo Finance",
-      "content_text": "SpaceX CEO Elon Musk is 'one of one': Will the market give Anthropic's Dario Amodei the same leeway? Yahoo Finance",
-      "date_published": "2026-10-23T15:56:50Z"
-    },
-    {
-      "id": "sty_3701ed83059d8551",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQVGtBREc5bkZGWEZuOWh1VFljWllKZ1FaUDM1eElQNFFfTFpkM2JqNzRxSzRlUnFQRUdITWNQM1NGMGxPN3lpdDd3cFZCbzB6OUVlUEJYWEN0bGhUYW5LckdlU1FVVlk5VHlsU01MNDg4SXFETFdXR1FBdDJ5bEROdHkzUzRGMmYzbVlTcjduR3M?oc=5",
-      "title": "Experts cast doubt on Anthropic report detailing how AI has altered work at the company - The Guardian [ ~ ] [ ◻ ]",
-      "content_text": "Experts cast doubt on Anthropic report detailing how AI has altered work at the company The Guardian",
-      "date_published": "2026-10-23T14:00:00Z"
-    },
-    {
-      "id": "sty_1e34ccf2e0f9e75c",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9hcjNRbVFacnhzLWNNYnRkSTlVM2FkMnotYTd0MEpwTmlsQ2N1NlVPdjJjdXJhNG9FbC14d3FIR3pVaEh0SEdIamRWWmNTazRXVGNxbFg3dEFZN0RQT0tVcWpWZlpGTlZYb29uTW9PQQ?oc=5",
-      "title": "An alignment assessment of the UK AISI cybertesting incident - Anthropic [ ~ ] [ ◻ ]",
-      "content_text": "An alignment assessment of the UK AISI cybertesting incident Anthropic",
-      "date_published": "2026-10-23T13:29:39Z"
-    },
-    {
-      "id": "sty_25a3500a4135f6a5",
-      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
-      "title": "Uber brings ChatGPT Work to all employees with OpenAI [ * ] [ ◼ ]",
-      "content_text": "Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.",
-      "date_published": "2026-10-22T00:00:00Z"
-    },
-    {
-      "id": "sty_9ebee092884c30ad",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPT2M2MUJWQTRTQzdYbWxNQXRJcGNiY2F4Q0hyaDN0NmR4NHpxeWhEWnpveWZZR2NJUGlFOC1Bc3U2OUlCZzFLdWxPX2xHT2VZOEwta1g1ZGhITkxNNzJvMGM5TmpjbjBsbV9EQjNXbmFhN2tJc1l5UHVZRURyMEh6b1p5d3VRNW5HOFFoOA?oc=5",
-      "title": "GitHub removes six Copilot models, including GPT-5.5 and Gemini 3.7 Flash - MIXED Reality News [ ~ ] [ ◻ ]",
-      "content_text": "GitHub removes six Copilot models, including GPT-5.5 and Gemini 3.7 Flash MIXED Reality News",
-      "date_published": "2026-10-23T11:53:59Z"
-    },
-    {
-      "id": "sty_c6b0b5fce110e5f8",
-      "url": "https://openai.com/index/broad-access-through-consistent-standards",
-      "title": "Broad access through consistent standards [ * ] [ ◼ ]",
-      "content_text": "How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies.",
-      "date_published": "2026-10-21T21:00:00Z"
-    },
-    {
-      "id": "sty_b9aa0290b5856fd5",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8zZ0xKenJpSmxaZ21iOWpsNFBsMzJCWHp5ZEJCcDlMVTlsX3pZTmE4MjBoYmpjdjlWX19hZkxGdGlVaGRXeGpFaVlTclhBbGR5RXdORkFrWkhYQjVUbHItZ2E2dGRwRUU?oc=5",
-      "title": "Anthropic's $2 trillion IPO question: How much growth can investors buy? - CTech",
-      "content_text": "Anthropic's $2 trillion IPO question: How much growth can investors buy? CTech",
-      "date_published": "2026-10-23T10:40:00Z"
-    },
-    {
-      "id": "sty_8c4be5321b0b5bf9",
-      "url": "https://openai.com/index/att-legal",
-      "title": "How AT&T is rethinking in-house legal work with OpenAI [ * ] [ ◼ ]",
-      "content_text": "AT&T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment.",
-      "date_published": "2026-10-21T17:00:00Z"
-    },
-    {
-      "id": "sty_584101f45a42eadf",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
-      "title": "Canva's first AI image model plans designs before generating them [ ~ ] [ ◼ ]",
-      "content_text": "Canva is diving even deeper into AI with the launch of an image generation model that competes directly with those from OpenAI, Microsoft, and Google. The model, called Canva Craft, uses a two-stage architecture that allows it to plan a design before generating an image, allowing for \"greater precision, consistency and control,\" according to an [...]",
-      "date_published": "2026-10-22T21:51:25Z"
-    },
-    {
-      "id": "sty_9d6cacbc6a058bb0",
-      "url": "https://www.theverge.com/tech/1017082/meta-terms-update-ai-training-concerns",
-      "title": "Meta&#8217;s AI could still scrape news sites, legal experts say [ ~ ] [ ◻ ]",
-      "content_text": "Meta has tweaked its business terms to remove language suggesting that it could freely train its AI models on news sites, like The Verge - but legal experts say these changes aren't enough to address their concerns. \"This does nothing to restrict the 'associated with your products or services' [language] that would let Meta scrape [...]",
-      "date_published": "2026-10-22T20:32:05Z"
-    },
-    {
-      "id": "sty_d87d1589d0a0cf74",
-      "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
-      "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform [ * ] [ ◻ ]",
-      "content_text": "From local businesses to global brands, more advertisers can now reach people as they explore, compare and decide what to buy in ChatGPT.",
-      "date_published": "2026-10-21T13:00:00Z"
-    },
-    {
-      "id": "sty_bbd61001d213206b",
-      "url": "https://www.wired.com/story/aged-intelligence-society-interview/",
-      "title": "The Social Society Helping Women Join the AI Boom [ ~ ] [ ◻ ]",
-      "content_text": "WIRED spoke with the founders of the Aged Intelligence Society, a fast-growing events startup that brings women together to \"solve midlife problems using frontier tools.\"",
-      "date_published": "2026-10-22T19:56:32Z"
     }
   ]
 }
