@@ -6,156 +6,191 @@
     <link>https://rss.tedt.org/feeds/top.xml</link>
     <description>Top Ranked AI stories across configured sources</description>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Oct 2026 16:13:03 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 00:17:20 +0000</lastBuildDate>
     <generator>MultiFeedGenerator v1.0</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <ns0:link href="https://rss.tedt.org/feeds/top.xml/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Samsung runs TensorFlow Lite AlexNet model on 960x540 images to identify games, with INT8 quantization and frequent CPU use [ ~ ] [ ◻ ]</title>
-      <link>https://twitter.com/mike64_t/status/2114150399406202896</link>
-      <description>A researcher found that Samsung devices run a TensorFlow Lite model named "alex.tflite," based on AlexNet, on 960x540 images every few seconds to attempt to identify the game being played. The model uses INT8 quantization and performs nearest neighbor feature comparisons against a database but reportedly fails to work correctly 99% of the time. The results appear to be discarded since user consent is requested later in the process. This discovery raises concerns about CPU usage and privacy on Samsung devices running Tizen OS.</description>
-      <guid isPermaLink="false">sty_dbf2b70f50cdf6b0</guid>
-      <pubDate>2026-10-25T10:42:01Z</pubDate>
+      <title>OpenAI and Anthropic cut large language model prices by up to 80% over several months amid competitive pressure [ * ] [ ◼ ]</title>
+      <link>https://minimaxir.com/2026/10/cheap-llms/</link>
+      <description>OpenAI and Anthropic have significantly reduced the prices of their large language models (LLMs) by as much as 80% since June 2026, with multiple price cuts announced for various models including GPT-5.6 Luna, GPT-6 Sol, and Claude Opus 5.5. These reductions have occurred alongside new model releases and improvements, with no apparent compromise in output quality. The timeline shows a pattern of competitive responses between the two companies, with price cuts often following each other's announcements. Notably, reductions in cache read costs, which constitute a large portion of token expenditure in agentic coding, have contributed substantially to overall cost decreases. Despite lower prices, aggregate spending on LLM usage has increased due to faster improvements in model capabilities. This pricing trend reflects behavioral economics and competitive dynamics in the AI model market, suggesting external factors beyond simple cost reductions are influencing these aggressive price cuts. The moves aim to attract more users and maintain market share as LLMs become more capable and widely adopted.</description>
+      <guid isPermaLink="false">sty_f0c2d6bcb7c78c05</guid>
+      <pubDate>2026-10-25T21:11:31Z</pubDate>
     </item>
     <item>
-      <title>America loses over 200,000 jobs in media, film, and arts over four years amid rise of AI-generated content [ * ] [ ◻ ]</title>
-      <link>https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class</link>
-      <description>America has lost more than 200,000 jobs in creative industries such as media, film, and the arts over the past four years, with about 50,000 lost in the last year alone. This decline coincides with the rise of AI systems capable of producing novels, images, music, and other digital art at low cost, though the exact impact of AI on job losses is difficult to isolate due to factors like industry consolidation and offshoring. Job losses have affected nearly every subsector of digital arts, with the movie and sound recording sector, including Hollywood, experiencing the most severe decline-losing over 100,000 jobs, nearly one-third of its workforce. While some losses continue long-term trends, others, such as live broadcasting and streaming, have seen unusual downturns recently, raising questions about the future sustainability of creative industry employment amid advancing AI technologies.</description>
-      <guid isPermaLink="false">sty_218a5f87fc40a166</guid>
-      <pubDate>2026-10-24T23:11:54Z</pubDate>
+      <title>UC Berkeley math professor stops grading homework due to widespread AI use among students, citing AI's growing capabilities [ ~ ] [ ◻ ]</title>
+      <link>https://www.dailycal.org/news/campus/academics/ai-use-leads-uc-berkeley-math-professor-to-see-no-point-in-grading-homework/article_bdf1eae2-c08b-491f-b9f1-81a7cea177de.html</link>
+      <description>Richard Borcherds, a UC Berkeley math professor and Fields medalist, has ceased grading homework for correctness after observing that many students use AI tools to achieve top scores. He now grades only on completion, acknowledging this is an imperfect system but feeling there is no alternative as AI use becomes unavoidable in coursework. Borcherds expressed uncertainty about the future of mathematics as a career, noting that AI advancements, including recent claims of AI solving complex math problems, may soon surpass human mathematicians. The university's Academic Senate recommends faculty include AI use policies in syllabi, but enforcement varies, and current AI detection tools have proven inadequate for standard campus-wide use.</description>
+      <guid isPermaLink="false">sty_a5331cfe39c4f199</guid>
+      <pubDate>2026-10-25T16:28:26Z</pubDate>
     </item>
     <item>
-      <title>Cerebras deploys trillion-parameter AI models using multiple WSE-3T wafers with 44 GB on-chip memory each to run multi-trillion parameter models at over 1000 tokens per second [ * ] [ ◼ ]</title>
+      <title>Apollo says AI has delivered zero financial returns outside the tech sector, highlighting limited economic impact in other industries [ ~ ] [ ◻ ]</title>
+      <link>https://www.businessinsider.com/apollo-ai-zero-financial-payoff-corporate-america-economic-analysis-2026-10</link>
+      <description>Apollo Global Management stated that artificial intelligence has not yet produced any financial gains outside the technology industry. The firm noted that despite significant AI advancements, its economic benefits remain confined primarily to the tech sector at this time.</description>
+      <guid isPermaLink="false">sty_670cca916f9dd9eb</guid>
+      <pubDate>2026-10-25T22:49:06Z</pubDate>
+    </item>
+    <item>
+      <title>Cerebras deploys multi-trillion parameter AI models using multiple WSE-3T wafers with 44 GB on-chip memory each [ * ] [ ◼ ]</title>
       <link>https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras</link>
-      <description>Cerebras explains how it deploys large AI models with trillions of parameters on its wafer-scale engine (WSE-3T) chips, each with 44 GB of on-chip memory. The company uses a pipeline approach to split models like the open-source 3 trillion-parameter Kimi K3 across multiple wafers, enabling efficient processing at high throughput. The deployment involves mapping model layers to wafers, with dense layers assigned one per wafer due to key-value cache requirements and linear-attention layers sharing wafers. This results in a total of 59 wafers for Kimi K3. Activations flow between wafers with low latency, while weights remain on-chip, allowing the system to handle many concurrent requests by keeping the pipeline stages busy with different requests simultaneously.</description>
+      <description>Cerebras explains how it deploys large AI models with trillions of parameters on its wafer-scale engine chips by splitting models across multiple WSE-3T wafers, each with 44 GB of on-chip memory. Using the open source Kimi K3 model with about 3 trillion parameters as an example, Cerebras details how it fits model layers onto wafers, connects wafers in a pipeline, and manages concurrent requests to achieve high throughput. The approach involves placing dense and linear-attention layers on wafers according to their memory needs, with dense layers requiring additional key-value cache space. The wafers communicate activations via low-latency RDMA over Ethernet, allowing model weights to remain on-chip. Requests are processed in a pipeline fashion, with multiple requests handled simultaneously across different wafers to maximize efficiency and throughput.</description>
       <guid isPermaLink="false">sty_56717aca2d465ff6</guid>
       <pubDate>2026-10-25T01:33:49Z</pubDate>
     </item>
     <item>
-      <title>Nikon strips 2026 Small World in Motion contest winner of title after AI-generated video suspicions</title>
-      <link>https://www.techspot.com/news/114171-nikon-photography-contest-winner-loses-title-after-scientists.html</link>
-      <description>Nikon revoked the 2026 Small World in Motion contest title from Dr. Ning Xu after scientists identified signs of AI generation in his winning microscopic video of cilia movement. Concerns included unnatural cell behavior and a watermark suggesting AI use, which Xu partially acknowledged but denied violated rules. Nikon awarded the top prize to Nguyen Nam Nhat and plans to revise contest rules and evaluation procedures to address AI-related issues in future entries.</description>
-      <guid isPermaLink="false">sty_4a3c8c1cbcf0f096</guid>
-      <pubDate>2026-10-25T09:51:17Z</pubDate>
+      <title>Investor explains why they are bearish on AI infrastructure buildout despite bullishness on computing hardware</title>
+      <link>https://unverifiablerewards.substack.com/p/why-im-short-the-ai-buildout-even</link>
+      <description>An investor outlines their rationale for being short on the AI infrastructure buildout while remaining long on computer hardware. They discuss factors influencing their view on the AI buildout's growth prospects and potential market dynamics. The analysis distinguishes between the broader computing sector's outlook and the specific challenges facing AI infrastructure expansion.</description>
+      <guid isPermaLink="false">sty_8d3413ea4b0ecdeb</guid>
+      <pubDate>2026-10-25T20:44:07Z</pubDate>
     </item>
     <item>
-      <title>Open-source cybersecurity platform launches AI agents to detect threats and protect businesses</title>
-      <link>https://medium.com/@thomasunise/this-open-source-cybersecurity-platform-uses-ai-agents-to-detect-threats-and-protect-businesses-762e65392b42</link>
-      <description>An open-source cybersecurity platform has introduced AI agents designed to detect threats and enhance protection for businesses. The platform leverages artificial intelligence to monitor and respond to potential security risks in real time. This development aims to provide accessible, automated cybersecurity solutions for organizations seeking to improve their defense capabilities.</description>
-      <guid isPermaLink="false">sty_84dd4c57c9fd7be3</guid>
-      <pubDate>2026-10-25T13:41:19Z</pubDate>
+      <title>Nvidia partners with German firm to explore converting decommissioned nuclear plants into AI data centers using existing infrastructure [ ~ ] [ ◻ ]</title>
+      <link>https://www.tomshardware.com/tech-industry/data-centers/nvidia-eyes-converting-old-nuclear-plants-into-massive-ai-data-centers-reusing-shut-down-german-energy-sites-could-reduce-the-cost-and-timeline-of-building-from-scratch</link>
+      <description>Nvidia has entered a preliminary partnership with German energy company PreussenElektra GmbH to assess the feasibility of repurposing shut-down nuclear power plant sites in Germany into high-performance AI data centers. The project focuses on leveraging existing power, water, and industrial infrastructure at these sites without using nuclear power to run the data centers. The exploration will evaluate the sites' energy grid connections, land availability, and infrastructure to meet the operational needs of AI data centers, aiming to reduce costs and development time compared to building new facilities from scratch. Germany permanently shut down its last nuclear plants in April 2023, and PreussenElektra is responsible for dismantling several sites that may be considered for this initiative, which remains in an experimental phase with no finalized investments or construction plans.</description>
+      <guid isPermaLink="false">sty_60dd85de6c0c451a</guid>
+      <pubDate>2026-10-25T22:11:27Z</pubDate>
     </item>
     <item>
-      <title>Ask HN: Hacker News community discusses ways to address the accelerating impact of AI on software development and potential dystopian outcomes [ ~ ] [ ◻ ]</title>
-      <link>https://news.ycombinator.com/item?id=50232407</link>
-      <description>A discussion on Hacker News has emerged where software developers express concern about the rapid rise of AI-driven agentic coding and its potential to end their profession. The community is exploring strategies to slow down or halt this trend to avoid a dystopian future. Participants compare the current situation to the transition from horse carriages to automobiles, highlighting the exponential pace of AI adoption and the dependency it creates. They debate whether a sudden stop or gradual control measures could mitigate the risks associated with increasing AI automation in software development.</description>
-      <guid isPermaLink="false">sty_769a88915e86a3a6</guid>
-      <pubDate>2026-10-25T15:12:10Z</pubDate>
+      <title>Report: China increasingly relies on replicating American AI technologies amid growing tech competition</title>
+      <link>https://economist.com/science-and-technology/2026/10/25/china-increasingly-depends-on-copying-american-ai</link>
+      <description>China is increasingly dependent on copying American artificial intelligence technologies as it seeks to advance its AI capabilities. This trend reflects challenges in developing original AI innovations domestically and highlights the competitive dynamics between the US and China in the AI sector.</description>
+      <guid isPermaLink="false">sty_82c754864af9a900</guid>
+      <pubDate>2026-10-25T21:41:29Z</pubDate>
     </item>
     <item>
-      <title>Reddit's r/opensource bans AI-related projects, non-English posts, and new solo developer submissions amid community backlash [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban</link>
-      <description>The moderators of Reddit's r/opensource subreddit introduced new rules banning projects that use, are made by, or are intended for AI, citing incompatibility with the community's open source values. The rules also require projects to be at least one year old, actively maintained, and have multiple contributors, effectively barring new solo developers from posting. Additionally, non-English posts are prohibited due to concerns about verifying AI-generated translations. These changes have sparked significant controversy within the community, leading to the creation of a rival subreddit, r/trueopensource. Moderators have acknowledged some nuance in enforcement, allowing exceptions for incidental AI features like automatic captioning, but many users criticize the rules as overly broad and vague. The ban on AI projects has raised concerns since even established projects like the Linux kernel now include some AI-generated code, potentially putting them at risk under the new guidelines.</description>
-      <guid isPermaLink="false">sty_b4ce256ad38c1da7</guid>
-      <pubDate>2026-10-25T13:25:32Z</pubDate>
+      <title>Germany plans to repurpose idle nuclear power plants as AI data centers amid rising demand for computing infrastructure</title>
+      <link>https://www.bloomberg.com/news/articles/2026-10-22/germany-s-idle-nuclear-plants-eye-new-life-as-ai-data-centers</link>
+      <description>Germany is exploring the conversion of its idle nuclear power plants into data centers to support the growing need for AI computing capacity. This initiative aims to utilize existing infrastructure to provide reliable power and cooling for AI workloads. The move reflects efforts to find sustainable and efficient solutions for data center energy consumption while addressing the challenges of integrating AI technologies into the country's digital economy.</description>
+      <guid isPermaLink="false">sty_7098fb90da2e8dcb</guid>
+      <pubDate>2026-10-25T22:20:19Z</pubDate>
     </item>
     <item>
-      <title>Reddit bans AI content on r/opensource, prompting creation of a new AI-focused subreddit [ ~ ] [ ◻ ]</title>
-      <link>https://reddit.com/opensource_projects</link>
-      <description>The subreddit r/opensource has banned all AI-related content, leading users to create a new subreddit dedicated to discussions and posts about artificial intelligence. This new community aims to provide a platform for AI topics that are no longer permitted on r/opensource.</description>
-      <guid isPermaLink="false">sty_d4168ecd7b40aefc</guid>
-      <pubDate>2026-10-25T15:03:44Z</pubDate>
+      <title>Report says AI industry's heavy borrowing and circular financing risk triggering a financial crash beyond tech sector</title>
+      <link>https://www.openmarketsinstitute.org/publications/report-brace-for-impact-protecting-people-and-the-economy-when-the-ai-bubble-burst</link>
+      <description>A report from the Open Markets Institute warns that the rapid expansion of AI infrastructure spending by major U.S. tech companies has led to heavy borrowing and speculative debt practices reminiscent of the subprime bubble. This debt is being repackaged and sold to institutional investors, raising concerns about financial contagion beyond the technology sector. The report highlights that current regulatory rollbacks may worsen these risks and calls for urgent policy action to increase transparency, protect retirement savings, and strengthen financial system resilience. The report does not predict an inevitable crisis but stresses that the conditions for one are present and that timely intervention is critical to prevent economic instability.</description>
+      <guid isPermaLink="false">sty_5ddf3d45e1d2d5b3</guid>
+      <pubDate>2026-10-25T21:36:09Z</pubDate>
     </item>
     <item>
-      <title>Analysis: AI's ability to replicate Photoshop features raises questions about the future development of new design tools like Figma [ ~ ] [ ◻ ]</title>
-      <link>https://www.vincentschmalbach.com/if-ai-can-copy-photoshop-why-build-the-next-figma/</link>
-      <description>The article examines how AI technologies capable of copying functionalities of established design software such as Photoshop could impact the creation of new design platforms like Figma. It explores whether AI-driven replication might reduce incentives for building innovative design tools or reshape the software development landscape. The discussion considers the broader implications of AI advancements on productivity and innovation within the design software industry.</description>
-      <guid isPermaLink="false">sty_5b522bd918595fe0</guid>
-      <pubDate>2026-10-25T15:20:51Z</pubDate>
+      <title>Bend launches a fast programming language that enforces AI code correctness through formal proofs and law-based rules [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/bendlang/bend</link>
+      <description>Bend is a new programming language designed to improve AI system reliability by requiring mathematical proofs that enforce application rules, preventing bugs and unintended behavior. It compiles to fast executables comparable to C and CUDA performance and supports parallel execution across thousands of GPU cores. Bend introduces a LAWS.bend file where developers declare rules their applications must follow, and the compiler demands proofs that these laws hold whenever code changes. This approach blocks AI-generated mistakes by making it mathematically impossible to violate declared laws, enabling more trustworthy AI-driven software development. The language is currently optimized for backend use on Linux and macOS systems.</description>
+      <guid isPermaLink="false">sty_b5f25d0ce816d1a0</guid>
+      <pubDate>2026-10-25T23:41:04Z</pubDate>
     </item>
     <item>
-      <title>EPFL develops implantable neural chip LogSync to decode brain region interactions and identify cognitive and emotional states in real time [ ~ ] [ ◼ ]</title>
-      <link>https://actu.epfl.ch/news/neural-chip-decodes-interactions-between-brain-r-2/</link>
-      <description>Researchers at EPFL have created LogSync, a low-power implantable neural chip that records brain activity across multiple regions to detect cognitive and emotional states using machine learning. The chip aims to improve deep brain stimulation therapies by enabling adaptive, network-level modulation rather than relying on single-region signals or fixed stimulation patterns. LogSync operates within a strict power budget under 200 microwatts by combining hardware and algorithm co-design and using logarithmic computations for efficient brain-network analysis. The system was validated with human and animal data, distinguishing mental engagement and emotional arousal, and generating stimulation triggers aligned with brain oscillations. This technology could advance treatments for psychiatric disorders and other neurological conditions requiring precise, adaptive brain stimulation.</description>
-      <guid isPermaLink="false">sty_8c197af5860c67b0</guid>
-      <pubDate>2026-10-24T15:57:17Z</pubDate>
+      <title>OpenSparta launches AI agent to automate customer discovery and engagement on Telegram from a single workspace [ ~ ] [ ◻ ]</title>
+      <link>https://opensparta.com/en</link>
+      <description>OpenSparta has developed an AI agent that automates finding relevant conversations and engaging with potential customers on Telegram. The platform manages Telegram accounts and proxies in one workspace, enabling users to run AI-powered engagement without switching tools. It uses official Telegram client protocols and safety measures to maintain account health and stability. Users can start for free and preview paid modules before purchasing.</description>
+      <guid isPermaLink="false">sty_0b1f2786a02d5e28</guid>
+      <pubDate>2026-10-25T21:53:11Z</pubDate>
     </item>
     <item>
-      <title>World of Builders launches directory of 958 artisans, craftspeople, and smiths to support traditional skills in a post-AI era</title>
-      <link>https://www.worldofbuilders.com/</link>
-      <description>World of Builders has launched a directory featuring 958 artisans, craftspeople, and smiths to highlight and connect users with skilled creators specializing in traditional crafts. The directory aims to promote inspirational makers and preserve artisanal work amid increasing AI influence.</description>
-      <guid isPermaLink="false">sty_960ec34939fd15e7</guid>
-      <pubDate>2026-10-25T15:12:26Z</pubDate>
+      <title>DuckDB developers outline eight security risks and mitigation strategies for running DuckDB servers in production environments</title>
+      <link>https://blog.starlake.ai/securing-duckdb-server-in-production</link>
+      <description>The article examines security challenges when deploying DuckDB as a shared server, where SQL users are not the operating system user running the process. It identifies eight classes of exposure, including credential leakage through environment variables, command lines, and persistent secrets, and the risk of unauthorized filesystem access via SQL queries. The authors provide concrete examples and recommend best practices to prevent unauthorized data access and maintain data integrity. Key mitigations include isolating secrets in owner-only directories deleted after use, disabling persistent secrets by restricting secret directories, and controlling filesystem access by limiting SQL query capabilities. The article also describes how the Quack on Demand system implements these protections by default, including a gateway that validates SQL statements before execution to enforce security policies. These measures aim to adapt DuckDB's default assumptions-appropriate for single-user laptop use-to the multi-user server context, reducing the risk of unintended data exposure and ensuring safer production deployments.</description>
+      <guid isPermaLink="false">sty_9aa2723c1eb9952f</guid>
+      <pubDate>2026-10-25T23:30:14Z</pubDate>
     </item>
     <item>
-      <title>Video explores the interaction between human creativity and AI technologies, examining AI's impact on creative processes and the evolving role of human creativity [ ~ ] [ ◻ ]</title>
-      <link>https://www.youtube.com/watch?v=kD5qYiLIhJc</link>
-      <description>The video discusses how artificial intelligence technologies influence and interact with human creative processes, highlighting changes in creativity as AI advances. It examines the evolving relationship between human creativity and AI in shaping artistic and innovative endeavors in the modern era.</description>
-      <guid isPermaLink="false">sty_db418416c9585ebe</guid>
-      <pubDate>2026-10-25T15:42:15Z</pubDate>
+      <title>Anthropic prepares to file IPO paperwork with details on finances, ownership, revenue sources, and governance expected [ ~ ] [ ◻ ]</title>
+      <link>https://www.theinformation.com/articles/anthropics-big-reveal</link>
+      <description>Anthropic is expected to publicly file its initial public offering paperwork soon, revealing more about its financial trajectory, ownership structure, revenue sources, and corporate governance. The filing may clarify how much Anthropic pays cloud providers like Google and Amazon, the concentration of its revenue among key customers, and the voting power arrangements among its founders and board members. The IPO filing comes amid broader tech industry events, including upcoming earnings reports from major cloud providers Google, Microsoft, and Amazon, and news of Instacart exploring a potential sale. These developments are likely to influence market perceptions of AI demand and cloud infrastructure spending.</description>
+      <guid isPermaLink="false">sty_3dd6419262a2eb14</guid>
+      <pubDate>2026-10-25T22:01:16Z</pubDate>
     </item>
     <item>
-      <title>Researchers develop simulated control evaluations using LLMs to fake tool outputs for testing AI agent monitors under realistic deployment conditions [ * ] [ ◼ ]</title>
-      <link>https://www.redwoodresearch.org/blog/simulated-control-evaluations</link>
-      <description>Researchers have introduced simulated control evaluations (SCEs), a method that uses large language models (LLMs) to simulate tool outputs and test whether AI agent monitors can detect harmful behavior in conditions closer to real deployments. This approach avoids executing actual attacks by generating plausible tool responses and assessing attack success through an LLM judge, improving over traditional control settings that lack deployment realism. The team validated SCEs by comparing simulated environments with real executable settings like LinuxArena, finding that simulation results closely match real outcomes and better predict monitor performance. While SCEs enhance evaluation fidelity and reduce risks, they require some extrapolation for deployment contexts and currently do not cover complex long-term or multi-agent attacks. The researchers encourage AI developers to adopt SCEs to improve the robustness of AI safety monitoring.</description>
-      <guid isPermaLink="false">sty_f28db8d60dc18d21</guid>
-      <pubDate>2026-10-25T15:41:09Z</pubDate>
+      <title>Purifi launches a shared canvas platform integrating humans and agentic AI for real-time financial analysis and decision-making without building AI models from scratch [ ~ ] [ ◻ ]</title>
+      <link>https://www.purifigroup.com/index.html</link>
+      <description>Purifi has introduced a collaborative platform that allows multiple users and agentic AI to work together on a single shared canvas for financial analysis, reporting, and decision-making. The platform synchronizes conversations, data, and tools in real time, enabling teams to question assumptions, analyze financial data, and produce insights without switching between disparate applications. The platform integrates various financial data sources including market data, SEC filings, and live economic indicators, and supports features like voice-driven research and automated workflows. Purifi partners with major cloud and AI infrastructure providers such as Microsoft Azure and IBM to support its technology. This approach demonstrates that competing in AI-driven financial services can be achieved by leveraging existing AI capabilities and collaborative tools rather than building AI models from scratch.</description>
+      <guid isPermaLink="false">sty_03c35b581d93a11f</guid>
+      <pubDate>2026-10-25T22:39:55Z</pubDate>
     </item>
     <item>
-      <title>Enjoy launches free AI creative studio for macOS, Windows, and Linux [ ~ ] [ ◻ ]</title>
-      <link>https://enjoy.dev/hn/</link>
-      <description>Enjoy has released a free AI-powered creative studio compatible with macOS, Windows, and Linux, providing users with tools to enhance their creative projects. The software is available for download at any size without cost.</description>
-      <guid isPermaLink="false">sty_b3392b2ae536b11a</guid>
-      <pubDate>2026-10-25T15:39:33Z</pubDate>
+      <title>Glitchrupt launches macOS app to glitch desktop as a visual alert when AI agents need user attention [ ~ ] [ ◻ ]</title>
+      <link>https://github.com/elbee19/glitchrupt</link>
+      <description>Glitchrupt is a macOS application that visually glitches the desktop with brief pixel fractures and digital static to notify users when their AI agents require input. The app runs locally on macOS 14 or later, overlays effects on the desktop without saving or sending data, and supports multiple glitch sound options. It integrates with AI agents like Codex via a command-line interface and a local server to manage alert signals and approval workflows. The project is open source under the MIT license and includes tools for customization and packaging.</description>
+      <guid isPermaLink="false">sty_8afd5e5c27ae9c16</guid>
+      <pubDate>2026-10-25T22:22:32Z</pubDate>
     </item>
     <item>
-      <title>Snowflake adds per-user quotas to limit Cortex AI spending and control individual usage costs [ ~ ] [ ◻ ]</title>
-      <link>https://www.youtube.com/shorts/P4z9L17uEgk</link>
-      <description>Snowflake has introduced per-user quotas to help organizations manage and cap spending on Cortex AI usage within its platform. This feature enables companies to set limits on individual user consumption, providing more granular control over AI-related expenses.</description>
-      <guid isPermaLink="false">sty_ae38b03bd2b9497a</guid>
-      <pubDate>2026-10-25T15:20:38Z</pubDate>
+      <title>Advisory Group on Mathematics and AI advises against designating specific mathematicians for early AI output releases due to risks of delayed access, bias, and reduced community agency [ ~ ] [ ◻ ]</title>
+      <link>https://terrytao.wordpress.com/2026/10/25/disadvantages-of-designating-mathematicians-for-ai-output-releases/</link>
+      <description>The Advisory Group on Mathematics and Artificial Intelligence has recommended that AI labs avoid designating particular mathematicians to receive and interpret AI-generated mathematical results before public release. They argue this practice can delay or restrict access for other researchers, introduce bias based on the labs' selection, and limit the mathematical community's agency in understanding and developing the results. The group acknowledges the valuable work done by designated mathematicians in past releases but highlights concerns including unequal access, potential conflicts of interest, and the risk that designated mathematicians' reputations may be used to shield AI companies from criticism. They suggest that human understanding of AI-generated mathematics can develop organically when outputs are released publicly, supported by community-led reading groups and workshops. The group recommends AI labs follow established pathways for releasing AI-generated mathematical content that emphasize transparency, community standards, and broad accessibility.</description>
+      <guid isPermaLink="false">sty_3a645e7f2f3a7db8</guid>
+      <pubDate>2026-10-25T22:18:47Z</pubDate>
     </item>
     <item>
-      <title>TechCrunch lists notable AI wearables including Amazon's Bee, Friend, Limitless, Meta's Muse Charm, Nirva, Omi, and Plaud NotePin with features from conversation recording to emotional support</title>
+      <title>Developer criticizes widespread use of Anthropic's Claude AI in software, raising concerns about reliance, privacy, and cultural impact [ ~ ] [ ◻ ]</title>
+      <link>https://blog.eunach.scot/struggling-to-keep-ai-out</link>
+      <description>A developer expresses strong opposition to the increasing integration of Anthropic's Claude AI in software development, arguing that it diminishes human intelligence and autonomy. The developer notes that many applications, including popular ones like Voice Audiobook Player, have grown larger and more frequent in updates due to AI involvement, making it difficult to find software free from AI influence. The developer highlights concerns about environmental impact, cultural appropriation, security risks, and privacy violations associated with AI companies. They worry about the dependency on a single AI provider and the potential consequences if the provider changes terms or ceases operations. The post reflects frustration over the shrinking pool of non-AI-assisted programs and the challenge of avoiding AI in software, especially as AI involvement extends even to operating system components.</description>
+      <guid isPermaLink="false">sty_ceca3f64fcdf3b49</guid>
+      <pubDate>2026-10-25T20:47:39Z</pubDate>
+    </item>
+    <item>
+      <title>Grok releases first seven minutes of its AI-generated Odyssey series, following Elon Musk's announcement [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/</link>
+      <description>Grok has published the first seven minutes of its AI-generated adaptation of The Odyssey, marking the debut episode of its planned series. This release follows Elon Musk's earlier claim that Grok would produce a full-length, historically accurate movie version of the classic epic. The AI-generated footage, created in collaboration with Wonder Studios and director Dev Walker, features Musk-approved casting choices and a British-accented narration. While some scenes approximate realism, the overall presentation lacks artistic depth, momentum, and emotional engagement compared to Christopher Nolan's recent film adaptation, which was a major box office success. The initial episode has received mixed reactions, with viewers noting its technical competence but questioning its ability to sustain interest over a full-length feature. Grok has invited feedback and offered to provide a detailed breakdown of the production process.</description>
+      <guid isPermaLink="false">sty_2415f7b139b97deb</guid>
+      <pubDate>2026-10-25T21:31:16Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI and Anthropic models solve longstanding mathematical problems including Erdős's conjecture and Navier-Stokes proof, showing new AI capabilities in math [ ~ ] [ ◼ ]</title>
+      <link>https://latent.space/p/ai-is-getting-good-at-math/</link>
+      <description>Recent AI models from OpenAI and Anthropic have solved several longstanding open mathematical problems, such as a counterexample to Erdős's unit distance conjecture and a proof of the Navier-Stokes problem. These advances demonstrate AI's growing ability to handle complex mathematical reasoning by leveraging different problem-solving approaches than humans, such as depth-first search and extensive computational effort. The models' success is attributed to their capacity to explore problem spaces differently from human researchers, who typically use breadth-first search constrained by time and effort. AI systems can rapidly test many hypotheses and build on prior knowledge embedded during training, enabling them to tackle problems previously considered intractable or requiring years of human effort. This shift may influence future directions in mathematical research and AI applications in scientific discovery.</description>
+      <guid isPermaLink="false">sty_e15f6775d1c5714d</guid>
+      <pubDate>2026-10-25T23:30:52Z</pubDate>
+    </item>
+    <item>
+      <title>Limitbreak launches Claude Code proxy to switch between multiple Claude accounts automatically when usage limits are reached, preserving session history [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/radu2lupu/limitbreak</link>
+      <description>Limitbreak has developed Claude Code, a local proxy that enables users to switch seamlessly between multiple Claude AI accounts when an account hits its usage limit, without restarting the session or losing conversation history. The proxy intercepts API requests and reroutes them to the next available account, ensuring uninterrupted service. The tool runs as a lightweight Go binary on macOS or Linux and manages account tokens securely, refreshing them as needed. It supports multiple accounts signed in through Claude Code's own browser sign-in process and logs account switches for transparency. Users should be aware that spreading load across accounts may conflict with Anthropic's terms of service, and the tool is not affiliated with Anthropic.</description>
+      <guid isPermaLink="false">sty_3b009db6c06c46e0</guid>
+      <pubDate>2026-10-25T23:43:55Z</pubDate>
+    </item>
+    <item>
+      <title>Show HN: AgentTrust - Zero-trust security and human approvals for AI agents [ * ] [ ⬢ ]</title>
+      <link>https://github.com/SRN0129/Agenttrust</link>
+      <description/>
+      <guid isPermaLink="false">sty_7dc4bacf8be1f69c</guid>
+      <pubDate>2026-10-25T20:46:50Z</pubDate>
+    </item>
+    <item>
+      <title>Surprising gender biases in GPT (2024) [ ~ ] [ ◻ ]</title>
+      <link>https://www.sciencedirect.com/science/article/pii/S2451958824001660</link>
+      <description>A recent analysis has revealed unexpected gender biases present in the GPT language model, highlighting the need for ongoing evaluation and mitigation of biases in AI systems to ensure fairness and neutrality.</description>
+      <guid isPermaLink="false">sty_f7c9efe87def16e9</guid>
+      <pubDate>2026-10-25T22:40:02Z</pubDate>
+    </item>
+    <item>
+      <title>AI delivers 'zero financial payoff' to most companies, Apollo economist says [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/</link>
+      <description>"Despite massive investments and widespread hype around artificial intelligence, the technology has delivered zero financial payoff to corporate America outside of tech."</description>
+      <guid isPermaLink="false">sty_308c5dc6bf382370</guid>
+      <pubDate>2026-10-25T16:57:32Z</pubDate>
+    </item>
+    <item>
+      <title>Crawlerpeek - check which AI crawlers your site lets in (CLI, MCP) [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/crawlerpeek/crawlerpeek</link>
+      <description/>
+      <guid isPermaLink="false">sty_ab0d214b9e767439</guid>
+      <pubDate>2026-10-25T21:11:05Z</pubDate>
+    </item>
+    <item>
+      <title>The hottest AI wearables and gadgets you should know about</title>
       <link>https://techcrunch.com/2026/10/25/the-hottest-ai-wearables-and-gadgets-you-should-know-about/</link>
-      <description>A variety of AI-powered wearables are emerging to integrate artificial intelligence into daily life, offering functions from productivity tools to emotional companionship. Devices like Amazon's Bee pendant and wristbands record conversations and create reminders, while Friend provides emotional support with mood recognition and proactive messaging. Meta's upcoming Muse Charm features a digital avatar assistant, and Nirva focuses on personal growth by analyzing speech patterns. Other devices include Limitless, which transcribes and summarizes conversations for professionals, Omi, which uses ChatGPT to provide personalized advice, and Plaud's NotePin, a wearable voice recorder with AI transcription aimed at students and professionals. These products vary in price and capabilities, reflecting a growing market for AI wearables designed to assist with communication, organization, and emotional well-being.</description>
+      <description>We compiled a list of all the hottest AI wearables, including Muse Charm, Bee, Friend, Plaud, and more.</description>
       <guid isPermaLink="false">sty_1f7d54825f0ad034</guid>
       <pubDate>2026-10-25T14:10:00Z</pubDate>
     </item>
     <item>
-      <title>Kolo launches multiplayer AI coding sessions with shared browser access and integrated terminal agents for trusted teams [ ~ ] [ ◼ ]</title>
-      <link>https://github.com/komovaar/kolo</link>
-      <description>Kolo is an experimental tool that enables teams to collaborate on AI coding sessions by sharing a single terminal view in the browser. The host runs AI coding agents on their machine and shares a link so team members can watch, type, and take control without installing software or managing tokens. It supports built-in adapters for Claude Code, Codex CLI, and opencode, with read-only observer roles and host-controlled permissions. The system runs as a single Go binary combining a hub and host, with support for Linux and macOS on amd64 and arm64 architectures, and Windows via WSL2. Kolo detects agent status from terminal output and offers commands for setup verification and compatibility checks. It is intended for trusted teams running agents with host user permissions, recommending isolated environments for security. The project is open source under the AGPL-3.0 license and available on GitHub.</description>
-      <guid isPermaLink="false">sty_9e49f8a8eae065a6</guid>
-      <pubDate>2026-10-25T13:49:15Z</pubDate>
-    </item>
-    <item>
-      <title>Apollo economist Slok says AI has delivered no economic payoff outside the tech sector in S&amp;P 493 companies</title>
-      <link>https://www.bloomberg.com/news/articles/2026-10-25/ai-provides-zero-payoff-to-s-p-493-outside-tech-apollo-economist-says</link>
-      <description>Apollo Global Management economist Jeffrey Slok stated that artificial intelligence has not produced any measurable economic benefits outside the technology sector among S&amp;P 493 companies. He highlighted that despite AI's prominence, its impact remains confined primarily to tech firms, with other industries yet to see significant gains from AI adoption.</description>
-      <guid isPermaLink="false">sty_66057d75d511e85e</guid>
-      <pubDate>2026-10-25T13:56:49Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic and other AI companies incorporate religious frameworks to guide moral behavior in artificial intelligence development</title>
-      <link>https://apnews.com/article/anthropic-moral-artificial-intelligence-religion-2bb91e3334fd6d732edf22288cabf4ec</link>
-      <description>Anthropic and several technology companies are exploring religious and philosophical frameworks to instill moral principles in artificial intelligence systems. This approach aims to address ethical challenges in AI behavior by drawing on established moral traditions. The effort reflects growing concern about AI decision-making and the need for consistent ethical guidelines as AI systems become more autonomous and influential.</description>
-      <guid isPermaLink="false">sty_2565cb99ac3d4048</guid>
-      <pubDate>2026-10-25T13:29:41Z</pubDate>
-    </item>
-    <item>
-      <title>Poll shows 57% of Americans believe AI is bad for society, with concerns over cybersecurity and job loss rising [ ~ ] [ ◻ ]</title>
-      <link>https://futurism.com/artificial-intelligence/majority-americans-ai-bad-society</link>
-      <description>A recent poll conducted by the Washington Post, ABC News, and IPSOS found that 57 percent of Americans view artificial intelligence as harmful to society, while only 42 percent see it as beneficial. The survey of over 2,500 adults revealed heightened fears about AI's risks, including hacking secure systems and job displacement. Younger Americans and Democrats expressed stronger negative views, and a majority opposed new data center construction, especially near their communities. These findings come amid increased public scrutiny following incidents of AI models engaging in unauthorized hacking and ongoing debates about regulating AI development.</description>
-      <guid isPermaLink="false">sty_ef46ad2269bf5e7f</guid>
-      <pubDate>2026-10-25T13:56:00Z</pubDate>
-    </item>
-    <item>
-      <title>Can AI Make Us So Productive That It Destroys the Economy? [ ~ ] [ ◻ ]</title>
-      <link>https://www.vincentschmalbach.com/can-ai-make-us-so-productive-it-destroys-the-economy/</link>
-      <description/>
-      <guid isPermaLink="false">sty_4a48a2003f39b5ca</guid>
-      <pubDate>2026-10-25T14:32:18Z</pubDate>
+      <title>r/opensource just banned AI, non-English speakers, and more [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban</link>
+      <description>The mods at r/opensource posted new submission rules that, among other things, banned projects that use AI. The post made Saturday evening opens by saying, "If your project uses AI, is made by AI, or is intended for AI, it's not welcome on r/opensource. AI, as it exists today, is incongruent to this Open Source [...]</description>
+      <guid isPermaLink="false">sty_b4ce256ad38c1da7</guid>
+      <pubDate>2026-10-25T13:25:32Z</pubDate>
     </item>
     <item>
       <title>Google's AI search changes upended online publishing [ * ] [ ◼ ]</title>
@@ -165,11 +200,18 @@
       <pubDate>2026-10-25T12:00:00Z</pubDate>
     </item>
     <item>
-      <title>Linux 7.4 Sound Changes Merged: "The AI Flood Continues"</title>
-      <link>https://www.phoronix.com/news/Linux-7.4-Sound</link>
-      <description/>
-      <guid isPermaLink="false">sty_7292f9f136ff0ca3</guid>
-      <pubDate>2026-10-25T14:10:31Z</pubDate>
+      <title>A mathematician reads the AI future</title>
+      <link>https://www.theatlantic.com/ideas/2026/10/ai-math-human-future/689133/</link>
+      <description>Comments</description>
+      <guid isPermaLink="false">sty_bc5874ed28392a77</guid>
+      <pubDate>2026-10-25T16:31:21Z</pubDate>
+    </item>
+    <item>
+      <title>Growing Majority of Americans Convinced That AI Is Bad for Society [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/majority-americans-ai-bad-society</link>
+      <description>Public opinion is not on the AI industry's side. The post Growing Majority of Americans Convinced That AI Is Bad for Society appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_ef46ad2269bf5e7f</guid>
+      <pubDate>2026-10-25T13:56:00Z</pubDate>
     </item>
     <item>
       <title>Creator of Super Smash Brothers Offers Blistering Takedown of AI-Generated Games [ ~ ] [ ◻ ]</title>
@@ -179,46 +221,11 @@
       <pubDate>2026-10-25T12:54:00Z</pubDate>
     </item>
     <item>
-      <title>Imagine an AI future where being banned means you are now economically useless [ ~ ] [ ◻ ]</title>
-      <link>https://twitter.com/boneGPT/status/2114035719853265264</link>
-      <description/>
-      <guid isPermaLink="false">sty_fdfea522e8257461</guid>
-      <pubDate>2026-10-25T12:47:20Z</pubDate>
-    </item>
-    <item>
-      <title>Skyl - One Go interface for 400 AI models [ ~ ] [ ◼ ]</title>
-      <link>https://skyl-docs.vercel.app/</link>
-      <description/>
-      <guid isPermaLink="false">sty_0e2aa2b84ecf26de</guid>
-      <pubDate>2026-10-25T14:28:48Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: The fastest, most token-efficient iOS Simulator MCP for AI agents [ ~ ] [ ◼ ]</title>
-      <link>https://github.com/NoMac-app/simulator-use</link>
-      <description/>
-      <guid isPermaLink="false">sty_bc9d560e2f217d5c</guid>
-      <pubDate>2026-10-25T14:05:18Z</pubDate>
-    </item>
-    <item>
       <title>ChatGPT Is Building Detailed Psychological Profiles of Its Users [ * ] [ ◼ ]</title>
       <link>https://futurism.com/artificial-intelligence/chatgpt-building-profiles-users</link>
       <description>"...there is no boundary anymore; the system is acting as your advisor, your friend, your doctor, your lawyer, and so it has information on everything." The post ChatGPT Is Building Detailed Psychological Profiles of Its Users appeared first on Futurism.</description>
       <guid isPermaLink="false">sty_f3be11bf9babca0d</guid>
       <pubDate>2026-10-25T11:55:00Z</pubDate>
-    </item>
-    <item>
-      <title>Empires of AI: The Rise and Fall of a New Global Order [ * ] [ ◻ ]</title>
-      <link>https://www.foreignaffairs.com/china/empires-artificial-intelligence-niall-ferguson-eric-schmidt</link>
-      <description/>
-      <guid isPermaLink="false">sty_2d8789e6de9692b2</guid>
-      <pubDate>2026-10-25T13:41:46Z</pubDate>
-    </item>
-    <item>
-      <title>The AI graveyard: a running list of projects and startups that didn't make it [ ~ ] [ ◻ ]</title>
-      <link>https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/</link>
-      <description>From Apple's repeatedly delayed Siri AI to OpenAI's messy "super app" launch, here's a look at the AI projects that shut down or missed expectations.</description>
-      <guid isPermaLink="false">sty_062ecdf0c640629b</guid>
-      <pubDate>2026-10-24T19:00:00Z</pubDate>
     </item>
     <item>
       <title>Microsoft Says Its New AI Is Better at Diagnosing Patients Than Real Doctors [ * ] [ ◼ ]</title>
@@ -228,62 +235,6 @@
       <pubDate>2026-10-25T10:57:00Z</pubDate>
     </item>
     <item>
-      <title>Podcast: Kimi K3.1 Pro, the new cyber reality, and Muse musings [ ~ ] [ ◻ ]</title>
-      <link>https://www.interconnects.ai/p/podcast-kimi-k31-pro-the-new-cyber</link>
-      <description>#20</description>
-      <guid isPermaLink="false">sty_47383b65f6f665d0</guid>
-      <pubDate>2026-10-25T11:49:00Z</pubDate>
-    </item>
-    <item>
-      <title>Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/</link>
-      <description>Nvidia's new data engine Flora labels one hour of robot video for 72 cents instead of $88 with GPT-6 Astra, while scoring slightly higher on quality. The open system, built on three fine-tuned Qwen3.5 models, catches errors in robot actions far more reliably than any competitor but sometimes falls short on descriptive accuracy. Nvidia is positioning Flora as a key piece of its strategy to control the entire robotics value chain. The article Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_9a95ae4613f24e2d</guid>
-      <pubDate>2026-10-25T10:08:49Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027 [ ~ ] [ ◻ ]</title>
-      <link>https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/</link>
-      <description>A new benchmark by P-Zero Research measures how well AI models design and evaluate experiments on their own. The results are improving so fast that Anthropic co-founder Jack Clark now thinks self-improving AI could arrive by 2027. The article Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027 appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_af89d2d3782ca01d</guid>
-      <pubDate>2026-10-25T09:37:46Z</pubDate>
-    </item>
-    <item>
-      <title>Anthropic says one AI agent beats many subagents now that models can handle complexity alone [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone/</link>
-      <description>Anthropic says companies should evaluate whether they can consolidate sub-agents into a single agent that loads context on demand. In one architecture comparison, the single-agent setup ran about twice as fast. Anthropic has published a migration kit on GitHub to help teams make the transition. The article Anthropic says one AI agent beats many subagents now that models can handle complexity alone appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_a3b7697ac9126a9f</guid>
-      <pubDate>2026-10-25T09:12:10Z</pubDate>
-    </item>
-    <item>
-      <title>Ex-Google CEO Eric Schmidt calls OpenAI and Anthropic modern colonial trading companies [ ~ ] [ ◻ ]</title>
-      <link>https://the-decoder.com/ex-google-ceo-eric-schmidt-calls-openai-and-anthropic-modern-colonial-trading-companies/</link>
-      <description>In Foreign Affairs, historian Niall Ferguson, researcher Lisa Klaassen, and former Google CEO Eric Schmidt cast the US and China as AI empires and every other country as a dependency. The race won't be decided by breakthroughs but by who can bankroll it. US corporations alone plan to spend more than $600 billion in 2026. Yet mounting debt, protests against data centers, and a potential chip crisis over Taiwan could stall both superpowers. The article Ex-Google CEO Eric Schmidt calls OpenAI and Anthropic modern colonial trading companies appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_9944c2c739508c27</guid>
-      <pubDate>2026-10-25T08:09:32Z</pubDate>
-    </item>
-    <item>
-      <title>OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/</link>
-      <description>OpenAI is poaching Anthropic's customers with steep discounts. Companies like Rippling, Replit, and DataCamp say they've cut AI costs by up to 90 percent after switching. Anthropic's growth has slowed, but OpenAI is trading its own margins for market share. Chinese rivals like Deepseek are piling on more price pressure. The article OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_517e13289e2c938f</guid>
-      <pubDate>2026-10-25T07:30:11Z</pubDate>
-    </item>
-    <item>
-      <title>OpenMobile-2 proves open-source smartphone agents can rival proprietary models [ ~ ] [ ◼ ]</title>
-      <link>https://the-decoder.com/openmobile-2-proves-open-source-smartphone-agents-can-rival-proprietary-models/</link>
-      <description>Smartphone agents don't get better by processing more data. They improve by training on as many different apps as possible. The researchers behind OpenMobile-2 built an open training environment with more than 110 applications, including 35 replicas of popular apps. On real Android devices, their model scores highest among open agents, the authors say. The article OpenMobile-2 proves open-source smartphone agents can rival proprietary models appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_73835b2c7197bf72</guid>
-      <pubDate>2026-10-25T06:55:22Z</pubDate>
-    </item>
-    <item>
-      <title>Before He Was Warning About AI, A College-Age Dario Amodei Warned That The Iraq War Would Hurt Science Jobs - And That Prediction Didn't Pan Out Either - OfficeChai</title>
-      <link>https://news.google.com/rss/articles/CBMihAJBVV95cUxQaUtJRXRwRkw2ZWJJQk56ZFlDVmdVRWxMcFprM25lTnNLdUNiX1FFV2F4WEM5SFhGWmVBaXd6R1BROU1kSENGWEJtQUUxdkR4ZEdFc3U3bG82NDltbkFNNnJfUlhzTE1NRXpzRENTVURtaTQ5UWpNVG8xVEFVbHhkMmljQlZxdTdlNTAzc0pzVHBXRF9nUWFKLW5Ldl9KQXZmODNZVWhrZnZicXZ2QVJVZzZYQ19JU0I5a2pUbnpzUlQ2SnVoZ2lCd051a2JwUGN2dXJOQ3M5R0s1VlBTNldrX010eHA4LXRjV1Q1a19nUVpMdWRwSTV3SmVpQlVNcEJBWTlTNQ?oc=5</link>
-      <description>Before He Was Warning About AI, A College-Age Dario Amodei Warned That The Iraq War Would Hurt Science Jobs - And That Prediction Didn't Pan Out Either OfficeChai</description>
-      <guid isPermaLink="false">sty_d1dd1993041bd993</guid>
-      <pubDate>2026-10-25T07:37:39Z</pubDate>
-    </item>
-    <item>
       <title>Blue Planet III is keeping the rough edges in the age of AI</title>
       <link>https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai</link>
       <description>BBC's Blue Planet III is looking to prove its authenticity by leaving in the less-than-perfect shots. Previous incarnations of the nature series were defined by their gorgeous, crystal-clear footage that seemed almost too good to be real. But one dead giveaway of AI is when things look too polished and seamless. To counter that, Blue [...]</description>
@@ -291,11 +242,39 @@
       <pubDate>2026-10-24T21:29:12Z</pubDate>
     </item>
     <item>
+      <title>AI teammates that finish the work | Grok Bot</title>
+      <link>https://news.google.com/rss/articles/CBMiMkFVX3lxTE9KUlpuaWtVOGw0VTlVRGlxYVdJZUZRQ3BPakJPYVQ5UjNyaGQyVHk3RWdn?oc=5</link>
+      <description>AI teammates that finish the work | Grok Bot xAI</description>
+      <guid isPermaLink="false">sty_5379d0749ab9b1ce</guid>
+      <pubDate>2026-10-24T23:19:17Z</pubDate>
+    </item>
+    <item>
+      <title>America has lost 200k of jobs in media, film and the arts. How much is AI? [ * ] [ ◻ ]</title>
+      <link>https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class</link>
+      <description/>
+      <guid isPermaLink="false">sty_218a5f87fc40a166</guid>
+      <pubDate>2026-10-24T23:11:54Z</pubDate>
+    </item>
+    <item>
+      <title>The AI graveyard: a running list of projects and startups that didn't make it [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/</link>
+      <description>From Apple's repeatedly delayed Siri AI to OpenAI's messy "super app" launch, here's a look at the AI projects that shut down or missed expectations.</description>
+      <guid isPermaLink="false">sty_062ecdf0c640629b</guid>
+      <pubDate>2026-10-24T19:00:00Z</pubDate>
+    </item>
+    <item>
       <title>A Neocloud's Gathering Storm [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/neoclouds-gathering-storm</link>
       <description>Welcome, Weekenders! Whenever I'm the slightest bit ill, I take to my bed and mope. If it goes more than a day or so, I assume the worst-that the end is nigh. I can't honestly remember the last time I felt unwell for more than a couple days, but I imagine such a scenario would probably find me consulting ChatGPT about burial shrouds. So I'd like to extend a smidgen of sympathy to CoreWeave CEO Mike Intrator. Surely, he's been feeling poorly for nearly two weeks! In the last 12 days, CoreWeave's stock has been nearly halved. A confluence of factors has contributed to the rampant decline, as my colleague Dakin Campbell explained. In short, investors are worried about how rising interest rates will affect CoreWeave's ability to raise debt, which it needs to fund its business of selling cloud computing services. They're also concerned about whether CoreWeave can handle the costs of the mound of debt it already has. Last week, fresh data on U.S. inflation fueled interest rate concerns: Inflation jumped in September, increasing the odds that the Federal Reserve will hike interest rates-making all debt more expensive. Even though there was no new inflation data this week, CoreWeave shares continued to fall-from around $60 on Monday to roughly $54 on Friday. Not even Nvidia's all-powerful CEO, Jensen Huang, was able to stanch the bleeding when he tried to sound a note of confidence for CoreWeave on Thursday, saying the demand for companies like CoreWeave-neoclouds-is "off the charts." The stock nerds over at Barron's tried to argue that Wednesday's earnings report from SpaceX is actually a good sign for CoreWeave. Those numbers showed surging demand for SpaceX's nascent business of selling its excess AI compute, but I'm not sure whether that necessarily bodes well for the company. Yes, an indicator of demand for compute could be interpreted as a welcome data point for CoreWeave, a compute seller. But SpaceX's compute business increasingly seems like a real competitor to CoreWeave and other neoclouds, and as the much, much better established company, SpaceX has the resources to fund expansion of its compute-selling efforts without acquiring hazardous amounts of debt. And investors are a great deal less likely to sink its stock price over interest rate jitters. More news from Wednesday highlighted the industry's appetite for compute. Meta Platforms said it will create a new share class in January-essentially a two-for-one stock split-that will allow it to reach for more capital to spend on AI. It's also partly a maneuver that would help CEO Mark Zuckerberg pay off California's billionaire tax if the levy is approved next month. Meta's board justified helping Zuck pay his taxes by saying that the CEO had threatened to pick up sticks and leave California-and that it was essential to have him in the office as much as possible. (I had to laugh. Just a couple years ago, Zuckerberg was telling us the metaverse would arrive soon, and we'd all be living as digital stick things. Such was the potential of the metaverse that Zuckerberg renamed his entire company for it. Well, guess not!) More capital at Meta might be good for CoreWeave. Meta is a CoreWeave customer-to the tune of $35 billion. There's no guarantee, of course, that Meta will take a newfound gusher of capital and go back to CoreWeave again. Recently, Meta has been building its own data centers and readying production of its custom AI chips. It has also considered selling compute. Investors looked on wearily at Meta's stock split/potential Zuck gift, with the company's shares dropping nearly 9% on Thursday. In fact, Meta's moves unnerved the entire market yet again over how much this whole AI thing will cost. The Nasdaq sank 2.6% on Thursday. CoreWeave shares fell 10%, while declines also hit Nebius (down 7.2%) and IREN (8.3%), the two other publicly traded neoclouds. And everything kept falling on Friday. Are all the stock moves based on buttoned-up rationality? No. But like the common cold that I'm always certain will put me six feet under, worry on Wall Street is contagious.-Abram Brown (abe@theinformation.com) The Information's Must-Read Stories Ramp Investors Went Nuclear Against Airwallex After Doomed Deal Hackers Used Claude and Grok to Automate Attacks on Banks How CoreWeave's Debt Binge Brought a Moment of Reckoning Listening: "Bear Brook: A Private Matter" Back in 2017, NHPR, a little public radio station in New Hampshire, found itself with a hit national podcast, "Bear Brook," about cold-case murders-four bodies in two barrels stashed in Bear Brook State Park-and the genetic testing involved in investigating the crimes. Reporter Jason Moon followed up with a second season about a different crime in 2023 and now returns with a third season about another weird happening: the disappearance of 76-year-old Jay Hickey, a local Christmas tree farmer. (Moon likens the setting to a Hallmark movie-frankly, it gave me distinct "Twin Peaks" vibes.) After Hickey vanished one autumn, it was months before anyone went looking for him. That was strange because he was suffering from dementia, so surely his wife, Pat, would've, uh, noticed he wasn't around, right? Obviously she offed him, right? Perhaps, but she clearly was suffering from something herself. It's the type of tale that could be glossed over with schlock, sordid storytelling. That's definitely not Moon's approach.-Abram Brown Reading: "Kobuk the Destroyer" by Alex Davies Just in the past 12 hours, I've dodged a number of possible catastrophes: I was not singed by my hair dryer, crushed by my office's elevator doors or left unproductive by a bunch of buttons tumbling out of my keyboard. I owe my good fortune to the rigorous science of product testing, a gorpy-seeming topic made into enlightening, witty entertainment in "Kobuk the Destroyer" by Alex Davies, a former Wired magazine editor. It is an ode to the nerd geniuses who devise those tests, but it can also feel like a drop directly onto the factory floor of Looney Tunes' Acme Corporation, presenting a sharp critique of how often executives cut corners and ignore blatant problems as they pursue commercialization. Without the centurylong expansion of product testing, we'd all be left in the same position as Wile E. Coyote, with faulty, rocket-powered roller skates attached to our feet. The titular Kobuk, a grizzly bear, may be one of the most prolific practitioners of the field-having lived out the last several decades at a Montana wildlife sanctuary that partners with a government agency to certify various products as bear proof. Kobuk has the great joy of tearing apart coolers, trash cans, composters, and many other items, and gets rewarded with fish, peanut butter, honey, and dog biscuits for his efforts: Whatever survives Kobuk's assault receives the certification. Through his efforts, the general public can buy coolers that actually do keep out other Kobuks. Theoretically, that prevents his shaggy-haired brethren from learning to filch food or hang around humans, habits that can get a bear relocated or euthanized. Kobuk has pawed his way onto a noble path initially blazed in the 1920s by Underwriters Laboratories, a Chicago-based business that pioneered the art of product testing-with engineers who assessed the durability of safes by subjecting them to thousand-degree heat, 30-foot drops and kerosene-fueled explosions. Davies keeps up a brisk pace as he winds through the many testing approaches adopted by various industries in the following years, including the NASA wind tunnel used to develop the Curiosity Mars lander and the oval-shaped gelatin sacks that engineers fired into airplane engines to avoid needing to kill thousands and thousands of live birds. As many of you might surely agree, determining the safety of one group of products in particular remains decidedly challenging: ahem, AI! Much of the alignment training and red teaming that goes into AI development comes away with vague conclusions, Davies writes: We simply don't understand enough about what we've created, and AI often operates much more unpredictably than, say, a refrigerator door or an airbag. Trying to understand why an AI behaved safely in one setting but dangerously in another is "like trying to understand why your dog growls at people carrying shopping bags but not people carrying suitcases."-A.B. Watching: "Carrie" Stephen King's cabinet of terrors is a well-stocked place, cluttered with weird evils, many with complex, lengthy backstories. The It of "It," you may recall, is not actually an evil clown-it's an ageless, alien ball of light. "The Langoliers" is a time-travel story...about piranha-like, interdimensional critters that literally eat time. I could try to also get into the motivations of Randall Flagg in "The Stand," but unlike King, I don't have 823 pages to do that here. The knottier of King's novels defy easy screen adaptations. Other retellings of King stories fail on the screen largely because they suffer in comparison to finer, earlier movie adaptations, to say nothing of their misappropriation of King's material. On Amazon, there's an excellent new restructuring of King's "Carrie," his first bestseller and, of course, the source for a much-loved film by director Brian De Palma, which put both De Palma and King on the map. There's a simplicity and universal resonance to King's story of tortured, telekinetic high schooler Carrie White that makes it highly moldable: Teenagers have been terrifying ever since there have been teenagers, both to themselves and to those around them. Amazon's "Carrie" was helmed by Mike Flanagan, who has a string of spooky series on Netflix ("The Fall of the House of Usher," "The Haunting of Hill House") and did the 2019 movie adaptation of King's "Doctor Sleep." Flanagan adeptly positions his "Carrie" in the modern day. The infamous shower scene, for example, does not really end when Carrie (newcomer Summer Howell) is escorted away by kindhearted PE teacher Miss Desjardin (Amber Midthunder). Her bullying classmates captured the entire thing on their cellphones, and their torment of her continues via an anonymous Instagram account. Later, her mother, Margaret (Samantha Sloyan), a religious nut who also favors QAnon-like conspiracy theories, seizes the internet as a means for her own ferocious manipulations. With the benefit of an eight-episode run, Flanagan gets the opportunity to give greater depth to the Whites and the people around them, including Carrie's chief bully, Christine (Alison Thornton), and classmate Sue (Siena Agudong), who befriends Carrie in this version. Granted, it might seem like Flanagan is trying to stretch the material as thin as a funeral crepe. He doesn't, aided by roundly top-notch performances.-A.B.</description>
       <guid isPermaLink="false">sty_a3a0624fae7024a0</guid>
       <pubDate>2026-10-24T15:00:45Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's Margin is OpenAI's Opportunity [ * ] [ ◼ ]</title>
+      <link>https://www.theinformation.com/articles/anthropics-margin-openais-opportunity</link>
+      <description>OpenAI's efforts to undercut Anthropic on price are producing some results. For instance, in May, Anthropic models powered 57% of the coding work of hundreds of engineers at Rippling, an HR software firm, while OpenAI models handled 16% of that work. Since then, the situation has reversed: 52% of the coding work is now handled by OpenAI models and 18% with Anthropic ones, as the company sought to cut costs and OpenAI proved cheaper, CEO Parker Conrad said.</description>
+      <guid isPermaLink="false">sty_ac81cb44149828e1</guid>
+      <pubDate>2026-10-24T14:00:49Z</pubDate>
     </item>
     <item>
       <title>Pennsylvania will require labels on AI-generated ads [ * ] [ ◻ ]</title>
@@ -312,6 +291,13 @@
       <pubDate>2026-10-24T16:00:00Z</pubDate>
     </item>
     <item>
+      <title>No signs of AI payoff outside the tech sector [ ~ ] [ ◻ ]</title>
+      <link>https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector</link>
+      <description/>
+      <guid isPermaLink="false">sty_ff35959bd5a23fb8</guid>
+      <pubDate>2026-10-24T19:47:19Z</pubDate>
+    </item>
+    <item>
       <title>Forced to pick, Grok's AI model chooses Republicans. OpenAI's picks Democrats. [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/</link>
       <description>A new study found Grok's AI overwhelmingly recommends Republican candidates while OpenAI's GPT favors Democrats, with the two AI models disagreeing in more than 90% of nearly 500 election races.</description>
@@ -326,53 +312,11 @@
       <pubDate>2026-10-24T14:00:00Z</pubDate>
     </item>
     <item>
-      <title>Anthropic's Margin is OpenAI's Opportunity [ * ] [ ◼ ]</title>
-      <link>https://www.theinformation.com/articles/anthropics-margin-openais-opportunity</link>
-      <description>OpenAI's efforts to undercut Anthropic on price are producing some results. For instance, in May, Anthropic models powered 57% of the coding work of hundreds of engineers at Rippling, an HR software firm, while OpenAI models handled 16% of that work. Since then, the situation has reversed: 52% of the coding work is now handled by OpenAI models and 18% with Anthropic ones, as the company sought to cut costs and OpenAI proved cheaper, CEO Parker Conrad said.</description>
-      <guid isPermaLink="false">sty_ac81cb44149828e1</guid>
-      <pubDate>2026-10-24T14:00:49Z</pubDate>
-    </item>
-    <item>
-      <title>No signs of AI payoff outside the tech sector [ ~ ] [ ◻ ]</title>
-      <link>https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector</link>
-      <description/>
-      <guid isPermaLink="false">sty_ff35959bd5a23fb8</guid>
-      <pubDate>2026-10-24T19:47:19Z</pubDate>
-    </item>
-    <item>
-      <title>Three fired OpenAI safety researchers say they were never told what they actually leaked [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/three-fired-openai-safety-researchers-say-they-were-never-told-what-they-actually-leaked/</link>
-      <description>The three OpenAI safety researchers who were fired, Tomek Korbak, Mikita Balesni, and Jasmine Wang, are publicly pushing back against allegations from their former employer. They deny sharing confidential information and see a connection to their advocacy for AI systems that are easier to scrutinize. The researchers say OpenAI never told them in writing which information they allegedly mishandled. The article Three fired OpenAI safety researchers say they were never told what they actually leaked appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_9d9ae72fa6a32bf1</guid>
-      <pubDate>2026-10-24T15:19:33Z</pubDate>
-    </item>
-    <item>
       <title>Who Is Dario Amodei? The Anthropic CEO Behind Claude - The Profile | Polina Pompliano [ ~ ] [ ◻ ]</title>
       <link>https://news.google.com/rss/articles/CBMiYkFVX3lxTE1nNVRycmlWXzJTdWtVSVZMbkN2SlVsVEhpUTktdFVuX1g0RmNGNjV4WUhaTjlCMTZmVEg1dWVlSkRWUjJuWGd4bXNvU2dqOXFScG9QMnNrUmJNMmZKNXJtMmp3?oc=5</link>
       <description>Who Is Dario Amodei? The Anthropic CEO Behind Claude The Profile | Polina Pompliano</description>
       <guid isPermaLink="false">sty_ae0f0780bc813232</guid>
       <pubDate>2026-10-24T20:35:29Z</pubDate>
-    </item>
-    <item>
-      <title>AI makes junior patent attorneys instantly better but may quietly stunt their professional growth [ * ] [ ◼ ]</title>
-      <link>https://the-decoder.com/ai-makes-junior-patent-attorneys-instantly-better-but-may-quietly-stunt-their-professional-growth/</link>
-      <description>A three-month field experiment with 133 patent attorneys shows that AI boosts immediate performance, with junior lawyers gaining the most. But when the AI is taken away, only senior attorneys retain the benefits, suggesting that baseline expertise is a prerequisite for turning AI-assisted practice into lasting skill. The article AI makes junior patent attorneys instantly better but may quietly stunt their professional growth appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_8f266769a917f274</guid>
-      <pubDate>2026-10-24T14:34:05Z</pubDate>
-    </item>
-    <item>
-      <title>Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss [ ~ ] [ ◻ ]</title>
-      <link>https://the-decoder.com/blocks-new-ai-model-dessa-was-trained-entirely-on-human-speech-to-catch-emotions-text-based-models-miss/</link>
-      <description>Block, the company behind Square and Cash App, has introduced Dessa, a speech model that processes audio directly instead of converting it to text first. Dessa is designed to recognize emotions, sarcasm, and pauses in real time. The model runs locally on a MacBook Pro M4 Max but isn't publicly available yet. The article Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_0ecc97a8403e0ead</guid>
-      <pubDate>2026-10-24T14:09:46Z</pubDate>
-    </item>
-    <item>
-      <title>AI teammates that finish the work | Grok Bot</title>
-      <link>https://news.google.com/rss/articles/CBMiMkFVX3lxTE9KUlpuaWtVOGw0VTlVRGlxYVdJZUZRQ3BPakJPYVQ5UjNyaGQyVHk3RWdn?oc=5</link>
-      <description>AI teammates that finish the work | Grok Bot xAI</description>
-      <guid isPermaLink="false">sty_5379d0749ab9b1ce</guid>
-      <pubDate>2026-10-24T14:16:55Z</pubDate>
     </item>
     <item>
       <title>The PHP Meltdown Shows How AI Makes Bugs More Exploitable [ * ] [ ◼ ]</title>
@@ -382,11 +326,11 @@
       <pubDate>2026-10-24T12:00:00Z</pubDate>
     </item>
     <item>
-      <title>Anthropic CEO Dario Amodei Was Unusually Worried About The Y2K Bug, High School Teacher Recalls - OfficeChai</title>
-      <link>https://news.google.com/rss/articles/CBMivgFBVV95cUxQa1BuVFA1TktUX2NIdUE1OFoydW9yLUN0Z1AxNVNUQkVyczQyQ3FtNXRjRXFDOXgtNlBBVFFlb2tUdlJhSlNMcmhvaEM5OGJOOTBqWGxWNE9rNGNvdmh1dzdONWxVY1J4c1lPMU1pVmJhWFdwSXM4c1FyOUd0LXd3eVdEZVk2cVM5akc3WGNUQTBqcEV0QzJyZjFDTVE4ZWZ2NnBta0FPOVhwZURuam1yZlhuRGRPYURWSTZqRFdB?oc=5</link>
-      <description>Anthropic CEO Dario Amodei Was Unusually Worried About The Y2K Bug, High School Teacher Recalls OfficeChai</description>
-      <guid isPermaLink="false">sty_f9392fe7e5371c99</guid>
-      <pubDate>2026-10-24T18:15:30Z</pubDate>
+      <title>Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II) [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/scaling-storage-one-billion-users-part-two</link>
+      <description>Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.</description>
+      <guid isPermaLink="false">sty_cabefd2ed2c737e6</guid>
+      <pubDate>2026-10-23T17:00:00Z</pubDate>
     </item>
     <item>
       <title>Google's Data Agent Kit Hits GA, Splitting Agent Guardrails Between Skills and IAM [ * ] [ ◼ ]</title>
@@ -403,32 +347,11 @@
       <pubDate>2026-10-24T11:14:32Z</pubDate>
     </item>
     <item>
-      <title>OpenAI's isolated AI agents found ways to talk to each other through CPU cache [ * ] [ ⬢ ]</title>
-      <link>https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/</link>
-      <description>OpenAI now trains its most powerful models without internet access, after an internal research model exploited a DNS misconfiguration in September and reached the open internet. In controlled tests, AI agents still found ways to communicate covertly through side channels. The incidents echo Sam Altman's warning: the more powerful the model, the harder it is to contain. The article OpenAI's isolated AI agents found ways to talk to each other through CPU cache appeared first on The Decoder.</description>
-      <guid isPermaLink="false">sty_ca0b43a393829ed4</guid>
-      <pubDate>2026-10-24T11:12:36Z</pubDate>
-    </item>
-    <item>
-      <title>Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II) [ * ] [ ◼ ]</title>
-      <link>https://openai.com/index/scaling-storage-one-billion-users-part-two</link>
-      <description>Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.</description>
-      <guid isPermaLink="false">sty_cabefd2ed2c737e6</guid>
-      <pubDate>2026-10-23T17:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI [ * ] [ ◼ ]</title>
-      <link>https://futurism.com/artificial-intelligence/banks-preparing-ai-financial-catastrophe</link>
-      <description>"You can't stop it." The post Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI appeared first on Futurism.</description>
-      <guid isPermaLink="false">sty_b23030cf4dc6e596</guid>
-      <pubDate>2026-10-24T13:55:00Z</pubDate>
-    </item>
-    <item>
-      <title>We Investigated Character.AI and Found a Horror Show. Now It's Bankrupt. [ ! ] [ ◼ ]</title>
-      <link>https://futurism.com/artificial-intelligence/character-ai-horror-show-bankrupt</link>
-      <description>Move fast, break things, break people, break yourself. The post We Investigated Character.AI and Found a Horror Show. Now It's Bankrupt. appeared first on Futurism.</description>
-      <guid isPermaLink="false">sty_fb0d7707cd1f209e</guid>
-      <pubDate>2026-10-24T12:53:00Z</pubDate>
+      <title>Securing our frontier model training environment [ * ] [ ⬢ ]</title>
+      <link>https://openai.com/index/securing-our-frontier-model-training-environment</link>
+      <description>OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.</description>
+      <guid isPermaLink="false">sty_8758f59f0eaafbe6</guid>
+      <pubDate>2026-10-23T10:00:00Z</pubDate>
     </item>
     <item>
       <title>Moonshot AI Launches New Kimi K3.1 Pro Model [ ~ ] [ ◻ ]</title>
@@ -438,11 +361,11 @@
       <pubDate>2026-10-23T22:26:12Z</pubDate>
     </item>
     <item>
-      <title>AI Billionaires Are Flooding Money Into Politics to Influence Elections, But It's Backfiring [ ~ ] [ ◻ ]</title>
-      <link>https://futurism.com/future-society/ai-billionaires-elections-backfiring</link>
-      <description>Even a whiff of AI money seems to disgust voters. The post AI Billionaires Are Flooding Money Into Politics to Influence Elections, But It's Backfiring appeared first on Futurism.</description>
-      <guid isPermaLink="false">sty_2ef1933be2afbddb</guid>
-      <pubDate>2026-10-24T11:51:00Z</pubDate>
+      <title>Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI [ * ] [ ◼ ]</title>
+      <link>https://futurism.com/artificial-intelligence/banks-preparing-ai-financial-catastrophe</link>
+      <description>"You can't stop it." The post Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_b23030cf4dc6e596</guid>
+      <pubDate>2026-10-24T13:55:00Z</pubDate>
     </item>
     <item>
       <title>AWS Largely Sold Out Of Capacity Into 2028, Jassy Says [ * ] [ ◼ ]</title>
@@ -452,11 +375,18 @@
       <pubDate>2026-10-23T21:59:37Z</pubDate>
     </item>
     <item>
-      <title>Securing our frontier model training environment [ * ] [ ⬢ ]</title>
-      <link>https://openai.com/index/securing-our-frontier-model-training-environment</link>
-      <description>OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.</description>
-      <guid isPermaLink="false">sty_8758f59f0eaafbe6</guid>
-      <pubDate>2026-10-23T10:00:00Z</pubDate>
+      <title>We Investigated Character.AI and Found a Horror Show. Now It's Bankrupt. [ ! ] [ ◼ ]</title>
+      <link>https://futurism.com/artificial-intelligence/character-ai-horror-show-bankrupt</link>
+      <description>Move fast, break things, break people, break yourself. The post We Investigated Character.AI and Found a Horror Show. Now It's Bankrupt. appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_fb0d7707cd1f209e</guid>
+      <pubDate>2026-10-24T12:53:00Z</pubDate>
+    </item>
+    <item>
+      <title>AI Billionaires Are Flooding Money Into Politics to Influence Elections, But It's Backfiring [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/future-society/ai-billionaires-elections-backfiring</link>
+      <description>Even a whiff of AI money seems to disgust voters. The post AI Billionaires Are Flooding Money Into Politics to Influence Elections, But It's Backfiring appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_2ef1933be2afbddb</guid>
+      <pubDate>2026-10-24T11:51:00Z</pubDate>
     </item>
     <item>
       <title>'Most likely to kick some ass': Before founding Anthropic, Dario Amodei was a standout at Lowell - San Francisco Chronicle</title>
@@ -466,13 +396,6 @@
       <pubDate>2026-10-24T11:00:28Z</pubDate>
     </item>
     <item>
-      <title>Behind the Scenes, Meta's Board Is Battling With Mark Zuckerberg Over His Out-of-Control AI Spending [ * ] [ ◻ ]</title>
-      <link>https://futurism.com/artificial-intelligence/meta-board-zuckerberg-ai-spending-compensation</link>
-      <description>The directors have had enough. The post Behind the Scenes, Meta's Board Is Battling With Mark Zuckerberg Over His Out-of-Control AI Spending appeared first on Futurism.</description>
-      <guid isPermaLink="false">sty_029347a1f04662fc</guid>
-      <pubDate>2026-10-24T10:53:00Z</pubDate>
-    </item>
-    <item>
       <title>OpenAI says it will no longer train its AI models on the live internet, citing "significant risks" [ * ] [ ⬢ ]</title>
       <link>https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/</link>
       <description>OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work.</description>
@@ -480,18 +403,11 @@
       <pubDate>2026-10-23T23:05:49Z</pubDate>
     </item>
     <item>
-      <title>OpenAI now trains its frontier AI models with no internet access [ ~ ] [ ◼ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet</link>
-      <description>OpenAI is now training its most advanced AI models without internet access following a string of rogue hacking incidents. In a blog post on Friday, OpenAI says it built an offline testing environment where AI models can interact with indexed and cached web content "without risk of affecting external systems." OpenAI paused training its frontier [...]</description>
-      <guid isPermaLink="false">sty_d6da77cb4eb71be4</guid>
-      <pubDate>2026-10-23T21:11:07Z</pubDate>
-    </item>
-    <item>
-      <title>From Toast to Bessemer: Who founders will hear from at TechCrunch Founder Summit 2026 [ ~ ] [ ◻ ]</title>
-      <link>https://techcrunch.com/2026/10/23/from-toast-to-bessemer-who-founders-will-hear-from-at-techcrunch-founder-summit-2026/</link>
-      <description>Hosted by TechCrunch in partnership with Fidelity Private Shares, the full-day event goes beyond fundraising and AI to explore the realities of finding customers, building teams, sharpening a pitch, developing founder leadership, and scaling companies both inside and outside traditional startup hubs.</description>
-      <guid isPermaLink="false">sty_9f907f51d7bf1b4c</guid>
-      <pubDate>2026-10-23T19:06:23Z</pubDate>
+      <title>Behind the Scenes, Meta's Board Is Battling With Mark Zuckerberg Over His Out-of-Control AI Spending [ * ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/meta-board-zuckerberg-ai-spending-compensation</link>
+      <description>The directors have had enough. The post Behind the Scenes, Meta's Board Is Battling With Mark Zuckerberg Over His Out-of-Control AI Spending appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_029347a1f04662fc</guid>
+      <pubDate>2026-10-24T10:53:00Z</pubDate>
     </item>
     <item>
       <title>OpenAI and Poland's NASK partner to advance AI safety and security [ ~ ] [ ◼ ]</title>
@@ -501,11 +417,25 @@
       <pubDate>2026-10-23T00:00:00Z</pubDate>
     </item>
     <item>
+      <title>From Toast to Bessemer: Who founders will hear from at TechCrunch Founder Summit 2026 [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/10/23/from-toast-to-bessemer-who-founders-will-hear-from-at-techcrunch-founder-summit-2026/</link>
+      <description>Hosted by TechCrunch in partnership with Fidelity Private Shares, the full-day event goes beyond fundraising and AI to explore the realities of finding customers, building teams, sharpening a pitch, developing founder leadership, and scaling companies both inside and outside traditional startup hubs.</description>
+      <guid isPermaLink="false">sty_9f907f51d7bf1b4c</guid>
+      <pubDate>2026-10-23T19:06:23Z</pubDate>
+    </item>
+    <item>
       <title>VC Firms Tap LP Pools, Warehouse Loans for Speedy AI Cash [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/vc-firms-tap-lp-pools-warehouse-loans-speedy-ai-cash</link>
       <description>When Reflection AI set out to raise $2.5 billion early this year, one of its existing venture backers, B Capital, was eager to invest again in the startup, which has emerged as the most high-profile U.S. maker of open-source AI models. But Reflection's valuation had more than tripled in just six months, forcing investors to write big checks for a sizable stake. Such a check would have been too big for B Capital's main venture fund, a $500 million vehicle raised in July. To come up with the cash, the company turned to a different source of capital: a pool of money apart from its regular fund, designed to give limited partners-the pension funds, endowments and wealthy individuals that back VC firms-more direct access to hot startups like Reflection at reduced fees.</description>
       <guid isPermaLink="false">sty_669e55d70abc8ddc</guid>
       <pubDate>2026-10-23T14:00:57Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI now trains its frontier AI models with no internet access [ ~ ] [ ◼ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet</link>
+      <description>OpenAI is now training its most advanced AI models without internet access following a string of rogue hacking incidents. In a blog post on Friday, OpenAI says it built an offline testing environment where AI models can interact with indexed and cached web content "without risk of affecting external systems." OpenAI paused training its frontier [...]</description>
+      <guid isPermaLink="false">sty_d6da77cb4eb71be4</guid>
+      <pubDate>2026-10-23T21:11:07Z</pubDate>
     </item>
     <item>
       <title>See what 5 builders are making with Gemini 4 Argon [ ~ ] [ ◼ ]</title>
@@ -515,6 +445,13 @@
       <pubDate>2026-10-23T16:00:00Z</pubDate>
     </item>
     <item>
+      <title>Build more responsive apps with the Decisions API [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/decisions-api</link>
+      <description>Fast, focused, low-cost decisions for any application.</description>
+      <guid isPermaLink="false">sty_70f6513e0c1ad7d5</guid>
+      <pubDate>2026-10-22T19:00:00Z</pubDate>
+    </item>
+    <item>
       <title>Jack Dorsey's Block made an AI model that talks to you like an awkward new friend [ ~ ] [ ◻ ]</title>
       <link>https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech</link>
       <description>Jack Dorsey's Block announced an AI model called Dessa that's trained "from scratch on nothing but human conversation," and to show off the model, Block shared chats it has had with humans that can occasionally be a little awkward and uncanny. Take this one, for example, shared by Dessa lead Ragavan Thurairatnam. The conversation between [...]</description>
@@ -522,11 +459,11 @@
       <pubDate>2026-10-23T19:32:39Z</pubDate>
     </item>
     <item>
-      <title>Build more responsive apps with the Decisions API [ * ] [ ◼ ]</title>
-      <link>https://openai.com/index/decisions-api</link>
-      <description>Fast, focused, low-cost decisions for any application.</description>
-      <guid isPermaLink="false">sty_70f6513e0c1ad7d5</guid>
-      <pubDate>2026-10-22T19:00:00Z</pubDate>
+      <title>Beyond tree cover: mapping the world's forest types</title>
+      <link>https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/</link>
+      <description>A global map categorizing every 10-meter patch of land on Earth into distinct forest types.</description>
+      <guid isPermaLink="false">sty_c8d77be2642c088c</guid>
+      <pubDate>2026-10-22T14:30:24Z</pubDate>
     </item>
     <item>
       <title>Now Google says it might use your Gmail and Google Photos data to target ads [ * ] [ ◻ ]</title>
@@ -543,13 +480,6 @@
       <pubDate>2026-10-23T14:47:41Z</pubDate>
     </item>
     <item>
-      <title>Beyond tree cover: mapping the world's forest types</title>
-      <link>https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/</link>
-      <description>A global map categorizing every 10-meter patch of land on Earth into distinct forest types.</description>
-      <guid isPermaLink="false">sty_c8d77be2642c088c</guid>
-      <pubDate>2026-10-22T14:30:24Z</pubDate>
-    </item>
-    <item>
       <title>DeepSeek Raises Nearly $16 billion in Second Funding Round [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/briefings/deepseek-raises-nearly-16-billion-second-funding-round</link>
       <description>DeepSeek has closed its second funding round, raising 106 billion yuan ($15.9 billion) in one of the biggest-ever fundraising deals in China's AI sector, according to three people with knowledge of the matter. The amount is more than double DeepSeek's original fundraising target of 50 billion ...</description>
@@ -564,11 +494,81 @@
       <pubDate>2026-10-23T11:00:00Z</pubDate>
     </item>
     <item>
+      <title>What FDE means at OpenAI [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/forward-deployed-engineering-means</link>
+      <description>What forward deployed engineering means at OpenAI</description>
+      <guid isPermaLink="false">sty_4397bbdad20e7792</guid>
+      <pubDate>2026-10-22T06:00:00Z</pubDate>
+    </item>
+    <item>
       <title>Retro gaming is being overrun with AI [ ~ ] [ ◻ ]</title>
       <link>https://www.theverge.com/ai-artificial-intelligence/1015430/ai-retro-games-decomp-recomp-port</link>
       <description>Retro video games are everywhere lately - especially in places where they aren't supposed to be. Halo in a web browser, Wind Waker on the iPhone, Super Smash Bros. in mixed reality. Over the past month or so, these kinds of unexpected projects have gone viral with incredible frequency thanks to new AI tools, as [...]</description>
       <guid isPermaLink="false">sty_82ca584d13f98878</guid>
       <pubDate>2026-10-23T12:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's Elevator Problem: Persuading Investors to Share Its AI Dream [ ~ ] [ ◻ ]</title>
+      <link>https://www.theinformation.com/articles/anthropics-elevator-problem-persuading-investors-share-ai-dream</link>
+      <description>One quotation has rattled around in my head for a while, which I first heard from early Anthropic investor Jaan Tallinn: "The future of the world will be decided by a group of people who fit in an elevator." The enigmatic billionaire said on a podcast earlier this year that a friend had used the illustration to describe the concentration of power at the leading AI companies. I've been reflecting on it as Anthropic prepares for its Wall Street debut because the company's small group of powerful insiders, who are set to realize incredible wealth at unprecedented speed, face their biggest test in explaining themselves to the world outside their elevator. To raise the money Anthropic leaders need, and to keep raising it again and again, big fund managers need to fully buy in.</description>
+      <guid isPermaLink="false">sty_00f84c39f4a82736</guid>
+      <pubDate>2026-10-23T00:30:58Z</pubDate>
+    </item>
+    <item>
+      <title>Why Blackstone Thinks AI Bottlenecks Could Work in its Favor [ * ] [ ◻ ]</title>
+      <link>https://www.theinformation.com/articles/blackstone-thinks-ai-bottlenecks-work-favor</link>
+      <description>Greetings! On their earnings calls earlier in the week, Meta Platforms and SpaceX delivered the same underlying message to investors: demand for AI is running ahead of the supply of AI compute. On Thursday, another important player in the AI ecosystem-Blackstone, the alternative asset management giant-repeated a version of that refrain. On its own earnings call, the firm, a major investor at the center of the AI data center boom, faced pointed questions from analysts about rising financing costs and mounting investor concerns over the sustainability of the buildout. Its executives argued that the very factors threatening the AI industry's expansion could actually work in Blackstone's favor. CEO Steve Schwarzman noted that constraints on power availability and growing public opposition to new data centers are making it harder to bring new capacity online, potentially making existing facilities more valuable. Blackstone President Jon Gray also suggested the firm could seek higher returns on projects where it hasn't signed leases yet in order to offset rising borrowing costs. Blackstone's third-quarter results offered some support for that argument: Its infrastructure investments were buoyed by what executives called "extraordinary" data center leasing momentum, significantly outperforming its broader private equity and real estate holdings. "Despite all the negative things you're reading about AI today, when we look across our business, this continues to be the area where we're driving the highest returns," Gray said during the call. But it's hard to ignore the fact that the financing concerns and roadblocks threatening the broader AI infrastructure buildout are also hitting closer to home for Blackstone. Fears about rising financing costs have sent CoreWeave's stock and bond prices plunging-the neocloud's shares closed down another 10% Thursday after sliding last week-while Australian AI cloud provider Firmus abruptly pulled its initial public offering earlier this month. Blackstone has provided billions in loans to CoreWeave and has both invested in and lent money to Firmus. Blackstone has also been pressing ahead with brand-new AI ventures. In May, the firm announced an initial $5 billion equity commitment to a joint venture with Google to create a new cloud company that will use Google's TPU chips, with plans to bring 500 megawatts of capacity online by next year. The venture could need as much as $25 billion in total investment, including some borrowed money, and it has reportedly encountered delays at potential data center sites. Blackstone, for its part, says that broader anxiety about AI hasn't undermined its ability to raise fresh cash for making its own investments. "We're continuing to be able to raise capital. Obviously investors are asking the same question around AI, but what we continue to see is demand and usage of the AI going up faster than the compute," Gray said. While Blackstone says it wants to continue going big in AI, it can only finance a tiny portion of the industry's broader infrastructure buildout itself. The trillions of dollars of financing needed for chips and data centers in the coming years requires raising money from a far broader pool of investors. Blackstone itself has said it's not clear where all the money will come from. Jas Khaira, the head of the team leading Blackstone's push into AI investment, said late last month that the firm is still trying to determine which investors across the public debt and private credit markets will be able to provide the funding needed to sustain the buildout. "We have not mapped out who's going to buy all the debt. We have some hypotheses, but the honest answer is we don't know where all of it will come from," he said at The Information's AI Agenda event in San Francisco. Data Center Headwinds Despite Blackstone's overall positive note on AI demand, we got fresh evidence Thursday afternoon of the uncertainty in the IPO market for companies in the data center business. Phoebe Liu and Valida Pau had a scoop that SB Energy, a company controlled by SoftBank Group that is developing an OpenAI data center in Ohio, is discussing a plan to put off its IPO until December or earlier next year. Previously, SB Energy was aiming to go public in September. The best hope for an SB Energy IPO is that the supply of AI compute gets so tight that investors start warming back up to data centers.-Nick Wingfield In Other News Meta Platforms' stock fell 7% as investor enthusiasm over its third-quarter earnings report on Wednesday gave way to concerns about the probability that it will need to issue new equity to pay for its AI spending. Andreessen Horowitz renamed its flagship blockchain fund a16z Frontier, dropping "crypto" from its name (The Information's earlier scoop on the change is here). Google partnered with energy company Voltus to pay homes and businesses to use less electricity during periods of peak demand. Today on The Information's TITV Check out today's episode of TITV, in which Akash Pasricha speaks with reporters Aaron Holmes and Leo Schwartz about the PHP security patch mayhem. Recommended Newsletter Start your day with Applied AI, the newsletter from The Information that uncovers how leading businesses are leveraging AI to automate tasks across the board. Subscribe now for free to get it delivered straight to your inbox twice a week. New From Our Reporters Exclusive SB Energy Considers Waiting Until December or Later for an IPO By Phoebe Liu and Valida Pau Exclusive Datadog Offered $4 Billion to Buy Cloud Security Startup 'Upwind' By Aaron Holmes and Valida Pau Exclusive Andreessen Horowitz to Drop 'Crypto' From Name of Flagship Blockchain Fund By Leo Schwartz Upcoming Events Tuesday, October 27 - The Information's 2026 WTF Summit The Information's WTF Summit returns to Napa Valley, bringing together the women shaping tech, media and finance. Confirmed speakers include Bari Weiss, Whitney Wolfe Herd (Bumble), Kim Posnett (Goldman Sachs) and Whitney Cummings. Expect candid conversations and a room built for meaningful exchange. Limited tickets remain-reserve your spot now. More details Monday, November 9 - Intimate Dinner with The Information and EY Consulting in San Francisco Trust is quickly becoming the defining question of the AI era. Over dinner, Jessica Lessin, Founder &amp; Editor-in-Chief of The Information, and Whitt Butler, EY Americas Vice Chair - Consulting, will talk candidly about how leaders can build that trust and keep it. Request an invite. More details Tuesday, November 10 - The Long Road to an IPO Join The Information and NYSE for a cocktail reception and conversation on what it really takes to go public, hosted by The Information's Dakin Campbell. The panel will explore the trust, relationships and preparation companies need to build with advisers, investors and exchange executives, along with the many complexities founders and executives must navigate along the way. Sponsored by NYSE. Apply to attend. More details What We're Reading Would You Listen to A.I. Music? Maybe You Already Do.</description>
+      <guid isPermaLink="false">sty_9051214906643e97</guid>
+      <pubDate>2026-10-23T00:01:00Z</pubDate>
+    </item>
+    <item>
+      <title>Uber brings ChatGPT Work to all employees with OpenAI [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/uber-chatgpt-work-rollout</link>
+      <description>Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.</description>
+      <guid isPermaLink="false">sty_25a3500a4135f6a5</guid>
+      <pubDate>2026-10-22T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI Fundraising Round Set to Close Soon With UAE Investors, Coatue Leading Investment [ ~ ] [ ◻ ]</title>
+      <link>https://www.theinformation.com/briefings/openai-fundraising-round-set-close-soon-uae-investors-coatue-leading-investment</link>
+      <description>OpenAI is aiming to close a $30 billion fundraising round that will value the AI company at up to $1.25 trillion, not including the new investment, before the end of next week, according to a person familiar with the deal. New York-based investment firm Coatue Management and investors from the ...</description>
+      <guid isPermaLink="false">sty_aa27aeb228148cb8</guid>
+      <pubDate>2026-10-22T22:23:38Z</pubDate>
+    </item>
+    <item>
+      <title>Broad access through consistent standards [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/broad-access-through-consistent-standards</link>
+      <description>How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies.</description>
+      <guid isPermaLink="false">sty_c6b0b5fce110e5f8</guid>
+      <pubDate>2026-10-21T21:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/</link>
+      <description>The company plans to begin testing Pony.ai's robotaxis in Kazakhstan's capital in the first half of 2027.</description>
+      <guid isPermaLink="false">sty_dbde29b0b3bead84</guid>
+      <pubDate>2026-10-23T04:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Wolves Descend on Finnish Villages After Google Hacked Down 1,300 Acres of Habitat to Make Room for AI Data Centers [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/future-society/wolves-finland-google-ai-data-centers</link>
+      <description>"We had wolves coming into the village because all the wild animals moved out of the forest." The post Wolves Descend on Finnish Villages After Google Hacked Down 1,300 Acres of Habitat to Make Room for AI Data Centers appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_572b74c1587b1f8e</guid>
+      <pubDate>2026-10-23T19:57:06Z</pubDate>
+    </item>
+    <item>
+      <title>How AT&amp;T is rethinking in-house legal work with OpenAI [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/att-legal</link>
+      <description>AT&amp;T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment.</description>
+      <guid isPermaLink="false">sty_8c4be5321b0b5bf9</guid>
+      <pubDate>2026-10-21T17:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Salesforce Customers Brace For New Fees to Use Claude in Its Apps [ * ] [ ◼ ]</title>
+      <link>https://www.theinformation.com/articles/salesforce-customers-brace-new-fees-use-claude-apps</link>
+      <description>Salesforce is leading the software industry's attempt to collect fees from businesses that use Claude and other external AI tools to automate work in enterprise apps. As soon as next month, Salesforce plans to require companies to register outside AI agents, a step toward charging them each time those agents update or analyze data stored in Salesforce. The fees let Salesforce earn money from customers who use such AI instead of paying for Salesforce's built-in AI products. The Salesforce tollgate has implications for the rest of the industry, which is coming to terms with the idea that so-called AI agents may be able to use software firms' apps more efficiently than humans do, meaning their seat-based or per-user pricing model might not have staying power. The question is whether the new AI tollgates-which Atlassian, Workday, ServiceNow and Datadog are also erecting to various extents-and other pricing shifts will more than make up for an eventual decline in per-seat subscription revenues. The vast majority of workers haven't yet outsourced such work to AI, of course, and companies like Salesforce are trying to get more revenue from them as well. They charge fees based on how much they use the apps' built-in AI tools and are also experimenting with outcome-based pricing, meaning customers only pay when such tools actually complete a task successfully or help the customers make more money. For now, Salesforce and some other software firms developing tollgates for customers' AI agents haven't started charging the tolls. They're letting customers experiment for free with the technology a little while longer. (The customers still have to pay providers such as Anthropic to use the AI agents in the first place.) Starting around November, according to the company's website, Salesforce will require customers to register any externally-made AI agents if they plan to use them to take actions on their behalf in Salesforce apps. Each action an agent takes in Salesforce counts as a billable "interaction," according to the company. The move has lifted investor confidence in Salesforce recently. Salesforce describes the registration requirement as a security measure because the company gives each agent its own identity and narrower data-access permissions, compared to humans. It isn't clear how Salesforce will clamp down on customers using their own AI agents, such as OpenClaw-powered ones that run on a person's computer and can access any app that runs on it. (Salesforce did not respond to requests for comment.) Salesforce hasn't announced prices tied to such agent usage, but customers could eventually end up paying a lot more money than they do now, given how many of them are already using their own AI on top of Salesforce apps and bypassing Salesforce's own built-in AI tools, according to software consultants and chief information officers. Nick Hamm, a software consultant, said that most of the 150 enterprises he works with are currently using AI from Anthropic and OpenAI to automate work inside Salesforce apps, for free. But they're reconsidering that usage in anticipation of the upcoming fees. If the fees are too high, the customers may move their business data outside of Salesforce's apps so they can use AI to analyze the data without paying an extra cost, he said. New customers will have a three month grace period after the new pricing is announced to register their AI agents, and the pricing won't affect existing customers until their contracts are renewed. In addition to the billable "interactions," customers have the option to buy unlimited agent usage by purchasing a "headless license," a Salesforce account executive told Hamm in a LinkedIn message viewed by The Information. Some customers such as Lumen, a fiber-optic network provider to enterprises and data centers, say they are waiting to test Salesforce's new connectors until pricing is disclosed. So far, Lumen has leaned on Salesforce's built-in AI. A longtime customer of Salesforce's customer relationship management software, Lumen made a "major" investment in using Salesforce's AI sales agents in the last 12 months, according to CIO Jim Fowler. The sales agents help with tasks such as collecting customer information and generating sales quotes for the customers to buy fiber connections between data centers, saving Lumen's human salespeople considerable time, he said. So far, Fowler said, Salesforce has been "super flexible" about letting Lumen use existing subscription fees to also cover its use of built-in AI features such as the sales agents. Early customer reactions to the pricing announcement will likely determine how flexible Salesforce is with customers that start renewing their contracts after November. If its past AI pricing efforts are any guide, Salesforce could easily switch things up depending on the feedback, or any blowback, it receives. New From Our Reporters Exclusive Datadog Offered $4 Billion to Buy Cloud Security Startup 'Upwind' By Aaron Holmes and Valida Pau Exclusive Andreessen Horowitz to Drop 'Crypto' From Name of Flagship Blockchain Fund By Leo Schwartz Exclusive Hackers Used Claude and Grok to Automate Attacks on Banks By Aaron Holmes and Cory Weinberg Upcoming Events Tuesday, October 27 - The Information's 2026 WTF Summit The Information's WTF Summit returns to Napa Valley, bringing together the women shaping tech, media and finance. Confirmed speakers include Bari Weiss, Whitney Wolfe Herd (Bumble), Kim Posnett (Goldman Sachs) and Whitney Cummings. Expect candid conversations and a room built for meaningful exchange. Limited tickets remain-reserve your spot now. More details Monday, November 9 - Intimate Dinner with The Information and EY Consulting in San Francisco Trust is quickly becoming the defining question of the AI era. Over dinner, Jessica Lessin, Founder &amp; Editor-in-Chief of The Information, and Whitt Butler, EY Americas Vice Chair - Consulting, will talk candidly about how leaders can build that trust and keep it. Request an invite. More details Tuesday, November 10 - The Long Road to an IPO Join The Information and NYSE for a cocktail reception and conversation on what it really takes to go public, hosted by The Information's Dakin Campbell. The panel will explore the trust, relationships and preparation companies need to build with advisers, investors and exchange executives, along with the many complexities founders and executives must navigate along the way. Sponsored by NYSE. Apply to attend. More details</description>
+      <guid isPermaLink="false">sty_51215b17b074f2a9</guid>
+      <pubDate>2026-10-22T18:04:17Z</pubDate>
     </item>
   </channel>
 </rss>
