@@ -3,25 +3,75 @@
   "attempted": 14,
   "skipped": 7,
   "with_items": 9,
-  "failures": 1,
+  "failures": 0,
   "recovered": 0,
-  "timestamp": "2026-10-28T00:08:47.562584+00:00",
+  "timestamp": "2026-10-28T03:36:52.362377+00:00",
   "details": [
     {
-      "url": "https://openai.com/news/rss.xml",
+      "url": "https://news.google.com/rss/search?q=Sam+Altman+AI",
       "category": "AI Labs",
       "status": "ok",
-      "items": 1331,
+      "items": 100,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
       "classification": "success"
     },
     {
-      "url": "https://deepmind.com/blog/feed/basic",
-      "category": "AI Labs",
+      "url": "https://hnrss.org/frontpage",
+      "category": "Hacker News",
       "status": "ok",
-      "items": 100,
+      "items": 20,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://export.arxiv.org/rss/cs.AI",
+      "category": "arXiv AI Categories",
+      "status": "empty",
+      "items": 0,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 304,
+      "classification": "not_modified"
+    },
+    {
+      "url": "https://www.reddit.com/r/MachineLearning/.rss",
+      "category": "Reddit",
+      "status": "empty",
+      "items": 0,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://www.reddit.com/r/artificial/.rss",
+      "category": "Reddit",
+      "status": "skipped",
+      "items": 0,
+      "consecutive_failures": 5,
+      "last_error": "HTTP 429",
+      "last_status": "exception",
+      "classification": "skipped"
+    },
+    {
+      "url": "https://www.reddit.com/r/singularity/.rss",
+      "category": "Reddit",
+      "status": "skipped",
+      "items": 0,
+      "consecutive_failures": 5,
+      "last_error": "HTTP 429",
+      "last_status": "exception",
+      "classification": "skipped"
+    },
+    {
+      "url": "https://hnrss.org/newest",
+      "category": "Hacker News",
+      "status": "ok",
+      "items": 20,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
@@ -38,27 +88,7 @@
       "classification": "skipped"
     },
     {
-      "url": "https://hnrss.org/newest",
-      "category": "Hacker News",
-      "status": "ok",
-      "items": 20,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://www.reddit.com/r/LocalLLaMA/.rss",
-      "category": "Reddit",
-      "status": "empty",
-      "items": 0,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://news.google.com/rss/search?q=Sam+Altman+AI",
+      "url": "https://news.google.com/rss/search?q=xAI+AI",
       "category": "AI Labs",
       "status": "ok",
       "items": 100,
@@ -68,44 +98,14 @@
       "classification": "success"
     },
     {
-      "url": "https://www.reddit.com/r/ChatGPT/.rss",
-      "category": "Reddit",
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "HTTP 429",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://aiweekly.co/issues.rss",
-      "category": "Extras",
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "HTTP 404",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://www.reddit.com/r/singularity/.rss",
-      "category": "Reddit",
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "HTTP 429",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://www.reddit.com/r/MachineLearning/.rss",
-      "category": "Reddit",
-      "status": "failed",
-      "items": 0,
-      "consecutive_failures": 1,
-      "last_error": "HTTP 429",
-      "last_status": "exception",
-      "classification": "other_failure"
+      "url": "https://news.google.com/rss/search?q=Anthropic+AI",
+      "category": "AI Labs",
+      "status": "ok",
+      "items": 102,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
     },
     {
       "url": "https://news.google.com/rss/search?q=Dario+Amodei+AI",
@@ -118,30 +118,20 @@
       "classification": "success"
     },
     {
-      "url": "https://export.arxiv.org/rss/cs.CL",
-      "category": "arXiv AI Categories",
-      "status": "empty",
+      "url": "https://aiweekly.co/issues.rss",
+      "category": "Extras",
+      "status": "skipped",
       "items": 0,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
+      "consecutive_failures": 5,
+      "last_error": "HTTP 404",
+      "last_status": "exception",
+      "classification": "skipped"
     },
     {
-      "url": "https://news.google.com/rss/search?q=Anthropic+AI",
+      "url": "https://deepmind.com/blog/feed/basic",
       "category": "AI Labs",
       "status": "ok",
       "items": 100,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 200,
-      "classification": "success"
-    },
-    {
-      "url": "https://magazine.sebastianraschka.com/feed",
-      "category": "Newsletters",
-      "status": "ok",
-      "items": 20,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
@@ -158,17 +148,7 @@
       "classification": "not_modified"
     },
     {
-      "url": "https://aisnakeoil.substack.com/feed",
-      "category": "Newsletters",
-      "status": "skipped",
-      "items": 0,
-      "consecutive_failures": 5,
-      "last_error": "HTTP 403",
-      "last_status": "exception",
-      "classification": "skipped"
-    },
-    {
-      "url": "https://www.reddit.com/r/artificial/.rss",
+      "url": "https://www.reddit.com/r/ChatGPT/.rss",
       "category": "Reddit",
       "status": "skipped",
       "items": 0,
@@ -178,8 +158,8 @@
       "classification": "skipped"
     },
     {
-      "url": "https://hnrss.org/frontpage",
-      "category": "Hacker News",
+      "url": "https://magazine.sebastianraschka.com/feed",
+      "category": "Newsletters",
       "status": "ok",
       "items": 20,
       "consecutive_failures": 0,
@@ -188,10 +168,30 @@
       "classification": "success"
     },
     {
-      "url": "https://news.google.com/rss/search?q=xAI+AI",
+      "url": "https://openai.com/news/rss.xml",
       "category": "AI Labs",
       "status": "ok",
-      "items": 100,
+      "items": 1331,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 200,
+      "classification": "success"
+    },
+    {
+      "url": "https://export.arxiv.org/rss/cs.CL",
+      "category": "arXiv AI Categories",
+      "status": "empty",
+      "items": 0,
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_status": 304,
+      "classification": "not_modified"
+    },
+    {
+      "url": "https://www.reddit.com/r/LocalLLaMA/.rss",
+      "category": "Reddit",
+      "status": "empty",
+      "items": 0,
       "consecutive_failures": 0,
       "last_error": null,
       "last_status": 200,
@@ -208,14 +208,14 @@
       "classification": "skipped"
     },
     {
-      "url": "https://export.arxiv.org/rss/cs.AI",
-      "category": "arXiv AI Categories",
-      "status": "empty",
+      "url": "https://aisnakeoil.substack.com/feed",
+      "category": "Newsletters",
+      "status": "skipped",
       "items": 0,
-      "consecutive_failures": 0,
-      "last_error": null,
-      "last_status": 304,
-      "classification": "not_modified"
+      "consecutive_failures": 5,
+      "last_error": "HTTP 403",
+      "last_status": "exception",
+      "classification": "skipped"
     }
   ]
 }
