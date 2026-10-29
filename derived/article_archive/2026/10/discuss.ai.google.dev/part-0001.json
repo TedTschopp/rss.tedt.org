@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://discuss.ai.google.dev/t/searching-all-of-hacker-news-with-embeddinggemma-2-on-a-laptop-49-3m-items-5-3-gb/196641": {
+      "fetched_at": "2026-10-29T16:05:22.803740Z",
+      "markdown": "# Searching all of Hacker News with EmbeddingGemma 2 on a laptop (49.3M items, 5.3 GB)\n\nI built an open-source project that puts every Hacker News item (49.3M stories and comments, 2006 to 2026) in one 5.34 GB file and searches it by meaning and by keywords on a laptop CPU.\n\nHow EmbeddingGemma 2 is used:\n\n- Every item was embedded once on the laptop’s integrated GPU (Intel Core Ultra 7 265H, OpenVINO, about 200 documents per second, about 4.5 days for all of HN).\n\n- Each vector is stored as a 256-bit binary code: 32 bytes per item, 1.5 GB for the whole archive.\n\n- At query time the query is embedded on the CPU with an int8 version of the model, the 80 closest codes become candidates, and the best 50 are embedded again from their decoded text and reranked.\n\nResults, measured in October 2026: P@10 of 0.32 within the query’s month (keyword search alone: 0.26), about 2.3 s for a cold search, inside a 2 GB RAM budget.\n\nThe text itself is compressed with a small language model (59 bytes per item), which is what makes the reranking cheap.\n\n- Code (MIT): GitHub - davidmonterocrespo24/HNTurboVec · GitHub\n\n- Write-up with charts: All of Hacker News in 5.3 GB, searchable on a laptop\n\nHappy to answer questions about running EmbeddingGemma 2 with OpenVINO or about the binary codes.\n\n### Related topics"
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/discuss.ai.google.dev"
+}
