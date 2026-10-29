@@ -1,0 +1,18 @@
+/* Reserve space before enhancement; the local HTML links are the fallback. */
+tedt-global-header { display: block; min-height: 70px; clear: both; }
+tedt-global-header[hidden] { display: none !important; }
+tedt-global-header .tedt-header-fallback { display: flex; align-items: center; gap: 20px; min-height: 70px;
+  padding: 0 20px; margin: 0; overflow-x: auto; white-space: nowrap; background: #101820; color: #f8f6f0; font: 400 15px/1.5 Inter, system-ui, sans-serif; }
+tedt-global-header .tedt-header-fallback a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: underline; }
+tedt-global-header .tedt-header-fallback a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+body:has(> tedt-global-header), html[data-tedt-global-header] body { padding-top: 0 !important; }
+html[data-tedt-global-header] { scroll-padding-top: 86px; }
+html[data-tedt-global-header] :is(h1,h2,h3,h4,[id]) { scroll-margin-top: 86px; }
+@media print { tedt-global-header { display: none; } }
+
+.site-nav { top:70px; }
+
+html[data-theme="dark"] { --paper:#14212b; --paper-elev:#1a2631; --ink-900:#f8f6f0; --ink-800:#e5e3dc; --ink-600:#c7c8c3; --ink-500:#b7c1c8; --ink-400:#aab7c2; --ink-200:#52606b; --ink-100:#243746; --brand:#8ac7e8; --brand-hover:#b9e2f6; --link:#8ac7e8; --link-hover:#b9e2f6; --accent:#e86027; --accent-hover:#f29a72; --focus-ring:#8ac7e8; }
+
+/* Keep keyboard recovery above the fixed global navigation. */
+:is(.skip-link,.ia-skip-link,.skip-to-main,.slide-deck-skip-link):focus { position:fixed; top:8px; z-index:1200; }

@@ -121,3 +121,7 @@ Enabled aggregated feeds: `/aggregated_ea.xml` and `/aggregated_broad_ai_news.xm
 - GitHub Actions pipeline overview: [Docs/operations/github-actions-pipeline.md](Docs/operations/github-actions-pipeline.md).
 - Pipeline extension guide: [Docs/operations/github-actions-extension-guide.md](Docs/operations/github-actions-extension-guide.md).
 - Operations runbook: [Docs/operations/github-actions-runbook.md](Docs/operations/github-actions-runbook.md).
+
+## Shared TedT.org Navigation
+
+The global header loads `https://tedt.org/assets/global-header/v1/header.js`. Menu changes belong in the TedT.org repository, rather than in this site. The small local fallback and pre-paint bootstrap keep navigation and appearance usable while loading. The shared `tedt-appearance` cookie and `tedt:theme-change` event synchronize appearance; keep local site navigation and application controls separate. See https://tedt.org/docs/global-header.md for the embed contract.

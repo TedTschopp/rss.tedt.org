@@ -35,10 +35,13 @@
     {% endif %}
     {% endif %}
     {% endfor %}
+<link rel="stylesheet" href="/assets/css/tedt-header-embed.css">
+<script src="/assets/js/tedt-theme-init.js"></script>
 </head>
 <body class="site-body">
+    {% include global-header.html %}
     {% assign enabled_feeds = site.feeds | where_exp: "feed", "feed.enabled != false" %}
-    <nav class="site-nav" aria-label="Primary navigation">
+    <nav class="site-nav" aria-label="RSS Feed Hub">
         <div class="site-nav__inner">
             <a class="site-brand" href="{{ site.baseurl }}/" aria-label="RSS Feed Hub home">
                 {% if site.logo %}
