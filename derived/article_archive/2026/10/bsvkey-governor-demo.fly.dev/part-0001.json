@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://bsvkey-governor-demo.fly.dev/": {
+      "fetched_at": "2026-10-31T03:37:03.286622Z",
+      "markdown": "# Watch Governor stop an AI agent\n\nEach button makes a scripted agent call an AI model through Governor. The model here is fake (no real AI, no cost), but every call goes through the real Governor, and every decision is signed into its audit log. No sign-up.\n\n## 1. Make the agent act\n\n## The rules on this agent's key\n\n...\n\nChecked in order; the first rule that matches a tool call decides it. Calls no rule matches pass.\n\n## 2. What Governor decided\n\nPress a button on the left. Results show here, newest first.\n\n## How this works in your own setup\n\n- Governor runs as a small proxy (Node 18+, no dependencies) between your agents and Anthropic, OpenAI or xAI.\n\n- You change the base URL in your SDK and give each agent its own Governor key with its own caps and tool rules.\n\n- Governor sees the tool calls inside each model reply before your agent does. It blocks the ones a rule denies and holds the ones a rule says need a person."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/10/bsvkey-governor-demo.fly.dev"
+}
