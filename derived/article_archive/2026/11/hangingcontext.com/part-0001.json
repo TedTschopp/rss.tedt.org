@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://hangingcontext.com/": {
+      "fetched_at": "2026-11-02T17:36:01.020415Z",
+      "markdown": "## World models learn by predicting what happens next\n\nFive new papers push robot and game models from perceiving a scene to forecasting it at several horizons, then using the forecast to pick actions.\n\nFive papers in a preprint point in the same direction: a model that acts in the world should first predict how the world will change. World action models learn latent variables from observations and use them both to predict how a scene evolves and to generate actions, so prediction and action are two outputs of one model rather than two separate systems.\n\nThe papers differ in what they fix, but they share a diagnosis of the current gap. Existing methods model short-term dynamics and long-term task objectives separately, according to the HiFOR authors, which leaves a disconnect between what happens next and what the task ultimately requires. Standard world action models have a second weakness: they do not guarantee that actions are generated solely from action-relevant latent variables, and may entangle those variables with nuisance variables that prediction happens to use.\n\nHiFOR, a hierarchical foresight framework for robotic manipulation, predicts at three levels at once: short-term state evolution, semantic milestones along the way, and final goal states. A Hierarchical Dependency Mask establishes dependencies across those temporal horizons, so the near-term forecast and the distant goal are not produced independently."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/11/hangingcontext.com"
+}
