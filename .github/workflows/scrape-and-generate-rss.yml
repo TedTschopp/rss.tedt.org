@@ -309,10 +309,10 @@ jobs:
       env:
         JEKYLL_ENV: production
         
-      - name: Verify shared analytics coverage
-        run: |
-          python3 scripts/site_analytics.py _site --mode standard
-          python3 scripts/site_analytics.py _site --mode standard --check
+    - name: Verify shared analytics coverage
+      run: |
+        python3 scripts/site_analytics.py _site --mode standard
+        python3 scripts/site_analytics.py _site --mode standard --check
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
@@ -369,6 +369,11 @@ jobs:
       run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       env:
         JEKYLL_ENV: production
+
+    - name: Verify shared analytics coverage
+      run: |
+        python3 scripts/site_analytics.py _site --mode standard
+        python3 scripts/site_analytics.py _site --mode standard --check
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
