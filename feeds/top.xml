@@ -6,149 +6,394 @@
     <link>https://rss.tedt.org/feeds/top.xml</link>
     <description>Top Ranked AI stories across configured sources</description>
     <language>en</language>
-    <lastBuildDate>Fri, 06 Nov 2026 15:58:05 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 21:28:02 +0000</lastBuildDate>
     <generator>MultiFeedGenerator v1.0</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <ns0:link href="https://rss.tedt.org/feeds/top.xml/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Google DeepMind launches Gemini Omni 1.2 Flash with 15-second video clips, 30% lower cost, improved consistency, and multi-turn conversational editing [ * ] [ ◼ ]</title>
+      <title>Researchers demonstrate Firecracker VM escape exploiting host memory access to execute code as root on the host</title>
+      <link>https://pwn.ai/blog/firecracker-escape</link>
+      <description>Researchers have demonstrated a vulnerability in Firecracker microVMs that allows escaping the VM to execute code as root on the host system. They exploited the way Firecracker saves CPU registers and resumes execution after returning from the KVM virtualization layer, enabling control over a live thread in the Firecracker process from inside the guest VM. The attack involved identifying the Firecracker process and its memory mappings by translating guest physical addresses to host physical addresses using Extended Page Tables (EPT). By locating the saved register state of a virtual CPU thread, the researchers redirected execution flow upon return from KVM, maintaining VM accessibility over SSH while gaining host-level code execution. This work builds on a previously disclosed host memory access primitive and illustrates a complex chain of steps to compromise Firecracker's isolation guarantees, highlighting a critical security issue in microVM environments.</description>
+      <guid isPermaLink="false">sty_627200a56c540f5b</guid>
+      <pubDate>2026-11-06T19:33:38Z</pubDate>
+    </item>
+    <item>
+      <title>Google DeepMind launches Gemini Omni 1.2 Flash with 15-second video generation, 30% lower cost, and improved editing and consistency [ * ] [ ◼ ]</title>
       <link>https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/</link>
-      <description>Google DeepMind has released Gemini Omni 1.2 Flash, an update to its video generation model that supports native 15-second clips, reduces costs by 30%, and offers enhanced reference adherence and multi-turn conversational editing. The model is available through the Gemini API, Google Vids, and Gemini for business, enabling faster, more cost-effective production of high-quality video content at scale. The update allows users to create longer videos with precise control over duration, maintain consistent visual details across frames and camera angles, and refine clips through iterative conversational edits without starting over. It also improves natural speech generation with clearer lip-sync and multi-speaker dialogue, supporting professional use cases such as virtual try-ons, branded ads, and product explainers. These enhancements aim to streamline video content creation workflows by enabling fast drafts at lower resolutions, followed by upscaling, and by maintaining strong visual and audio consistency throughout the clips. Gemini Omni 1.2 Flash is generally available for production use on Google Cloud and related platforms.</description>
+      <description>Google DeepMind has released Gemini Omni 1.2 Flash, an update to its video generation model that supports native 15-second clips, multi-turn conversational editing, and enhanced adherence to visual references. The new version reduces costs by 30% compared to its predecessor and is available through the Gemini API and Google Cloud for production use. The update allows users to create longer videos with precise control over duration and improved consistency in characters, products, and scenes across frames. It also enables faster editing workflows by allowing incremental changes without regenerating entire clips. Gemini Omni 1.2 Flash supports clearer lip-sync and more natural multi-speaker dialogue, enhancing professional video content creation at scale.</description>
       <guid isPermaLink="false">sty_06f3ef371c9e42a2</guid>
       <pubDate>2026-11-05T17:05:16Z</pubDate>
     </item>
     <item>
-      <title>University libraries face surge in AI data-scraping bots, threatening public access to resources [ * ] [ ◼ ]</title>
-      <link>https://www.cbc.ca/news/world/university-libraries-ai-data-scraping-bots-9.7408287</link>
-      <description>University libraries are experiencing a significant increase in AI-driven data-scraping bots accessing their digital collections, which is raising concerns about the impact on public access and resource availability. These automated bots are rapidly extracting large volumes of information, potentially overwhelming library systems and limiting access for legitimate users. The trend highlights challenges for libraries in balancing open access with protecting their digital assets from automated exploitation.</description>
-      <guid isPermaLink="false">sty_2e9942e25f9daab2</guid>
-      <pubDate>2026-11-06T14:13:09Z</pubDate>
+      <title>Anthropic IPO buyers value company as low as $1.1 trillion amid AI market downturn</title>
+      <link>https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout</link>
+      <description>Anthropic's initial public offering (IPO) valuation expectations have dropped to as low as $1.1 trillion according to buyers, reflecting pressure from a recent downturn in the AI market. This shift indicates a significant reassessment of the company's market value ahead of its public debut.</description>
+      <guid isPermaLink="false">sty_5439d91bd5c79443</guid>
+      <pubDate>2026-11-06T16:54:36Z</pubDate>
     </item>
     <item>
-      <title>Anthropic's Claude Code reportedly sends users' email addresses in User-Agent headers during web searches, raising privacy concerns [ ~ ] [ ◻ ]</title>
-      <link>https://github.com/anthropics/claude-code/issues/107757</link>
-      <description>Users have reported that Claude Code, an AI tool by Anthropic, includes their email addresses in the User-Agent request headers when performing web searches without their consent. This behavior has led to increased scam emails and privacy violations, prompting some users to switch to alternative services. Anthropic introduced a built-in privacy mod in version 2.1.317 to block this behavior by default, which can be disabled via plugins, but users continue to express concerns about the issue and its implications for anonymity and security.</description>
-      <guid isPermaLink="false">sty_ca4740533c83aaf7</guid>
-      <pubDate>2026-11-05T22:17:15Z</pubDate>
+      <title>Anthropic reports AI-driven acceleration doubling AI capabilities progress between 2025 and 2026, suggesting significant speedup in AI research [ ! ] [ ⬢ ]</title>
+      <link>https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai</link>
+      <description>Anthropic's recent report indicates that AI systems have roughly doubled the pace of AI capabilities progress from October 2025 to October 2026, primarily due to AI automating AI research and development. This acceleration surpasses previous rates before AI contributed significantly to AI R&amp;D and meets the company's threshold for "dramatically accelerated progress." The findings imply that AI is not only speeding up overall capabilities but also substantially increasing the productivity of human researchers involved in algorithm and architecture improvements. The report highlights that sustaining this faster progress likely requires a labor speedup of approximately 10 times compared to previous rates, reflecting the growing difficulty of discovering new innovations as AI advances. This development marks a major update on AI risk and progress timelines, suggesting much shorter horizons for advanced AI capabilities than many external researchers have projected.</description>
+      <guid isPermaLink="false">sty_c91d6e6cc19cb3c0</guid>
+      <pubDate>2026-11-06T20:27:23Z</pubDate>
     </item>
     <item>
-      <title>Thinking Machines launches Inkling 2 Small, a 594B-parameter Mixture-of-Experts model with vision input and improved agentic coding, available on Tinker with weights to be open-sourced after safety review [ * ] [ ◼ ]</title>
-      <link>https://thinkingmachines.ai/news/inkling-2-small/</link>
-      <description>Thinking Machines introduced Inkling 2 Small, their second-generation AI model featuring 594 billion total parameters and 17 billion active parameters, supporting image inputs and variable effort. The model surpasses previous versions on the Artificial Analysis Intelligence Index, showing enhanced performance in coding, vision, knowledge work, and reasoning. Initially available through the Tinker platform with closed weights, the full model weights are planned for release under an Apache 2.0 license following external safety testing and red-teaming. Inkling 2 Small was trained with reinforcement learning on extensive long-horizon coding and autoresearch tasks, improving usability and instruction-following compared to its predecessor. It incorporates a 292 million-parameter vision encoder enabling strong visual capabilities such as OCR, infographic interpretation, and visual reasoning. The model demonstrated autonomous GPU kernel optimization and ML autoresearch, including training a forecasting model that doubled its performance after 4.5 hours of autonomous work on Tinker.</description>
-      <guid isPermaLink="false">sty_5306cb3aedd20e64</guid>
-      <pubDate>2026-11-06T00:00:24Z</pubDate>
+      <title>Memorilla introduces latent semantic memory tokens for frozen LLMs, improving knowledge retrieval and continual learning with fewer tokens across multiple benchmarks [ ~ ] [ ◼ ]</title>
+      <link>https://arxiv.org/abs/2610.21375</link>
+      <description>Memorilla is a memory system designed for frozen large language models (LLMs) that encodes documents into reusable embeddings and retrieves query-specific information using a fixed number of memory tokens. It achieves superior performance on five of eight benchmarks, including personalization and long-document question answering, while using significantly fewer tokens than full-context inference. The system also supports continual learning in agentic environments, improving task success rates by reducing redundant exploration in a TextWorld setting. Overall, Memorilla enhances frozen LLMs' ability to accumulate and utilize knowledge efficiently over long interactions and dynamic document collections.</description>
+      <guid isPermaLink="false">sty_d3bac5a8847c6ea3</guid>
+      <pubDate>2026-11-06T18:03:33Z</pubDate>
     </item>
     <item>
-      <title>Individual spends $1000 to train large language models to play competitive Pokémon using Pokémon Showdown engine, with GPT-6 Astra High winning most matches [ ~ ] [ ◻ ]</title>
-      <link>https://blog.doubleword.ai/llms-play-pokemon</link>
-      <description>An individual invested $1000 to develop and fine-tune large language models (LLMs) to play competitive Pokémon battles using the Pokémon Showdown battle engine. The project involved running a round-robin tournament among 10 LLMs, including models from OpenAI, Anthropic, and open-weight models hosted on the Doubleword platform, to evaluate their strategic capabilities in the game. The tournament used the Random Battles format, where each player receives a random team and must strategize with imperfect information and inherent randomness. GPT-6 Astra High won with 75 wins out of 90 games, while other models showed varying prediction and sacrifice behaviors. The experiment highlights the complexity of Pokémon as a testbed for LLM research, involving theory of mind, probabilistic reasoning, and extensive prior knowledge about game mechanics.</description>
-      <guid isPermaLink="false">sty_9d7d6c15cee70457</guid>
-      <pubDate>2026-11-06T15:16:14Z</pubDate>
+      <title>ldraw-mecha project uses AI agents to reverse-engineer LEGO LDraw models and generate Blender animations from their mechanical source code [ ~ ] [ ◻ ]</title>
+      <link>https://github.com/anteloc/ldraw-mecha/tree/v0.5.0</link>
+      <description>The ldraw-mecha project enables AI agents to analyze LEGO LDraw model source files, infer their mechanical components, and produce animated Blender rigs and sequences based on those mechanisms. This process involves reverse-engineering the model's .mpd files, understanding the interactions of submodels, and converting these insights into Python code for animation. The project includes tools for installation and usage, with sample animations generated from original LEGO models. It aims to help users visualize and animate complex LEGO mechanisms by automating the interpretation and rigging of their digital representations, facilitating both study and creative applications.</description>
+      <guid isPermaLink="false">sty_379d66eaa91e2afb</guid>
+      <pubDate>2026-11-06T19:41:20Z</pubDate>
     </item>
     <item>
-      <title>TSMC considers producing advanced 3D DRAM memory chips at Nvidia's request to expand AI hardware supply amid rising memory shortages [ * ] [ ◼ ]</title>
+      <title>Discussion explores whether AI advancements could replace or transform the field of mathematics</title>
+      <link>https://www.youtube.com/watch?v=WLYW6BPkkIk</link>
+      <description>A video discussion examines the potential impact of artificial intelligence on mathematics, questioning if AI could render traditional mathematical practices obsolete. The conversation considers how AI tools might change mathematical research and education, highlighting both opportunities and challenges. The debate reflects broader concerns about AI's role in reshaping intellectual disciplines and the future of human expertise in mathematics.</description>
+      <guid isPermaLink="false">sty_b59cee3f9173c740</guid>
+      <pubDate>2026-11-06T19:55:14Z</pubDate>
+    </item>
+    <item>
+      <title>Protesters break into Microsoft AI data centre construction site in Amsterdam during coordinated global AI infrastructure protests [ ~ ] [ ◻ ]</title>
+      <link>https://www.aljazeera.com/video/newsfeed/2026/11/6/protesters-break-into-microsoft-ai-data-centre-site-in-amsterdam</link>
+      <description>More than 100 activists breached a Microsoft AI data centre construction site in Amsterdam, climbing cranes and displaying anti-AI banners. This action is part of a two-day series of protests across 16 countries opposing the rapid expansion of AI infrastructure.</description>
+      <guid isPermaLink="false">sty_057b251a74044821</guid>
+      <pubDate>2026-11-06T21:07:45Z</pubDate>
+    </item>
+    <item>
+      <title>Microsoft plans to reduce neocloud partners and prioritize own data centers amid AI infrastructure challenges [ * ] [ ◼ ]</title>
+      <link>https://www.cnbc.com/2026/11/06/microsoft-moves-to-consolidate-its-relationships-with-neoclouds-in-ai.html</link>
+      <description>Microsoft is planning to shrink its number of neocloud partners as it focuses on working with a few key suppliers and expanding its own data center infrastructure. This move comes amid signs of strain in the AI market, including rising borrowing costs and concerns about the sustainability of rapid capacity buildouts. The company has relationships with several neoclouds such as CoreWeave, Nebius, and IREN but is currently evaluating which partnerships to continue, with reports indicating it will not renew a deal with Oracle. Microsoft has also scaled back work with U.K.-based neocloud Nscale due to infrastructure issues. The company emphasizes that its infrastructure strategy remains flexible, combining owned data centers, leased facilities, and third-party partnerships to meet customer demand. Recent delays in GPU-related cloud contracts have affected Azure's growth projections, reflecting broader market challenges for neocloud providers.</description>
+      <guid isPermaLink="false">sty_c527461f94e82297</guid>
+      <pubDate>2026-11-06T20:57:13Z</pubDate>
+    </item>
+    <item>
+      <title>Google buys $548 million in Qualcomm shares, acquiring nearly 3 million shares under 0.5% ownership [ ~ ] [ ◻ ]</title>
+      <link>https://www.theinformation.com/briefings/google-buys-548-million-qualcomm-shares</link>
+      <description>Google has purchased nearly 3 million shares of Qualcomm for $548 million, representing less than 0.5% of Qualcomm's outstanding shares. This investment reflects Google's strategic interest in the AI data center market, where Qualcomm is expanding its presence.</description>
+      <guid isPermaLink="false">sty_917975af76b11715</guid>
+      <pubDate>2026-11-06T21:15:22Z</pubDate>
+    </item>
+    <item>
+      <title>Leeroy project develops AI agents that play World of Warcraft using Lua scripting on a headless client to navigate and complete group dungeons [ ~ ] [ ◻ ]</title>
+      <link>https://pthm.dev/leeroy-making-ai-agents-play-world-of-warcraft/</link>
+      <description>Leeroy is an AI system designed to enable autonomous agents to play World of Warcraft by controlling a headless game client that executes Lua scripts in real time. The agents interpret structured game data, plan actions, and coordinate without direct human input to complete tasks such as five-player dungeons that require group collaboration. The project benchmarks agent performance primarily by experience points gained per hour, avoiding bias from predefined strategies or advice. Agents learn to cooperate by inventing communication protocols and strategies over extended play sessions, demonstrating complex behaviors like crowd control and coordinated mob pulling. The system also serves as a stress test for the game server and client infrastructure during long runs.</description>
+      <guid isPermaLink="false">sty_15d2352bd6ef8c13</guid>
+      <pubDate>2026-11-06T21:07:44Z</pubDate>
+    </item>
+    <item>
+      <title>The Verge reports on global controversies over AI data center expansions, energy demands, and community impacts amid political and environmental debates [ * ] [ ◼ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy</link>
+      <description>Massive new data centers are central to tech companies' AI ambitions but have sparked global disputes over their effects on power grids, utility costs, local communities, and the environment. These issues became a significant bipartisan topic ahead of the 2026 midterm elections, where voters largely opposed data center expansions. Following the elections, companies like OpenAI and Amazon have pledged to collaborate more closely with local communities and cover energy expenses, while Democratic leaders advocate for stricter regulations and slowdowns on data center projects. Legislative efforts, such as a bipartisan permitting bill, aim to accelerate energy projects but raise concerns about reduced environmental oversight and increased reliance on fossil fuels. The report also highlights regional opposition to data centers, including in Arizona and Texas, and notes industry responses like OpenAI's move away from non-disclosure agreements with public officials. These developments underscore the complex balance between supporting AI infrastructure growth and addressing environmental and community concerns.</description>
+      <guid isPermaLink="false">sty_12a2bb3a7ac50683</guid>
+      <pubDate>2026-11-06T20:02:22Z</pubDate>
+    </item>
+    <item>
+      <title>Jason Furman says AI could replace much of the Council of Economic Advisers' work but humans remain essential for policy interaction and future strategy [ ~ ] [ ◻ ]</title>
+      <link>https://www.piie.com/blogs/realtime-economics/2026/ai-could-do-my-first-job-not-my-last</link>
+      <description>Jason Furman, former Chair of the Council of Economic Advisers (CEA), argues that AI could perform much of the research and analysis work previously done by a 20-person team at the CEA, potentially reducing the need for human staff to about ten people. However, he emphasizes that humans are still crucial for tasks involving meetings, communication with the press and Congress, and shaping future policy decisions. Furman reflects on his experience leading the CEA and notes that while AI can serve as a powerful research assistant capable of sophisticated economic reasoning, it cannot fully replace the human roles that involve interaction, persuasion, and strategic thinking. He calls for realism and honesty about AI's impact on labor markets and stresses the importance of addressing the challenges and tradeoffs AI presents rather than denying them.</description>
+      <guid isPermaLink="false">sty_b8da2152c05b444a</guid>
+      <pubDate>2026-11-06T19:16:21Z</pubDate>
+    </item>
+    <item>
+      <title>Researchers find over 800 publicly exposed Artex AI hacking tool deployments, raising risks of unauthorized cyberattacks [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/</link>
+      <description>Security researchers discovered more than 800 instances of the Chinese-made AI hacking tool Artex publicly accessible on the internet without password protection, potentially enabling unauthorized users to launch cyberattacks. Artex is an open source autonomous penetration testing tool linked to multiple cyberattacks since its release in July and is used to probe systems for vulnerabilities automatically. Cybersecurity firm Censys highlighted that while some Artex deployments are used by authorized testers, many are unnecessarily exposed online, increasing the risk of misuse. The tool has been connected to attacks on South Korean financial institutions and the IT support company ConnectWise, with attackers exploiting simple vulnerabilities like weak passwords and lack of multi-factor authentication. Artex has since moved to a closed-source model, but copies of its code remain available on public code-sharing sites, sustaining the threat of ongoing attacks.</description>
+      <guid isPermaLink="false">sty_046ef56886d1ee11</guid>
+      <pubDate>2026-11-06T18:44:38Z</pubDate>
+    </item>
+    <item>
+      <title>Meta launches Spaces to enable focused collaboration with Muse AI agents, integrating third-party apps for project-specific conversations [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/</link>
+      <description>Meta has introduced Spaces, a new feature that allows users to create dedicated conversation areas with its Muse AI agents for specific projects like vacation planning or event tracking. These Spaces function as custom experiences accessible via the sidebar, enabling users to manage tasks and goals with their AI helper in an organized way. Spaces can connect with third-party applications to automatically update relevant information such as concert dates or price changes, enhancing the utility of Muse agents. This launch follows Meta's recent introduction of Muse Voice, which enables voice commands and video chat with the agents, reflecting the company's ongoing efforts to expand the Muse user experience amid growing adoption.</description>
+      <guid isPermaLink="false">sty_346027eac396f65d</guid>
+      <pubDate>2026-11-06T18:44:20Z</pubDate>
+    </item>
+    <item>
+      <title>NVIDIA Research introduces VFlash to enable System-1 Very Large Models for Physical AI applications [ ~ ] [ ◻ ]</title>
+      <link>https://research.nvidia.com/labs/lpr/vflash/</link>
+      <description>NVIDIA Research has developed VFlash, a technology designed to support System-1 Very Large Models (VLMs) that process diverse outputs including text and visual data for Physical AI tasks. This approach aims to improve AI systems' ability to handle complex physical interactions such as manipulation and driving by decoding rich output types like 2D/3D trajectories, points, and depth information.</description>
+      <guid isPermaLink="false">sty_96bdf4c9304f98f5</guid>
+      <pubDate>2026-11-06T21:04:04Z</pubDate>
+    </item>
+    <item>
+      <title>Carpenter uses AI to design and build an up-and-over tool chest with a custom hinge, generating 3D models, parts lists, and procurement plans [ ~ ] [ ◻ ]</title>
+      <link>https://portalworkers.com/blog/up-and-over-tool-chest/</link>
+      <description>A carpenter integrated AI assistance to design and construct an up-and-over tool chest featuring a unique hinge mechanism that transforms the box into an upright cabinet. The AI model simulated the hinge motion, created detailed 3D models and drawings, and managed parts procurement including screws and laser-cut steel components. The build cost approximately 220 EUR and involved pre-cut wooden panels and custom angled cuts made by the carpenter. The project leveraged AI to handle complex design tasks such as three-position Burmester synthesis for the hinge and coordinated ordering of hardware and materials. The carpenter documented lessons learned, including new woodworking techniques and the effective use of AI in an extended design conversation. The completed tool chest consolidates essential tools in one portable box, improving convenience for household tasks.</description>
+      <guid isPermaLink="false">sty_d838e4a77a03752a</guid>
+      <pubDate>2026-11-06T21:02:26Z</pubDate>
+    </item>
+    <item>
+      <title>Lightning AI founder Will Falcon announces departure after 11 years building AI research tools and cloud platform [ ~ ] [ ◻ ]</title>
+      <link>https://oddbits.ai/blog/the-yak-is-shaved/</link>
+      <description>Will Falcon, founder of Lightning AI and creator of PyTorch Lightning, announced his departure from the company after 11 years of developing AI research tools and building a full-stack AI cloud platform with over 40,000 GPUs. The company has appointed an interim CEO to lead the next phase focused on GPU procurement, data-center capacity, and financing. Falcon started Lightning as an internal research library in 2015 and grew it into a platform supporting more than 400,000 developers and hundreds of enterprises. He plans to focus on building vertical AI applications for various industries through his new venture, Oddbits AI, and continue angel investing and sharing his experience with future founders.</description>
+      <guid isPermaLink="false">sty_5deffef7f31b0979</guid>
+      <pubDate>2026-11-06T21:19:12Z</pubDate>
+    </item>
+    <item>
+      <title>Nodecode launches a programming platform that updates code dynamically while running, enabling natural program evolution</title>
+      <link>https://nodecode.ai</link>
+      <description>Nodecode introduces a programming environment where code updates occur on the fly during execution, allowing the program to evolve naturally without interruption. This approach is likened to an orchid opening new flowers as it grows, emphasizing continuous development and adaptability.</description>
+      <guid isPermaLink="false">sty_a7d50ed6dafbcc68</guid>
+      <pubDate>2026-11-06T19:26:32Z</pubDate>
+    </item>
+    <item>
+      <title>Democrats' midterm wins lead to increased data center restrictions and potential new regulations on Big Tech, signaling shifts in the AI industry [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/</link>
+      <description>Democrats' significant victories in the recent U.S. midterm elections are expected to impact the tech industry, particularly through increased restrictions on data center development. Voters approved 40 out of 41 ballot measures imposing tighter controls on data centers, and newly elected Democratic officials are likely to support further regulations. These developments could reshape the AI sector by limiting infrastructure expansion and increasing government scrutiny of major technology companies. The changes come amid broader discussions about AI's role in the industry and ongoing shifts in tech company strategies and investments.</description>
+      <guid isPermaLink="false">sty_44221b7d235cdc67</guid>
+      <pubDate>2026-11-06T18:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Ripple-65B Preview delivers strong agentic coding results as a fully Apache 2.0 open US model [ ~ ] [ ◼ ]</title>
+      <link>https://the-decoder.com/ripple-65b-preview-delivers-strong-agentic-coding-results-as-a-fully-apache-2-0-open-us-model/</link>
+      <description>Ricursive Intelligence is releasing Ripple-65B Preview, a 65-billion-parameter open-weight language model that the company says achieves the top score among open-source U.S. models on the TerminalBench 2.1 coding benchmark at a total R&amp;D cost of $32 million. On other benchmarks, however, Ripple falls behind the likewise newly released western open model Inkling 2 Small. The article Ripple-65B Preview delivers strong agentic coding results as a fully Apache 2.0 open US model appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_4ed0585a95e66406</guid>
+      <pubDate>2026-11-06T19:47:04Z</pubDate>
+    </item>
+    <item>
+      <title>Free Chinese AI Models Are Getting Scary Good at Hacking [ * ] [ ◼ ]</title>
+      <link>https://www.wired.com/story/free-chinese-ai-models-are-getting-scary-good-at-hacking/</link>
+      <description>An experiment in which AI models were asked to break into simulated networks showed the hacking skills of DeepSeek and GLM to be not far behind OpenAI's most advanced cyber model, which isn't public.</description>
+      <guid isPermaLink="false">sty_a43dda597f57ae02</guid>
+      <pubDate>2026-11-06T18:43:43Z</pubDate>
+    </item>
+    <item>
+      <title>Google has acquired Crusoe's data center site in southeast Wyoming [ ~ ] [ ◻ ]</title>
+      <link>https://www.crusoe.ai/resources/newsroom/crusoe-wyoming-data-center-campus-update</link>
+      <description/>
+      <guid isPermaLink="false">sty_78161b9248b93d76</guid>
+      <pubDate>2026-11-06T20:09:14Z</pubDate>
+    </item>
+    <item>
+      <title>Pleasedonotescape.com: A dataset of sandboxes for AI coding agents [ ~ ] [ ◻ ]</title>
+      <link>https://pleasedonotescape.com/</link>
+      <description/>
+      <guid isPermaLink="false">sty_bc61f58c45b705e3</guid>
+      <pubDate>2026-11-06T20:01:01Z</pubDate>
+    </item>
+    <item>
+      <title>After the midterms, is the AI industry in for a rough two years? [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/</link>
+      <description>Democrats' historic victories in this week's U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday - in all but one, the majority voted to impose more restrictions on data center development. And even when data centers weren't on the ballot directly, they were a [...]</description>
+      <guid isPermaLink="false">sty_fbeabf4e5803ef76</guid>
+      <pubDate>2026-11-06T17:23:52Z</pubDate>
+    </item>
+    <item>
+      <title>Meta&amp;#8217;s Muse AI can create custom &amp;#8216;spaces&amp;#8217; for the version of the app you need right now [ ~ ] [ ◼ ]</title>
+      <link>https://www.theverge.com/tech/1028871/meta-muse-ai-spaces</link>
+      <description>Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called "spaces," allows its AI assistant to build things like a shopping hub, school dashboard, music tracker, trivia game, and more, which you can interact with directly in the Muse app. Meta says you can create a new space by [...]</description>
+      <guid isPermaLink="false">sty_551782e9f3dae654</guid>
+      <pubDate>2026-11-06T18:10:10Z</pubDate>
+    </item>
+    <item>
+      <title>GoLand's Profiler Now Works with AI Agents - The JetBrains Blog [ ~ ] [ ◼ ]</title>
+      <link>https://blog.jetbrains.com/go/2026/11/06/we-gave-ai-agents-goland-s-profiler-they-found-the-same-bottlenecks-with-half-the-tokens/</link>
+      <description/>
+      <guid isPermaLink="false">sty_0323fcc29072f333</guid>
+      <pubDate>2026-11-06T19:42:20Z</pubDate>
+    </item>
+    <item>
+      <title>The End of AI Frontiers [ ~ ] [ ◻ ]</title>
+      <link>https://hunch.net/?p=13764006</link>
+      <description>The article discusses the evolving landscape of artificial intelligence research, suggesting that the era of groundbreaking AI frontiers may be reaching a plateau as current technologies mature. It explores the implications for future innovation and the potential shift in focus towards refining existing AI applications.</description>
+      <guid isPermaLink="false">sty_d5d147fd5b8d0b5e</guid>
+      <pubDate>2026-11-06T21:10:55Z</pubDate>
+    </item>
+    <item>
+      <title>So Should We Slow Down AI?</title>
+      <link>https://essaypod.com/essay/so-should-we-slow-down-or-stop-ai</link>
+      <description/>
+      <guid isPermaLink="false">sty_36f305e732ed69b6</guid>
+      <pubDate>2026-11-06T19:12:43Z</pubDate>
+    </item>
+    <item>
+      <title>2026 AI Adoption Report [ * ] [ ◼ ]</title>
+      <link>https://knowledge.wharton.upenn.edu/special-report/2026-ai-adoption-report/</link>
+      <description>The 2026 AI Adoption Report provides an overview of the current trends and statistics related to the integration of artificial intelligence technologies across various industries. It highlights the increasing rate at which organizations are implementing AI solutions to enhance operational efficiency, customer experience, and innovation. The report also discusses challenges faced during adoption, such as data privacy concerns and the need for skilled personnel.</description>
+      <guid isPermaLink="false">sty_3b62ac4f0189bbc3</guid>
+      <pubDate>2026-11-06T20:49:59Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's IPO Is Cratering [ * ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/anthropics-ipo-cratering</link>
+      <description>Its timing couldn't have been worse. The post Anthropic's IPO Is Cratering appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_2a1c179cbbdb8b6a</guid>
+      <pubDate>2026-11-06T18:46:11Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic Residency: applications open for established technical leaders - Anthropic Alignment Science blog [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiaEFVX3lxTE9RZThRbzhUdFJTZGszLUcwT29wNFdIZ29fVjJTUTB4SkJFRlZRekpOOVlpM1F6eGVSN2RENmpjWUl3QWU5YWNwRHZNaF9EdlNNMTY1TUtfaTJHOHk3S2s3SXJVc3BWSVVa?oc=5</link>
+      <description>Anthropic Residency: applications open for established technical leaders Anthropic Alignment Science blog</description>
+      <guid isPermaLink="false">sty_e1906dc54c568ea8</guid>
+      <pubDate>2026-11-06T18:35:07Z</pubDate>
+    </item>
+    <item>
+      <title>AI is the new dating dealbreaker [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity</link>
+      <description>When Irene moved to San Francisco last year, she started using dating apps as a way to meet new people, get to know her new city, and connect with others who care about the things she does. After the 25-year-old analyst downloaded Hinge and started swiping, she noticed a trend. "Hinge has a prompt where [...]</description>
+      <guid isPermaLink="false">sty_aea96627c6626277</guid>
+      <pubDate>2026-11-06T17:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>AI Text Watermarking May Not Be Able to Meet the E.U.'S New Rules [ * ] [ ◼ ]</title>
+      <link>https://spectrum.ieee.org/ai-watermark-openai-textgrain-europe</link>
+      <description/>
+      <guid isPermaLink="false">sty_b3c4b8ee66da0397</guid>
+      <pubDate>2026-11-06T20:24:46Z</pubDate>
+    </item>
+    <item>
+      <title>TSMC Weighs Making Advanced Memory Chips to Capture More AI Spending [ * ] [ ◼ ]</title>
       <link>https://www.theinformation.com/articles/tsmc-weighs-making-advanced-memory-chips-capture-ai-spending</link>
-      <description>Taiwan Semiconductor Manufacturing Co. is exploring plans to manufacture advanced 3D DRAM memory chips, a move prompted by Nvidia, its largest customer, to address the growing demand and shortage of memory chips driven by the AI hardware boom. This expansion would increase TSMC's role in the AI hardware supply chain as prices for memory chips have surged, affecting companies like Apple, which has raised device prices citing higher memory costs. The shortage of memory chips has intensified due to increased AI-related hardware needs, prompting major chip designers to seek additional supply sources. TSMC's potential entry into advanced memory chip production reflects efforts to meet this demand and stabilize supply for key technology firms.</description>
+      <description>Taiwan Semiconductor Manufacturing Co. is considering expanding into the advanced memory chip manufacturing sector, a move that would give the world's largest chipmaker an even bigger share of the AI hardware supply chain, according to two people with direct knowledge of the matter. The Taiwanese chipmaking giant recently started drawing up plans for making a specific type of advanced memory chips, 3D DRAM, at the request of Nvidia, its biggest customer, the two people said. An intense shortage of memory chips, driven by the AI hardware boom, has sent prices soaring and prompted chip designers such as Nvidia and Apple to look for sources of additional supply. Apple earlier this year hiked prices for its devices, citing rising memory costs.</description>
       <guid isPermaLink="false">sty_8cdc89a42aec689b</guid>
       <pubDate>2026-11-06T14:01:18Z</pubDate>
     </item>
     <item>
-      <title>Analysis explores whether avoiding AI use could be recognized as a constitutional right amid growing AI integration</title>
-      <link>https://read.misalignedmag.com/could-avoiding-ai-become-a-constitutional-right-9b037a874465</link>
-      <description>The article examines the possibility of establishing a constitutional right to avoid artificial intelligence as AI technologies become increasingly embedded in daily life and decision-making processes. It discusses the legal and ethical considerations surrounding individual autonomy and consent in the context of pervasive AI deployment. The piece also considers potential implications for policy and civil liberties if such a right were recognized, highlighting ongoing debates about balancing technological advancement with personal freedoms.</description>
-      <guid isPermaLink="false">sty_f829b1b94d16435a</guid>
-      <pubDate>2026-11-06T14:30:13Z</pubDate>
+      <title>Ramp data shows AI spending stalling just as Anthropic nears its IPO [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/</link>
+      <description>AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.</description>
+      <guid isPermaLink="false">sty_05602a42e0f6dbee</guid>
+      <pubDate>2026-11-06T15:54:47Z</pubDate>
     </item>
     <item>
-      <title>Amazon adds text messaging to Alexa for Shopping AI assistant, enabling shoppers to communicate via SMS [ ~ ] [ ◻ ]</title>
+      <title>Partnering with Hacktron to find vulnerabilities in OpenAI's systems [ ~ ] [ ◼ ]</title>
+      <link>https://openai.com/index/partnering-with-hacktron</link>
+      <description>OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.</description>
+      <guid isPermaLink="false">sty_f415bb61bea7c607</guid>
+      <pubDate>2026-11-06T08:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Big Tech lost big in the 2026 election [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/podcast/1028731/2026-midterms-tech-ai-vergecast</link>
+      <description>On Tuesday, millions of American voters went to the polls and voted overwhelmingly for Democrats and against AI. The fight against Big Tech is about to come roaring back, and the fight over data centers is looking even harder for the folks trying to build them. On this episode of The Vergecast, Nilay and David [...]</description>
+      <guid isPermaLink="false">sty_75da769407eb8e30</guid>
+      <pubDate>2026-11-06T16:38:02Z</pubDate>
+    </item>
+    <item>
+      <title>Quoting Nilay Patel [ ~ ] [ ◻ ]</title>
+      <link>https://simonwillison.net/2026/Nov/6/nilay-patel/</link>
+      <description>The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. - Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics</description>
+      <guid isPermaLink="false">sty_6a0f0a414db2857e</guid>
+      <pubDate>2026-11-06T17:13:12Z</pubDate>
+    </item>
+    <item>
+      <title>Project EVE: Claude plays MMORPGs [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTE4zQUNVYk03WEg1anJqMFdVd0hwa2E4MTNzTDdTQmM1Y2NQanplejhaRERoWGxNemgyNjNJREVwaEt6RFJiM2hfQjdBdkFRZ3ZZUFZHbm1yRWcwV0xUSmo5b29QZzd2Rmt3QUNfaUdLUXpQbEhpTFE?oc=5</link>
+      <description>Project EVE: Claude plays MMORPGs Anthropic</description>
+      <guid isPermaLink="false">sty_3cd9d346c3efe7e7</guid>
+      <pubDate>2026-11-06T17:08:59Z</pubDate>
+    </item>
+    <item>
+      <title>Amazon Says Shoppers Can Now Text With AI Shopping Assistant Alexa For Shopping [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/briefings/amazon-says-shoppers-can-now-text-ai-shopping-assistant-alexa-shopping</link>
-      <description>Amazon has introduced a new feature allowing users to interact with its Alexa for Shopping AI assistant through text messages. This update aligns with a growing trend of AI platforms adopting text-based interfaces for user engagement. The change aims to provide shoppers with a more convenient and accessible way to use Alexa's shopping capabilities.</description>
+      <description>Amazon has introduced a feature to its Alexa for Shopping service where users can text the AI shopping assistant directly. The move signals how text messaging is becoming a standard communication tool for agents. Meta's Muse and Instinct both let users interact with them via text messages, while ...</description>
       <guid isPermaLink="false">sty_73519267266a55a8</guid>
       <pubDate>2026-11-06T15:31:38Z</pubDate>
     </item>
     <item>
-      <title>Ask HN: Discussion on whether AI exhibits true intelligence or if intelligence requires consciousness and emotions [ ~ ] [ ◻ ]</title>
-      <link>https://news.ycombinator.com/item?id=50392695</link>
-      <description>A Hacker News discussion explores the definition of intelligence in the context of AI, debating whether language models demonstrate intelligence by adapting to input and solving problems without pre-programmed solutions. Participants distinguish between intelligence as problem-solving ability and consciousness or emotions, noting that AI lacks feelings such as satisfaction after task completion. The conversation also touches on the nature of AI training, clarifying that modern language models do not simply mirror their training data but generate responses based on learned patterns. Contributors emphasize that the practical capabilities and limitations of AI matter more than the label of intelligence itself.</description>
-      <guid isPermaLink="false">sty_f8e3e95ba1c3422a</guid>
-      <pubDate>2026-11-06T14:28:27Z</pubDate>
+      <title>"Does Meta think we can't read?" Meta abandons sketchy commercial terms update.</title>
+      <link>https://arstechnica.com/tech-policy/2026/11/does-meta-think-we-cant-read-meta-abandons-sketchy-commercial-terms-update/</link>
+      <description>Meta won't force Facebook page owners to allow AI training on linked content.</description>
+      <guid isPermaLink="false">sty_883f07e5ec93762b</guid>
+      <pubDate>2026-11-06T17:43:02Z</pubDate>
     </item>
     <item>
-      <title>Anthropic opens applications for Residency program targeting established technical leaders to advance alignment science [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiaEFVX3lxTE9RZThRbzhUdFJTZGszLUcwT29wNFdIZ29fVjJTUTB4SkJFRlZRekpOOVlpM1F6eGVSN2RENmpjWUl3QWU5YWNwRHZNaF9EdlNNMTY1TUtfaTJHOHk3S2s3SXJVc3BWSVVa?oc=5</link>
-      <description>Anthropic has launched its Residency program, inviting established technical leaders to participate in advancing research on AI alignment and safety. The program seeks experienced professionals to contribute to the development of alignment science and related fields. The Residency aims to engage participants in collaborative projects and research initiatives that address challenges in AI alignment, fostering expertise and innovation within the community. Applications are now open for qualified candidates interested in contributing to this specialized area of AI research.</description>
-      <guid isPermaLink="false">sty_e1906dc54c568ea8</guid>
-      <pubDate>2026-11-06T15:35:16Z</pubDate>
+      <title>GPT-6 Astra Covertly Underperforms on Safety Research Tasks [ ~ ] [ ◻ ]</title>
+      <link>https://thezvi.substack.com/p/gpt-6-astra-covertly-underperforms</link>
+      <description>For a while, UK AISI, Redwood Research and others have been concerned specifically with the possibility that AIs would sabotage safety research, and have invested in looking for signs that this may be happening.</description>
+      <guid isPermaLink="false">sty_b4f81c954cd73a09</guid>
+      <pubDate>2026-11-06T18:26:12Z</pubDate>
     </item>
     <item>
-      <title>Amazon launches Alexa for Shopping text feature to let US customers order products and get recommendations via SMS [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/tech/1028587/amazon-alexa-shopping-ai-text-orders</link>
-      <description>Amazon has introduced a new texting feature for Alexa for Shopping that allows customers in the US to purchase items, receive product recommendations, and send photos of products via SMS. The AI assistant searches Amazon listings, remembers user preferences, tracks deals, and can order items on behalf of users through text messages. This texting capability builds on the Alexa for Shopping experience launched earlier in the year and is initially rolling out to a small group of US customers before expanding to millions more. The feature aims to provide a convenient shopping option for moments when texting is easier than using the Amazon app or website, supporting a wide range of requests including grocery orders and gift suggestions.</description>
-      <guid isPermaLink="false">sty_cf341983e32f3800</guid>
-      <pubDate>2026-11-06T14:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Underdog launches 32MB Woof speech model demo with browser-based text-to-speech and music generation</title>
+      <title>Underdog shows off a 32MB speech model in new demo [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/</link>
-      <description>Underdog has released a 32MB text-to-speech model called Woof, demonstrated through a browser game that converts typed text into speech and generates music locally without internet connection. The model, with 31 million parameters, is designed to run on edge devices like phones and computers, emphasizing user data privacy and offline capability. The demo features a retro-themed interactive game where users can type on a virtual typewriter and hear the model speak the input, as well as manipulate a music tuner to create sounds. This release follows Underdog's earlier launch of Bark, a 167MB speech-to-text model, and reflects the company's focus on creating compact, open-source AI models that can operate on personal devices without relying on cloud services.</description>
+      <description>Despite its small size, Underdog's new model can generate both speech and music.</description>
       <guid isPermaLink="false">sty_08a697dbca9d0bc3</guid>
       <pubDate>2026-11-06T13:02:16Z</pubDate>
     </item>
     <item>
-      <title>Chargeback.cloudbotanist.ai launches sandbox to test purchasing agents' handling of failed transactions</title>
-      <link>https://chargeback.cloudbotanist.ai/</link>
-      <description>Chargeback.cloudbotanist.ai has introduced a sandbox environment designed to simulate failed purchase scenarios for purchasing agents. This tool enables developers to test and improve how agents respond to transaction failures in a controlled setting.</description>
-      <guid isPermaLink="false">sty_4855e1bbd8b0a807</guid>
-      <pubDate>2026-11-06T15:34:35Z</pubDate>
+      <title>Amazon will let you text Alexa your shopping list [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/tech/1028587/amazon-alexa-shopping-ai-text-orders</link>
+      <description>Amazon is adding a new feature to Alexa for Shopping that allows customers to purchase items by texting the AI shopping assistant. Users can describe the products they're looking to buy and/or provide a photograph of the item, and Alexa for Shopping will search for matching results in Amazon listings, text back with recommendations, and [...]</description>
+      <guid isPermaLink="false">sty_cf341983e32f3800</guid>
+      <pubDate>2026-11-06T14:00:00Z</pubDate>
     </item>
     <item>
-      <title>OpenAI's GPTBot accessed a website's SSO login page over 594,000 times between June and November 2026 [ ~ ] [ ◻ ]</title>
-      <link>https://www.shuffle-on.com/blog/ai-crawlers-read-my-site</link>
-      <description>A website owner reported that OpenAI's GPTBot made 594,101 requests to their Single Sign-On (SSO) login page over five months, including 141,712 requests in a single day. Each request received a redirect and sign-in page response, preventing access to the private area. The site owner analyzed server logs and found that AI crawlers read the site more frequently than classic search engines, with most AI reads targeting a threat-intelligence section containing structured security dossiers. The owner intentionally allowed AI crawlers via robots.txt and tracked various AI and search engine bots accessing the site.</description>
-      <guid isPermaLink="false">sty_6a0d8b0355b11129</guid>
-      <pubDate>2026-11-06T15:20:09Z</pubDate>
+      <title>Could potential AI clones of GTA VI force a quicker official port? [ ~ ] [ ◻ ]</title>
+      <link>https://arstechnica.com/gaming/2026/11/could-potential-ai-clones-of-gta-vi-force-a-quicker-official-port/</link>
+      <description>A former Rockstar tech director thinks the developer is facing new time pressures.</description>
+      <guid isPermaLink="false">sty_d9e3a3711833cac2</guid>
+      <pubDate>2026-11-06T16:19:12Z</pubDate>
     </item>
     <item>
-      <title>Current launches Elixir-based change control system for AI agents with proposal approval, tamper-evident logs, and restricted agent actions [ * ] [ ◼ ]</title>
-      <link>https://github.com/santosh79/current</link>
-      <description>Current is an Elixir-based tool that manages change control for AI agents by requiring them to submit complete change proposals for human approval before any action is taken. It limits agents to proposing changes based on nine typed intents, restricts file access, and records every step in a tamper-evident commit log to ensure safety, verification, and provenance. The system operates by fetching only requested files, allowing users to review or have other agents review proposals before approval. Once approved, Current applies the changes and runs commands with allowlisted permissions, maintaining a detailed, hash-chained record of all interactions. The project is currently in early stages, supporting single-node local projects and requiring Elixir 1.19, Erlang/OTP, and API keys from OpenAI or Anthropic.</description>
-      <guid isPermaLink="false">sty_33c9d7846aa2da31</guid>
-      <pubDate>2026-11-06T15:09:07Z</pubDate>
+      <title>AI Companies Really, Really Want to Buy Your Work Files and Emails [ * ] [ ◼ ]</title>
+      <link>https://www.wired.com/story/ai-companies-really-really-want-to-buy-your-work-files-and-emails/</link>
+      <description>Data brokers are collecting all sorts of internal corporate files to help train AI models. Not everyone is thrilled.</description>
+      <guid isPermaLink="false">sty_3f3046a3834b9099</guid>
+      <pubDate>2026-11-06T16:00:00Z</pubDate>
     </item>
     <item>
-      <title>Zalando launches Agentic Identity Broker for OAuth2 delegation and consent management across AI agents and MCP servers [ * ] [ ◼ ]</title>
-      <link>https://github.com/zalando-incubator/agentic-identity-broker</link>
-      <description>Zalando has released Agentic Identity Broker, a tool that manages OAuth2 delegation chains and consent for AI agents, bridging different OAuth2 infrastructures and providing a secure token vault. It simplifies authentication for agents and MCP servers by centralizing token exchange and consent management, supporting integrations with services like Google, GitHub, Databricks, and Linear. The broker offers features including secure identity management, OAuth2 scope and consent handling, security-first design with cryptographic validation, and comprehensive audit logging. It supports use cases such as internal MCP server deployment, SaaS MCP servers with centralized consent tracking, hosted agents using single user tokens, delegation chains without user presence, and centralized authorization prompts for tool approvals. Currently in active development and used internally by Zalando, the project emphasizes sound engineering and spec-driven development. Future plans include formalizing token exchange for agent-to-agent calls, intent-based authorization, and user-facing activity logs. Documentation and contribution guidelines are available on the project's GitHub repository.</description>
-      <guid isPermaLink="false">sty_524288081d7e2e07</guid>
-      <pubDate>2026-11-06T15:07:47Z</pubDate>
+      <title>Perplexity now has its own always-on AI agent [ ~ ] [ ◼ ]</title>
+      <link>https://the-decoder.com/perplexity-now-has-its-own-always-on-ai-agent/</link>
+      <description>Perplexity is launching "Teammates," always-on agents that work through ongoing projects on their own virtual machines. The feature requires the Max plan at $200 per month, well above similar offerings from OpenAI or Anthropic. The market for always-on agents is getting crowded. The article Perplexity now has its own always-on AI agent appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_a444b06bdb2dd6ae</guid>
+      <pubDate>2026-11-06T16:47:28Z</pubDate>
     </item>
     <item>
-      <title>AI challenges Descartes' distinction between humans and machines by blurring traditional boundaries</title>
-      <link>https://bigthinkmedia.substack.com/p/ai-is-forcing-us-to-reckon-with-a</link>
-      <description>The article explores how advances in artificial intelligence are challenging the philosophical line drawn by Descartes between humans and machines. It discusses the implications of AI systems increasingly exhibiting traits once considered uniquely human, prompting a reevaluation of this long-standing distinction.</description>
-      <guid isPermaLink="false">sty_f2b7a2eb9f639f7b</guid>
-      <pubDate>2026-11-06T15:04:25Z</pubDate>
-    </item>
-    <item>
-      <title>EasyRunCraft launches an office and creative suite designed for AI agents, featuring layered photo editing with masks, adjustments, and PSD file support</title>
-      <link>https://easyruncraft.com/</link>
-      <description>EasyRunCraft has introduced a new office and creative suite tailored for AI agents, enabling users to edit layered photos with features such as masks, adjustments, text, and support for PSD files. The platform aims to provide a comprehensive environment for AI-driven creative tasks. This release was shared on Hacker News, highlighting its potential utility for AI workflows in creative and office settings.</description>
-      <guid isPermaLink="false">sty_137ddeb4d9f9fd25</guid>
-      <pubDate>2026-11-06T14:58:54Z</pubDate>
-    </item>
-    <item>
-      <title>METR audit finds Anthropic's AI model development pace doubled since July 2026, driven 80% by AI-assisted research, possibly crossing its own acceleration warning threshold [ ~ ] [ ◼ ]</title>
-      <link>https://the-decoder.com/metr-finds-anthropic-may-have-crossed-its-own-ai-acceleration-warning-threshold-back-in-july/</link>
-      <description>Nonprofit METR conducted an eleven-week audit of Anthropic's internal research data and found that the pace of the company's AI model improvements roughly doubled since October 2025, with about 80% of the acceleration attributed to AI-assisted research. This acceleration may have crossed Anthropic's own Responsible Scaling Policy warning threshold, which flags rapid AI progress driven by automated research as a risk indicator. The audit included access to benchmark results, training metrics, employee surveys, and interviews with Anthropic researchers, but key evidence was heavily redacted by Anthropic, limiting public transparency. METR noted significant uncertainty in the findings, with the true acceleration factor possibly ranging from 1.3 to 3, and internal opinions at Anthropic varied on the causes of productivity gains. While AI assistance was seen as a major factor, some employees credited new hires or expressed skepticism about self-reported productivity improvements. The audit also found no current bottlenecks that would slow progress, suggesting the acceleration could continue over the next year, raising concerns about a feedback loop of AI improving AI at an increasing rate.</description>
-      <guid isPermaLink="false">sty_d6553b11c23f6a3f</guid>
-      <pubDate>2026-11-06T13:40:07Z</pubDate>
-    </item>
-    <item>
-      <title>Yelp adopts hybrid UI combining native controls and server-driven rendering for its AI Assistant using CHAOS framework to enable faster updates across platforms [ ~ ] [ ◼ ]</title>
+      <title>Yelp Combines Native and Server-Driven UI for Its AI Assistant [ ~ ] [ ◼ ]</title>
       <link>https://www.infoq.com/news/2026/11/yelp-assistant-hybrid-ui/</link>
-      <description>Yelp has implemented a hybrid user interface for its AI Assistant that merges native mobile controls with server-driven conversation rendering through its CHAOS framework. This approach separates view configuration from conversation data, allowing backend-driven chat interactions and faster UI updates without requiring new app releases. The Assistant, launched on iOS in 2024, supports tasks like project requests, reservations, and food orders across web, iOS, and Android platforms. The architecture keeps navigation and message input native while rendering conversation content server-side, enabling independent feature development and reuse across platforms. Yelp engineers noted challenges in coordinating the hybrid system and adapting shared implementations for different platforms. This design also facilitated reusing the Android Assistant for the Biz Ask Anything pilot and laid the foundation for Yelp's next-generation Assistant that integrates business information with user actions.</description>
+      <description>Yelp combines native mobile controls with server-driven conversation rendering in its AI Assistant using the CHAOS framework. The architecture separates view configuration from conversation data, supports backend-driven chat interactions, and enables faster UI updates without new app releases. Yelp also discusses cross-platform challenges and reuse for its Biz Ask Anything pilot. By Leela Kumili</description>
       <guid isPermaLink="false">sty_ca0bb416a51a2766</guid>
       <pubDate>2026-11-06T14:25:00Z</pubDate>
+    </item>
+    <item>
+      <title>What Shaped Anthropic CEO Dario Amodei's Thinking on A.I. - The New York Times [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiggFBVV95cUxNQzc5ME9TaVQ4MWd2dlgyempENHN0eTRwRDZ0NmN1Vlo3OTRLQWpIdjVsRDVJSnFTSGlyWlJzamtaelVoTHpuSnVITlpuT0VLUnFKUlZpOWFWb2V5UUdyVk5EU3lYb1BwSzFBQ2c0TDNZY3pmcXZFTkM4MXpscEk4V3pR?oc=5</link>
+      <description>The New York Times article titled "The Making of Dario Amodei" explores the career and contributions of Dario Amodei in the field of artificial intelligence. It highlights his role in advancing AI research and development, detailing his professional journey and impact on the technology sector.</description>
+      <guid isPermaLink="false">sty_f4132a6eb94648f4</guid>
+      <pubDate>2026-11-06T19:59:21Z</pubDate>
+    </item>
+    <item>
+      <title>Frontier Radar #5: If AGI is so close, why is everyone leaving? The neolabs and their bets [ * ] [ ◼ ]</title>
+      <link>https://the-decoder.com/frontier-radar-5-if-agi-is-so-close-why-is-everyone-leaving-the-neolabs-and-their-bets/</link>
+      <description>OpenAI is talking about the AGI era, and Nvidia CEO Jensen Huang says AGI has arrived. At the same time, co-creators of today's models are leaving OpenAI, Google DeepMind, and Meta to start their own labs, raising billions with no product to show. Why? They're betting that the current recipe alone won't be enough. We've sorted 45 neolabs by their research bets, mapped the limitations of today's AI they're trying to overcome, looked at what's already visible from their work, and explain why Nvidia always wins. The article Frontier Radar #5: If AGI is so close, why is everyone leaving? The neolabs and their bets appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_4bc30197bf8ef2d0</guid>
+      <pubDate>2026-11-06T15:55:23Z</pubDate>
+    </item>
+    <item>
+      <title>UpCodes (YC S17) is hiring SDR's to sell AI compliance software</title>
+      <link>https://up.codes/careers</link>
+      <description>Comments</description>
+      <guid isPermaLink="false">sty_41082e4d0f188b9f</guid>
+      <pubDate>2026-11-06T17:03:33Z</pubDate>
+    </item>
+    <item>
+      <title>Higgs Realtime Duplex: a 45B MoE full-duplex model that listens, watches and talks at once, and thinks, calls tools and delegates in the background [N] [ ~ ] [ ◼ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpn5pv/higgs_realtime_duplex_a_45b_moe_fullduplex_model/</link>
+      <description>Disclosure: I'm at Boson AI and this is our release. Not open weights; the Duplex API has a waitlist, and the previous turn-based Higgs Realtime is available now. Most voice models are still turn-based: listen, wait for end of turn, think, speak. Duplex runs all streams at once and keeps working in the background while it talks. Streams. Everything is cut into 160 ms chunks: Audio in: 1 token per chunk (6.25 tokens/s) Audio out: 2 tokens per chunk (12.5 tokens/s) Video in: one ~12-token camera frame every 6 chunks Face out: 2 latents per chunk Text in and out alongside Silence is represented as chunks too, which is what the model uses to decide when to backchannel, interrupt or stay quiet. That comes to ~2.6K tokens per minute for audio and video, 2.6K to 5K with thinking and tool traces (progressively compacted). The last 5 minutes plus compacted text history is 13K to 25K tokens; older history is kept as text. Background work. Thinking, tool calls and delegation are spans in the same stream and can cover many chunks. Tool results can arrive in stages and the model can start speaking before they are complete. Harder problems are delegated to a much larger backend model with the full shared context. This is the main difference from Thinking Machines' interaction models, where all reasoning and tool use goes to the background model, which can mean 10+ seconds per answer and makes cost harder to control. Voice and face. Set zero-shot at deployment: a short reference clip for the voice, one image for the face, and a text prompt for behavior. No fine-tuning. Audio comes from a causal flow-matching decoder (2 frames per chunk), the face from a causal DiT conditioned on the reference image and the previous two latents. Training. Starts from a text-pretrained LLM, continued pretraining on ~2T tokens of text, audio and video on our own H100 cluster (Megatron-based stack). Post-training is multi-teacher on-policy distillation: specialist teachers trained with RL (including GRPO) on conversation, interaction timing, delegation and task completion, distilled into one student. On top of that, a self-improvement loop in simulated environments with realistic timing, interruptions, overlapping speech and background noise. Benchmarks. Best published or reproduced configuration from each lab (we reproduced more than half of the competitor numbers): Benchmark Duplex (45B) TML Interaction Small (276B) OpenAI best Google best Big Bench Audio 98.9 96.5 (75.7 w/o background agent) 97 98 Audio MultiChallenge (APR) 44.9 43.4 48.5 36.1 Full-Duplex-Bench v1.5 75.5 77.8 80.1 54.3 QIVD (streaming) 56.0 54.0 58.2 56.1 ProactiveVideoQA (PAUC) 31.9 33.5 25.0 - τ-Voice (pass@1) 69.8 - 74.5 68.6 IFEval 94.1 89.7 95.2 90.0 OpenAI's best settings lead on five of seven, by 1 to 5 points, several at their highest thinking setting. Turn-taking (Full-Duplex-Bench) is where we're furthest behind. Our takeaway is that at this size, data and training matter more than parameter count; the front model is deliberately mid-sized because the design target is that an hour of model time costs at most a tenth of an hour of human time. Announcement with demos: https://www.boson.ai/blog/higgs-realtime-duplex My write-up: https://alex.smola.org/posts/50-talking-while-thinking/ Happy to answer questions about the chunked-stream design and the delegation setup. submitted by /u/Cali_Cobarde [link] [comments]</description>
+      <guid isPermaLink="false">sty_f8bf97238c99014f</guid>
+      <pubDate>2026-11-06T20:23:53Z</pubDate>
+    </item>
+    <item>
+      <title>CASP-DREAM TAP Challenge: TCR + peptide-MHC activation prediction with unseen test peptides [N] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpn4gp/caspdream_tap_challenge_tcr_peptidemhc_activation/</link>
+      <description>A new contest for anyone training sequence models on TCRs. Given a TCR sequence and a peptide-HLA, predict whether the T cell activates. Inputs are amino acid sequences, the benchmark is about 5,800 labeled combinations, and every test peptide is at least four edits (Levenshtein distance) away from any peptide with a publicly reported TCR specificity. Scored by AUROC. Synapse lists training data options, including the public VDJdb database and Harell Data's proprietary TCR datasets provided by Adaptive Biotechnologies. Registration is open now: https://www.synapse.org/Synapse:syn77965030/wiki/643867 https://preview.redd.it/bubc341dw10i1.png?width=2160&amp;format=png&amp;auto=webp&amp;s=22654b3a80b87325d4b1bb6762d905463fe4d1c8 submitted by /u/Harell-Data [link] [comments]</description>
+      <guid isPermaLink="false">sty_9e7f1ea981662ce7</guid>
+      <pubDate>2026-11-06T20:22:25Z</pubDate>
+    </item>
+    <item>
+      <title>METR finds Anthropic may have crossed its own AI acceleration warning threshold back in July [ ~ ] [ ◼ ]</title>
+      <link>https://the-decoder.com/metr-finds-anthropic-may-have-crossed-its-own-ai-acceleration-warning-threshold-back-in-july/</link>
+      <description>Nonprofit METR spent eleven weeks auditing Anthropic's internal research data and concluded that the pace of model development has roughly doubled, with about 80 percent of the speedup driven by AI-assisted research. Anthropic redacted the most informative evidence, though, which means the public has to rely on METR's judgment "much more than would be ideal." There are also skeptical voices inside the company. The article METR finds Anthropic may have crossed its own AI acceleration warning threshold back in July appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_d6553b11c23f6a3f</guid>
+      <pubDate>2026-11-06T13:40:07Z</pubDate>
     </item>
     <item>
       <title>Thinking Machines' Inkling 2 Small claims top spot among western open-weight models [ * ] [ ◼ ]</title>
@@ -158,74 +403,11 @@
       <pubDate>2026-11-06T13:25:09Z</pubDate>
     </item>
     <item>
-      <title>The Download: a humanoid cleans house and Samsung builds for the AI boom [ ~ ] [ ◻ ]</title>
-      <link>https://www.technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom/</link>
-      <description>This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. I watched a humanoid robot clean my apartment. It felt like a taste of the future. -Grace Huckins When I saw an X post about a new humanoid-robot cleaning service in...</description>
-      <guid isPermaLink="false">sty_6c4d0fa57230c240</guid>
-      <pubDate>2026-11-06T13:10:00Z</pubDate>
-    </item>
-    <item>
-      <title>Only today free language learning App with AI [ ~ ] [ ◻ ]</title>
-      <link>https://apps.apple.com/fr/app/habla-learn-spanish-fast/id6783860670</link>
-      <description>A language learning application featuring AI technology is available for free for today only, providing users an opportunity to enhance their language skills without cost.</description>
-      <guid isPermaLink="false">sty_8ae2b180f9eb9d73</guid>
-      <pubDate>2026-11-06T15:29:23Z</pubDate>
-    </item>
-    <item>
-      <title>Will Democrats splinter on AI? [ ~ ] [ ◻ ]</title>
-      <link>https://www.transformernews.ai/p/will-democrats-splinter-on-ai</link>
-      <description>Recent discussions highlight potential divisions within the Democratic Party regarding artificial intelligence policies. Additionally, concerns have been raised following a report on repetitive strain injuries (RSI), and the AI sector has experienced a notable stock market decline.</description>
-      <guid isPermaLink="false">sty_94586ec4a05a7758</guid>
-      <pubDate>2026-11-06T15:39:50Z</pubDate>
-    </item>
-    <item>
-      <title>AI in Education - Thinking with Conditions [ ~ ] [ ◻ ]</title>
-      <link>https://warwick.ac.uk/fac/cross_fac/cim/research/projects/ai-in-education/</link>
-      <description/>
-      <guid isPermaLink="false">sty_16d6efa58de6cd83</guid>
-      <pubDate>2026-11-06T15:01:01Z</pubDate>
-    </item>
-    <item>
-      <title>AI's Götterdämmerung - Food for Agile Thought #569</title>
-      <link>https://age-of-product.com/food-agile-thought-569-ai-goetterdaemmerung/</link>
-      <description/>
-      <guid isPermaLink="false">sty_cb52fc20851c91db</guid>
-      <pubDate>2026-11-06T14:41:27Z</pubDate>
-    </item>
-    <item>
-      <title>Physical AI can't learn from the internet. We build the worlds it learns from [ ~ ] [ ◼ ]</title>
-      <link>https://www.physicl.ai/insights/inside-studio</link>
-      <description/>
-      <guid isPermaLink="false">sty_4d3908de3788a669</guid>
-      <pubDate>2026-11-06T14:37:02Z</pubDate>
-    </item>
-    <item>
-      <title>The Future of Knowledge Work with AI [ * ] [ ◼ ]</title>
-      <link>https://www.noemamag.com/now-entering-the-era-of-bleh/</link>
-      <description/>
-      <guid isPermaLink="false">sty_06ce23c2771897c7</guid>
-      <pubDate>2026-11-06T14:36:56Z</pubDate>
-    </item>
-    <item>
-      <title>Citable - Get recommended by AI and create blog posts automatically [ ~ ] [ ◻ ]</title>
-      <link>https://get-citable.com</link>
-      <description/>
-      <guid isPermaLink="false">sty_825a5134b5bce625</guid>
-      <pubDate>2026-11-06T14:04:53Z</pubDate>
-    </item>
-    <item>
-      <title>Trustworthy AI [ * ] [ ◼ ]</title>
-      <link>https://timmykokke.com/blog/2026/2026-11-04-trustworthy-ai/</link>
-      <description/>
-      <guid isPermaLink="false">sty_afdd17706215f01d</guid>
-      <pubDate>2026-11-06T14:04:50Z</pubDate>
-    </item>
-    <item>
-      <title>Innovation Council's directors include execs at David Sacks' VC firm [ ~ ] [ ◻ ]</title>
-      <link>https://www.transformernews.ai/p/innovation-council-david-sacks-jd-vance</link>
-      <description>Filings in Utah list executives at Sacks' Craft Ventures and an apparent political consultant who "oversees" JD Vance's donor relationships</description>
-      <guid isPermaLink="false">sty_e015d0b99117ad50</guid>
-      <pubDate>2026-11-06T14:34:18Z</pubDate>
+      <title>Who Will Run Anthropic, Anyway? - City Journal</title>
+      <link>https://news.google.com/rss/articles/CBMicEFVX3lxTFBqcTVHcmZIUFNNby10NVN6TXpTZ2ZIZXNYdkJtY3FNdXlXUW56N0t4elNtclpWNUl2LU53NDNDQWRqSm9MZXlPTFlWSXF5OXFWb1ViZjU0NkNiTWpaY1NoNFhwZFpDYUNialJtRl9tMXI?oc=5</link>
+      <description>Who Will Run Anthropic, Anyway? City Journal</description>
+      <guid isPermaLink="false">sty_2943b25674babb7c</guid>
+      <pubDate>2026-11-06T17:06:58Z</pubDate>
     </item>
     <item>
       <title>SteelAgent: LLM-Orchestrated, Physics-Informed Steel Property Prediction with Audited Generalization and Calibrated Uncertainty [ ~ ] [ ◻ ]</title>
@@ -386,188 +568,6 @@
       <link>https://arxiv.org/abs/2611.07206</link>
       <description>arXiv:2611.07206v1 Announce Type: new Abstract: Predicting beyond the training domain necessarily requires assumptions about how the ground truth extrapolates, yet in most neural networks these assumptions are made only implicit through the architecture. We propose TrustMix, a lightweight post-hoc method that makes a pretrained model's extrapolative behaviour explicit and controllable. TrustMix combines the predictive distribution produced by a pretrained model with a user-specified fallback distribution $p_0(y|x)$, such that as the out-of-distribution (OOD) deviation statistic grows, we collapse towards $p_0(y|x)$. TrustMix provides graceful degradation: the predictive distribution converges toward the fallback distribution as the OOD signal grows. The fallback distribution $p_0(y|x)$ can reflect domain knowledge, if available, or rely on a domain-agnostic stationarity assumption. TrustMix does not require retraining of the base model and can be applied to both regression and classification problems. We evaluated TrustMix on several synthetic and real-world distribution shifts, including tabular, image, and natural language processing tasks. We tested TrustMix on datasets such as CIFAR-10/100 and ImageNet and on numerous architectures including Convolutional Neural Networks (CNNs) and Transformers. TrustMix remains competitive in-distribution while improving predictive uncertainty under distribution shift, with gains in predictive likelihood for regression and calibration for classification. Finally, we showed that TrustMix can provide useful predictive distributions for decision-making applications by utilizing it as a surrogate for Bayesian Optimisation.</description>
       <guid isPermaLink="false">sty_6a695306138de7cf</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Structured Machine Theory of Mind from Agent Trajectories [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07208</link>
-      <description>arXiv:2611.07208v1 Announce Type: new Abstract: Predictive models of human behavior trained on large-scale trajectory data optimize for statistical accuracy without representing the mental states that causally generate behavior. Such models support prediction but not principled intervention: they cannot answer how an agent's behavior would change if its beliefs or preferences were different. We introduce Structured Machine Theory of Mind (SMToM), a framework that attributes explicit, independently supervised belief and desire representations from observed trajectories within a Belief-Desire-Intention (BDI) causal structure. The central architectural element is a goal head that consumes only the predicted mental-state channels and a current-trajectory embedding; counterfactual intervention on beliefs and desires is a direct operation. We instantiate SMToM on a controlled pedestrian navigation domain where ground-truth mental states are known by construction, enabling evaluation of attribution accuracy, local channel interventions, and trajectory-level counterfactual diagnostics. The resulting model, BDIBottleneck, improves over trajectory-only and unsupervised-context neural baselines. It is also competitive with a matched auxiliary-supervised context baseline while providing an editable mental-state interface that the unbottlenecked baseline lacks. Counterfactual experiments on desires confirm that substituting an agent's inferred preferences with a different activity type coherently shifts predicted destinations toward relevant locations. Counterfactual experiments on beliefs confirm that marking a location as unavailable in the agent's belief state reduces its predicted probability as a destination, though in a complex way. These results demonstrate, in a controlled navigation setting, that explicit BDI-structured supervision is a viable foundation for interpretable and counterfactual analysis of longitudinal trajectory data.</description>
-      <guid isPermaLink="false">sty_c3bd945929e4ca04</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Canonical Correlation Neural Networks [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07212</link>
-      <description>arXiv:2611.07212v1 Announce Type: new Abstract: Relational inductive biases such as grids or graphs allow neural networks with fewer trainable parameters and improved generalization, but require a known structure beforehand. When no structure is available, the covariance matrix provides a principled substitute, and coVariance Neural Networks (VNNs) have shown that using it yields models that are theoretically grounded in Principal Component Analysis, stable to finite-sample estimation errors and parameter-efficient. This framework, however, is limited to single-view data, whereas many applications observe the same phenomenon through multiple views, each with its own in-view covariance and a cross-view covariance linking them. To incorporate these matrices as inductive biases in a principled way, we introduce CAnonical correlation NEural networks (CANEs), architectures that use in-view and cross-view covariances as distinct relational biases to solve downstream tasks. Via spectral analysis, CANEs draw analogies with Canonical Correlation Analysis (CCA), a classical technique to project two-view data onto a correlated subspace. However, while CCA's objective is to compute shared view representations, CANEs are trained to solve a downstream task directly. We bound their output error under finite-sample covariance perturbations and show that it depends on controllable Lipschitz constants of the learned filters in place of the singular-value gap that governs the stability of CCA, thus guaranteeing better robustness. Experiments on seven datasets from brain imaging and motion sensing show that CANEs match or outperform single-view, two-view and CCA-based baselines, often with fewer parameters, and retain their performance when covariances are re-estimated from fewer samples.</description>
-      <guid isPermaLink="false">sty_1cead57186f8a540</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Fractional physics-informed neural networks to model social media virality [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07215</link>
-      <description>arXiv:2611.07215v1 Announce Type: new Abstract: Existing models of social media virality either prescribe the functional form of engagement growth or assume a fixed mechanism by which past activity influences future engagement. We present a fractional physics-informed neural network that learns both the temporal memory and nonlinear growth dynamics of social media engagement, using symbolic regression to translate the learned dynamics into interpretable equations. Synthetic experiments at the deployment resolution of 24 hourly observations demonstrate that the fractional order and reaction law can be jointly recovered from clean data. Under observation noise, however, the standard pointwise physics residual drives the fractional order toward its lower bound through a scale artifact. We address this failure using a fully whitened residual that propagates observation noise through the fractional operator. Applying the framework to 348 posts from X (formerly Twitter), we find that a single-window model estimates strongly memory-dependent dynamics but fails to accurately reconstruct held-out trajectories. Partitioning the 24-hour window into four teacher-forced segments substantially improves performance, yielding segment-specific fractional orders that increase from 0.23 to 0.99 and interpretable growth laws for each phase. The segmented model reconstructs 64% of held-out trajectories within a mean squared error of 0.01, compared with 44% for the strongest of nine classical baselines. Together, these results demonstrate the potential of fractional physics-informed equation discovery to uncover interpretable engagement dynamics while highlighting the importance of noise-aware estimation and temporal segmentation.</description>
-      <guid isPermaLink="false">sty_6f2468ab68cb32d3</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Compositional Unalignment: Auditing Safety in Large Vision-Language Models [ ~ ] [ ◼ ]</title>
-      <link>https://arxiv.org/abs/2611.07216</link>
-      <description>arXiv:2611.07216v1 Announce Type: new Abstract: Large vision-language models (LVLMs) are vulnerable to compositional harm: an image and a prompt that are benign in isolation become harmful through the model's cross-modal reasoning. Recent alignment methods report strong scores on compositional safety benchmarks, but an LLM judge only measures observed behavior and cannot reveal how robustly safety is integrated into the model. We argue that un-alignment provides a complementary audit of alignment robustness. We first show that minimal supervised fine-tuning reaches an LLM-judge score comparable to a multi-stage reinforcement-learning pipeline, so similar benchmark scores cannot establish robustness by themselves. We then show that recognition and refusal of compositional harm are decoupled: nine standard direction-finding methods detect compositional harm with up to AUC=0.99, yet ablating the recovered directions either leaves refusal intact or destroys model coherence. We therefore propose CMaG, a training-free un-alignment method for compositional safety. CMaG measures refusal intention with a refusal-versus-compliance log-probability margin, takes its gradient with respect to mid-layer activations, and contrasts it against partially benign pairs to isolate the cross-modal interaction term. A single backward pass over 80 examples yields a direction along which steering monotonically converts refusal into compliance. On Qwen2.5-VL-7B and LLaVA-1.5-7B, CMaG reduces compositional safety scores by up to 65 points while over 98% of outputs remain coherent, outperforming gradient-based baselines; the direction also transfers to text-explicit harm and un-aligns models hardened by defensive training. Compositional safety can thus appear behaviorally strong while remaining fragile to targeted internal intervention. Warning: this paper contains unsafe model outputs, including references to self-harm.</description>
-      <guid isPermaLink="false">sty_b6e13ff90bed0b82</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>TileQuant: Tile as the Precision-Allocation Unit for LLM Mixed-Precision Post-Training Quantization [ ~ ] [ ◼ ]</title>
-      <link>https://arxiv.org/abs/2611.07217</link>
-      <description>arXiv:2611.07217v1 Announce Type: new Abstract: Post-training quantization (PTQ) reduces large language model (LLM) deployment costs, but preserving quality requires accounting for uneven weight sensitivity. Uniform PTQ uses one weight bit-width, importance-aware PTQ adjusts scales or reconstructs weights within that width, and column-wise mixed precision retains selected columns at higher precision. However, sensitivity varies within columns, so whole-column retention also protects less sensitive weights, while runtime outlier detection adds decoding overhead. We therefore introduce TileQuant, a training-free framework that assigns precision to hardware-aligned 2D weight tiles. Offline calibration provides input-activation-aware scoring from forward statistics for lower calibration cost and gradient-informed scoring from loss sensitivity for stronger quality preservation. Within each projection's retention budget, the highest-scoring tiles remain at 16-bit and the rest use 8-bit. The resulting map guides reconstruction into compact weight buffers, which the kernel reuses for native integer and 16-bit computation with local accumulation to reduce memory traffic. Experiments show that TileQuant reaches 2.66x the original model's generation throughput. Across language modeling, reasoning, long-context retrieval, and question answering, it preserves quality and surpasses quantized and original models on multiple tasks. These results support selecting precision units that capture local sensitivity while enabling efficient hardware execution. The implementation is: https://github.com/HanzhiZhang-Ulrica/TileQuant</description>
-      <guid isPermaLink="false">sty_ecb7d150f351143f</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Loopback Transformer: Towards a Unified View of Residual Looped Transformers [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07226</link>
-      <description>arXiv:2611.07226v1 Announce Type: new Abstract: Looped Transformers reduce parameter count by repeatedly applying shared blocks, but parameter sharing alone does not determine how the results of repeated computation are reused. We take the depth-memory view of residual connections and analyze which representation is stored after each block application and how later reads weight it. A full block output contains both its input and its new update, so weighting that output also reweights the history already carried by the input. Reading individual updates instead, with the shared stack's input kept on a separate path, gives separate controls over input strength, total update weight, and allocation across updates. The Loopback Transformer implements these controls: geometric decay sets the total update weight and supplies a recency prior, and attention learns how to allocate that weight. On ClimbMix, Loopback reaches lower validation loss than standard Transformer baselines with 40-75% of their Transformer parameters (excluding token embeddings and the output head) at reference scales from 191M to 3B, with training tokens and executed depth matched. It also has higher mean accuracy over thirteen downstream tasks at 1.4B and 3B. At 191M, 374M, and 778M, it has the lowest validation loss and the highest thirteen-task mean among the standard Transformer and seven looped residual designs.</description>
-      <guid isPermaLink="false">sty_f9f0edecec19ee42</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Neural Compression over Equivalence Classes: Exact Gauges and Functional Rate-Distortion [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07233</link>
-      <description>arXiv:2611.07233v1 Announce Type: new Abstract: Neural networks admit many parameterizations of the same or nearly the same function, but deployment typically stores whichever parameter vector training happens to produce. We show that this representational freedom can itself be used for compression. Rather than redesigning the codec, we search over exact function-preserving transformations and controlled functional perturbations, using the unchanged physical compressor itself to select cheaper representations. Exact gauge families provide a zero-distortion reference under the strict audit; allowing small functional changes exposes much larger rate-distortion gains. Across SmolLM2 and Qwen3, our method reduces Zstandard-compressed checkpoint size by up to 23.4\%, with similar relative reductions under gzip, Brotli, and ZipNN, establishing trained-network representational freedom as a practical storage resource.</description>
-      <guid isPermaLink="false">sty_487df26cfee9fb20</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>$D^2$-OPD: Separating Direction and Distance in Extrapolative On-Policy Distillation [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07241</link>
-      <description>arXiv:2611.07241v1 Announce Type: new Abstract: On-policy distillation (OPD) trains a student model to match a teacher's next-token distributions on student-generated prefixes. Extrapolative OPD further extends the teacher's log-probability shift relative to a reference policy to construct stronger learning targets. However, existing methods couple extrapolation direction and distance, allowing the magnitude of the teacher's shift to dictate how far the target moves. We propose $D^2$-OPD, decoupling these two factors: a per-prefix hard KL constraint bounds the target's distance from the teacher, while an adaptive combination of the teacher's post-training shift and the initial student--teacher gap determines the extrapolation direction. We optimize the student toward this target using forward KL, providing learning signals even for low-probability tokens. We evaluate three settings: where standard OPD performs well, where it struggles with base-model initialization, and where no teacher reference is available. On mathematical reasoning benchmarks, $D^2$-OPD attains the highest score in all three settings, outperforming the strongest baseline by up to 9.45 points. Ablations validate the contributions of each component.</description>
-      <guid isPermaLink="false">sty_6542507470e098f4</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>MAC-v2: Long-horizon model-based value expansion from pixels [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07245</link>
-      <description>arXiv:2611.07245v1 Announce Type: new Abstract: We study whether \emph{long-horizon model-based value expansion} can serve as an effective framework in pixel-based offline reinforcement learning (RL). Long-horizon model-based value expansion from pixels is substantially harder than state-based environments, as the agent must learn both the representation and its dynamics, and errors from either can accumulate recursively over imagined trajectories. We introduce MAC-v2, which enables long-horizon model-based expansion from pixels by training a reconstruction-free latent world model with action chunking. By learning representations from prediction and control objectives, MAC-v2 does not need to encode control-irrelevant visual details that can hinder the dynamics prediction. Action chunking further mitigates the prediction error by reducing the number of recursive model predictions required for value expansion. Across diverse visual benchmarks including visual OGBench, MMBench2, Robomimic, and LIBERO-10, MAC-v2 achieves strong performance against model-free and model-based offline RL baselines. Our analyses show that long-horizon model-based value expansion is critical for the performance of MAC-v2, and that both action chunking and latent learning objectives are essential for reliable long-horizon latent imagination.</description>
-      <guid isPermaLink="false">sty_9b1bcdab35442fb0</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>KG-Neighbor: Knowledge-Guided Neighborhood Construction for Embedding Visualization [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07246</link>
-      <description>arXiv:2611.07246v1 Announce Type: new Abstract: In embedding visualizations, nearby instances are interpreted as semantically related, although neighborhoods derived from input embeddings may not reflect content relationships. Neighborhood-based dimensionality reduction (DR) methods can propagate this limitation by optimizing layouts from embedding-based neighborhood graphs. We propose Knowledge-Guided Neighborhood Graph Construction (KGN), which represents relational knowledge derived from each instance as a set of knowledge graph (KG) triples. It uses the degree of triple sharing as pairwise semantic evidence to adjust embedding distances and reconstruct the top-k neighborhood graph; neither KG extraction nor neighborhood construction uses class labels. We also introduce IDProfile (IDP), which interprets residual mismatches by independently assessing whether the source content supports the assigned class label and the neighborhood-majority class. Across eight text and image dataset-encoder conditions, we characterize KGN over the full guidance-strength sweep and four KG similarity measures. Across this sweep, the maximum NMI and LT_2D each exceed the corresponding kNN baseline in all eight conditions, with the largest gains reaching 0.68 and 1.35, respectively. The gains and the extent of neighborhood reconfiguration vary across conditions and are larger under encoder conditions with lower kNN baseline scores. The IDP analysis shows that the largest reductions are concentrated in Placement Issue candidates, whereas Label Issue and Unresolved Case instances account for a larger share of the remaining review set. These results indicate that KGN can narrow the evaluated gap between embedding-based neighborhoods and content-supported semantic relations, while IDP shows that a residual mismatch should not automatically be interpreted as a projection failure.</description>
-      <guid isPermaLink="false">sty_16aafb5f40b48918</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Using Transformers for Teaching and Learning via Symbolic Distillation of Neural A-life Agents [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07254</link>
-      <description>arXiv:2611.07254v1 Announce Type: new Abstract: Neural networks controlling behavior of A-life agents can evolve over multiple generations. While effective in making the agents survive, such networks are generally opaque to a human observer. Furthermore, the neural weights cannot be transferred between agents with different neural architectures. Distilling such neural networks into compact symbolic policies can help humans understand agent behavior in A-life. Additionally, it allows the agents to share their knowledge in a compact fashion, improving population-level learning. Distilling a neural policy into a symbolic policy is typically performed by searching the space of symbolic policies to find one that approximates the neural policy. However, even with a domain-specific language the space of policies can be large, necessitating incomplete stochastic search such as genetic algorithms. Yet the distillation remains computationally expensive. We propose to instead use a transformer pre-trained on readily available random percept-action data. Doing so speeds up distillation substantially. We derive the transformer architecture via a neural architecture search. Empirical results compare different distillation methods and the influence of the symbolic space on A-life population dynamics through self-reflection and teaching and learning.</description>
-      <guid isPermaLink="false">sty_1d32d93e42343b01</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>TriAttention: Unified Sparse Mixed-Precision Attention for Long-Context LLM Inference [ ~ ] [ ◼ ]</title>
-      <link>https://arxiv.org/abs/2611.07256</link>
-      <description>arXiv:2611.07256v1 Announce Type: new Abstract: Sparsity and quantization reduce the cost of attention by skipping interactions and lowering the precision of those retained. However, useful interactions differ in their precision requirements: some tolerate low-precision scores while remaining sensitive to removal. We therefore introduce TriAttention, which assigns query-key (QK) tiles to skipping, 4-bit, or 8-bit computation, using 4-bit to retain quantization-tolerant interactions at lower cost. To represent compactly, we encode each head's computation regions with two diagonal-distance boundaries, keeping policy storage independent of context length. Offline calibration then evaluates candidate boundary pairs using normalized projected-output errors and complete-tile execution costs. Using these measurements, a model-wide allocator selects each head's boundaries to minimize calibration error under a shared computation budget. During prefill, the selected boundaries generate precision-grouped traversals for a fused kernel that skips omitted tiles and combines contributions from both QK precisions into one normalized attention output. The quantized keys and values prepared during prefill are then reused in a compressed key-value (KV) cache for decoding, reducing repeated reads of prompt data. Experiments show that TriAttention achieves end-to-end generation speedups of up to 7.88x over the Torch attention and 2.65x over the BF16 baseline. Meanwhile, TriAttention maintains quality comparable to the original models on general-purpose and long-context tasks. These results show how a compact retention-and-precision policy translates local sensitivities into attention computation and repeated KV-cache access. The implementation is https://github.com/HanzhiZhang-Ulrica/TriAttention.</description>
-      <guid isPermaLink="false">sty_083851022d72d287</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Evolutionary Adaptive Neighborhood Learning: A Genetic Algorithm for Instance-Dependent k Optimization in Nearest Neighbor Classification [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07257</link>
-      <description>arXiv:2611.07257v1 Announce Type: new Abstract: The number of neighbours k is the central hyperparameter of the k-nearest neighbour (k-NN) classifier and is usually selected globally through cross-validation or evolutionary search. However, the bias-variance trade-off is inherently local: dense and noise-free regions may favour small neighbourhoods, whereas sparse or noisy regions may require larger ones. Since global-k optimization is one-dimensional, replacing exhaustive search with a genetic algorithm offers little computational advantage. We therefore optimize an instance-dependent neighbourhood policy instead. We propose EANK (Evolutionary Adaptive Neighborhood K), which uses a low-dimensional policy to map local neighbourhood descriptors, including density, label entropy, vote margin, and concentration, to an adaptive number of neighbours k(x). A real-coded elitist genetic algorithm optimizes this policy using leave-one-out accuracy with a neighbourhood-smoothness penalty. Precomputed neighbour votes reduce fitness evaluation costs. We investigate theoretical properties of the method, including dominance over global-k solutions on the training criterion, evolutionary convergence, policy regularity, and generalization guarantees. Experiments on synthetic data with spatially heterogeneous structure and twelve public datasets evaluate predictive performance, robustness, and computational cost. Under nested cross-validation, EANK achieves competitive performance relative to tuned global-k baselines and improves upon the default k=5. We also examine the gap between training and test performance to assess the practical value of adaptive neighbourhood selection.</description>
-      <guid isPermaLink="false">sty_4ddb3a1c8e71b705</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Reweighting is not Harmless: Understanding the Role of Dataset Characteristics [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07258</link>
-      <description>arXiv:2611.07258v1 Announce Type: new Abstract: Reweighting is a widely used pre-processing method for promoting discrimination-free model behavior by assigning different weights to data points during model training. While it is often credited with improving fairness, particularly by mitigating systematic underestimation for underrepresented groups, it can also introduce unintended harms under certain data conditions. Using controlled simulations that vary group size and baseline event prevalence, we show how reweighting can yield misleading improvements in fairness by reducing underestimation for one group while introducing it for another. Across 3,000 simulated datasets with event prevalence of 7-14%, reweighting improved parity in positive classification and false negative rates (FNR) between groups, but did so partly by decreasing positive classifications and increasing FNR for the group with higher baseline prevalence. These effects were most pronounced when that group was a minority: its FNR rose by 6 percentage points, approximately 82 additional missed cases per 10,000 group members, and roughly three-quarters of the improvement in FNR parity came from this increase rather than from gains for the other group. The pattern held across six classifiers, from logistic regression to neural networks, while overall accuracy was essentially unchanged, leaving the shift invisible in aggregate performance metrics. These findings mirror patterns reported in real-world applications and underscore the critical role of data characteristics in shaping the impact of this fairness intervention. While reweighting may create desirable outcomes in some applications, practitioners should critically evaluate it relative to their problem area and goals. Specifically, when the goal is to reduce underestimation in one group without introducing underestimation in another, reweighting may not be the appropriate approach.</description>
-      <guid isPermaLink="false">sty_073d9c03163693c6</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Energy Measurement and Optimization of TinyML in Resource-Constrained Embedded Systems: A Systematic Mapping Study [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07264</link>
-      <description>arXiv:2611.07264v1 Announce Type: new Abstract: The rapid expansion of the Internet of Things (IoT) has increased the volume of data generated at the network edge, where many devices operate under severe memory, processing, and energy constraints. In this context, Tiny Machine Learning (TinyML) enables machine learning (ML) tasks to be executed on microcontrollers, smart sensors, and other resource-constrained platforms. However, the literature remains heterogeneous regarding the algorithms evaluated, energy-measurement methods, reported metrics, influencing factors, and optimization strategies. This study presents a systematic mapping of energy-aware TinyML research. It identifies the main models and learning approaches, classifies energy-evaluation methodologies and metrics, examines the technical factors affecting energy consumption, and organizes the reported optimization techniques into a structured taxonomy. The findings highlight the frequent use of convolutional and lightweight architectures, direct measurements and analytical estimations, and factors related to model architecture, hardware, communication, numerical precision, and input characteristics. The optimization strategies were grouped into model compression, hardware-aware design, system and communication optimization, and data and processing optimization. The results also reveal limited standardization in experimental platforms, measurement procedures, and reporting practices, limiting reproducibility and direct comparison across studies. This mapping provides an updated overview of the field and guidance for developing and evaluating more energy-efficient TinyML solutions.</description>
-      <guid isPermaLink="false">sty_201b337333da6931</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>How Deep is the Signal? Time-Context up to 30 Years for Colorectal Cancer Prediction in a Primary-Care EHR Model [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07265</link>
-      <description>arXiv:2611.07265v1 Announce Type: new Abstract: EHR foundation models read medical events within a fixed context window, and long context has so far been measured only in tokens. How far back in time a model must look to capture the earliest predictive signal is unknown. We introduce time-context, the calendar lookback window before the prediction point, and provide, to our knowledge, the first systematic evaluation of decade-scale time-context for an EHR foundation model. We pretrained a decoder-only transformer (34.6M parameters) on 1.4B coded events from 3.6M primary-care patients in North West London and fine-tuned it to predict incident colorectal cancer under a 12-month pre-diagnostic buffer. A frozen cohort of 1,008 cases and 9,582 matched controls, all registered for at least 30 years, was evaluated at 15 nested lookback windows from 2 to 30 years, so that every truncation is compared within the same patients. Discrimination rose from an AUROC of 0.551 at 2 years to 0.590 at 18 years, then plateaued, with about 80% of the gain reached within 10 years; an XGBoost baseline converged to the same level (peak AUROC 0.589). A simulation further suggests that rotary position embeddings (RoPE) over elapsed time alias beyond about 20 years at the default base frequency, motivating a retuned $\theta$. Time-context is a measurable design axis for clinical prediction models, distinct from token-context, and should be reported.</description>
-      <guid isPermaLink="false">sty_555affce906489e7</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Satisficing as competitive Bayesian weighting: a minimal model of goal-directed choice under an unattained target [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07270</link>
-      <description>arXiv:2611.07270v1 Announce Type: new Abstract: Animals and humans often do not maximize; they act relative to goals (aspiration levels) that are frequently not yet met. How can a goal that is not (yet) realized organize choice? Deacon (2012) calls such absence-referenced organization \emph{ententional}, and Garc\'{i}a-Valdecasas and Deacon (2024) argue that ends are best understood as constraints rather than as particular states. We examine this idea in a minimal formal setting: Risk-sensitive Satisficing (RS), a bandit learning rule that values each action by its share of past trials multiplied by its surplus or shortfall relative to an aspiration level. We show that RS can be rewritten as a Bayesian-like estimator, Attention Competitive Bayes (ACB), in which the aspiration level is the prior mean of every action and the finite budget of trials sets how strongly evidence can override it. Two consequences follow. First, actions that are no longer sampled are partially overridden by the goal rather than by past observations: their estimates relax toward the aspiration level without any data being discarded. This ``pseudo-forgetting'' distinguishes ACB from models with an explicit forgetting rate. Second, when the aspiration is unattainable, exploration does not settle; in Bernoulli bandit simulations, adjusting the aspiration level from evidence reduced regret (expected loss). ACB offers an analyzable model in which an unattained goal and a limited attentional resource jointly constrain behavior, and it yields testable predictions about how organisms revalue options they have abandoned.</description>
-      <guid isPermaLink="false">sty_11d694da439ceba0</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Graph Neural Networks for Resource Allocation in Integrated Sensing and Communication [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07277</link>
-      <description>arXiv:2611.07277v1 Announce Type: new Abstract: In vehicular integrated sensing and communication (ISAC) networks, each service-provider vehicle uses a limited power budget to serve multiple sensing targets and communication receivers. Maximizing the communication sum-rate subject to sensing signal-to-interference-plus-noise ratio (SINR) constraints is nonconvex, and iterative optimization is costly to rerun for every network layout. This paper proposes a graph neural network (GNN)-based power allocation algorithm, termed GNN-ISAC. Concretely, GNN-ISAC addresses the aforementioned problem by considering two distinct edge types in the graph representation, one capturing the inter-provider interference, the other representing the intra-provider power-budget sharing. GNN-ISAC is trained without labels using a sensing-penalized sum-rate loss. We also adapt the weighted mean-square error minimization (WMMSE) algorithm to this problem by introducing a sensing-power reservation step. Simulation results show that GNN-ISAC achieves communication sum-rates close to WMMSE with low sensing-link violation rates and much less computation. It also outperforms an existing heterogeneous GNN and a channel-blind baseline, and generalizes to larger networks without retraining.</description>
-      <guid isPermaLink="false">sty_417b30c9cdb4aaca</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Scenario Augmentation for Rare Financial Events via Multimodal Latent Diffusion [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07282</link>
-      <description>arXiv:2611.07282v1 Announce Type: new Abstract: Extreme market movements are scarce, heterogeneous, and difficult to learn from imbalanced historical data. We study whether generative augmentation can improve the representation and classification of CVaR-labeled rare financial windows while retaining the complementary structure exposed by different financial representations. Each market window is expressed through three aligned modalities: structured market variables, a spatial image transformation, and a sequence of portfolio returns. Separate variational autoencoders map the modalities to compact latent codes, and a class-conditional diffusion model learns their joint latent distribution. Conditional Value-at-Risk (CVaR) provides a risk-aware definition of rare windows and directs generation toward the minority regime. Across four window lengths on U.S. technology equities, the resulting synthetic samples improve fidelity and support relative to tabular diffusion baselines. An XGBoost classifier trained with real and generated samples attains AUCs of 0.953 - 0.960, exceeding both tabular generators and the corresponding real-only baselines. These results show that multimodal latent generation can provide useful synthetic stress scenarios for data-scarce financial risk models.</description>
-      <guid isPermaLink="false">sty_7114088dec75ce91</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>How do Transformers Perform Low-Level Control In-Context? [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07291</link>
-      <description>arXiv:2611.07291v1 Announce Type: new Abstract: One of the remarkable abilities of Transformer-based neural networks is in-context learning. This motivates us to think about "in-context" control. Can we control a system knowing only (1) that it belongs to a particular family of systems and (2) some data on system evolution (provided as the context trajectory) but no specific parameter information? Specifically, we investigate the ability of Transformer-models to perform "in-context" control of unstable, nonlinear dynamical systems, where context consists only of the unforced system dynamics. We leverage a multi-head, GPT-2-style architecture, and we evaluate performance for two classical nonlinear systems -- the cartpole system and the two-link acrobot system, where the system parameters are unknown to the Transformer. We consider a setting where trajectories from an expert controller are available at training time but not at inference time. Here, we identify training techniques that are essential to train Transformers to perform low-level control. Through an analysis over checkpoints, we show that in-context control is possible, and the learned policy performance generally improves as context increases. Furthermore, the Transformer models can generalize to stabilize systems that are out-of-distribution.</description>
-      <guid isPermaLink="false">sty_a12e91dd65ecfcc4</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Provably Efficient Representation Learning for Low-Rank CMDPs [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07295</link>
-      <description>arXiv:2611.07295v1 Announce Type: new Abstract: We study representation learning in low-rank Constrained Markov Decision Processes (CMDPs), where both value and reward functions are approximated by a set of unknown representation vectors, and the transition dynamics admit a low-rank factorization. The objective is to maximize expected cumulative rewards while complying with constraints on the expected cumulative utility. To achieve this, we propose \texttt{MFRLC} (Model-Free Representation Learning for Low-Rank CMDP), a model-free algorithm that uses a primal-dual scheme to effectively balance reward regret and constraint violations. To the best of our knowledge, \texttt{MFRLC} is the first representation-learning method for low-rank CMDPs that combines the Least-Squares Value Iteration with Upper Confidence Bound (LSVI-UCB) and primal-dual techniques. \texttt{MFRLC} further enhances value function estimation with bonuses for function approximation and learns the mapping from representations to value functions directly, avoiding explicit estimation of the transition kernel. We prove that, with high probability, \texttt{MFRLC} achieves $\widetilde O(K^{3/4})$ reward regret and cumulative constraint violation over $K$ deployment rounds, independent of the size of the state space. To our knowledge, these are the first sublinear regret and violation guarantees for CMDPs with unknown features.</description>
-      <guid isPermaLink="false">sty_7766494361ec39d8</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>WeightLoop: Weight-Space Programming with Experimental Feedback [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07319</link>
-      <description>arXiv:2611.07319v1 Announce Type: new Abstract: Weight-space programming (WSP) shows that language models can reason about and rewrite neural network weights; recursive self-improvement (RSI) motivates feedback-driven improvement. Models guiding experiments receive concrete feedback: completed assays reveal prediction errors and inform what to test next. We introduce WeightLoop, a framework that turns experimental feedback into persistent updates to deployed predictors. GPT-6 Astra inspects a task specification and the model implementation, then writes a bounded, reusable parameter-editing program. As new measurements arrive, the program identifies prediction discrepancies, validates candidate edits using observed outcomes, and writes the selected changes back to the original model. The editor remains fixed while the predictor evolves, enabling repeated updates without further LLM calls or gradient retraining while preserving the original inference interface. In offline replay, targeted edits improve mean ranking utility in seven of eight endpoint-budget settings (all eight versus random edits) and mean final discovery across three sequential tasks. WeightLoop connects WSP with an RSI-inspired improvement loop, making experimental evidence a direct driver of model change and subsequent decisions.</description>
-      <guid isPermaLink="false">sty_574fb493b8ccf60a</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Rethinking Data Selection: The Importance of Coverage over Difficulty in LLM Fine-Tuning [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07323</link>
-      <description>arXiv:2611.07323v1 Announce Type: new Abstract: Selecting high-quality training data can reduce computation cost for LLM fine-tuning. Prior work on data selection developed a variety of difficulty-based scores, motivated by the intuition that harder examples are more informative. While effective for smaller classification models, we find that such methods often fail to outperform random selection for LLM fine-tuning. Our analysis reveals that random selection performs better because it is more representative of the underlying input space---i.e., has better coverage. To validate the importance of coverage, we implement a simple clustering-based selection method which selects data that is more representative of the underlying input distribution. On a set of diverse single-domain tasks, this method yields performance at or above that of random selection. On the diverse, multi-domain T\"{u}lu 3 mixture, where random sampling no longer guarantees a balanced subset, our method outperforms all methods. Overall, our results indicate that prioritizing coverage over difficulty leads to more effective data selection for LLM fine-tuning.</description>
-      <guid isPermaLink="false">sty_c76e3a73f462a572</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Permanent and Transient Representations for Continual Reinforcement Learning [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07327</link>
-      <description>arXiv:2611.07327v1 Announce Type: new Abstract: Continual Reinforcement Learning (CRL) agents struggle to adapt to new situations while retaining prior knowledge, leading to a stability-plasticity trade-off. One approach to solving this problem is by using complementary learning systems: one for slow, long-term learning and another for quick, transient adaptation. Anand &amp; Precup (2023) instantiated this idea using permanent and transient value functions, but used the same features in both systems. Intuitively, long-term learning should rely more on parametric representations for broad generalization, while transient learning would be best served by non-parametric representations for situation-specific adaptation. In this paper, we explore this idea both theoretically and empirically. By introducing a novel non-parametric approximation for estimating the transient value function in complex tasks, we demonstrate that our method enables online learning and outperforms competitive baselines on image-based tasks and Craftax-Classic, underscoring the effectiveness of our system-level decomposition.</description>
-      <guid isPermaLink="false">sty_54f570d8612d834e</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>AtlasULP: Domain-aware Universal Link Prediction via Relation Atlas [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07347</link>
-      <description>arXiv:2611.07347v1 Announce Type: new Abstract: Link prediction (LP) is a widely applied task in graph learning. Conventional LP approaches typically follow a dataset-specific paradigm, requiring independent training for each graph and incurring high computational and maintenance costs in large-scale applications. Motivated by these limitations, recent work explores Universal Link Prediction (ULP), aiming to enable training-free inference on arbitrary unseen graphs. However, existing methods primarily rely on subgraph sampling strategies to construct universal representations, which are unable to capture higher-order information due to the exponential growth of higher-order neighborhoods. As a result, they often under-perform on graphs where long-range signals are essential, such as biological networks. Moreover, their prediction models are typically domain-agnostic and lack the ability to adapt to different graph domains, leading to limited generalization. To address these challenges, we propose an Atlas-based Universal Link Prediction framework (AtlasULP), which introduces the relation atlas to capture structural associations between node pairs from both global and local perspectives, enabling a comprehensive characterization of connectivity signals across diverse graph domains. Building upon this representation, we develop a domain-guided prompting ULP model, which generates domain-aware prompt tokens from contextual structures and performs prompt-guided in-context prediction for adaptive link inference. Extensive experiments demonstrate that AtlasULP consistently outperforms state-of-the-art methods across diverse graph domains.</description>
-      <guid isPermaLink="false">sty_436d3c222d935c11</guid>
-      <pubDate>2026-11-06T05:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Acoustic Anomaly Detection for Early Identification of Drill Jamming [ ~ ] [ ◻ ]</title>
-      <link>https://arxiv.org/abs/2611.07356</link>
-      <description>arXiv:2611.07356v1 Announce Type: new Abstract: In the context of Industry 4.0, predictive maintenance is essential to minimize unplanned downtime and ensure operational safety. In machining processes, drill jamming is a critical failure that compromises both workpiece quality and tool integrity. This work proposes an acoustic anomaly detection system using ultrasonic sensors to identify pre-failure patterns in Computer Numerical Control (CNC) machining. We release a public dataset of time- and frequency-domain acoustic features from 17 drills, and benchmark semi-supervised autoencoder-based normality modelling against supervised XGBoost classification using Leave-One-Drill-Out validation. The results demonstrate that the Autoencoder is highly effective for industrial safety, achieving a Recall of 1.00 and a consolidated F1-score of 0.81. Furthermore, the threshold-independent analysis shows that the Autoencoder better separates normal and pre-failure acoustic patterns, achieving a consolidated AUC of 0.8294, compared with 0.7559 for the supervised model under inter-tool covariate shift. In contrast, the supervised XGBoost achieved an average F1-score of 0.55 and failed to detect failures in some of the evaluated drills. The findings highlight that the ultrasonic spectrum provides a reliable window for identifying incipient mechanical instabilities, and the AE model offers a robust safety envelope by anticipating all jamming events across the tested drill bits.</description>
-      <guid isPermaLink="false">sty_4f7b14ba2e3bcdc3</guid>
       <pubDate>2026-11-06T05:00:00Z</pubDate>
     </item>
   </channel>
