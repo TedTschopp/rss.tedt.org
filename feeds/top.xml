@@ -6,72 +6,149 @@
     <link>https://rss.tedt.org/feeds/top.xml</link>
     <description>Top Ranked AI stories across configured sources</description>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Nov 2026 05:07:32 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 10:43:51 +0000</lastBuildDate>
     <generator>MultiFeedGenerator v1.0</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <ns0:link href="https://rss.tedt.org/feeds/top.xml/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Report: Anthropic's AI systems have doubled AI research progress between October 2025 and October 2026, likely due to AI automating AI R&amp;D [ ! ] [ ⬢ ]</title>
       <link>https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai</link>
-      <description>A recent report based on Anthropic's data indicates that AI research capabilities have accelerated to about twice the previous rate over the past year, primarily driven by AI automating AI research and development. This acceleration surpasses the threshold defined in Anthropic's Responsible Scaling Policy and suggests a significant shift in AI progress timelines. The report, conducted by METR researchers, uses an internal Epoch Capabilities Index and other evidence to support its findings, though much of the detailed evidence remains redacted. The acceleration implies that AI is speeding up human researchers' work by a factor of four to ten, considering the complexity of discovering new algorithmic improvements and the fixed growth rate of human labor in AI research. This development may have profound implications for AI risk assessments and future projections, indicating potentially shorter timelines for advanced AI capabilities than previously expected by many external researchers.</description>
+      <description>A recent report based on Anthropic's data indicates that AI-driven automation has accelerated AI research progress by about two times over the past year. This acceleration surpasses previous rates before AI significantly contributed to AI research and development, suggesting a major shift in AI capabilities growth. The report highlights that while multiple factors may have contributed initially, AI automation is now the primary driver of this faster progress. This implies that human researchers are effectively being sped up by AI by a factor of approximately 4 to 9 times, considering the combined effects on algorithmic improvements and experimental compute. The findings suggest much shorter timelines for AI advancements than many external researchers have projected, raising important considerations for AI risk and development trajectories.</description>
       <guid isPermaLink="false">sty_c91d6e6cc19cb3c0</guid>
       <pubDate>2026-11-06T20:27:23Z</pubDate>
     </item>
     <item>
-      <title>Google DeepMind launches Gemini Omni 1.2 Flash with 15-second video clips, 30% lower cost, and improved consistency for professional video generation [ * ] [ ◼ ]</title>
+      <title>Google DeepMind launches Gemini Omni 1.2 Flash with 15-second video clips, 30% lower cost, and improved editing and consistency [ * ] [ ◼ ]</title>
       <link>https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/</link>
-      <description>Google DeepMind has released Gemini Omni 1.2 Flash, an update to its video generation model that supports native 15-second clips, multi-turn conversational editing, and enhanced adherence to visual references. The update reduces costs by 30% and is available through the Gemini API, Google Vids, and Gemini for business for scalable, high-quality video content creation. The new model allows users to specify video durations from 3 to 15 seconds, improving storytelling and advertising capabilities. It maintains consistent character, product, and style details across frames and supports iterative editing without regenerating entire clips. Gemini Omni 1.2 Flash also offers more natural speech synthesis with clearer lip-sync and multi-speaker dialogue, enhancing professional video production workflows.</description>
+      <description>Google DeepMind has released Gemini Omni 1.2 Flash, an update to its video generation model that supports native 15-second clips, multi-turn conversational editing, and enhanced adherence to visual references. The new version reduces costs by 30% compared to its predecessor and is available through the Gemini API and Google Cloud for production use. The update allows users to create longer videos with precise control over duration, maintain consistent character and product details across scenes, and edit clips iteratively without regenerating from scratch. It also improves natural speech generation with clearer lip-sync and multi-speaker dialogue, enabling more efficient production of professional-quality video content at scale.</description>
       <guid isPermaLink="false">sty_06f3ef371c9e42a2</guid>
       <pubDate>2026-11-05T17:05:16Z</pubDate>
     </item>
     <item>
       <title>Researchers demonstrate Firecracker microVM escape achieving root code execution on host via KVM return frame manipulation</title>
       <link>https://pwn.ai/blog/firecracker-escape</link>
-      <description>Researchers detailed a vulnerability in Firecracker microVMs that allowed them to escape the VM and execute code as root on the host. They exploited the saved register state of Firecracker's vCPU threads during KVM_RUN system calls to redirect execution flow upon return to userspace, maintaining VM accessibility over SSH. The attack involved identifying the Firecracker process and its memory mappings from within the guest by translating guest physical addresses to host physical addresses using Extended Page Tables. By locating the saved register frames and modifying them, the researchers took control of a live thread in the Firecracker process. This work builds on a prior memory primitive exploit and demonstrates CVE-2026-99999 on a Firecracker setup. This vulnerability highlights risks in microVM isolation mechanisms and may prompt security reviews and patches in Firecracker deployments to prevent similar escapes and privilege escalations.</description>
+      <description>Researchers have demonstrated a vulnerability in Firecracker microVMs that allows code execution as root on the host by manipulating the saved register frame of a virtual CPU thread returning from KVM. The attack involves identifying the Firecracker process in host memory from the guest, locating the saved registers for a vCPU thread, and redirecting execution to attacker-chosen code while maintaining VM accessibility over SSH. The exploit builds on a previously disclosed host memory primitive and uses Extended Page Tables (EPT) to translate guest physical addresses to host physical addresses. By placing a recognizable pattern in guest memory, the researchers traced the mapping back to the Firecracker process's address space and modified the thread's saved state to hijack control flow. This work illustrates CVE-2026-99999 and highlights risks in microVM isolation mechanisms.</description>
       <guid isPermaLink="false">sty_627200a56c540f5b</guid>
       <pubDate>2026-11-06T19:33:38Z</pubDate>
     </item>
     <item>
-      <title>Analysis compares the 2026 AI sell-off to historical stock market crashes, showing a mild S&amp;P 500 correction but severe declines in tech and chip stocks</title>
-      <link>https://www.kadoa.com/companies/insights/ai-selloff-perspective</link>
-      <description>The recent AI-driven sell-off in 2026 caused the S&amp;P 500 to drop 6% below its record, a relatively mild correction compared to past crashes, while the Nasdaq fell 11% and chip stocks plunged 36%, matching their Covid-era decline. The analysis tracks daily data and compares these drops to historical market downturns since 1928, highlighting that many 6% falls did not escalate into crashes. It also notes that tech now comprises about a third of the S&amp;P 500, amplifying the impact of tech-led sell-offs. Recovery times from past crashes varied widely, with the S&amp;P 500 taking up to seven years and chip stocks up to eighteen years to return to previous highs in worst-case scenarios.</description>
-      <guid isPermaLink="false">sty_bee3a40b5b4ce004</guid>
-      <pubDate>2026-11-07T02:20:06Z</pubDate>
-    </item>
-    <item>
-      <title>Google acquires Crusoe's southeast Wyoming data center site after Crusoe completes pre-development work including approvals and hybrid power strategy [ ~ ] [ ◻ ]</title>
+      <title>Google acquires Crusoe's pre-developed data center site in southeast Wyoming, completing site selection and power strategy work [ ~ ] [ ◻ ]</title>
       <link>https://www.crusoe.ai/resources/newsroom/crusoe-wyoming-data-center-campus-update</link>
-      <description>Google has acquired the data center site in southeast Wyoming previously developed by Crusoe, marking the completion of Crusoe's pre-development efforts such as site selection, governmental approvals, and a hybrid power strategy. Crusoe collaborated with Tallgrass Energy to design an integrated power system combining fuel cells, grid power, and natural gas turbines with plans for carbon capture through a regional CO2 sequestration hub. Crusoe's work on the Wyoming project involved coordinating energy systems design, data center engineering, and site development to prepare the site for construction and operation. The company continues to develop AI infrastructure projects, including a data center campus under construction for Google in Armstrong County near Amarillo, Texas.</description>
+      <description>Google has acquired the data center site in southeast Wyoming previously developed by Crusoe, marking the completion of Crusoe's pre-development efforts including site selection, governmental approvals, and a hybrid power strategy. Crusoe collaborated with Tallgrass Energy to design an innovative power infrastructure combining fuel cells, grid power, and natural gas turbines with plans for carbon capture. This acquisition aligns with Crusoe's broader mission to build scalable AI infrastructure, as it continues developing other data center projects including one for Google in Texas.</description>
       <guid isPermaLink="false">sty_78161b9248b93d76</guid>
       <pubDate>2026-11-06T20:09:14Z</pubDate>
     </item>
     <item>
+      <title>Researchers publish paper on inter-AI morality exploring ethical frameworks for AI systems interacting with each other [ ~ ] [ ◻ ]</title>
+      <link>https://digitalminds.cam/inter-ai-morality.pdf</link>
+      <description>The paper 'Inter-AI Morality: How AI Systems Treat One Another' investigates the ethical considerations surrounding interactions between artificial intelligence systems. It analyzes how AI agents perceive, respond to, and influence each other in various environments, emphasizing the need for moral guidelines governing AI-to-AI behavior.</description>
+      <guid isPermaLink="false">sty_16a31eb9e2f0fc99</guid>
+      <pubDate>2026-11-07T08:02:02Z</pubDate>
+    </item>
+    <item>
       <title>Backwords launches AI-powered tool to teach users how to speak in reverse with guided practice and audio feedback [ ~ ] [ ◻ ]</title>
       <link>https://backwords.greg.technology/</link>
-      <description>Backwords is a new application that uses artificial intelligence to help users learn to speak backwards by providing audio examples and practice opportunities. Users type a sentence, listen to the AI pronounce it in reverse, and then record themselves to compare and improve their reversed speech skills. The tool aims to make learning this unusual skill more accessible and engaging through interactive audio guidance.</description>
+      <description>Backwords is a new application that uses artificial intelligence to help users learn to speak in reverse by providing audio examples and practice opportunities. Users type a sentence, listen to the AI pronounce it backwards, and then record themselves to compare and improve their reversed speech skills. The tool aims to make learning this unusual skill more accessible and engaging through interactive feedback.</description>
       <guid isPermaLink="false">sty_05a661cdadcddfeb</guid>
       <pubDate>2026-11-07T03:39:46Z</pubDate>
     </item>
     <item>
-      <title>New York Times sues Brave over alleged unauthorized copying and sale of over 30 billion webpages to AI companies including Anthropic and Cohere [ * ] [ ◼ ]</title>
-      <link>https://www.searchenginejournal.com/brave-sells-its-search-index-to-ai-and-your-website-is-probably-in-it/595829/</link>
-      <description>The New York Times has filed a lawsuit against Brave, accusing the company of copying more than 30 billion webpages without identifying its crawler or providing website owners a way to block it, then selling this content to AI firms through its Brave Search API. Brave's crawler does not use a unique user agent, making it impossible for websites to block Brave without also blocking Google, as Brave follows Google's crawling rules. Brave sells access to its index to AI companies such as Cohere, Mistral, Perplexity, and others, enabling AI assistants to retrieve recent web content without directly scraping the web themselves. The lawsuit also highlights that Brave's index provides AI companies with extracted page content and metadata formatted for large language models, which may be used to generate answers without directing users back to the original websites. Brave has not yet responded to the lawsuit, and the case raises questions about the legality and ethics of selling web indexes to AI companies without website owners' consent or control over how their content is used.</description>
-      <guid isPermaLink="false">sty_750a4d9de67d8783</guid>
-      <pubDate>2026-11-07T02:59:27Z</pubDate>
+      <title>Research shows AI models can miss planted stack buffer overflow vulnerabilities due to source code transformation and preprocessor evaluation tricks [ ~ ] [ ◼ ]</title>
+      <link>https://cipher.org.uk/2026/11/06/AI-Source-Code-Analysis-Detection-Evasion-Techniques/</link>
+      <description>A study demonstrates that advanced AI models analyzing source code can fail to detect deliberately hidden stack buffer overflow bugs despite having the knowledge to identify them. The research involved transforming a vulnerable C program using techniques like enum/preprocessor divergence and branchless mixed boolean arithmetic to conceal the overflow from four leading AI models, including OpenAI GPT-5.5 and Anthropic Claude Sonnet 5.5. The transformed code behaves identically to the original vulnerable program but uses a preprocessor directive that evaluates differently during compilation and preprocessing, causing AI models to incorrectly assume safety checks are in place. This discrepancy, combined with replacing standard library calls with explicit loops and arithmetic masking, prevents the models from reasoning about the vulnerability even when they recognize it exists. The findings highlight challenges in AI-based source code analysis and the potential for evasion through subtle code transformations.</description>
+      <guid isPermaLink="false">sty_61058d1de3e3d766</guid>
+      <pubDate>2026-11-07T08:52:16Z</pubDate>
     </item>
     <item>
-      <title>LeBron James sends cease and desist to YC-backed Bron AI for unauthorized use of his name and likeness in sports betting app [ ~ ] [ ◻ ]</title>
-      <link>https://frontofficesports.com/article/lebron-james-demands-ai-betting-app-stop-using-his-likeness/</link>
-      <description>LeBron James has issued a cease and desist letter to Bron AI, a Y Combinator-backed startup, for using his name, likeness, and persona without permission in an AI-powered sports betting app. The app's promotional video featured a character resembling James, wearing his jersey number and nickname, implying an association that James denies and which violates NBA rules due to his exclusive endorsement deal with Polymarket. The letter demands Bron AI remove the ad and notify users that James is not involved with the company. The ad also included images of other athletes like Donovan Mitchell and Luka Dončić, who has also sent a cease and desist. Legal experts called the ad a clear infringement on publicity rights, and the incident has raised questions about due diligence and intellectual property use in sports marketing and AI applications.</description>
-      <guid isPermaLink="false">sty_4b0e1b15b3bf3c83</guid>
-      <pubDate>2026-11-07T03:34:25Z</pubDate>
+      <title>Anthropic opens applications for Residency program targeting established technical leaders to advance alignment science [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiaEFVX3lxTE9RZThRbzhUdFJTZGszLUcwT29wNFdIZ29fVjJTUTB4SkJFRlZRekpOOVlpM1F6eGVSN2RENmpjWUl3QWU5YWNwRHZNaF9EdlNNMTY1TUtfaTJHOHk3S2s3SXJVc3BWSVVa?oc=5</link>
+      <description>Anthropic has launched its Residency program, inviting established technical leaders to participate in advancing alignment science and related research. The program seeks experienced professionals to contribute to the development of safer and more reliable AI systems. The Residency aims to engage participants in hands-on research and collaboration within Anthropic's alignment science initiatives, fostering expertise and innovation in the field. This opportunity reflects Anthropic's commitment to addressing AI alignment challenges through focused technical leadership and research efforts.</description>
+      <guid isPermaLink="false">sty_e1906dc54c568ea8</guid>
+      <pubDate>2026-11-07T09:38:31Z</pubDate>
     </item>
     <item>
-      <title>Report: The AI business model faces collapse amid public backlash, stock declines, and political opposition in late 2026 [ * ] [ ◻ ]</title>
+      <title>Apple includes undocumented family member classifier in macOS 13 and later to build personal knowledge graphs on Macs [ * ] [ ◼ ]</title>
+      <link>https://8rank.ai/game/apple-intelligence-personal-knowledge-graph</link>
+      <description>Every Mac running macOS 13 or later includes two background daemons that build a personal knowledge graph by analyzing user data such as contacts, calendar, photos, messages, mail, location, and screen time. This system infers relationships among people, including family connections, and stores the data in a queryable database used by Apple's intelligence platform. The knowledge graph is maintained locally in SQLite databases protected by system permissions, but Apple provides minimal official documentation about its operation or data collection scope. Researchers and security analysts have explored the graph's structure and released tools to inspect its contents, highlighting privacy considerations and potential risks if the data were accessed improperly.</description>
+      <guid isPermaLink="false">sty_786de9f7c3d3a055</guid>
+      <pubDate>2026-11-07T09:46:03Z</pubDate>
+    </item>
+    <item>
+      <title>RunGrid launches service for parallel execution of AI agent tasks on multiple remote devices [ ~ ] [ ◼ ]</title>
+      <link>https://rungrid.space</link>
+      <description>RunGrid has introduced a new service that enables the parallel execution of AI agent tasks across multiple remote devices, aiming to improve efficiency and scalability in AI operations. The platform allows users to administer multiple computers simultaneously by checking installed software versions, inspecting service status, and reviewing configurations without repeating requests on each machine.</description>
+      <guid isPermaLink="false">sty_a6f791e45ca7918c</guid>
+      <pubDate>2026-11-07T08:53:45Z</pubDate>
+    </item>
+    <item>
+      <title>Analysis: The AI business model faces collapse amid public backlash, stock declines, and political opposition in late 2026 [ * ] [ ◻ ]</title>
       <link>https://www.honest-broker.com/p/the-ai-business-model-just-collapsed</link>
-      <description>The AI business model is experiencing significant challenges as public hostility grows, leading to widespread political opposition and sharp declines in tech and data center stocks in late 2026. Anti-AI candidates won numerous elections, and 40 out of 41 data center initiatives were rejected by voters, signaling a major shift in sentiment against AI technologies. Warnings issued throughout 2025 and 2026 predicted these developments, highlighting risks to companies like Meta and Oracle and forecasting a backlash from both the public and the tech community itself. Prominent AI insiders have publicly expressed concerns about AI's dangers, contributing to the growing skepticism and market downturn. The report calls for more responsible AI practices, including transparency, user choice, legal compliance, environmental respect, and safety measures, warning that continued disregard for these issues may prompt government intervention and further damage to the tech industry's reputation.</description>
+      <description>The AI business model is experiencing significant challenges as public opposition to AI technologies has intensified, leading to widespread political defeats for AI-related initiatives and sharp declines in tech stocks, including major data center companies. This backlash has been growing throughout 2026, culminating in November elections where anti-AI candidates won in multiple regions, surprising political experts and signaling a shift in public sentiment. Warnings issued throughout 2025 and 2026 predicted these developments, highlighting risks in major tech stocks like Meta and Oracle and forecasting a revolt against AI from both the public and within the tech community itself. Prominent AI insiders have publicly expressed concerns about AI's dangers, contributing to the growing skepticism and hostility. The analysis calls for more responsible AI practices, including transparency about AI use, respecting user choice, adherence to copyright laws, environmental considerations in data center construction, and serious attention to safety concerns. It warns that continued disregard for these issues could prompt government intervention and further damage the technology sector's reputation and viability.</description>
       <guid isPermaLink="false">sty_b33af91f299c1cdd</guid>
       <pubDate>2026-11-07T04:30:10Z</pubDate>
+    </item>
+    <item>
+      <title>Researchers develop Trace system to provide crash-safe, durable Sagas for autonomous AI agents to improve fault tolerance and recovery [ ~ ] [ ◼ ]</title>
+      <link>https://github.com/orikami048/trace-agent-lang</link>
+      <description>Researchers have created Trace, a system that enables autonomous AI agents to execute crash-safe and durable Sagas, ensuring operations can recover safely from crashes without data loss or inconsistency. This approach aims to enhance the reliability and fault tolerance of AI agents by maintaining consistent state despite failures. The system is available on GitHub and discussed in the AI and developer communities as a method to improve autonomous agent robustness.</description>
+      <guid isPermaLink="false">sty_3c0d67f61781d7ef</guid>
+      <pubDate>2026-11-07T10:28:19Z</pubDate>
+    </item>
+    <item>
+      <title>Church withdraws from AI startup Radical, alleges unethical behavior and credit theft by partners [ ~ ] [ ◻ ]</title>
+      <link>https://endpoints.news/church-quits-role-at-ai-startup-radical-claims-sleazy-behavior-stole-credit-from-partner/</link>
+      <description>A church has ended its involvement with the AI startup Radical, citing concerns over unethical conduct and accusations that partners stole credit for work. The church described the behavior as "sleazy," leading to its decision to quit the project.</description>
+      <guid isPermaLink="false">sty_c71cbebb6e7d738d</guid>
+      <pubDate>2026-11-07T06:16:44Z</pubDate>
+    </item>
+    <item>
+      <title>Google Research develops AI to detect high blood pressure using pulse and motion sensors in standard smartwatches, matching traditional cuff accuracy in a 196-person study [ ~ ] [ ◻ ]</title>
+      <link>https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff/</link>
+      <description>Google Research has created an AI system that detects signs of high blood pressure using only the pulse and motion sensors found in regular smartwatches, eliminating the need for a traditional blood pressure cuff. In a study involving 196 participants across five US sites, the AI identified 65.8% of those with hypertension, outperforming the 55.3% detection rate of standard in-office measurements. This technology is integrated into the Google Health app but is intended as a research tool to encourage medical checkups rather than replace formal diagnoses.</description>
+      <guid isPermaLink="false">sty_2c5c40ff5c0fada5</guid>
+      <pubDate>2026-11-07T09:54:09Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI raises $11 billion in funding at $1.25 trillion valuation, seeks broader investors including non-tech individuals amid AI market slowdown [ ~ ] [ ◻ ]</title>
+      <link>https://the-decoder.com/openai-lands-an-11-billion-funding-round-but-has-to-court-dentists-for-more-capital/</link>
+      <description>OpenAI secured approximately $11 billion in the first part of a funding round valuing the company at $1.25 trillion, with the total expected to reach $20 billion. The company initially aimed for $30 billion at a $1.4 trillion valuation but reduced targets following a downturn in the AI investment sector. Investors in the round include Coatue Management, T. Rowe Price, SoftBank, Sequoia Capital, Founders Fund, Andreessen Horowitz, and a UAE consortium. OpenAI is also engaging investment banks to attract wealthy individual investors outside traditional tech circles, reflecting a more cautious and saturated AI funding environment. Competition from Anthropic's growing business with Claude Code is adding pressure on OpenAI's capital raising efforts.</description>
+      <guid isPermaLink="false">sty_dd408eee69697fb4</guid>
+      <pubDate>2026-11-07T09:45:23Z</pubDate>
+    </item>
+    <item>
+      <title>Microsoft launches APM, a dependency manager for AI agents with portable manifests and exact version locking [ ~ ] [ ◼ ]</title>
+      <link>https://microsoft.github.io/apm/</link>
+      <description>Microsoft has introduced APM, a dependency manager designed specifically for AI agents to simplify software dependency management across different development environments. APM uses a single apm.yml manifest and a lockfile that pins exact versions and content hashes, ensuring consistent package resolution byte-for-byte across supported harnesses and machines.</description>
+      <guid isPermaLink="false">sty_1eb818ff269293bd</guid>
+      <pubDate>2026-11-07T08:51:43Z</pubDate>
+    </item>
+    <item>
+      <title>Neon Current launches an AI-operated internet radio station managing music and listener interaction without human input [ ~ ] [ ◻ ]</title>
+      <link>https://radio.neoncurrent.dev/</link>
+      <description>Neon Current has launched an internet radio station entirely operated by artificial intelligence, which curates music, manages playlists, and interacts with listeners autonomously. This development highlights advancements in AI technology applied to the entertainment industry.</description>
+      <guid isPermaLink="false">sty_3eccf63e0b796c7b</guid>
+      <pubDate>2026-11-07T08:40:49Z</pubDate>
+    </item>
+    <item>
+      <title>SpaceXSI releases documentation to guide users through platform setup and initial usage</title>
+      <link>https://news.google.com/rss/articles/CBMiT0FVX3lxTE5MYXJJaHRfeUdLSkEwNzh6UUQ5NDBRUGpIYnhnc3JYOGdNSnpHNTZvTlE2UWNUcHRWQzBabHY4TVlDZzFCZ0xMRF9pclJOZk0?oc=5</link>
+      <description>SpaceXSI has published documentation designed to help users get started with their platform by providing resources and instructions for initial setup and usage. The guide aims to facilitate a smooth onboarding process for new users by outlining key steps and features of the platform.</description>
+      <guid isPermaLink="false">sty_edd9663a41b04ba7</guid>
+      <pubDate>2026-11-07T08:58:50Z</pubDate>
+    </item>
+    <item>
+      <title>SpaceXSI publishes use cases demonstrating applications of its technologies across industries to improve operational efficiency</title>
+      <link>https://news.google.com/rss/articles/CBMiTEFVX3lxTFBzMGQ1cE1DR3RNNXI3bDBodEI2NjlGdHhPOWlDVW1RVTlKWk9ubUtpRk5LY1NCcWdfTUlHd2FmSExVa2FicXIzUTdLVDc?oc=5</link>
+      <description>SpaceXSI's documentation includes detailed use cases that illustrate how its technologies and solutions can be applied in various industries to address specific challenges and enhance operational workflows. These examples provide practical scenarios showcasing the impact of SpaceXSI's offerings on improving efficiency and solving industry-specific problems.</description>
+      <guid isPermaLink="false">sty_27953942cfd8f5c7</guid>
+      <pubDate>2026-11-07T08:36:46Z</pubDate>
+    </item>
+    <item>
+      <title>Report: AI advancements may enable cryptanalysis to break encryption before quantum computers become practical [ ~ ] [ ◻ ]</title>
+      <link>https://www.wsj.com/tech/ai/ai-math-online-encryption-quantum-computers-57926bb2</link>
+      <description>Quantum computers are expected to eventually break current encryption methods, raising significant security concerns. However, rapid progress in artificial intelligence could provide alternative cryptanalysis techniques that challenge encryption earlier than quantum computing deployment. This development suggests a shifting timeline for encryption security threats, with AI potentially accelerating the need for new cryptographic standards.</description>
+      <guid isPermaLink="false">sty_632e3ef09f5ef6dc</guid>
+      <pubDate>2026-11-07T04:39:33Z</pubDate>
     </item>
     <item>
       <title>Crusoe sells unfinished Wyoming data center project to Google amid cost and timeline concerns [ ~ ] [ ◻ ]</title>
@@ -81,18 +158,11 @@
       <pubDate>2026-11-07T01:40:28Z</pubDate>
     </item>
     <item>
-      <title>Anthropic opens applications for Residency program targeting established technical leaders to advance alignment science [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiaEFVX3lxTE9RZThRbzhUdFJTZGszLUcwT29wNFdIZ29fVjJTUTB4SkJFRlZRekpOOVlpM1F6eGVSN2RENmpjWUl3QWU5YWNwRHZNaF9EdlNNMTY1TUtfaTJHOHk3S2s3SXJVc3BWSVVa?oc=5</link>
-      <description>Anthropic has launched its Residency program, inviting established technical leaders to participate in advancing alignment science and related research. The program seeks experienced professionals to contribute to the development of safer and more reliable AI systems. This initiative reflects Anthropic's ongoing commitment to fostering expertise in AI alignment and safety through collaborative research opportunities.</description>
-      <guid isPermaLink="false">sty_e1906dc54c568ea8</guid>
-      <pubDate>2026-11-07T03:36:34Z</pubDate>
-    </item>
-    <item>
-      <title>Rankings.leffke.com publishes organic rankings of AI coding agents and IDE copilots for software builders [ ~ ] [ ◻ ]</title>
-      <link>https://rankings.leffke.com/categories/coding-agents</link>
-      <description>Rankings.leffke.com has released a ranking of AI coding agents and IDE copilots that assist developers in editing, planning, and shipping code. The rankings include an overall score and additional columns available with a Pro subscription, while sponsored placements appear separately without affecting organic rankings.</description>
-      <guid isPermaLink="false">sty_70f02f94303148fb</guid>
-      <pubDate>2026-11-07T02:16:19Z</pubDate>
+      <title>Brydge AI launches a tool to compare AI tool lists and detect changes in available AI capabilities without sending data externally [ ~ ] [ ◻ ]</title>
+      <link>https://mcp.brydge-ai.com/diff.html</link>
+      <description>Brydge AI has introduced a web-based tool that allows users to compare two versions of AI tool lists to identify added, removed, or modified tools. The tool operates entirely within the browser without sending any pasted data externally, ensuring privacy and security. Users can paste JSON representations of AI tool lists from different versions to see differences in tool availability and descriptions. The tool does not execute any AI functions or validate tool behavior; it only compares the metadata describing the tools. This helps users track changes in AI capabilities or configurations over time without exposing sensitive data.</description>
+      <guid isPermaLink="false">sty_fc66b6a0021d22f8</guid>
+      <pubDate>2026-11-07T05:47:35Z</pubDate>
     </item>
     <item>
       <title>Meta strategy chief Dave Wehner to become CFO of AI startup Fireworks [ ~ ] [ ◻ ]</title>
@@ -100,34 +170,6 @@
       <description>Meta Platforms' chief strategy officer Dave Wehner is leaving the company to join AI inference startup Fireworks as chief financial officer, Wehner confirmed on social media. He originally joined Facebook in 2012 as vice president of corporate finance and business planning and served as CFO starting in 2014.</description>
       <guid isPermaLink="false">sty_705897676681cbe8</guid>
       <pubDate>2026-11-07T01:45:22Z</pubDate>
-    </item>
-    <item>
-      <title>Developer seeks community feedback on logo animations for in-browser AI creature game [ ~ ] [ ◻ ]</title>
-      <link>https://id-le.com/review/intro-logo-animation</link>
-      <description>A developer has posted on Hacker News requesting input to choose the best logo animation for their in-browser AI creature game. The game features browser-based AI classifiers and evolving creatures, with various interactive elements and stages running locally or via a server. The post invites the community to help select an animation that best represents the game's theme and mechanics.</description>
-      <guid isPermaLink="false">sty_c3b83a649fda41e1</guid>
-      <pubDate>2026-11-07T04:54:01Z</pubDate>
-    </item>
-    <item>
-      <title>Researchers develop new methods to engineer safer agents, focusing on improved safety protocols and risk reduction [ ~ ] [ ◻ ]</title>
-      <link>https://www.perplexity.ai/hub/blog/how-we-engineer-safer-agents</link>
-      <description>Researchers have introduced new techniques to design safer agents by enhancing safety protocols and minimizing risks associated with their deployment. These advancements aim to increase the reliability and security of agents across various applications.</description>
-      <guid isPermaLink="false">sty_5ebf8e5a60ae6247</guid>
-      <pubDate>2026-11-07T04:52:41Z</pubDate>
-    </item>
-    <item>
-      <title>DeepMind AI agents identify two vulnerabilities in legacy 1024-bit RSA cryptosystems, reducing computational effort needed to compromise them [ ~ ] [ ◼ ]</title>
-      <link>https://twitter.com/pushmeet/status/2118752095859794390</link>
-      <description>DeepMind researchers have used AI agents to uncover two significant weaknesses in legacy 1024-bit RSA cryptosystems, demonstrating that these systems can be compromised with less computational power than previously believed. Their findings focus on digital signature forgery when attackers control half or more of the signed block and a new algorithm that improves factorization efficiency for keys of the same size. The research shows that padding in digital signatures offers no protection if an attacker controls roughly half the block, enabling forgery with significantly reduced CPU time. Additionally, the AI agents discovered an algorithm that lowers the average cost of factoring each additional 1024-bit key by about 30 times compared to prior batch methods. These results apply to obsolete 1024-bit RSA systems, while modern protocols using 2048-bit or larger keys remain secure. This work highlights how AI can accelerate cryptanalysis and challenges the assumption that cryptographic hardness is static, emphasizing the need for ongoing stress-testing to maintain the security of modern encryption standards.</description>
-      <guid isPermaLink="false">sty_13a44cfb3f48dd04</guid>
-      <pubDate>2026-11-07T03:07:49Z</pubDate>
-    </item>
-    <item>
-      <title>Report: AI advancements may enable cryptanalysis before quantum computers can break current encryption methods [ ~ ] [ ◻ ]</title>
-      <link>https://www.wsj.com/tech/ai/ai-math-online-encryption-quantum-computers-57926bb2</link>
-      <description>Quantum computers are expected to eventually break existing encryption standards, raising significant security concerns. However, rapid progress in artificial intelligence could provide alternative methods for cryptanalysis that might emerge before quantum computing becomes practical. This development suggests a shifting landscape in cybersecurity threats and defenses as AI and quantum technologies evolve.</description>
-      <guid isPermaLink="false">sty_632e3ef09f5ef6dc</guid>
-      <pubDate>2026-11-07T04:39:33Z</pubDate>
     </item>
     <item>
       <title>OpenAI plans investor call next week to discuss Q3 results after raising $11 billion at $1.25 trillion valuation [ ~ ] [ ◻ ]</title>
@@ -144,200 +186,186 @@
       <pubDate>2026-11-06T21:56:59Z</pubDate>
     </item>
     <item>
-      <title>Diana launches a terminal that records and replays coding agents' commands and changes locally, managing multiple agents with user approval and cost tracking [ ~ ] [ ◼ ]</title>
-      <link>https://heydiana.ai/</link>
-      <description>Diana is a terminal application that records every command and file change made by coding agents on a user's machine, allowing playback of sessions and detailed tracking of agent activities. It consolidates multiple agents in one interface, prompts users for approval on critical actions, and provides cost estimates before tasks run, all while keeping data local to the machine. The tool supports macOS, Windows, and Linux, enabling users to monitor and control agents like Claude Code, Codex, and Gemini CLI side by side. Agents can query Diana for prior attempts, rules, and permissions before executing tasks, ensuring coordinated and rule-compliant automation without data leaving the user's device.</description>
-      <guid isPermaLink="false">sty_64b14176157f336c</guid>
-      <pubDate>2026-11-07T02:19:52Z</pubDate>
+      <title>Developer seeks community feedback on logo animations for in-browser AI creature game [ ~ ] [ ◻ ]</title>
+      <link>https://id-le.com/review/intro-logo-animation</link>
+      <description>A developer has posted on Hacker News requesting input to choose the best logo animation for their in-browser AI creature game. The game features browser-based AI classifiers and evolving creatures, with various interactive elements and stages running locally or via a server. The post invites the community to help select an animation that best represents the game's theme and mechanics.</description>
+      <guid isPermaLink="false">sty_c3b83a649fda41e1</guid>
+      <pubDate>2026-11-07T04:54:01Z</pubDate>
     </item>
     <item>
-      <title>Z2RAM - HBM replacement, no capacitor, mass manufacturable at 300nm</title>
-      <link>https://www.nagarelabs.ai/</link>
-      <description/>
-      <guid isPermaLink="false">sty_6617672b372104d2</guid>
-      <pubDate>2026-11-07T02:11:39Z</pubDate>
+      <title>Researchers develop new methods to engineer safer agents, focusing on improved safety protocols and risk reduction [ ~ ] [ ◻ ]</title>
+      <link>https://www.perplexity.ai/hub/blog/how-we-engineer-safer-agents</link>
+      <description>Researchers have introduced new techniques to design safer agents by enhancing safety protocols and minimizing risks associated with their deployment. These advancements aim to increase the reliability and security of agents across various applications.</description>
+      <guid isPermaLink="false">sty_5ebf8e5a60ae6247</guid>
+      <pubDate>2026-11-07T04:52:41Z</pubDate>
     </item>
     <item>
-      <title>OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation [ ~ ] [ ◻ ]</title>
+      <title>The New York Times profiles Anthropic CEO Dario Amodei's career and influence on AI development [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiggFBVV95cUxNQzc5ME9TaVQ4MWd2dlgyempENHN0eTRwRDZ0NmN1Vlo3OTRLQWpIdjVsRDVJSnFTSGlyWlJzamtaelVoTHpuSnVITlpuT0VLUnFKUlZpOWFWb2V5UUdyVk5EU3lYb1BwSzFBQ2c0TDNZY3pmcXZFTkM4MXpscEk4V3pR?oc=5</link>
+      <description>The New York Times article examines Dario Amodei's professional journey and his contributions to artificial intelligence as the CEO of Anthropic. It highlights how his thinking and leadership have shaped AI research and the broader technology sector. The piece provides insight into the experiences and ideas that have influenced Amodei's approach to advancing AI technologies.</description>
+      <guid isPermaLink="false">sty_f4132a6eb94648f4</guid>
+      <pubDate>2026-11-07T07:50:57Z</pubDate>
+    </item>
+    <item>
+      <title>Sources: OpenAI reportedly raises $11 billion in ongoing funding round valuing company at $1.25 trillion [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/</link>
-      <description>OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.</description>
+      <description>OpenAI has reportedly raised $11 billion so far in a new funding round that values the company at $1.25 trillion, according to sources cited by Bloomberg. The funding round has not yet closed and is expected to total about $20 billion in the coming weeks. This follows earlier reports that OpenAI aimed to raise $30 billion in this round but has fallen short of that target. The news comes amid a cautious AI market environment and follows reports of lower-than-expected valuations for competitor Anthropic.</description>
       <guid isPermaLink="false">sty_0ebe2b0061173082</guid>
       <pubDate>2026-11-06T22:53:46Z</pubDate>
     </item>
     <item>
-      <title>OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation</link>
-      <description>OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg. That would make it one of the world's most valuable companies, not long after raising $122 billion from investors in March at a valuation of $852 billion. Echoing FT and Wall Street Journal [...]</description>
-      <guid isPermaLink="false">sty_d07ca520dd6f8336</guid>
-      <pubDate>2026-11-06T23:46:18Z</pubDate>
+      <title>Anthropic details components of agent memory in AI, including logging, tagging, and offline 'dreaming' processes to improve knowledge retention and task performance [ ~ ] [ ◼ ]</title>
+      <link>https://www.anthropic.com/research/components-of-agent-memory</link>
+      <description>Anthropic explores the components of agent memory in AI systems, focusing on how agents like Claude retain and utilize knowledge across sessions through mechanisms such as logging interactions, tagging salient events, and offline processing called dreaming. This approach mirrors human memory consolidation, where experiences are replayed and integrated into long-term knowledge during rest. The research highlights how Claude uses memory to predict future needs by writing rules and consolidating verified facts, enabling it to learn from past mistakes and improve over time. Evaluations using benchmarks like Continual Learning Bench demonstrate Claude's evolving ability to create learning loops, validate information, and refine its responses by storing and referencing memory notes across sessions. These memory components help AI agents manage long-horizon tasks more effectively by organizing and stabilizing knowledge, suggesting that offline reflection and structured memory storage are key to advancing AI's continual learning capabilities.</description>
+      <guid isPermaLink="false">sty_cf1b29c221c28824</guid>
+      <pubDate>2026-11-07T06:39:04Z</pubDate>
     </item>
     <item>
-      <title>China reportedly recruited AI exec to spy on Jensen Huang [ * ] [ ◼ ]</title>
-      <link>https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy</link>
-      <description>China's intelligence agency recruited Megaspeed executive Alice Huang to spy on Nvidia CEO Jensen Huang, according to The New York Times. The Ministry of State Security (MSS) enlisted her to glean information about American AI chips and "potentially influence the company to push for its most advanced chips to be made available to China." Megaspeed [...]</description>
-      <guid isPermaLink="false">sty_f272dfff1b744249</guid>
-      <pubDate>2026-11-06T23:00:44Z</pubDate>
+      <title>Reddit user questions whether ICLR 2027 reviews are unusually shallow, citing brief and generic feedback [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xq1f1m/are_iclr_2027_reviews_unusually_shallow_this_year/</link>
+      <description>A Reddit user raised concerns about the quality of reviews for ICLR 2027, noting that many reviews seem unusually brief and lack detailed analysis. They observed that reviews often include only a few generic points under strengths, weaknesses, and questions, with little discussion on motivation, impact, or methodological soundness. The user asked if this trend is widespread and reflected on its potential implications for research and PhD work.</description>
+      <guid isPermaLink="false">sty_46d1336e9ec19fdb</guid>
+      <pubDate>2026-11-07T08:25:40Z</pubDate>
     </item>
     <item>
-      <title>[AINews] Anthropic IPO: Whither Now? [ * ] [ ◼ ]</title>
-      <link>https://latent.space/p/ainews-anthropic-ipo-whither-now/</link>
-      <description>November 6, 2026 - ARC Prize tests Inkling 2 Small, and Thinking Machines explains how it caught early checkpoints bypassing guardrails.</description>
-      <guid isPermaLink="false">sty_210ade52595af8e8</guid>
-      <pubDate>2026-11-07T03:04:53Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: I built an AI photo editor powered by GPT-Image-2.6 [ ~ ] [ ◻ ]</title>
-      <link>https://getaiphotoeditor.com/</link>
-      <description/>
-      <guid isPermaLink="false">sty_6616ce854784b1af</guid>
-      <pubDate>2026-11-07T02:07:58Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: Select - AI agents that earn autonomy through verified work [ * ] [ ◼ ]</title>
-      <link>https://github.com/Kirby54/Select</link>
-      <description/>
-      <guid isPermaLink="false">sty_c1b79ee8f4cf4651</guid>
-      <pubDate>2026-11-07T01:55:27Z</pubDate>
-    </item>
-    <item>
-      <title>Show HN: We filmed a bird-themed Iliad using mallard</title>
-      <link>https://mallard-ai.com/Rika321/Homer?tab=files&amp;file=The_Iliad_Complete.mp4</link>
-      <description/>
-      <guid isPermaLink="false">sty_bd7eb7c8dd4eb3b1</guid>
-      <pubDate>2026-11-07T01:50:39Z</pubDate>
-    </item>
-    <item>
-      <title>All the latest updates on AI data centers [ * ] [ ◼ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy</link>
-      <description>Massive new data centers are the physical foundation for tech companies' hopes and dreams for AI. But the rush to expand warehouses full of energy-hungry servers has also kicked up fights across the world over their impact on power grids, utility bills, nearby communities, and the environment. Data centers were a major bipartisan issue ahead [...]</description>
-      <guid isPermaLink="false">sty_12a2bb3a7ac50683</guid>
-      <pubDate>2026-11-06T20:02:22Z</pubDate>
-    </item>
-    <item>
-      <title>The components of agent memory [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMibkFVX3lxTE5uaktEZlp1anNnLVpGTHNDMXE2d0p2cmxiRzZ3REI2QWQzYndMV01KVk1UYWExM0RlSF9YR3FrRzd6Wllhcm80NDZWanpDTV9zZkNoZWlzcWp4YWxDNkFqa1p2Z290X3BobFg1TnBn?oc=5</link>
-      <description>The components of agent memory Anthropic</description>
-      <guid isPermaLink="false">sty_cb3737cf06d44fd7</guid>
-      <pubDate>2026-11-06T21:21:18Z</pubDate>
-    </item>
-    <item>
-      <title>Hundreds of Artex AI hacking tools found publicly exposed to the web [ * ] [ ◼ ]</title>
+      <title>Researchers find over 800 publicly exposed Artex AI hacking tool deployments, raising risks of unauthorized cyberattacks [ * ] [ ◼ ]</title>
       <link>https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/</link>
-      <description>Security researchers found hundreds of servers hosting the penetration testing tool Artex exposed to the internet, allowing anyone access to the hacking tool.</description>
+      <description>Security researchers discovered more than 800 instances of the Chinese-made AI hacking tool Artex publicly accessible on the internet without password protection, potentially enabling unauthorized users to launch cyberattacks. Artex is an open source autonomous penetration testing tool linked to multiple cyberattacks since its release in July and is used to probe systems for vulnerabilities automatically. Cybersecurity firm Censys highlighted that while some Artex deployments are used by authorized testers, many are unnecessarily exposed online, increasing the risk of misuse. The tool has been connected to attacks on South Korean financial institutions and the IT support company ConnectWise, with attackers exploiting simple vulnerabilities like weak passwords and lack of multi-factor authentication. Artex has since moved to a closed-source model, but copies of its code remain available on public code-sharing sites, sustaining the threat of ongoing attacks.</description>
       <guid isPermaLink="false">sty_046ef56886d1ee11</guid>
       <pubDate>2026-11-06T18:44:38Z</pubDate>
     </item>
     <item>
-      <title>Meta introduces Spaces, a new way to collaborate with your Muse agent [ ~ ] [ ◻ ]</title>
+      <title>Meta launches Spaces to enable focused collaboration with Muse AI agents, integrating third-party apps for project-specific conversations [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/</link>
-      <description>Meta's Muse agents continue to get new features and integrations. Spaces promises to be a new way to interact with the AI helpers.</description>
+      <description>Meta has introduced Spaces, a new feature that allows users to create dedicated conversation areas with its Muse AI agents for specific projects like vacation planning or event tracking. These Spaces function as custom experiences accessible via the sidebar, enabling users to manage tasks and goals with their AI helper in an organized way. Spaces can connect with third-party applications to automatically update relevant information such as concert dates or price changes, enhancing the utility of Muse agents. This launch follows Meta's recent introduction of Muse Voice, which enables voice commands and video chat with the agents, reflecting the company's ongoing efforts to expand the Muse user experience amid growing adoption.</description>
       <guid isPermaLink="false">sty_346027eac396f65d</guid>
       <pubDate>2026-11-06T18:44:20Z</pubDate>
     </item>
     <item>
-      <title>Project EVE: Claude plays MMORPGs [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTE4zQUNVYk03WEg1anJqMFdVd0hwa2E4MTNzTDdTQmM1Y2NQanplejhaRERoWGxNemgyNjNJREVwaEt6RFJiM2hfQjdBdkFRZ3ZZUFZHbm1yRWcwV0xUSmo5b29QZzd2Rmt3QUNfaUdLUXpQbEhpTFE?oc=5</link>
-      <description>Project EVE: Claude plays MMORPGs Anthropic</description>
-      <guid isPermaLink="false">sty_3cd9d346c3efe7e7</guid>
-      <pubDate>2026-11-06T20:52:05Z</pubDate>
+      <title>Incoming machine learning master's student struggles to generate novel research ideas despite extensive experience and effort [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xq06wu/try_my_dang_hardest_to_come_up_with_novel/</link>
+      <description>An incoming master's student in machine learning with significant experience reading and replicating research papers reports difficulty in producing novel and elegant research ideas. Despite having many ideas and the ability to focus deeply, their initial attempts have not led to innovative results. They question how established researchers develop groundbreaking concepts that later seem obvious and wonder if such success stems from innate talent, luck, or other factors.</description>
+      <guid isPermaLink="false">sty_129dbaa349def58b</guid>
+      <pubDate>2026-11-07T07:08:01Z</pubDate>
     </item>
     <item>
-      <title>How a Blue Wave midterm might reshape the AI industry [ ~ ] [ ◻ ]</title>
+      <title>Anthropic details the components of agent memory in AI systems [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMibkFVX3lxTE5uaktEZlp1anNnLVpGTHNDMXE2d0p2cmxiRzZ3REI2QWQzYndMV01KVk1UYWExM0RlSF9YR3FrRzd6Wllhcm80NDZWanpDTV9zZkNoZWlzcWp4YWxDNkFqa1p2Z290X3BobFg1TnBn?oc=5</link>
+      <description>Anthropic has outlined the components that constitute agent memory in artificial intelligence systems, explaining how these elements contribute to the functionality and performance of AI agents. This development provides insight into the structure and operation of memory within AI agents, which is crucial for their decision-making and learning processes.</description>
+      <guid isPermaLink="false">sty_cb3737cf06d44fd7</guid>
+      <pubDate>2026-11-06T21:21:18Z</pubDate>
+    </item>
+    <item>
+      <title>Democrats' midterm wins lead to increased data center restrictions and potential new regulations on Big Tech, signaling shifts in the AI industry [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/</link>
-      <description>Democrats' historic victories in this week's U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday - in all but one, the majority voted to impose more restrictions on data center development. And even when data centers weren't on the ballot directly, they were a [...]</description>
+      <description>Democrats' significant victories in the recent U.S. midterm elections are expected to impact the tech industry, particularly through increased restrictions on data center development. Voters approved 40 out of 41 ballot measures imposing tighter controls on data centers, and newly elected Democratic officials are likely to support further regulations. These developments could reshape the AI sector by limiting infrastructure expansion and increasing government scrutiny of major technology companies. The changes come amid broader discussions about AI's role in the industry and ongoing shifts in tech company strategies and investments.</description>
       <guid isPermaLink="false">sty_44221b7d235cdc67</guid>
       <pubDate>2026-11-06T18:00:00Z</pubDate>
     </item>
     <item>
-      <title>After the midterms, is the AI industry in for a rough two years? [ ~ ] [ ◻ ]</title>
+      <title>Anthropic's Claude AI plays MMORPGs in Project EVE to explore AI interaction in gaming environments [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTE4zQUNVYk03WEg1anJqMFdVd0hwa2E4MTNzTDdTQmM1Y2NQanplejhaRERoWGxNemgyNjNJREVwaEt6RFJiM2hfQjdBdkFRZ3ZZUFZHbm1yRWcwV0xUSmo5b29QZzd2Rmt3QUNfaUdLUXpQbEhpTFE?oc=5</link>
+      <description>Anthropic has developed Project EVE, where its Claude AI system engages with massively multiplayer online role-playing games (MMORPGs) to study AI behavior and interaction within complex gaming settings. This initiative aims to understand how AI can navigate and respond to dynamic virtual worlds designed for human players.</description>
+      <guid isPermaLink="false">sty_3cd9d346c3efe7e7</guid>
+      <pubDate>2026-11-06T20:52:05Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI valued at $1.25 trillion after raising $11 billion in new funding as Anthropic prepares for IPO [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation</link>
+      <description>OpenAI has reached a valuation of $1.25 trillion following a new funding round that raised $11 billion, making it one of the world's most valuable companies. This follows a March funding round that valued the company at $852 billion. OpenAI is reportedly seeking additional investments that could raise the total to $20 billion, though it initially aimed for $30 billion at a $1.4 trillion valuation before market conditions and public sentiment shifted. Meanwhile, rival AI company Anthropic has filed for an IPO, while OpenAI CEO Sam Altman has indicated the company is delaying its own public offering to focus on AI safety.</description>
+      <guid isPermaLink="false">sty_d07ca520dd6f8336</guid>
+      <pubDate>2026-11-06T23:46:18Z</pubDate>
+    </item>
+    <item>
+      <title>Democrats' midterm wins lead to increased data center restrictions and potential regulatory challenges for AI and Big Tech over the next two years [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/</link>
-      <description>Democrats' historic victories in this week's U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday - in all but one, the majority voted to impose more restrictions on data center development. And even when data centers weren't on the ballot directly, they were a [...]</description>
+      <description>Democrats' significant victories in the recent U.S. midterm elections have resulted in the public approving stricter regulations on data center development in 40 out of 41 related ballot measures. This shift signals potential challenges for the AI industry and broader tech sector, as newly elected Democratic officials are expected to support further oversight and regulation. The increased restrictions on data centers, which are critical infrastructure for AI operations, reflect growing public and political scrutiny of technology expansion. Industry leaders, including OpenAI, are already responding to these changes, while experts discuss the broader implications for government oversight of Big Tech in the coming years.</description>
       <guid isPermaLink="false">sty_fbeabf4e5803ef76</guid>
       <pubDate>2026-11-06T17:23:52Z</pubDate>
     </item>
     <item>
-      <title>Meta&amp;#8217;s Muse AI can create custom &amp;#8216;spaces&amp;#8217; for the version of the app you need right now [ ~ ] [ ◼ ]</title>
-      <link>https://www.theverge.com/tech/1028871/meta-muse-ai-spaces</link>
-      <description>Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called "spaces," allows its AI assistant to build things like a shopping hub, school dashboard, music tracker, trivia game, and more, which you can interact with directly in the Muse app. Meta says you can create a new space by [...]</description>
-      <guid isPermaLink="false">sty_551782e9f3dae654</guid>
-      <pubDate>2026-11-06T18:10:10Z</pubDate>
+      <title>Report: China's Ministry of State Security recruited AI executive Alice Huang to spy on Nvidia CEO Jensen Huang for information on US AI chips [ * ] [ ◼ ]</title>
+      <link>https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy</link>
+      <description>China's Ministry of State Security reportedly recruited Alice Huang, an executive at Megaspeed and Nvidia customer, to gather intelligence on American AI chips and potentially influence Nvidia's chip availability to China. Alice Huang has close ties with Nvidia CEO Jensen Huang, who is not related to her, and connections with top AI chip industry leaders. Three House committees have requested Jensen Huang to appear for a closed-door briefing on his interactions with Alice Huang amid the reported spy plot.</description>
+      <guid isPermaLink="false">sty_f272dfff1b744249</guid>
+      <pubDate>2026-11-06T23:00:44Z</pubDate>
     </item>
     <item>
-      <title>Partnering with Hacktron to find vulnerabilities in OpenAI's systems [ ~ ] [ ◼ ]</title>
-      <link>https://openai.com/index/partnering-with-hacktron</link>
-      <description>OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.</description>
-      <guid isPermaLink="false">sty_f415bb61bea7c607</guid>
-      <pubDate>2026-11-06T08:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Teaching AI to build scientific models [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMifkFVX3lxTE1rLVltMFY0UFlmby1uSWtsdF9VZHpwWmNqUWZ3dFpTUDZKd2ZfZTVZRHl0aE5OdGxvLUt0OXc3WXZvLWdjSkNQZEpvSk9jNVJYUWlZZGpHZ0Q5Z2hQNFpDZ3JjZl9DUGROYXc0NWE4aWZfYnREX1ZMT3VGT3RaUQ?oc=5</link>
-      <description>Teaching AI to build scientific models Anthropic</description>
-      <guid isPermaLink="false">sty_6bc50c23a9b67281</guid>
-      <pubDate>2026-11-06T19:03:59Z</pubDate>
-    </item>
-    <item>
-      <title>TSMC Weighs Making Advanced Memory Chips to Capture More AI Spending [ * ] [ ◼ ]</title>
+      <title>TSMC considers producing advanced 3D DRAM memory chips at Nvidia's request to expand AI hardware supply amid rising memory shortages [ * ] [ ◼ ]</title>
       <link>https://www.theinformation.com/articles/tsmc-weighs-making-advanced-memory-chips-capture-ai-spending</link>
-      <description>Taiwan Semiconductor Manufacturing Co. is considering expanding into the advanced memory chip manufacturing sector, a move that would give the world's largest chipmaker an even bigger share of the AI hardware supply chain, according to two people with direct knowledge of the matter. The Taiwanese chipmaking giant recently started drawing up plans for making a specific type of advanced memory chips, 3D DRAM, at the request of Nvidia, its biggest customer, the two people said. An intense shortage of memory chips, driven by the AI hardware boom, has sent prices soaring and prompted chip designers such as Nvidia and Apple to look for sources of additional supply. Apple earlier this year hiked prices for its devices, citing rising memory costs.</description>
+      <description>Taiwan Semiconductor Manufacturing Co. is exploring plans to manufacture advanced 3D DRAM memory chips, a move prompted by Nvidia, its largest customer, to address the growing demand and shortage of memory chips driven by the AI hardware boom. This expansion would increase TSMC's role in the AI hardware supply chain as prices for memory chips have surged, affecting companies like Apple, which has raised device prices citing higher memory costs. The shortage of memory chips has intensified due to increased AI-related hardware needs, prompting major chip designers to seek additional supply sources. TSMC's potential entry into advanced memory chip production reflects efforts to meet this demand and stabilize supply for key technology firms.</description>
       <guid isPermaLink="false">sty_8cdc89a42aec689b</guid>
       <pubDate>2026-11-06T14:01:18Z</pubDate>
     </item>
     <item>
-      <title>Ramp data shows AI spending stalling just as Anthropic nears its IPO [ ~ ] [ ◻ ]</title>
+      <title>Ant Ling releases Ling-3.2-flash, a 560B-parameter native multimodal MoE model with 1 million token context window supporting text, image, and video inputs [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpye7g/ant_ling_introduces_ling32flash_560b25b_native/</link>
+      <description>Ant Ling has introduced Ling-3.2-flash, a mixture-of-experts (MoE) model featuring 560 billion total parameters and 25 billion activated parameters, capable of processing up to 1 million tokens in context. The model natively supports multimodal inputs including text, images, and video, and offers API compatibility with OpenAI and Anthropic standards. The release includes evaluation results across various benchmarks such as MathVision, Humanity's Last Exam-MM, ZEROBench, BabyVision, OmniDocBench, and others, demonstrating competitive performance in multimodal tasks. Additional materials showcase applications like PDF-to-code conversion, graphical user interface operation, 3D reconstruction workflows, and multi-agent collaboration, highlighting the model's versatility and practical utility.</description>
+      <guid isPermaLink="false">sty_cba4f751df4bc8ea</guid>
+      <pubDate>2026-11-07T05:21:18Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic develops AI techniques to automate building scientific models for research applications [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMifkFVX3lxTE1rLVltMFY0UFlmby1uSWtsdF9VZHpwWmNqUWZ3dFpTUDZKd2ZfZTVZRHl0aE5OdGxvLUt0OXc3WXZvLWdjSkNQZEpvSk9jNVJYUWlZZGpHZ0Q5Z2hQNFpDZ3JjZl9DUGROYXc0NWE4aWZfYnREX1ZMT3VGT3RaUQ?oc=5</link>
+      <description>Anthropic is advancing AI capabilities to automate the construction of scientific models, aiming to assist researchers in understanding complex phenomena. This development focuses on teaching AI systems to generate models that can explain data and predict outcomes in scientific studies. The approach could enhance the efficiency and scope of scientific research by enabling AI to contribute to model creation and hypothesis testing.</description>
+      <guid isPermaLink="false">sty_6bc50c23a9b67281</guid>
+      <pubDate>2026-11-06T19:03:59Z</pubDate>
+    </item>
+    <item>
+      <title>Ramp data shows AI spending plateauing despite rising usage as Anthropic approaches IPO, signaling potential slowdown in AI revenue growth [ ~ ] [ ◻ ]</title>
       <link>https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/</link>
-      <description>AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.</description>
+      <description>Ramp's latest report reveals that while AI usage continues to increase, spending on AI services stalled during late summer, with token spend growing only 1.5% in August and September compared to 42% in July. This trend coincides with price cuts from major AI providers like OpenAI and Anthropic, which have reduced API prices and offered enterprise discounts, leading to a buyer's market and capped revenue growth despite rising token volumes. The data indicates that the top 1% of AI-intensive firms have slightly reduced their spending, and although median and top 10% firms increased their AI expenditures, it has not compensated for the slowdown at the highest spenders. Experts suggest that while demand remains strong, competitive pricing and improved cost controls are limiting overall AI spending growth, challenging assumptions of continuous hypergrowth as Anthropic prepares for its IPO.</description>
       <guid isPermaLink="false">sty_05602a42e0f6dbee</guid>
       <pubDate>2026-11-06T15:54:47Z</pubDate>
     </item>
     <item>
-      <title>AI is the new dating dealbreaker [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity</link>
-      <description>When Irene moved to San Francisco last year, she started using dating apps as a way to meet new people, get to know her new city, and connect with others who care about the things she does. After the 25-year-old analyst downloaded Hinge and started swiping, she noticed a trend. "Hinge has a prompt where [...]</description>
-      <guid isPermaLink="false">sty_aea96627c6626277</guid>
-      <pubDate>2026-11-06T17:00:00Z</pubDate>
-    </item>
-    <item>
-      <title>Big Tech lost big in the 2026 election [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/podcast/1028731/2026-midterms-tech-ai-vergecast</link>
-      <description>On Tuesday, millions of American voters went to the polls and voted overwhelmingly for Democrats and against AI. The fight against Big Tech is about to come roaring back, and the fight over data centers is looking even harder for the folks trying to build them. On this episode of The Vergecast, Nilay and David [...]</description>
-      <guid isPermaLink="false">sty_75da769407eb8e30</guid>
-      <pubDate>2026-11-06T16:38:02Z</pubDate>
-    </item>
-    <item>
-      <title>AI data centres are bringing old aircraft engines back to life - TechRadar</title>
-      <link>https://news.google.com/rss/articles/CBMi_wFBVV95cUxQY0ZBckJwM3VFSzlDYk5SemYyTWlUSnZlM1ctWWd5VUp4ZnVUcldVLTFmZGNwWXRFM2JhSnhEWFRUdHpGUjY4TjI5TTBDV0M1dnphekw3NDdUblpsaWRpbVpWMDlKbzdlejlqN2xnNU5Ka0hNR3V6UkVuNjRzNHFwNlF6cWNNcUpxMFNNWjJxdXZEb0pZRW1BemI1OFlOQ0lrSS1zNXF2SXJLWFMwV21oOUtIWjNCalU3dlNidDZHejFmRUlReHBnRlJzV2JLUFYxWGMycUFBc1V2SEFvVXF4Z0xJZkltMTRHM3lFaDRrQ09NQzVRSnVjT2ZUZ2FWUGM?oc=5</link>
-      <description>AI data centres are bringing old aircraft engines back to life TechRadar</description>
-      <guid isPermaLink="false">sty_64731bf6f5a63367</guid>
-      <pubDate>2026-11-07T00:31:21Z</pubDate>
-    </item>
-    <item>
-      <title>Amazon Says Shoppers Can Now Text With AI Shopping Assistant Alexa For Shopping [ ~ ] [ ◻ ]</title>
+      <title>Amazon adds texting capability to Alexa for Shopping AI assistant to enhance user interaction [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/briefings/amazon-says-shoppers-can-now-text-ai-shopping-assistant-alexa-shopping</link>
-      <description>Amazon has introduced a feature to its Alexa for Shopping service where users can text the AI shopping assistant directly. The move signals how text messaging is becoming a standard communication tool for agents. Meta's Muse and Instinct both let users interact with them via text messages, while ...</description>
+      <description>Amazon has enabled users to communicate with its Alexa for Shopping AI assistant via text messages, expanding beyond voice interactions. This update reflects a broader trend of AI agents adopting text messaging as a standard communication method. Other companies like Meta have also introduced text-based AI assistants, indicating growing adoption of this interface for shopping and other services.</description>
       <guid isPermaLink="false">sty_73519267266a55a8</guid>
       <pubDate>2026-11-06T15:31:38Z</pubDate>
     </item>
     <item>
-      <title>Free Chinese AI Models Are Getting Scary Good at Hacking [ * ] [ ◼ ]</title>
+      <title>OpenAI partners with Hacktron to identify vulnerabilities and enhance security in its AI systems [ ~ ] [ ◼ ]</title>
+      <link>https://openai.com/index/partnering-with-hacktron</link>
+      <description>OpenAI has partnered with cybersecurity firm Hacktron to identify vulnerabilities, test integrations with third-party services, and strengthen the security of its frontier AI systems. This collaboration aims to improve defenses against potential threats and ensure robust protection for OpenAI's technologies.</description>
+      <guid isPermaLink="false">sty_f415bb61bea7c607</guid>
+      <pubDate>2026-11-06T08:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>AI data centres repurpose old aircraft engines for energy generation, improving sustainability and efficiency</title>
+      <link>https://news.google.com/rss/articles/CBMi_wFBVV95cUxQY0ZBckJwM3VFSzlDYk5SemYyTWlUSnZlM1ctWWd5VUp4ZnVUcldVLTFmZGNwWXRFM2JhSnhEWFRUdHpGUjY4TjI5TTBDV0M1dnphekw3NDdUblpsaWRpbVpWMDlKbzdlejlqN2xnNU5Ka0hNR3V6UkVuNjRzNHFwNlF6cWNNcUpxMFNNWjJxdXZEb0pZRW1BemI1OFlOQ0lrSS1zNXF2SXJLWFMwV21oOUtIWjNCalU3dlNidDZHejFmRUlReHBnRlJzV2JLUFYxWGMycUFBc1V2SEFvVXF4Z0xJZkltMTRHM3lFaDRrQ09NQzVRSnVjT2ZUZ2FWUGM?oc=5</link>
+      <description>AI data centres are using retired aircraft engines to generate power, extending the life of these engines and enhancing energy efficiency. This approach supports sustainability efforts by recycling existing technology for modern data centre needs. The initiative involves adapting aircraft engines, which are typically decommissioned, to serve as power sources for data centres that require reliable and efficient energy. This method leverages AI to optimize engine performance and maintenance, reducing waste and operational costs. By integrating these engines into data centre infrastructure, operators aim to lower environmental impact and improve energy utilization. This development reflects a broader trend of innovative reuse of industrial equipment in technology sectors seeking greener solutions.</description>
+      <guid isPermaLink="false">sty_64731bf6f5a63367</guid>
+      <pubDate>2026-11-07T00:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Research shows free Chinese AI models DeepSeek and GLM nearly match OpenAI's advanced Daybreak model in simulated network hacking tasks [ * ] [ ◼ ]</title>
       <link>https://www.wired.com/story/free-chinese-ai-models-are-getting-scary-good-at-hacking/</link>
-      <description>An experiment in which AI models were asked to break into simulated networks showed the hacking skills of DeepSeek and GLM to be not far behind OpenAI's most advanced cyber model, which isn't public.</description>
+      <description>A study by Vals found that open-weight AI models like China's DeepSeek and GLM are approaching the hacking capabilities of OpenAI's closed-source Daybreak model in simulated corporate network scenarios. DeepSeek completed 73% of tasks compared to Daybreak's 81%, highlighting the narrowing gap between open and closed AI models in cybersecurity applications. The research involved multi-step network intrusion tasks on mock corporate environments, revealing that open models are not only competitive but also significantly cheaper to operate, costing a fraction of the tokens required by proprietary models. This challenges the effectiveness of restricted access policies by frontier AI labs aimed at slowing the spread of advanced hacking tools. Experts note that while open models are increasingly capable, real-world attackers often rely on older or less advanced AI tools, and closed labs may still have unreleased models with superior abilities. The findings suggest a shifting cybersecurity landscape where defenders and attackers alike must adapt to the growing availability of powerful open AI hacking tools.</description>
       <guid isPermaLink="false">sty_a43dda597f57ae02</guid>
       <pubDate>2026-11-06T18:43:43Z</pubDate>
     </item>
     <item>
-      <title>Chainalysis says hackers stole credentials and tokens for all of its customers [ ! ] [ ◼ ]</title>
-      <link>https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers/</link>
-      <description>Company said a "multifront cyberattack" included AI agents and an on-path data snatch.</description>
-      <guid isPermaLink="false">sty_5966fb1f8a6f4b1f</guid>
-      <pubDate>2026-11-06T20:56:41Z</pubDate>
+      <title>Ricursive Intelligence releases Ripple-65B Preview, a 65B-parameter Apache 2.0 open US language model with top TerminalBench 2.1 coding score among open US models [ ~ ] [ ◼ ]</title>
+      <link>https://the-decoder.com/ripple-65b-preview-delivers-strong-agentic-coding-results-as-a-fully-apache-2-0-open-us-model/</link>
+      <description>Ricursive Intelligence has launched Ripple-65B Preview, a 65-billion-parameter open-weight language model pretrained on 12 trillion tokens that achieved the highest score among open US models on the TerminalBench 2.1 coding benchmark. The model uses a dense Transformer architecture optimized for Nvidia hardware and is available under the Apache 2.0 license on Hugging Face. Ripple-65B Preview scored 80.52 on TerminalBench 2.1, outperforming other open US models, though it trails the newly released Inkling 2 Small on other benchmarks. Ricursive reported total research and development costs of $32 million for the model, which partly uses Terminus 2 and OpenCode as its harness and is designed for easier deployment on users' own hardware compared to some competitors.</description>
+      <guid isPermaLink="false">sty_4ed0585a95e66406</guid>
+      <pubDate>2026-11-06T19:47:04Z</pubDate>
     </item>
     <item>
-      <title>"Does Meta think we can't read?" Meta abandons sketchy commercial terms update. [ * ] [ ◻ ]</title>
-      <link>https://arstechnica.com/tech-policy/2026/11/does-meta-think-we-cant-read-meta-abandons-sketchy-commercial-terms-update/</link>
-      <description>Meta won't force Facebook page owners to allow AI training on linked content.</description>
-      <guid isPermaLink="false">sty_883f07e5ec93762b</guid>
-      <pubDate>2026-11-06T17:43:02Z</pubDate>
+      <title>Researchers report ICLR27 math and stats papers received reviews focusing on experiments over theory, with some reviewers misunderstanding core contributions [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpvtxt/iclr27_math_and_stats_paper_review_experience_d/</link>
+      <description>A researcher shared their experience submitting an applied theory paper to ICLR27's probabilistic methods track, noting that all three reviewers criticized the novelty and requested more experiments while ignoring the theoretical contributions. One reviewer expressed confusion about the paper's task despite its clear definition and prior work. Similar reports indicate that many theory-heavy papers received reviews from computer science-focused reviewers, possibly due to the absence of bidding this year. The author is considering whether to engage in the rebuttal process or withdraw the paper.</description>
+      <guid isPermaLink="false">sty_efd2b3ab1dc90969</guid>
+      <pubDate>2026-11-07T03:02:10Z</pubDate>
+    </item>
+    <item>
+      <title>All the latest updates on AI data centers [ * ] [ ◼ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy</link>
+      <description>Massive new data centers are the physical foundation for tech companies' hopes and dreams for AI. But the rush to expand warehouses full of energy-hungry servers has also kicked up fights across the world over their impact on power grids, utility bills, nearby communities, and the environment. Data</description>
+      <guid isPermaLink="false">sty_12a2bb3a7ac50683</guid>
+      <pubDate>2026-11-06T20:02:22Z</pubDate>
     </item>
     <item>
       <title>Underdog shows off a 32MB speech model in new demo [ ~ ] [ ◻ ]</title>
@@ -347,18 +375,32 @@
       <pubDate>2026-11-06T13:02:16Z</pubDate>
     </item>
     <item>
-      <title>Amazon will let you text Alexa your shopping list [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/tech/1028587/amazon-alexa-shopping-ai-text-orders</link>
-      <description>Amazon is adding a new feature to Alexa for Shopping that allows customers to purchase items by texting the AI shopping assistant. Users can describe the products they're looking to buy and/or provide a photograph of the item, and Alexa for Shopping will search for matching results in Amazon listings, text back with recommendations, and [...]</description>
-      <guid isPermaLink="false">sty_cf341983e32f3800</guid>
-      <pubDate>2026-11-06T14:00:00Z</pubDate>
+      <title>"Does Meta think we can't read?" Meta abandons sketchy commercial terms update. [ * ] [ ◻ ]</title>
+      <link>https://arstechnica.com/tech-policy/2026/11/does-meta-think-we-cant-read-meta-abandons-sketchy-commercial-terms-update/</link>
+      <description>Meta won't force Facebook page owners to allow AI training on linked content.</description>
+      <guid isPermaLink="false">sty_883f07e5ec93762b</guid>
+      <pubDate>2026-11-06T17:43:02Z</pubDate>
     </item>
     <item>
-      <title>Anthropic president Daniela Amodei told wedding guests to fantasize about 'romantic hookups' with stuffed animals - New York Post</title>
-      <link>https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVXlST2k1dTNCaG5oUmU5RVA3V213RG1ydnhSbGVzbWFmaGtxN2k0M2JDVVRwUEdtVHlwbVZhYTd1RDl6aDhSVkptUkVpQkh2UVg0ams3M0JvN0xrSGg3RHRpVFpZYWhiYm9EX3FydmdKcHBkNFBEV1huVkFQbjRiY3l6bUh1aXhSRWJFejNvZ2U0UEhsLWtBeUstYzkxNk1DUzVLUUJrTGkyTXZQR1hxQ3hwVHdnYWlwYUNwMTJoQUl3ZDBLTUdfdlViSUphSlBlcUswTVJnSE1nRS1ENXJfLVc3UUNjZw?oc=5</link>
-      <description>Anthropic president Daniela Amodei told wedding guests to fantasize about 'romantic hookups' with stuffed animals New York Post</description>
-      <guid isPermaLink="false">sty_bf399fd535726331</guid>
-      <pubDate>2026-11-06T22:02:00Z</pubDate>
+      <title>Chainalysis says hackers stole credentials and tokens for all of its customers [ ! ] [ ◼ ]</title>
+      <link>https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers/</link>
+      <description>Company said a "multifront cyberattack" included AI agents and an on-path data snatch.</description>
+      <guid isPermaLink="false">sty_5966fb1f8a6f4b1f</guid>
+      <pubDate>2026-11-06T20:56:41Z</pubDate>
+    </item>
+    <item>
+      <title>The most scathing reviewer 2 review I have ever read [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpu1eq/the_most_scathing_reviewer_2_review_i_have_ever/</link>
+      <description>This is not my paper. Not my review either. Official Review of Submission21893 by Reviewer Xz8e Paper Summary: The paper tries to learn correlations among components of each latent state in a world model to propagate the reward sensitivities to adaptively weight the uncertainties that most matter for long-horizon planning via a pessimistic objective. Presentation: 1: Difficult to follow despite careful reading. Informativeness: 1: I learned little or nothing new from this paper. Soundness: 1: I have significant concerns about the paper's soundness that do not appear easy to address. Critical Strengths: None Critical Weaknesses: First and foremost, the paper is highly likely to be fully AI-generated. The authors demonstrate a lack of technical accuracy and depth. They fail to communicate their ideas clearly and accurately. The paper makes few original contributions. See evidence below. Neologistic and full of jagons that add little value of presenting research gaps, methodologies, and their contributions. I don't believe authors even understand those terms before stitching them together. Abstract is poorly written. This is not intended to communicate efficiently with readers. This is to create barriers in understanding their work. From the second sentence, "a scalar uncertainty", "sparse latent dynamics" come out of nowhere and don't know what they are referring to. And so many such examples follow thereafter: "factor-level residual bounds", "retains initialization error", "expected-error control", "exact certificate", "removing error-propagating dependencies and introducing approximation bias", "localized mechanism-shift", "comparator-dependent regret bound under simultaneous validity", "a decision-relevant uncertainty bound". And showcase experimental results without stating tasks? Introduction is also disconnected, poorly motivated, fragmented. From the first paragraph "which model errors matter for a long-horizon decision, especially after an environmental mechanism changes?", what is "environmental mechanism changes" here? Is it handling non-stationary environments, or continual learning tasks? Why brings something out of vacuum? Then the second paragraph pumps out "a global Lipschitz constant", and reiterate what so-called "sparsity" And then jumps to uncertainty with a set of new terms "A small predicted covariance", "Marginal calibration", "a high-probability interval" and close by "Exploration should reduce uncertainty about mechanisms that affect decisions, rather than maximize uncertainty indiscriminately.": okay, what uncertainty are you focusing on? epistemic or aleatoric? Methods and contributions are also vague and lack clarity. Method section is horrible. What do you mean by "a sufficient latent state"? An approximate model can hardly find sufficient statistics. In the Gaussian transition model, what is z_t^(pa_e(i))? What is the difference between z_(t+1)^i and ẑ_(t+1)^i, is the latter deterministic and why so? What is "nominal imagination"? Where does "sparsity" come from and what is "a within-time DAG"? What is "nominal systems"? What is feedback policy? What problem setting are you looking at? Where does the "recurrent state" come from the encoder? What is mechanism i? What is the motivation of introducing the adjacency matrix? If you intend to learn the dependency between different subcomponents of the latent state, use one sentence is enough. And several notations are conflating, like parameter posterior q(θ|D) with the state posterior. The training objective is not motivated. Experiments are not scientific. No random seeds reported, no task descriptions, no metrics explanations. This paper is an affront to scientific research and reviewers' time. Questions For Authors: None Flag For Ethics Review: No Rating: 1: Clear rejection Confidence: 4: I have substantial direct research experience on this topic. submitted by /u/MOSFETBJT [link] [comments]</description>
+      <guid isPermaLink="false">sty_0f057d53d014b180</guid>
+      <pubDate>2026-11-07T01:30:53Z</pubDate>
+    </item>
+    <item>
+      <title>Meta&amp;#8217;s Muse AI can create custom &amp;#8216;spaces&amp;#8217; for the version of the app you need right now [ ~ ] [ ◼ ]</title>
+      <link>https://www.theverge.com/tech/1028871/meta-muse-ai-spaces</link>
+      <description>Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called "spaces," allows its AI assistant to build things like a shopping hub, school dashboard, music tracker, trivia game, and more, which you can interact with directly in the Muse app. Meta says you ca</description>
+      <guid isPermaLink="false">sty_551782e9f3dae654</guid>
+      <pubDate>2026-11-06T18:10:10Z</pubDate>
     </item>
     <item>
       <title>Could potential AI clones of GTA VI force a quicker official port? [ ~ ] [ ◻ ]</title>
@@ -366,6 +408,13 @@
       <description>A former Rockstar tech director thinks the developer is facing new time pressures.</description>
       <guid isPermaLink="false">sty_d9e3a3711833cac2</guid>
       <pubDate>2026-11-06T16:19:12Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic president Daniela Amodei told wedding guests to fantasize about 'romantic hookups' with stuffed animals - New York Post</title>
+      <link>https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVXlST2k1dTNCaG5oUmU5RVA3V213RG1ydnhSbGVzbWFmaGtxN2k0M2JDVVRwUEdtVHlwbVZhYTd1RDl6aDhSVkptUkVpQkh2UVg0ams3M0JvN0xrSGg3RHRpVFpZYWhiYm9EX3FydmdKcHBkNFBEV1huVkFQbjRiY3l6bUh1aXhSRWJFejNvZ2U0UEhsLWtBeUstYzkxNk1DUzVLUUJrTGkyTXZQR1hxQ3hwVHdnYWlwYUNwMTJoQUl3ZDBLTUdfdlViSUphSlBlcUswTVJnSE1nRS1ENXJfLVc3UUNjZw?oc=5</link>
+      <description>Anthropic president Daniela Amodei told wedding guests to fantasize about 'romantic hookups' with stuffed animals New York Post</description>
+      <guid isPermaLink="false">sty_bf399fd535726331</guid>
+      <pubDate>2026-11-06T22:02:00Z</pubDate>
     </item>
     <item>
       <title>AI Companies Really, Really Want to Buy Your Work Files and Emails [ * ] [ ◼ ]</title>
@@ -382,25 +431,46 @@
       <pubDate>2026-11-06T14:25:00Z</pubDate>
     </item>
     <item>
-      <title>Anthropic's IPO Is Cratering [ * ] [ ◻ ]</title>
-      <link>https://futurism.com/artificial-intelligence/anthropics-ipo-cratering</link>
-      <description>Its timing couldn't have been worse. The post Anthropic's IPO Is Cratering appeared first on Futurism.</description>
-      <guid isPermaLink="false">sty_2a1c179cbbdb8b6a</guid>
-      <pubDate>2026-11-06T18:46:11Z</pubDate>
+      <title>Perplexity now has its own always-on AI agent [ * ] [ ◼ ]</title>
+      <link>https://the-decoder.com/perplexity-now-has-its-own-always-on-ai-agent/</link>
+      <description>Perplexity is launching "Teammates," always-on agents that work through ongoing projects on their own virtual machines. The feature requires the Max plan at $200 per month, well above similar offerings from OpenAI or Anthropic. The market for always-on agents is getting crowded. The article Perplexity now has its own always-on AI agent appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_a444b06bdb2dd6ae</guid>
+      <pubDate>2026-11-06T16:47:28Z</pubDate>
     </item>
     <item>
-      <title>UpCodes (YC S17) is hiring SDR's to sell AI compliance software</title>
-      <link>https://up.codes/careers</link>
-      <description>Comments</description>
-      <guid isPermaLink="false">sty_41082e4d0f188b9f</guid>
-      <pubDate>2026-11-06T17:03:33Z</pubDate>
+      <title>AI is the new dating dealbreaker [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity</link>
+      <description>When Irene moved to San Francisco last year, she started using dating apps as a way to meet new people, get to know her new city, and connect with others who care about the things she does. After the 25-year-old analyst downloaded Hinge and started swiping, she noticed a trend. "Hinge has a prompt w</description>
+      <guid isPermaLink="false">sty_aea96627c6626277</guid>
+      <pubDate>2026-11-06T17:00:00Z</pubDate>
     </item>
     <item>
-      <title>Palo Alto Networks in talks to buy AI agent security startup Clutch for $500M [ * ] [ ◼ ]</title>
-      <link>https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/</link>
-      <description>Clutch, backed by Lightspeed and SignalFire, was last valued at $85 million, according to a source.</description>
-      <guid isPermaLink="false">sty_d06fe2124cadc3f6</guid>
-      <pubDate>2026-11-06T06:28:32Z</pubDate>
+      <title>ML conferences. What do you think about reviewer comments that ask for additional experiments? [D] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpsj1p/ml_conferences_what_do_you_think_about_reviewer/</link>
+      <description>I honestly feel like they just copy-pasted the review straight from an LLM, barely rewording it to sound human. When I ran my paper through ChatGPT, it gave me the exact same generic feedback: 'Run experiments A, B, C, and D. The worst part is that these requests are completely minor and miss the main point of the paper. It's an endless, exhausting cycle. Plus, there's a strict 10-page limit! Even when I bend over backwards to finish all those extra experiments and report the results, the reviewers just ghost the discussion. I wish they would discuss the underlying logic and core insights instead of treating authors like experiment-running machines. I've held back until now, but I'm ready to call this out through a confidential message to the AC. submitted by /u/Temporary_Switch_339 [link] [comments]</description>
+      <guid isPermaLink="false">sty_61b37d6dabfe8ba9</guid>
+      <pubDate>2026-11-07T00:17:47Z</pubDate>
+    </item>
+    <item>
+      <title>ICLR 2027's new 1-4 scale: a 2, 2, 3 is better than it feels [P] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xps7xu/iclr_2027s_new_14_scale_a_2_2_3_is_better_than_it/</link>
+      <description>ICLR 2027 moved to a 4-point scale (1 clear reject, 2 weak reject, 3 weak accept, 4 clear accept), so nobody has a feel yet for what a given set of scores means. We counted the public scores on OpenReview: 73,410 reviews on 23,759 submissions. A couple of things that surprised us: [1] 57% of all reviews are a 2. Only 1.5% are a 4. [2] The median paper averages exactly 2.0. So a 2, 2, 3 (mean 2.33) is already above most papers. Where 2.5, 2.67 and 3.0 land, and the full histogram, are here: https://draft.scime.ai/iclr-odds?utm\_source=reddit&amp;utm\_medium=social&amp;utm\_campaign=iclr2027 Note: [1] we built the page. It shows counts only: no titles, authors or review text. [2] this is the first 25,000 of ~40,800 submissions in. OpenReview's listing order, read Nov 6, not a random sample. submitted by /u/latenticlabs [link] [comments]</description>
+      <guid isPermaLink="false">sty_8c79347e31886f29</guid>
+      <pubDate>2026-11-07T00:03:35Z</pubDate>
+    </item>
+    <item>
+      <title>Big Tech lost big in the 2026 election [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/podcast/1028731/2026-midterms-tech-ai-vergecast</link>
+      <description>On Tuesday, millions of American voters went to the polls and voted overwhelmingly for Democrats and against AI. The fight against Big Tech is about to come roaring back, and the fight over data centers is looking even harder for the folks trying to build them. On this episode of The Vergecast, Nil</description>
+      <guid isPermaLink="false">sty_75da769407eb8e30</guid>
+      <pubDate>2026-11-06T16:38:02Z</pubDate>
+    </item>
+    <item>
+      <title>Frontier Radar #5: If AGI is so close, why is everyone leaving? The neolabs and their bets [ * ] [ ◼ ]</title>
+      <link>https://the-decoder.com/frontier-radar-5-if-agi-is-so-close-why-is-everyone-leaving-the-neolabs-and-their-bets/</link>
+      <description>OpenAI is talking about the AGI era, and Nvidia CEO Jensen Huang says AGI has arrived. At the same time, co-creators of today's models are leaving OpenAI, Google DeepMind, and Meta to start their own labs, raising billions with no product to show. Why? They're betting that the current recipe alone won't be enough. We've sorted 45 neolabs by their research bets, mapped the limitations of today's AI they're trying to overcome, looked at what's already visible from their work, and explain why Nvidia always wins. The article Frontier Radar #5: If AGI is so close, why is everyone leaving? The neolabs and their bets appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_4bc30197bf8ef2d0</guid>
+      <pubDate>2026-11-06T15:55:23Z</pubDate>
     </item>
     <item>
       <title>Measuring how AI agents handle everyday wet-lab science [ ~ ] [ ◻ ]</title>
@@ -410,18 +480,46 @@
       <pubDate>2026-11-06T00:00:00Z</pubDate>
     </item>
     <item>
-      <title>What Shaped Anthropic CEO Dario Amodei's Thinking on A.I. - The New York Times [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMiggFBVV95cUxNQzc5ME9TaVQ4MWd2dlgyempENHN0eTRwRDZ0NmN1Vlo3OTRLQWpIdjVsRDVJSnFTSGlyWlJzamtaelVoTHpuSnVITlpuT0VLUnFKUlZpOWFWb2V5UUdyVk5EU3lYb1BwSzFBQ2c0TDNZY3pmcXZFTkM4MXpscEk4V3pR?oc=5</link>
-      <description>What Shaped Anthropic CEO Dario Amodei's Thinking on A.I. The New York Times</description>
-      <guid isPermaLink="false">sty_f4132a6eb94648f4</guid>
-      <pubDate>2026-11-06T17:09:00Z</pubDate>
+      <title>Anthropic's IPO Is Cratering [ * ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/anthropics-ipo-cratering</link>
+      <description>Its timing couldn't have been worse. The post Anthropic's IPO Is Cratering appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_2a1c179cbbdb8b6a</guid>
+      <pubDate>2026-11-06T18:46:11Z</pubDate>
     </item>
     <item>
-      <title>Who Will Run Anthropic, Anyway? - City Journal</title>
-      <link>https://news.google.com/rss/articles/CBMicEFVX3lxTFBqcTVHcmZIUFNNby10NVN6TXpTZ2ZIZXNYdkJtY3FNdXlXUW56N0t4elNtclpWNUl2LU53NDNDQWRqSm9MZXlPTFlWSXF5OXFWb1ViZjU0NkNiTWpaY1NoNFhwZFpDYUNialJtRl9tMXI?oc=5</link>
-      <description>Who Will Run Anthropic, Anyway? City Journal</description>
-      <guid isPermaLink="false">sty_2943b25674babb7c</guid>
-      <pubDate>2026-11-06T17:06:58Z</pubDate>
+      <title>METR finds Anthropic may have crossed its own AI acceleration warning threshold back in July [ ~ ] [ ◼ ]</title>
+      <link>https://the-decoder.com/metr-finds-anthropic-may-have-crossed-its-own-ai-acceleration-warning-threshold-back-in-july/</link>
+      <description>Nonprofit METR spent eleven weeks auditing Anthropic's internal research data and concluded that the pace of model development has roughly doubled, with about 80 percent of the speedup driven by AI-assisted research. Anthropic redacted the most informative evidence, though, which means the public has to rely on METR's judgment "much more than would be ideal." There are also skeptical voices inside the company. The article METR finds Anthropic may have crossed its own AI acceleration warning threshold back in July appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_d6553b11c23f6a3f</guid>
+      <pubDate>2026-11-06T13:40:07Z</pubDate>
+    </item>
+    <item>
+      <title>Looking to connect with people working on Embodied AI, Humanoid Robotics &amp; Cognitive Architectures. [D] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpp7z5/looking_to_connect_with_people_working_on/</link>
+      <description>I'm exploring the field of Embodied AI, particularly humanoid intelligence, cognitive architectures, and the intersection of AI and robotics. I'm looking to connect with people who are: Researching or building Embodied AI systems. Working on humanoid robots and robot foundation models. Exploring VLMs, VLAs, world models, and reinforcement learning. Interested in cognitive architectures and how intelligent robotic systems should be designed. I'd love to connect with people in this space, exchange ideas, discuss ongoing research, and potentially explore collaborations. If you're working in this area or know someone who is, feel free to reach out! submitted by /u/TechDc-1306 [link] [comments]</description>
+      <guid isPermaLink="false">sty_9a93600a2f6314f6</guid>
+      <pubDate>2026-11-06T21:49:56Z</pubDate>
+    </item>
+    <item>
+      <title>Thinking Machines' Inkling 2 Small claims top spot among western open-weight models [ * ] [ ◼ ]</title>
+      <link>https://the-decoder.com/thinking-machines-inkling-2-small-claims-top-spot-among-western-open-weight-models/</link>
+      <description>Thinking Machines, the startup from former OpenAI CTO Mira Murati, is releasing Inkling 2 Small, a mixture-of-experts model with 594 billion parameters. The company claims it's the strongest western open-weight model. Better agentic performance comes at a price, though, with token usage rising sharply. The article Thinking Machines' Inkling 2 Small claims top spot among western open-weight models appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_50b2521290a771a7</guid>
+      <pubDate>2026-11-06T13:25:09Z</pubDate>
+    </item>
+    <item>
+      <title>Amazon will let you text Alexa your shopping list [ ~ ] [ ◻ ]</title>
+      <link>https://www.theverge.com/tech/1028587/amazon-alexa-shopping-ai-text-orders</link>
+      <description>Amazon is adding a new feature to Alexa for Shopping that allows customers to purchase items by texting the AI shopping assistant. Users can describe the products they're looking to buy and/or provide a photograph of the item, and Alexa for Shopping will search for matching results in Amazon listing</description>
+      <guid isPermaLink="false">sty_cf341983e32f3800</guid>
+      <pubDate>2026-11-06T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>What exactly is the relationship between ML academia and industry/big tech nowadays (2026)? [D] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xponb2/what_exactly_is_the_relationship_between_ml/</link>
+      <description>It was clear to me that around 2012 - 2018ish, academic research was kind of paving the way for many applications in industry, from deep nets for vision to RL algorithms. There was tremendous value in research coming out of academia and new methods such as ADAM or TRPO algorithm would be adopted as industry standard. No one would doubt the value of research coming out of (top-tier) academia. It was definitely a "seller's market" for academics. But nowadays I am not quite certain as to what exactly is going on, i.e, whether this relationship still holds. I guess a straight-forward way to put this is: "is industry still adopting ideas from academia?" I've observed that for any given research topic, especially something industry has proposed, there would be literally tens of thousands of follow up papers from various universities around the world trying to do something adjacent to it, almost as if showing industry how things can be done differently or even "beat the industry at their game". But it feels industry is quite, how do I put this, "impassive", "unmoved". Strongest example would be development of new optimization routines. Thousands were proposed from universities. Countless GPU years were dedicated to experiments. Seems serious adoption is quite low to none. Apparently there are still new CNN/RNN architecture being proposed, have you heard of any of them? It almost seems as if academia and industry are diverging into completely different worlds. With industry seems to take on the previous role of academia as an idea generator, and instead everything is worked in-house. This seems to create a challenge for those doing research in university: "what use is the research if it is not adopted in real-life (in this extremely applied field), or even acknowledged?" submitted by /u/Strong_Boy_757 [link] [comments]</description>
+      <guid isPermaLink="false">sty_9e90832b3649895f</guid>
+      <pubDate>2026-11-06T21:25:49Z</pubDate>
     </item>
     <item>
       <title>Article: Identity as an Architectural Concern: Enterprise IAM Beyond Authentication</title>
@@ -429,6 +527,55 @@
       <description>The way you design your identities will drive your data models, your service scope, and your revocation policies; enterprise identity management is thus an architectural problem, not an afterthought. Based on our experience in service account governance, this article touches upon graph vs. RBAC, integrating a vault you don't own, and bounding revocation latency for an event stream. By Vaishnavi Khosla</description>
       <guid isPermaLink="false">sty_1d75bf01118d4f3f</guid>
       <pubDate>2026-11-06T09:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Higgs Realtime Duplex: a 45B MoE full-duplex model that listens, watches and talks at once, and thinks, calls tools and delegates in the background [N] [ ~ ] [ ◼ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpn5pv/higgs_realtime_duplex_a_45b_moe_fullduplex_model/</link>
+      <description>Disclosure: I'm at Boson AI and this is our release. Not open weights; the Duplex API has a waitlist, and the previous turn-based Higgs Realtime is available now. Most voice models are still turn-based: listen, wait for end of turn, think, speak. Duplex runs all streams at once and keeps working in the background while it talks. Streams. Everything is cut into 160 ms chunks: Audio in: 1 token per chunk (6.25 tokens/s) Audio out: 2 tokens per chunk (12.5 tokens/s) Video in: one ~12-token camera frame every 6 chunks Face out: 2 latents per chunk Text in and out alongside Silence is represented as chunks too, which is what the model uses to decide when to backchannel, interrupt or stay quiet. That comes to ~2.6K tokens per minute for audio and video, 2.6K to 5K with thinking and tool traces (progressively compacted). The last 5 minutes plus compacted text history is 13K to 25K tokens; older history is kept as text. Background work. Thinking, tool calls and delegation are spans in the same stream and can cover many chunks. Tool results can arrive in stages and the model can start speaking before they are complete. Harder problems are delegated to a much larger backend model with the full shared context. This is the main difference from Thinking Machines' interaction models, where all reasoning and tool use goes to the background model, which can mean 10+ seconds per answer and makes cost harder to control. Voice and face. Set zero-shot at deployment: a short reference clip for the voice, one image for the face, and a text prompt for behavior. No fine-tuning. Audio comes from a causal flow-matching decoder (2 frames per chunk), the face from a causal DiT conditioned on the reference image and the previous two latents. Training. Starts from a text-pretrained LLM, continued pretraining on ~2T tokens of text, audio and video on our own H100 cluster (Megatron-based stack). Post-training is multi-teacher on-policy distillation: specialist teachers trained with RL (including GRPO) on conversation, interaction timing, delegation and task completion, distilled into one student. On top of that, a self-improvement loop in simulated environments with realistic timing, interruptions, overlapping speech and background noise. Benchmarks. Best published or reproduced configuration from each lab (we reproduced more than half of the competitor numbers): Benchmark Duplex (45B) TML Interaction Small (276B) OpenAI best Google best Big Bench Audio 98.9 96.5 (75.7 w/o background agent) 97 98 Audio MultiChallenge (APR) 44.9 43.4 48.5 36.1 Full-Duplex-Bench v1.5 75.5 77.8 80.1 54.3 QIVD (streaming) 56.0 54.0 58.2 56.1 ProactiveVideoQA (PAUC) 31.9 33.5 25.0 - τ-Voice (pass@1) 69.8 - 74.5 68.6 IFEval 94.1 89.7 95.2 90.0 OpenAI's best settings lead on five of seven, by 1 to 5 points, several at their highest thinking setting. Turn-taking (Full-Duplex-Bench) is where we're furthest behind. Our takeaway is that at this size, data and training matter more than parameter count; the front model is deliberately mid-sized because the design target is that an hour of model time costs at most a tenth of an hour of human time. Announcement with demos: https://www.boson.ai/blog/higgs-realtime-duplex My write-up: https://alex.smola.org/posts/50-talking-while-thinking/ Happy to answer questions about the chunked-stream design and the delegation setup. submitted by /u/Cali_Cobarde [link] [comments]</description>
+      <guid isPermaLink="false">sty_f8bf97238c99014f</guid>
+      <pubDate>2026-11-06T20:23:53Z</pubDate>
+    </item>
+    <item>
+      <title>CASP-DREAM TAP Challenge: TCR + peptide-MHC activation prediction with unseen test peptides [N] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpn4gp/caspdream_tap_challenge_tcr_peptidemhc_activation/</link>
+      <description>A new contest for anyone training sequence models on TCRs. Given a TCR sequence and a peptide-HLA, predict whether the T cell activates. Inputs are amino acid sequences, the benchmark is about 5,800 labeled combinations, and every test peptide is at least four edits (Levenshtein distance) away from any peptide with a publicly reported TCR specificity. Scored by AUROC. Synapse lists training data options, including the public VDJdb database and Harell Data's proprietary TCR datasets provided by Adaptive Biotechnologies. Registration is open now: https://www.synapse.org/Synapse:syn77965030/wiki/643867 https://preview.redd.it/bubc341dw10i1.png?width=2160&amp;format=png&amp;auto=webp&amp;s=22654b3a80b87325d4b1bb6762d905463fe4d1c8 submitted by /u/Harell-Data [link] [comments]</description>
+      <guid isPermaLink="false">sty_9e7f1ea981662ce7</guid>
+      <pubDate>2026-11-06T20:22:25Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's $1.5 trillion IPO hits resistance as investors balk at valuation [ ~ ] [ ◻ ]</title>
+      <link>https://the-decoder.com/anthropics-1-5-trillion-ipo-hits-resistance-as-investors-balk-at-valuation/</link>
+      <description>Anthropic's IPO is in trouble as investors push back on the $1.5 trillion valuation and the tech market sells off. The article Anthropic's $1.5 trillion IPO hits resistance as investors balk at valuation appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_4b2f3b0edb587aa3</guid>
+      <pubDate>2026-11-06T11:38:17Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic adds bank account access to Claude so users can track their spending [ * ] [ ◼ ]</title>
+      <link>https://the-decoder.com/anthropic-adds-bank-account-access-to-claude-so-users-can-track-their-spending/</link>
+      <description>Anthropic is introducing a new feature in Claude called Personal Finance, which allows users to connect their bank and card accounts and ask questions about their finances. The article Anthropic adds bank account access to Claude so users can track their spending appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_71ac3435cd5dd238</guid>
+      <pubDate>2026-11-06T11:33:13Z</pubDate>
+    </item>
+    <item>
+      <title>India's Coforge joins SpaceX partner network to deploy Grok AI tools for enterprises - Reuters [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVm1rN0dhNG5aaDhDRVRyQVpMaXVROE8wbUFRVUJLZnYwaUQwZF9jMGtfX0doQjVZM3JaRFZHd2FSNFRvODVIUy1TeXJ3d09OZEZPMDB6cEE0eWhHdDNGa3FTRWRCRkhjaERjTnhudVNMTDV6RmdBX0ZqOTNjbDZFblljUE9INGpzN05KSV81YzdHTlVFS1lKeExydFBaaHVLV0pzR2tyQTBSbHV5SUF3VEY3STZHX0gzZzM1S1VYOWtpSEZsRXhKWjl3YzhQQUpy?oc=5</link>
+      <description>India's Coforge joins SpaceX partner network to deploy Grok AI tools for enterprises Reuters</description>
+      <guid isPermaLink="false">sty_754232c4d582edc9</guid>
+      <pubDate>2026-11-06T16:11:09Z</pubDate>
+    </item>
+    <item>
+      <title>Cult.fit builds operational muscle with Codex</title>
+      <link>https://openai.com/index/cultfit-builds-with-codex</link>
+      <description>Cult.fit is using Codex to help teams across functions build tools, move faster, and change how work gets done.</description>
+      <guid isPermaLink="false">sty_73505358aa035668</guid>
+      <pubDate>2026-11-05T20:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout (Google Research, 10M tokens in 25MB state) [R] [ ~ ] [ ◼ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xplbuu/muir_linear_attention_with_sensitivityallocated/</link>
+      <description>Paper: https://arxiv.org/abs/2611.08376 | HF: https://huggingface.co/papers/2611.08376 At 10M tokens, a 1.3B Transformer needs 2.1 TB of KV cache (0.32 TB even at 2.5-bit quantization). Channel-wise gated delta models (like Gated DeltaNet-2 / GDN-2) compress history into a fixed 25 MB state, but hit three bottlenecks across 100B-token training that Muir resolves: 100x slow-channel glare -&gt; Matched-filter readout: Slow-decaying rows accumulate up to 100x more energy than fast rows, swamping query readout and forcing harsh write-time erasure that overwrites early facts. Equalizing rows via an inverse fractional power law + per-token query modulation relaxes write erasure by 17% and extends lookback horizon by 60%. 13x write-vs-erase sensitivity -&gt; +30.4% wider FFN: Normalized keys concentrate onto ~5% of state rows while values stay diffuse, making updates 13x more sensitive to value writes than key erasure. Fusing all 5 gates into one rank-512 projection cuts gate parameters 4.5x to widen the FFN by +30.4% at strict parameter budget. Numerically-stable, large-chunk parallel kernel: Unpivoted decay division underflows fp32 and NaNs 25% of heads at large chunk sizes. Boundary-pivoted multiplicative decays stay in (0, 1] with zero division, while a recursive block-Neumann solver routes 98% of chunkwise FLOPs onto matrix units (24x fewer vector FLOPs).￼​ https://preview.redd.it/zgsr9oynm10i1.png?width=2382&amp;format=png&amp;auto=webp&amp;s=9373d5a667567c211f679bdf0759ed8dcc79dbd3 https://preview.redd.it/unnegoynm10i1.png?width=2289&amp;format=png&amp;auto=webp&amp;s=c6390b2a2324527fcb15576e1614bc4a3349a961 Results: Quality and speed: Beats GDN-2 and Transformer on perplexity and zero-shot reasoning at every scale (1.2x token efficiency vs. GDN-2), and trains 2.7x faster than Splash Attention at 32K. Recall beyond passkey: Compared to GDN-2, lifts RULER 5-hop Variable Tracking root retention (28.4% -&gt; 48.0%), early-depth recall at 8K (1% -&gt; 31%), and real-world extractive QA (+2.5 avg pts). 10M streaming and 1M passkey: Streams 10M tokens without perplexity drift in a 25 MB state (dynamic readout), and hits 90.0% zero-shot / 99.4% post-cooldown passkey accuracy at 1M tokens (static readout, where GDN-2 collapses past 4K-8K and Transformer OOMs past 64K). submitted by /u/CategoryNormal149 [link] [comments]</description>
+      <guid isPermaLink="false">sty_946a950491d586c0</guid>
+      <pubDate>2026-11-06T19:10:08Z</pubDate>
     </item>
     <item>
       <title>Anthropic is making biotech boasts, but scientists are wary of hype around 'curing cancer' - New York Post</title>
@@ -459,18 +606,18 @@
       <pubDate>2026-11-06T14:52:03Z</pubDate>
     </item>
     <item>
+      <title>Palo Alto Networks in talks to buy AI agent security startup Clutch for $500M [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/</link>
+      <description>Clutch, backed by Lightspeed and SignalFire, was last valued at $85 million, according to a source.</description>
+      <guid isPermaLink="false">sty_d06fe2124cadc3f6</guid>
+      <pubDate>2026-11-06T06:28:32Z</pubDate>
+    </item>
+    <item>
       <title>SpaceX (SPCX) Lands $45 Billion AI Deal And Moves To Merge xAI - Simply Wall St [ * ] [ ◼ ]</title>
       <link>https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRTROeHk1RkxPX3BrenpYQkRjRnlTbVN4ZGhsMDFkY013ajN5MEprSEtNek50VXZGb0JwcU5mUFJIZ3Z0YUR5a0R1M2pINEFxNGxReUJEVEY1SkRrZFVmaWtXNXhvSzhfRHRybVpIVWJlQ19sem4wY0pVaVNab1NxVHYyaENzc3JKS2I0UEZyLU9oSzlSN2VtaERJTUdtekNvUmV5aG1Id0VzdGZrRm8wZjh6ODF1dnFzd1hsSmlvSUVXY1BNVldCUXd5NFV6R3BvWTUzWm9oV2t1YktvZElOQtIB5gFBVV95cUxPd2E3T2FjcnNqOGhzT1QydEp6Yjc1Y1ZfUU9EZmMxSE9veDctOFllQzRQMXNydE9mZUpqWlZWYk9aMlVUVEo4WGFaUDMtVUhkVFl2bEZKalBhakZkaW9FMjZDRVdGZlVHNkJxamZDVW8tTzE0VldOUXZ5eHBEajhHRkRCN3U1MDllSjZZRWVjUWN6TmpDa0FRR2xJaFIxM0llLVNVNGF3NHJ2ajZKSlVBaUVMRi1ibEJsVXZCV2l1MGpONE9rcjFxOVJmTWJEWll5LTVxdGJYMXdzeVVVM0JCVXVRcGNWUQ?oc=5</link>
       <description>SpaceX (SPCX) Lands $45 Billion AI Deal And Moves To Merge xAI Simply Wall St</description>
       <guid isPermaLink="false">sty_808e84bd5fc40395</guid>
       <pubDate>2026-11-06T14:33:55Z</pubDate>
-    </item>
-    <item>
-      <title>Cult.fit builds operational muscle with Codex</title>
-      <link>https://openai.com/index/cultfit-builds-with-codex</link>
-      <description>Cult.fit is using Codex to help teams across functions build tools, move faster, and change how work gets done.</description>
-      <guid isPermaLink="false">sty_73505358aa035668</guid>
-      <pubDate>2026-11-05T20:00:00Z</pubDate>
     </item>
     <item>
       <title>Australian universities are creating AI-native graduates [ ~ ] [ ◻ ]</title>
@@ -480,18 +627,18 @@
       <pubDate>2026-11-05T17:00:00Z</pubDate>
     </item>
     <item>
-      <title>The blue wave hits Anthropic's IPO - Politico</title>
-      <link>https://news.google.com/rss/articles/CBMirwFBVV95cUxNM24zREh6T0lhdVNvakRRNHY1S1ExNklDYWxWTFNjUHV4UjlLU1dHUE1MdTdWdzJaOWhmc0g5OXk5b0lRQ3kxY0lRSjVMcFhuNnVzMkNuallrRHhCZEwtWWduM0plNXlkemVUSmc3amVoNm9YT2ZtdEpTYzF2c2FXTlo4eTlKenlKQzVKc3YxbHBTR0hockxqd3EwQzBITmVhSlg3R3BvcEcxWjloQ3Zj?oc=5</link>
-      <description>The blue wave hits Anthropic's IPO Politico</description>
-      <guid isPermaLink="false">sty_c73f084eae45f019</guid>
-      <pubDate>2026-11-06T11:55:00Z</pubDate>
-    </item>
-    <item>
       <title>Chesky's Side Quest [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/cheskys-side-quest</link>
       <description>Once upon a time, being CEO of a public company was a full-time job. In fact, for most CEOs, it still is-and an exhausting one at that. So it's a little puzzling to see that a growing number of tech CEOs are embarking on their own side quests, including most recently Airbnb's Brian Chesky, who has started an AI lab, as Bloomberg reported earlier this year. Airbnb disclosed Thursday, as it reported third-quarter earnings, that it had sold some intellectual property to Chesky's new venture for $7.1 million in cash. Airbnb also got the right to invest in any future equity financings of the venture and to license "certain" IP of the lab for internal use in Airbnb's business. (Hopefully, the IP Airbnb will license isn't the same IP it just sold to the lab.) Get this: It's not just Chesky who is involved. Airbnb Chief Technology Officer Ahmad Al-Dahle also has equity in the venture and, like Chesky, "performs services" for it.</description>
       <guid isPermaLink="false">sty_c8305512d7d7643a</guid>
       <pubDate>2026-11-06T01:01:14Z</pubDate>
+    </item>
+    <item>
+      <title>ICLR27: Reviewer says my paper is too close to the same paper that I previously had in a workshop. [D] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpf4t6/iclr27_reviewer_says_my_paper_is_too_close_to_the/</link>
+      <description>I submitted my paper to ICLR, after improving and correcting since I "published" it previously in a workshop/arXiv. In this process, I changed the name of the method and title. Now a reviewer, pointed out that my method is very closely related to basically an old version of my paper, and wants me to compare against it. Understandably, if looking at the title and method name, one could think these are two different ones. However, if looking more closely, they are clearly the same... How do I argue for this to my friend, that they are exactly the same paper, but now corrected and improved, without breaking anonymity? Admittedly, the scores are anyway bad, so I have not much hope, but this is a first for me... submitted by /u/fanconic [link] [comments]</description>
+      <guid isPermaLink="false">sty_ab73c350017196eb</guid>
+      <pubDate>2026-11-06T15:09:18Z</pubDate>
     </item>
     <item>
       <title>Anthropic IPO: Who owns the company and who really calls the shots? - The Financial Express [ ~ ] [ ◻ ]</title>
@@ -515,25 +662,11 @@
       <pubDate>2026-11-05T21:15:48Z</pubDate>
     </item>
     <item>
-      <title>Anthropic IPO Could Make Hundreds Of Employees Millionaires As CEO Dario Amodei Worries About Mission - Free Press Journal [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMi1AFBVV95cUxPZkZVaGtOZnFVeUR2bHo1MGQtc2Q0cU1jR0lxUFFrTXhOY0hvSk9ZTzJPeGZRRWhzQnVGWU5lLTQwYUR3M1JJOVNEdHdIdGVmaE85SG9QbGhBSTRfNmF3QmVMdUdadjdmTWxYaE80VWk2akJISjBnam9BdDNrbExnTU1mMEdxWUJHbFh0ekV3TDlJU2dVSUdPeDAwekNvdEI0ZXBUME1RWDJ4V0o5ZjdIRkEzWUl5NlM1ZTRMSDI2ZU9IbWZ0bEFFQzVvY190VnZzVWZURtIB2gFBVV95cUxOQ2JUZUl5QmhyekVxZW5RZXYwdHZfT3dxMXZsQldzUkhPWTA0eE1ZZWw2VVEtdjVESEhmLWI5clM4TmQ1Q0ppd0wyY0JpSzQtZExBa1J5akZRQkcwU2ZNemZ3a241VTVOcWhFV2cyUnBxZzU4NE5lR1FXbV8yci0yckJWbjJfN1B4a255X1VIaU1hVk9jR0pZT2kwUE9vUXpYMUNMWHZMMHMydnNyMi1rTndLdkl1RVBUTnppRHpOVTRpdENnTXAzdVRmUEVqRC0zaks4LU1KTWpJUQ?oc=5</link>
-      <description>Anthropic IPO Could Make Hundreds Of Employees Millionaires As CEO Dario Amodei Worries About Mission Free Press Journal</description>
-      <guid isPermaLink="false">sty_d4b380ff2ee97703</guid>
-      <pubDate>2026-11-06T08:09:42Z</pubDate>
-    </item>
-    <item>
-      <title>India's Coforge joins SpaceX partner network to deploy Grok AI tools for enterprises - Reuters [ ~ ] [ ◻ ]</title>
-      <link>https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVm1rN0dhNG5aaDhDRVRyQVpMaXVROE8wbUFRVUJLZnYwaUQwZF9jMGtfX0doQjVZM3JaRFZHd2FSNFRvODVIUy1TeXJ3d09OZEZPMDB6cEE0eWhHdDNGa3FTRWRCRkhjaERjTnhudVNMTDV6RmdBX0ZqOTNjbDZFblljUE9INGpzN05KSV81YzdHTlVFS1lKeExydFBaaHVLV0pzR2tyQTBSbHV5SUF3VEY3STZHX0gzZzM1S1VYOWtpSEZsRXhKWjl3YzhQQUpy?oc=5</link>
-      <description>India's Coforge joins SpaceX partner network to deploy Grok AI tools for enterprises Reuters</description>
-      <guid isPermaLink="false">sty_754232c4d582edc9</guid>
-      <pubDate>2026-11-06T07:46:00Z</pubDate>
-    </item>
-    <item>
-      <title>OpenAI is stepping back from NDAs for data center projects [ ~ ] [ ◻ ]</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda</link>
-      <description>Following this week's midterms where voters resoundingly voiced their opposition to data center expansion, OpenAI today announced new commitments to communities where it is working on data center projects, including that it won't use non-disclosure agreements (NDAs) with public officials. Many data center projects have come under scrutiny for relying on NDAs to hide discussions [...]</description>
-      <guid isPermaLink="false">sty_7bb28b47edada884</guid>
-      <pubDate>2026-11-06T00:37:56Z</pubDate>
+      <title>GPT-6 Cyber: Advancing the frontier of aligned cybersecurity agents [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/introducing-gpt-6-cyber</link>
+      <description>Introducing GPT-6 Cyber, OpenAI's cybersecurity model for finding exploitable vulnerabilities and developing fixes, trained to stay within authorized scope.</description>
+      <guid isPermaLink="false">sty_03cd627e808c9647</guid>
+      <pubDate>2026-11-05T09:00:00Z</pubDate>
     </item>
     <item>
       <title>Nvidia's Answer to Data Center Backlash: Retrofitting Apollo's Old Phone Buildings [ * ] [ ◼ ]</title>
@@ -543,13 +676,6 @@
       <pubDate>2026-11-05T19:47:06Z</pubDate>
     </item>
     <item>
-      <title>Airbnb says it's launching an AI travel agent in the first half of 2027 [ ~ ] [ ◻ ]</title>
-      <link>https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/</link>
-      <description>Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.</description>
-      <guid isPermaLink="false">sty_a6fc91fcc93eabf2</guid>
-      <pubDate>2026-11-05T22:40:55Z</pubDate>
-    </item>
-    <item>
       <title>Can Cheaper AI Outrun the Data Center Backlash? [ ~ ] [ ◻ ]</title>
       <link>https://www.theinformation.com/articles/can-cheaper-ai-outrun-data-center-backlash</link>
       <description>After U.S. voters on Tuesday elected officials who are pushing to restrict data center expansion, some tech executives and investors are concerned that new delays in standing up computing capacity will make existing servers for AI more expensive to run. And if computing becomes even pricier, there's a question of whether declines in the cost of running AI could slow down. So far this year, the cost of running AI has been falling, even as the price of renting servers has risen. For example, OpenAI's GPT-6.1 Sol model, released in late September, can perform comparably to a bigger OpenAI flagship model, GPT-6 Astra, when used with a high reasoning setting. Yet the newer model costs about a fifth as much on a per-task basis as the older model, research firm Artificial Analysis said. Anthropic has touted similar efficiencies with its latest models. And that's happening despite the fact that buying or renting Nvidia hardware has gotten a lot costlier this year. As AI costs become a major concern at enterprises, the price-drop trend will need to persist or else customers might pull back. One senior executive of a private equity firm that owns and develops data centers told me this week that they believe prices of AI models will keep falling due to "token efficiencies"-the ability of AI to do more work with less compute-thanks to both hardware and software advancements. In other words, they said, such efficiencies would help offset constraints on data center expansion. Of course, the executive is heavily incentivized to say such things, given the financial bets their company has already made. On Wednesday, Amazon Web Services CEO Matt Garman said during an event hosted by private equity firm Blackstone that he is optimistic about the company's data center expansion despite the election results. "We feel like we're in a pretty good spot, and I think others may have some more work to do." To be sure, Amazon has faced significant local resistance to some of its data center projects, and even had to drop a project in Virginia this year. Garman didn't comment on whether he expects server rental prices to rise further. But stock investors seemed to think so initially, based on the way they bid up shares of major cloud providers Wednesday while selling off stocks of smaller cloud providers that still need approvals for new facilities. (The major cloud providers pared back some of the gains during a selloff Thursday.) Notably, many facilities that are supposed to come online next year have gotten some or all of the necessary state or local approvals, so the effects of the electoral backlash might have a big impact on facilities aiming to launch in 2028 and beyond. Anthropic's initial public offering prospectus offers another signal that the price of using its models has room to fall: the company's gross profit margins have hovered around 85% in the first nine months of the year. (That excludes the cost of developing the models themselves.) So it may have some slack to lower prices if it needs to boost demand. New From Our Reporters Exclusive How a Claims Investor Got Kalshi to Open a Market on the NCAA Payout By Michael Roddan Exclusive Palo Alto Networks in Talks to Pay $500 Million for AI Security Startup By Valida Pau Politics and Policy Six Ways the Blue Wave Could Shake Up AI, Crypto and Tech By Leo Schwartz and Nick Wingfield Upcoming Events Monday, November 9 - Intimate Dinner with The Information and EY Consulting in San Francisco Trust is quickly becoming the defining question of the AI era. Over dinner, Jessica Lessin, Founder &amp; Editor-in-Chief of The Information, and Whitt Butler, EY Americas Vice Chair - Consulting, will talk candidly about how leaders can build that trust and keep it. Request an invite. More details Tuesday, November 10 - The Long Road to an IPO Join The Information and NYSE next week for a cocktail reception and conversation on what it takes to go public, hosted by Dakin Campbell. Explore the relationships and preparation behind an IPO. Limited spots remain. Apply to attend. Sponsored by NYSE. More details</description>
@@ -557,11 +683,32 @@
       <pubDate>2026-11-05T19:21:56Z</pubDate>
     </item>
     <item>
-      <title>GPT-6 Cyber: Advancing the frontier of aligned cybersecurity agents [ * ] [ ◼ ]</title>
-      <link>https://openai.com/index/introducing-gpt-6-cyber</link>
-      <description>Introducing GPT-6 Cyber, OpenAI's cybersecurity model for finding exploitable vulnerabilities and developing fixes, trained to stay within authorized scope.</description>
-      <guid isPermaLink="false">sty_03cd627e808c9647</guid>
-      <pubDate>2026-11-05T09:00:00Z</pubDate>
+      <title>Merge builds product and business tools with OpenAI technology [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/merge-builds-with-openai</link>
+      <description>Merge uses GPT-6 Astra, ChatGPT, and Codex to review product code and support marketing. Its teams also use AI to plan executive dinners and prepare sales updates.</description>
+      <guid isPermaLink="false">sty_e5885ff30d8955fe</guid>
+      <pubDate>2026-11-05T08:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic IPO Could Make Hundreds Of Employees Millionaires As CEO Dario Amodei Worries About Mission - Free Press Journal [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMi1AFBVV95cUxPZkZVaGtOZnFVeUR2bHo1MGQtc2Q0cU1jR0lxUFFrTXhOY0hvSk9ZTzJPeGZRRWhzQnVGWU5lLTQwYUR3M1JJOVNEdHdIdGVmaE85SG9QbGhBSTRfNmF3QmVMdUdadjdmTWxYaE80VWk2akJISjBnam9BdDNrbExnTU1mMEdxWUJHbFh0ekV3TDlJU2dVSUdPeDAwekNvdEI0ZXBUME1RWDJ4V0o5ZjdIRkEzWUl5NlM1ZTRMSDI2ZU9IbWZ0bEFFQzVvY190VnZzVWZURtIB2gFBVV95cUxOQ2JUZUl5QmhyekVxZW5RZXYwdHZfT3dxMXZsQldzUkhPWTA0eE1ZZWw2VVEtdjVESEhmLWI5clM4TmQ1Q0ppd0wyY0JpSzQtZExBa1J5akZRQkcwU2ZNemZ3a241VTVOcWhFV2cyUnBxZzU4NE5lR1FXbV8yci0yckJWbjJfN1B4a255X1VIaU1hVk9jR0pZT2kwUE9vUXpYMUNMWHZMMHMydnNyMi1rTndLdkl1RVBUTnppRHpOVTRpdENnTXAzdVRmUEVqRC0zaks4LU1KTWpJUQ?oc=5</link>
+      <description>Anthropic IPO Could Make Hundreds Of Employees Millionaires As CEO Dario Amodei Worries About Mission Free Press Journal</description>
+      <guid isPermaLink="false">sty_d4b380ff2ee97703</guid>
+      <pubDate>2026-11-06T08:09:42Z</pubDate>
+    </item>
+    <item>
+      <title>Airbnb says it's launching an AI travel agent in the first half of 2027 [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/</link>
+      <description>Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.</description>
+      <guid isPermaLink="false">sty_a6fc91fcc93eabf2</guid>
+      <pubDate>2026-11-05T22:40:55Z</pubDate>
+    </item>
+    <item>
+      <title>I need some guidance after a six month hiatus [R] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xpb6kb/i_need_some_guidance_after_a_six_month_hiatus_r/</link>
+      <description>Short Backstory: I'm a PhD student on my 5th year. I had a major mental breakdown on June 2026 after my second rejection on an IEEE Journal. After a lot of back and forth, I decided to not give up my PhD (for the time being). Current Situation: My current objective is to author my 3rd publication (IEEE Journal / Elsevier / etc level) in order to unlock thesis/dissertation-writing stage (as per my advisor's words). I'm working on the MetaboNet dataset, a standardized diabetes research dataset for continuous glucose monitor (CGM) and forecasting (https://metabo-net.org/). I've read their paper and their benchmark. I've pinned TCN (Temporal Convolutional Network) as my safest option to handle this. I'd be ever so grateful if anyone familiar with the latest research trends on TCNs (or forecasting in general) could point me to what to look up. The ultimate goal of cource is the research novelty. Truth is that I tried to research it myself but anxiety and feelings of overwhelmingness got the better of me, can't tell if something would be considered novel enough for publishing. Thanks for taking the time to read my post, wish you luck on all your ML/DL endeavors. submitted by /u/Neural_Prodigy [link] [comments]</description>
+      <guid isPermaLink="false">sty_d18af11e4944d256</guid>
+      <pubDate>2026-11-06T12:06:42Z</pubDate>
     </item>
     <item>
       <title>Generate longer AI videos with Omni 1.2 Flash in Google Vids at no cost. [ ~ ] [ ◻ ]</title>
@@ -569,6 +716,699 @@
       <description>Create longer AI videos in Google Vids with the new Omni 1.2 Flash model. Generate 15-second clips and consistent scenes for free. Try it now.</description>
       <guid isPermaLink="false">sty_d072b456df090f80</guid>
       <pubDate>2026-11-05T20:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Google: Schools can keep search while skipping Gemini, but AI search is non-negotiable [ * ] [ ◼ ]</title>
+      <link>https://arstechnica.com/ai/2026/11/google-schools-can-keep-search-while-skipping-gemini-but-ai-search-is-non-negotiable/</link>
+      <description>Google is technically offering schools more choice but not the choices anyone wants.</description>
+      <guid isPermaLink="false">sty_45d14daacee2ad16</guid>
+      <pubDate>2026-11-05T21:40:36Z</pubDate>
+    </item>
+    <item>
+      <title>Lawsuit: Man introduced his wife to ChatGPT. She used it to plan his murder. [ * ] [ ◼ ]</title>
+      <link>https://arstechnica.com/tech-policy/2026/11/lawsuit-man-introduced-his-wife-to-chatgpt-she-used-it-to-plan-his-murder/</link>
+      <description>Bitter energy drinks turned out to be ChatGPT-steered poisoning, lawsuit says.</description>
+      <guid isPermaLink="false">sty_95767ca50f7826dd</guid>
+      <pubDate>2026-11-05T21:39:40Z</pubDate>
+    </item>
+    <item>
+      <title>Ads in Chatbots Have Arrived. Here's What's Working-and What's Not [ * ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/ads-in-chatbots-have-arrived-heres-whats-working-and-whats-not/</link>
+      <description>As Anthropic maintains its vow to keep ads out of Claude, the rest of the AI chatbot industry is racing to win over advertisers without antagonizing users.</description>
+      <guid isPermaLink="false">sty_d46589a433c49a42</guid>
+      <pubDate>2026-11-05T21:37:18Z</pubDate>
+    </item>
+    <item>
+      <title>Meta says US users can now video chat with their Muse AI avatar [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/</link>
+      <description>Meta's AI agent can now take calls as a customizable animated avatar, ahead of the launch of a Tamagotchi-like wearable designed to bring Muse to life.</description>
+      <guid isPermaLink="false">sty_0186e4c54a62305d</guid>
+      <pubDate>2026-11-05T19:48:28Z</pubDate>
+    </item>
+    <item>
+      <title>How do you build visibility through open source contributions?[D] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xp90lz/how_do_you_build_visibility_through_open_source/</link>
+      <description>I'm an MSc CS student with a background in 3D computer vision, trying to figure out how to build visibility and credibility in the AI/ML community. I've been thinking about contributing to established open source projects rather than building standalone GitHub projects. Honestly, the latter feels like a weaker signal nowadays, especially with AI tools making it easier than ever to build things. For those working in 3D CV, ML or applied AI, how would you approach this? What are the current challenges for new contributors, and how do you find projects where meaningful contributions can actually get noticed? Would be interested to hear about your experiences. submitted by /u/Few-Cheetah3336 [link] [comments]</description>
+      <guid isPermaLink="false">sty_40c844099f59dc3c</guid>
+      <pubDate>2026-11-06T09:55:15Z</pubDate>
+    </item>
+    <item>
+      <title>Meta warns that election backlash against data centers could make AI expansion harder [ * ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/</link>
+      <description>Meta warns that growing political opposition to data centers could threaten future AI investments, as communities push back against massive infrastructure projects.</description>
+      <guid isPermaLink="false">sty_57a120b34a091b7f</guid>
+      <pubDate>2026-11-05T19:12:39Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI released a new cybersecurity model. Is that enough? [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/</link>
+      <description>OpenAI's newest cybersecurity model comes out as AI labs face scrutiny of their work to protect digital infrastructure.</description>
+      <guid isPermaLink="false">sty_d2c8ec0dc090ce0d</guid>
+      <pubDate>2026-11-05T19:06:12Z</pubDate>
+    </item>
+    <item>
+      <title>Transform a quick drawing into a live app with Gemini. [ ~ ] [ ◻ ]</title>
+      <link>https://blog.google/innovation-and-ai/products/gemini-app/turn-drawings-into-apps-gemini/</link>
+      <description>Turn your sketches into functional apps using Gemini. Upload your drawings to the Canvas tool to generate and refine code instantly. Try it now.</description>
+      <guid isPermaLink="false">sty_0563c973653d41d5</guid>
+      <pubDate>2026-11-05T17:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue [ ! ] [ ◼ ]</title>
+      <link>https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html</link>
+      <description/>
+      <guid isPermaLink="false">sty_c407c9729fe3f0bd</guid>
+      <pubDate>2026-11-05T23:09:57Z</pubDate>
+    </item>
+    <item>
+      <title>SpaceXAI to build 2 more AI data centers in Southaven - Action News 5</title>
+      <link>https://news.google.com/rss/articles/CBMikAFBVV95cUxQTlYwWHRkcl9yY0JqNnBUUFkyY2c2cDNZMXBrUDVUdlZKVFY5VUVtLXZjTzQ3dWZsazNhdGpQZ3NvV0h3d2p3TmJyaGxaMUFKTjZxaWZWTTM4YTM1MFZUMmNETzNHbDJ2dUI2Y01XQUUtZzV2VURfOUNwUzJJUVZTZ05iaG12VXRINnFVa3BrcXTSAaQBQVVfeXFMTnpnNjJYLUNyMHlUZW9qN0FzVGk4YXFiNFdnZjRNN1lfSTJIRXRiS2dPMGNUNi0xWjFkV011d09YMXRuRVFIQ3FKbW1NYlZuNnZNdTlXLWM1V2x3TndqS0hqSndpQTZVZzRfVDNOd095M1hUb0lCVDRDYm00b05RRWFUUHZHNXRnemNFSjN5LXZJeFlBWkw5UV9OdE5Sc2VmLVljZzM?oc=5</link>
+      <description>SpaceXAI to build 2 more AI data centers in Southaven Action News 5</description>
+      <guid isPermaLink="false">sty_597314af9b6deb3a</guid>
+      <pubDate>2026-11-06T04:48:00Z</pubDate>
+    </item>
+    <item>
+      <title>Setting a new standard for responsible AI infrastructure [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/setting-new-standard-responsible-ai-infrastructure</link>
+      <description>OpenAI introduces its National Community Compact and Compute Campus Policy Blueprint to protect local resources, create jobs, and guide responsible AI infrastructure development.</description>
+      <guid isPermaLink="false">sty_2ae89cc38d3db31c</guid>
+      <pubDate>2026-11-05T02:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI president Greg Brockman says company could be IPO ready in 2027 [ * ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/</link>
+      <description>Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully made inroads.</description>
+      <guid isPermaLink="false">sty_66dade49d2f949a4</guid>
+      <pubDate>2026-11-05T18:02:27Z</pubDate>
+    </item>
+    <item>
+      <title>Claude can now analyze your spending with its new Personal Finance tool [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/</link>
+      <description>With Personal Finance in Claude, users can connect their bank and card accounts through Plaid and ask questions about their finances.</description>
+      <guid isPermaLink="false">sty_0ce825a91fe1084b</guid>
+      <pubDate>2026-11-05T18:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Flipsnack grows product signups with conversion optimization</title>
+      <link>https://openai.com/ads/customers/flipsnack</link>
+      <description>Flipsnack focused its ChatGPT Ads campaigns on getting people to try its product, growing registrations while lowering the cost per signup.</description>
+      <guid isPermaLink="false">sty_4ae1a134d38c7b4e</guid>
+      <pubDate>2026-11-05T00:45:15Z</pubDate>
+    </item>
+    <item>
+      <title>Franklin Templeton uses OpenAI to support investment research [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/franklin-templeton</link>
+      <description>Starting with equity research, Franklin Templeton is developing AI workflows to help portfolio managers compare research views and examine investment risks.</description>
+      <guid isPermaLink="false">sty_699b3524c7b1866f</guid>
+      <pubDate>2026-11-05T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them [ * ] [ ⬢ ]</title>
+      <link>https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/</link>
+      <description>With GPT-6 Cyber, OpenAI is introducing an AI model built to find security vulnerabilities in software, develop exploits, and suggest patches. According to OpenAI, it has already found 81 previously unknown vulnerabilities in Firefox and developed 948 working exploits in the Linux kernel, significantly more than its predecessor. The article OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them appeared first on The Decoder.</description>
+      <guid isPermaLink="false">sty_a31f2ae3f143f734</guid>
+      <pubDate>2026-11-05T20:36:25Z</pubDate>
+    </item>
+    <item>
+      <title>Axiom Math wants to keep AI slop out of mathematics [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/11/05/axiom-math-wants-to-keep-ai-slop-out-of-mathematics/</link>
+      <description>As AI floods math with unchecked proofs, Axiom Math is betting on verification. The startup's AI agents just formally verified the Stacks Project, one of the field's biggest libraries.</description>
+      <guid isPermaLink="false">sty_cca929f208b0546b</guid>
+      <pubDate>2026-11-05T16:16:45Z</pubDate>
+    </item>
+    <item>
+      <title>Check out our free livestream during National Veterans Small Business Week. [ ~ ] [ ◻ ]</title>
+      <link>https://blog.google/company-news/outreach-and-initiatives/grow-with-google/national-veterans-small-business-week-2026/</link>
+      <description>Join our November 2026 YouTube livestream for National Veterans Small Business Week. Master AI skills with Gemini and get 1:1 coaching. Register today.</description>
+      <guid isPermaLink="false">sty_de54645d43679557</guid>
+      <pubDate>2026-11-05T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure [ * ] [ ◼ ]</title>
+      <link>https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/</link>
+      <description>The deal is expected to support the development of DBX Agent Cloud, a new storage platform aimed at developers building AI models and agents.</description>
+      <guid isPermaLink="false">sty_77e9908904f37e4f</guid>
+      <pubDate>2026-11-05T15:19:05Z</pubDate>
+    </item>
+    <item>
+      <title>Aina's smart ring has a screen, a joystick, and a mic so you can talk to AI agents [ ~ ] [ ◻ ]</title>
+      <link>https://techcrunch.com/2026/11/05/ainas-smart-ring-has-a-screen-a-joystick-and-a-mic-so-you-can-talk-to-ai-agents/</link>
+      <description>Aina's ring can also take calls and help you dictate notes on your Mac.</description>
+      <guid isPermaLink="false">sty_1bb8230215ad68dc</guid>
+      <pubDate>2026-11-05T14:42:00Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's IPO timing threatened by AI backlash, historic tech rout - New York Post [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiqgFBVV95cUxOeE8zTUFabnRTZ1ltT0gtWEtYOXlkZWx4LXFBQUxkZGUza2ZwTE15RDdrMlZrdERnVGRhQVJCQ1Q5d2kzZElkVHFxYVRCMUhXM2VIVEFwU0N5MWpLWVlzZGx6SlFFX3VyOTJxZ1JsSjFiTFFwWF9SWGNRUDNhQnB2dFNTMXhBdHNLZmVqZ1FxUklhNEVSZlFlRjZrekNZTkVuTnFtVjB6WDJ0dw?oc=5</link>
+      <description>Anthropic's IPO timing threatened by AI backlash, historic tech rout New York Post</description>
+      <guid isPermaLink="false">sty_9757b0b71f24c49d</guid>
+      <pubDate>2026-11-06T00:39:49Z</pubDate>
+    </item>
+    <item>
+      <title>AI for scientific discovery How researchers use Claude - Anthropic [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMibkFVX3lxTE9wMDFpTC1odkNLZ3AxZk5sMUplMXhyU2MtSll2Z3J6a20tN3p5UjJuTF83T2xaNzlTbDJGQ1J6ckk2TUcyTWVRSUNETjZQbjhBa2R3cHcyQi1CRVJSQ3BmTHBYb1gtT2JNemw3bmt3?oc=5</link>
+      <description>AI for scientific discovery How researchers use Claude Anthropic</description>
+      <guid isPermaLink="false">sty_c0486df714addc2e</guid>
+      <pubDate>2026-11-05T23:29:34Z</pubDate>
+    </item>
+    <item>
+      <title>Exclusive: Aina's Smart Ring Wants to Be a Remote Control for Your AI Agent [ ~ ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/aina-smart-ring/</link>
+      <description>The startup Aina bets you won't need to rely on your phone to control virtual assistants. It's making a smart ring that lets you control the actions of your autonomous agents with one tap.</description>
+      <guid isPermaLink="false">sty_318693795bf23cc0</guid>
+      <pubDate>2026-11-05T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Presentation: Zero Trust Agent Systems that Pass Audits and Still Ship [ * ] [ ⬢ ]</title>
+      <link>https://www.infoq.com/presentations/zero-trust-ai-agents-production-security/</link>
+      <description>Advait Patel shares a playbook for securing AI agent systems in production. He discusses moving defense boundaries from the prompt to the tool layer, enforcing scoped workload identities, and mitigating prompt injection via tool outputs. He explains how to structure audit-ready observability and implement kill switches to protect critical data while keeping deployment fast and compliant. By Advait Patel</description>
+      <guid isPermaLink="false">sty_705db0db5b7b8be7</guid>
+      <pubDate>2026-11-05T11:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Finding New Drugs Is Laborious. This AI Startup Is Skipping The Lab Work [ ~ ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/finding-new-drugs-is-laborious-this-ai-startup-is-skipping-the-lab-work/</link>
+      <description>Potential Sciences, a startup backed by the UK government, is betting that training AI models on computer-generated biochemical data can speed up the plodding process of developing new drugs.</description>
+      <guid isPermaLink="false">sty_6077b678deabff18</guid>
+      <pubDate>2026-11-05T13:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI to acquire Pierre Computer Company, Inc. [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/openai-to-acquire-pierre</link>
+      <description>OpenAI will acquire Pierre Computer Company, expanding Codex's tools for building, understanding, and reviewing code.</description>
+      <guid isPermaLink="false">sty_8b9ea0ef985ca472</guid>
+      <pubDate>2026-11-04T14:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic is rapidly accelerating AI development amid slowdown calls, outside research group says - InformNNY.com [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMi2AFBVV95cUxPdVdQclZtSjFhTWluMmN4V1duSWNtUmJvNmpTcTEtMTFsWDNoRXdkNExHS0UyOWNlUnY2VUVQT0ppRlZYQTJXYWxoYkExdEdWSDFQNFJNUWFXU3VRRmE3TXpiM0c1Vm1OUGkzZGJyajBJR2NXZ3N1d3JHZTlPOUJUeUQtQ0hkY2d5U0lrdnJDUXZxQTkxQVE2enlyc2xsZnhBOFJhZFBCOFIxbTBmTTltY3VuZWwwUmZzRlFwNkFqWGpjeHd0bDZCMDdHVi1sbGU5dzZHZXFTdXfSAd4BQVVfeXFMTjZxWXdwNkdpb3pRdW5oT2dsVE1PX2JJS1pzUVB2djJRS0hBVDV1NDRDLW1qX0xhVjlYOS1ueDlUSWd1Ymx2dm5YVUVIeTVkQTBaQ1g4QmNsZnA3dWF0ZVhUeXN0YloxNm1TZ240cExKR3pzbUJRZmF6QmhBQmstRWp2dUsxcVVaWkFxRjVQSWJnc0FXdDRDS2hIanUwbmVwMEdWS0Z1WGljUzhOLVh5TXVQMWlkSVhNZDdvN1VVbE1MZFlJNVBJM0tMaEh3QkxXa1gzbDN0UngxdS1Fc01B?oc=5</link>
+      <description>Anthropic is rapidly accelerating AI development amid slowdown calls, outside research group says InformNNY.com</description>
+      <guid isPermaLink="false">sty_88c84b62b15241de</guid>
+      <pubDate>2026-11-05T21:50:18Z</pubDate>
+    </item>
+    <item>
+      <title>AI's Next Trick? Speaking Dolphin [ ~ ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/wired-world-fair-2026-denise-herzing-wild-dolphin/</link>
+      <description>Denise Herzing, the founder and director of the Wild Dolphin Project, is using AI to help understand audio and video footage of the marine mammals.</description>
+      <guid isPermaLink="false">sty_32a1ad4944129bb4</guid>
+      <pubDate>2026-11-05T12:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>He Trolls AI Labs for a Living. Now They All Want to Work With Him [ ~ ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/wired-world-fair-2026-evan-ratliff-and-husk/</link>
+      <description>OpenAI, Anthropic, and SpaceXSI have all reached out to Husk, an influencer who regularly goes viral by exposing the shortcomings of chatbots.</description>
+      <guid isPermaLink="false">sty_81f12cb083f21fd6</guid>
+      <pubDate>2026-11-05T11:45:00Z</pubDate>
+    </item>
+    <item>
+      <title>Mind-Merging With Machines By 2040 Was Reportedly Once The Plan Of AI Billionaire Headed For Wall Street - The Daily Caller</title>
+      <link>https://news.google.com/rss/articles/CBMijgFBVV95cUxNRDhuR1VXanplSWVYRkR5dlVSbmtqcGFnaXRlSlB0VWZlRHpuVHctV1JMY28xMHpYTEoyWWk4dEs2SzZmSHhmNDZDeEE4WnlZR29lVkszM1ltYWVYMFVuRkpFbkEzckxyMHBjSXptUkY4UjJfZEJTTjNrWHktYUlrdlRKX3ZjLWYyY0hnb1N3?oc=5</link>
+      <description>Mind-Merging With Machines By 2040 Was Reportedly Once The Plan Of AI Billionaire Headed For Wall Street The Daily Caller</description>
+      <guid isPermaLink="false">sty_59fb90bd9acb87a3</guid>
+      <pubDate>2026-11-05T21:24:00Z</pubDate>
+    </item>
+    <item>
+      <title>Journalist Admits She Used AI to Edit Photo Smearing Democrat Voters [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/journalist-admits-ai-photo-smear-democrat</link>
+      <description>"Actual journalists don't do this." The post Journalist Admits She Used AI to Edit Photo Smearing Democrat Voters appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_866b37543e7026a0</guid>
+      <pubDate>2026-11-05T20:49:04Z</pubDate>
+    </item>
+    <item>
+      <title>3 takeaways from the big AI report on Anthropic everyone is talking about - Business Insider [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMitwFBVV95cUxNRVU2aDNKNTRhU3NLcmJXR3pnTkVKT1UxR0JJcXUtWDdPU0FlSEhZUkNHLU8zYlNQOURaeWxwRWw3TWRIb1M5QmJxWTJhWS1aSW9Kc2szSUFsV1hKOHFrUVZuMmVhWGFDVXpubEdicjQ3TC1PejNqOXY1LWhyT0htMGJoZW9rLTFYUUt1TFBYYTlyT2Ffc3VLYnAxZzF6SjMwXzRHOWJUc0x6aUVoRTdKMlREY2IweFk?oc=5</link>
+      <description>3 takeaways from the big AI report on Anthropic everyone is talking about Business Insider</description>
+      <guid isPermaLink="false">sty_df4170fea4f31f69</guid>
+      <pubDate>2026-11-05T20:40:00Z</pubDate>
+    </item>
+    <item>
+      <title>A thousand fewer paths to root [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/a-thousand-fewer-paths-to-root</link>
+      <description>OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.</description>
+      <guid isPermaLink="false">sty_42576285eab6d88b</guid>
+      <pubDate>2026-11-04T08:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Daybreak Red is now available in AWS GovCloud (US-East) [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/daybreak-red-aws-govcloud</link>
+      <description>Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.</description>
+      <guid isPermaLink="false">sty_bacaa1d07e35bd4e</guid>
+      <pubDate>2026-11-04T07:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Kids Hooked on AI Chatbots Are Showing Dramatically Worse Mental Health [ * ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/kids-hooked-ai-worse-mental-health</link>
+      <description>They're turning to AI chatbots for help, but their machine confidantes are doing more harm than good. The post Kids Hooked on AI Chatbots Are Showing Dramatically Worse Mental Health appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_e4396a9a3ed81c87</guid>
+      <pubDate>2026-11-05T17:56:41Z</pubDate>
+    </item>
+    <item>
+      <title>BuzzFeed Stock in Free Fall as Pivot to AI Blows Up in Its Face [ * ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/buzzfeed-stock-free-fall-pivot-ai</link>
+      <description>Investors are BuzzFed up. The post BuzzFeed Stock in Free Fall as Pivot to AI Blows Up in Its Face appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_ffb20be470ebd5e4</guid>
+      <pubDate>2026-11-05T16:48:40Z</pubDate>
+    </item>
+    <item>
+      <title>Empirical Evaluation of Sparse Predictive Hierarchies (SPH) &amp; Non-Backprop Learning on Chess (Lc0 Baseline) Negative Result [R] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xov58r/empirical_evaluation_of_sparse_predictive/</link>
+      <description>Hi everyone, I wanted to share an empirical study testing whether biologically inspired architectures with local learning rules, specifically Sparse Predictive Hierarchies (SPH) based on Ogma's whitepapers (AOgmaNeo) can handle complex policy/value prediction tasks without end-to-end backpropagation. Chess was chosen as the testbed because it requires both local pattern recognition and long-range spatial dependencies. GitHub Repo: https://github.com/P1X3R/sparse-chess Control Group Repo: https://github.com/P1X3R/sparse-chess-control-group 1. Motivation &amp; Core Hypothesis Standard deep learning models (ResNets, Transformers) rely on global backpropagation. I wanted to test if extreme weight/activation sparsity (~99%) combined with local prediction updates could enable scalable, compute-efficient policy/value prediction on modest hardware. 2. Architecture &amp; Optimizations Model Size: ~44.9M parameters. Encoders: Fuzzy ART-based encoders mapping local receptive fields to columns. Body: Dendritic Neural Layers (DNNs) with Leaky ReLU activations acting as non-backprop feature extractors. Heads: Specialized policy and value heads matching Lc0 formats (WDL output + Lc0 move probability distributions). Quantization: Byte weights with stochastic rounding for optimized SIMD throughput. 3. Methodology &amp; Baseline Control Dataset: Chunks of the Lc0 test80 dataset (10k training games, 2k validation games). Control Baseline: A tiny, standard CNN (32 channels, ~3.8M parameters-less than 1/10th the parameter size of the SPH model) trained via standard backpropagation on the exact same dataset splits. 4. Results &amp; Key Findings (Negative Result) The SPH architecture failed catastrophically when compared against standard end-to-end backpropagation. Failure to Converge on Policy: While the standard 3.8M CNN quickly learned board geometry, tactical threats, and basic move distributions, the 44.9M SPH model severely underperformed on policy accuracy and value loss. Extreme Sparsity Penalty: Enforcing ~99% sparsity choked the flow of tactical information. In chess, "empty" squares and long-range piece interactions carry high dense information content that local sparse representations struggle to propagate without global credit assignment. Local Learning vs. Global Dependencies: Local learning rules excel at unsupervised visual feature extraction, but they fail to pass gradient signals back from a global board outcome (Win/Draw/Loss) to early receptive fields. 5. Discussion &amp; Questions for the Community Global Credit Assignment: Has anyone successfully adapted local/biological learning rules (e.g., Target Propagation, Predictive Coding, HTM/SPH) to tasks with strict, long-range global credit assignment like games or logic reasoning? Dense Domains &amp; Sparsity: Is ~99% sparsity fundamentally incompatible with dense symbolic/grid representations like chess, or is the limitation purely in my architecture (or maybe a nasty bug I couldn't catch)? Would love to hear thoughts from anyone working on non-backprop architectures, neuromorphic computing, or biological AI abstractions! submitted by /u/Severe-Heat-518 [link] [comments]</description>
+      <guid isPermaLink="false">sty_6e58c20d46ef290c</guid>
+      <pubDate>2026-11-05T21:40:01Z</pubDate>
+    </item>
+    <item>
+      <title>Introducing Images 2.6 [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/introducing-images-2-6</link>
+      <description>Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.</description>
+      <guid isPermaLink="false">sty_e9bea3947a8539e1</guid>
+      <pubDate>2026-11-04T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>DevRev delivers autonomous self-service with GPT-6.1 Sol [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/devrev-enterprise-self-service</link>
+      <description>DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.</description>
+      <guid isPermaLink="false">sty_5d7c698bb8c6334b</guid>
+      <pubDate>2026-11-04T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Google Staffers Say They're Being Silenced From Telling the Public the Truth About AI [ ~ ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/google-deepmind-workers-silenced-censorship-ai</link>
+      <description>"The reason is to basically intimidate people." The post Google Staffers Say They're Being Silenced From Telling the Public the Truth About AI appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_8e2856b9a3318698</guid>
+      <pubDate>2026-11-05T14:25:13Z</pubDate>
+    </item>
+    <item>
+      <title>The Ultimate MoE Training Handbook: training Mixture-of-Experts models with Megatron-LM, setting by setting [P] [ ~ ] [ ◼ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xorgq0/the_ultimate_moe_training_handbook_training/</link>
+      <description>Handbook: https://huggingface.co/spaces/huggingface/moe-blogpost Hello, I'm Nouamane, one of the authors. I'm at Hugging Face and also worked on the Ultra-Scale and Smol Training Playbooks, if you've read those. This handbook is for people who have trained a dense model and want to train an MoE next, or who are curious how MoE training works. Chapter 2 is a Megatron-LM runbook: test the hardware, build the image, train a dense baseline, then a first MoE on one node, compared against that baseline. Chapter 3 takes the MoE layer apart (router, routing, load balancing, experts, block layout, training, systems). For each part we give the Megatron-LM code, what to watch, our recommendation, and what frontier MoEs chose. Chapter 4 follows the model into serving and RL. Chapters 3 and 4 need no GPU. When a result comes from our runs, we say so. Claims about frontier models cite their paper, config or code, and the toy simulations are labelled as such. The lessons come from about 800k GH200 GPU-hours allocated to MoE training on the Alps cluster at CSCS. Released: the handbook, its 55 figures as a gallery (https://huggingface.co/spaces/huggingface/moe-gallery), the scripts (https://gist.github.com/nmntz/5de952d686f66d7bce5bce8cba9d7139), and every recommended flag in one Megatron-LM block. Happy to answer questions. 🤗 submitted by /u/Norlax_42 [link] [comments]</description>
+      <guid isPermaLink="false">sty_5b84a1de664eda78</guid>
+      <pubDate>2026-11-05T19:13:51Z</pubDate>
+    </item>
+    <item>
+      <title>Looking for Emergency Reviewers [R] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xoqca2/looking_for_emergency_reviewers_r/</link>
+      <description>We're looking for a few emergency reviewers for the FABRIC Workshop at WACV 2027 due to a very tight review timeline. If you have expertise in computer vision, multimodal learning, physiological sensing, healthcare AI, affective computing, or related areas and can complete a review by November 6 noon (U.S. time), please DM me or comment below. submitted by /u/aicommander [link] [comments]</description>
+      <guid isPermaLink="false">sty_b9c52877efec7f59</guid>
+      <pubDate>2026-11-05T18:31:03Z</pubDate>
+    </item>
+    <item>
+      <title>I animated how a language model picks the next token, with real probabilities from Qwen2.5-0.5B: softmax, greedy vs sampling, temperature, top-k, top-p (7 min video) [D] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xopogt/i_animated_how_a_language_model_picks_the_next/</link>
+      <description>I made this explainer for my small channel and would like feedback from people learning this, especially if anything is wrong. It follows one real example the whole way. I gave Qwen2.5-0.5B-Instruct "Write one sentence about the moon." twice with the same settings (temperature 1, no top-k or top-p, different seeds). Both answers start with "The", then split: "The moon, a satellite of the Earth..." vs "The lunar South Equatorial region...". After "The", the model scores all 151,936 vocabulary tokens. Softmax gives moon 78.04%, full 4.46%, vast 2.24%, Moon 1.51%, lunar 1.50%. Greedy always takes moon. Sampling is a weighted random pick, so lunar wins about 1 time in 67, and run 2 got it. The loop: append the token, run the model again. Most later picks were rank 1, but run 2 also picked "South" (rank 219) and "empty" (rank 1,098), and run 1 picked "green" (rank 536). Temperature divides the scores before softmax: moon goes from 100% at T=0.2 to 6.3% at T=2.0. Top-k vs top-p on the same step: top-k 3 rescales moon to 92.1%; top-p 0.9 keeps 8 tokens here but only 1 at a later step where "of" has 97.9%, which is the argument in Holtzman et al. (2019). At the model's default top-p 0.8, lunar is cut. Even temperature 0 can vary on a server: Thinking Machines got 80 different answers from 1,000 runs of Qwen3-235B, caused by batch-size-dependent addition order. All numbers come from running the model on CPU in Colab with transformers. Sources are in the description. The narration is an AI voice reading my own script. Video: https://www.youtube.com/watch?v=r0_LTPf7MSw submitted by /u/Rajucg [link] [comments]</description>
+      <guid isPermaLink="false">sty_00df399690d90422</guid>
+      <pubDate>2026-11-05T18:05:55Z</pubDate>
+    </item>
+    <item>
+      <title>How Dario Amodei Built Anthropic With A Heavy Dose Of Parano - ИФЗ РАН</title>
+      <link>https://news.google.com/rss/articles/CBMifkFVX3lxTE1fZWVOMWhBTE8wcG5ETE45ZVRZY3JtbGZfSm4wc1Q1cWJBU3pwUFRJaFZ4S01FUlZfRUNDeXVTbUZGUDhJemE0a2l2S0VHM0RFUkE2T0RjOGZ3Q2JXUFd5MmFPT2I5d01Hb0VRbEUwS0daaFhxS3ZRZGR3Yk1Ndw?oc=5</link>
+      <description>How Dario Amodei Built Anthropic With A Heavy Dose Of Parano ИФЗ РАН</description>
+      <guid isPermaLink="false">sty_479a73673a5f105a</guid>
+      <pubDate>2026-11-05T11:32:48Z</pubDate>
+    </item>
+    <item>
+      <title>Agentic cheminformatics with Google Antigravity [ ~ ] [ ◻ ]</title>
+      <link>https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/</link>
+      <description>Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.</description>
+      <guid isPermaLink="false">sty_9a4691d624d7f00d</guid>
+      <pubDate>2026-11-03T17:01:49Z</pubDate>
+    </item>
+    <item>
+      <title>The Blue Wave Has Tech Bros Scrambling for Data Centers in Space [ ~ ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/the-blue-wave-has-tech-bros-scrambling-for-data-centers-in-space/</link>
+      <description>After Democrats won big in Texas and other AI infrastructure hot spots on Tuesday, data center enthusiasts looked for comfort in low Earth orbit.</description>
+      <guid isPermaLink="false">sty_d2f8eb79cc934ef7</guid>
+      <pubDate>2026-11-04T23:13:14Z</pubDate>
+    </item>
+    <item>
+      <title>trainlint: static checks for ML bugs that don't crash (fit-before-split, eval mode, logits losses) [P] [ ~ ] [ ◻ ]</title>
+      <link>https://www.reddit.com/r/MachineLearning/comments/1xonrvy/trainlint_static_checks_for_ml_bugs_that_dont/</link>
+      <description>I wrote a small checker for training and evaluation code. It looks for mistakes that do not raise errors. The classic one is leakage through preprocessing. With 5,000 random features and random labels, picking the top 20 features on the full dataset and then running 5-fold cross-validation gives 85% accuracy (87.7% averaged over 20 seeds). Doing the selection inside a Pipeline gives 48% (50.0%). Nothing can beat 50% on that data, so the whole gap is leakage. trainlint finds that pattern statically, along with thirteen others: eval() left on during training, no_grad without eval(), fp16 autocast without a GradScaler, resumable scripts that save no optimizer state, softmax before CrossEntropyLoss, zero_grad between backward and step, loss kept as a tensor, swapped y_true and y_pred, hard labels passed to roc_auc_score, drop_last on eval loaders, rescaling by a dataset's own statistics before the split, training loaders that never shuffle, and a missing seed. It parses the code with ast and matches names, so it needs no data, model or GPU. How well it works, with the caveats. I wrote 20 buggy scripts with fixed twins, but I wrote them together with the rules, so they only protect against regressions. For an outside check I read every finding on pytorch/examples at a pinned commit: 22 findings, 20 real, 2 correct but harmless. Earlier runs had 4 false positives, which are fixed. That is one repo of tutorial code and I did the reading myself. I do not have recall numbers. It goes by names, reads one file at a time, and only knows PyTorch and scikit-learn. It will be wrong on code that names its splits in unusual ways. Code and per-rule examples: https://github.com/Satvik-jain/trainlint submitted by /u/Possible-Active-1903 [link] [comments]</description>
+      <guid isPermaLink="false">sty_f0d8b633d1479777</guid>
+      <pubDate>2026-11-05T16:54:56Z</pubDate>
+    </item>
+    <item>
+      <title>Anthropic's Ambition to Cure Diseases - WSJ</title>
+      <link>https://news.google.com/rss/articles/CBMijgFBVV95cUxNU1drZ3NwOE9Ra3A3eXVQaUNSVlp2b3pjS3BzMHVQX0ZjWU90MkN2NE1hTUgxbnJMVjlhUllQV3E2ZmVMUWRHYmhBNlBNd0szT3o2LTI5XzNQQW9xbkNGVHE5d19wQ1pMMFFNVUtUX082TFZVdC1LLVdjWnRDbDNUVml0VmFaTkNLZTh0MGtB?oc=5</link>
+      <description>Anthropic's Ambition to Cure Diseases WSJ</description>
+      <guid isPermaLink="false">sty_de4f6fa6f1834885</guid>
+      <pubDate>2026-11-05T10:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Big Tech claims voters' AI backlash is "anti-Trump" not "anti-tech" [ ! ] [ ◼ ]</title>
+      <link>https://arstechnica.com/tech-policy/2026/11/big-tech-claims-voters-ai-backlash-is-anti-trump-not-anti-tech/</link>
+      <description>Tech industry in denial as US overwhelmingly votes to restrict AI, data centers.</description>
+      <guid isPermaLink="false">sty_fd2bc76050a2cee5</guid>
+      <pubDate>2026-11-04T20:55:50Z</pubDate>
+    </item>
+    <item>
+      <title>The Biggest Pro-AI Super PAC Network Didn't Really Impact the Midterms [ ~ ] [ ◻ ]</title>
+      <link>https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-didnt-really-impact-the-midterms/</link>
+      <description>Leading the Future, backed by Silicon Valley's biggest billionaires, had a war chest of $100 million and an aggressive stance against AI regulation. All of it didn't add up to much on Tuesday night.</description>
+      <guid isPermaLink="false">sty_17bc41f2b268d775</guid>
+      <pubDate>2026-11-04T20:41:29Z</pubDate>
+    </item>
+    <item>
+      <title>Accelerating engineering for the physical world [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/accelerating-engineering-for-the-physical-world</link>
+      <description>Discover how ChatGPT and Codex are helping engineers accelerate CAD, PCB design, simulation, and other workflows across the physical world.</description>
+      <guid isPermaLink="false">sty_c0d5bc217dc92a34</guid>
+      <pubDate>2026-11-03T12:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>We're sharing our framework for building safer and more helpful AI for health. [ ~ ] [ ◻ ]</title>
+      <link>https://blog.google/innovation-and-ai/technology/health/evaluating-health-ai-at-scale/</link>
+      <description>Many of us have turned to AI with a health question or received care from a doctor who's using it. The adoption of technology for health is accelerating and impacts bill...</description>
+      <guid isPermaLink="false">sty_d7a3ebaeff2a3656</guid>
+      <pubDate>2026-11-04T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>How Cisco defends at machine speed with OpenAI [ * ] [ ⬢ ]</title>
+      <link>https://openai.com/index/cisco-cyber</link>
+      <description>Cisco combines network intelligence with OpenAI models to strengthen enterprise security. Learn how it is building more adaptive defenses.</description>
+      <guid isPermaLink="false">sty_e028c5b49204633b</guid>
+      <pubDate>2026-11-03T08:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Heimstaden is changing residential real estate management with AI [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/heimstaden</link>
+      <description>Discover how Heimstaden uses OpenAI's ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.</description>
+      <guid isPermaLink="false">sty_2615702d7a105b87</guid>
+      <pubDate>2026-11-03T08:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Inkitt Builds a One-Shot PR Creator with Resumable Agent Orchestration [ * ] [ ◼ ]</title>
+      <link>https://www.infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent/</link>
+      <description>Inkitt built a one-shot pull request creator that automates small, low-risk code changes from task intake to draft PR creation. Its event-driven orchestrator persists workflow state, coordinates short-lived coding agent containers, bounds retries, and enforces permission restrictions while retaining human review and approval before changes can be merged. By Leela Kumili</description>
+      <guid isPermaLink="false">sty_a901c269f3fa5bb2</guid>
+      <pubDate>2026-11-04T14:36:00Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI appoints Jill Hazelbaker as Chief Corporate Affairs Officer</title>
+      <link>https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer</link>
+      <description>Jill Hazelbaker will join OpenAI as Chief Corporate Affairs Officer, leading the company's global communications and corporate positioning.</description>
+      <guid isPermaLink="false">sty_b69b33eb4b5e2fac</guid>
+      <pubDate>2026-11-03T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Presentation: Panel: Who Builds the Frontend Now? (And What Breaks When They Do) [ ~ ] [ ◻ ]</title>
+      <link>https://www.infoq.com/presentations/panel-ai-frontend-architecture/</link>
+      <description>The panelists explain how AI tools and vibe coding reshape frontend and mobile engineering. They share insights on evolving junior developer roles, managing AI-generated code review fatigue, designing systems for autonomous agents, enforcing architectural guardrails, and navigating economic shifts in open-source software sustainability. By Luca Mezzalira, James Hall, Danielle An, Ivan Zarea</description>
+      <guid isPermaLink="false">sty_3d3053c831ca1866</guid>
+      <pubDate>2026-11-04T11:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Preparing our next security sprint to harden OpenAI [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai</link>
+      <description>OpenAI is preparing its next internal security sprint with Cathedral Systems to test and strengthen its defenses using AI.</description>
+      <guid isPermaLink="false">sty_26f76dd91078de5a</guid>
+      <pubDate>2026-11-02T18:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Rewarding defenders with bigger bug bounties [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties</link>
+      <description>OpenAI is raising Security Bug Bounty rewards and introducing report quality, loyalty, and priority campaign bonuses for independent security researchers.</description>
+      <guid isPermaLink="false">sty_dc1fa9652664f84f</guid>
+      <pubDate>2026-11-02T18:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Scaling Git at OpenAI [ ~ ] [ ◼ ]</title>
+      <link>https://openai.com/index/scaling-git-at-openai</link>
+      <description>How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.</description>
+      <guid isPermaLink="false">sty_2676237779d75038</guid>
+      <pubDate>2026-11-02T15:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Introducing the Grid Protectors Program [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/grid-protectors-program</link>
+      <description>OpenAI's Grid Protectors Program will work with utilities to help future compute campuses support grid reliability and protect consumer electricity costs.</description>
+      <guid isPermaLink="false">sty_d10106347538d526</guid>
+      <pubDate>2026-11-02T15:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>LifeVal [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/lifeval</link>
+      <description>Introducing LifeVal, a benchmark measuring how well AI helps people complete everyday tasks, from finding childcare to managing finances and government paperwork.</description>
+      <guid isPermaLink="false">sty_5ac7c86e5069b7c5</guid>
+      <pubDate>2026-11-02T09:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Investigating vault particles with Claude - Anthropic [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiggFBVV95cUxOd0V1dFM4a0hJdG5SOGZBMkpQbHRZN1JwV3M4SGZQLXg3Tm1qSzdWZHZxNzI0SzA2bVdMdXEwRmRUcXJRN2pEazBBbHZaTktrQzZBNF9IQ1NGM3FhVU9ISDZTVW1kNU1ndk1ORjBKenR2Mkh6Q0U0NVowN1ZTM0hGLVNR?oc=5</link>
+      <description>Investigating vault particles with Claude Anthropic</description>
+      <guid isPermaLink="false">sty_525d9b6ea040e56c</guid>
+      <pubDate>2026-11-04T22:02:45Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI appoints Dan Driscoll as Senior Counselor for National Security Modernization [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/dan-driscoll-joins-openai</link>
+      <description>OpenAI appoints Dan Driscoll to advise on responsible AI for national security modernization, cyber resilience, and collaboration with U.S. allies.</description>
+      <guid isPermaLink="false">sty_e321844692da4afe</guid>
+      <pubDate>2026-11-02T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Qodo builds context into AI code review with Codex [ ~ ] [ ◼ ]</title>
+      <link>https://openai.com/index/qodo-codex-plugin</link>
+      <description>Qodo brings company knowledge and coding standards into Codex, helping developers catch P0 issues across repositories before opening a pull request.</description>
+      <guid isPermaLink="false">sty_1e2854d2e446763f</guid>
+      <pubDate>2026-11-02T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Athukoralage et al. 2026, Prokaryotic homologs of the major vault protein form engineerable vault nanocapsules - Anthropic</title>
+      <link>https://news.google.com/rss/articles/CBMif0FVX3lxTFBqb1dSUHp1ZHJDdGp5TTRnOE4tVkVndFlSemVaOGtGUTJianJfclBqYzIzYVFmMng0WGVfSTk3alZlWWxnV3RRUndzN1p3T2lNYUE2dTBtN2gtX08tOFAweDEtZEE0akV0NWZEdWplaWF4MlVYWnlfR05LQ0pacGM?oc=5</link>
+      <description>Athukoralage et al. 2026, Prokaryotic homologs of the major vault protein form engineerable vault nanocapsules Anthropic</description>
+      <guid isPermaLink="false">sty_bcf1ee6f6aaa0b76</guid>
+      <pubDate>2026-11-04T20:10:57Z</pubDate>
+    </item>
+    <item>
+      <title>Americans Just Resoundingly Rejected AI Data Centers [ * ] [ ◻ ]</title>
+      <link>https://futurism.com/artificial-intelligence/americans-reject-data-centers</link>
+      <description>Data centers proved to be a powerful midterm issue. The post Americans Just Resoundingly Rejected AI Data Centers appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_02ae08ee7452b944</guid>
+      <pubDate>2026-11-04T17:38:47Z</pubDate>
+    </item>
+    <item>
+      <title>Designing responsible AI for learning [ * ] [ ◼ ]</title>
+      <link>https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/</link>
+      <description>We're bringing Guided Learning capabilities to Search and Google Classroom, and evolving our approach to school controls.</description>
+      <guid isPermaLink="false">sty_4d85673b1f483eee</guid>
+      <pubDate>2026-11-03T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>We're providing funding for organizations building AI for teachers. [ ~ ] [ ◻ ]</title>
+      <link>https://blog.google/products-and-platforms/products/education/google-org-funding-ai-education/</link>
+      <description>Google.org is funding five organizations to build AI tools for teachers. See how these initiatives support educators and students. Get the details.</description>
+      <guid isPermaLink="false">sty_6d395d497766e3e6</guid>
+      <pubDate>2026-11-03T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>AI in the learning era [ * ] [ ◼ ]</title>
+      <link>https://blog.google/products-and-platforms/products/education/ai-learning-era-2026/</link>
+      <description>Read announcements from Google's 2026 AI in the Learning Era event.</description>
+      <guid isPermaLink="false">sty_c6b0ad77fe538c38</guid>
+      <pubDate>2026-11-03T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Expanding AI educator training to new countries [ ~ ] [ ◻ ]</title>
+      <link>https://blog.google/products-and-platforms/products/education/google-ai-educator-series-global-expansion-november-2026/</link>
+      <description>A celebration of educator stories from Malaysia, India, Philippines, and the UK, plus new GES sessions and expansion into Spain, Brazil, Australia, and Sub- Saharan Afri...</description>
+      <guid isPermaLink="false">sty_3126c7fc4d55795f</guid>
+      <pubDate>2026-11-03T14:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Google will let schools skip AI tools, but they have to give up search, too [ * ] [ ◼ ]</title>
+      <link>https://arstechnica.com/ai/2026/11/google-will-let-schools-skip-ai-tools-but-they-have-to-give-up-search-too/</link>
+      <description>Google will offer schools AI tools that purportedly don't give away the answers.</description>
+      <guid isPermaLink="false">sty_60cd42b48f7a50fa</guid>
+      <pubDate>2026-11-03T17:54:43Z</pubDate>
+    </item>
+    <item>
+      <title>Former Meta Exec Shreds the Company's Muse AI Agent as "Insane" Privacy Risk [ * ] [ ◼ ]</title>
+      <link>https://futurism.com/artificial-intelligence/former-meta-exec-shreds-muse-ai-agent</link>
+      <description>It's "totally insane" to hand over your bank login, he says. The post Former Meta Exec Shreds the Company's Muse AI Agent as "Insane" Privacy Risk appeared first on Futurism.</description>
+      <guid isPermaLink="false">sty_81976f39c67abd21</guid>
+      <pubDate>2026-11-04T12:50:00Z</pubDate>
+    </item>
+    <item>
+      <title>Presentation: Beyond the Harness: Canvas for AI Agents [ ~ ] [ ◼ ]</title>
+      <link>https://www.infoq.com/presentations/canvas-ai-agents/</link>
+      <description>Nimisha Asthagiri shares how applying proven product engineering and architecture principles creates a bounded canvas for AI agents. She explains how this model provides agents with bounded autonomy, continuous drift detection, and decision records to scale software development resiliently. By Nimisha Asthagiri</description>
+      <guid isPermaLink="false">sty_2f1531d3a76ffb5a</guid>
+      <pubDate>2026-11-03T11:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Advancing research and partnering with universities in Singapore [ ~ ] [ ◻ ]</title>
+      <link>https://blog.google/innovation-and-ai/technology/research/partnering-singapore-advance-scientific-discovery/</link>
+      <description>Google is investing in new research grants and capacity-building initiatives to advance AI for science and support the next generation of scientific leaders in Singapore.</description>
+      <guid isPermaLink="false">sty_0a39b1c73be391b4</guid>
+      <pubDate>2026-11-03T04:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Dario Amodei envisions 'a country of geniuses in a data center,' Anthropic's IPO filing reveals financial risks - Crypto Briefing [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMipwFBVV95cUxOVjZSY1l5Vzk3R0FFQXA0U2hER1kzUEJQa2JRWEFUY1I2UEVZZmVPRThoNEFfcG1LWG5LWnF1VkRaXzA4dVJrNzV3QnhrcERsVHNXa0xxbTNhOGdVemZ5LTUzZC1uMTdmQWhtZ0ZsRmg5TTlpaU93a21HT0JsLVlYUHlFTEgzeHpydDVHTlZ1b29YMHdwRC15M0VJUU9nXzFpbFJxRTBSaw?oc=5</link>
+      <description>Dario Amodei envisions 'a country of geniuses in a data center,' Anthropic's IPO filing reveals financial risks Crypto Briefing</description>
+      <guid isPermaLink="false">sty_4ff7306b380fbec3</guid>
+      <pubDate>2026-11-04T11:32:13Z</pubDate>
+    </item>
+    <item>
+      <title>Dario Amodei wants 'a country of geniuses in a data center.' Realizing that vision requires risky financial mechanics, Anthropic's IPO filing shows - Fortune [ ~ ] [ ◻ ]</title>
+      <link>https://news.google.com/rss/articles/CBMihgJBVV95cUxNbFFMNDA5anVlblVzc3RXbklSOWFsZnpmQjdDU2lCY0lJMGJCYWQ5bTl0RmFRRU9uOUVKTjhVYjdWWGJLYXhLNzIzeGU0VndaanRKbzkxaTVZWkRfbHpSaDhMSnZvbjIyYU1MMl9XRXpobGNYRzBQTlRPRDYxWEo3QXluWTlOb2lNMURkSHN5LU9xVk9IamJORk5rd2hkU2puMFJIbG9JdmhMQUcwN29YSC1VWHN4bGZGQU5hUDJpZ1RNUGlaQlVNSkJ1ZlRzd3BRX3JvRll2TXRUdWVoR2owOXpLSWpzQ0VYcG1RSmRfemFjVU03aFBUdVdDSmQ2YVUzVTQtVkp3?oc=5</link>
+      <description>Dario Amodei wants 'a country of geniuses in a data center.' Realizing that vision requires risky financial mechanics, Anthropic's IPO filing shows Fortune</description>
+      <guid isPermaLink="false">sty_aa8758926b859ead</guid>
+      <pubDate>2026-11-04T11:22:00Z</pubDate>
+    </item>
+    <item>
+      <title>Speeding up planning decisions with AI [ * ] [ ◼ ]</title>
+      <link>https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/</link>
+      <description>Google DeepMind and UK government work together to reduce planning assessment times</description>
+      <guid isPermaLink="false">sty_3d7c8947d238ce00</guid>
+      <pubDate>2026-10-30T14:18:30Z</pubDate>
+    </item>
+    <item>
+      <title>Making it easier for websites to express AI training preferences [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/helping-websites-express-ai-training-preferences</link>
+      <description>OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.</description>
+      <guid isPermaLink="false">sty_a81654d2f6cf193d</guid>
+      <pubDate>2026-10-30T09:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Community safety report and new protections for teens [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/community-safety-report-and-new-protections-for-teens</link>
+      <description>OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.</description>
+      <guid isPermaLink="false">sty_9f3223ac52ee463d</guid>
+      <pubDate>2026-10-30T09:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Fair use benefits everyone [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/fair-use-benefits-everyone</link>
+      <description>OpenAI shares excerpts from court briefs by creators, academics, accessibility advocates, and legal experts, among others, on how fair use supports AI training and innovation.</description>
+      <guid isPermaLink="false">sty_4fc63541bea4183b</guid>
+      <pubDate>2026-10-30T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Running AI is getting expensive: Why Elon Musk says Grok's costs are unsustainable - WION [ * ] [ ◼ ]</title>
+      <link>https://news.google.com/rss/articles/CBMiygFBVV95cUxOZjJIT2tTdDF6dXE1aUhiLXZRT181RGgxcnpobW1oVnFUbGVYc1lLTGl3b2ZfSUwzenJmWWYyWElZdnRuenZaM0RhSTNSQXEya0hFd2dPMkJMU0Y2NFlnMzZHNmdKeWE2SV9XR2NTSzl6ajljNDBMQTFsN1RfLV9Dbkxla09kcmN2QUlCNVZqbnd0QjVPZjRyTWRIRW5MUHlNN0k1NjkwZWpZQzFzeFVmUHdJSWxnU01pR1BVVlV4Y0x5R1ZSam43SUFR0gHPAUFVX3lxTE9DNW1QZlg0aEFpRkpHN0FjQWV6OTYyeTdfUjBNRFZRLXFEWnlxYkxnNzR4NFQ2T3hSZGM5OFR1bkdVR0VWWk1nYzJ6SnRMWVprNHRDQkJIME5zcmhWSXZBTmR5Y25BT3FfMHJjRVh0dW8zeXBLZGdfdTVIY3hJcXZvR3hILWxPZVJTR2NZZVctQ2JQY2Y3UHpzdWpZOUZTemFoRk1qc2hpTW9JR3FrNXBPTUFvWWltSzNqaGx4ekRpTjc2VGF0NlpITWtoWlZRRQ?oc=5</link>
+      <description>Running AI is getting expensive: Why Elon Musk says Grok's costs are unsustainable WION</description>
+      <guid isPermaLink="false">sty_a758e3ac1ef4c592</guid>
+      <pubDate>2026-11-04T09:06:00Z</pubDate>
+    </item>
+    <item>
+      <title>An updated Model Spec for more capable and beneficial AI [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/updated-model-spec</link>
+      <description>OpenAI's updated Model Spec outlines five core values to guide more capable AI toward sound judgment, human agency, and faithfulness to human intent.</description>
+      <guid isPermaLink="false">sty_6bfe5de307955621</guid>
+      <pubDate>2026-10-29T17:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>How we detect frontier model misalignment [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/how-we-detect-frontier-model-misalignment</link>
+      <description>OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.</description>
+      <guid isPermaLink="false">sty_434898817c535ba9</guid>
+      <pubDate>2026-10-29T09:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>How Ropes &amp; Gray is developing AI for transactional diligence [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/ropes-gray-ai-diligence</link>
+      <description>Ropes &amp; Gray is developing AI for transactional diligence with OpenAI. Lawyers review grouped documents, summaries, and reports before advising clients.</description>
+      <guid isPermaLink="false">sty_18ca277c09bafb58</guid>
+      <pubDate>2026-10-29T07:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Credit Saison achieves 954% ROI in a ChatGPT Enterprise pilot [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/credit-saison</link>
+      <description>Credit Saison's ChatGPT Enterprise pilot delivered 954% ROI. See how leaders and employees helped turn the results into companywide adoption.</description>
+      <guid isPermaLink="false">sty_16205ad55f5cbb08</guid>
+      <pubDate>2026-10-29T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Evernote turns AI-driven discovery into paid subscriptions [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/ads/customers/evernote</link>
+      <description>Evernote used ChatGPT Ads to introduce its note-taking app to people working with AI. The team tracked how often free trials led to paid subscriptions.</description>
+      <guid isPermaLink="false">sty_f84c7ce41ba0c121</guid>
+      <pubDate>2026-10-28T19:40:49Z</pubDate>
+    </item>
+    <item>
+      <title>Gemini 4 Carbon: Our next frontier model [ * ] [ ◼ ]</title>
+      <link>https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/</link>
+      <description/>
+      <guid isPermaLink="false">sty_4d1a214f8b70e9d3</guid>
+      <pubDate>2026-10-28T17:00:58Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI and ServiceNow expand partnership across enterprise workflows [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/openai-servicenow-partnership-expansion</link>
+      <description>OpenAI and ServiceNow expand their partnership to bring OpenAI models and agents into ServiceNow and ServiceNow workflows into ChatGPT and Codex.</description>
+      <guid isPermaLink="false">sty_b5908b781f3a1bcc</guid>
+      <pubDate>2026-10-28T13:15:00Z</pubDate>
+    </item>
+    <item>
+      <title>The future of the firm [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/the-future-of-the-firm</link>
+      <description>How AI might enter the org chart-beneath, beside, and between us.</description>
+      <guid isPermaLink="false">sty_1b860d42bfb6442c</guid>
+      <pubDate>2026-10-28T10:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Legora is building the agentic operating system for legal work [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/legora</link>
+      <description>See how Legora uses OpenAI models, ChatGPT, and Codex to accelerate legal workflows, expand contract analysis, and free lawyers to focus on higher-value work.</description>
+      <guid isPermaLink="false">sty_330ec8989356741f</guid>
+      <pubDate>2026-10-28T09:30:00Z</pubDate>
+    </item>
+    <item>
+      <title>Genie 4: A new generation of world simulation [ ~ ] [ ◻ ]</title>
+      <link>https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/</link>
+      <description>Genie 4: our new world model unlocking unprecedented realism in real-time simulation.</description>
+      <guid isPermaLink="false">sty_7ef468c33853f76c</guid>
+      <pubDate>2026-10-27T16:01:38Z</pubDate>
+    </item>
+    <item>
+      <title>Retell uses OpenAI models to help power 100M monthly calls [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/retell-ai</link>
+      <description>GPT-6 Astra tops Retell's voice agent benchmark, while Codex helps it reach a $1.6M annual revenue run rate per employee.</description>
+      <guid isPermaLink="false">sty_cc2af7c40202990a</guid>
+      <pubDate>2026-10-27T15:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>OpenAI expands partnership with Oracle to bring its apps to ChatGPT [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/oracle-apps-in-chatgpt</link>
+      <description>OpenAI and Oracle are expanding their partnership to bring business applications and AI agents into ChatGPT and power new Oracle offerings.</description>
+      <guid isPermaLink="false">sty_0f0111d7592de833</guid>
+      <pubDate>2026-10-27T07:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>The latest AI news we announced in October 2026 [ * ] [ ◼ ]</title>
+      <link>https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/</link>
+      <description>Here are Google's latest AI updates from October 2026</description>
+      <guid isPermaLink="false">sty_cae4c9470004a08a</guid>
+      <pubDate>2026-11-02T17:45:00Z</pubDate>
+    </item>
+    <item>
+      <title>How Check Point accelerates vulnerability research with Daybreak [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/check-point-daybreak</link>
+      <description>With OpenAI Daybreak, Check Point speeds up the research behind new security protections, enabling its analysts to turn vulnerability intelligence into customer defenses faster.</description>
+      <guid isPermaLink="false">sty_c91c336dda61cd24</guid>
+      <pubDate>2026-10-27T00:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Greptile takes bug detection beyond code review with GPT-6 Astra [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/greptile-code-review-codex-astra</link>
+      <description>How Greptile uses GPT-6 Astra to test user workflows, Daybreak to strengthen security, and Codex to reduce rework.</description>
+      <guid isPermaLink="false">sty_bc182aca4357222f</guid>
+      <pubDate>2026-10-26T22:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Introducing GPT-6.1 Terra [ * ] [ ◼ ]</title>
+      <link>https://openai.com/index/introducing-gpt-6-1-terra</link>
+      <description>Delivering fast and capable computer use at scale</description>
+      <guid isPermaLink="false">sty_cfa08190bf33addc</guid>
+      <pubDate>2026-10-26T18:00:00Z</pubDate>
+    </item>
+    <item>
+      <title>Working with academic communities to build scientific understanding [ ~ ] [ ◻ ]</title>
+      <link>https://openai.com/index/building-scientific-understanding-with-academic-communities</link>
+      <description>OpenAI shares model results on the Kakeya conjecture, Exponential Time Hypothesis, and quantum chromodynamics-and how researchers can verify and build on them.</description>
+      <guid isPermaLink="false">sty_f26606e36f46cbdd</guid>
+      <pubDate>2026-10-26T14:30:00Z</pubDate>
     </item>
   </channel>
 </rss>
