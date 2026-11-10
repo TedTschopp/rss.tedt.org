@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-11-09T12:21:07.652118+00:00",
+  "timestamp": "2026-11-10T06:30:50.092835+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 236,
-      "last_updated": "Mon, 09 Nov 2026 11:57:49 +0000",
-      "size_bytes": 205641,
+      "last_updated": "Tue, 10 Nov 2026 06:20:08 +0000",
+      "size_bytes": 206213,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 3836,
-      "last_updated": "Mon, 09 Nov 2026 11:57:50 +0000",
-      "size_bytes": 2756681,
+      "entry_count": 3842,
+      "last_updated": "Tue, 10 Nov 2026 06:20:08 +0000",
+      "size_bytes": 2761502,
       "errors": []
     },
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 4,
-      "last_updated": "Mon, 09 Nov 2026 11:58:14 +0000",
+      "last_updated": "Tue, 10 Nov 2026 06:20:34 +0000",
       "size_bytes": 4282,
       "errors": [
         "Low entry count: 4"
@@ -31,7 +31,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 160,
-      "last_updated": "Mon, 09 Nov 2026 11:58:14 +0000",
+      "last_updated": "Tue, 10 Nov 2026 06:20:34 +0000",
       "size_bytes": 196006,
       "errors": []
     },
@@ -39,15 +39,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Mon, 09 Nov 2026 11:59:34 +0000",
-      "size_bytes": 218492,
+      "last_updated": "Tue, 10 Nov 2026 06:21:39 +0000",
+      "size_bytes": 332852,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 896,
-      "last_updated": "Mon, 09 Nov 2026 11:59:34 +0000",
+      "last_updated": "Tue, 10 Nov 2026 06:21:40 +0000",
       "size_bytes": 491939,
       "errors": []
     }
@@ -67,7 +67,7 @@
       "total_sources": 21,
       "attempted": 13,
       "skipped": 8,
-      "with_items": 9,
+      "with_items": 10,
       "failures": 0,
       "recovered": 0,
       "failure_rate": 0.0
@@ -80,110 +80,110 @@
     "pipeline_report_exists": true,
     "errors": [],
     "counts": {
-      "api_items": 200,
-      "stories": 2132,
-      "clusters": 2103
+      "api_items": 80,
+      "stories": 2608,
+      "clusters": 2580
     },
     "llm_status": {
       "status": "degraded",
-      "calls": 225,
-      "ok": 221,
-      "errors": 4,
+      "calls": 189,
+      "ok": 186,
+      "errors": 3,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 81,
-        "importance": 68,
-        "output_cleanup": 50
+        "ai_relevance": 80,
+        "importance": 78,
+        "output_cleanup": 20
       },
       "stages": {
         "enrichment": {
           "status": "ok",
-          "calls": 26,
-          "ok": 26,
+          "calls": 11,
+          "ok": 11,
           "errors": 0,
           "skipped": 0,
           "backlog": {
             "embeddings": {
-              "before": 50,
+              "before": 20,
               "remaining": 0
             },
             "summaries": {
-              "before": 50,
-              "remaining": 25
+              "before": 20,
+              "remaining": 10
             }
           }
         },
         "publish": {
           "status": "degraded",
-          "calls": 199,
-          "ok": 195,
-          "errors": 4,
+          "calls": 178,
+          "ok": 175,
+          "errors": 3,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 81,
-            "importance": 68,
-            "output_cleanup": 50
+            "ai_relevance": 80,
+            "importance": 78,
+            "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 199
+            "openai/gpt-4.1-mini": 178
           },
           "backlog": {
             "ai_relevance": {
-              "before": 81,
+              "before": 80,
               "remaining": 0
             },
             "importance": {
-              "before": 2,
-              "remaining": 4
+              "before": 0,
+              "remaining": 3
             },
             "output_cleanup": {
-              "before": 50,
+              "before": 20,
               "remaining": 0
             }
           },
-          "backlog_remaining": 4
+          "backlog_remaining": 3
         }
       },
       "backlog": {
         "embeddings": {
-          "before": 50,
+          "before": 20,
           "remaining": 0
         },
         "summaries": {
-          "before": 50,
-          "remaining": 25
+          "before": 20,
+          "remaining": 10
         },
         "ai_relevance": {
-          "before": 81,
+          "before": 80,
           "remaining": 0
         },
         "importance": {
-          "before": 2,
-          "remaining": 4
+          "before": 0,
+          "remaining": 3
         },
         "output_cleanup": {
-          "before": 50,
+          "before": 20,
           "remaining": 0
         }
       },
-      "backlog_remaining": 29
+      "backlog_remaining": 13
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-11-09T11:57:49.915022+00:00",
+    "timestamp": "2026-11-10T06:20:08.433341+00:00",
     "status": "supplemented",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
-    "latest_published_rating_date": "2026-11-06",
-    "latest_selection_date": "2026-11-09",
-    "ratings_age_days": 3,
-    "total_rows": 4072,
-    "published_ratings": 4058,
+    "latest_published_rating_date": "2026-11-09",
+    "latest_selection_date": "2026-11-10",
+    "ratings_age_days": 1,
+    "total_rows": 4078,
+    "published_ratings": 4064,
     "estimated_ratings": 14,
-    "briefing_versions": 53,
+    "briefing_versions": 54,
     "briefing_lookup_error": null,
     "ratings_lookup_error": null,
-    "fetched_rating_rows": 4079,
+    "fetched_rating_rows": 4085,
     "archive_recovery": {
       "checked_on": "2026-10-03",
       "source": "Internet Archive CDX index and replay",
