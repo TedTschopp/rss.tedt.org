@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-11T16:07:56.239273+00:00",
+  "timestamp": "2026-11-11T22:43:57.924599+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 236,
-      "last_updated": "Wed, 11 Nov 2026 15:55:29 +0000",
+      "last_updated": "Wed, 11 Nov 2026 22:31:43 +0000",
       "size_bytes": 207662,
       "errors": []
     },
@@ -13,7 +13,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 3848,
-      "last_updated": "Wed, 11 Nov 2026 15:55:29 +0000",
+      "last_updated": "Wed, 11 Nov 2026 22:31:43 +0000",
       "size_bytes": 2766639,
       "errors": []
     },
@@ -21,7 +21,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 5,
-      "last_updated": "Wed, 11 Nov 2026 15:55:50 +0000",
+      "last_updated": "Wed, 11 Nov 2026 22:32:11 +0000",
       "size_bytes": 4865,
       "errors": []
     },
@@ -29,7 +29,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 160,
-      "last_updated": "Wed, 11 Nov 2026 15:55:50 +0000",
+      "last_updated": "Wed, 11 Nov 2026 22:32:11 +0000",
       "size_bytes": 196006,
       "errors": []
     },
@@ -37,16 +37,16 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Wed, 11 Nov 2026 15:57:00 +0000",
-      "size_bytes": 199890,
+      "last_updated": "Wed, 11 Nov 2026 22:33:24 +0000",
+      "size_bytes": 212468,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 903,
-      "last_updated": "Wed, 11 Nov 2026 15:57:00 +0000",
-      "size_bytes": 495425,
+      "entry_count": 904,
+      "last_updated": "Wed, 11 Nov 2026 22:33:24 +0000",
+      "size_bytes": 496430,
       "errors": []
     }
   },
@@ -79,18 +79,18 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 2958,
-      "clusters": 2927
+      "stories": 2182,
+      "clusters": 2150
     },
     "llm_status": {
       "status": "degraded",
-      "calls": 179,
-      "ok": 178,
-      "errors": 1,
+      "calls": 143,
+      "ok": 138,
+      "errors": 5,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 77,
-        "importance": 73,
+        "ai_relevance": 65,
+        "importance": 49,
         "output_cleanup": 18
       },
       "stages": {
@@ -113,33 +113,33 @@
         },
         "publish": {
           "status": "degraded",
-          "calls": 168,
-          "ok": 167,
-          "errors": 1,
+          "calls": 132,
+          "ok": 127,
+          "errors": 5,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 77,
-            "importance": 73,
+            "ai_relevance": 65,
+            "importance": 49,
             "output_cleanup": 18
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 168
+            "openai/gpt-4.1-mini": 132
           },
           "backlog": {
             "ai_relevance": {
-              "before": 77,
+              "before": 65,
               "remaining": 0
             },
             "importance": {
-              "before": 0,
-              "remaining": 1
+              "before": 1,
+              "remaining": 5
             },
             "output_cleanup": {
               "before": 18,
               "remaining": 0
             }
           },
-          "backlog_remaining": 1
+          "backlog_remaining": 5
         }
       },
       "backlog": {
@@ -152,23 +152,23 @@
           "remaining": 9
         },
         "ai_relevance": {
-          "before": 77,
+          "before": 65,
           "remaining": 0
         },
         "importance": {
-          "before": 0,
-          "remaining": 1
+          "before": 1,
+          "remaining": 5
         },
         "output_cleanup": {
           "before": 18,
           "remaining": 0
         }
       },
-      "backlog_remaining": 10
+      "backlog_remaining": 14
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-11-11T15:55:29.420773+00:00",
+    "timestamp": "2026-11-11T22:31:43.232536+00:00",
     "status": "ratings",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
