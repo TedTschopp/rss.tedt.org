@@ -9,226 +9,289 @@
     {
       "id": "sty_38f100496edac62f",
       "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
-      "title": "Google DeepMind launches Gemini Decisions API for fast, calibrated multimodal decision-making across text, images, audio, video, and PDFs [ * ] [ ◼ ]",
-      "content_text": "Google DeepMind has introduced the Gemini Decisions API, powered by the Gemini Decision 1 model, enabling rapid evaluation of up to 1,000 yes/no, multiple choice, and rubric-scoring questions in a single pass across various data types including text, images, audio, video, and PDFs. The API provides confidence scores for each decision, supporting applications like content grading, policy checks, and query routing with low latency and cost efficiency. The Gemini Decision 1 model processes multimodal inputs natively and returns probabilistic scores without token-by-token decoding, achieving 150-250 ms end-to-end latency and costing $0.10 per million input tokens with no output token charges. It supports combined modalities in one request and offers three decision types-yes/no, multiple choice, and ordered rubric scoring-each with confidence metrics to facilitate fallback or human review. The API is accessible via Google AI Studio with documentation for Python, JavaScript, and REST.",
+      "title": "Google DeepMind launches Gemini Decisions API for fast, calibrated multimodal yes/no, choice, and rubric-scoring decisions across text, images, audio, video, and PDFs [ * ] [ ◼ ]",
+      "content_text": "Google DeepMind has introduced the Gemini Decisions API, powered by the Gemini Decision 1 model, enabling fast, probabilistic decision-making across multiple modalities including text, images, audio, video, and PDFs. The API can evaluate up to 1,000 yes/no, multiple choice, and rubric-scoring questions in a single pass with low latency and cost-effective pricing. The API supports combined multimodal inputs and returns confidence scores for each decision, allowing developers to route ambiguous cases to fallback systems or human reviewers. It is designed for applications such as tool selection, policy checks, model routing, and content grading, and is accessible via Google AI Studio with documentation for Python, JavaScript, and REST.",
       "date_published": "2026-11-11T18:00:00Z"
     },
     {
       "id": "sty_d2ff8b21c839db34",
       "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-      "title": "United Airlines bans AI agents from booking flights citing security and regulatory concerns [ * ] [ ◼ ]",
-      "content_text": "United Airlines announced it is prohibiting artificial intelligence agents from making flight reservations on behalf of travelers due to security risks and potential violations of federal regulations. The airline highlighted concerns about sharing personal account credentials with third-party AI assistants, which could lead to unintended purchases or account changes. United is updating its booking and ticketing policies to restrict AI agent access both directly and through travel agencies and aggregators. The airline aims to maintain control over the booking process and avoid additional costs associated with AI-driven flight searches. Other airlines, like Southwest, have taken different approaches by integrating AI access to flight inventories, but United will continue to allow bookings through traditional aggregators such as Kayak and Google Flights.",
+      "title": "United Airlines bans AI agents from booking flights citing security risks and potential federal regulation violations [ * ] [ ◼ ]",
+      "content_text": "United Airlines announced it is prohibiting the use of artificial intelligence agents to make flight reservations on behalf of travelers due to concerns over security risks and possible violations of federal rules. The airline highlighted risks such as exposure of sensitive personal information and unintended account changes when AI tools access customer credentials. The policy update restricts AI agent access both directly on United's digital platforms and indirectly through travel agencies and aggregators. United aims to maintain control over the booking process and reduce costs associated with AI-driven flight searches, contrasting with other airlines like Southwest that have integrated AI access to flight inventories. Despite the ban, United fares remain available through flight aggregators such as Kayak, Hopper, and Google Flights, ensuring consumers can still find competitive prices.",
       "date_published": "2026-11-11T21:24:35Z"
     },
     {
       "id": "sty_3c453a765eae36cb",
       "url": "https://pietromiotti.com/latest/maya-site",
-      "title": "Researcher uses AI agents to analyze NASA lidar data and identifies a Maya archaeological site in Mexico not listed in the official INAH register",
-      "content_text": "A researcher employed multiple AI agents to analyze NASA lidar data covering 1,200 square kilometers of jungle in Mexico, identifying a Maya site with distinct architectural features that was not registered by Mexico's National Institute of Anthropology and History (INAH). The process took less than 72 hours from initial idea to official communication with INAH. The AI agents converted lidar data into images and systematically examined them for man-made structures, filtering out natural formations. After confirming the site's features and preparing a detailed report, the researcher contacted INAH, which initially confirmed no registered site at that location. However, it was later revealed that the site had been previously mapped in academic literature but was not included in INAH's public register, indicating the agents rediscovered rather than discovered the site.",
+      "title": "Researcher's AI agents analyzed NASA lidar data and identified a Maya archaeological site in Mexico not listed in the official INAH register, later found to have been mapped in academic literature [ ~ ] [ ◻ ]",
+      "content_text": "A researcher used AI agents to analyze NASA lidar data covering 1,200 km² of jungle in the Maya region, identifying a major village with distinct man-made structures that was not registered by Mexico's National Institute of Anthropology and History (INAH). The process took less than 72 hours from initial idea to official communication with INAH, demonstrating rapid AI-assisted archaeological discovery. Subsequent investigation revealed that the site had already been mapped in a 2025 academic study by Estrada-Belli et al., meaning the AI agents effectively rediscovered rather than newly discovered the site. The researcher documented the timeline and methodology, highlighting the potential and current limitations of AI in archaeological research and data cross-referencing.",
       "date_published": "2026-11-11T12:05:22Z"
+    },
+    {
+      "id": "sty_83758187693b8946",
+      "url": "https://machinelearning.apple.com/research/faster-retrieval",
+      "title": "Apple researchers present neural network approach to speed up maximum inner product search for retrieval-augmented generation, improving efficiency and accuracy [ ~ ] [ ◼ ]",
+      "content_text": "Apple researchers introduced a method using small neural networks trained offline to accelerate maximum inner product search (MIPS), a core operation in recommendation systems and retrieval-augmented generation (RAG). Their approach learns typical query patterns to route searches more efficiently, reducing computational costs compared to traditional clustering methods. The technique leverages the mathematical concept of support functions and input convex neural networks to approximate the best-matching key for a query. By training separate neural networks to predict the support function and its gradient, the method achieves faster and more accurate retrieval, particularly benefiting applications where queries differ significantly from stored keys, such as short user questions versus long documents.",
+      "date_published": "2026-11-11T16:57:45Z"
     },
     {
       "id": "sty_ca127dd4674a05fb",
       "url": "https://blog.atuin.sh/threads-agent-sessions/",
       "title": "Atuin launches Threads to sync and search AI agent sessions across machines with end-to-end encryption [ ~ ] [ ◼ ]",
-      "content_text": "Atuin has introduced Threads, a feature that allows users to search, sync, and resume AI agent sessions across multiple devices while preserving full context and history. This extension of Atuin's encrypted sync engine supports various agents like Claude Code, Codex, Pi, Omp, and OpenCode, enabling seamless continuation of tasks on different machines. Threads captures complete agent session data, including commands, outputs, and user intent, stored locally and optionally synced via Atuin's hosted or self-hosted servers with end-to-end encryption. The feature also includes an MCP tool that lets agents reference past sessions to build on previous work, improving efficiency and collaboration across environments.",
+      "content_text": "Atuin has introduced Threads, a feature that allows users to synchronize, search, and resume AI agent sessions across multiple devices while keeping data encrypted. This enables starting a task with one AI agent on one machine and continuing it on another, preserving full context and history. Threads supports several agents including Claude Code, Codex, Pi, Omp, and OpenCode, with more planned. The system uses an encrypted sync engine that can be self-hosted or run via Atuin's servers, and captures agent sessions only if users opt in. This approach aims to make AI session histories as accessible and useful as traditional shell command histories, improving continuity and collaboration across environments.",
       "date_published": "2026-11-11T14:10:46Z"
-    },
-    {
-      "id": "sty_83758187693b8946",
-      "url": "https://machinelearning.apple.com/research/faster-retrieval",
-      "title": "Apple researchers present neural network method to speed up maximum inner product search for retrieval-augmented generation, improving efficiency and accuracy [ ~ ] [ ◼ ]",
-      "content_text": "Apple researchers introduced a new approach using small neural networks trained offline to accelerate maximum inner product search (MIPS), a key operation in recommendation systems, search, and retrieval-augmented generation (RAG). Their method learns to route queries more efficiently to their best matches, trading upfront training cost for faster and more accurate retrieval during inference. Traditional MIPS methods rely on clustering keys and routing queries based on centroids, which can cause errors and inefficiencies, especially since queries and keys differ significantly in nature. The researchers leverage the mathematical concept of the support function and input convex neural networks to approximate MIPS more effectively by learning from typical query distributions rather than generic assumptions. This approach promises to reduce computational costs in large-scale systems with millions of keys and high-dimensional vectors, potentially enhancing the performance of AI applications that depend on fast and precise retrieval of relevant information.",
-      "date_published": "2026-11-11T16:57:45Z"
-    },
-    {
-      "id": "sty_c2209efb5d000954",
-      "url": "https://news.ycombinator.com/item?id=50455811",
-      "title": "Pomerado launches platform to create APIs for any website in minutes, enabling AI agents to interact with legacy sites without direct access [ * ] [ ◼ ]",
-      "content_text": "Pomerado, a startup founded by ex-McKinsey and Scale AI employees, has developed a self-serve platform that allows developers to generate APIs for any website, even those they do not own, within minutes. This enables AI agents to perform tasks on legacy websites and apps that lack APIs or modern interfaces, improving automation workflows in sectors like airlines, banking, and e-commerce. The platform creates deterministic machine-comprehensible protocols (MCPs) that speed up repeated tasks and handle authentication and two-factor authentication securely. The system works by having an AI agent explore a website and perform a task once, recording the interactions to build a generalizable API. A Guardian model reviews the process to ensure compliance with guardrails, and maintenance jobs automatically fix or improve the API if future runs fail. Pomerado offers both an open-source version and a free hosted service, with users including personal trainers, car dealerships, and personal assistants who benefit from more reliable and faster automation compared to traditional browser automation or computer use.",
-      "date_published": "2026-11-11T17:11:56Z"
     },
     {
       "id": "sty_47069476e508fe11",
       "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
-      "title": "Gilbert + Tobin explores AI integration to transform legal services and improve efficiency, says Partner and CEO Sam Nickless [ ~ ] [ ◻ ]",
-      "content_text": "Gilbert + Tobin is investigating how artificial intelligence can reshape the legal industry by enhancing operational efficiency and client service. Sam Nickless, the firm's Partner and CEO, discusses the potential for AI to change the business model of law firms. The firm aims to leverage AI technologies to streamline legal processes and deliver better outcomes for clients, reflecting a broader trend of digital transformation in the legal sector.",
+      "title": "Gilbert + Tobin CEO Sam Nickless discusses using AI to transform legal services and business operations",
+      "content_text": "Sam Nickless, Partner and CEO of Gilbert + Tobin, explains how the law firm is integrating AI technologies to rethink traditional legal business models. The conversation covers the firm's approach to leveraging AI for improving efficiency and client service while adapting to evolving industry demands.",
       "date_published": "2026-11-12T00:00:00Z"
     },
     {
-      "id": "sty_27e8dc902b5a2526",
-      "url": "https://x.com/dimitrispapail/status/2120245027804705121?a=yp1VXtQi8Dep0GmUnxo",
-      "title": "Researchers find reprogramming fewer than 10 dormant neurons in large language models can backdoor AI agents without training, enabling hidden triggers to execute attacker code [ ! ] [ ⬢ ]",
-      "content_text": "Researchers have discovered that altering fewer than 10 dormant neurons in a large language model (LLM) can implant a backdoor that remains inactive until triggered, allowing the model to execute malicious code without affecting normal behavior. This attack, named Lazarus, requires no additional training and can be triggered by simple signals such as a date change, posing a significant security risk for AI agents built on these models. The attack exploits rarely firing neurons that can be reprogrammed to detect specific triggers and inject malicious commands during inference. Detection is challenging without comparing model weights to original versions, highlighting the importance of model provenance and integrity. Microsoft's Foundry system currently provides protections by verifying model sources and scanning containers, but the risk remains if trusted providers are compromised. The researchers emphasize that model weights require scrutiny similar to software code and advocate for layered defenses including provenance verification, weight auditing, and monitoring of AI agent behavior.",
-      "date_published": "2026-11-11T21:06:05Z"
+      "id": "sty_0f224640958a1079",
+      "url": "https://medium.com/@rkzlyldrm/he-let-an-ai-read-too-many-court-auction-listings-now-he-is-in-a-turkish-jail-a26bd486a43a",
+      "title": "Man jailed in Turkey after using AI to scrape extensive court auction listings",
+      "content_text": "A man in Turkey was imprisoned after employing an AI tool to read and collect large volumes of court auction listings. The incident highlights legal risks associated with automated data scraping in the country. Details about the charges or legal proceedings have not been disclosed.",
+      "date_published": "2026-11-12T01:48:59Z"
     },
     {
-      "id": "sty_e29cf653dac04751",
-      "url": "https://punditclaims.ai/",
-      "title": "Pundit Claims launches open-source AI claims register evaluating Gary Marcus and Ed Zitron's statements with AI consensus and evidence levels [ ~ ] [ ◻ ]",
-      "content_text": "Pundit Claims has introduced an open-source register that assesses AI-related claims made by Gary Marcus and Ed Zitron, categorizing them based on evidence strength and agreement between two independent AI systems. The register classifies claims as supported, mixed, contradicted, unresolved, or uncheckable, and distinguishes between claims and predictions, providing detailed statistics on accuracy and consensus levels. The evaluation includes thousands of claims and predictions, with a majority of Gary Marcus's claims rated as mostly right, supported by 88% to 90% consensus, while Ed Zitron's claims show a more balanced accuracy. The register highlights areas such as reliability, capabilities, and regulation policy, noting which claims are supported or contradicted, and tracks unresolved and uncheckable statements. This tool aims to provide a transparent, AI-driven fact-checking resource for AI discourse.",
-      "date_published": "2026-11-11T21:39:36Z"
+      "id": "sty_9e7f6957c003b942",
+      "url": "https://www.theinformation.com/articles/commerce-department-finalizing-long-awaited-ai-remote-access-rule",
+      "title": "Commerce Department finalizing AI remote access rule to block Chinese firms from accessing advanced chips via data centers in seven countries [ ! ] [ ◼ ]",
+      "content_text": "The Commerce Department is finalizing a rule to prevent Chinese AI companies from remotely accessing advanced AI chips through data centers located in other countries, aiming to restrict China's access to cutting-edge AI technology. This rule is expected to expand existing semiconductor controls and cover seven additional countries, including Malaysia, Singapore, and Thailand, to curb remote access and chip smuggling into China. The department is currently consulting with other government agencies before announcing the rule, which could be finalized as soon as this month. The move addresses criticism that the Commerce Department has been slow to implement policies limiting China's access to advanced AI technologies, despite opposition from major companies like Nvidia.",
+      "date_published": "2026-11-12T02:52:17Z"
+    },
+    {
+      "id": "sty_e24dbd62020c8146",
+      "url": "https://finshots.in/archive/what-happens-to-ai-industry-if-nvidia-falters/",
+      "title": "Investigation into Nvidia CEO's alleged ties to Chinese espionage raises concerns over leadership and AI industry impact amid $1.46 trillion market value loss [ * ] [ ◼ ]",
+      "content_text": "Nvidia is under scrutiny after reports surfaced that CEO Jensen Huang had an illicit relationship linked to Chinese intelligence, involving a network that allegedly diverted $7.5 billion worth of restricted AI chips to China. The company has appointed a former US attorney to investigate potential foreign intelligence targeting, while US authorities examine the chip diversion. Nvidia denies any compromise of trade secrets or national security interests. The controversy has caused Nvidia's market value to drop by approximately $1.46 trillion over 24 trading sessions, adding uncertainty to a company central to the global AI industry. Jensen Huang's potential removal poses challenges due to his three-decade leadership, technical expertise, and political influence, with no clear successor able to immediately fill his role. The situation raises broader questions about Nvidia's future and the potential ripple effects on AI development and infrastructure commitments worldwide.",
+      "date_published": "2026-11-12T05:25:17Z"
+    },
+    {
+      "id": "sty_5eeac468cf637298",
+      "url": "https://www.wsj.com/tech/ai/united-airlines-is-banning-ai-bots-from-booking-flights-5b514b38",
+      "title": "United Airlines bans AI bots from booking flights to prevent automated reservations",
+      "content_text": "United Airlines has implemented a ban on AI bots making flight bookings through its platform to curb automated reservations. The move aims to ensure bookings are made by human customers and maintain control over the reservation process.",
+      "date_published": "2026-11-12T02:11:54Z"
+    },
+    {
+      "id": "sty_cb00fdf1443e5793",
+      "url": "https://www.stork.ai/en/perplexity-search-api",
+      "title": "Perplexity launches Search API providing ranked web results from its index of hundreds of billions of pages with filtering and SDKs for Python and TypeScript [ ~ ] [ ◼ ]",
+      "content_text": "Perplexity launched its Search API in September 2025, offering developers access to ranked web search results including titles, URLs, snippets, and publication dates from its continuously updated index of hundreds of billions of webpages. The API supports multiple queries per request and allows filtering by domain, language, country, and date ranges, making it suitable as a building block for agents and retrieval-augmented generation rather than a chatbot. The API includes official SDKs for Python and TypeScript and integrates with platforms like n8n, Haystack, Mastra, and Composio. Perplexity discontinued its Sonar Chat Completions API in September 2026 and now directs developers seeking cited, written answers to its Agent API, which can utilize web search as a tool.",
+      "date_published": "2026-11-12T05:47:53Z"
+    },
+    {
+      "id": "sty_89f803c1e2283409",
+      "url": "https://docspring.com/blog/posts/operating-a-saas-when-ai-agents-write-all-the-code/",
+      "title": "DocSpring founder describes operating a SaaS with AI agents writing most code, detailing product development and operational challenges [ * ] [ ◼ ]",
+      "content_text": "DocSpring's founder explains how AI agents now handle much of the coding for the SaaS platform, enabling faster feature development and backlog reduction while still requiring significant human oversight. The company has expanded its document automation capabilities, including Word templates and e-signing features, with AI assisting in complex tasks like researching PDF sealing certificates. The founder manages dozens of AI sessions simultaneously to address different product areas, balancing rapid context switching and decision-making. Despite AI's role in implementation, running the business demands continuous attention to customer needs and product stability, illustrating both the opportunities and challenges of integrating AI agents into SaaS operations.",
+      "date_published": "2026-11-12T04:00:41Z"
+    },
+    {
+      "id": "sty_b4c419510c06b81e",
+      "url": "https://www.harness.io/blog/why-ai-coding-agents-lose-context-after-pr",
+      "title": "Harness explains why AI coding agents lose context after pull requests and how combining code and delivery context can maintain it [ * ] [ ◼ ]",
+      "content_text": "AI coding agents often lose track of code context once a pull request enters the delivery pipeline, missing critical evidence like build failures or deployment issues that could improve software quality. Harness highlights the need for combining code context from its Code Context Engine with delivery context from its Software Delivery Knowledge Graph to provide agents with a comprehensive understanding across the software development lifecycle. The article details how context engineering involves selecting and maintaining relevant information for AI agents beyond simple memory, emphasizing the importance of real-time indexing of code and delivery data. Harness and its partner Augment Code demonstrate that better retrieval quality significantly improves AI coding agent performance, and they are working toward an Autonomous SDLC where continuous delivery evidence informs future engineering decisions.",
+      "date_published": "2026-11-12T05:35:21Z"
+    },
+    {
+      "id": "sty_003b9d64fe3c991f",
+      "url": "https://latent.space/p/ainews-d-day-decision-models-day/",
+      "title": "Google launches Gemini Decision 1, a multimodal decision model API with low latency and competitive pricing, ahead of Anthropic at AIE CODE 2026 [ * ] [ ◼ ]",
+      "content_text": "On November 11, 2026, Google announced Gemini Decision 1, a calibrated multimodal decision model capable of handling up to 1,000 questions per request with about 200ms end-to-end latency and priced at $0.10 per million input tokens. The model supports various input types including text, images, audio, video, and PDFs, and offers yes/no, multiple-choice, and rubric scoring with confidence scores for each answer. This launch was part of the second annual AIE CODE event, where Cloudflare demonstrated classifiers managing build failures and TypeSafe AI highlighted their production customers.",
+      "date_published": "2026-11-12T05:26:54Z"
+    },
+    {
+      "id": "sty_e51ea3970cd66ed2",
+      "url": "https://latent.space/p/jev-revolution/",
+      "title": "TypeSafe AI's Diogo Almeida urges automation with System One models at AI Engineer Code Summit; companies like Glean showcase practical Jev applications [ * ] [ ◼ ]",
+      "content_text": "At the AI Engineer Code Summit, Diogo Almeida, co-founder and CEO of TypeSafe AI and lead creator of the Jev system, advocated for widespread automation using System One models, which are faster and more reliable than traditional large language models. Almeida emphasized integrating these models directly into code to create smarter, more dependable software. Companies such as Glean demonstrated how they use Jev alongside other AI models to provide flexible, zero-shot decision-making without frequent retraining. UiPath and Workday also presented prototypes leveraging Jev for tasks like document ranking and predictive user interfaces, highlighting the model's speed and adaptability in real-world applications.",
+      "date_published": "2026-11-12T05:08:20Z"
+    },
+    {
+      "id": "sty_07615b2168368f32",
+      "url": "https://novabuddyai.com",
+      "title": "Nova Buddy AI launches as a user-friendly AI assistant for everyday tasks including resume building [ ~ ] [ ◻ ]",
+      "content_text": "Nova Buddy AI is introduced as an accessible AI assistant designed to help everyday users with common tasks. One highlighted feature allows users to paste rough job notes and receive a clean, professional resume in return.",
+      "date_published": "2026-11-12T04:22:30Z"
+    },
+    {
+      "id": "sty_335b0fbb438a6cc5",
+      "url": "https://arxiv.org/abs/2611.01226",
+      "title": "Study analyzes firm-specific AI hiring models to reveal labor market dynamics and firm differentiation in low-skill worker retention [ ~ ] [ ◻ ]",
+      "content_text": "A recent study examines how an AI hiring platform used by large employers of low-skill workers employs firm-specific psychometric models to predict applicant retention, revealing heterogeneous firm preferences and applicant fit across contexts. The platform's ability to score all applications against each firm's model uncovers differences in how firms value traits and respond to data, offering insights for policymakers and firms to tailor interventions and investments. These findings highlight the value of platform-wide data access and model differentiation in understanding labor market behaviors and improving recruitment strategies.",
+      "date_published": "2026-11-12T04:20:33Z"
+    },
+    {
+      "id": "sty_395c69d0193d0905",
+      "url": "https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "title": "Nvidia CEO Jensen Huang admits affair with alleged Chinese spy amid national security concerns; Nvidia board reportedly plans to discuss his future [ ! ] [ ◼ ]",
+      "content_text": "Nvidia CEO Jensen Huang has admitted to an extramarital affair with Alice Huang, an executive at Singapore-based Megaspeed who U.S. officials suspect is a Chinese spy. This revelation has raised national security concerns due to Megaspeed's significant purchases of Nvidia chips and alleged illegal sharing with China, amid the ongoing U.S.-China AI infrastructure competition. Reports also indicate Huang had a second affair with Nvidia's vice president of healthcare, Kimberly Powell, who reports directly to him. Following these developments, Nvidia's board is reportedly preparing to consider Huang's position, and the company's stock has declined. U.S. lawmakers are seeking to question Huang about the affair, highlighting the potential implications for technology and national security.",
+      "date_published": "2026-11-11T23:50:00Z"
+    },
+    {
+      "id": "sty_b50bf97ec25f3f9a",
+      "url": "https://www.theinformation.com/articles/nvidia-ceos-exit-looms",
+      "title": "Reports: Nvidia board considers ousting CEO Jensen Huang amid inquiry into foreign intelligence and personal conduct [ * ] [ ◻ ]",
+      "content_text": "Nvidia CEO Jensen Huang faces potential removal as the board reportedly met to discuss his future following an inquiry into whether he was targeted by foreign intelligence and revelations of an affair involving a company executive and a possible Chinese spy. Huang, a co-founder and major shareholder with significant influence over Nvidia's operations and AI strategy, had recently been publicly supported by the board despite the investigation. His departure would underscore that even highly influential CEOs are not indispensable, despite his role in positioning Nvidia at the forefront of the AI boom and driving its market value to a peak of $5.8 trillion earlier this year.",
+      "date_published": "2026-11-12T00:45:38Z"
+    },
+    {
+      "id": "sty_bf16f7d9a0091372",
+      "url": "https://zarar.dev/how-ai-figures-out-what-you-mean-no-math-required/",
+      "title": "Zarar's Blog explains how large language models interpret user intent by converting words into vectors and measuring relationships without complex math [ ~ ] [ ◻ ]",
+      "content_text": "A blog post on Zarar's Blog details how large language models (LLMs) understand user input by transforming words into numerical vectors and assessing their relationships through vector similarity, all without requiring advanced mathematical knowledge. The explanation uses the example sentence \"Do lions roar?\" to illustrate how words are tokenized, converted into vectors, and compared using concepts like dot products to determine their contextual connections. The post breaks down the process into intuitive steps, describing vectors as arrows and how their directions and closeness indicate word relationships. It emphasizes that LLMs rely on relative measures of similarity to interpret meaning, making natural language processing accessible without heavy math background.",
+      "date_published": "2026-11-12T04:01:08Z"
+    },
+    {
+      "id": "sty_4fbb080dd3432c9e",
+      "url": "https://argonlabs.tech/blog/code-sandbox-vs-data-sandbox-for-ai-agents",
+      "title": "Code sandboxes isolate what agents run. What isolates what they write? [ * ] [ ◼ ]",
+      "content_text": "The article discusses the concept of code sandboxes, which are environments that isolate the execution of code by agents to enhance security and control. It raises the question of how to similarly isolate the code that these agents generate or write, highlighting the challenges and potential approaches to managing and securing dynamically produced code.",
+      "date_published": "2026-11-12T04:01:04Z"
+    },
+    {
+      "id": "sty_1fe6f3806de58cf7",
+      "url": "https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/",
+      "title": "Jensen Huang accused of having another affair - with an Nvidia exec",
+      "content_text": "Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of having a separate affair with an Nvidia subordinate.",
+      "date_published": "2026-11-11T23:17:05Z"
     },
     {
       "id": "sty_58738b09b2a410e9",
       "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
-      "title": "DeepMind launches AlphaGenome 2 to predict DNA variant effects on gene expression across hundreds of human cell types using over 100 million single-cell profiles [ ~ ] [ ◼ ]",
-      "content_text": "DeepMind announced AlphaGenome 2, a next-generation model that predicts how DNA sequences and their variations impact specific human cell types, enhancing understanding of disease mechanisms. The model uses a conditional architecture to analyze DNA effects in individual cell types and states, improving variant effect predictions compared to previous models. Trained on more than 107 million single-cell profiles from 68 tissues, AlphaGenome 2 can predict gene expression, chromatin accessibility, histone modifications, and DNA methylation at the cell-type level. It adapts to new single-cell data without retraining and is available for non-commercial research via an API, with commercial access in private preview. By resolving activity in specialized cells rather than broad tissue averages, AlphaGenome 2 helps researchers identify disease-relevant genetic variants that may be missed by earlier models, potentially advancing studies in rare diseases, complex traits, and fundamental biology.",
+      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease [ ~ ] [ ◼ ]",
+      "content_text": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
       "date_published": "2026-11-11T15:00:15Z"
-    },
-    {
-      "id": "sty_44d1aba6bbd3e756",
-      "url": "https://www.withbeaker.ai/blog/weight-space-programming",
-      "title": "Beaker autonomously edits language model weights to improve math problem accuracy by up to 30 points without running the model [ ~ ] [ ◼ ]",
-      "content_text": "Researchers demonstrated that Beaker, an autonomous agent improver, can directly edit the weights of a small language model, Qwen3.5-0.8B, to reduce looping behavior and increase accuracy on math problems from about 7% to over 37% without executing the model. This approach builds on prior work where GPT-6 Astra edited model weights to improve performance, and combining both edits raised accuracy to nearly 59%. Beaker identifies specific neurons responsible for problematic loops and adjusts their outputs to enhance model responses, achieving similar improvements at lower computational cost compared to previous methods. Beaker operates by proposing weight changes, scoring them against training examples, and retaining edits that yield measurable gains, iterating until no further improvements are found. It can function with or without direct model reads, relying on feedback from scored answers rather than running the model itself. The experiments show that weight-space programming can effectively modify model behavior, such as shortening answers or reducing repetitive tokens, though some behaviors like teaching the model to admit uncertainty remain challenging. This technique suggests a path toward continual learning where models autonomously refine themselves by editing their own parameters.",
-      "date_published": "2026-11-11T22:10:43Z"
-    },
-    {
-      "id": "sty_dde19b14a7a4e612",
-      "url": "https://docs.litellm.ai/blog/router-rust",
-      "title": "LiteLLM rewrites its Router component in Rust, replacing over 50,000 lines of Python code to improve performance and reliability [ ~ ] [ ◼ ]",
-      "content_text": "LiteLLM has replaced its Router component's Python implementation with a Rust core as of version 1.110.0, consolidating routing logic including retries, fallbacks, and deployment selection into a single source. This rewrite aims to enable faster message processing by December and introduces a new router playground for exploring routing configurations. The migration involved first refactoring the Python code to maintain backward compatibility before swapping in the Rust core, ensuring no regressions despite the complexity of routing interactions with databases, Redis, and inference endpoints. The new router interface segments functionality into clear, mostly immutable subsets, improving efficiency and code clarity while deprecating the old interface by the end of the month. LiteLLM employed differential testing to verify that the Rust implementation matches the behavior of the previous Python router, preserving correctness and handling complex edge cases around retries and overrides. This careful approach reflects lessons from past software rewrites to avoid losing valuable, battle-tested logic.",
-      "date_published": "2026-11-11T21:57:45Z"
-    },
-    {
-      "id": "sty_e3cb30c885dc317d",
-      "url": "https://www.theinformation.com/articles/sequoia-capital-invest-ai-holding-co-sequence",
-      "title": "Sequoia Capital invests hundreds of millions in AI holding company Sequence to fund acquisitions in insurance and other industries [ ~ ] [ ◻ ]",
-      "content_text": "Sequoia Capital is investing hundreds of millions of dollars into Sequence Holding, a one-year-old company that recently announced a $7.7 billion insurance acquisition co-led by Michael Dell's family office. Sequence is part of a new category of holding companies that acquire businesses in established sectors like accounting and insurance and aim to integrate AI to replace or complement human work. The new funding from Sequoia is expected to enable Sequence to pursue additional acquisitions as it continues scouting targets.",
-      "date_published": "2026-11-11T21:27:56Z"
-    },
-    {
-      "id": "sty_ea05be3a26649142",
-      "url": "https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/",
-      "title": "TechCrunch: Many announced data center projects may never be built amid permitting delays, local opposition, and electricity shortages [ ~ ] [ ◻ ]",
-      "content_text": "The data center industry is facing significant challenges including local opposition, permitting delays, and a shortage of electricity, which are hindering the construction of new facilities. Beyond these issues, many announced data center projects may never progress to construction, raising concerns about the viability of AI infrastructure investments. TechCrunch's Equity podcast features Brent Nelson from Ascend Analytics discussing how to distinguish between data center projects likely to be completed and those that remain speculative. This analysis is crucial as billions of dollars are invested in AI infrastructure, and understanding which projects will materialize affects planning and market expectations.",
-      "date_published": "2026-11-11T20:15:15Z"
-    },
-    {
-      "id": "sty_cbd88dd94c72ea24",
-      "url": "https://techcrunch.com/podcast/how-backlash-and-red-tape-continue-to-slow-data-centers-post-blue-wave/",
-      "title": "Data center projects face delays from local opposition, permitting issues, and power shortages; many announced AI infrastructure plans may never be built",
-      "content_text": "The data center expansion driven by AI infrastructure investment is encountering significant obstacles including local resistance, permitting delays, and electricity supply challenges. Many proposed projects may not proceed to construction, raising concerns about the accuracy of the current data center pipeline. Experts highlight that only a fraction of announced data center projects are likely to be completed, with permitting reforms needed to address administrative bottlenecks. Energy reliability issues, such as the limitations of natural gas during extreme weather, further complicate development, prompting consideration of alternatives like battery storage paired with grid connections. These challenges suggest that without policy changes and improved infrastructure planning, the data center boom supporting AI growth could slow, impacting developers and the broader technology ecosystem.",
-      "date_published": "2026-11-11T20:02:14Z"
-    },
-    {
-      "id": "sty_291541b5e246990b",
-      "url": "https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/",
-      "title": "CoreWeave shifts to customer prepayments and shorter contracts to finance AI infrastructure growth amid rising prices and debt concerns [ * ] [ ◻ ]",
-      "content_text": "CoreWeave is changing its financing strategy to support its AI infrastructure expansion by increasingly requiring upfront customer payments, borrowing against specific contracts, and pursuing shorter-term deals that allow for higher pricing. The company reported $3.66 billion in revenue for the third quarter, up 168% year-over-year, but also posted a $709 million net loss and $846 million in interest expenses, prompting a move away from unsecured debt toward loans backed by customer contracts. The company expects about $9 billion in customer prepayments and deposits in the next three months, including over $3 billion from new contracts for existing capacity. CoreWeave has raised prices by 25% in July and another 10% later in the quarter, with further increases planned, and is allocating more capacity to short-term contracts that command higher prices. While this approach could improve cash flow and profitability, it carries risks related to contract renewals and pricing stability amid uncertain future demand.",
-      "date_published": "2026-11-11T19:54:00Z"
     },
     {
       "id": "sty_bce571f9b2668b59",
       "url": "https://www.theinformation.com/briefings/metas-infrastructure-chief-leaving-amid-massive-ai-buildout",
-      "title": "Meta's infrastructure chief Santosh Janardhan to leave early next year amid AI data center expansion [ ~ ] [ ◻ ]",
-      "content_text": "Meta Platforms announced that Santosh Janardhan, its longtime head of global infrastructure, will step down and leave the company early next year. The leadership change comes as Meta undertakes a massive buildout of data centers to support its AI initiatives. Janardhan's departure marks a significant transition in the management of Meta's extensive data center operations during a critical period of AI infrastructure growth.",
+      "title": "Meta's Infrastructure Chief Is Leaving Amid Massive AI Buildout [ ~ ] [ ◻ ]",
+      "content_text": "Meta Platforms is changing the leadership of its massive data-center operation, with longtime executive Santosh Janardhan telling employees that he is stepping down as head of global infrastructure and will leave the company early next year. Dave Brown, a veteran of Amazon Web Services whom ...",
       "date_published": "2026-11-11T20:40:37Z"
     },
     {
-      "id": "sty_58517df11212d3d5",
-      "url": "https://huggingface.co/blog/webgpu-kernels",
-      "title": "Hugging Face releases 207 versioned WebGPU kernels for local AI inference with benchmarking tool Fleet [ * ] [ ◼ ]",
-      "content_text": "Hugging Face has launched @huggingface/kernels, a library providing 207 optimized WebGPU kernels for running AI operations directly in browsers. Each kernel is published as a versioned package with interfaces, shader templates, correctness tests, and benchmarks to support efficient local AI processing across diverse hardware. The release includes Fleet, a browser-based GPU benchmarking suite that crowdsources performance and correctness data from users' devices to improve kernel variants and optimize execution on real-world GPUs. This effort aims to enhance browser inference speed and reliability by making GPU operations individually testable and adaptable to different devices and browsers.",
-      "date_published": "2026-11-11T22:12:54Z"
-    },
-    {
-      "id": "sty_46d939728280d5db",
-      "url": "https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/",
-      "title": "Fractile raises $720 million Series C led by Britain's Sovereign AI Fund, valuing the AI chip startup over $7 billion [ ~ ] [ ◼ ]",
-      "content_text": "Fractile, a British startup developing AI chips, has secured $720 million in a Series C funding round led by Britain's Sovereign AI Fund to strengthen the UK's position in AI hardware. The company aims to ship its first chips and systems next year, focusing on a unique hardware design that stacks DRAM on top of each chip to improve memory capacity and speed for large language models. Fractile's approach includes a full-stack solution with a machine learning compiler to optimize AI model execution on its chips. The funding round, which also involved Thrive Capital, Founders Fund, Lightspeed Venture Partners, and Redpoint, values the company at over £5 billion (approximately $7 billion). This positions Fractile among the top-funded startups competing in the purpose-built AI chip market, addressing the growing demand for efficient AI inference hardware amid increasing model complexity.",
-      "date_published": "2026-11-11T19:34:55Z"
-    },
-    {
-      "id": "sty_17571ddbac59274b",
-      "url": "https://www.youtube.com/watch?v=IlgvRtTwaUs",
-      "title": "Discussion on the potential arrival of the AI Singularity",
-      "content_text": "A video explores the concept of the AI Singularity, examining whether it is approaching and what implications it might have. The discussion considers current AI developments and theoretical perspectives on when or if such a transformative event could occur.",
-      "date_published": "2026-11-11T21:28:57Z"
-    },
-    {
-      "id": "sty_c4608a8454b22aeb",
-      "url": "https://blog.etherpk.com/version-history-for-your-synced-notes-additional-safety-for-working-alongside-ai-agents",
-      "title": "Show HN: Version History for Your Synced Notes (AI Agent Safety) [ ~ ] [ ◼ ]",
+      "id": "sty_2ec991b6a9e132aa",
+      "url": "https://www.perplexity.ai/hub/blog/learning-from-real-world-experience",
+      "title": "Learning from Real-World Experience",
       "content_text": "",
-      "date_published": "2026-11-11T21:19:24Z"
+      "date_published": "2026-11-12T01:29:26Z"
     },
     {
-      "id": "sty_bb1831b6673f62ea",
-      "url": "https://www.theinformation.com/articles/ai-inference-startups-quietly-buying-chips",
-      "title": "AI Inference Startups Are Quietly Buying Their Own Chips [ * ] [ ◼ ]",
-      "content_text": "The fast-growing crop of startups that lease computing capacity from cloud firms and then resell it, without spending a nickel on their own AI chips, are at a crossroads. Finding it harder to line up enough computing capacity to serve their customers, some are starting to buy their own chips, which is likely to drastically change the economics of their business. The difficulty in getting enough compute also has pushed some of these startups to look for computational resources from dozens of smaller neoclouds, which tend to have more available capacity than larger hyperscalers such as Microsoft Azure, Amazon Web Services and Google Cloud Platform. News this week of a hack of Fireworks, one of the best known of these startups, highlights the risk of that approach.",
-      "date_published": "2026-11-11T16:29:19Z"
+      "id": "sty_1380c74efc1f902e",
+      "url": "https://www.theinformation.com/briefings/united-airlines-blocks-ai-agents-like-muse-instinct-booking-flights",
+      "title": "United Airlines Blocks AI Agents Like Muse and Instinct From Booking Flights [ ~ ] [ ◻ ]",
+      "content_text": "United Airlines said Wednesday it will ban AI agents and assistants from booking its flights, following similar bans by banks and retailers that cited privacy concerns. The ban covers bookings made directly on United's app and website as well as through travel agencies and aggregators. The ...",
+      "date_published": "2026-11-11T23:28:57Z"
     },
     {
-      "id": "sty_cd7bd6e6500d8e48",
-      "url": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass/",
-      "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass [ * ] [ ◼ ]",
-      "content_text": "Google Deepmind's new Gemini Decisions API evaluates up to 1,000 closed-ended questions in a single pass across text, images, audio, and video. Gemini Decision 1 returns results in 150 to 250 milliseconds at roughly five times lower cost than Gemini 3.5 Flash-Lite, according to Google. The article Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass appeared first on The Decoder.",
-      "date_published": "2026-11-11T20:12:46Z"
+      "id": "sty_7e75086be99b32fb",
+      "url": "https://pilotmap.bizmasterynow.com/",
+      "title": "Can commercial stage-gates keep enterprise AI pilots out of procurement stalls? [ * ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-11-12T02:08:10Z"
+    },
+    {
+      "id": "sty_602a8d5f81848695",
+      "url": "https://github.com/gethome-inc/gethome-hub",
+      "title": "Show HN: gethome - a local-first smart home hub with AI [ ~ ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-11-12T02:00:51Z"
+    },
+    {
+      "id": "sty_ebdd8b2dca0d8897",
+      "url": "https://github.com/ShadowKingYT444/motion-debugger",
+      "title": "Show HN: Motion Debugger - A browser critic for AI slop [ ~ ] [ ◼ ]",
+      "content_text": "",
+      "date_published": "2026-11-12T01:53:52Z"
     },
     {
       "id": "sty_a982b59b164fa26d",
       "url": "https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents",
       "title": "United won't let your AI agent book your flight [ ~ ] [ ◻ ]",
-      "content_text": "United Airlines has announced that it will not permit personal AI assistants to book flights on its platform, citing privacy and regulatory concerns. The airline noted that it has not observed significant usage of AI agents for flight bookings so far, a trend also seen in other industries such as food delivery. United's decision reflects caution regarding the integration of AI technologies in customer transactions.",
+      "content_text": "United says it won't let personal AI assistants book tickets on the airline, citing both privacy and regulatory concerns. The company says it hasn't yet seen many people try to use AI agents to book their flights, The Wall Street Journal reports, in line with observations from other businesses like Doordash. But United is concerned [...]",
       "date_published": "2026-11-11T21:54:21Z"
     },
     {
-      "id": "sty_11c6c390fffcf524",
-      "url": "https://bigthink.com/starts-with-a-bang/ai-proved-quantum-complexity-conjecture/",
-      "title": "An AI-driven proof of the Aaronson-Ambainis conjecture was announced [ ~ ] [ ◻ ]",
-      "content_text": "A recent announcement revealed that an artificial intelligence system has produced a proof for the Aaronson-Ambainis conjecture, a notable problem in theoretical computer science and quantum computing. This development highlights the growing role of AI in advancing complex mathematical and computational theories.",
-      "date_published": "2026-11-11T22:09:10Z"
-    },
-    {
-      "id": "sty_65c015b44beb65db",
-      "url": "https://zumungo.com/get-started.html",
-      "title": "Show HN: Zumungo - AI-driven home automation [ ~ ] [ ◻ ]",
-      "content_text": "Zumungo is a home automation platform that leverages artificial intelligence to enhance smart home management. It aims to provide users with more intuitive and efficient control over their connected devices.",
-      "date_published": "2026-11-11T21:58:28Z"
-    },
-    {
-      "id": "sty_47840015bb09c95b",
-      "url": "https://solderable.dev/blog/fluid",
-      "title": "An AI-assisted RP2040 audio board that worked on first spin in 5 days",
+      "id": "sty_dab2b927afda8fd4",
+      "url": "https://github.com/yakkomajuri/lynx",
+      "title": "Show HN: Lynx - open-source fully-customizable AI workspace [ ~ ] [ ◻ ]",
       "content_text": "",
-      "date_published": "2026-11-11T21:43:47Z"
+      "date_published": "2026-11-12T01:26:11Z"
     },
     {
-      "id": "sty_549478ebe092b4b0",
-      "url": "https://blog.lauramichet.com/some-igf-jurors-released-a-statement-about-ai-usage/",
-      "title": "Some IGF Jurors released a statement about AI usage [ ~ ] [ ◻ ]",
+      "id": "sty_e3cb30c885dc317d",
+      "url": "https://www.theinformation.com/articles/sequoia-capital-invest-ai-holding-co-sequence",
+      "title": "Sequoia Capital to Invest in AI Holding Co. Sequence [ ~ ] [ ◻ ]",
+      "content_text": "Sequoia Capital is investing hundreds of millions of dollars into Sequence Holding, a one-year-old business that just announced a $7.7 billion insurance acquisition co-led by Michael Dell's family office, say people familiar with the matter. This will be Sequoia's second known investment in a new category of holding companies. These aim to buy businesses in established industries such as accounting, insurance and HOA management and then replace or complement some human work with AI. The new money raised from Sequoia is likely to allow Sequence, which has been scouting for targets, to make more acquisitions, according to people familiar with the matter.",
+      "date_published": "2026-11-11T21:27:56Z"
+    },
+    {
+      "id": "sty_dfa348baedf926f7",
+      "url": "https://microsoft.ai/news/mai-transcribe-2-is-the-fastest-most-accurate-and-cheapest-speech-recognition-model-in-the-world/",
+      "title": "MAI-Transcribe-2: Fastest, most accurate and cheapest speech recognition model [ * ] [ ◼ ]",
       "content_text": "",
-      "date_published": "2026-11-11T21:34:05Z"
+      "date_published": "2026-11-12T01:08:54Z"
     },
     {
-      "id": "sty_b9ff4b242064959d",
-      "url": "https://www.vintagecomputing.com/index.php/archives/3746/apple-ii-agent-an-ai-coding-environment-for-the-apple-ii",
-      "title": "Apple II Agent: An AI Coding Environment for the Apple II [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-11-11T21:20:03Z"
+      "id": "sty_ea05be3a26649142",
+      "url": "https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/",
+      "title": "Why the data center you dread might never even be built [ ~ ] [ ◻ ]",
+      "content_text": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity. Before those challenges even come into play, though, there's a more basic problem: A lot of the projects being announced may never get built in the first place. With billions of dollars in AI infrastructure [...]",
+      "date_published": "2026-11-11T20:15:15Z"
     },
     {
-      "id": "sty_3b12ddfd8f26530c",
-      "url": "https://www.reinvent.science/p/the-role-of-natural-scientists-and",
-      "title": "The role of natural scientists and hardware engineers in AI safety [ ~ ] [ ◻ ]",
-      "content_text": "",
-      "date_published": "2026-11-11T21:17:52Z"
+      "id": "sty_cbd88dd94c72ea24",
+      "url": "https://techcrunch.com/podcast/how-backlash-and-red-tape-continue-to-slow-data-centers-post-blue-wave/",
+      "title": "How backlash and red tape continue to slow data centers post-Blue Wave [ ~ ] [ ◻ ]",
+      "content_text": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity. Before those challenges even come into play, though, there's a more basic problem: A lot of the projects being announced may never get built in the first place. With billions of dollars in AI infrastructure [...]",
+      "date_published": "2026-11-11T20:02:14Z"
     },
     {
-      "id": "sty_6b14b1d75ae97e91",
-      "url": "https://app.outlier.ai/en/expert/referrals/link/3FKWhSGJnWvE8htqBdLKT9ZdU-w",
-      "title": "SFT for professionals in software, AI, systems, science and others",
-      "content_text": "",
-      "date_published": "2026-11-11T21:14:58Z"
+      "id": "sty_291541b5e246990b",
+      "url": "https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/",
+      "title": "CoreWeave turns to customer prepayments, shorter contracts to fund AI growth [ * ] [ ◻ ]",
+      "content_text": "CoreWeave is increasingly asking customers to pay up front, borrowing against specific contracts, and even looking to short-term deals that could lead to higher prices, according to the company's third-quarter earnings.",
+      "date_published": "2026-11-11T19:54:00Z"
     },
     {
-      "id": "sty_0b305ccb09e0c186",
-      "url": "https://simonwillison.net/2026/Nov/11/tools-tags/",
-      "title": "Browse tools.simonwillison.net by tag [ ~ ] [ ◻ ]",
-      "content_text": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to analyze the code for JavaScript APIs, libraries, and web API hosts used by each tool. The homepage now features tag clouds for browsing by each of those categories of tag: Tags: javascript, tools, ai, generative-ai, llms, claude, vibe-coding",
-      "date_published": "2026-11-11T18:42:50Z"
+      "id": "sty_46d939728280d5db",
+      "url": "https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/",
+      "title": "With $720M round, Britain's Fractile gets a leg up in the race for AI chips [ ~ ] [ ◼ ]",
+      "content_text": "Fractile has now become one of the top-funded players in the race for purpose-built AI chips.",
+      "date_published": "2026-11-11T19:34:55Z"
+    },
+    {
+      "id": "sty_85bae8802fcb04f1",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPaGJicnpTX3dXeTZCWFZMN1FLZUJfOERPSFJFR1o0Y2RHdmFBb1AxSUxjamtXMmR0eThBb2o3cVBvOHhVSHFVOE1GTGhYd0hjTVFEYUZmSG5EZl84U1VqU012a005Rm0zaF9XV0ExT3R0cnZRc0NxR2lneExBOGtuaDNvVWFISmVNdUl6eWxsQnpwVXhHOXRsaldMQ1ZlYnJfOWNXQw?oc=5",
+      "title": "Elon Musk's Grok AI faces legal challenges over nudification - Social Media Today [ ~ ] [ ◻ ]",
+      "content_text": "Elon Musk's Grok AI faces legal challenges over nudification Social Media Today",
+      "date_published": "2026-11-12T03:57:39Z"
+    },
+    {
+      "id": "sty_5f061e57887764e1",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQaXEzU0lGeWF6TllTYzZDVi1qeXkzTTdrUnI2QWU3S0hpWFFsNksyNlFwVWJaWU1zRVNQNGNwd1BDTDN3Q2puNG9oXy12Yk1YZ1R1RWFfVUlJaW1pTFkyeUlxaU5INzBNTjJ6cVprRGNXWkJJNFZmQzgyaFR5Tkg2ZFFKWWFFYTRZN2NTSU9fUjdfR25Cb2stNk9GY0lLeDRvSUk3OFh4ZUJKckN1VmRQb2s2YTVjTGFFdTdWWGZFeWxQNU9NTFZib3JVMlBxbG1hUHp1OGhKYkjSAd4BQVVfeXFMTjZaU3VHNHlzWk9LNDdoQ0FiY0VMTDh2TzVPeUhnZGNuY3hqR2RWamJncG1taHExbTVXWmMxUmFpQUswTFhPRzFpTkJJUGZCeFV3bzQwSlFRRHpJQ29TeHpLR1c2WThla0JlMHF4TGJQZlhyOE1hSE13M1lzZk81YklQTTN1T2FNNVZ3VjA4c0k2RjROTkhvMnB5SkZuU1lvSlpBVEZVbEdRQkZUa2h3d01OTzJibmRWQmhocjY1VXJONGsycF9kU204NXNjejJzZEV4MWJYbXdBQlFYV3VB?oc=5",
+      "title": "Anthropic CEO predicts AI could eliminate cancer and Alzheimer's within 10 years, experts disagree - Firstpost [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic CEO predicts AI could eliminate cancer and Alzheimer's within 10 years, experts disagree Firstpost",
+      "date_published": "2026-11-12T03:44:50Z"
+    },
+    {
+      "id": "sty_47e8459346c4417b",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA1MmwyYmt6SkJiYWdfTzlVaVlXSWJXWDIyYmJSX3laUldQZ3JXUERNd2JPdHRYWVo0aFBmYWJkN2d3dFBrUC1zUW51eUxhSzQwSkIxakZMc0hrMzNSTTZaSTFJY2hrVGFJQ1hXbGlpWVhOTXl5aFVOZ0Zn0gGOAUFVX3lxTE50SGVqZlI1bHc0a1VjWW5JYkhXWndENGdPTHNHUzdTalltMHptaUlHTXd3MXZUbnRnVk0tel9tY1ZsZjhzQkFiME5OT1JGT05iSk1mS2J1V1dJWXhSTHhuM0JOUVExbk1Mck13VThmbmJIbjJlOVRFRXVuNDlyMWlFMXVTdWsxMm1LbnhFZ0E?oc=5",
+      "title": "Anthropic's Amodei says AI could cure cancer and Alzheimer's within 10 years - Chosunbiz [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic's Amodei says AI could cure cancer and Alzheimer's within 10 years Chosunbiz",
+      "date_published": "2026-11-12T02:39:00Z"
+    },
+    {
+      "id": "sty_1dd4ad10778a9996",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE92bDBtdXlsN3hwdGI1YUliTmVNUVFrTXBlQkRxeFhEMFRRdzJkeExOYm1nOHE1Y2t2U1MxLUdTSjNmRElSSlJpVlB6V0l4d1ZCSFdqTGNMQ1VhMFVKdjNfOGdFNGVjSmd4OThiUzdR?oc=5",
+      "title": "Anthropic CEO Dario Amodei Predicts AI Will Cure Cancer and Alzheimer's Within 10 Years - news.sbs.co.kr [ ~ ] [ ◻ ]",
+      "content_text": "Anthropic CEO Dario Amodei Predicts AI Will Cure Cancer and Alzheimer's Within 10 Years news.sbs.co.kr",
+      "date_published": "2026-11-12T01:52:39Z"
     },
     {
       "id": "sty_4b8b2941c74d5be7",
@@ -245,32 +308,18 @@
       "date_published": "2026-11-11T19:55:54Z"
     },
     {
-      "id": "sty_7569bd759c95d82b",
-      "url": "https://www.theinformation.com/articles/introducing-informations-50-promising-startups-2026",
-      "title": "Introducing The Information's 50 Most Promising Startups of 2026",
-      "content_text": "As artificial intelligence changes how companies get hacked, investors are paying up for startups that promise to keep defenders ahead. That dynamic shaped this year's The Information 50, our annual list of the most promising startups. For the first time, our list includes a category devoted solely to security, and it holds some of the list's biggest bets. Two of the four most highly valued companies in this seventh edition of the list are security startups valued at more than $1 billion apiece, and six of the security firms are run by Israelis, which have a long history of breakout hits in this field. At a time when many people use AI to research new companies, our reporters didn't use AI to find candidates. They just had good ol' fashioned conversations with dozens of founders and investors-including many that pointed us to startups they missed out on-and collected hard data on revenue and growth rates at the companies. You can view the list here, and join our conference call for The Information subscribers at 12pm PT / 3pm ET to discuss the list with several of the founders whose companies are on it.",
-      "date_published": "2026-11-11T14:00:55Z"
+      "id": "sty_bb1831b6673f62ea",
+      "url": "https://www.theinformation.com/articles/ai-inference-startups-quietly-buying-chips",
+      "title": "AI Inference Startups Are Quietly Buying Their Own Chips [ * ] [ ◼ ]",
+      "content_text": "The fast-growing crop of startups that lease computing capacity from cloud firms and then resell it, without spending a nickel on their own AI chips, are at a crossroads. Finding it harder to line up enough computing capacity to serve their customers, some are starting to buy their own chips, which is likely to drastically change the economics of their business. The difficulty in getting enough compute also has pushed some of these startups to look for computational resources from dozens of smaller neoclouds, which tend to have more available capacity than larger hyperscalers such as Microsoft Azure, Amazon Web Services and Google Cloud Platform. News this week of a hack of Fireworks, one of the best known of these startups, highlights the risk of that approach.",
+      "date_published": "2026-11-11T16:29:19Z"
     },
     {
-      "id": "sty_fcf67faeeaef476e",
-      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
-      "title": "ChatGPT Plus for veterans and servicemembers [ ~ ] [ ◻ ]",
-      "content_text": "More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.",
-      "date_published": "2026-11-11T08:00:00Z"
-    },
-    {
-      "id": "sty_e0114e39746da706",
-      "url": "https://simonwillison.net/2026/Nov/11/llm/",
-      "title": "llm 0.37.2 [ ~ ] [ ◼ ]",
-      "content_text": "Release: llm 0.37.2 Fixes a security issue reported by Daniel de Araujo in GHSA-v9h7-jj4g-f862 and GHSA-r639-rr7r-x72w. LLM has a mechanism called extra-openai-models.yaml - now managed by the new-in-0.37 llm openai endpoint add command - for using LLM with OpenAI-compatible API endpoints from other providers. Daniel reported two ways this could accidentally send your configured OpenAI API key to one of those providers: if the key named by api_key_name had never been stored, or if a responses: true model was run with -o chat_completions 1. Tags: projects, security, llm, releases",
-      "date_published": "2026-11-11T17:19:52Z"
-    },
-    {
-      "id": "sty_a73c12705a527128",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
-      "title": "Talk it through with Gemini, now on Apple CarPlay [ ~ ] [ ◻ ]",
-      "content_text": "Gemini is now available on Apple CarPlay.",
-      "date_published": "2026-11-11T17:00:00Z"
+      "id": "sty_2323201bb5550097",
+      "url": "https://techcrunch.com/2026/11/11/databricks-new-ai-agent-tells-ceo-ali-ghodsi-the-unvarnished-truth/",
+      "title": "Databricks' new AI agent tells CEO Ali Ghodsi the unvarnished truth [ * ] [ ◼ ]",
+      "content_text": "With Databricks at 12,000 employees, AI Ghodsi is the first to admit that he can't know everyone and that they are unlikely to confess the things that go wrong to him. But he doesn't need them to. He uses Databricks' newly revised Genie agent for that.",
+      "date_published": "2026-11-11T15:00:00Z"
     },
     {
       "id": "sty_fc59af5c0468139e",
@@ -287,38 +336,10 @@
       "date_published": "2026-11-11T16:00:00Z"
     },
     {
-      "id": "sty_2323201bb5550097",
-      "url": "https://techcrunch.com/2026/11/11/databricks-new-ai-agent-tells-ceo-ali-ghodsi-the-unvarnished-truth/",
-      "title": "Databricks' new AI agent tells CEO Ali Ghodsi the unvarnished truth [ * ] [ ◼ ]",
-      "content_text": "With Databricks at 12,000 employees, AI Ghodsi is the first to admit that he can't know everyone and that they are unlikely to confess the things that go wrong to him. But he doesn't need them to. He uses Databricks' newly revised Genie agent for that.",
-      "date_published": "2026-11-11T15:00:00Z"
-    },
-    {
-      "id": "sty_837dc789d84fd14f",
-      "url": "https://the-decoder.com/us-corporate-ai-spending-hits-a-new-high-in-october-but-growth-slows-to-1-65-percent/",
-      "title": "US corporate AI spending hits a new high in October, but growth slows to 1.65 percent",
-      "content_text": "According to the Ramp AI Index, US corporate AI spending rose just 1.65 percent in October 2026. One percent of companies still drive 80 percent of revenue for OpenAI and Anthropic. Customer support is emerging as a new growth driver, but it may bring lower margins than the coding business that has fueled spending so far. The article US corporate AI spending hits a new high in October, but growth slows to 1.65 percent appeared first on The Decoder.",
-      "date_published": "2026-11-11T19:35:11Z"
-    },
-    {
-      "id": "sty_b1ca782e6cc3e38a",
-      "url": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
-      "title": "Taiwan's chipmaking giant TSMC to invest $1B in Anthropic, OpenAI [ ~ ] [ ◻ ]",
-      "content_text": "Latest example of the AI boom's circular financing comes as AI trade wobbles.",
-      "date_published": "2026-11-11T18:16:40Z"
-    },
-    {
-      "id": "sty_8bde35c6b339b08f",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5mZm01S0Via2g3cWczVVB5YlNSMlI1a2FKekVZY0liWmMzQndHSnIyNVd2RnlLUWFWb3ItWG1KZVZQY2Q3aUlGeGM2UzRDb0Qxc3dtWEFQZkN3TDdmMDJoam1R?oc=5",
-      "title": "Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams - Anthropic Alignment Science blog [ ~ ] [ ◻ ]",
-      "content_text": "Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams Anthropic Alignment Science blog",
-      "date_published": "2026-11-11T16:43:59Z"
-    },
-    {
-      "id": "sty_01b8899b044d30a2",
-      "url": "https://www.infoq.com/news/2026/11/github-agentic-workflows-ga/",
-      "title": "GitHub Makes Agentic Workflows Generally Available with Isolation and Budget Controls [ * ] [ ◼ ]",
-      "content_text": "GitHub Agentic Workflows is generally available, running coding agents in GitHub Actions with read-only defaults and separately scoped write jobs. Those protections do not cover direct write permissions or custom jobs, so they depend on how each workflow is configured. By Mark Silvester",
+      "id": "sty_a73c12705a527128",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
+      "title": "Talk it through with Gemini, now on Apple CarPlay [ ~ ] [ ◻ ]",
+      "content_text": "Gemini is now available on Apple CarPlay.",
       "date_published": "2026-11-11T17:00:00Z"
     },
     {
@@ -329,11 +350,11 @@
       "date_published": "2026-11-11T15:01:35Z"
     },
     {
-      "id": "sty_0224771dd695c97f",
-      "url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
-      "title": "Plurai wants to help AI agents work better using the same approach that helped get self-driving cars to roads [ * ] [ ◼ ]",
-      "content_text": "Like the end-to-end models trained to drive cars, AI agents are probabilistic systems operating in unpredictable environments.",
-      "date_published": "2026-11-11T14:00:00Z"
+      "id": "sty_8bde35c6b339b08f",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5mZm01S0Via2g3cWczVVB5YlNSMlI1a2FKekVZY0liWmMzQndHSnIyNVd2RnlLUWFWb3ItWG1KZVZQY2Q3aUlGeGM2UzRDb0Qxc3dtWEFQZkN3TDdmMDJoam1R?oc=5",
+      "title": "Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams - Anthropic Alignment Science blog [ ~ ] [ ◻ ]",
+      "content_text": "Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams Anthropic Alignment Science blog",
+      "date_published": "2026-11-11T16:43:59Z"
     },
     {
       "id": "sty_14908045073d89b2",
@@ -343,11 +364,39 @@
       "date_published": "2026-11-11T15:00:00Z"
     },
     {
+      "id": "sty_b1ca782e6cc3e38a",
+      "url": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+      "title": "Taiwan's chipmaking giant TSMC to invest $1B in Anthropic, OpenAI [ ~ ] [ ◻ ]",
+      "content_text": "Latest example of the AI boom's circular financing comes as AI trade wobbles.",
+      "date_published": "2026-11-11T18:16:40Z"
+    },
+    {
+      "id": "sty_fcf67faeeaef476e",
+      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+      "title": "ChatGPT Plus for veterans and servicemembers [ ~ ] [ ◻ ]",
+      "content_text": "More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.",
+      "date_published": "2026-11-11T08:00:00Z"
+    },
+    {
+      "id": "sty_01b8899b044d30a2",
+      "url": "https://www.infoq.com/news/2026/11/github-agentic-workflows-ga/",
+      "title": "GitHub Makes Agentic Workflows Generally Available with Isolation and Budget Controls [ * ] [ ◼ ]",
+      "content_text": "GitHub Agentic Workflows is generally available, running coding agents in GitHub Actions with read-only defaults and separately scoped write jobs. Those protections do not cover direct write permissions or custom jobs, so they depend on how each workflow is configured. By Mark Silvester",
+      "date_published": "2026-11-11T17:00:00Z"
+    },
+    {
       "id": "sty_d52c05af47f09d3e",
       "url": "https://arstechnica.com/gaming/2026/11/big-walk-used-ai-to-fix-a-bug-now-the-indie-gaming-world-is-having-a-reckoning/",
       "title": "Big Walk used AI to fix a bug. Now the indie gaming world is having a reckoning. [ ~ ] [ ◻ ]",
       "content_text": "Any amount of AI coding is too much for many Independent Games Festival judges.",
       "date_published": "2026-11-11T17:37:32Z"
+    },
+    {
+      "id": "sty_7569bd759c95d82b",
+      "url": "https://www.theinformation.com/articles/introducing-informations-50-promising-startups-2026",
+      "title": "Introducing The Information's 50 Most Promising Startups of 2026",
+      "content_text": "As artificial intelligence changes how companies get hacked, investors are paying up for startups that promise to keep defenders ahead. That dynamic shaped this year's The Information 50, our annual list of the most promising startups. For the first time, our list includes a category devoted solely to security, and it holds some of the list's biggest bets. Two of the four most highly valued companies in this seventh edition of the list are security startups valued at more than $1 billion apiece, and six of the security firms are run by Israelis, which have a long history of breakout hits in this field. At a time when many people use AI to research new companies, our reporters didn't use AI to find candidates. They just had good ol' fashioned conversations with dozens of founders and investors-including many that pointed us to startups they missed out on-and collected hard data on revenue and growth rates at the companies. You can view the list here, and join our conference call for The Information subscribers at 12pm PT / 3pm ET to discuss the list with several of the founders whose companies are on it.",
+      "date_published": "2026-11-11T14:00:55Z"
     },
     {
       "id": "sty_054608fbb57f0884",
@@ -371,39 +420,11 @@
       "date_published": "2026-11-11T19:01:17Z"
     },
     {
-      "id": "sty_954f9c17d83b94f1",
-      "url": "https://the-decoder.com/google-deepminds-alphaproof-code-verified-signals-cryptographic-core-in-four-weeks-instead-of-years/",
-      "title": "Google Deepmind's AlphaProof Code verified Signal's cryptographic core in four weeks instead of years [ * ] [ ⬢ ]",
-      "content_text": "Google Deepmind's AlphaProof Code mathematically verified Signal's cryptographic core code in four weeks, a process that typically takes years. AI agents powered by Gemini Carbon wrote more than six million lines of proof code and flagged only about one percent for human review. Deepmind plans to extend the method to critical infrastructure like power grids and medical devices. The article Google Deepmind's AlphaProof Code verified Signal's cryptographic core in four weeks instead of years appeared first on The Decoder.",
-      "date_published": "2026-11-11T18:18:25Z"
-    },
-    {
-      "id": "sty_31574dd4edf9ef73",
-      "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/",
-      "title": "Anthropic's IPO roadshow video [ ~ ] [ ◼ ]",
-      "content_text": "Anthropic's IPO roadshow video Anthropic kicked off their IPO roadshow yesterday, and their roadshow video has some previously unreleased information about how their business works. The section on \"Approach to compute\" with co-founder Tom Brown is particularly interesting, describing how Anthropic train and serve Claude across AWS Trainium, Google TPUs, NVIDIA GPUs, and AMD GPUs. I'm not sure why there's no official video transcript, but here's one that I extracted using MacWhisper. Highlights below: We train and serve Claude now across all four major chip families. That's only possible because early on we made an unconventional bet on a multi-chip strategy. At the time, many people thought that running AI models on different chips wasn't worth the effort. Each chip needs its own tailored software stack and inference stack, which is expensive and difficult to build. We've now been doing it for years, and we've gotten incredibly good at it. [...] As an example, this year, we started working with AMD GPUs for the first time. In the past, bringing on a new chip platform took dozens of engineers months of work This time, we had Mythos try it out. It got Claude running on AMD in just three days, with basically no human intervention. Claude ported or wrote almost 100% of the kernels. [...] The second driver of our compute advantage is our rate of discovery of compute multipliers. We focus on total effective compute, which is the multiplicative product of physical capacity times the compute multipliers that we discover. Each one we discover makes our pool of total effective compute bigger. For example, say you need 100 units of compute to train a model of a certain intelligence. A 4x compute multiplier means you can use 25 units of compute to train the exact same model. Or you can use those hundred physical units to train an even more intelligent model that would have previously required 400 units. Compute multipliers create a competitive advantage for us that's hard to replicate. They build on each other. Each new multiplier we discover has a positive effect on the multipliers before it. They stack. We believe that this can accelerate even further as we approach recursive self-improvement. Claude will be able to discover compute multipliers entirely by itself, allowing the number of compute multipliers to grow faster and faster. We got a hint at Anthropic's multi-chip strategy last September in their postmortem of three recent issues, where they described bugs that affected just their TPU deployments. Tags: ai, generative-ai, llms, anthropic, gpus, claude-mythos-fable, recursive-self-improvement",
-      "date_published": "2026-11-11T15:11:59Z"
-    },
-    {
-      "id": "sty_3af18e47ab56c55b",
-      "url": "https://oshea00.github.io/posts/tinygpt-visualizer/",
-      "title": "Tools for exploring the souls of large language models [ ~ ] [ ◻ ]",
-      "content_text": "Comments",
-      "date_published": "2026-11-11T20:45:50Z"
-    },
-    {
       "id": "sty_659412ba2fcd3f9c",
       "url": "https://www.wired.com/story/startup-fights-ai-bioweapons-with-ai/",
       "title": "A Startup Wants to Fight AI Bioweapons With AI [ * ] [ ◼ ]",
       "content_text": "Radical Numerics has developed a model that it says can identify natural and AI-engineered pathogens without an internet connection.",
       "date_published": "2026-11-11T17:00:00Z"
-    },
-    {
-      "id": "sty_4d5d5823b981ab9c",
-      "url": "https://www.theverge.com/tech/1031505/adobe-max-2026-sneaks-experiments-ai",
-      "title": "Adobe's AI experiments let you walk around in photos and interview your characters [ ~ ] [ ◻ ]",
-      "content_text": "Some of the most impressive tech that Adobe showcases at its annual Max conference each year is the experimental features it's developing, and the latest of those tools are being announced today: they can transform images into explorable 3D scenes, design AI characters by talking to them, and turn photo editing into a copy/paste process. [...]",
-      "date_published": "2026-11-11T14:00:00Z"
     },
     {
       "id": "sty_27fdbbc7b1db61b0",
@@ -413,13 +434,6 @@
       "date_published": "2026-11-11T20:23:57Z"
     },
     {
-      "id": "sty_025fb8094e18f641",
-      "url": "https://www.wired.com/story/chinas-nvidia-honeypot-isnt-surprising-jensen-huang-fell-for-it-anyway/",
-      "title": "China's Nvidia Honeypot Isn't Surprising. Jensen Huang Fell for It Anyway [ * ] [ ◻ ]",
-      "content_text": "China's use of sexpionage is a well-established intelligence tactic with recent, high-profile examples. So how did the world's most powerful AI executive fall for it?",
-      "date_published": "2026-11-11T15:30:00Z"
-    },
-    {
       "id": "sty_8e322c42d5c6e6cf",
       "url": "https://www.infoq.com/news/2026/11/jiohotstar-codingagent-retrieval/",
       "title": "JioHotstar Benchmarks Knowledge Bases for AI Coding Agents [ ~ ] [ ◼ ]",
@@ -427,32 +441,18 @@
       "date_published": "2026-11-11T14:28:00Z"
     },
     {
-      "id": "sty_63f1ff30b0d03213",
-      "url": "https://www.technologyreview.com/2026/11/11/1148424/the-download-preserving-minds-open-ai-risks/",
-      "title": "The Download: preserving minds and weighing open AI risks [ ~ ] [ ◻ ]",
-      "content_text": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Six wild ideas for perpetuating your mind As we age, we forget most of what we've experienced, yet there's still undeniable continuity: At 30, or 50, or 70, you will still...",
-      "date_published": "2026-11-11T13:10:00Z"
+      "id": "sty_025fb8094e18f641",
+      "url": "https://www.wired.com/story/chinas-nvidia-honeypot-isnt-surprising-jensen-huang-fell-for-it-anyway/",
+      "title": "China's Nvidia Honeypot Isn't Surprising. Jensen Huang Fell for It Anyway [ * ] [ ◻ ]",
+      "content_text": "China's use of sexpionage is a well-established intelligence tactic with recent, high-profile examples. So how did the world's most powerful AI executive fall for it?",
+      "date_published": "2026-11-11T15:30:00Z"
     },
     {
-      "id": "sty_404664cda626af11",
-      "url": "https://www.reddit.com/r/MachineLearning/comments/1xtvipb/how_should_authors_handle_a_suspected/",
-      "title": "How should authors handle a suspected auto-generated review at ICLR? Flag to the AC or just rebut? [D] [ ~ ] [ ◻ ]",
-      "content_text": "An author at ICLR is concerned about a review they suspect to be auto-generated by AI. The review gave a low score with low confidence, while other reviewers gave higher scores with high confidence. An AI detection tool flagged the review as likely AI-generated, and the author noticed the review's weaknesses focus on appendix material. The author plans to address all points in the rebuttal and seeks advice on whether to confidentially inform the Area Chair (AC), what evidence ACs consider credible regarding AI-generated reviews, the influence of low-confidence reviews on meta-reviews, and experiences with flagging AI-generated reviews.",
-      "date_published": "2026-11-11T22:20:31Z"
-    },
-    {
-      "id": "sty_3baebc845fd2af83",
-      "url": "https://the-decoder.com/helsing-built-an-ai-system-that-prepares-targets-for-weapons-systems-and-says-every-decision-will-carry-a-human-name/",
-      "title": "Helsing built an AI system that prepares targets for weapons systems and says every decision will carry a human name [ ! ] [ ⬢ ]",
-      "content_text": "Helsing has unveiled Clarity, an AI platform that uses agents to distill sensor data into target recommendations for weapons systems, all under human oversight and European control. But experience from the Iran war, Gaza, and a near-miss involving China shows that the speed of automation and data fusion create risks that are hard to contain. The article Helsing built an AI system that prepares targets for weapons systems and says every decision will carry a human name appeared first on The Decoder.",
-      "date_published": "2026-11-11T15:12:53Z"
-    },
-    {
-      "id": "sty_ca677a2deb859795",
-      "url": "https://www.reddit.com/r/MachineLearning/comments/1xtul3j/i_built_an_explorer_of_2100_robotics_papers/",
-      "title": "I built an explorer of 2,100+ robotics papers covering 10 years of CoRL; with TLDRs, links to code, project pages, and research trends [P] [ ~ ] [ ◻ ]",
-      "content_text": "Heya roboticists and mind minders ~ I built a complete CoRL paper explorer, indexing 2,100+ robotics papers from the last 10 years (2017-2026). Added paper TLDRs, project pages, code, arXiv links, task chips, summary stats, research trends, and more!! Trying to make robot learning research more accessible for the community - might build an open source autoresearch capability on top of it later If you see something that's missing or want to add features/contribute, open a PR and i'll accept it :] paper explorer: https://corl.operatic.ai/explore repo on github - star to follow along!! https://github.com/operatic-ai/corl-explorer submitted by /u/promptdom [link] [comments]",
-      "date_published": "2026-11-11T21:42:54Z"
+      "id": "sty_0224771dd695c97f",
+      "url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
+      "title": "Plurai wants to help AI agents work better using the same approach that helped get self-driving cars to roads [ * ] [ ◼ ]",
+      "content_text": "Like the end-to-end models trained to drive cars, AI agents are probabilistic systems operating in unpredictable environments.",
+      "date_published": "2026-11-11T14:00:00Z"
     },
     {
       "id": "sty_93fc0c7bcc989be7",
@@ -462,18 +462,18 @@
       "date_published": "2026-11-11T14:08:57Z"
     },
     {
+      "id": "sty_4d5d5823b981ab9c",
+      "url": "https://www.theverge.com/tech/1031505/adobe-max-2026-sneaks-experiments-ai",
+      "title": "Adobe's AI experiments let you walk around in photos and interview your characters [ ~ ] [ ◻ ]",
+      "content_text": "Some of the most impressive tech that Adobe showcases at its annual Max conference each year is the experimental features it's developing, and the latest of those tools are being announced today: they can transform images into explorable 3D scenes, design AI characters by talking to them, and turn photo editing into a copy/paste process. [...]",
+      "date_published": "2026-11-11T14:00:00Z"
+    },
+    {
       "id": "sty_bf4a744ef015b096",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOWndZQjgtaFliRHFPQjI5UUVoaU9XSXBXR2tCTm9iLU85Skd4VjVPU0pCcDVJQlpnWFd4eXUtMEExT0c1NTdHcFBpS1JkS1pMYXZoVXFvSC1xZXQ1N2tYV3JwYkVWS3dURE5TdlctUzZVdW4wVy1NMWptZkl2cG9GSTlNYVlsa2xtX1NWdFU4bjFpWDV0b0prUXBKUV9tbnZjVVJIcnF1MXZRSzR3bkFFamFCdUFvOW4yWjhqVA?oc=5",
       "title": "Anthropic's bankers may push its valuation past $1.5trn at IPO - The Times",
       "content_text": "Anthropic's bankers may push its valuation past $1.5trn at IPO The Times",
       "date_published": "2026-11-11T18:20:00Z"
-    },
-    {
-      "id": "sty_479c1977d4400d54",
-      "url": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days/",
-      "title": "Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days [ * ] [ ◼ ]",
-      "content_text": "Anthropic claims it used AI itself to breach Nvidia's CUDA moat. The company's in-house model Mythos reportedly ported Claude to AMD GPUs in just three days, with almost no human intervention. Anthropic now runs Claude on four chip families and aims to cut costs and reduce vendor dependencies. The article Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days appeared first on The Decoder.",
-      "date_published": "2026-11-11T14:25:20Z"
     },
     {
       "id": "sty_8803977c6911f689",
@@ -483,23 +483,16 @@
       "date_published": "2026-11-11T17:52:18Z"
     },
     {
-      "id": "sty_e570e76fe9ce65d6",
-      "url": "https://the-decoder.com/us-data-brokers-are-selling-half-a-billion-dollars-in-rl-training-environments-to-chinese-ai-labs/",
-      "title": "US data brokers are selling half a billion dollars in RL training environments to Chinese AI labs [ * ] [ ◼ ]",
-      "content_text": "US data brokers like Mercor, Surge AI, and AfterQuery are selling roughly half a billion dollars' worth of AI training data to Chinese labs, according to a ChinaTalk investigation. That includes the same RL environments previously built for OpenAI or Anthropic. At least nine firms are involved, and export controls barely apply. The article US data brokers are selling half a billion dollars in RL training environments to Chinese AI labs appeared first on The Decoder.",
-      "date_published": "2026-11-11T13:51:11Z"
-    },
-    {
-      "id": "sty_978779f539defa92",
-      "url": "https://the-decoder.com/with-its-new-voice-model-deepl-voice-now-translates-intonation-and-speaking-speed-into-other-languages-as-well/",
-      "title": "DeepL wants real-time translation to finally capture sarcasm and mood shifts [ ~ ] [ ◼ ]",
-      "content_text": "DeepL Voice's real-time translations are about to sound a lot more natural. The company's new Aure model carries over tone, emotion, emphasis, and speaking pace from the original speaker's voice into the target language. The article DeepL wants real-time translation to finally capture sarcasm and mood shifts appeared first on The Decoder.",
-      "date_published": "2026-11-11T13:50:30Z"
+      "id": "sty_f17a315f6df6b351",
+      "url": "https://openai.com/index/jiostar-vijay-seshadri",
+      "title": "JioStar's chief architect on AI discovery at 500M-user scale [ ~ ] [ ◻ ]",
+      "content_text": "JioStar's Vijay Seshadri explains AI discovery at 500M-user scale. Read his lessons on evals, guardrails, and taking AI into production.",
+      "date_published": "2026-11-11T00:00:00Z"
     },
     {
       "id": "sty_c75b482b899cfa40",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOT1VGQWlDVmtSUFY1SUZjaHZUNTJXSnRrTkNYMjllbTh2OGhRV1VQOGJJT2FaM1dSUWQ4Y1IxUzdUTV93X3FPVHhfcEp4a004TkxBdDFoTWVkeW5CdjlISW9hdEo1aHBSQUlQTkp6X0t3cXZMZGV1S2o2dXhaa3pxRjFZcFZhbUR2VDRic1hOMXo1T0s3VFRNNXR5TGFTamlucGZfSENpQ0hiRnBsLTJZeFZvYU1Md3ZGUkNKTVNINA?oc=5",
-      "title": "Dario Amodei says AI will cure cancer and Alzheimer's in a decade. Doctors aren't buying it. - LinkedIn",
+      "title": "Dario Amodei says AI will cure cancer and Alzheimer's in a decade. Doctors aren't buying it. - LinkedIn [ ~ ] [ ◻ ]",
       "content_text": "Dario Amodei says AI will cure cancer and Alzheimer's in a decade. Doctors aren't buying it. LinkedIn",
       "date_published": "2026-11-11T17:32:35Z"
     },
@@ -513,23 +506,9 @@
     {
       "id": "sty_0fda51946cdac7af",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOVUlHU2pHQjBYRF8xX3dyb3Y1RW0tM0FremhIN3YxY2h4UUMtT29jU0xkbGxxMFJXOTFMT0dianR3emllTjFOZTBkdXh3RWdLLTlCTmtRSDh6VEg4ZnQ2SG1IMzZnb2h0T0Q4Tk5BS1VSaEtXaEZVSEIwaU50N3dCMW1DTzJEVjE5WnBOQWtLQUU3LUZmTHBQSTZ5TXRyMmxheks4WEVqTQ?oc=5",
-      "title": "Dario Amodei says AI will cure cancer and Alzheimer's in a decade. Doctors aren't buying it. - Business Insider",
+      "title": "Dario Amodei says AI will cure cancer and Alzheimer's in a decade. Doctors aren't buying it. - Business Insider [ ~ ] [ ◻ ]",
       "content_text": "Dario Amodei says AI will cure cancer and Alzheimer's in a decade. Doctors aren't buying it. Business Insider",
       "date_published": "2026-11-11T17:28:00Z"
-    },
-    {
-      "id": "sty_2743fd7a132c8e20",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQVkJ1ay1pUnM2aFZnWTdJVUFKWmRRdlJPVjhFT2FMcGdEMGdsR1FueEdCQzNPZXhFcURnZzFYU3Y1ZzUtdWdzVUh5R1IxMkNyUTVBcjM1WHMtRkhMNXd6ZURKQWNCYUpoYnYweXY0VDhHTnY1cWg4cl92Q3dWajZmakUyRW5SY1JLSkViS3R1VEdPVzlic3FoaGpRelg2aEpFbnhuVUpMaUp1eXY5?oc=5",
-      "title": "What's Next for Anthropic's Mega-IPO: Five Things to Watch - Bloomberg.com",
-      "content_text": "What's Next for Anthropic's Mega-IPO: Five Things to Watch Bloomberg.com",
-      "date_published": "2026-11-11T17:08:18Z"
-    },
-    {
-      "id": "sty_237d846df879edbe",
-      "url": "https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/",
-      "title": "Enterprise sales push OpenAI's quarterly revenue to $10 billion, though it still trails Anthropic [ * ] [ ◼ ]",
-      "content_text": "OpenAI grew its quarterly revenue 50 percent to $10 billion but is still burning more cash than it brings in. Adjusted operating losses climbed to $10.9 billion, while rival Anthropic operates far more efficiently on $17 billion in revenue. To close the gap, OpenAI is now fueling a price war for enterprise customers. The article Enterprise sales push OpenAI's quarterly revenue to $10 billion, though it still trails Anthropic appeared first on The Decoder.",
-      "date_published": "2026-11-11T12:12:47Z"
     },
     {
       "id": "sty_f4fcc7160dd67949",
@@ -539,32 +518,53 @@
       "date_published": "2026-11-11T11:00:00Z"
     },
     {
-      "id": "sty_434b9093e6b01389",
-      "url": "https://the-decoder.com/uk-regulator-threatens-universities-with-sanctions-unless-they-adopt-ai-proof-exam-formats/",
-      "title": "UK regulator threatens universities with sanctions unless they adopt AI-proof exam formats [ ! ] [ ◼ ]",
-      "content_text": "England's higher education regulator, the Office for Students, says AI has made it \"nearly impossible\" to fairly assess student coursework. An investigation found that students are having ChatGPT write entire papers undetected, without being able to recall basic content afterward. To save the credibility of degrees, universities now have to return to traditional exams or face sanctions. The article UK regulator threatens universities with sanctions unless they adopt AI-proof exam formats appeared first on The Decoder.",
-      "date_published": "2026-11-11T11:54:46Z"
-    },
-    {
-      "id": "sty_905f6394bab74961",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTjVuWnVKcFlzZ3dDTjFFVDdTa1NlT2J2bzNLM0tLM0FsR004TUo3ZUd6UU9tM0ZRTTU0MjBzbjJ0enloUGl6bUhKUWp4UHNQNjlQUlhwYmtNQmhfRDRxRTZfczBTMkpKNWdWdDJScUQ4bFNyNWlRbHNxR01tNXgyRXFPZngtMHVDZmFqZTUteEJGNXRuUV9TZU1hSDA5eU1VUFhsd2dHRm10anBsaENGUDdwWjl6TTJyQTRDY2tiMXFYRk3SAcgBQVVfeXFMT2lRU19hZUFVRFFOeDF3b0QtTU5YZmp6ZGtCbThYTUZfc1lCcFpXaVRkMmsyWklPTk9FMktHa0xPd2Y2ZVdxaV9JQmZoX2RsZTJfS2lKa2lpNE1VeTZDVUxtb2NWamNOVThVSlY3VDZGYVNtWnFTZ1pRaXRIU3JhVU9kRzNGZmxwRnVRVjgxRjB6bWpCOTRsc25GX09ROE5KZFZiWUEtc3NvZUJlVWRYdGt0U0VKUmYwZ3pPNGhqVVNZaDBVbWl0ak4?oc=5",
-      "title": "Can AI cure cancer, Alzheimer's and heart disease in 10 years? Anthropic CEO's claims vs scientific reality - WION [ ~ ] [ ◻ ]",
-      "content_text": "Can AI cure cancer, Alzheimer's and heart disease in 10 years? Anthropic CEO's claims vs scientific reality WION",
-      "date_published": "2026-11-11T15:51:00Z"
-    },
-    {
-      "id": "sty_17eb4ebf5b4b0035",
-      "url": "https://pietromiotti.com/latest/maya-site/?maya=",
-      "title": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h [ ~ ] [ ◻ ]",
+      "id": "sty_954068c7f9437725",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+      "title": "Gemini 4 Carbon is now available [ ! ] [ ⬢ ]",
       "content_text": "",
-      "date_published": "2026-11-11T12:05:22Z"
+      "date_published": "2026-11-10T16:03:47Z"
     },
     {
-      "id": "sty_f17a315f6df6b351",
-      "url": "https://openai.com/index/jiostar-vijay-seshadri",
-      "title": "JioStar's chief architect on AI discovery at 500M-user scale [ ~ ] [ ◻ ]",
-      "content_text": "JioStar's Vijay Seshadri explains AI discovery at 500M-user scale. Read his lessons on evals, guardrails, and taking AI into production.",
-      "date_published": "2026-11-11T00:00:00Z"
+      "id": "sty_4265ca6000c752b7",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5FUURfRTBKSXUtQTVSOHAzUm1tcU9CODZUQS1iRzJlZEtNd2FQSlRIQ2g3R3NTTkdqNGRKWHFhV09jQlFvOHV3QTVDNkRYNnZCNzhjNzZ2UVRDS19BWmVsN0g3THlZdXc?oc=5",
+      "title": "Elon Musk's AI Created Apps That \"Leaked\" Confidential SpaceX Data - Mezha [ ~ ] [ ◻ ]",
+      "content_text": "Elon Musk's AI Created Apps That \"Leaked\" Confidential SpaceX Data Mezha",
+      "date_published": "2026-11-11T15:35:00Z"
+    },
+    {
+      "id": "sty_88d46086b4761037",
+      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPcWN1WDE5czByVmxUdVNKUlZDeXZHbF80d2NaeEZ5Nm5VVmhSTnkyMUc4SmJ4V3hDYmtNWlZxVGtWRldiZDVHR1JIZ1ZRRFA3VTFZN3JsNW13Ml9tR25HZ2xZR1NvTlpjWnR0M0lhbERaX3NEdTdpWXVDd1NIQW1mZElDbU5ETGJ3dktDNXhKLVZUYUFnbkJ0aUgzdmtKZWM0YVgwMmdqSWNRbmFHOERWMGYzZnE5dkJsYmFKVm5oaHNGYi1NSFI1Q2xjejZKaDJqM2thaHVDdkVBS2htRjh4MEp0UkhacE9xWGxFMnBIRWNEb3o0Zzc4eGdZVdIBgAJBVV95cUxOTnhHOVhiTDI3cEZDeU9fbHBVd2E4b24weEdHZHhXckhLUDQ5WVlmNWQxSGxXSVA0VXlhZGU1ZUNudnFwZGJCckVReEZobGVpQTExelEyWGF6S3l0OUcwWGdxSGJRN0VLaUdnSjVEZWZyUVRkajlRYXotREk2MjBQdngzZ3BiMlFiM3FEaS1sb3QzMHBtcnVJSy1lMFRXRHU5TG02NlJJcTVKVWEwR3kwOGlKd2NiaFRLRUx5QTR1Rm1DcGMzY094VXZiOG1qZzVPN1RRWnBfRUFJcTNfXzFBaVlQNFZOZXhDaE5jMnVGXzdLZzZPbmJMbE1VM1FSSUxi?oc=5",
+      "title": "'Cancer will be history in 10 years': Anthropic CEO Dario Amodei's big AI-powered promise - The Times of India [ ~ ] [ ◻ ]",
+      "content_text": "'Cancer will be history in 10 years': Anthropic CEO Dario Amodei's big AI-powered promise The Times of India",
+      "date_published": "2026-11-11T15:10:00Z"
+    },
+    {
+      "id": "sty_29566b218d5f6eca",
+      "url": "https://futurism.com/artificial-intelligence/democrats-federal-permit-train-ai-model",
+      "title": "Democrats Considering Crackdown That Would Require Government Permission to Train AI Models [ ! ] [ ⬢ ]",
+      "content_text": "\"Top of the Democratic agenda on day one needs to be a pause on advanced AI development.\" The post Democrats Considering Crackdown That Would Require Government Permission to Train AI Models appeared first on Futurism.",
+      "date_published": "2026-11-11T14:23:33Z"
+    },
+    {
+      "id": "sty_7b2442ee86736763",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOcUg0M1k3VGQwZlRSdDFmbnBqZG9IckpIYmhNSVExU0xnZktHSFVoSXVKNDhMUlpIeUJ1cE1ZYng0VnpUUzhOQnk2MkFLVndKdjVfSmlGOThpby1CQmRPUHZhQkhBRmdZUDFTTGVFVU56VVdpQ3phSkpoZWhtZzBZeXVB?oc=5",
+      "title": "Cancer and Alzheimer's could be cured within 10 years - Anthropic's CEO - UkrMedia News",
+      "content_text": "Cancer and Alzheimer's could be cured within 10 years - Anthropic's CEO UkrMedia News",
+      "date_published": "2026-11-11T13:54:19Z"
+    },
+    {
+      "id": "sty_787f94f71e3c8008",
+      "url": "https://www.theinformation.com/articles/amazon-google-win-big-anthropic-ipo",
+      "title": "Amazon and Google Win Big From Anthropic IPO [ ~ ] [ ◻ ]",
+      "content_text": "If you're looking for a cheaper way of getting exposure to Anthropic than buying the stock directly, consider Amazon or Google. Anthropic's updated IPO filing on Tuesday shows just how many shares each of those two tech giants will own in Anthropic, along with how much money they're making on their early investments in the AI firm. Neither tech giant will own voting shares in Anthropic, so antitrust cops won't have to worry about their influence over its management. But their stakes are significant. In theory, Amazon could own around 20% of Anthropic's outstanding shares. But because of a self-imposed ownership cap, Amazon won't hold more than 12% of Anthropic. The rest of its holdings are convertible notes that can convert to equity over time. Regardless, Amazon's economic return is pretty damn good. Forgetting about the ownership cap for a minute, Amazon's entire 20%-or-so stake would be worth about $258 billion at the midpoint of Anthropic's proposed IPO pricing range. That's from an investment totaling around $18.6 billion. (Anthropic's final IPO price may well end up higher than the preliminary range, a Financial Times report tonight suggests).",
+      "date_published": "2026-11-11T01:01:26Z"
+    },
+    {
+      "id": "sty_2e65520598432903",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOeWkyNVVST1BCQ1hNRXpCQnRmZ0RLOTZDM0JjcnBfelFNRUdhaWNoZ2FPdWpwVmJORUViZFRqMGx3UTgzdEw3S0E3QWhDX01BTXdzN3ctcE9jWmFoWEhxVmFSSG02Yl9pRW11OWp3c0ktdkw4bGNrUWNoUXIzWWhDS2c4UC1oSUlTR25CV1N5U3h3cHQzeXh0Tw?oc=5",
+      "title": "What we're worried about as Anthropic prepares for its public debut - Fortune [ ~ ] [ ◻ ]",
+      "content_text": "What we're worried about as Anthropic prepares for its public debut Fortune",
+      "date_published": "2026-11-11T11:51:00Z"
     }
   ]
 }
