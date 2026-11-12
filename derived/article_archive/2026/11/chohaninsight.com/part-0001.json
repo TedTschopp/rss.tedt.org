@@ -1,0 +1,10 @@
+{
+  "articles": {
+    "https://chohaninsight.com/blog/ai-customer-driven-development/": {
+      "fetched_at": "2026-11-12T11:42:22.066302Z",
+      "markdown": "As code has become easier to write, implement, and test (and as frontier models improve, this trend will only accelerate), a problem arises: applications can become bloated with features, making the software difficult to use and learn. Feature toggles already exist, allowing features to remain hidden unless their corresponding toggles are activated.\n\nA customer goes to the application's settings and types in what they want. If the feature already exists, its toggle is enabled, provided it is a public toggle. AI could also filter through related hidden features to determine whether any meet the user's needs (something relatively easy to implement using embeddings and vector search). If the requested feature does not exist, the request is forwarded to product management for human review. AI can first analyze the request and provide the pros and cons of implementing the feature. If it passes human review, a set of AI agents implements, reviews, and tests the feature, then generates customer-facing documentation explaining how to use it. The new code is deployed behind a public toggle (as opposed to a private toggle, which only a human can activate). Private toggles can be used for services that require higher processing tiers.\n\nThis introduces another problem: an exponential number of possible configurations. It is not feasible to test every permutation, so testing must prioritize the configurations that customers are actually using. AI would generate end-to-end tests for these custom configurations and incorporate them into the CI/CD pipeline.\n\nWith dynamic, AI-driven, customer-driven software development, products can become stickier because customers can customize applications to their liking without compromising the experience for everyone else through feature bloat."
+    }
+  },
+  "format": "rss-article-archive-v1",
+  "group": "2026/11/chohaninsight.com"
+}
