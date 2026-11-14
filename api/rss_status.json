@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-14T14:57:14.902388+00:00",
+  "timestamp": "2026-11-14T20:37:55.159038+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 242,
-      "last_updated": "Sat, 14 Nov 2026 14:50:48 +0000",
+      "last_updated": "Sat, 14 Nov 2026 20:29:03 +0000",
       "size_bytes": 212399,
       "errors": []
     },
@@ -13,7 +13,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 3854,
-      "last_updated": "Sat, 14 Nov 2026 14:50:48 +0000",
+      "last_updated": "Sat, 14 Nov 2026 20:29:03 +0000",
       "size_bytes": 2771758,
       "errors": []
     },
@@ -21,7 +21,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 5,
-      "last_updated": "Sat, 14 Nov 2026 14:51:15 +0000",
+      "last_updated": "Sat, 14 Nov 2026 20:29:31 +0000",
       "size_bytes": 4865,
       "errors": []
     },
@@ -29,7 +29,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 160,
-      "last_updated": "Sat, 14 Nov 2026 14:51:15 +0000",
+      "last_updated": "Sat, 14 Nov 2026 20:29:31 +0000",
       "size_bytes": 196006,
       "errors": []
     },
@@ -37,15 +37,15 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Sat, 14 Nov 2026 14:52:18 +0000",
-      "size_bytes": 204020,
+      "last_updated": "Sat, 14 Nov 2026 20:31:15 +0000",
+      "size_bytes": 206034,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 916,
-      "last_updated": "Sat, 14 Nov 2026 14:52:18 +0000",
+      "last_updated": "Sat, 14 Nov 2026 20:31:15 +0000",
       "size_bytes": 504582,
       "errors": []
     }
@@ -79,18 +79,18 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 2175,
-      "clusters": 2147
+      "stories": 2133,
+      "clusters": 2104
     },
     "llm_status": {
-      "status": "ok",
-      "calls": 107,
-      "ok": 107,
-      "errors": 0,
+      "status": "degraded",
+      "calls": 99,
+      "ok": 97,
+      "errors": 2,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 44,
-        "importance": 32,
+        "ai_relevance": 39,
+        "importance": 29,
         "output_cleanup": 20
       },
       "stages": {
@@ -112,34 +112,34 @@
           }
         },
         "publish": {
-          "status": "ok",
-          "calls": 96,
-          "ok": 96,
-          "errors": 0,
+          "status": "degraded",
+          "calls": 88,
+          "ok": 86,
+          "errors": 2,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 44,
-            "importance": 32,
+            "ai_relevance": 39,
+            "importance": 29,
             "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 96
+            "openai/gpt-4.1-mini": 88
           },
           "backlog": {
             "ai_relevance": {
-              "before": 44,
+              "before": 39,
               "remaining": 0
             },
             "importance": {
               "before": 0,
-              "remaining": 0
+              "remaining": 2
             },
             "output_cleanup": {
               "before": 20,
               "remaining": 0
             }
           },
-          "backlog_remaining": 0
+          "backlog_remaining": 2
         }
       },
       "backlog": {
@@ -152,23 +152,23 @@
           "remaining": 10
         },
         "ai_relevance": {
-          "before": 44,
+          "before": 39,
           "remaining": 0
         },
         "importance": {
           "before": 0,
-          "remaining": 0
+          "remaining": 2
         },
         "output_cleanup": {
           "before": 20,
           "remaining": 0
         }
       },
-      "backlog_remaining": 10
+      "backlog_remaining": 12
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-11-14T14:50:48.469714+00:00",
+    "timestamp": "2026-11-14T20:29:03.066766+00:00",
     "status": "ratings",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
