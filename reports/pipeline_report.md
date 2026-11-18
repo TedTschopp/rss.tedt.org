@@ -1,33 +1,33 @@
 # Pipeline Report
 
-- Timestamp: 2026-11-18T12:23:40.552867Z
+- Timestamp: 2026-11-18T17:09:34.337406Z
 - Sources configured: 43
-- Raw items: 2198
-- Stories: 2138
-- Clusters: 2108
-- LLM: {'status': 'degraded', 'calls': 270, 'ok': 269, 'errors': 1, 'skipped': 0, 'by_kind': {'ai_relevance': 109, 'importance': 85, 'output_cleanup': 50}, 'stages': {'enrichment': {'status': 'ok', 'calls': 26, 'ok': 26, 'errors': 0, 'skipped': 0, 'backlog': {'embeddings': {'before': 47, 'remaining': 0}, 'summaries': {'before': 46, 'remaining': 21}}}, 'publish': {'status': 'degraded', 'calls': 244, 'ok': 243, 'errors': 1, 'skipped': 0, 'by_kind': {'ai_relevance': 109, 'importance': 85, 'output_cleanup': 50}, 'by_model': {'openai/gpt-4.1-mini': 244}, 'backlog': {'ai_relevance': {'before': 109, 'remaining': 0}, 'importance': {'before': 1, 'remaining': 1}, 'output_cleanup': {'before': 50, 'remaining': 0}}, 'backlog_remaining': 1}}, 'backlog': {'embeddings': {'before': 47, 'remaining': 0}, 'summaries': {'before': 46, 'remaining': 21}, 'ai_relevance': {'before': 109, 'remaining': 0}, 'importance': {'before': 1, 'remaining': 1}, 'output_cleanup': {'before': 50, 'remaining': 0}}, 'backlog_remaining': 22}
+- Raw items: 2285
+- Stories: 2222
+- Clusters: 2193
+- LLM: {'status': 'ok', 'calls': 130, 'ok': 130, 'errors': 0, 'skipped': 0, 'by_kind': {'ai_relevance': 58, 'importance': 41, 'output_cleanup': 20}, 'stages': {'enrichment': {'status': 'ok', 'calls': 11, 'ok': 11, 'errors': 0, 'skipped': 0, 'backlog': {'embeddings': {'before': 20, 'remaining': 0}, 'summaries': {'before': 20, 'remaining': 10}}}, 'publish': {'status': 'ok', 'calls': 119, 'ok': 119, 'errors': 0, 'skipped': 0, 'by_kind': {'ai_relevance': 58, 'importance': 41, 'output_cleanup': 20}, 'by_model': {'openai/gpt-4.1-mini': 119}, 'backlog': {'ai_relevance': {'before': 58, 'remaining': 0}, 'importance': {'before': 0, 'remaining': 0}, 'output_cleanup': {'before': 20, 'remaining': 0}}, 'backlog_remaining': 0}}, 'backlog': {'embeddings': {'before': 20, 'remaining': 0}, 'summaries': {'before': 20, 'remaining': 10}, 'ai_relevance': {'before': 58, 'remaining': 0}, 'importance': {'before': 0, 'remaining': 0}, 'output_cleanup': {'before': 20, 'remaining': 0}}, 'backlog_remaining': 10}
 
 ## LLM Calls
-- Total: 270
-- Enrichment: 26
-- Publish: 244
+- Total: 130
+- Enrichment: 11
+- Publish: 119
 
 ## Enrichment Backlog
-- Remaining: 22
+- Remaining: 10
 - embeddings: 0
-- summaries: 21
+- summaries: 10
 - ai_relevance: 0
-- importance: 1
+- importance: 0
 - output_cleanup: 0
 
 ## Stage Timings (seconds)
-- load_sources_and_state: 0.02
-- ingestion: 2.02
-- normalize: 0.08
-- dedupe: 0.06
-- llm_enrich: 34.96
-- cluster: 0.25
+- load_sources_and_state: 0.01
+- ingestion: 3.73
+- normalize: 0.06
+- dedupe: 0.05
+- llm_enrich: 16.51
+- cluster: 0.20
 - score: 0.02
-- write_intermediate_outputs: 0.28
-- publish: 979.63
-- persist_llm_cache: 0.27
+- write_intermediate_outputs: 0.27
+- publish: 468.03
+- persist_llm_cache: 0.22
