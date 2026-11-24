@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-11-23T20:08:45.023546+00:00",
+  "timestamp": "2026-11-24T09:04:07.886160+00:00",
   "feeds": {
     "ai_rss_feed.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 237,
-      "last_updated": "Mon, 23 Nov 2026 19:55:33 +0000",
-      "size_bytes": 206193,
+      "last_updated": "Tue, 24 Nov 2026 08:50:40 +0000",
+      "size_bytes": 204737,
       "errors": []
     },
     "ai_rss_feed_archive.xml": {
       "exists": true,
       "valid_xml": true,
-      "entry_count": 3896,
-      "last_updated": "Mon, 23 Nov 2026 19:55:33 +0000",
-      "size_bytes": 2808309,
+      "entry_count": 3902,
+      "last_updated": "Tue, 24 Nov 2026 08:50:40 +0000",
+      "size_bytes": 2813314,
       "errors": []
     },
     "aggregated_ea.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 7,
-      "last_updated": "Mon, 23 Nov 2026 19:55:56 +0000",
+      "last_updated": "Tue, 24 Nov 2026 08:51:01 +0000",
       "size_bytes": 7390,
       "errors": []
     },
@@ -29,7 +29,7 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 164,
-      "last_updated": "Mon, 23 Nov 2026 19:55:56 +0000",
+      "last_updated": "Tue, 24 Nov 2026 08:51:01 +0000",
       "size_bytes": 198907,
       "errors": []
     },
@@ -37,20 +37,20 @@
       "exists": true,
       "valid_xml": true,
       "entry_count": 200,
-      "last_updated": "Mon, 23 Nov 2026 19:57:11 +0000",
-      "size_bytes": 219642,
+      "last_updated": "Tue, 24 Nov 2026 08:52:12 +0000",
+      "size_bytes": 240889,
       "errors": []
     },
     "aggregated_broad_ai_news_archive.xml": {
       "exists": true,
       "valid_xml": true,
       "entry_count": 936,
-      "last_updated": "Mon, 23 Nov 2026 19:57:11 +0000",
+      "last_updated": "Tue, 24 Nov 2026 08:52:12 +0000",
       "size_bytes": 518040,
       "errors": []
     }
   },
-  "overall_status": "healthy",
+  "overall_status": "warning",
   "aggregation_health": {
     "aggregated_ea.xml": {
       "total_sources": 7,
@@ -65,7 +65,7 @@
       "total_sources": 21,
       "attempted": 12,
       "skipped": 9,
-      "with_items": 9,
+      "with_items": 10,
       "failures": 0,
       "recovered": 0,
       "failure_rate": 0.0
@@ -79,18 +79,18 @@
     "errors": [],
     "counts": {
       "api_items": 80,
-      "stories": 2147,
-      "clusters": 2118
+      "stories": 3595,
+      "clusters": 3566
     },
     "llm_status": {
       "status": "degraded",
-      "calls": 157,
-      "ok": 155,
-      "errors": 2,
+      "calls": 190,
+      "ok": 189,
+      "errors": 1,
       "skipped": 0,
       "by_kind": {
-        "ai_relevance": 72,
-        "importance": 54,
+        "ai_relevance": 80,
+        "importance": 79,
         "output_cleanup": 20
       },
       "stages": {
@@ -113,33 +113,33 @@
         },
         "publish": {
           "status": "degraded",
-          "calls": 146,
-          "ok": 144,
-          "errors": 2,
+          "calls": 179,
+          "ok": 178,
+          "errors": 1,
           "skipped": 0,
           "by_kind": {
-            "ai_relevance": 72,
-            "importance": 54,
+            "ai_relevance": 80,
+            "importance": 79,
             "output_cleanup": 20
           },
           "by_model": {
-            "openai/gpt-4.1-mini": 146
+            "openai/gpt-4.1-mini": 179
           },
           "backlog": {
             "ai_relevance": {
-              "before": 72,
+              "before": 80,
               "remaining": 0
             },
             "importance": {
               "before": 0,
-              "remaining": 2
+              "remaining": 1
             },
             "output_cleanup": {
               "before": 20,
               "remaining": 0
             }
           },
-          "backlog_remaining": 2
+          "backlog_remaining": 1
         }
       },
       "backlog": {
@@ -152,33 +152,33 @@
           "remaining": 10
         },
         "ai_relevance": {
-          "before": 72,
+          "before": 80,
           "remaining": 0
         },
         "importance": {
           "before": 0,
-          "remaining": 2
+          "remaining": 1
         },
         "output_cleanup": {
           "before": 20,
           "remaining": 0
         }
       },
-      "backlog_remaining": 12
+      "backlog_remaining": 11
     }
   },
   "gai_source_health": {
-    "timestamp": "2026-11-23T19:55:33.022314+00:00",
-    "status": "ratings",
+    "timestamp": "2026-11-24T08:50:40.043072+00:00",
+    "status": "supplemented",
     "ratings_url": "https://gaiinsights.com/ratings",
     "briefing_url": "https://gaiinsights.com/articles",
     "latest_published_rating_date": "2026-11-23",
-    "latest_selection_date": "2026-11-23",
-    "ratings_age_days": 0,
-    "total_rows": 4133,
+    "latest_selection_date": "2026-11-24",
+    "ratings_age_days": 1,
+    "total_rows": 4139,
     "published_ratings": 4121,
-    "estimated_ratings": 12,
-    "briefing_versions": 63,
+    "estimated_ratings": 18,
+    "briefing_versions": 64,
     "briefing_lookup_error": null,
     "ratings_lookup_error": null,
     "fetched_rating_rows": 4142,
