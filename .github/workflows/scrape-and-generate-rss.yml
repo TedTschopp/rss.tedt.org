@@ -272,43 +272,43 @@ jobs:
   deploy-on-push:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && github.actor != 'github-actions[bot]' }}
-    
+
     permissions:
       contents: read
       pages: write
       id-token: write
-    
+
     # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
     # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
     concurrency:
       group: "pages"
       cancel-in-progress: false
-    
+
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    
-    steps:
-    - name: Checkout repository
+      url: ${{ steps.deployment_final.outputs.page_url || steps.deployment_retry.outputs.page_url || steps.deployment.outputs.page_url }}
+
+    steps: &pages_steps
+    - name: Checkout repository (latest main)
       uses: actions/checkout@v4
       with:
         ref: main
-        
+
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-        
+
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
-      
+
     - name: Build Jekyll site
       run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       env:
         JEKYLL_ENV: production
-        
+
     - name: Verify shared analytics coverage
       run: |
         python3 scripts/site_analytics.py _site --mode standard
@@ -317,17 +317,61 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./_site
-        
+        name: github-pages-${{ github.run_attempt }}
+
+    # Artifact upload can finish before Pages can see it. Retry startup failures
+    # with backoff, but do not retry after Pages returns a deployment URL.
     - name: Deploy to GitHub Pages
       id: deployment
+      continue-on-error: true
       uses: actions/deploy-pages@v4
-      
-    - name: Add deployment summary
+      with:
+        artifact_name: github-pages-${{ github.run_attempt }}
+
+    - name: Back off before first Pages retry
+      if: ${{ !cancelled() && steps.deployment.outcome == 'failure' && steps.deployment.outputs.page_url == '' }}
+      run: sleep 15
+
+    - name: Retry GitHub Pages deployment
+      id: deployment_retry
+      if: ${{ !cancelled() && steps.deployment.outcome == 'failure' && steps.deployment.outputs.page_url == '' }}
+      continue-on-error: true
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: github-pages-${{ github.run_attempt }}
+
+    - name: Back off before final Pages retry
+      if: ${{ !cancelled() && steps.deployment_retry.outcome == 'failure' && steps.deployment_retry.outputs.page_url == '' }}
+      run: sleep 30
+
+    - name: Final GitHub Pages deployment attempt
+      id: deployment_final
+      if: ${{ !cancelled() && steps.deployment_retry.outcome == 'failure' && steps.deployment_retry.outputs.page_url == '' }}
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: github-pages-${{ github.run_attempt }}
+
+    - name: Verify Pages deployment succeeded
+      if: ${{ !cancelled() }}
+      env:
+        INITIAL_OUTCOME: ${{ steps.deployment.outcome }}
+        RETRY_OUTCOME: ${{ steps.deployment_retry.outcome }}
+        FINAL_OUTCOME: ${{ steps.deployment_final.outcome }}
       run: |
-        echo "## Jekyll Site Deployment 🚀" >> $GITHUB_STEP_SUMMARY
-        echo "✅ Jekyll site successfully deployed!" >> $GITHUB_STEP_SUMMARY
-        echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
-        echo "📅 Deployed at: $(date -u)" >> $GITHUB_STEP_SUMMARY
+        if [[ "$INITIAL_OUTCOME" == success || "$RETRY_OUTCOME" == success || "$FINAL_OUTCOME" == success ]]; then
+          exit 0
+        fi
+        echo "::error::GitHub Pages did not deploy successfully. Check the deployment attempt logs."
+        exit 1
+
+    - name: Add deployment summary
+      env:
+        PAGE_URL: ${{ steps.deployment_final.outputs.page_url || steps.deployment_retry.outputs.page_url || steps.deployment.outputs.page_url }}
+      run: |
+        echo "## Jekyll Site Deployment 🚀" >> "$GITHUB_STEP_SUMMARY"
+        echo "✅ Jekyll site successfully deployed!" >> "$GITHUB_STEP_SUMMARY"
+        echo "🌐 Site URL: $PAGE_URL" >> "$GITHUB_STEP_SUMMARY"
+        echo "📅 Deployed at: $(date -u)" >> "$GITHUB_STEP_SUMMARY"
 
   # Failed generation leaves the last successfully deployed site available.
   deploy-after-scrape:
@@ -347,46 +391,6 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment_final.outputs.page_url || steps.deployment_retry.outputs.page_url || steps.deployment.outputs.page_url }}
 
-    steps:
-    - name: Checkout repository (latest main)
-      uses: actions/checkout@v4
-      with:
-        ref: main
-
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.2'
-        bundler-cache: true
-
-    - name: Setup Pages
-      id: pages
-      uses: actions/configure-pages@v5
-
-    - name: Build Jekyll site
-      run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-      env:
-        JEKYLL_ENV: production
-
-    - name: Verify shared analytics coverage
-      run: |
-        python3 scripts/site_analytics.py _site --mode standard
-        python3 scripts/site_analytics.py _site --mode standard --check
-
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./_site
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-
-    - name: Add deployment summary
-      run: |
-        echo "## Jekyll Site Deployment 🚀" >> $GITHUB_STEP_SUMMARY
-        echo "✅ Jekyll site successfully deployed!" >> $GITHUB_STEP_SUMMARY
-        echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
-        echo "📅 Deployed at: $(date -u)" >> $GITHUB_STEP_SUMMARY
+    steps: *pages_steps
