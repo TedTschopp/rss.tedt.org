@@ -123,6 +123,31 @@ class PathContractTests(unittest.TestCase):
         condition = workflow["jobs"]["deploy-after-scrape"]["if"]
         self.assertEqual(condition, "${{ needs.scrape-and-generate-rss.result == 'success' && github.event_name != 'push' }}")
 
+    def test_pages_deploy_paths_share_attempt_scoped_upload_and_bounded_retries(self):
+        workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
+        jobs = workflow["jobs"]
+        steps = jobs["deploy-on-push"]["steps"]
+        self.assertEqual(steps, jobs["deploy-after-scrape"]["steps"])
+        upload, = [step for step in steps if step.get("uses") == "actions/upload-pages-artifact@v3"]
+        artifact_name = upload["with"]["name"]
+        self.assertEqual(artifact_name, "github-pages-${{ github.run_attempt }}")
+        attempts = [step for step in steps if step.get("uses") == "actions/deploy-pages@v4"]
+        self.assertEqual([step["id"] for step in attempts], ["deployment", "deployment_retry", "deployment_final"])
+        for step in attempts:
+            self.assertEqual(step["with"]["artifact_name"], artifact_name)
+            self.assertGreater(steps.index(step), steps.index(upload))
+        for previous, retry, delay in zip(attempts, attempts[1:], (15, 30)):
+            previous_id = previous["id"]
+            self.assertTrue(previous["continue-on-error"])
+            guard = retry["if"]
+            self.assertIn("!cancelled()", guard)
+            self.assertIn(f"steps.{previous_id}.outcome == 'failure'", guard)
+            self.assertIn(f"steps.{previous_id}.outputs.page_url == ''", guard)
+            backoff = steps[steps.index(retry) - 1]
+            self.assertEqual(backoff["if"], guard)
+            self.assertEqual(backoff["run"], f"sleep {delay}")
+        self.assertFalse(attempts[-1].get("continue-on-error", False))
+
     def test_article_archive_transaction_order_and_single_writer(self):
         workflow = yaml.safe_load(Path(".github/workflows/scrape-and-generate-rss.yml").read_text(encoding="utf-8"))
         job = workflow["jobs"]["scrape-and-generate-rss"]

@@ -20,7 +20,7 @@ The workflow file is [.github/workflows/scrape-and-generate-rss.yml](../../.gith
 | --- | --- | --- | --- |
 | `scrape-and-generate-rss` | `ubuntu-latest` | Any non-push event | Refresh data, generate artifacts, commit generated outputs. |
 | `deploy-on-push` | `ubuntu-latest` | Human push to `main` | Build and deploy the Jekyll site. |
-| `deploy-after-scrape` | `ubuntu-latest` | Always after scheduled/manual scrape | Build and deploy latest `main`, even if scraping had warnings or partial failure. |
+| `deploy-after-scrape` | `ubuntu-latest` | After a successful scheduled/manual scrape | Build and deploy latest `main`. |
 
 ## Scrape And Generate Job
 
@@ -66,8 +66,8 @@ Both deployment jobs use the same deployment model:
 2. Set up Ruby 3.2 with Bundler cache.
 3. Configure GitHub Pages.
 4. Run `bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"`.
-5. Upload `_site` as a Pages artifact.
-6. Deploy with `actions/deploy-pages@v4`.
+5. Upload `_site` as `github-pages-<run attempt>` so a GitHub job rerun cannot collide with an earlier upload.
+6. Deploy with `actions/deploy-pages@v4`. If the action fails before returning a Pages URL, retry the same artifact after 15 seconds and, if needed, again after 30 seconds. A failed deployment that already returned a Pages URL is not retried by these steps. The job fails if no attempt succeeds.
 
 The difference is trigger intent:
 
@@ -106,7 +106,7 @@ If you add a new generated artifact path, add it to this allowlist or it will no
 | Missing LLM token | Pipeline runs in degraded mode where possible. |
 | Missing archive feed | Monitor treats missing archives as informational until retention creates them. |
 | Monitor warning | Workflow continues unless overall status is `error`. |
-| Scrape job failure | `deploy-after-scrape` still attempts to deploy latest `main`. |
+| Scrape job failure | `deploy-after-scrape` is skipped; the previous site stays published. |
 | Human push by `github-actions[bot]` | Deploy-on-push is skipped to avoid loops. |
 
 ## Local Validation Commands
